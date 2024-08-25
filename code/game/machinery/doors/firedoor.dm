@@ -16,7 +16,7 @@
 	density = 0
 	layer = OPEN_DOOR_LAYER
 	open_layer = OPEN_DOOR_LAYER // Just below doors when open
-	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
+	closed_layer = ABOVE_DOOR_LAYER // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -186,7 +186,7 @@
 				users_to_open_string += ", [users_to_open[i]]"
 		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
 
-/obj/machinery/door/firedoor/CollidedWith(atom/AM)
+/obj/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)
 		return
 	if(!density)
@@ -511,7 +511,7 @@
 	air_properties_vary_with_direction = 1
 
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-		if(istype(mover) && mover.checkpass(PASSGLASS))
+		if(istype(mover) && mover.pass_flags & PASSGLASS)
 			return 1
 		if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
 			if(air_group) return 0
@@ -520,7 +520,7 @@
 			return 1
 
 	CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
-		if(istype(mover) && mover.checkpass(PASSGLASS))
+		if(istype(mover) && mover.pass_flags & PASSGLASS)
 			return 1
 		if(get_dir(loc, target) == dir)
 			return !density

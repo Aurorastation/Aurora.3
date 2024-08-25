@@ -229,7 +229,7 @@
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
@@ -266,26 +266,31 @@
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
 				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
-				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
-					to_chat(player, encrypted_msg)
-					continue
-				if (!receiver || receiver.decryption_key != speaker_encryption_key)
-					to_chat(player, encrypted_msg)
-					continue
+				if(listener_socket)
+					if(listener_socket.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				if(receiver)
+					if(receiver.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				to_chat(player, encrypted_msg)
+				continue
 			to_chat(player, msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
-	switch(speaker_surname[2])
-		if("Zo'ra")
-			message_color = "vaurca_zora"
-		if("C'thur")
-			message_color = "vaurca_cthur"
-		if("K'lax")
-			message_color = "vaurca_klax"
-		if("Lii'dra")
-			message_color = "vaurca_liidra"
+	if(length(speaker_surname) > 1)
+		switch(speaker_surname[2])
+			if("Zo'ra")
+				message_color = "vaurca_zora"
+			if("C'thur")
+				message_color = "vaurca_cthur"
+			if("K'lax")
+				message_color = "vaurca_klax"
+			if("Lii'dra")
+				message_color = "vaurca_liidra"
 	if(copytext(message, 1, 2) == "!")
 		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"

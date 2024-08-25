@@ -5,7 +5,16 @@
 	reward_high = 3900
 	required_count = 4
 	random_count = 2
-	wanted_types = list(/obj/structure/bed/stool/chair/padded)
+	wanted_types = list(/obj/structure/bed/stool/chair)
+
+/datum/bounty/item/engineer/comfy_chair/applies_to(var/obj/structure/bed/stool/chair/O)
+	if(!..())
+		return FALSE
+	if(!istype(O))
+		return FALSE
+	if(O.padding_material) // Checks if the chair is padded
+		return TRUE
+	return FALSE
 
 /datum/bounty/item/engineer/smes_coil
 	name = "Superconductive magnetic coil"

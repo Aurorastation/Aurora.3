@@ -19,7 +19,7 @@
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
 	filling_states = "-10;10;25;50;75;80;100"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	volume = 200
 
 	amount_per_transfer_from_this = 0.2
@@ -39,7 +39,7 @@
 	if(blood_type != null)
 		name = "\improper IV bag - [blood_type] blood"
 		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		update_icon()
 
 /obj/item/reagent_containers/blood/Destroy()
@@ -50,9 +50,9 @@
 /obj/item/reagent_containers/blood/on_reagent_change()
 	update_icon()
 	if(reagents.total_volume > volume / 2)
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
 	ClearOverlays()
@@ -166,12 +166,16 @@
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel"))
+
+		var/choices = list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "SBS blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  choices)
 		if(blood_name == "Cancel")
 			return
+
 		var/obj/item/i = user.get_active_hand()
 		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
 			return
+
 		if(blood_name == "Clear")
 			blood_type = null
 			name = initial(name)
@@ -179,6 +183,7 @@
 			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
 			update_icon()
 			return
+
 		blood_type = blood_name
 		name = "\improper IV bag - [blood_type]"
 		desc = "Contains fluids used for transfusions."
@@ -267,6 +272,9 @@
 
 /obj/item/reagent_containers/blood/OMinus
 	blood_type = "O-"
+
+/obj/item/reagent_containers/blood/sbs
+	blood_type = "SBS"
 
 /obj/item/reagent_containers/blood/empty
 	name = "empty IV bag"

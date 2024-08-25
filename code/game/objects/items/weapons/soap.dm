@@ -11,7 +11,7 @@
 		)
 	icon_state = "soap"
 	item_state = "soap"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
@@ -26,6 +26,15 @@
 	..()
 	create_reagents(capacity)
 	wet()
+
+/obj/item/soap/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
@@ -46,13 +55,13 @@
 	if(key_data)
 		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
-/obj/item/soap/Crossed(AM as mob|obj)
-	if(isliving(AM))
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+/obj/item/soap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(isliving(arrived))
+		if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				return
-		var/mob/living/M =	AM
+		var/mob/living/M =	arrived
 		M.slip("the [src.name]",3)
 
 /obj/item/soap/afterattack(atom/target, mob/user as mob, proximity)

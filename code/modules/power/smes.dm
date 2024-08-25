@@ -224,8 +224,10 @@
 
 	var/goal = (delta_power < 0) ? (charge) : (capacity - charge)
 	time = world.time + (delta_power ? ((goal / abs(delta_power)) * (world.time - last_time)) : 0)
-	// If it is negative - we are discharging
-	if(delta_power < 0)
+
+	if(input_cut) // Cannot charge if input wire cut
+		charge_mode = 0
+	else if(delta_power < 0) // If we are negative - we are discharging
 		charge_mode = 0
 	else if(delta_power != 0)
 		charge_mode = 1
@@ -478,7 +480,7 @@
 	failure_timer = max(failure_timer, duration)
 
 /obj/machinery/power/smes/proc/ion_act()
-	if(isStationLevel(src.z))
+	if(is_station_level(src.z))
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
 				M.show_message(SPAN_WARNING("The [src.name] is making strange noises!"), 3, SPAN_WARNING("You hear sizzling electronics."), 2)

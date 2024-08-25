@@ -43,8 +43,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -166,8 +165,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/space)
@@ -230,8 +228,7 @@
 	icon_state = "cliff2-bottom";
 	pixel_y = 26;
 	pixel_x = 1;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
@@ -252,12 +249,10 @@
 /area/space)
 "ls" = (
 /obj/effect/decal/exterior_stairs/left{
-	dir = 8;
-	layer = 2.6
+	dir = 8
 	},
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
-	layer = 2.1;
 	pixel_y = 14;
 	pixel_x = 2;
 	density = 0
@@ -345,15 +340,13 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
-	density = 0;
-	layer = 6
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "pW" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
-	layer = 2.5;
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
@@ -439,8 +432,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -469,8 +461,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
@@ -479,8 +470,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
@@ -488,8 +478,7 @@
 "vn" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
-	density = 0;
-	layer = 6
+	density = 0
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
@@ -567,8 +556,7 @@
 "An" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east";
-	density = 0;
-	layer = 6
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -792,7 +780,6 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	layer = 2.98;
 	density = 0
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -893,8 +880,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -903,8 +889,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -917,8 +902,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1046,8 +1030,7 @@
 	pixel_y = 25
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff-east";
-	layer = 2.98
+	icon_state = "cliff-east"
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -1083,8 +1066,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 25;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -1114,8 +1096,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
 	pixel_y = 26;
-	density = 0;
-	layer = 2.98
+	density = 0
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1222,7 +1203,6 @@
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_east";
 	pixel_y = 15;
-	layer = 3;
 	density = 0
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,

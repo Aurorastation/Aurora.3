@@ -158,7 +158,7 @@
 	They can be easily ripped in half in the event of the wearer's death."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "gadpathur_tag"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/mask/breath/gadpathur
 	name = "gadpathurian rebreather"

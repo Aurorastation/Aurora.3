@@ -10,6 +10,14 @@
 	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
+"c" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "d" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/fancy/mre/menu10,
@@ -26,10 +34,18 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"e" = (
+/obj/effect/floor_decal/spline/plain/blue,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
+"g" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
 "h" = (
 /turf/simulated/wall/rusty,
 /area/moghes/kataphract_wasteland)
@@ -39,8 +55,20 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/reagent_containers/pill/thetamycin,
+/obj/item/reagent_containers/pill/thetamycin,
+/obj/item/reagent_containers/pill/thetamycin,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"k" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "l" = (
@@ -52,10 +80,12 @@
 /obj/structure/sign/flag/hegemony/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"n" = (
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 "o" = (
 /obj/structure/closet/crate,
 /obj/item/saddle,
@@ -63,10 +93,10 @@
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/device/radio,
 /obj/item/device/geiger,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/obj/item/device/gps,
+/obj/item/gun/energy/pistol/hegemony,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
 "p" = (
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/exoplanet/desert{
@@ -78,46 +108,161 @@
 	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
+"r" = (
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 "s" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/accessory/poncho/red,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/obj/item/clothing/shoes/sandals/caligae,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"t" = (
+/obj/structure/railing/fence,
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"u" = (
+/obj/structure/railing/fence,
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "v" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 "w" = (
 /obj/structure/curtain/open,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"x" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"y" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
+"z" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"A" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"D" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"E" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"F" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
+"G" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "H" = (
-/obj/machinery/light/small{
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"I" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"J" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"K" = (
+/obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"L" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "M" = (
-/obj/item/bedsheet/orange,
+/obj/item/bedsheet/red,
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_kataphract_wasteland_knight";
 	identifier = "moghes_kataphract_wasteland_knight"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
+"N" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"O" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"Q" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "R" = (
 /turf/simulated/wall/cloth,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "S" = (
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
@@ -127,20 +272,21 @@
 	},
 /area/moghes/kataphract_wasteland)
 "T" = (
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 "V" = (
 /obj/item/bedsheet/orange,
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_kataphract_wasteland";
 	identifier = "moghes_kataphract_wasteland"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
-/area/moghes/kataphract_wasteland)
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"W" = (
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
 "X" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/accessory/poncho,
@@ -158,10 +304,19 @@
 /obj/item/device/geiger,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/obj/item/device/gps,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes/kataphract_wasteland/tent)
+"Z" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 8
 	},
-/area/moghes/kataphract_wasteland)
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 
 (1,1,1) = {"
 a
@@ -334,11 +489,11 @@ h
 h
 a
 a
-a
-a
-a
-a
-a
+I
+z
+z
+z
+A
 a
 a
 a
@@ -363,19 +518,19 @@ a
 a
 a
 h
+k
+a
+a
+c
+x
+a
+a
+L
 a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-q
+J
 a
 a
 a
@@ -398,11 +553,11 @@ a
 a
 a
 a
+c
 a
 a
-a
-a
-a
+x
+L
 a
 a
 a
@@ -430,18 +585,18 @@ a
 a
 a
 a
-q
+c
+a
+a
+a
+u
+J
 a
 a
 a
 a
-q
 a
-a
-a
-a
-a
-q
+J
 a
 a
 a
@@ -462,6 +617,11 @@ a
 a
 a
 a
+c
+a
+x
+a
+t
 a
 a
 a
@@ -469,13 +629,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-q
-q
+J
+J
 a
 a
 a
@@ -490,15 +645,15 @@ a
 a
 a
 a
-q
-q
+J
+J
 a
 a
-a
-a
-a
-a
-a
+Q
+K
+E
+K
+G
 a
 a
 a
@@ -518,7 +673,7 @@ a
 (12,1,1) = {"
 a
 a
-q
+J
 a
 a
 a
@@ -616,11 +771,11 @@ a
 a
 a
 R
-T
-T
-T
-T
-T
+y
+Z
+F
+H
+H
 R
 a
 a
@@ -628,10 +783,10 @@ p
 a
 a
 R
-T
-T
-T
-T
+O
+H
+H
+H
 X
 R
 a
@@ -649,10 +804,10 @@ a
 a
 R
 M
-T
-T
-T
-T
+r
+e
+D
+D
 w
 a
 p
@@ -660,10 +815,10 @@ b
 p
 a
 w
-T
-T
-T
-T
+g
+D
+N
+D
 j
 R
 a
@@ -680,11 +835,11 @@ a
 a
 a
 R
+r
+n
 T
-T
-T
-T
-T
+H
+W
 R
 a
 a
@@ -692,11 +847,11 @@ p
 a
 a
 R
-T
-T
-T
-T
-T
+D
+D
+D
+D
+H
 R
 a
 a
@@ -714,20 +869,20 @@ a
 R
 R
 v
-H
-T
-R
-R
-a
-a
-a
-a
-a
-R
-R
 T
 H
-T
+R
+R
+a
+a
+a
+a
+a
+R
+R
+H
+H
+g
 R
 R
 a
@@ -791,12 +946,12 @@ a
 a
 a
 a
-q
+J
 a
 a
 a
 a
-q
+J
 a
 h
 a
@@ -813,9 +968,9 @@ a
 a
 a
 a
+J
 q
-q
-q
+J
 a
 a
 a
@@ -826,9 +981,9 @@ a
 a
 a
 a
-q
+J
 a
-q
+J
 a
 a
 a
@@ -846,8 +1001,8 @@ a
 a
 a
 q
-q
-q
+J
+J
 a
 a
 a

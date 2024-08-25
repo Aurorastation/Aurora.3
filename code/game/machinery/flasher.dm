@@ -135,8 +135,7 @@
 
 	for(var/obj/machinery/flasher/M in SSmachinery.machinery)
 		if(M.id == src.id)
-			spawn()
-				M.flash()
+			M.flash()
 
 	sleep(50)
 

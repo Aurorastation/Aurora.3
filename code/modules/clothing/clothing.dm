@@ -286,8 +286,8 @@
 	if(!material || unbreakable)
 		return
 
-	if(istype(source, /obj/item/projectile))
-		var/obj/item/projectile/P = source
+	if(istype(source, /obj/projectile))
+		var/obj/projectile/P = source
 		if(P.pass_flags & PASSGLASS)
 			if(material.opacity - 0.3 <= 0)
 				return // Lasers ignore 'fully' transparent material.
@@ -319,8 +319,8 @@
 		return ..()
 
 	if(material.reflectivity)
-		if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
-			var/obj/item/projectile/P = damage_source
+		if(istype(damage_source, /obj/projectile/energy) || istype(damage_source, /obj/projectile/beam))
+			var/obj/projectile/P = damage_source
 
 			var/reflectchance = 40 - round(damage/3)
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
@@ -367,7 +367,7 @@
 
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		if(istype(armor_component))
-			armor_component.RemoveComponent()
+			qdel(armor_component)
 		var/list/armor_list = list(
 			melee = melee_armor,
 			bullet = bullet_armor,
@@ -401,7 +401,7 @@
 	name = "ears"
 	icon = 'icons/obj/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
@@ -440,7 +440,7 @@
 
 /obj/item/clothing/ears/offear
 	name = "Other ear"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "blocked"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
@@ -473,7 +473,7 @@
 /obj/item/clothing/gloves
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
@@ -580,7 +580,7 @@
 	species_sprite_adaption_type = WORN_HEAD
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
@@ -1037,7 +1037,7 @@
 	armor = null
 	slot_flags = SLOT_OCLOTHING
 	siemens_coefficient = 0.9
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 
@@ -1100,7 +1100,7 @@
 	permeability_coefficient = 0.90
 	slot_flags = SLOT_ICLOTHING
 	armor = null
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 
 	///SUIT_NO_SENSORS = No sensors, SUIT_HAS_SENSORS = Sensors, SUIT_LOCKED_SENSORS = Locked sensors
@@ -1407,7 +1407,7 @@
 
 /obj/item/clothing/ring
 	name = "ring"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/clothing/rings.dmi'
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES

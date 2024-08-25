@@ -3,7 +3,7 @@
 	desc = "A portable radio capable of receiving radio waves from nearby space systems."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/receiving = FALSE
 	var/current_station = null

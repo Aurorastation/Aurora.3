@@ -105,6 +105,25 @@
 	icon_state = "zav_xenoarch"
 	item_state = "zav_xenoarch"
 
+/obj/item/clothing/under/rank/scientist/anomalist
+	name = "anomalist's jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against explosions. It has markings that denote the wearer as an anomalist."
+	icon_state = "nt_xenoarch"
+	item_state = "nt_xenoarch"
+	permeability_coefficient = 0.50
+	armor = list(
+		bomb = ARMOR_BOMB_MINOR
+	)
+
+/obj/item/clothing/under/rank/scientist/anomalist/zeng
+	icon_state = "zeng_xenoarch"
+	item_state = "zeng_xenoarch"
+
+/obj/item/clothing/under/rank/scientist/anomalist/zavod
+	icon_state = "zav_xenoarch"
+	item_state = "zav_xenoarch"
+
+
 /*
  * Medical
  */

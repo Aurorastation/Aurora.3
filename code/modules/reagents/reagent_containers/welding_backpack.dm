@@ -6,7 +6,7 @@
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	volume = 350
 	reagents_to_add = list(/singleton/reagent/fuel = 350)
 	amount_per_transfer_from_this = 30
@@ -50,7 +50,7 @@
 			return
 		if(T.welding & prob(50))
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion.",ckey=key_name(user))
+			log_game("[key_name(user)] triggered a fueltank explosion.")
 			to_chat(user, SPAN_DANGER("That was stupid of you."))
 			explosion(get_turf(src),-1,0,2)
 			qdel(src)

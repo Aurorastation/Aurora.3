@@ -5,7 +5,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_tomb.dmm")
+	suffix = "moghes_wasteland_tomb.dmm"
 	unit_test_groups = list(2)
 
 /area/moghes_wasteland_tomb
@@ -15,6 +15,7 @@
 	ambience = AMBIENCE_RUINS
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_blurb = "This ancient place is quiet and still, dust hanging in the air between intricately carved sandstone walls. You feel that you are one of the first people to set foot here in a very, very long time."

@@ -6,7 +6,7 @@
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE

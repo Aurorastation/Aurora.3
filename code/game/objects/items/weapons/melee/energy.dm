@@ -89,8 +89,8 @@
 					shield_power = 0
 					return FALSE
 
-				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
-					var/obj/item/projectile/P = damage_source
+				if(istype(damage_source, /obj/projectile/energy) || istype(damage_source, /obj/projectile/beam))
+					var/obj/projectile/P = damage_source
 
 					var/reflectchance = base_reflectchance - round(damage/3)
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
@@ -111,7 +111,7 @@
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return PROJECTILE_STOPPED
 
-				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
+				else if(istype(damage_source, /obj/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
@@ -134,13 +134,13 @@
 	icon_state = "eglaive0"
 	force = 25
 	throwforce = 30
-	active_force = 40
+	active_force = 44
 	active_throwforce = 60
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	armor_penetration = 20
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
@@ -181,12 +181,12 @@
 	icon_state = "axe0"
 	active_force = 60
 	active_throwforce = 35
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 25
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
@@ -226,15 +226,15 @@
 	to block projectiles and melee attacks while it is on and being held.  The sword can be toggled on or off by using it in your hand.  While it is off, \
 	it can be concealed in your pocket or bag."
 	icon_state = "sword0"
-	active_force = 30
+	active_force = 33
 	armor_penetration = 25
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_LARGE
+	active_w_class = WEIGHT_CLASS_BULKY
 	force = 3
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
@@ -318,7 +318,7 @@
 
 /obj/item/melee/energy/sword/pirate/generic
 	desc = "An energy with a curved output, useful for defense and intimidation."
-	active_force = 20 // 20 damage per hit, seems more balanced for what it can do
+	active_force = 25
 
 /obj/item/melee/energy/glaive/hegemony
 	name = "hegemony energy glaive"
@@ -358,7 +358,7 @@
 	icon_state = "edagger0"
 	base_reflectchance = 10
 	base_block_chance = 10
-	active_force = 20
+	active_force = 25
 	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
@@ -372,7 +372,7 @@
 	icon_state = "sol_edagger0"
 	base_reflectchance = 10
 	base_block_chance = 10
-	active_force = 20
+	active_force = 25
 	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
@@ -392,10 +392,10 @@
 	item_state = "runesword0" //same icon, lol
 	contained_sprite = TRUE
 	base_reflectchance = 65
-	active_force = 40
+	active_force = 44
 	base_block_chance = 65
-	active_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_NORMAL
+	active_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = /singleton/sound_category/sword_pickup_sound
 	equip_sound = /singleton/sound_category/sword_equip_sound
@@ -424,14 +424,14 @@
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
 	force = 30
-	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
+	active_force = 44 //Normal attacks deal very high damage - about the same as wielded fire axe
 	sharp = TRUE
 	edge = TRUE
 	anchored = 1    // Never spawned outside of inventory, should be fine.
 	throwforce = 1  //Throwing or dropping the item deletes it.
 	throw_speed = 1
 	throw_range = 1
-	w_class = ITEMSIZE_LARGE//So you can't hide it in your pocket or some such.
+	w_class = WEIGHT_CLASS_BULKY//So you can't hide it in your pocket or some such.
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator

@@ -9,6 +9,14 @@
 	layer = TABLE_LAYER
 	throwpass = 1
 	breakable = TRUE
+	build_amt = 1
+	pass_flags_self = PASSTABLE | LETPASSTHROW
+
+	//Preset shit
+	var/table_mat
+	var/table_reinf
+	var/no_cargo
+
 	var/flipped = 0
 	var/maxhealth = 10
 	var/health = 10
@@ -97,6 +105,12 @@
 	queue_icon_update()
 	update_desc()
 	update_material()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/table/Destroy()
 	material = null

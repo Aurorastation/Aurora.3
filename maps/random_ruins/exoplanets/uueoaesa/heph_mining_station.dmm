@@ -642,7 +642,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -772,7 +771,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -839,7 +837,7 @@
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -963,7 +961,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1059,7 +1057,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1455,7 +1452,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -1570,7 +1566,6 @@
 /area/heph_mining_station/storage)
 "xc" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -1664,7 +1659,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1816,7 +1810,7 @@
 /area/heph_mining_station/engineer)
 "AD" = (
 /obj/machinery/autolathe,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1856,7 +1850,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1932,7 +1925,6 @@
 "Ec" = (
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -2319,7 +2311,6 @@
 "IY" = (
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -2708,7 +2699,6 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -2900,7 +2890,6 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},

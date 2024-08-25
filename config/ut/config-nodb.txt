@@ -472,12 +472,6 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 # -- Should be below 99 (or undefined) on a server actually used for play. --
 MC_TICKLIMIT_INIT 500
 
-
-## GELF Logging Configuration
-LOG_GELF_ENABLED 0
-# Make sure the IP string is written in a manner of "IP:port", without the quotes.
-#LOG_GELF_ADDR 127.0.0.1:5667
-
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net
 ## Rating to warn at: (0.90 is good, 1 is 100% likely to be a spammer/proxy, 0.8 is 80%, etc) anything equal to or higher then this number triggers an admin warning

@@ -250,8 +250,7 @@
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
 			if(prob(20))
-				spawn(0)
-					owner.emote(pick("giggle", "laugh"))
+				owner.emote(pick("giggle", "laugh"))
 		breath.adjust_gas(GAS_N2O, -breath.gas[GAS_N2O]/6, update = 0) //update after
 
 	// Were we able to breathe?

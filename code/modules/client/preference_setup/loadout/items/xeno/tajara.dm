@@ -1,10 +1,30 @@
-/datum/gear/shoes/tajara
-	abstract_type = /datum/gear/shoes/tajara
+ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
 	description = "A selection of boots fitted for Tajara."
 	path = /obj/item/clothing/shoes/tajara
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/uniform/archeologist_uniform
+	display_name = "archeologist uniform"
+	description = "A rugged uniform used by Adhomian archeologists."
+	path = /obj/item/clothing/under/tajaran/archeologist
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/suit/archaeologist_jacket
+	display_name = "archeologist jacket"
+	description = "A leather jacket used by Adhomian archeologists."
+	path = /obj/item/clothing/suit/storage/tajaran/archeologist
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/suit/archaeologist_hat
+	display_name = "archeologist hat"
+	description = "A well-worn fedora favored by Adhomian explorers and archeologists."
+	path = /obj/item/clothing/head/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 

@@ -3,7 +3,8 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	layer = OBSERVER_PLANE
+	layer = OBSERVER_LAYER
+	plane = OBSERVER_PLANE
 	stat = DEAD
 	density = 0
 	canmove = 0
@@ -144,7 +145,7 @@ Transfer_mind is there to check if mob is being deleted/not going to have a body
 Works together with spawning an observer, noted above.
 */
 
-/mob/abstract/observer/Life()
+/mob/abstract/observer/Life(seconds_per_tick, times_fired)
 	..()
 	if(!loc) return
 	if(!client) return 0
@@ -265,7 +266,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		resting = 1
 		var/turf/location = get_turf(src)
 		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(usr)] has ghosted.",ckey=key_name(usr))
+		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/abstract/observer/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
 		announce_ghost_joinleave(ghost)

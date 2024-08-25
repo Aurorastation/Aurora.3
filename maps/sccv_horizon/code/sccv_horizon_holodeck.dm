@@ -82,6 +82,9 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
+		"lasertag" = new /datum/holodeck_program(/area/horizon/holodeck/source_lasertag,
+			list('sound/music/THUNDERDOME.ogg')
+		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
@@ -89,12 +92,14 @@
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
 		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
 		"sauna" = new /datum/holodeck_program(/area/horizon/holodeck/source_sauna),
+		"animal_cafe" = new /datum/holodeck_program(/area/horizon/holodeck/source_cafe),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
 
 	holodeck_supported_programs = list(
 		"Empty Court"        = "emptycourt",
 		"Basketball Court"   = "basketball",
+		"Animal Cafe"		 = "animal_cafe",
 		"Thunderdome Court"  = "thunderdomecourt",
 		"Boxing Ring"        = "boxingcourt",
 		"Silversun Coast"    = "beach",
@@ -118,7 +123,8 @@
 		"Jupiter Upper Atmosphere" = "jupiter",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
-		"Chessboard" = "chessboard"
+		"Chessboard" = "chessboard",
+		"Laser Tag Arena" = "lasertag"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",

@@ -7,7 +7,7 @@
 	desc = "A low-tech method of storing stock parts used in machinery."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "empty_box"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	display_contents_with_number = TRUE
 	storage_slots = 25
 	can_hold = list(
@@ -15,7 +15,7 @@
 				/obj/item/device/multitool,
 				/obj/item/stack/cable_coil
 					)
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 750)
 
@@ -72,7 +72,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/stock_parts.dmi'
 	randpixel = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/rating = STOCK_PART_BASIC
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'

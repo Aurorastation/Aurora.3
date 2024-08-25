@@ -299,7 +299,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 		src.scan_user(human_or_robot_user) //Newscaster scans you
 
-		if(isNotStationLevel(z))
+		if(!is_station_level(z))
 			screen = 24 // No network connectivity
 
 		switch(screen)
@@ -954,7 +954,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
 	item_state = "newspaper"
-	w_class = ITEMSIZE_SMALL	//Let's make it fit in trashbags!
+	w_class = WEIGHT_CLASS_SMALL	//Let's make it fit in trashbags!
 	attack_verb = list("bapped", "thwacked", "educated")
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
@@ -1151,7 +1151,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	return
 
 /obj/machinery/newscaster/proc/newsAlert(var/news_call)
-	if (isNotStationLevel(z))
+	if (!is_station_level(z))
 		clearAlert()
 		return
 	var/turf/T = get_turf(src)

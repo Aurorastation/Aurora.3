@@ -23,4 +23,4 @@
 
 /datum/component/overhead_emote/proc/remove_from_mob()
 	emote_mob.CutOverlays(emote_image)
-	RemoveComponent()
+	emote_mob.RemoveComponentSource(src)

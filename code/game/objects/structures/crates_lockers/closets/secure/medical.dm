@@ -124,7 +124,7 @@
 	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
-	new /obj/item/clothing/gloves/latex/nitrile(src)
+	new /obj/item/storage/box/gloves(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 	new /obj/item/device/radio/headset/heads/cmo/alt(src)
 	new /obj/item/device/megaphone/med(src)
@@ -133,12 +133,17 @@
 	new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2(src)
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
+	new /obj/item/clothing/glasses/hud/health(src)
+	new /obj/item/storage/belt/medical(src)
+	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/box/fancy/keypouch/med(src)
 	new /obj/item/device/advanced_healthanalyzer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/device/eftpos(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"

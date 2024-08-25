@@ -94,7 +94,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/screen/new_player/selection/polls,
 
 		//Temporary exclusion while matt fixes it
-		/obj/item/projectile/beam/psi_lightning/wide,
+		/obj/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
 		/obj/item/fuel_assembly,
 
@@ -103,6 +103,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		//Requires an owner or stacktrace on creation
 		/atom/movable/flick_visual,
+
+		//Weather system, requires a z level
+		/obj/abstract/weather_system
 
 	)
 
@@ -181,6 +184,10 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
+
+		//No abstract types
+		if(is_abstract(type_path))
+			continue
 
 		TEST_DEBUG("[name]: now creating and destroying: [type_path]")
 

@@ -95,7 +95,7 @@
 			if(broken || burnt)
 				playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
 				visible_message(SPAN_NOTICE("[user] has begun prying off the damaged plating."))
-				var/turf/T = GetBelow(src)
+				var/turf/T = GET_TURF_BELOW(src)
 				if(T)
 					T.visible_message(SPAN_WARNING("The ceiling above looks as if it's being pried off."))
 				if(do_after(user, 10 SECONDS))

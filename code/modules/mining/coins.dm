@@ -9,7 +9,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 0
 	throwforce = 0.0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'

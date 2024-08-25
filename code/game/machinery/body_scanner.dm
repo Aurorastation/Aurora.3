@@ -78,7 +78,9 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (user.stat)
 		return
 	go_out()
@@ -536,7 +538,7 @@
 		if(O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]"
 		if(O.open)
-			wounds += "open"
+			wounds += "open incision"
 
 		var/list/infection = list()
 		if(O.germ_level)

@@ -194,14 +194,14 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz, /singleton/origin_item/origin/cthur, /singleton/origin_item/origin/mouv, /singleton/origin_item/origin/vytel, /singleton/origin_item/origin/xetl, /singleton/origin_item/origin/cthur_b, /singleton/origin_item/origin/mouv_b, /singleton/origin_item/origin/vytel_b)
+	origin_restriction = list(/singleton/origin_item/origin/queenless_zora, /singleton/origin_item/origin/queenless_klax, /singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz, /singleton/origin_item/origin/cthur, /singleton/origin_item/origin/mouv, /singleton/origin_item/origin/vytel, /singleton/origin_item/origin/xetl, /singleton/origin_item/origin/cthur_b, /singleton/origin_item/origin/mouv_b, /singleton/origin_item/origin/vytel_b)
 
 /datum/gear/augment/auxiliary_processor/New()
 	..()
 	var/list/auxiliary_processors = list()
 	auxiliary_processors["Mi'kuetz [LANGUAGE_AZAZIBA] language processor"] = /obj/item/organ/internal/augment/language/mikuetz
 	auxiliary_processors["Zino [LANGUAGE_GUTTER] language processor"] = /obj/item/organ/internal/augment/language/zino
-	auxiliary_processors["Eridani [LANGUAGE_TRADEBAND] language processor"] = /obj/item/organ/internal/augment/language/eridani
+	auxiliary_processors["Eridani/Azquil [LANGUAGE_TRADEBAND] language processor"] = /obj/item/organ/internal/augment/language/tradeband
 	gear_tweaks += new /datum/gear_tweak/path(auxiliary_processors)
 
 /datum/gear/vaurca_lunchbox
@@ -232,8 +232,7 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
 
-/datum/gear/ears/vaurca
-	abstract_type = /datum/gear/ears/vaurca
+ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 
 /datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
@@ -382,3 +381,13 @@
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_tret
+	display_name = "tretian guild mantle"
+	description = "A yellow mantle, worn by Tretian Guild workers in the Izweski Hegemony."
+	path = /obj/item/clothing/accessory/poncho/unathimantle/tretian
+	cost = 1
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/klax)

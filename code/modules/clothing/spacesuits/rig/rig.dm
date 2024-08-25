@@ -14,7 +14,7 @@
 	slot_flags = SLOT_BACK
 	req_one_access = list()
 	req_access = list()
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	// These values are passed on to all component pieces.
 	armor = list(
@@ -179,7 +179,7 @@
 		if(islist(armor))
 			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
 			if(istype(armor_component))
-				armor_component.RemoveComponent()
+				qdel(armor_component)
 			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	if(chest.flags_inv & HIDEJUMPSUIT)

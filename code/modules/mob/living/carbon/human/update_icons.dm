@@ -230,13 +230,13 @@ There are several things that need to be remembered:
 
 		O.update_icon()
 		if(O.damage_state == "00") continue
-		var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[GET_BODY_TYPE]"
+		var/cache_index = "[O.damage_state]/[O.icon_name]/[get_blood_color()]/[GET_BODY_TYPE]"
 		var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 		var/icon/DI = damage_icon_parts[cache_index]
 		if(!DI)
 			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 			DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
-			DI.Blend(species.blood_color, ICON_MULTIPLY)
+			DI.Blend(get_blood_color(), ICON_MULTIPLY)
 			damage_icon_parts[cache_index] = DI
 
 		LAZYADD(ovr, DI)
@@ -397,8 +397,7 @@ There are several things that need to be remembered:
 
 		SSicon_cache.human_icon_cache[icon_key] = base_icon
 
-	for(var/thing in organs)
-		var/obj/item/organ/external/part = thing
+	for(var/obj/item/organ/external/part in organs)
 		part.cut_additional_images(src)
 		var/list/add_images = part.get_additional_images(src)
 		if(add_images)
@@ -1489,7 +1488,7 @@ There are several things that need to be remembered:
 		overlay_state = "[base_state]-blood"
 		if(overlay_state in surgery_states)
 			var/image/blood = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
-			blood.color = E.owner.species.blood_color
+			blood.color = E.owner.get_blood_color()
 			blood.appearance_flags = RESET_ALPHA
 			LAZYADD(overlays_to_add, blood)
 		overlay_state = "[base_state]-bones"

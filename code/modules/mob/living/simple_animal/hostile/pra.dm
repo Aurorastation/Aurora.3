@@ -63,6 +63,7 @@
 	simple_default_language = LANGUAGE_SIIK_MAAS
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -121,13 +122,13 @@
 	rapid = TRUE
 
 	projectilesound = 'sound/weapons/gunshot/gunshot_saw.ogg'
-	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	projectiletype = /obj/projectile/bullet/rifle/a762
 	casingtype = /obj/item/ammo_casing/a762/spent
 
 /mob/living/simple_animal/hostile/republicon/ranged/Initialize()
 	. = ..()
 	if(prob(25))
-		projectiletype = /obj/item/projectile/bullet/gyro/law
+		projectiletype = /obj/projectile/bullet/gyro/law
 		projectilesound = 'sound/effects/Explosion1.ogg'
 		rapid = FALSE
 		casingtype = null
@@ -176,7 +177,7 @@
 
 	speed = 1
 	ranged = TRUE
-	projectiletype = /obj/item/projectile/beam/pistol
+	projectiletype = /obj/projectile/beam/pistol
 	projectilesound = 'sound/weapons/laser1.ogg'
 
 	emote_see = list("examines","hovers","blinks")

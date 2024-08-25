@@ -33,9 +33,8 @@
 /datum/event/ionstorm/announce_end(var/faked)
 	. = ..()
 	if(.)
-		spawn(rand(5000,8000))
-			if(prob(50))
-				ion_storm_announcement(affecting_z)
+		if(prob(50))
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(ion_storm_announcement), affecting_z), rand(500, 800) SECONDS)
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)

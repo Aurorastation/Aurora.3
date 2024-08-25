@@ -122,7 +122,6 @@
 "bV" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -139,7 +138,6 @@
 "bZ" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -191,7 +189,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -304,7 +301,7 @@
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -385,7 +382,6 @@
 "go" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -813,7 +809,7 @@
 /area/miners_guild_outpost/engineering)
 "qa" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1002,7 +998,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "tF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
@@ -1200,7 +1196,7 @@
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -1236,7 +1232,6 @@
 "xe" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1257,7 +1252,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1352,7 +1347,7 @@
 /area/miners_guild_outpost/engineering)
 "Ax" = (
 /obj/machinery/vending/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1361,7 +1356,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1547,7 +1542,6 @@
 "ET" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 10
 	},
 /turf/simulated/floor{
@@ -1849,7 +1843,6 @@
 "IG" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1942,7 +1935,6 @@
 "Kr" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2207,7 +2199,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -2261,7 +2252,6 @@
 "Rs" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,

@@ -59,7 +59,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/bee/Life()
+/mob/living/simple_animal/bee/Life(seconds_per_tick, times_fired)
 	if(!loner && strength && !parent && prob(7-strength))
 		strength -= 1
 

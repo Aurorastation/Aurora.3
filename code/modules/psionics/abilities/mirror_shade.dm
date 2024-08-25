@@ -42,6 +42,9 @@
 	if(set_owner)
 		owner = set_owner
 		friends += owner
+		var/brain_worm = owner.has_brain_worms()
+		if(brain_worm)
+			friends += brain_worm
 	QDEL_IN(src, 30 SECONDS)
 
 /mob/living/simple_animal/hostile/mirror_shade/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)

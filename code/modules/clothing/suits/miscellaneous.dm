@@ -63,7 +63,7 @@
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
@@ -491,11 +491,18 @@
 	name = "brown varsity jacket"
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
+
 /obj/item/clothing/suit/storage/legion
 	name = "tcfl jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
 	icon_state = "tcfljacket"
 	item_state = "tcfljacket"
+
+/obj/item/clothing/suit/storage/legion/tcaf
+	name = "tcaf jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
+	icon_state = "tcaf_jacket"
+	item_state = "tcaf_jacket"
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
@@ -656,7 +663,7 @@
 	throwforce = 3
 	throw_speed = 2
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

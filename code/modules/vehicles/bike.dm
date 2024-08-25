@@ -189,7 +189,9 @@
 			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
 	..()
 
-/obj/vehicle/bike/relaymove(mob/user, direction)
+/obj/vehicle/bike/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
@@ -249,7 +251,7 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/bullet_act(var/obj/projectile/Proj)
 	if(buckled && prob(protection_percent))
 		buckled.bullet_act(Proj)
 		return
@@ -393,7 +395,7 @@
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 50
 	care_about_storage_depth = FALSE
 

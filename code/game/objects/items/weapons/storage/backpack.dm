@@ -14,9 +14,9 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi'
 	)
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 28
 	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
@@ -24,12 +24,24 @@
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 	var/straps = FALSE // Only really used for the verb.
+	/**
+	 * References a sleeping bag attached to this bag. Should convert this to use accessories later, but that means making backpacks clothing.
+	 */
+	var/obj/item/sleeping_bag/attached_bag
+	/**
+	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
+	 */
+	var/attached_icon = "backpack"
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
 	if(straps == TRUE)
 		alpha_mask = "normal"
 		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
+
+/obj/item/storage/backpack/Destroy()
+	QDEL_NULL(attached_bag)
+	. = ..()
 
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
@@ -79,6 +91,44 @@
 				return 0
 	return 1
 
+/obj/item/storage/backpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		attached_bag = attacking_item
+		update_icon()
+		if(H.back == src)
+			H.update_inv_back() // Add overlay to backpack if on back
+		H.drop_from_inventory(attached_bag)
+		attached_bag.loc = null
+		return
+	return ..()
+
+/obj/item/storage/backpack/update_icon()
+	. = ..()
+	ClearOverlays()
+	if(attached_bag)
+		var/image/I = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]", attached_bag.color)
+		AddOverlays(I)
+
+/obj/item/storage/backpack/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot, main_call)
+	var/image/I = ..()
+	if(slot == slot_back_str && attached_bag)
+		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]_ba", attached_bag.color)
+		I.AddOverlays(over)
+	return I
+
+/obj/item/storage/backpack/AltClick(mob/usr)
+	if(attached_bag && ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		H.put_in_hands(attached_bag)
+		attached_bag = null
+		update_icon()
+		if(H.back == src)
+			H.update_inv_back()
+		return
+	return ..()
+
+
 /*
  * Backpack Types
  */
@@ -89,7 +139,7 @@
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 56
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
@@ -112,7 +162,7 @@
 	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
 	icon_state = "giftbag0"
 	item_state = "giftbag"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
@@ -276,7 +326,7 @@
 	icon_state = "idris_backpack"
 	item_state = "idris_backpack"
 	storage_slots = 6
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/tray,
 		/obj/item/material/kitchen/utensil/fork,
@@ -333,6 +383,7 @@
 	icon_state = "satchel"
 	item_state = "satchel"
 	straps = TRUE
+	attached_icon = "satchel"
 
 /obj/item/storage/backpack/satchel/leather/withwallet/New()
 	..()
@@ -509,9 +560,9 @@
 	desc = "A neat little folding clasp pocketbook with a shoulder sling."
 	icon_state = "pocketbook_leather"
 	item_state = "pocketbook_leather"
-	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
 	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 20
 	build_from_parts = TRUE
 	worn_overlay = "overlay"
@@ -873,7 +924,7 @@
 	icon_state = "wings"
 	item_state = "wings"
 	contained_sprite = FALSE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = FALSE

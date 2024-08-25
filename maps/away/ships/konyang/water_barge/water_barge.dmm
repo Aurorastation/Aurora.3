@@ -1572,7 +1572,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4285,7 +4284,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/water_barge)
 "PU" = (
@@ -4390,7 +4389,6 @@
 "QB" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "CO2 to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/warning/full,

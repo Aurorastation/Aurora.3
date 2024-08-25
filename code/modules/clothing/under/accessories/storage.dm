@@ -5,14 +5,14 @@
 	slot = ACCESSORY_SLOT_UTILITY
 	var/slots = 3
 	var/obj/item/storage/internal/hold
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/accessory/storage/Initialize()
 	. = ..()
 	hold = new/obj/item/storage/internal(src)
 	hold.storage_slots = slots
 	hold.max_storage_space = 12
-	hold.max_w_class = ITEMSIZE_SMALL
+	hold.max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/accessory/storage/attack_hand(mob/user as mob)
 	if (has_suit)	//if we are part of a suit
@@ -204,7 +204,7 @@
 /obj/item/clothing/accessory/storage/bayonet/Initialize()
 	. = ..()
 	hold.max_storage_space = 4
-	hold.max_w_class = ITEMSIZE_NORMAL
+	hold.max_w_class = WEIGHT_CLASS_NORMAL
 	hold.can_hold = list(
 		/obj/item/material/knife/bayonet
 	)

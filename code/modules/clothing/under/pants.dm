@@ -3,8 +3,7 @@
 //
 
 // Pants Parent Item
-/obj/item/clothing/under/pants
-	abstract_type = /obj/item/clothing/under/pants
+ABSTRACT_TYPE(/obj/item/clothing/under/pants)
 	name = "pants parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/under/pants.dmi'

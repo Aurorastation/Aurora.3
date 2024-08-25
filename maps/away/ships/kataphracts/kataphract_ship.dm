@@ -4,7 +4,7 @@
 	description = "Ship with lizard knights."
 
 	prefix = "ships/kataphracts/"
-	suffixes = list("kataphract_ship.dmm")
+	suffix = "kataphract_ship.dmm"
 
 	ship_cost = 1
 	spawn_weight = 9
@@ -134,6 +134,7 @@
 	name = "Kataphract Transport"
 	shuttle_tag = "Kataphract Transport"
 	master_tag = "airlock_kataphract_transport"
+	cycle_to_external_air = TRUE
 
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
 	name = "Kataphract Transport Shuttle Hangar"

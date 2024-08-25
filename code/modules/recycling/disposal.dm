@@ -261,7 +261,7 @@
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
 
-/// makes it so synths can't be flushed
+	// makes it so synths can't be flushed
 	if (isrobot(target) && !isDrone(target))
 		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
@@ -310,7 +310,9 @@
 	return 1
 
 // attempt to move while inside
-/obj/machinery/disposal/relaymove(mob/user as mob)
+/obj/machinery/disposal/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || src.flushing)
 		return
 	if(user.loc == src)
@@ -594,20 +596,25 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return 1
 	if(istype(mover,/obj/item) && mover.throwing)
-		var/obj/item/I = mover
-		if(prob(75))
-			I.forceMove(src)
-			for(var/mob/M in viewers(src))
-				M.show_message("\The [I] lands in \the [src].", 3)
-		else
-			for(var/mob/M in viewers(src))
-				M.show_message("\The [I] bounces off of \the [src]'s rim!", 3)
 		return 0
+
 	else
 		return ..(mover, target, height, air_group)
+
+/obj/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(isitem(hitting_atom))
+		if(prob(75))
+			hitting_atom.forceMove(src)
+			visible_message(SPAN_NOTICE("[hitting_atom] lands in [src]."))
+		else
+			visible_message(SPAN_NOTICE("[hitting_atom] bounces off of [src]'s rim!"))
+			return ..()
+	else
+		return ..()
+
 
 // virtual disposal object
 // travels through pipes in lieu of actual items
@@ -746,7 +753,9 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(!istype(user,/mob/living))
 		return
 
@@ -786,7 +795,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	layer = DISPOSALS_PIPE_LAYER
+	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
@@ -1080,7 +1089,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(!T)
 			H.forceMove(loc)
 			return
@@ -1129,7 +1139,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(!T)
 			H.forceMove(src.loc)
 			return

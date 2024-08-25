@@ -1,5 +1,4 @@
-/datum/gear/accessory
-	abstract_type = /datum/gear/accessory
+ABSTRACT_TYPE(/datum/gear/accessory)
 	sort_category = "Accessories"
 
 /datum/gear/accessory/locket
@@ -335,6 +334,11 @@
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new /datum/gear_tweak/path(scarfs)
 
+/datum/gear/accessory/shawl
+	display_name = "colorable shawl"
+	path = /obj/item/clothing/accessory/shawl
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
 	path = /obj/item/clothing/accessory/dogtags
@@ -615,6 +619,7 @@
 	flagpatch_national["flagpatch, konyang"] = /obj/item/clothing/accessory/flagpatch/konyang
 	flagpatch_national["flagpatch, elyra"] = /obj/item/clothing/accessory/flagpatch/elyra
 	flagpatch_national["flagpatch, coalition"] = /obj/item/clothing/accessory/flagpatch/coalition
+	flagpatch_national["flagpatch, all xanu republic"] = /obj/item/clothing/accessory/flagpatch/all_xanu
 	flagpatch_national["flagpatch, himeo"] = /obj/item/clothing/accessory/flagpatch/himeo
 	flagpatch_national["flagpatch, vysoka"] = /obj/item/clothing/accessory/flagpatch/vysoka
 	flagpatch_national["flagpatch, gadpathur"] = /obj/item/clothing/accessory/flagpatch/gadpathur
