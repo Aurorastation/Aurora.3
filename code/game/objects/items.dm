@@ -248,6 +248,12 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
+	/// The equipment slots that we need to be equipped to for the item traits to take effect
+	var/list/trait_slots
+
+	/// The traits to add to the mob when we're equipped to the valid slots
+	var/list/equipped_traits
+
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
@@ -261,10 +267,12 @@
 
 /obj/item/Destroy()
 	if(ismob(loc))
-		var/mob/m = loc
-		m.drop_from_inventory(src)
-		m.update_inv_r_hand()
-		m.update_inv_l_hand()
+		var/mob/wearer = loc
+		wearer.drop_from_inventory(src)
+		wearer.update_inv_r_hand()
+		wearer.update_inv_l_hand()
+		for(var/trait in equipped_traits)
+			REMOVE_TRAIT(wearer, trait, ref(src))
 		src.loc = null
 
 	if(!QDELETED(action))
@@ -495,6 +503,9 @@
 
 	remove_item_verbs(user)
 
+	for(var/trait in equipped_traits)
+		REMOVE_TRAIT(user, trait, ref(src))
+
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 
@@ -530,6 +541,9 @@
 	if(zoom)
 		zoom(user)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	for(var/trait in equipped_traits)
+		REMOVE_TRAIT(user, trait, ref(src))
 
 ///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -609,6 +623,9 @@
 			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
 	else
 		remove_item_verbs(user)
+
+	if(slot in trait_slots)
+		add_equipped_traits_to_mob(user)
 
 	//Ěent for observable
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
@@ -1361,3 +1378,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/gives_weather_protection()
 	return FALSE
+
+/obj/item/proc/add_equipped_traits_to_mob(var/mob/mob)
+	for(var/trait in equipped_traits)
+		ADD_TRAIT(mob, trait, ref(src))
+
+/obj/item/proc/remove_equipped_traits_from_mob(var/mob/mob)
+	for(var/trait in equipped_traits)
+		REMOVE_TRAIT(mob, trait, ref(src))

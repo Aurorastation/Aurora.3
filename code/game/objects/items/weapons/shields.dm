@@ -56,6 +56,13 @@
 
 	recyclable = TRUE
 
+	trait_slots = list(
+		slot_l_hand,
+		slot_r_hand
+	)
+
+	equipped_traits = list(TRAIT_UNPUSHABLE)
+
 /obj/item/shield/Initialize(mapload, ...)
 	. = ..()
 	shield_health = max_shield_health
@@ -231,6 +238,8 @@
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 
+	equipped_traits = null
+
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -357,6 +366,13 @@
 	w_class = WEIGHT_CLASS_BULKY
 	update_icon()
 
+	LAZYDISTINCTADD(equipped_traits, TRAIT_UNPUSHABLE)
+
+	if(ismob(loc))
+		var/mob/wielder = loc
+		if(get_equip_slot() in trait_slots)
+			add_equipped_traits_to_mob(wielder)
+
 /obj/item/shield/energy/proc/HandleShutOff()
 	active = FALSE
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
@@ -364,6 +380,13 @@
 	force = initial(force)
 	w_class = initial(w_class)
 	update_icon()
+
+	if(ismob(loc))
+		var/mob/wielder = loc
+		if(get_equip_slot() in trait_slots)
+			remove_equipped_traits_from_mob(wielder)
+
+	LAZYREMOVE(equipped_traits, TRAIT_UNPUSHABLE)
 
 /obj/item/shield/energy/proc/UpdateSoundLoop()
 	if (!active)
@@ -434,6 +457,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("shoved", "bashed")
 
+	equipped_traits = null
+
 	var/active = FALSE
 
 /obj/item/shield/riot/tact/update_icon()
@@ -478,6 +503,11 @@
 		HandleClose()
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
 	add_fingerprint(user)
 
 /obj/item/shield/riot/tact/proc/HandleOpen()
@@ -487,6 +517,14 @@
 	throw_speed = 2
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
+
+	LAZYDISTINCTADD(equipped_traits, TRAIT_UNPUSHABLE)
+
+	if(ismob(loc))
+		var/mob/wielder = loc
+		if(get_equip_slot() in trait_slots)
+			add_equipped_traits_to_mob(wielder)
+
 	update_icon()
 
 /obj/item/shield/riot/tact/proc/HandleClose()
@@ -496,6 +534,14 @@
 	throw_speed = 3
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = 0
+
+	if(ismob(loc))
+		var/mob/wielder = loc
+		if(get_equip_slot() in trait_slots)
+			remove_equipped_traits_from_mob(wielder)
+
+	LAZYREMOVE(equipped_traits, TRAIT_UNPUSHABLE)
+
 	update_icon()
 
 /obj/item/shield/riot/tact/legion

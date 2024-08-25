@@ -120,23 +120,7 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
-			if(prob(40) && !(mutations & FAT))
-				to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
-				now_pushing = FALSE
-				return
-
-		if(istype(tmob.r_hand, /obj/item/shield/riot))
-			if(prob(99))
-				now_pushing = FALSE
-				return
-
-		if(istype(tmob.l_hand, /obj/item/shield/riot))
-			if(prob(99))
-				now_pushing = FALSE
-				return
-
-		if(!(tmob.status_flags & CANPUSH))
+		if(!(tmob.status_flags & CANPUSH) || (tmob.a_intent != I_HELP && HAS_TRAIT(tmob, TRAIT_UNPUSHABLE)))
 			now_pushing = FALSE
 			return
 
