@@ -259,7 +259,12 @@ export const CategoryData = (props, context) => {
                 <Table.Cell collapsing>
                   <Button
                     color="transparent"
-                    tooltip={recipe.resources + '\n' + recipe.build_time}
+                    tooltip={
+                      <>
+                        <div>{recipe.resources}</div>
+                        <div>{recipe.build_time} seconds</div>
+                      </>
+                    }
                     icon="question"
                   />
                 </Table.Cell>
@@ -296,7 +301,7 @@ export const QueueData = (props, context) => {
                   ],
                   bad: [0, queue_item.build_time * 0.25],
                 }}>
-                {round(queue_item.progress, 1)} / {queue_item.build_time}
+                {queue_item.remaining_time / 10} seconds
                 <Button
                   icon="cancel"
                   color="transparent"

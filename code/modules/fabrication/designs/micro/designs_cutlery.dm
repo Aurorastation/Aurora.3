@@ -23,19 +23,49 @@
 /singleton/autolathe_recipe/cutlery/fork_plastic
 	name = "fork, plastic"
 	path = /obj/item/material/kitchen/utensil/fork/plastic
+	build_time = 2 SECONDS
 
 /singleton/autolathe_recipe/cutlery/spoon_plastic
 	name = "spoon, plastic"
 	path = /obj/item/material/kitchen/utensil/spoon/plastic
+	build_time = 2 SECONDS
 
 /singleton/autolathe_recipe/cutlery/spork_plastic
 	name = "spork, plastic"
 	path = /obj/item/material/kitchen/utensil/spork/plastic
+	build_time = 2 SECONDS
 
 /singleton/autolathe_recipe/cutlery/knife_plastic
 	name = "table knife, plastic"
 	path = /obj/item/material/kitchen/utensil/knife/plastic
+	build_time = 2 SECONDS
 
 /singleton/autolathe_recipe/cutlery/chopsticks_plastic
 	name = "chopsticks, plastic"
 	path = /obj/item/material/kitchen/utensil/fork/chopsticks/plastic
+	build_time = 2 SECONDS
+
+/singleton/autolathe_recipe/cutlery/fork_bamboo
+	name = "fork, bamboo"
+	path = /obj/item/material/kitchen/utensil/fork/bamboo
+	build_time = 4 SECONDS
+
+/singleton/autolathe_recipe/cutlery/spoon_bamboo
+	name = "spoon, bamboo"
+	path = /obj/item/material/kitchen/utensil/spoon/bamboo
+	build_time = 4 SECONDS
+
+/singleton/autolathe_recipe/cutlery/spork_bamboo
+	name = "spork, bamboo"
+	path = /obj/item/material/kitchen/utensil/spork/bamboo
+	build_time = 4 SECONDS
+
+/singleton/autolathe_recipe/cutlery/knife_bamboo
+	name = "table knife, bamboo"
+	path = /obj/item/material/kitchen/utensil/knife/bamboo
+	build_time = 4 SECONDS
+
+/singleton/autolathe_recipe/cutlery/chopsticks_bamboo
+	name = "chopsticks, bamboo"
+	path = /obj/item/material/kitchen/utensil/fork/chopsticks/bamboo
+	build_time = 4 SECONDS

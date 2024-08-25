@@ -3,6 +3,7 @@
 	path = /obj/item/reagent_containers/food/drinks/drinkingglass
 	category = "Drinking Glasses"
 	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
+	build_time = 3 SECONDS
 
 /singleton/autolathe_recipe/drinking_glass/half_pint_glass
 	name = "half pint glass"
