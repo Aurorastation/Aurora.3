@@ -3811,7 +3811,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/machinery/light{
 	dir = 4
 	},

@@ -6,6 +6,7 @@ import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack
 import { Window } from '../layouts';
 
 export type AutolatheData = {
+  manufacturer: string;
   disabled: BooleanLike;
   material_efficiency: number;
   build_time: number;
@@ -49,7 +50,7 @@ export const Autolathe = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
 
   return (
-    <Window resizable theme="hephaestus" width="1000" height="700">
+    <Window resizable theme={data.manufacturer} width="1000" height="700">
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -258,7 +259,7 @@ export const CategoryData = (props, context) => {
                 <Table.Cell collapsing>
                   <Button
                     color="transparent"
-                    tooltip={recipe.resources}
+                    tooltip={recipe.resources + '\n' + recipe.build_time}
                     icon="question"
                   />
                 </Table.Cell>
@@ -278,7 +279,7 @@ export const QueueData = (props, context) => {
   return (
     <Section fill title="Queue">
       <LabeledList>
-        {data.queue && data.queue.length ? (
+        {data.queue?.length ? (
           data.queue.map((queue_item) => (
             <LabeledList.Item
               key={queue_item.ref}

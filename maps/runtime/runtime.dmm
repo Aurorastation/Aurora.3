@@ -2865,7 +2865,7 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 "qH" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/plating,
 /area/construction)
 "qK" = (
@@ -3782,6 +3782,10 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"zl" = (
+/obj/machinery/fabricator,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "zr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external/merc{
@@ -10576,7 +10580,7 @@ aK
 aY
 bj
 af
-bB
+zl
 bY
 bB
 bB

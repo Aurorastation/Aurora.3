@@ -214,7 +214,7 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "jx" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
 "jF" = (
