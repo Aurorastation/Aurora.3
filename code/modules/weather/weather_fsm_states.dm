@@ -1,7 +1,4 @@
-/singleton/state/weather
-
-	abstract_type = /singleton/state/weather
-
+ABSTRACT_TYPE(/singleton/state/weather)
 	var/name =         "Undefined"
 	var/descriptor =   "The weather is undefined."
 

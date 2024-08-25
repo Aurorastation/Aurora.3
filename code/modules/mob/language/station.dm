@@ -281,15 +281,16 @@
 /datum/language/bug/format_message(message, verb, speaker_mask)
 	var/message_color = colour
 	var/list/speaker_surname = splittext(speaker_mask, " ")
-	switch(speaker_surname[2])
-		if("Zo'ra")
-			message_color = "vaurca_zora"
-		if("C'thur")
-			message_color = "vaurca_cthur"
-		if("K'lax")
-			message_color = "vaurca_klax"
-		if("Lii'dra")
-			message_color = "vaurca_liidra"
+	if(length(speaker_surname) > 1)
+		switch(speaker_surname[2])
+			if("Zo'ra")
+				message_color = "vaurca_zora"
+			if("C'thur")
+				message_color = "vaurca_cthur"
+			if("K'lax")
+				message_color = "vaurca_klax"
+			if("Lii'dra")
+				message_color = "vaurca_liidra"
 	if(copytext(message, 1, 2) == "!")
 		return " projects <span class='message'><span class='[message_color]'>[copytext(message, 2)]</span></span>"
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"

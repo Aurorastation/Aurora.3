@@ -2815,7 +2815,7 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/aluminium/full{
 	pixel_x = -5
 	},
@@ -4812,7 +4812,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/gas,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
@@ -5030,7 +5030,7 @@
 /area/konyang_wreck/pod1)
 "Ry" = (
 /obj/machinery/autolathe,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"

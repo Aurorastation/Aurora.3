@@ -1143,6 +1143,13 @@
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 
+/obj/item/toy/plushie/domadice
+	name = "Domadice plushie"
+	desc = "A marketable plushie of the Kessvalankan Domadice"
+	desc_extended = "Resurrected by the Golden Deep, the Kessvalankan Domadice is a Purpose adjacent synthetic. They hail from a time long before any of the current spur's inhabitants were even thoughts on the evolutionary track. Currently Domadice works as a leader in the Golden Deep, on the same footing as Midas Control."
+	icon_state = "domadiceplushie"
+	phrase = "♫Plin Plin Plon♫"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid

@@ -140,8 +140,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("spaghetti" = 5, "seasoned vegetables" = 4), /singleton/reagent/nutriment/protein= list ("ground beef" = 5))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/ravioli
-	abstract_type = /obj/item/reagent_containers/food/snacks/ravioli
+ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/ravioli)
 	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
 	icon_state = "ravioli"
 	trash = /obj/item/trash/plate

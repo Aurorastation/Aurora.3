@@ -3389,7 +3389,7 @@
 /obj/structure/sign/flag/coalition{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},

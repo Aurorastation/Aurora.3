@@ -139,6 +139,7 @@
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
 	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	alignment = "Contested"
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
