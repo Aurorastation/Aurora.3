@@ -9,10 +9,11 @@
 		return
 
 	// Print the item.
-	if(ispath(currently_printing.target_recipe.path, /obj/item/stack))
-		new currently_printing.target_recipe.path(get_turf(src), amount = currently_printing.multiplier)
-	else
-		new currently_printing.target_recipe.path(get_turf(src))
+	var/obj/item/I = new currently_printing.target_recipe.path(get_turf(print_loc))
+	I.Created()
+	if(currently_printing.multiplier > 1 && istype(I, /obj/item/stack))
+		var/obj/item/stack/S = I
+		S.amount = currently_printing.multiplier
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
 	get_next_build()
@@ -39,14 +40,14 @@
 		stop_building()
 	updateUsrDialog()
 
-/obj/machinery/fabricator/proc/try_queue_build(singleton/autolathe_recipe/recipe, multiplier)
+/obj/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
 
 	// Do some basic sanity checking.
 	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)))
 		return
 
 	multiplier = sanitize_integer(multiplier, 1, 100, 1)
-	if(!ispath(recipe, /obj/item/stack) && multiplier > 1)
+	if(!ispath(recipe.path, /obj/item/stack) && multiplier > 1)
 		multiplier = 1
 
 	// Check if sufficient resources exist.
@@ -56,7 +57,7 @@
 
 	// Generate and track a new order.
 	var/datum/fabricator_build_order/order = new
-	order.remaining_time = recipe.build_time
+	order.remaining_time = recipe.build_time * multiplier
 	order.target_recipe = recipe
 	order.multiplier = multiplier
 	print_queue += order
