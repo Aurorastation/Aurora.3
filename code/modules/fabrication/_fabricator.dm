@@ -12,29 +12,39 @@
 	clickvol = 30
 	manufacturer = "hephaestus"
 
+	/// What location to print to. Only used for mounted autolathes
 	var/atom/print_loc
 
-	var/has_recycler = TRUE
+	/// Class of fabricator. Determines recipes loaded. See entires in [__fabricator_defines.dm]
 	var/fabricator_class = FABRICATOR_CLASS_GENERAL
+	/// List of stored materials.
 	var/list/stored_material = list()
+	/// List of material capacities. Should not be modified directly, use [var/list/base_storage_capacity] instead.
 	var/list/storage_capacity = list()
+	/// Base storage capacity, which is modified by default by the amount and tier of matter bins.
 	var/list/base_storage_capacity = list(
 		DEFAULT_WALL_MATERIAL = 25000,
 		MATERIAL_ALUMINIUM = 25000,
 		MATERIAL_GLASS = 12500,
 		MATERIAL_PLASTIC = 12500
 	)
+	/// Current category to show for this fabricator
 	var/show_category = "All"
 
+	/// Status bitflags for the fabricator
 	var/fab_status_flags = 0
 
+	/// Current queue for this fabricator
 	var/list/print_queue = list()
+	/// What is currently printing in this fabricator
 	var/datum/fabricator_build_order/currently_printing
 
+	/// How efficient this fabricator uses materials. Modified by default by the amount and tier of manipulators
 	var/mat_efficiency = 1
-	var/last_process_time
+	/// What to multiply build times by. Modified by default by the amount and tier of manipulators
 	var/build_time_multiplier = 1
 
+	/// Snowflake for mounted autolathes
 	var/does_flick = TRUE
 
 	var/datum/wires/fabricator/wires
@@ -46,10 +56,12 @@
 		/obj/item/stock_parts/console_screen
 	)
 
+	/// List of stored reagents, for future usage (biogenerator, circuit printer)
 	var/static/list/stored_substances_to_names = list()
 
 /obj/machinery/fabricator/Initialize()
 	..()
+	print_loc = src
 	stored_material = list()
 	for(var/mat in base_storage_capacity)
 		stored_material[mat] = 0
@@ -93,7 +105,7 @@
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
 	for(var/recipe in SSfabrication.get_recipes(fabricator_class))
-		var/singleton/autolathe_recipe/R = recipe
+		var/singleton/fabricator_recipe/R = recipe
 		if(R.hidden && !(fab_status_flags & FAB_HACKED))
 			continue
 		var/list/recipe_data = list()
@@ -185,7 +197,7 @@
 
 	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])
-		var/singleton/autolathe_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
+		var/singleton/fabricator_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
 		if(!istype(R))
 			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
 
