@@ -700,6 +700,15 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"dU" = (
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "dV" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1353,6 +1362,13 @@
 /mob/living/heavy_vehicle/premade/random/boring,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ib" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "ic" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -1521,6 +1537,13 @@
 	pixel_y = 13
 	},
 /turf/simulated/floor/lino,
+/area/template_noop)
+"jb" = (
+/obj/structure/table/standard,
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "jc" = (
 /obj/effect/floor_decal/corner/pink{
@@ -2717,6 +2740,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"qJ" = (
+/obj/structure/table/standard,
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "qK" = (
 /obj/structure/table/rack/retail_shelf,
@@ -4201,6 +4231,9 @@
 "zQ" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/table/standard,
+/obj/random/medical{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "zR" = (
@@ -5410,6 +5443,13 @@
 /obj/machinery/vending/ramen,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"GP" = (
+/obj/structure/table/steel,
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "GR" = (
 /obj/structure/closet/hazmat/custodial,
 /obj/effect/floor_decal/corner/lime{
@@ -6168,6 +6208,14 @@
 /obj/item/storage/box/frags,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"LA" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "LC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -6384,6 +6432,16 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"ME" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "MF" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/autoinjectors,
@@ -6499,6 +6557,16 @@
 /obj/structure/flora/grass/junglegrass/random,
 /obj/structure/flora/grass/junglegrass/dense/random,
 /turf/simulated/floor/exoplanet/grass/marsh,
+/area/template_noop)
+"Nr" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Nv" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -6637,6 +6705,16 @@
 "Op" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Oq" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/random/medical{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "Ot" = (
 /obj/machinery/body_scanconsole{
@@ -10131,7 +10209,7 @@ Qj
 mB
 Yv
 Qj
-mB
+dU
 tw
 Ic
 Ic
@@ -11135,7 +11213,7 @@ tw
 iF
 tw
 Qj
-mB
+dU
 Yv
 Qj
 mB
@@ -11954,13 +12032,13 @@ mQ
 lG
 Ic
 tw
-PM
-hx
+ib
+dU
 hx
 lG
 hx
-hx
-PM
+mB
+ME
 tw
 FE
 NG
@@ -12146,7 +12224,7 @@ tw
 tw
 Xb
 cK
-Xb
+Nr
 lG
 lG
 kB
@@ -13150,7 +13228,7 @@ iF
 iF
 tw
 hJ
-kJ
+LA
 hx
 Pj
 RG
@@ -13967,7 +14045,7 @@ lG
 Ic
 RG
 Pj
-hJ
+jb
 av
 hJ
 tw
@@ -14191,7 +14269,7 @@ pa
 qZ
 DY
 AU
-zs
+qJ
 tw
 CG
 iF
@@ -14772,7 +14850,7 @@ SU
 SU
 NG
 NG
-CT
+GP
 tw
 tw
 tw
@@ -14989,7 +15067,7 @@ Rf
 TA
 TA
 tw
-IE
+Oq
 Ic
 sf
 tw
@@ -15397,12 +15475,12 @@ IE
 zs
 Qf
 tw
-IE
+Oq
 li
 Qf
 tw
 TW
-zs
+qJ
 Qf
 tw
 CG
