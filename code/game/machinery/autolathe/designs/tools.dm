@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/tools
+ABSTRACT_TYPE(/singleton/autolathe_recipe/tools)
 	name = "Abstract Tools"
 	category = "Tools"
-
-	abstract_type = /singleton/autolathe_recipe/tools
 
 /singleton/autolathe_recipe/tools/crowbar
 	name = "crowbar"

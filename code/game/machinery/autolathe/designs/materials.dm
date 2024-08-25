@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/materials
+ABSTRACT_TYPE(/singleton/autolathe_recipe/materials)
 	name = "Abstract Materials"
 	category = "Materials"
-
-	abstract_type = /singleton/autolathe_recipe/materials
 
 	is_stack = TRUE
 

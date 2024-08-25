@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/medical
+ABSTRACT_TYPE(/singleton/autolathe_recipe/medical)
 	name = "Abstract Medical"
 	category = "Medical"
-
-	abstract_type = /singleton/autolathe_recipe/medical
 
 /singleton/autolathe_recipe/medical/scalpel
 	name = "scalpel"

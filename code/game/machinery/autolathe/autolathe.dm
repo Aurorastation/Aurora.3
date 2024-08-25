@@ -80,7 +80,7 @@
 
 /obj/machinery/autolathe/proc/can_print_item(var/singleton/autolathe_recipe/recipe)
 	var/ship_security_level = seclevel2num(get_security_level())
-	var/is_on_ship = isStationLevel(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
+	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
 
 	if(!hacked)
 		if(recipe.hack_only)
@@ -111,7 +111,9 @@
 
 	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		var/singleton/autolathe_recipe/R = recipe
-		if(R.IsAbstract())
+		if(is_abstract(R))
+			continue
+		if(R.hack_only && !hacked)
 			continue
 
 		var/list/recipe_data = list()

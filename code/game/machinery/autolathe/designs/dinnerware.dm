@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/dinnerware
+ABSTRACT_TYPE(/singleton/autolathe_recipe/dinnerware)
 	name = "Abstract Dinnerware"
 	category = "Dinnerware"
-
-	abstract_type = /singleton/autolathe_recipe/dinnerware
 
 /singleton/autolathe_recipe/dinnerware/knife
 	name = "kitchen knife"

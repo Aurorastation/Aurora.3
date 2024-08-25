@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/components
+ABSTRACT_TYPE(/singleton/autolathe_recipe/components)
 	name = "Abstract Components"
 	category = "Devices and Components"
-
-	abstract_type = /singleton/autolathe_recipe/components
 
 /singleton/autolathe_recipe/components/consolescreen
 	name = "console screen"

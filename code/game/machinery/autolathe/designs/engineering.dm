@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/engineering
+ABSTRACT_TYPE(/singleton/autolathe_recipe/engineering)
 	name = "Abstract Engineering"
 	category = "Engineering"
-
-	abstract_type = /singleton/autolathe_recipe/engineering
 
 /singleton/autolathe_recipe/engineering/airlockmodule
 	name = "airlock electronics"

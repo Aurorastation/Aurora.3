@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/general
+ABSTRACT_TYPE(/singleton/autolathe_recipe/general)
 	name = "Abstract General"
 	category = "General"
-
-	abstract_type = /singleton/autolathe_recipe/general
 
 /singleton/autolathe_recipe/general/bucket
 	name = "bucket"

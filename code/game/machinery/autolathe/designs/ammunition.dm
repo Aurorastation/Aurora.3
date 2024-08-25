@@ -1,8 +1,6 @@
-/singleton/autolathe_recipe/ammunition
+ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 	name = "Abstract Ammunition"
 	category = "Ammunition"
-
-	abstract_type = /singleton/autolathe_recipe/ammunition
 
 /singleton/autolathe_recipe/ammunition/New()
 	..()
