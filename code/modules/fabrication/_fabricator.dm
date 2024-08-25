@@ -107,6 +107,7 @@
 			recipe_data["can_make"] = !isnull(stored_material[resource]) && stored_material[resource] < round(R.resources[resource]*mat_efficiency)
 		recipe_data["category"] = R.category
 		recipe_data["resources"] = english_list(resources)
+		recipe_data["build_time"] = (R.build_time / 10)
 		recipe_data["max_sheets"] = null
 		if(R.is_stack)
 			var/obj/item/stack/R_stack = R.path
@@ -125,7 +126,8 @@
 				"path" = AR.target_recipe.type,
 				"multiplier" = AR.multiplier,
 				"build_time" = AR.target_recipe.build_time,
-				"progress" = AR.remaining_time
+				"progress" = AR.target_recipe.build_time - AR.remaining_time,
+				"remaining_time" = AR.remaining_time
 			)
 		)
 	return data

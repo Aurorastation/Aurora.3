@@ -4,7 +4,7 @@
 		return
 
 	// Decrement our current build timer.
-	currently_printing.remaining_time -= max(1, max(1, spend_time * build_time_multiplier))
+	currently_printing.remaining_time -= max(1, max(1, spend_time SECONDS * build_time_multiplier))
 	if(currently_printing.remaining_time > 0)
 		return
 
@@ -13,6 +13,7 @@
 		new currently_printing.target_recipe.path(get_turf(src), amount = currently_printing.multiplier)
 	else
 		new currently_printing.target_recipe.path(get_turf(src))
+	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
 	get_next_build()
 	update_icon()
@@ -33,7 +34,6 @@
 	currently_printing = null
 	if(length(print_queue))
 		currently_printing = print_queue[1]
-		print_queue -= currently_printing
 		start_building()
 	else
 		stop_building()

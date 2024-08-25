@@ -9,7 +9,8 @@
 	base_storage_capacity = list(
 		MATERIAL_ALUMINIUM = 5000,
 		MATERIAL_GLASS = 5000,
-		MATERIAL_PLASTIC = 5000
+		MATERIAL_PLASTIC = 5000,
+		MATERIAL_BAMBOO = 5000
 	)
 	manufacturer = "idris"
 
@@ -20,3 +21,12 @@
 /obj/machinery/fabricator/micro/bartender/Initialize()
 	. = ..()
 	stored_material[MATERIAL_GLASS] = base_storage_capacity[MATERIAL_GLASS]
+
+//Subtype for mapping, starts preloaded and set to print cutlery
+/obj/machinery/fabricator/micro/cafe
+	show_category = "Cutlery"
+
+/obj/machinery/fabricator/micro/cafe/Initialize()
+	. = ..()
+	stored_material[MATERIAL_PLASTIC] = base_storage_capacity[MATERIAL_PLASTIC]
+	stored_material[MATERIAL_BAMBOO] = base_storage_capacity[MATERIAL_BAMBOO]
