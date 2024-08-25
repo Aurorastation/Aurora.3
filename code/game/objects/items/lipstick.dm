@@ -28,12 +28,20 @@
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	update_icon_on_init = TRUE
-	var/lipstick_color = "#DC253A"
-	var/lipstick_variant = DEFAULT_LIPSTICK_VARIANT
-	var/list/lipstick_options = list("Lips" = DEFAULT_LIPSTICK_VARIANT, "Lips (Side-shifted)" = LOWER_LIPSTICK_VARIANT)
-	var/open = 0
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
+
+	/// The color the lipstick sprite will be
+	var/lipstick_color = "#DC253A"
+
+	/// The type of lipstick sprite that will appear on the mob
+	var/lipstick_variant = DEFAULT_LIPSTICK_VARIANT
+
+	/// The type of lipstick sprites the user can select via the 'Select Lipstick Variant' verb
+	var/list/lipstick_options = list("Lips" = DEFAULT_LIPSTICK_VARIANT, "Lips (Side-shifted)" = LOWER_LIPSTICK_VARIANT)
+
+	/// Whether the lipstick is open or not
+	var/open = FALSE
 
 /obj/item/lipstick/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
 	. = ..()
@@ -136,11 +144,11 @@
 	name = "lipstick"
 
 /obj/item/lipstick/random/Initialize()
+	. = ..()
 	var/list/lipstick_subtypes = subtypesof(/obj/item/lipstick) - /obj/item/lipstick/random
 	var/obj/item/lipstick/chosen_lipstick = pick(lipstick_subtypes)
 	name = initial(chosen_lipstick.name)
 	lipstick_color = initial(chosen_lipstick.lipstick_color)
-	return ..()
 
 
 /obj/item/lipstick/attack_self(mob/user as mob)
@@ -148,28 +156,32 @@
 	open = !open
 	update_icon()
 
-/obj/item/lipstick/attack(mob/M as mob, mob/user as mob)
-	if(!open)	return
+/obj/item/lipstick/attack(mob/victim, mob/user)
+	if(!open)
+		return
 
-	if(!istype(M, /mob))	return
+	if(!ismob(victim))
+		return
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.lipstick_data)	//if they already have lipstick on
+	if(ishuman(victim))
+		var/mob/living/carbon/human/human = victim
+
+		// if they already have lipstick on
+		if(human.lipstick_data)
 			to_chat(user, SPAN_NOTICE("You need to wipe off the old lipstick first!"))
 			return
 
 		var/datum/lipstick_data/lipstick_data = new /datum/lipstick_data(lipstick_color, lipstick_variant)
-		if(H == user)
+		if(human == user)
 			user.visible_message(SPAN_NOTICE("[user] does their lips with \the [src]."), SPAN_NOTICE("You take a moment to apply \the [src]. Perfect!"))
-			H.lipstick_data = lipstick_data
-			H.update_body()
+			human.lipstick_data = lipstick_data
+			human.update_body()
 		else
-			user.visible_message(SPAN_WARNING("[user] begins to do [H]'s lips with \the [src]."), SPAN_NOTICE("You begin to apply \the [src]."))
-			if(do_after(user, 4 SECONDS, H, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS & ~DO_BOTH_CAN_TURN))
-				user.visible_message(SPAN_NOTICE("[user] does [H]'s lips with \the [src]."), SPAN_NOTICE("You apply \the [src]."))
-				H.lipstick_data = lipstick_data
-				H.update_body()
+			user.visible_message(SPAN_WARNING("[user] begins to do [human]'s lips with \the [src]."), SPAN_NOTICE("You begin to apply \the [src]."))
+			if(do_after(user, 4 SECONDS, human, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS & ~DO_BOTH_CAN_TURN))
+				user.visible_message(SPAN_NOTICE("[user] does [human]'s lips with \the [src]."), SPAN_NOTICE("You apply \the [src]."))
+				human.lipstick_data = lipstick_data
+				human.update_body()
 	else
 		to_chat(user, SPAN_NOTICE("Where are the lips on that?"))
 
