@@ -41,7 +41,7 @@
 #include "code\__DEFINES\background.dm"
 #include "code\__DEFINES\battle_monsters.dm"
 #include "code\__DEFINES\byond_compat.dm"
-#include "code\__DEFINES\callback.dm"
+#include "code\__DEFINES\callbacks.dm"
 #include "code\__DEFINES\chemistry.dm"
 #include "code\__DEFINES\circuitboard.dm"
 #include "code\__DEFINES\color.dm"
