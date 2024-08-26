@@ -28,13 +28,6 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/ridged,
 /area/space)
-"dF" = (
-/obj/structure/sign/poster{
-	pixel_y = -32
-	},
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/full,
-/area/space)
 "ew" = (
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 8;
@@ -544,6 +537,9 @@
 /area/space)
 "XJ" = (
 /obj/structure/table/wood,
+/obj/structure/sign/poster{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "XY" = (
@@ -33067,13 +33063,13 @@ bh
 LU
 gK
 nj
-LU
+Xv
 nj
 gK
 gK
-nj
-nj
-nj
+gK
+gK
+gK
 gK
 gK
 nj
@@ -33086,7 +33082,7 @@ CC
 gG
 hH
 vK
-dF
+YN
 gG
 zJ
 kg
@@ -33324,7 +33320,7 @@ gK
 oZ
 gK
 gK
-KP
+Xv
 nj
 bh
 bh
@@ -33581,13 +33577,13 @@ bh
 LU
 gK
 nj
-LU
+Xv
 nj
 gK
 gK
-nj
-nj
-nj
+gK
+gK
+gK
 gK
 gK
 nj
