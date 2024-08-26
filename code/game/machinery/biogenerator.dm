@@ -12,7 +12,7 @@
 	var/menustat = "menu"
 	var/build_eff = 1
 	var/eat_eff = 1
-	var/capacity = 50
+	var/capacity = 100
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
@@ -22,10 +22,12 @@
 
 #define BIOGEN_FOOD "Food"
 #define BIOGEN_ITEMS "Items"
+#define BIOGEN_FLAGS "Corporate Flags"
 #define BIOGEN_SPECIAL "Special"
 #define BIOGEN_CONSTRUCTION "Construction"
 #define BIOGEN_FERTILIZER "Fertilizer"
 #define BIOGEN_MEDICAL "Medical"
+#define BIOGEN_CLOTHES "Clothing"
 #define BIOGEN_ILLEGAL "!@#$%^&*()"
 
 /singleton/biorecipe
@@ -55,6 +57,26 @@
 	object = /obj/item/reagent_containers/food/snacks/soywafers
 	cost = 150
 
+/singleton/biorecipe/food/mre
+	name = "Meals Ready to Eat"
+	object = /obj/random/mre
+	cost = 450
+
+/singleton/biorecipe/food/boba
+	name = "Boba Pearls"
+	object = /obj/item/reagent_containers/food/drinks/boba
+	cost = 50
+
+/singleton/biorecipe/food/egg_carton
+	name = "Chicken Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box
+	cost = 300
+
+/singleton/biorecipe/food/tunneler_egg_carton
+	name = "Ice Tunneler Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box/tunneler
+	cost = 300
+
 /singleton/biorecipe/food/bio_vitamin
 	name = "Flavored Vitamin"
 	object = /obj/item/reagent_containers/pill/bio_vitamin
@@ -80,19 +102,29 @@
 	object = /obj/item/reagent_containers/food/snacks/spreads/lard
 	cost = 80
 
-/singleton/biorecipe/food/egg_carton
-	name = "Chicken Egg Carton"
-	object = /obj/item/storage/box/fancy/egg_box
-	cost = 300
-
-/singleton/biorecipe/food/tunneler_egg_carton
-	name = "Ice Tunneler Egg Carton"
-	object = /obj/item/storage/box/fancy/egg_box/tunneler
-	cost = 300
-
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
+
+/singleton/biorecipe/food/pepper
+	name = "Pepper Grinder"
+	object = /obj/item/reagent_containers/food/condiment/shaker/peppermill
+	cost = 75
+
+/singleton/biorecipe/food/salt
+	name = "Salt Shaker"
+	object = /obj/item/reagent_containers/food/condiment/shaker/salt
+	cost = 75
+
+/singleton/biorecipe/food/spacespice
+	name = "Space Spice Shaker"
+	object = /obj/item/reagent_containers/food/condiment/shaker/spacespice
+	cost = 100
+
+/singleton/biorecipe/food/sprinkles
+	name = "Sprinke Shaker"
+	object = /obj/item/reagent_containers/food/condiment/shaker/sprinkles
+	cost = 100
 
 /singleton/biorecipe/food/blood
 	name = "Synthetic Blood (50u)"
@@ -126,65 +158,162 @@ ITEMS
 	name = "Towel"
 	class = BIOGEN_ITEMS
 	object = /obj/item/towel/random
-	cost = 300
+	cost = 200
 
 /singleton/biorecipe/item/jug
 	name = "Empty Jug"
 	object = /obj/item/reagent_containers/glass/fertilizer
-	cost = 100
+	cost = 50
+
+/singleton/biorecipe/item/glowstick
+	name = "Glowstick"
+	object = /obj/random/glowstick
+	cost = 75
+
+/singleton/biorecipe/item/plushie
+	name = "Plushie"
+	object = /obj/random/plushie
+	cost = 200
+
+/singleton/biorecipe/item/yarn
+	name = "Ball of Yarn"
+	object = /obj/random/yarn
+	cost = 75
+
+/singleton/biorecipe/item/knitting
+	name = "Knitting Needles"
+	object = /obj/item/knittingneedles
+	cost = 150
 
 /singleton/biorecipe/item/custom_cigarettes
 	name = "Empty Cigarettes (x6)"
 	object = /obj/item/storage/box/fancy/cigarettes/blank
-	cost = 500
+	cost = 300
 
 /singleton/biorecipe/item/tape_roll
 	name = "Tape Roll"
 	object = /obj/item/tape_roll
-	cost = 250
-
-/singleton/biorecipe/item/botanic_leather
-	name = "Botanical Gloves"
-	object = /obj/item/clothing/gloves/botanic_leather
-	cost = 250
-
-/singleton/biorecipe/item/utility
-	name = "Utility Belt"
-	object = /obj/item/storage/belt/utility
-
-/singleton/biorecipe/item/hydrobelt
-	name = "Hydroponic Belt"
-	object = /obj/item/storage/belt/hydro
-
-/singleton/biorecipe/item/plantbag
-	name = "Plant Bag"
-	object = /obj/item/storage/bag/plants
-	cost = 500
+	cost = 150
 
 /singleton/biorecipe/item/wallet
 	name = "Leather Wallet"
 	object = /obj/item/storage/wallet
 	cost = 100
 
-/singleton/biorecipe/item/satchel
-	name = "Leather Satchel"
-	object = /obj/item/storage/backpack/satchel/leather
-	cost = 400
-
-/singleton/biorecipe/item/cash
-	name = "Money Bag"
-	object = /obj/item/storage/bag/money
-	cost = 400
-
 /singleton/biorecipe/item/soap
 	name = "Soap"
 	object = /obj/item/soap/plant
 	cost = 200
 
+/singleton/biorecipe/item/lighter
+	name = "Cheap Lighter"
+	object = /obj/item/flame/lighter/random
+	cost = 100
+
+/singleton/biorecipe/item/pottedplant
+	name = "Small Plant Pot"
+	object = /obj/random/pottedplant_small
+	cost = 300
+
 /singleton/biorecipe/item/crayon_box
 	name = "Crayon Box"
 	object = /obj/item/storage/box/fancy/crayons
+	cost = 400
+
+/singleton/biorecipe/item/goldstar
+	name = "Box of Gold Stars"
+	object = /obj/item/storage/box/goldstar
 	cost = 600
+
+/singleton/biorecipe/item/googly
+	name = "Box of Googly Eyes"
+	object = /obj/item/storage/box/googly
+	cost = 600
+
+/singleton/biorecipe/item/cash
+	name = "Money Bag"
+	object = /obj/item/storage/bag/money
+	cost = 200
+
+/singleton/biorecipe/item/plantbag
+	name = "Plant Bag"
+	object = /obj/item/storage/bag/plants
+	cost = 250
+
+/*
+FLAGS
+*/
+
+/singleton/biorecipe/flag
+	name = "SCC Flag, Small"
+	class = BIOGEN_FLAGS
+	object = /obj/item/flag/scc
+	cost = 500
+
+/singleton/biorecipe/flag/scclarge
+	name = "SCC Flag, large"
+	object = /obj/item/flag/scc/l
+	cost = 500
+
+/singleton/biorecipe/flag/heph
+	name = "Hephaestus Flag, Small"
+	object = /obj/item/flag/heph
+	cost = 500
+
+/singleton/biorecipe/flag/hephlarge
+	name = "Hephaestus Flag, Large"
+	object = /obj/item/flag/heph/l
+	cost = 500
+
+/singleton/biorecipe/flag/idris
+	name = "Idris Flag, Small"
+	object = /obj/item/flag/idris
+	cost = 500
+
+/singleton/biorecipe/flag/idrislarge
+	name = "Idris Flag, Large"
+	object = /obj/item/flag/idris/l
+	cost = 500
+
+/singleton/biorecipe/flag/zeng
+	name = "Zeng-Hu Flag, Small"
+	object = /obj/item/flag/zenghu
+	cost = 500
+
+/singleton/biorecipe/flag/zenglarge
+	name = "Zeng-Hu Flag, Large"
+	object = /obj/item/flag/zenghu/l
+	cost = 500
+
+/singleton/biorecipe/flag/zavod
+	name = "Zavodskoi Flag, Small"
+	object = /obj/item/flag/zavodskoi
+	cost = 500
+
+/singleton/biorecipe/flag/zavodlarge
+	name = "Zavodskoi Flag, Large"
+	object = /obj/item/flag/zavodskoi/l
+	cost = 500
+
+/singleton/biorecipe/flag/pmcg
+	name = "PMCG Flag, Small"
+	object = /obj/item/flag/pmcg
+	cost = 500
+
+/singleton/biorecipe/flag/pmcglarge
+	name = "PMCG Flag, Large"
+	object = /obj/item/flag/pmcg/l
+	cost = 500
+
+/singleton/biorecipe/flag/orion
+	name = "Orion Flag, Small"
+	object = /obj/item/flag/orion_express
+	cost = 500
+
+/singleton/biorecipe/flag/orionlarge
+	name = "Orion Express Flag, Large"
+	object = /obj/item/flag/orion_express/l
+	cost = 500
 
 /*
 CONSTRUCTION
@@ -214,20 +343,55 @@ CONSTRUCTION
 /singleton/biorecipe/construction/wax
 	name = "Wax"
 	object = /obj/item/stack/wax
+	cost = 10
 
 /singleton/biorecipe/construction/plastic
 	name = "Plastic"
 	object = /obj/item/stack/material/plastic
+	cost = 75
+
+/*
+CLOTHING
+*/
+/singleton/biorecipe/clothes
+	name = "Suit"
+	class = BIOGEN_CLOTHES
+	object = /obj/random/suit
+	cost = 200
+
+/singleton/biorecipe/clothes/satchel
+	name = "Leather Satchel"
+	object = /obj/item/storage/backpack/satchel/leather
+	cost = 300
+
+/singleton/biorecipe/clothes/backpacks
+	name = "Backpack"
+	object = /obj/random/biogenerator/backpack
+	cost = 200
+
+/singleton/biorecipe/clothes/botanic_leather
+	name = "Botanical Gloves"
+	object = /obj/item/clothing/gloves/botanic_leather
+	cost = 150
+
+/singleton/biorecipe/clothes/gloves
+	name = "Gloves"
+	object = /obj/random/biogenerator/gloves
+	cost = 125
+
+/singleton/biorecipe/clothes/utility
+	name = "Utility Belt"
+	object = /obj/item/storage/belt/utility
+	cost = 200
+
+/singleton/biorecipe/clothes/hydrobelt
+	name = "Hydroponic Belt"
+	object = /obj/item/storage/belt/hydro
+	cost = 200
 
 /*
 SPECIAL
 */
-
-/singleton/biorecipe/mushroom
-	name = "Pet Mushroom"
-	class = BIOGEN_SPECIAL
-	object = /mob/living/simple_animal/mushroom
-	cost = 1000
 
 /singleton/biorecipe/cube
 	name = "Monkey Cube"
@@ -295,10 +459,10 @@ SPECIAL
 	object = /obj/item/shield/buckler
 	cost = 500
 
-/singleton/biorecipe/illegal/tree
-	name = "Tree"
-	object = /mob/living/simple_animal/hostile/tree
-	cost = 1000
+/singleton/biorecipe/illegal/ziptie
+	name = "Ziptie"
+	object = /obj/item/handcuffs/ziptie
+	cost = 75
 
 /obj/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
@@ -489,7 +653,7 @@ SPECIAL
 		return FALSE
 
 	var/totake = round(recipe.cost/build_eff)
-	var/delay = totake/2
+	var/delay = totake/3
 	//Meat = 5 seconds
 
 	if(!processing)

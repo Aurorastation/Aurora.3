@@ -1127,7 +1127,7 @@
 
 // Hydroponics Apron
 /obj/item/clothing/accessory/apron/blue // Used for hydroponics.
-	color = "#3429d1"
+	color = COLOR_HYDROBLUE
 	allowed = list(
 		/obj/item/reagent_containers/spray/plantbgone,
 		/obj/item/device/analyzer/plant_analyzer,
@@ -1197,7 +1197,7 @@
 
 // Hydroponics Overalls
 /obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
-	color = "#3429d1"
+	color = COLOR_HYDROBLUE
 
 // High Back Overalls
 /obj/item/clothing/accessory/overalls/high_back
