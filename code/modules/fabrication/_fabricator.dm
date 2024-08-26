@@ -60,7 +60,6 @@
 	var/static/list/stored_substances_to_names = list()
 
 /obj/machinery/fabricator/Initialize()
-	..()
 	print_loc = src
 	stored_material = list()
 	for(var/mat in base_storage_capacity)
@@ -76,6 +75,8 @@
 			else if(ispath(mat, /singleton/reagent))
 				var/singleton/reagent/reg = mat
 				stored_substances_to_names[mat] = initial(reg.name)
+
+	. = ..()
 
 /obj/machinery/fabricator/Destroy()
 	print_loc = null
