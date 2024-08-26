@@ -1,7 +1,6 @@
 ABSTRACT_TYPE(/singleton/fabricator_recipe/materials)
 	name = "Abstract Materials"
 	category = "Materials"
-
 	is_stack = TRUE
 
 /singleton/fabricator_recipe/materials/metal

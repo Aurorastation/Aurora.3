@@ -31,7 +31,9 @@ type Recipe = {
   sheets: number;
   can_make: BooleanLike;
   recipe: string;
-  hidden: BooleanLike;
+  security_level: string;
+  hack_only: BooleanLike;
+  enabled: BooleanLike;
   build_time: number;
 };
 

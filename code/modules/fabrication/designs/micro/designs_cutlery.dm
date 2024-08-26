@@ -1,4 +1,9 @@
-/singleton/fabricator_recipe/cutlery
+ABSTRACT_TYPE(/singleton/fabricator_recipe/cutlery)
+	name = "Abstract Cutlery"
+	category = "Cutlery"
+	fabricator_types = list(FABRICATOR_CLASS_MICRO)
+
+/singleton/fabricator_recipe/cutlery/fork_aluminum
 	name = "fork, aluminium"
 	path = /obj/item/material/kitchen/utensil/fork
 	category = "Cutlery"
