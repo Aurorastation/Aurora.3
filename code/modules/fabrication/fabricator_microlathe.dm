@@ -20,7 +20,7 @@
 
 /obj/machinery/fabricator/micro/bartender/Initialize()
 	. = ..()
-	stored_material[MATERIAL_GLASS] = base_storage_capacity[MATERIAL_GLASS]
+	stored_material[MATERIAL_GLASS] = storage_capacity[MATERIAL_GLASS]
 
 //Subtype for mapping, starts preloaded and set to print cutlery
 /obj/machinery/fabricator/micro/cafe
@@ -28,5 +28,5 @@
 
 /obj/machinery/fabricator/micro/cafe/Initialize()
 	. = ..()
-	stored_material[MATERIAL_PLASTIC] = base_storage_capacity[MATERIAL_PLASTIC]
-	stored_material[MATERIAL_BAMBOO] = base_storage_capacity[MATERIAL_BAMBOO]
+	stored_material[MATERIAL_PLASTIC] = storage_capacity[MATERIAL_PLASTIC]
+	stored_material[MATERIAL_BAMBOO] = storage_capacity[MATERIAL_BAMBOO]
