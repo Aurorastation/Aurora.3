@@ -64,9 +64,6 @@
 		var/obj/item/P = pulling
 		tally += P.slowdown
 
-	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(-2, tally - 3)
-
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
 		var/datum/changeling/changeling
