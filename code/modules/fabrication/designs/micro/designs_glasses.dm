@@ -1,9 +1,12 @@
-/singleton/fabricator_recipe/drinking_glass
-	name = "drinking glass"
-	path = /obj/item/reagent_containers/food/drinks/drinkingglass
+ABSTRACT_TYPE(/singleton/fabricator_recipe/cutlery)
+	name = "Abstract Drinking Glasses"
 	category = "Drinking Glasses"
 	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
 	build_time = 3 SECONDS
+
+/singleton/fabricator_recipe/drinking_glass/regular_glass
+	name = "drinking glass"
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass
 
 /singleton/fabricator_recipe/drinking_glass/half_pint_glass
 	name = "half pint glass"
@@ -44,8 +47,3 @@
 /singleton/fabricator_recipe/drinking_glass/goblet_glass
 	name = "goblet glass"
 	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet
-
-/singleton/fabricator_recipe/bottle
-	name = "bottle"
-	path = /obj/item/reagent_containers/food/drinks/bottle
-	category = "Drinking Glasses"

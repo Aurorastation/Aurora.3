@@ -43,7 +43,8 @@
 /obj/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
 
 	// Do some basic sanity checking.
-	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)))
+	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)) || !can_print_item(recipe))
+		CRASH("([usr.ckey]) tried to print an invalid recipe in [src]! [R], param is [params["recipe"]].")
 		return
 
 	multiplier = sanitize_integer(multiplier, 1, 100, 1)
@@ -81,3 +82,15 @@
 				stored_material[mat] = min(stored_material[mat] + (order.earmarked_materials[mat] * 0.9), storage_capacity[mat])
 			print_queue -= order
 		qdel(order)
+
+/obj/machinery/fabricator/proc/can_print_item(singleton/fabricator_recipe/recipe)
+	var/ship_security_level = seclevel2num(get_security_level())
+	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship fabricators
+
+	if(!(fab_status_flags & FAB_HACKED))
+		if(recipe.hack_only)
+			return FALSE
+		else if(is_on_ship && ship_security_level < recipe.security_level)
+			return FALSE
+
+	return TRUE

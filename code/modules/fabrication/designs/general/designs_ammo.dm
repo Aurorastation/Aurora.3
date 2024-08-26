@@ -36,7 +36,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 
 /singleton/fabricator_recipe/ammunition/shotgun/stun
 	name = "shells (stun cartridge, shotgun)"
-	path = /obj/item/ammo_pile/shotgun_stunshell
+	path = /obj/item/ammo_casing/shotgun/stunshell
 
 /singleton/fabricator_recipe/ammunition/shotgun/slug
 	name = "shells (slug, shotgun)"
@@ -53,14 +53,14 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/a357
 	hack_only = TRUE
 
-/singleton/fabricator_recipe/ammunition/detective_revolver_lethal
-	name = "speed loader (.38)"
-	path = /obj/item/ammo_magazine/c38
-	hack_only = TRUE
-
 /singleton/fabricator_recipe/ammunition/detective_revolver_rubber
 	name = "speed loader (.38, rubber)"
 	path = /obj/item/ammo_magazine/c38/rubber
+	hack_only = TRUE
+
+/singleton/fabricator_recipe/ammunition/detective_revolver_lethal
+	name = "speed loader (.38)"
+	path = /obj/item/ammo_magazine/c38
 	hack_only = TRUE
 
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five
@@ -81,11 +81,6 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45m/stendo
 	security_level = SEC_LEVEL_RED
 
-/singleton/fabricator_recipe/ammunition/magazine_fourty_five/extended/rubber
-	name = "magazine (.45, extended rubber, pistol)"
-	path = /obj/item/ammo_magazine/c45m/stendo/rubber
-	security_level = SEC_LEVEL_GREEN
-
 /singleton/fabricator_recipe/ammunition/submachine_mag
 	name = "magazine (.45, submachine gun)"
 	path = /obj/item/ammo_magazine/submachinemag
@@ -94,16 +89,6 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 /singleton/fabricator_recipe/ammunition/uzi_mag
 	name = "magazine (.45, machine pistol)"
 	path = /obj/item/ammo_magazine/c45uzi
-	security_level = SEC_LEVEL_RED
-
-/singleton/fabricator_recipe/ammunition/magazine_xanu_pistol
-	name = "magazine (4.6mm)"
-	path = /obj/item/ammo_magazine/c46m
-	security_level = SEC_LEVEL_RED
-
-/singleton/fabricator_recipe/ammunition/magazine_xanu_smg
-	name = "magazine (4.6mm, extended)"
-	path = /obj/item/ammo_magazine/c46m/extended
 	security_level = SEC_LEVEL_RED
 
 /singleton/fabricator_recipe/ammunition/magazine_stetchkin
@@ -147,11 +132,6 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 /singleton/fabricator_recipe/ammunition/magazine_smallcarbinepolymer
 	name = "magazine (5.56mm polymer, carbine)"
 	path = /obj/item/ammo_magazine/a556/carbine/polymer
-	security_level = SEC_LEVEL_RED
-
-/singleton/fabricator_recipe/ammunition/magazine_xanu_rifle
-	name = "magazine (6.5mm, rifle)"
-	path = /obj/item/ammo_magazine/a65
 	security_level = SEC_LEVEL_RED
 
 /singleton/fabricator_recipe/ammunition/magazine_arifle

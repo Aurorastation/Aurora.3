@@ -111,7 +111,9 @@
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
-		recipe_data["hidden"] = R.hidden
+		recipe_data["security_level"] = R.security_level ? capitalize(num2seclevel(R.security_level)) : "None"
+		recipe_data["hack_only"] = R.hack_only
+		recipe_data["enabled"] = can_print_item(R)
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += "[R.resources[resource] * mat_efficiency] [resource]"
