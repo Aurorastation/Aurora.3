@@ -43,6 +43,8 @@ SUBSYSTEM_DEF(fabrication)
 
 /datum/controller/subsystem/fabrication/Initialize()
 	for(var/singleton/fabricator_recipe/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/fabricator_recipe))
+		if(is_abstract(recipe))
+			continue
 		if(!recipe.name)
 			continue
 		for(var/type in recipe.fabricator_types)

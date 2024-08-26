@@ -106,7 +106,7 @@
 	data["recipes"] = list()
 	for(var/recipe in SSfabrication.get_recipes(fabricator_class))
 		var/singleton/fabricator_recipe/R = recipe
-		if(R.hidden && !(fab_status_flags & FAB_HACKED))
+		if(R.hack_only && !(fab_status_flags & FAB_HACKED))
 			continue
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name

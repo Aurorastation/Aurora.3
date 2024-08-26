@@ -44,7 +44,6 @@
 
 	// Do some basic sanity checking.
 	if(!is_functioning() || !istype(recipe) || !(recipe in SSfabrication.get_recipes(fabricator_class)) || !can_print_item(recipe))
-		CRASH("([usr.ckey]) tried to print an invalid recipe in [src]! [R], param is [params["recipe"]].")
 		return
 
 	multiplier = sanitize_integer(multiplier, 1, 100, 1)

@@ -156,14 +156,30 @@ export const CategoryData = (props, context) => {
                 <Table.Cell py={0.25}>
                   <Button
                     content={
-                      <Box bold color={recipe.hidden ? 'red' : ''}>
+                      <Box bold color={recipe.hack_only ? 'red' : ''}>
                         {capitalizeAll(recipe.name)}
                       </Box>
                     }
-                    disabled={recipe.can_make}
-                    color="transparent"
+                    tooltip={
+                      !recipe.enabled
+                        ? 'Security Level Needed: ' + recipe.security_level
+                        : ''
+                    }
+                    className={
+                      !recipe.enabled || recipe.can_make
+                        ? 'color-disabled'
+                        : 'color-default'
+                    }
+                    backgroundColor={
+                      !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                    }
+                    textColor={
+                      !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                    }
                     onClick={() =>
-                      act('make', { multiplier: 1, recipe: recipe.recipe })
+                      !recipe.enabled || recipe.can_make
+                        ? null
+                        : act('make', { multiplier: 1, recipe: recipe.recipe })
                     }
                   />
                   {recipe.max_sheets ? (
@@ -171,41 +187,80 @@ export const CategoryData = (props, context) => {
                       {' '}
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x5]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', { multiplier: 5, recipe: recipe.recipe })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: 5,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x10]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', { multiplier: 10, recipe: recipe.recipe })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: 10,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x{recipe.max_sheets}]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', {
-                            multiplier: recipe.max_sheets,
-                            recipe: recipe.recipe,
-                          })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: recipe.max_sheets,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                     </>
