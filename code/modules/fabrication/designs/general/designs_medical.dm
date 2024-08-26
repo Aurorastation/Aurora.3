@@ -1,63 +1,55 @@
-/singleton/fabricator_recipe/scalpel
+ABSTRACT_TYPE(/singleton/fabricator_recipe/medical)
+	name = "Abstract Medical"
+	category = "Medical"
+
+/singleton/fabricator_recipe/medical/scalpel
 	name = "scalpel"
 	path = /obj/item/surgery/scalpel
-	category = "Medical"
 
-/singleton/fabricator_recipe/circularsaw
+/singleton/fabricator_recipe/medical/circularsaw
 	name = "circular saw"
 	path = /obj/item/surgery/circular_saw
-	category = "Medical"
 
-/singleton/fabricator_recipe/surgicaldrill
+/singleton/fabricator_recipe/medical/surgicaldrill
 	name = "surgical drill"
 	path = /obj/item/surgery/surgicaldrill
-	category = "Medical"
 
-/singleton/fabricator_recipe/retractor
+/singleton/fabricator_recipe/medical/retractor
 	name = "retractor"
 	path = /obj/item/surgery/retractor
-	category = "Medical"
 
-/singleton/fabricator_recipe/cautery
+/singleton/fabricator_recipe/medical/cautery
 	name = "cautery"
 	path = /obj/item/surgery/cautery
-	category = "Medical"
 
-/singleton/fabricator_recipe/hemostat
+/singleton/fabricator_recipe/medical/hemostat
 	name = "hemostat"
 	path = /obj/item/surgery/hemostat
-	category = "Medical"
 
-/singleton/fabricator_recipe/beaker
+/singleton/fabricator_recipe/medical/beaker
 	name = "glass beaker"
 	path = /obj/item/reagent_containers/glass/beaker
-	category = "Medical"
 
-/singleton/fabricator_recipe/beaker_large
+/singleton/fabricator_recipe/medical/beaker_large
 	name = "large glass beaker"
 	path = /obj/item/reagent_containers/glass/beaker/large
-	category = "Medical"
 
-/singleton/fabricator_recipe/vial
+/singleton/fabricator_recipe/medical/vial
 	name = "glass vial"
 	path = /obj/item/reagent_containers/glass/beaker/vial
-	category = "Medical"
 
-/singleton/fabricator_recipe/autoinjector
+/singleton/fabricator_recipe/medical/autoinjector
 	name = "autoinjector"
 	path = /obj/item/reagent_containers/hypospray/autoinjector
-	category = "Medical"
 
-/singleton/fabricator_recipe/autoinhaler
+/singleton/fabricator_recipe/medical/autoinhaler
 	name = "autoinhaler"
 	path = /obj/item/reagent_containers/inhaler
-	category = "Medical"
 
-/singleton/fabricator_recipe/syringe
+/singleton/fabricator_recipe/medical/syringe
 	name = "syringe"
 	path = /obj/item/reagent_containers/syringe
-	category = "Medical"
 
-/singleton/fabricator_recipe/syringe/large
+/singleton/fabricator_recipe/medical/syringe/large
 	name = "large syringe"
 	path = /obj/item/reagent_containers/syringe/large

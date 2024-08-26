@@ -36,7 +36,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 
 /singleton/fabricator_recipe/ammunition/shotgun/stun
 	name = "shells (stun cartridge, shotgun)"
-	path = /obj/item/ammo_pile/shotgun_stunshell
+	path = /obj/item/ammo_casing/shotgun/stunshell
 
 /singleton/fabricator_recipe/ammunition/shotgun/slug
 	name = "shells (slug, shotgun)"
@@ -53,14 +53,14 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/ammunition)
 	path = /obj/item/ammo_magazine/a357
 	hack_only = TRUE
 
-/singleton/fabricator_recipe/ammunition/detective_revolver_lethal
-	name = "speed loader (.38)"
-	path = /obj/item/ammo_magazine/c38
-	hack_only = TRUE
-
 /singleton/fabricator_recipe/ammunition/detective_revolver_rubber
 	name = "speed loader (.38, rubber)"
 	path = /obj/item/ammo_magazine/c38/rubber
+	hack_only = TRUE
+
+/singleton/fabricator_recipe/ammunition/detective_revolver_lethal
+	name = "speed loader (.38)"
+	path = /obj/item/ammo_magazine/c38
 	hack_only = TRUE
 
 /singleton/fabricator_recipe/ammunition/magazine_fourty_five

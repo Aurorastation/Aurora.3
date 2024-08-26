@@ -1,9 +1,12 @@
 /singleton/fabricator_recipe
 	/// Name to show in the fabricator for this recipe
 	var/name = "object"
+	/// Path of the object to print
 	var/path
-	/// Whether the recipe needs the fabricator to be hacked
-	var/hidden
+	/// If true, the fabricator needs to be hacked before it can print this design
+	var/hack_only
+	/// If set, the ship needs to be at this alert level before fabricators on it can print this design. Ignored if hacked
+	var/security_level
 	/// What category will the recipe appear in?
 	var/category
 	/// What resources the recipe needs. Defaults to the amount of materials inside the object, multiplied by 1.25
