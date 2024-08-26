@@ -1,4 +1,4 @@
-ABSTRACT_TYPE(/singleton/fabricator_recipe/cutlery)
+ABSTRACT_TYPE(/singleton/fabricator_recipe/drinking_glass)
 	name = "Abstract Drinking Glasses"
 	category = "Drinking Glasses"
 	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
