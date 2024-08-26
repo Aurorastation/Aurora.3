@@ -47,6 +47,7 @@
 	/// Snowflake for mounted autolathes
 	var/does_flick = TRUE
 
+	/// The fabricator's wires
 	var/datum/wires/fabricator/wires
 
 	component_types = list(
@@ -60,6 +61,7 @@
 	var/static/list/stored_substances_to_names = list()
 
 /obj/machinery/fabricator/Initialize()
+	wires = new(src)
 	print_loc = src
 	stored_material = list()
 	for(var/mat in base_storage_capacity)
