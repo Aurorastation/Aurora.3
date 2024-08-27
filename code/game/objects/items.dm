@@ -504,7 +504,7 @@
 	remove_item_verbs(user)
 
 	for(var/trait in equipped_traits)
-		REMOVE_TRAIT(user, trait, ref(src))
+		REMOVE_TRAIT(user, trait, REF(src))
 
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
@@ -543,7 +543,7 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	for(var/trait in equipped_traits)
-		REMOVE_TRAIT(user, trait, ref(src))
+		REMOVE_TRAIT(user, trait, REF(src))
 
 ///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -1381,8 +1381,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/add_equipped_traits_to_mob(var/mob/mob)
 	for(var/trait in equipped_traits)
-		ADD_TRAIT(mob, trait, ref(src))
+		ADD_TRAIT(mob, trait, REF(src))
 
 /obj/item/proc/remove_equipped_traits_from_mob(var/mob/mob)
 	for(var/trait in equipped_traits)
-		REMOVE_TRAIT(mob, trait, ref(src))
+		REMOVE_TRAIT(mob, trait, REF(src))

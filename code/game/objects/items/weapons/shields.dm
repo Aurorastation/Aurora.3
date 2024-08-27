@@ -118,13 +118,13 @@
 	return FALSE
 
 /obj/item/shield/proc/handle_damage(var/mob/user, var/damage)
-	if(shield_health == 0)
+	if(shield_health <= 0)
 		return
 
 	shield_health = clamp(shield_health - damage, 0, max_shield_health)
 
-	if(shield_health == 0)
-		playsound(user.loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+	if(shield_health <= 0)
+		playsound(get_turf(user), /singleton/sound_category/wood_break_sound, 50, TRUE)
 		to_chat(user, SPAN_DANGER("\The [src] breaks!"))
 		user.balloon_alert_to_viewers("Shield Broken", "Shield Broken")
 
@@ -159,7 +159,7 @@
 	var/cooldown = 0
 
 /obj/item/shield/riot/update_icon()
-	if(shield_health == 0)
+	if(shield_health <= 0)
 		icon_state = "[initial(icon_state)]_broken"
 		item_state = "[initial(icon_state)]_broken"
 	else
@@ -174,13 +174,13 @@
 
 /obj/item/shield/riot/handle_damage(mob/user, damage)
 	. = ..()
-	if(shield_health == 0)
+	if(shield_health <= 0)
 		update_icon()
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
 	if(.)
-		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
@@ -219,7 +219,7 @@
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
 	if(.)
-		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
 
 /*
  * Energy Shield
@@ -343,7 +343,7 @@
 	return FALSE
 
 /obj/item/shield/energy/handle_damage(var/mob/user, var/damage)
-	if(shield_health == 0)
+	if(shield_health <= 0)
 		return
 
 	spark(user.loc, 5)
@@ -481,15 +481,15 @@
 
 	. = ..()
 	if(.)
-		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/tact/handle_damage(var/mob/user, var/damage)
 	. = ..()
-	if(shield_health == 0)
+	if(shield_health <= 0)
 		HandleClose()
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
-	if(!active && shield_health == 0)
+	if(!active && shield_health <= 0)
 		to_chat(user, SPAN_WARNING("\The [src] is too damaged to open!"))
 		return
 
