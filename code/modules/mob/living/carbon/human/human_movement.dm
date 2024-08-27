@@ -1,3 +1,5 @@
+//I would have rewritten this whole thing, but it requires to change half a million systems for it to be proper, therefore
+//i declare this shit legacy code, to be slowly phased out as things get updated
 /mob/living/carbon/human/movement_delay()
 
 	var/tally = 0
@@ -24,8 +26,6 @@
 	if(shock >= 10)
 		tally += (shock / 30) //get_shock checks if we can feel pain
 
-	tally += ClothesSlowdown()
-
 	if(species)
 		tally += species.get_species_tally(src)
 
@@ -34,7 +34,7 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at)
+	if(aiming?.aiming_at)
 		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
 	if (is_drowsy())
@@ -49,16 +49,6 @@
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 	if((mutations & mRun))
 		tally = 0
-
-	tally = max(-2, tally + move_delay_mod)
-
-	var/obj/item/AH = get_active_hand()
-	if(istype(AH))
-		tally += AH.slowdown
-
-	var/obj/item/IH = get_inactive_hand()
-	if(istype(IH))
-		tally += IH.slowdown
 
 	if(isitem(pulling))
 		var/obj/item/P = pulling
@@ -190,11 +180,6 @@
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
 
-/mob/living/carbon/human/proc/ClothesSlowdown()
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
-		. += I.slowdown
-		. += I.slowdown_accessory
-
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()
 
@@ -202,4 +187,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
-		. += H.ClothesSlowdown()
+		// . += H.ClothesSlowdown()

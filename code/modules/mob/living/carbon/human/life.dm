@@ -642,7 +642,6 @@
 			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-		move_delay_mod = 0
 
 		if(CE_ADRENALINE in chem_effects)
 			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
