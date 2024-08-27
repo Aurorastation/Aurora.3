@@ -364,9 +364,14 @@ CLOTHING
 	object = /obj/item/storage/backpack/satchel/leather
 	cost = 300
 
-/singleton/biorecipe/clothes/backpacks
-	name = "Backpack"
+/singleton/biorecipe/clothes/backpack
+	name = "Generic Backpack"
 	object = /obj/random/biogenerator/backpack
+	cost = 200
+
+/singleton/biorecipe/clothes/backpack
+	name = "Corporate Backpack"
+	object = /obj/random/biogenerator/backpack/corporate
 	cost = 200
 
 /singleton/biorecipe/clothes/botanic_leather
@@ -375,7 +380,12 @@ CLOTHING
 	cost = 150
 
 /singleton/biorecipe/clothes/gloves
-	name = "Gloves"
+	name = "Black Gloves"
+	object = /obj/random/biogenerator/gloves
+	cost = 125
+
+/singleton/biorecipe/clothes/gloves/random
+	name = "Random Gloves"
 	object = /obj/random/biogenerator/gloves
 	cost = 125
 

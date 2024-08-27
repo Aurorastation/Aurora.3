@@ -544,7 +544,7 @@
 		/obj/item/yarn/yellow
 	)
 
-/obj/random/horticulture
+/obj/random/horticulture_magazine
 	name = "random horticulture magazine"
 	desc = "This is a random magazine."
 	icon = 'icons/obj/toy.dmi'

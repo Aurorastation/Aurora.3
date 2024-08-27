@@ -434,6 +434,7 @@
 	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
 	icon_state = "witchfindernovel"
 	item_state = "witchfindernovel"
+
 //
 // Toy Crossbows
 //

@@ -58,7 +58,7 @@
 
 /obj/effect/floor_decal/industrial/hatch/engineering
 	name = "engineering yellow hatched marking"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/hatch/service
 	name = "service green hatched marking"
@@ -120,7 +120,7 @@
 
 /obj/effect/floor_decal/industrial/hatch_small/engineering
 	name = "engineering yellow hatched marking small"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/hatch_small/service
 	name = "service green hatched marking small"
@@ -182,7 +182,7 @@
 
 /obj/effect/floor_decal/industrial/hatch_tiny/engineering
 	name = "engineering yellow hatched marking tiny"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/hatch_tiny/service
 	name = "service green hatched marking tiny"
@@ -245,7 +245,7 @@
 
 /obj/effect/floor_decal/industrial/hatch_door/engineering
 	name = "engineering yellow hatched marking door"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/hatch_door/service
 	name = "service green hatched marking door"
@@ -307,7 +307,7 @@
 
 /obj/effect/floor_decal/industrial/outline/engineering
 	name = "engineering yellow outline"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline/service
 	name = "service green outline"
@@ -369,7 +369,7 @@
 
 /obj/effect/floor_decal/industrial/outline_corner/engineering
 	name = "engineering yellow outline corner"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline_corner/service
 	name = "service green outline corner"
@@ -431,7 +431,7 @@
 
 /obj/effect/floor_decal/industrial/outline_straight/engineering
 	name = "engineering yellow outline"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline_straight/service
 	name = "service green outline"
@@ -493,7 +493,7 @@
 
 /obj/effect/floor_decal/industrial/outline_segment/engineering
 	name = "engineering yellow outline"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline_segment/service
 	name = "service green outline"
@@ -555,7 +555,7 @@
 
 /obj/effect/floor_decal/industrial/outline_door/engineering
 	name = "engineering yellow door outline"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline_door/service
 	name = "service green door outline"
@@ -617,7 +617,7 @@
 
 /obj/effect/floor_decal/industrial/loading/engineering
 	name = "engineering yellow loading area"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/loading/service
 	name = "service green loading area"
@@ -679,7 +679,7 @@
 
 /obj/effect/floor_decal/industrial/arrow/engineering
 	name = "engineering yellow arrow"
-	color = COLOR_WARM_YELLOW
+	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/arrow/service
 	name = "service green arrow"
