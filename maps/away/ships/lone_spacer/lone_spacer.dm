@@ -64,34 +64,38 @@
 	base_turf = /turf/space
 
 /area/shuttle/lone_spacer
-	name = "Tramp Freighter"
+	name = "Independent Skiff"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/lone_spacer/bridge
-	name = "Lone Spacer - Bridge"
+	name = "Independent Skiff - Bridge"
 
 /area/shuttle/lone_spacer/bridge_foyer
-	name = "Lone Spacer - Bridge Foyer"
+	name = "Independent Skiff - Bridge Foyer"
 
 /area/shuttle/lone_spacer/fore_hall
-	name = "Lone Spacer - Fore Hall"
+	name = "Independent Skiff - Fore Hall"
 
 /area/shuttle/lone_spacer/washroom
-	name = "Lone Spacer - Washroom"
+	name = "Independent Skiff - Washroom"
 
 /area/shuttle/lone_spacer/storage
-	name = "Lone Spacer - Storage Compartments"
+	name = "Independent Skiff - Storage Compartments"
 
 /area/shuttle/lone_spacer/port_storage
-	name = "Lone Spacer - Portside Storage"
+	name = "Independent Skiff - Portside Storage"
 
 /area/shuttle/lone_spacer/port_nacelle
-	name = "Lone Spacer - Portside Nacelle"
+	name = "Independent Skiff - Portside Nacelle"
 
 /area/shuttle/lone_spacer/starboard_storage
-	name = "Lone Spacer - Starboard Storage"
+	name = "Independent Skiff - Starboard Storage"
 
 /area/shuttle/lone_spacer/starboard_nacelle
-	name = "Lone Spacer - Starboard Nacelle"
+	name = "Independent Skiff - Starboard Nacelle"
+
+// Custom stuff
+/obj/machinery/light/colored/decayed/lone_spacer
+	brightness_power = 0.3

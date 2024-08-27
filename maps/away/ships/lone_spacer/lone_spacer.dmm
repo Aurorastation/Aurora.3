@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ah" = (
 /obj/structure/bed/stool/chair/office/dark{
-	dir = 4
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -62,6 +62,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
+"at" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/bridge_foyer)
 "av" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -100,6 +103,10 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aT" = (
@@ -112,6 +119,9 @@
 	pixel_x = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "aY" = (
@@ -139,6 +149,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/starboard_nacelle)
@@ -215,6 +228,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/fore_hall)
+"cI" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/bridge)
 "db" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -271,7 +287,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/lone_spacer/storage)
 "dF" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "dY" = (
@@ -328,6 +346,10 @@
 	dir = 1;
 	pixel_y = -1
 	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/marble,
 /area/shuttle/lone_spacer/washroom)
 "fC" = (
@@ -359,10 +381,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/port_nacelle)
-"fS" = (
+"fT" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/starboard_nacelle)
+"ge" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "gi" = (
@@ -432,12 +456,9 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
-"gF" = (
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/washroom)
 "gG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/bridge)
+/area/shuttle/lone_spacer/fore_hall)
 "gK" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -453,6 +474,10 @@
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -476,19 +501,33 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
+"hM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/shuttle/lone_spacer/bridge)
+"ij" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
 "ip" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/west{
-	req_one_access = list()
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "iu" = (
@@ -502,12 +541,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"iO" = (
-/obj/effect/shuttle_landmark/ship/lone_spacer{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "iW" = (
 /obj/item/stack/packageWrap,
 /obj/item/device/hand_labeler{
@@ -537,6 +570,13 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/washroom)
+"ka" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/shutters/open{
+	id = "lone_spacer_window_shutters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/lone_spacer/port_storage)
 "kg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/blast/shutters/open{
@@ -544,7 +584,7 @@
 	id = "lone_spacer_window_shutters"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/lone_spacer/bridge)
+/area/shuttle/lone_spacer/bridge_foyer)
 "ks" = (
 /obj/machinery/mass_driver{
 	dir = 4
@@ -573,6 +613,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/port_nacelle)
+"lx" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/starboard_nacelle)
 "ly" = (
 /obj/structure/table/wood,
 /obj/random/plushie{
@@ -591,9 +637,6 @@
 /obj/random/soap,
 /turf/simulated/floor/marble,
 /area/shuttle/lone_spacer/washroom)
-"lE" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/starboard_nacelle)
 "lF" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -605,8 +648,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	name = "Canister to Thrusters";
-	target_pressure = 15000
+	name = "Thrusters to Canister";
+	target_pressure = 15000;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/gridded,
@@ -649,6 +693,9 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/grenade/stinger,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
 "pd" = (
@@ -693,6 +740,22 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/port_nacelle)
+"ry" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/lone_spacer/storage)
+"rH" = (
+/obj/effect/shuttle_landmark/ship/lone_spacer{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "rI" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -827,7 +890,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/bridge_foyer)
+/area/shuttle/lone_spacer/bridge)
 "tS" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -836,9 +899,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/lone_spacer/port_nacelle)
-"tX" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/starboard_storage)
 "ud" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -855,14 +915,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
-"uG" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
-	dir = 8;
-	id = "lone_spacer_window_shutters"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/lone_spacer/bridge_foyer)
 "uP" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
@@ -982,8 +1034,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/colored/decayed/lone_spacer,
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
+"xN" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/starboard_storage)
 "xP" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -1002,11 +1058,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"xZ" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/bridge_foyer)
 "yc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "yk" = (
@@ -1037,7 +1093,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/lone_spacer/port_storage)
 "za" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -1061,7 +1117,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "zJ" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -1123,6 +1179,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/peridaxon,
 /obj/item/clothing/accessory/holster/thigh/brown{
 	pixel_x = -2;
 	pixel_y = -4
@@ -1143,7 +1201,7 @@
 "BE" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
-/area/shuttle/lone_spacer/port_nacelle)
+/area/shuttle/lone_spacer/starboard_nacelle)
 "CC" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled/dark/full,
@@ -1151,11 +1209,12 @@
 "CL" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/port_nacelle)
-"CN" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/fore_hall)
 "CV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -1174,6 +1233,10 @@
 /area/shuttle/lone_spacer/fore_hall)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/meter,
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "Dv" = (
@@ -1193,19 +1256,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
-"DS" = (
-/obj/effect/shuttle_landmark/lone_spacer_transit,
-/turf/space/transit/north,
-/area/space)
-"Ef" = (
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/fore_hall)
 "Em" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/starboard_nacelle)
+/area/shuttle/lone_spacer/storage)
 "EF" = (
 /obj/machinery/recharge_station,
 /obj/machinery/power/apc/east{
@@ -1214,6 +1270,9 @@
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
@@ -1225,7 +1284,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/lone_spacer/port_storage)
 "Fw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1240,10 +1299,15 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/light/colored/decayed/lone_spacer,
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
 "FO" = (
 /obj/structure/bed,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
 "FX" = (
@@ -1291,6 +1355,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 27;
+	pixel_x = -4
+	},
+/obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Ha" = (
@@ -1299,6 +1369,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
+"Hv" = (
+/obj/effect/shuttle_landmark/lone_spacer_transit{
+	dir = 1
+	},
+/turf/space/transit/north,
+/area/space)
 "HF" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 8
@@ -1326,7 +1402,8 @@
 /area/shuttle/lone_spacer/washroom)
 "IA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary{
-	color = "#565454"
+	color = "#565454";
+	can_open = 1
 	},
 /area/shuttle/lone_spacer/fore_hall)
 "IN" = (
@@ -1367,6 +1444,10 @@
 	dir = 8;
 	icon_state = "warning"
 	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/fore_hall)
 "Js" = (
@@ -1392,6 +1473,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
+"KE" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "lone_spacer_window_shutters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/lone_spacer/bridge)
 "KF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1416,6 +1505,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
+"Lq" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Lx" = (
 /obj/machinery/suit_cycler/freelancer/prepared{
 	req_access = list();
@@ -1439,8 +1534,15 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/fore_hall)
+"Mp" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/lone_spacer/port_nacelle)
 "Mu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1465,15 +1567,31 @@
 	pixel_x = 3
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
+"MI" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/port_nacelle)
 "NI" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/alarm/north{
 	req_one_access = list()
 	},
 /obj/item/device/paicard,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/techfloor,
+/area/shuttle/lone_spacer/bridge)
+"NR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
 /area/shuttle/lone_spacer/bridge)
 "NY" = (
 /obj/structure/closet/crate/plastic,
@@ -1482,12 +1600,14 @@
 /obj/item/material/folding_table,
 /obj/item/material/folding_table,
 /obj/item/material/folding_table,
+/obj/item/material/folding_table,
 /obj/item/material/stool/chair/folding/camping,
 /obj/item/material/stool/chair/folding/camping,
 /obj/item/material/stool/chair/folding/camping,
+/obj/item/sleeping_bag{
+	color = "#574836"
+	},
 /obj/item/tent,
-/obj/item/sleeping_bag,
-/obj/item/sleeping_bag,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "Ok" = (
@@ -1501,9 +1621,6 @@
 /obj/item/circuitboard/autolathe,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
-"Op" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/port_nacelle)
 "Os" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -1590,6 +1707,9 @@
 	pixel_x = -14;
 	pixel_y = -12
 	},
+/obj/machinery/alarm/north{
+	req_one_access = list()
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "Qi" = (
@@ -1672,6 +1792,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/lone_spacer/washroom)
@@ -1784,7 +1907,6 @@
 	},
 /obj/item/device/flashlight/lantern{
 	pixel_y = 11;
-	on = 1;
 	pixel_x = -16
 	},
 /obj/item/tank/emergency_oxygen/double{
@@ -1796,15 +1918,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
-"Tf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/lone_spacer/port_nacelle)
 "Tk" = (
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
 "TE" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
 /obj/item/device/radio/intercom/expedition/hailing/north{
 	pixel_x = -30;
 	pixel_y = 19
@@ -1822,6 +1942,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
+"Us" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/lone_spacer/washroom)
 "Uu" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1861,6 +1984,7 @@
 "Va" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/lone_spacer,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
 "Vm" = (
@@ -1890,22 +2014,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
-"Wd" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/airless,
-/area/shuttle/lone_spacer/starboard_nacelle)
-"Wy" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"Xc" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
-/obj/machinery/door/blast/shutters/open{
-	id = "lone_spacer_window_shutters"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/lone_spacer/port_storage)
 "Xv" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
@@ -1949,6 +2057,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
+/area/shuttle/lone_spacer/fore_hall)
+"XE" = (
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/lone_spacer/fore_hall)
 "XJ" = (
 /obj/structure/table/wood,
@@ -1999,6 +2110,9 @@
 "Ym" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/light/colored/decayed/lone_spacer{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/port_nacelle)
 "Yt" = (
@@ -2039,6 +2153,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
+"Zi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/lone_spacer/port_nacelle)
 "Zu" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/computer/cryopod{
@@ -7430,7 +7548,7 @@ bm
 bm
 bm
 bm
-DS
+Hv
 bm
 bm
 bm
@@ -32259,10 +32377,10 @@ vp
 vp
 vp
 vp
-lE
-lE
-lE
-lE
+fT
+fT
+fT
+fT
 vp
 vp
 vp
@@ -32516,14 +32634,14 @@ vp
 vp
 vp
 vp
-lE
+fT
 bl
 Jf
-lE
-lE
-lE
-lE
-lE
+fT
+fT
+fT
+fT
+fT
 vp
 vp
 vp
@@ -32771,32 +32889,32 @@ vp
 vp
 vp
 vp
-lE
-lE
-lE
+fT
+fT
+fT
 ws
 ws
-lE
+fT
 za
 ZO
 ZO
-lE
-lE
-lE
+fT
+fT
+fT
 vp
 vp
 vp
 vp
-Ef
+XE
 Ss
-CN
-CN
-CN
-CN
-CN
-CN
-CN
-CN
+gG
+gG
+gG
+gG
+gG
+gG
+gG
+gG
 vp
 vp
 vp
@@ -33028,7 +33146,7 @@ vp
 vp
 vp
 vp
-Wd
+BE
 Qz
 lF
 Zd
@@ -33037,14 +33155,14 @@ ip
 cp
 Yt
 QH
-Em
+lx
 be
 oZ
 vp
 vp
 vp
 vp
-Ef
+XE
 ew
 Jk
 FX
@@ -33053,7 +33171,7 @@ IA
 Tk
 FO
 Pk
-CN
+gG
 vp
 vp
 vp
@@ -33285,7 +33403,7 @@ vp
 vp
 vp
 vp
-Wd
+BE
 gO
 PW
 nh
@@ -33301,16 +33419,16 @@ LU
 LU
 LU
 LU
-Ef
+XE
 XU
 wJ
 Xw
 wG
-CN
+gG
 hf
-CN
-CN
-CN
+gG
+gG
+gG
 vp
 vp
 vp
@@ -33542,7 +33660,7 @@ vp
 vp
 vp
 vp
-Wd
+BE
 PC
 ug
 Dq
@@ -33558,12 +33676,12 @@ gK
 gK
 gK
 gK
-Ef
+XE
 CV
 ZC
-CN
-CN
-CN
+gG
+gG
+gG
 vp
 vp
 vp
@@ -33799,12 +33917,12 @@ vp
 vp
 vp
 vp
-lE
-lE
-lE
-lE
+fT
+fT
+fT
+fT
 db
-lE
+fT
 LU
 gK
 gK
@@ -33815,17 +33933,17 @@ gK
 gK
 gK
 gK
-Ef
+XE
 PD
 Tc
-CN
+gG
 vp
 vp
 vp
-gG
-gG
-gG
-gG
+cI
+cI
+cI
+cI
 vp
 vp
 vp
@@ -34058,7 +34176,7 @@ vp
 vp
 vp
 vp
-tX
+xN
 kG
 bG
 XY
@@ -34072,18 +34190,18 @@ gK
 gK
 gK
 gK
-Ef
+XE
 PR
 Ok
-CN
+gG
 vp
 vp
-gG
-gG
+cI
+cI
 st
 ly
-gG
-vp
+cI
+NR
 vp
 vp
 vp
@@ -34329,18 +34447,18 @@ LU
 Xv
 Xv
 LU
-Ef
+XE
 xk
-xZ
-xZ
-uG
-uG
-xZ
+at
+at
+kg
+kg
+cI
 NI
 JE
 XJ
-gG
-kg
+cI
+KE
 zh
 vp
 vp
@@ -34570,7 +34688,7 @@ vp
 vp
 vp
 vp
-Wy
+ge
 fn
 fn
 LU
@@ -34586,17 +34704,17 @@ yc
 YV
 YV
 NY
-Ef
+XE
 Gw
-xZ
+at
 pa
 Bq
 CC
-xZ
+cI
 hH
 vK
 dF
-gG
+cI
 zJ
 zh
 zh
@@ -34826,11 +34944,11 @@ vp
 vp
 vp
 vp
-iO
+rH
 sP
 OB
 wF
-fS
+Em
 sQ
 KF
 KP
@@ -35086,7 +35204,7 @@ vp
 vp
 yk
 ud
-ud
+ry
 LU
 RK
 Mz
@@ -35094,23 +35212,23 @@ Vm
 nj
 sp
 sp
-yc
+ij
 iu
-yc
+ij
 sp
 sp
 iW
-Ef
+XE
 xf
-xZ
+at
 EF
 YN
 nQ
-xZ
+cI
 GC
 DC
 vC
-gG
+cI
 HF
 zh
 zh
@@ -35357,18 +35475,18 @@ LU
 Xv
 Xv
 LU
-Ef
+XE
 Fw
-xZ
-xZ
-uG
-uG
-xZ
+at
+at
+kg
+kg
+cI
 gU
 ah
 go
-gG
-kg
+cI
+KE
 zh
 vp
 vp
@@ -35600,7 +35718,7 @@ vp
 vp
 vp
 EV
-Xc
+ka
 kx
 Qi
 Lx
@@ -35614,18 +35732,18 @@ gK
 gK
 gK
 gK
-Ef
+XE
 Zu
 Os
-Ef
+XE
 vp
 vp
-gG
-gG
+cI
+cI
 Rl
 VO
-gG
-vp
+cI
+hM
 vp
 vp
 vp
@@ -35871,17 +35989,17 @@ gK
 gK
 gK
 gK
-Ef
+XE
 AX
 pk
-Ef
+XE
 vp
 vp
 vp
-gG
-kg
-kg
-gG
+cI
+KE
+KE
+cI
 vp
 vp
 vp
@@ -36112,12 +36230,12 @@ vp
 vp
 vp
 vp
-Op
-Op
-Op
-Op
+MI
+MI
+MI
+MI
 Uu
-Op
+MI
 LU
 gK
 gK
@@ -36128,12 +36246,12 @@ gK
 gK
 gK
 gK
-Ef
+XE
 wT
-gF
-gF
-gF
-gF
+Us
+Us
+Us
+Us
 vp
 vp
 vp
@@ -36369,7 +36487,7 @@ vp
 vp
 vp
 vp
-BE
+Mp
 uP
 CL
 aY
@@ -36385,14 +36503,14 @@ LU
 LU
 LU
 LU
-Ef
+XE
 Mc
 jl
 Rp
 Ie
-gF
-gF
-gF
+Us
+Us
+Us
 vp
 vp
 vp
@@ -36626,8 +36744,8 @@ vp
 vp
 vp
 vp
-BE
-Tf
+Mp
+Zi
 lf
 UW
 Mu
@@ -36642,14 +36760,14 @@ vp
 vp
 vp
 vp
-Ef
+XE
 xc
-gF
+Us
 RN
 dY
 vv
 fy
-gF
+Us
 vp
 vp
 vp
@@ -36883,7 +37001,7 @@ vp
 vp
 vp
 vp
-BE
+Mp
 AD
 eT
 Dv
@@ -36892,21 +37010,21 @@ Jj
 eH
 Rf
 Rf
-Op
-Op
+MI
+MI
 vp
 vp
 vp
 vp
 vp
-Ef
+XE
 ks
-gF
+Us
 lB
-gF
-gF
-gF
-gF
+Us
+Us
+Us
+Us
 vp
 vp
 vp
@@ -37140,27 +37258,27 @@ vp
 vp
 vp
 vp
-Op
-Op
-Op
-Op
-Op
-Op
-Op
-Op
-Op
-Op
+MI
+MI
+MI
+MI
+MI
+MI
+MI
+MI
+MI
+MI
 vp
 vp
 vp
 vp
 vp
 vp
-Ef
+XE
 xc
-gF
-gF
-gF
+Us
+Us
+Us
 vp
 vp
 vp
@@ -45134,7 +45252,7 @@ vp
 vp
 vp
 vp
-vp
+Lq
 vp
 vp
 vp
