@@ -58,10 +58,10 @@
 	var/spatial_grid_key
 
 	/**
-	  * In case you have multiple types, you automatically use the most useful one.
-	  * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
-	  * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs.
-	  */
+	 * In case you have multiple types, you automatically use the most useful one.
+	 * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs.
+	 */
 	var/movement_type = GROUND
 
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
