@@ -34,12 +34,13 @@
 #define R_STEALTH       0x100
 #define R_REJUVINATE    0x200
 #define R_VAREDIT       0x400
-#define R_SPAWN         0x800
-#define R_MOD           0x1000
-#define R_DEV           0x2000
-#define R_CCIAA         0x4000 //higher than this will overflow
+#define R_SOUNDS        0x800
+#define R_SPAWN         0x1000
+#define R_MOD           0x2000
+#define R_DEV           0x4000
+#define R_CCIAA         0x8000 //higher than this will overflow
 
-#define R_MAXPERMISSION 0x4000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+#define R_MAXPERMISSION 0x8000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
 #define R_ALL           0x7FFF // All perms forever.
 
 // ticket statuses
