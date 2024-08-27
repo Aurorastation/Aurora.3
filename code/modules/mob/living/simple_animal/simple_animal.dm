@@ -1020,7 +1020,7 @@
 
 /mob/living/simple_animal/proc/handle_milking(mob/user, obj/item/reagent_containers/container)
 	if(udder.total_volume <= 0)
-		to_chat(user, SPAN_WARNING("The udder is dry."))
+		to_chat(user, SPAN_WARNING("There is nothing left to collect."))
 		return
 	if(container.reagents.total_volume >= container.volume)
 		to_chat(user, SPAN_WARNING("The [container] is full."))

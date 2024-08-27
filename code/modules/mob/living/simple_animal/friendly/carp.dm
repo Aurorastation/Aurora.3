@@ -162,7 +162,8 @@
 	desc = "WHO KILLED GINNY?!"
 
 /mob/living/simple_animal/carp/fluff/ginny/handle_milking(mob/user, obj/item/reagent_containers/container)
-	user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.")
+	//user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.")
+	user.visible_message("[pick("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.", "[SPAN_BOLD("Ginny")] recoils from [SPAN_BOLD("[user]")] with an indignant glub.", "[SPAN_BOLD("Ginny")] bares her tiny fangs and evades the [container].", "[SPAN_BOLD("Ginny")] stretches a flipper out and pushes the [container] away.")]")
 
 /mob/living/simple_animal/carp/baby
 	name = "baby space carp"
