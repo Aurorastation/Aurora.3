@@ -180,13 +180,13 @@
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
 	if(.)
-		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, TRUE)
 
 /obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
 			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"))
-			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
+			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, TRUE)
 			cooldown = world.time
 		return
 	return ..()
@@ -219,7 +219,7 @@
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
 	if(.)
-		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, TRUE)
 
 /*
  * Energy Shield
@@ -481,7 +481,7 @@
 
 	. = ..()
 	if(.)
-		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(get_turf(user), 'sound/weapons/Genhit.ogg', 50, TRUE)
 
 /obj/item/shield/riot/tact/handle_damage(var/mob/user, var/damage)
 	. = ..()
@@ -494,7 +494,7 @@
 		return
 
 	active = !active
-	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 
 	if(active)
 		HandleOpen()
