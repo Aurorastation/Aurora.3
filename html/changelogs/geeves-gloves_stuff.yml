@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added single (one for each hand) and multi-color gloves to the loadout."
