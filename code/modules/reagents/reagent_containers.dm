@@ -262,12 +262,7 @@
 
 		if(isanimal(target))
 			var/mob/living/simple_animal/C = target
-			if(C.has_udder)
-				return
-
-		if(is_type_in_list(target, list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/carp)))
-			var/mob/living/simple_animal/carp_being_fed = target
-			if(istype(carp_being_fed, /mob/living/simple_animal/carp/fluff/ginny) || carp_being_fed.has_toxingland)
+			if(C.can_be_milked)
 				return
 
 		other_feed_message_start(user, target)

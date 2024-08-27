@@ -9,7 +9,6 @@
 	icon_gib = "carp_gib"
 	icon_rest = "carp_rest"
 	can_nap = TRUE
-	has_toxingland = TRUE
 	speak = list("Glub!", "Glub?", "Glub.")
 	speak_emote = list("glubs", "glibs")
 	emote_hear = list("glubs","glibs")
@@ -25,6 +24,11 @@
 	gender = NEUTER
 	faction = "carp"
 	flying = TRUE
+
+	can_be_milked = TRUE
+	udder_size = 3
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 2)
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
@@ -142,8 +146,13 @@
 	emote_see = list("floats steadily", "inflates her gills", "flaps her flippers", "wiggles", "waggles")
 
 	can_nap = TRUE
-	has_toxingland = TRUE
 	mob_size = 3.5
+
+	// Actually cannot be milked, but this way we get the error message.
+	can_be_milked = TRUE
+	udder_size = 2
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 1)
 
 	befriend_job = "Chief Engineer"
 	holder_type = /obj/item/holder/carp/baby
@@ -151,6 +160,9 @@
 /mob/living/simple_animal/carp/fluff/ginny/death()
 	.=..()
 	desc = "WHO KILLED GINNY?!"
+
+/mob/living/simple_animal/carp/fluff/ginny/handle_milking(mob/user, obj/item/reagent_containers/container)
+	user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.")
 
 /mob/living/simple_animal/carp/baby
 	name = "baby space carp"
@@ -161,7 +173,6 @@
 	icon_dead = "babycarp_dead"
 	icon_gib = null
 	can_nap = TRUE
-	has_toxingland = TRUE
 	gender = NEUTER
 	mob_size = 3.5
 	holder_type = /obj/item/holder/carp/baby

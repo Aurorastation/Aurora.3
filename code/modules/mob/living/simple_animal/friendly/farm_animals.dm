@@ -27,7 +27,7 @@
 	udder = null
 	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
-	has_udder = TRUE
+	can_be_milked = TRUE
 	hostile_nameable = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
@@ -99,7 +99,7 @@
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 	emote_sounds = list('sound/effects/creatures/cow.ogg')
 	canbrush = TRUE
-	has_udder = TRUE
+	can_be_milked = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
