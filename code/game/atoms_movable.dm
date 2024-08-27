@@ -60,7 +60,7 @@
 	/**
 	 * In case you have multiple types, you automatically use the most useful one.
 	 * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
-	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs.
+	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs. -- this isn't in our codebase yet, however
 	 */
 	var/movement_type = GROUND
 
