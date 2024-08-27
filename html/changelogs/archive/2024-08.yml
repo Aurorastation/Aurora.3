@@ -224,3 +224,8 @@
       and introduced new tabs, such as Dinnerware and Armaments.
   - qol: Shotgun shells now print in piles, instead of one shell at a time. The resource
       cost has been increased to compensate.
+2024-08-27:
+  hazelmouse:
+  - rscadd: Added a third smelting line to mining, and shortened the conveyor belts.
+      All three miners can now empty their boxes at once!
+  - qol: Spark airlock will no longer jam after forcing the airlock outwards once.
