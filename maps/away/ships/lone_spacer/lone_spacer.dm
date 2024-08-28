@@ -23,7 +23,7 @@
 	name = "Independent Skiff"
 	class = "ICV"
 	shuttle = "Independent Skiff"
-	designation = "Cuttlefish"
+	// designation = "Cuttlefish"
 	desc = "A small independent spacecraft."
 	icon_state = "generic"
 	moving_state = "generic_moving"
@@ -31,22 +31,28 @@
 	scanimage = "unathi_freighter1.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 7500
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	comms_name = "modified"
 	use_mapped_z_levels = TRUE
 	invisible_until_ghostrole_spawn = TRUE
 
+/obj/effect/overmap/visitable/ship/landable/lone_spacer/New()
+	designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+	..()
+
+// Shuttle control console
 /obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer
 	name = "shuttle control console"
 	shuttle_tag = "Independent Skiff"
 
+// This controls how docking behaves
 /datum/shuttle/autodock/overmap/lone_spacer
 	name = "Independent Skiff"
 	move_time = 35
 	range = 2
-	fuel_consumption = 6
+	fuel_consumption = 2
 	shuttle_area = list(/area/shuttle/lone_spacer/bridge, /area/shuttle/lone_spacer/bridge_foyer, /area/shuttle/lone_spacer/fore_hall, /area/shuttle/lone_spacer/washroom, /area/shuttle/lone_spacer/storage, /area/shuttle/lone_spacer/port_storage, /area/shuttle/lone_spacer/port_nacelle, /area/shuttle/lone_spacer/starboard_storage, /area/shuttle/lone_spacer/starboard_nacelle)
 	current_location = "nav_lone_spacer_space"
 	dock_target = "lone_spacer"
@@ -54,48 +60,20 @@
 	logging_home_tag = "nav_lone_spacer_space"
 	defer_initialisation = TRUE
 
+// Main shuttle landmark
 /obj/effect/shuttle_landmark/ship/lone_spacer
 	shuttle_name = "Independent Skiff"
 	landmark_tag = "nav_lone_spacer_space"
 
+// Transit landmark
 /obj/effect/shuttle_landmark/lone_spacer_transit
 	name = "In transit"
 	landmark_tag = "nav_lone_spacer_transit"
 	base_turf = /turf/space
 
-/area/shuttle/lone_spacer
-	name = "Independent Skiff"
-	icon_state = "bluenew"
-	requires_power = TRUE
-	area_flags = AREA_FLAG_RAD_SHIELDED
-
-/area/shuttle/lone_spacer/bridge
-	name = "Independent Skiff - Bridge"
-
-/area/shuttle/lone_spacer/bridge_foyer
-	name = "Independent Skiff - Bridge Foyer"
-
-/area/shuttle/lone_spacer/fore_hall
-	name = "Independent Skiff - Fore Hall"
-
-/area/shuttle/lone_spacer/washroom
-	name = "Independent Skiff - Washroom"
-
-/area/shuttle/lone_spacer/storage
-	name = "Independent Skiff - Storage Compartments"
-
-/area/shuttle/lone_spacer/port_storage
-	name = "Independent Skiff - Portside Storage"
-
-/area/shuttle/lone_spacer/port_nacelle
-	name = "Independent Skiff - Portside Nacelle"
-
-/area/shuttle/lone_spacer/starboard_storage
-	name = "Independent Skiff - Starboard Storage"
-
-/area/shuttle/lone_spacer/starboard_nacelle
-	name = "Independent Skiff - Starboard Nacelle"
-
 // Custom stuff
-/obj/machinery/light/colored/decayed/lone_spacer
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed
 	brightness_power = 0.3
+
+/obj/item/clothing/accessory/scarf/lone_spacer_green
+	color = "#395340"
