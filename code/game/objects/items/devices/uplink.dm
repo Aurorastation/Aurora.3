@@ -165,7 +165,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		"tc_cost" = tc_cost,
 		"bc_cost" = bc_cost,
 		"left" = item.items_left(src),
-		"ref" = "\ref[item]"
+		"ref" = "[REF(item)]"
 	)
 	return newItem
 
@@ -175,7 +175,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		var/list/items = list()
 		for(var/datum/uplink_category/category in uplink.categories)
 			if(category.can_view(src))
-				categories[++categories.len] = list("name" = category.name, "ref" = "\ref[category]")
+				categories[++categories.len] = list("name" = category.name, "ref" = "[REF(category)]")
 				for(var/datum/uplink_item/item in category.items)
 					if(item.can_view(src))
 						items[++items.len] = new_tgui_item_data(item)

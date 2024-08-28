@@ -20,7 +20,7 @@
 /obj/item/cargo_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contained_packages))
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=\ref[src];show_package_data=1>\[Show Package Data\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>"))
 
 /obj/item/cargo_backpack/Topic(href, href_list)
 	if(href_list["show_package_data"])
@@ -43,7 +43,7 @@
 			var/obj/effect/overmap/visitable/delivery_sector = package.delivery_point_sector.resolve()
 			if(delivery_sector)
 				delivery_site = delivery_sector.name
-		data["cargo_pack_details"] += list(list("package_id"= ref(package), "delivery_point_sector" = delivery_site, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
+		data["cargo_pack_details"] += list(list("package_id"= REF(package), "delivery_point_sector" = delivery_site, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
 
 	return data
 

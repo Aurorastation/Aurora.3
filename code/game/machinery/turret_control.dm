@@ -156,7 +156,7 @@
 		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
 		for(var/obj/machinery/porta_turret/aTurret in control_area.turrets)
-			var/ref = "\ref[aTurret]"
+			var/ref = "[REF(aTurret)]"
 			data["turrets"] += list(list("name" = sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), "ref" = ref, "settings" = aTurret.get_settings(), "enabled" = aTurret.enabled, "lethal" = aTurret.lethal))
 	return data
 

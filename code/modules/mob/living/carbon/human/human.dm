@@ -350,13 +350,13 @@
 		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
 			continue
 		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
-		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='?src=\ref[src];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
+		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
 
 	dat += "<BR><HR>"
 
 	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='?src=\ref[src];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='?src=\ref[src];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+		dat += "<BR><b>Left hand:</b> <A href='?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
+		dat += "<BR><b>Right hand:</b> <A href='?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -373,29 +373,29 @@
 		has_tank = TRUE
 
 	if((has_mask == 2|| has_helmet) && has_tank)
-		dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
 
 	// Other incidentals.
 	if(istype(suit) && suit.has_sensor == 1)
-		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=sensors'>Set sensors</A>"
 	if(handcuffed)
-		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
-		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
 
 	if(has_mask)
 		var/obj/item/clothing/mask/M = wear_mask
 		if(M.adjustable)
-			dat += "<BR><A href='?src=\ref[src];item=mask'>Adjust mask</A>"
+			dat += "<BR><A href='?src=[REF(src)];item=mask'>Adjust mask</A>"
 	if(has_tank && internal)
-		dat += "<BR><A href='?src=\ref[src];item=tank'>Check air tank</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=tank'>Check air tank</A>"
 	if(suit && LAZYLEN(suit.accessories))
-		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
-	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
-	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
-	dat += species.get_strip_info("\ref[src]")
-	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
-	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=tie'>Remove accessory</A>"
+	dat += "<BR><A href='?src=[REF(src)];item=splints'>Remove splints</A>"
+	dat += "<BR><A href='?src=[REF(src)];item=pockets'>Empty pockets</A>"
+	dat += species.get_strip_info("[REF(src)]")
+	dat += "<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>"
+	dat += "<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>"
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
 	mob_win.set_content(dat)
@@ -625,7 +625,7 @@
 						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
 						+ "<b>Crimes:</b> [R.security.crimes]\n" \
 						+ "<b>Notes:</b> [R.security.notes]\n" \
-						+ "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='?src=[REF(src)];secrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 					read = 1
 
@@ -652,7 +652,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='?src=[REF(src)];secrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
@@ -726,7 +726,7 @@
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
 						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
-						+ "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 					read = 1
 
@@ -753,7 +753,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)

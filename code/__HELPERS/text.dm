@@ -500,7 +500,7 @@
 	var/list/urls = list()
 	var/i = 1
 	while (url_find_lazy.Find_char(message))
-		urls["\ref[urls]-[i]"] = url_find_lazy.match
+		urls["[REF(urls)]-[i]"] = url_find_lazy.match
 		i++
 
 	for (var/ref in urls)

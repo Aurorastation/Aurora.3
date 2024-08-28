@@ -84,7 +84,7 @@
 				"role" = A.role_text_plural,
 				"name" = M ? M.real_name : null,
 				"stat" = M ? M.stat : null,
-				"ref" = ref(M)
+				"ref" = REF(M)
 			))
 			data["antagonist_types"] |= A.role_text_plural
 		if(A.flags & ANTAG_HAS_NUKE)
@@ -153,7 +153,7 @@
 	data["players"] = list()
 
 	for(var/mob/M in mobs)
-		var/ref = "\ref[M]"
+		var/ref = "[REF(M)]"
 		var/list/player = list()
 		player["ckey"] = TRUE
 		if(!M.ckey)

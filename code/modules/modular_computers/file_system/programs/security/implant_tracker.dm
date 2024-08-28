@@ -31,7 +31,7 @@
 		var/list/chem_info = list(
 			"implanted_name" = C.imp_in.real_name,
 			"remaining_units" = round(C.reagents.total_volume, 0.1),
-			"ref" = "\ref[C]"
+			"ref" = "[REF(C)]"
 			)
 		chem_implants += list(chem_info)
 	data["chem_implants"] = chem_implants
@@ -53,7 +53,7 @@
 		var/list/tracker_info = list(
 			"id" = T.id,
 			"loc_display" = loc_display,
-			"ref" = "\ref[T]"
+			"ref" = "[REF(T)]"
 			)
 		tracking_implants += list(tracker_info)
 	data["tracking_implants"] = tracking_implants

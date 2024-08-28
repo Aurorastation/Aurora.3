@@ -219,7 +219,7 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/on_mob_init()
 	to_chat(src, "<h3>You are playing the station's AI.</h3>")
-	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
+	to_chat(src, "<strong><a href='?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
 		show_laws()
