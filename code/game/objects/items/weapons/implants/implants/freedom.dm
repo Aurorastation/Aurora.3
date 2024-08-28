@@ -91,8 +91,8 @@ No Implant Specifics"}
 
 	implant_color = "#15695b"
 	hidden = TRUE
-//	default_action_type = /datum/action/item_action/hands_free/activate/implant/freedom
-//	action_button_name = "Activate Telefreedom Implant"
+	default_action_type = /datum/action/item_action/hands_free/activate/implant/freedom
+	action_button_name = "Activate Telefreedom Implant"
 
 	/**
 	 * The linked telepad to teleport to, a weakref to an `/obj/machinery/telepad` object

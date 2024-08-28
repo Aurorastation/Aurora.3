@@ -97,13 +97,6 @@
 #define ui_health_east_template "EAST-1:" // ditto
 #define ui_internal "EAST-1:28,CENTER+1:17"
 
-//Upper left (action buttons)
-#define ui_action_palette "WEST+0:23,NORTH-2:18"
-#define ui_action_palette_offset(north_offset) ("WEST+0:23,NORTH-[2+north_offset]:18")
-
-#define ui_palette_scroll "WEST+0:23,NORTH-6"
-#define ui_palette_scroll_offset(north_offset) ("WEST+0:23,NORTH-[6+north_offset]")
-
 //borgs
 #define ui_borg_health "EAST-1:28,CENTER-1:13" //borgs have the health display where humans have the pressure damage indicator.
 #define ui_alien_health "EAST-1:28,CENTER-1:13" //aliens have the health display where humans have the pressure damage indicator.
@@ -167,15 +160,3 @@
 #define ui_ai_view_images "SOUTH:6,WEST+11:16"
 #define ui_ai_move_up "SOUTH:6,WEST+12:16"
 #define ui_ai_move_down "SOUTH:6,WEST+13:16"
-
-
-// Defines relating to action button positions
-
-/// Whatever the base action datum thinks is best
-#define SCRN_OBJ_DEFAULT "default"
-/// Floating somewhere on the hud, not in any predefined place
-#define SCRN_OBJ_FLOATING "floating"
-/// In the list of buttons stored at the top of the screen
-#define SCRN_OBJ_IN_LIST "list"
-/// In the collapseable palette
-#define SCRN_OBJ_IN_PALETTE "palette"

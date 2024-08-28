@@ -2,11 +2,11 @@
 	name = "Organ Action"
 	check_flags = AB_CHECK_CONSCIOUS
 
-///datum/action/item_action/organ_action/IsAvailable()
-//	var/obj/item/organ/attached_organ = target
-//	if(!attached_organ.owner)
-//		return FALSE
-//	return ..()
+/datum/action/item_action/organ_action/IsAvailable()
+	var/obj/item/organ/attached_organ = target
+	if(!attached_organ.owner)
+		return FALSE
+	return ..()
 
 /datum/action/item_action/organ_action/toggle
 	name = "Toggle Organ"

@@ -17,7 +17,6 @@
 */
 
 /atom/Click(location,control,params)
-	SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
 	var/datum/click_handler/click_handler = usr.GetClickHandler()
 	click_handler.OnClick(src, params)
 

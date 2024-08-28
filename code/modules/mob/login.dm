@@ -71,8 +71,6 @@
 		qdel(hud_used)		//remove the hud objects
 	hud_used = new /datum/hud(src)
 
-	hud_used.build_action_groups()
-
 	disconnect_time = null
 	next_move = 1
 	set_sight(sight|SEE_SELF)

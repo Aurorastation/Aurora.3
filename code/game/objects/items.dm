@@ -79,8 +79,8 @@
 	 */
 	var/min_pressure_protection
 
-	var/list/actions //list of /datum/action's that this item has.
-	var/list/actions_types //list of paths of action datums to give to the item on New().
+	var/list/actions = list() //list of /datum/action's that this item has.
+	var/list/actions_types = list() //list of paths of action datums to give to the item on New().
 
 	/**
 	 * This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.

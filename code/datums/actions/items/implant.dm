@@ -1,6 +1,6 @@
 /datum/action/item_action/hands_free/implant
 	name = "Activate Implant"
-	icon_icon = 'icons/obj/action_buttons/implants.dmi'
+	button_icon = 'icons/obj/action_buttons/implants.dmi'
 	desc = "Activate the implant. Can be used even when restrained or stunned."
 
 /datum/action/item_action/hands_free/implant/explosive_implant

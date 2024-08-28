@@ -511,10 +511,12 @@
 		if(istype(user, /mob/living/heavy_vehicle))
 			var/mob/living/heavy_vehicle/H = user
 			user = pick(H.pilots) //since i assume this is a list, we want only 1 person
-		var/list/screenview = view_to_pixels(user.client.view)
+		var/list/screenview = getviewsize(user.client.view)
+		var/screenviewX = screenview[1] * world.icon_size
+		var/screenviewY = screenview[2] * world.icon_size
 
-		var/ox = round(screenview[1] / 2) - user.client.pixel_x //"origin" x
-		var/oy = round(screenview[2] / 2) - user.client.pixel_y //"origin" y
+		var/ox = round(screenviewX/2) - user.client.pixel_x //"origin" x
+		var/oy = round(screenviewY/2) - user.client.pixel_y //"origin" y
 		angle = Atan2(y - oy, x - ox)
 	return list(angle, p_x, p_y)
 
