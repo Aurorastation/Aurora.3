@@ -1,3 +1,4 @@
+///Processes the current build, incrementing its remaining time and handling removing it from the print queue
 /obj/machinery/fabricator/proc/update_current_build(spend_time)
 
 	if(!istype(currently_printing) || !is_functioning())
@@ -40,6 +41,7 @@
 		stop_building()
 	updateUsrDialog()
 
+///Tries to build the next item in the fabricator's queue
 /obj/machinery/fabricator/proc/try_queue_build(singleton/fabricator_recipe/recipe, multiplier)
 
 	// Do some basic sanity checking.
@@ -73,6 +75,7 @@
 	else
 		start_building()
 
+///Tries to cancel the build order
 /obj/machinery/fabricator/proc/try_cancel_build(datum/fabricator_build_order/order)
 	if(istype(order) && currently_printing != order && is_functioning())
 		if(order in print_queue)
@@ -81,7 +84,10 @@
 				stored_material[mat] = min(stored_material[mat] + (order.earmarked_materials[mat] * 0.9), storage_capacity[mat])
 			print_queue -= order
 		qdel(order)
+		return TRUE
+	return FALSE
 
+///Determines whether the recipe is valid to print in this fabricator. Checks for hacked status and ship security levels.
 /obj/machinery/fabricator/proc/can_print_item(singleton/fabricator_recipe/recipe)
 	var/ship_security_level = seclevel2num(get_security_level())
 	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship fabricators

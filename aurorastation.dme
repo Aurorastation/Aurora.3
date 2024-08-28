@@ -60,6 +60,7 @@
 #include "code\__DEFINES\emitter.dm"
 #include "code\__DEFINES\empulse.dm"
 #include "code\__DEFINES\evacuation.dm"
+#include "code\__DEFINES\fabricators.dm"
 #include "code\__DEFINES\feedback.dm"
 #include "code\__DEFINES\flags.dm"
 #include "code\__DEFINES\fonts.dm"
