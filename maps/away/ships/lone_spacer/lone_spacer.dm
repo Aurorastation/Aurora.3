@@ -23,23 +23,26 @@
 	name = "Independent Skiff"
 	class = "ICV"
 	shuttle = "Independent Skiff"
-	// designation = "Cuttlefish"
-	desc = "A small independent spacecraft."
+	desc = "Of all the ships to string the stars, the Minnow-class skiff has perhaps seen one of the most meteoric rises. Designed some decades ago by Hephaestus Industries as a short-distance hauling craft, the Minnow-class quickly caught on with virtually every demographic imaginable - logisticians appreciated its standardised design and expansive cargo holds, scientists its ease of use and modification, smugglers its nimble speed and ability to dodge patrols with its warp drive, and pirates its discreet and inexpensive nature. Of these many groups, one thing can be said for sure: rarely is it that the Minnow is crewed by more than just one entrepreneurial soul, and it is true that few other ships have ever served more often as a tomb for the recklessly brave as it. Approach with caution, and expect the unexpected."
 	icon_state = "generic"
 	moving_state = "generic_moving"
-	colors = list("#3c423c")
-	scanimage = "unathi_freighter1.png"
+	colors = list("#434b43")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
-	comms_name = "modified"
 	use_mapped_z_levels = TRUE
 	invisible_until_ghostrole_spawn = TRUE
+	designer = "Hephaestus Industries"
+	volume = "30 meters length, 20 meters beam/width, 7 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Starboard low-end ballistic weapon hardpoint"
+	sizeclass = "Minnow-class Hauler"
+	shiptype = "Eclectic short-distance shipping utilities"
 
 /obj/effect/overmap/visitable/ship/landable/lone_spacer/New()
-	designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Goldfinger", "Starfarer", "Workhorse", "Light-in-the-Dark", "Meek", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning")]"
 	..()
 
 // Shuttle control console
