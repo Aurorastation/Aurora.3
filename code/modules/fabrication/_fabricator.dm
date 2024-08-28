@@ -57,10 +57,8 @@
 		/obj/item/stock_parts/console_screen
 	)
 
-	/// List of stored reagents, for future usage (biogenerator, circuit printer)
-	var/static/list/stored_substances_to_names = list()
-
 /obj/machinery/fabricator/Initialize()
+	..()
 	wires = new(src)
 	print_loc = src
 	stored_material = list()
@@ -77,8 +75,6 @@
 			else if(ispath(mat, /singleton/reagent))
 				var/singleton/reagent/reg = mat
 				stored_substances_to_names[mat] = initial(reg.name)
-
-	. = ..()
 
 /obj/machinery/fabricator/Destroy()
 	print_loc = null
@@ -138,7 +134,7 @@
 	for(var/datum/fabricator_build_order/AR in print_queue)
 		data["queue"] += list(
 			list(
-				"ref" = "\ref[AR]",
+				"ref" = REF(AR),
 				"order" = AR.target_recipe.name,
 				"path" = AR.target_recipe.type,
 				"multiplier" = AR.multiplier,
@@ -187,6 +183,7 @@
 	user.set_machine(src)
 	ui_interact(user)
 
+///
 /obj/machinery/fabricator/proc/is_functioning()
 	. = use_power != POWER_USE_OFF && !(fab_status_flags & FAB_DISABLED)
 
@@ -215,7 +212,6 @@
 	if(action == "remove")
 		var/datum/fabricator_build_order/order = locate(params["ref"])
 		try_cancel_build(order)
-		qdel(order)
 		. = TRUE
 
 /obj/machinery/fabricator/process(seconds_per_tick)
