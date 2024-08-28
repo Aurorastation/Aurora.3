@@ -9,9 +9,8 @@
 //Not tied to the grid, places it's center where the cursor is
 
 /obj/screen/movable
+	mouse_drag_pointer = 'icons/effects/cursor/screen_drag.dmi'
 	var/snap2grid = FALSE
-	var/moved = FALSE
-	var/locked = FALSE
 
 //Snap Screen Object
 //Tied to the grid, snaps to the nearest turf
@@ -21,31 +20,22 @@
 
 
 /obj/screen/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
-	if(locked) //no! I am locked! begone!
+	var/position = mouse_params_to_position(params)
+	if(!position)
 		return
-	var/list/PM = params2list(params)
+
+	screen_loc = position
+
+/// Takes mouse parmas as input, returns a string representing the appropriate mouse position
+/obj/screen/movable/proc/mouse_params_to_position(params)
+	var/list/modifiers = params2list(params)
 
 	//No screen-loc information? abort.
-	if(!PM || !PM["screen-loc"])
+	if(!LAZYACCESS(modifiers, SCREEN_LOC))
 		return
-
-	//Split screen-loc up into X+Pixel_X and Y+Pixel_Y
-	var/list/screen_loc_params = text2list(PM["screen-loc"], ",")
-
-	//Split X+Pixel_X up into list(X, Pixel_X)
-	var/list/screen_loc_X = text2list(screen_loc_params[1],":")
-	screen_loc_X[1] = encode_screen_X(text2num(screen_loc_X[1]))
-	//Split Y+Pixel_Y up into list(Y, Pixel_Y)
-	var/list/screen_loc_Y = text2list(screen_loc_params[2],":")
-	screen_loc_Y[1] = encode_screen_Y(text2num(screen_loc_Y[1]))
-
-	if(snap2grid) //Discard Pixel Values
-		screen_loc = "[screen_loc_X[1]],[screen_loc_Y[1]]"
-
-	else //Normalise Pixel Values (So the object drops at the center of the mouse, not 16 pixels off)
-		var/pix_X = text2num(screen_loc_X[2]) - 16
-		var/pix_Y = text2num(screen_loc_Y[2]) - 16
-		screen_loc = "[screen_loc_X[1]]:[pix_X],[screen_loc_Y[1]]:[pix_Y]"
+	var/client/our_client = usr.client
+	var/list/offset	= screen_loc_to_offset(LAZYACCESS(modifiers, SCREEN_LOC))
+	return offset_to_screen_loc(offset[1], offset[2], our_client?.view)
 
 /obj/screen/movable/proc/encode_screen_X(X, var/mob/user = usr)
 	if(X > user?.client?.view+1)

@@ -813,6 +813,10 @@ var/list/localhost_addresses = list(
 		else
 			CRASH("Age check regex failed for [src.ckey]")
 
+/client/Click(object,location,control,params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
+	..()
+
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	. = ..()
 

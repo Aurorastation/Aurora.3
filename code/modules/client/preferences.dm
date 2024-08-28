@@ -22,7 +22,6 @@ var/list/preferences_datums = list()
 	var/ooccolor = "#010000"			//Whatever this is set to acts as 'reset' color and is thus unusable as an actual custom color
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
-	var/buttons_locked = FALSE
 	var/action_buttons_screen_locs = list()
 	var/toggles = TOGGLES_DEFAULT
 	var/sfx_toggles = ASFX_DEFAULT
