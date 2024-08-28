@@ -2,10 +2,11 @@
 #define FILL_COMPLETELY "Fill Completely"
 #define FILL_INCOMPLETELY "Fill Incompletely"
 
-/obj/machinery/fabricator/proc/load_lathe(obj/item/O, mob/user)
+///Loads the lathe with materials
+/obj/machinery/fabricator/proc/load_lathe(obj/item/loading_item, mob/user)
 
 	//Resources are being loaded.
-	var/obj/item/eating = O
+	var/obj/item/eating = loading_item
 	if(!eating.matter || !eating.recyclable)
 		to_chat(user, SPAN_WARNING("\The [eating] cannot be recycled by \the [src]."))
 		return
