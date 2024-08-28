@@ -119,11 +119,8 @@
 
 /datum/action/proc/ApplyIcon(obj/screen/movable/action_button/current_button)
 	if(icon_icon && button_icon_state && current_button.button_icon_state != button_icon_state)
-		var/image/img
-		img = image(icon_icon, current_button, button_icon_state)
-		img.pixel_x = 0
-		img.pixel_y = 0
-		current_button.overlays = list(img)
+		current_button.CutOverlays(cache_target = ATOM_ICON_CACHE_ALL)
+		current_button.AddOverlays(mutable_appearance(icon_icon, button_icon_state))
 		current_button.button_icon_state = button_icon_state
 
 
@@ -151,34 +148,21 @@
 	return 1
 
 /datum/action/item_action/ApplyIcon(obj/screen/movable/action_button/current_button)
+	var/obj/item/item_target = target
 	if(button_icon && button_icon_state)
 		// If set, use the custom icon that we set instead
 		// of the item appearence
-		..(current_button)
-	if(target && current_button.appearance_cache != target.appearance) //replace with /ref comparison if this is not valid.
-		var/obj/item/I = target
-		current_button.appearance_cache = I.appearance
-		var/old_layer = I.layer
-		var/old_plane = I.plane
-		I.layer = FLOAT_LAYER //AAAH
-		I.plane = FLOAT_PLANE //^ what that guy said
-		current_button.overlays = list(I)
-		I.layer = old_layer
-		I.plane = old_plane
-
-/datum/action/item_action/organ_action
-	check_flags = AB_CHECK_CONSCIOUS
-
-/datum/action/item_action/organ_action/New(Target)
-	..()
-	name = "Toggle [target.name]"
-	button.name = name
-
-/datum/action/item_action/organ_action/IsAvailable()
-	var/obj/item/organ/internal/I = target
-	if(!I.owner)
-		return 0
-	return ..()
+		..()
+	if(target && current_button.appearance_cache != item_target.appearance) //replace with /ref comparison if this is not valid.
+		var/old_layer = item_target.layer
+		var/old_plane = item_target.plane
+		item_target.layer = FLOAT_LAYER //AAAH
+		item_target.plane = FLOAT_PLANE //^ what that guy said
+		current_button.CutOverlays()
+		current_button.AddOverlays(item_target)
+		item_target.layer = old_layer
+		item_target.plane = old_plane
+		current_button.appearance_cache = item_target.appearance
 
 
 //Preset for general and toggled actions

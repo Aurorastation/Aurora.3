@@ -347,8 +347,8 @@
 				break
 			parent.update_damages()
 
-//	action_button_name = initial(action_button_name)
-	owner.update_action_buttons()
+	for(var/datum/action/action as anything in actions)
+		action.Grant(owner)
 
 /****************************************************
 					DAMAGE PROCS
