@@ -621,17 +621,17 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
-	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	H.set_fullscreen(H.eye_blind, "blind", /atom/movable/screen/fullscreen/blind)
+	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(GLOB.config.welder_vision)
 		if(H.equipment_tint_total)
-			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
+			H.overlay_fullscreen("welder", /atom/movable/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
 		else
 			H.clear_fullscreen("welder")
 	var/how_nearsighted = get_how_nearsighted(H)
-	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
-	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+	H.set_fullscreen(how_nearsighted, "nearsighted", /atom/movable/screen/fullscreen/oxy, how_nearsighted)
+	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
 		H.client.screen += global_hud.druggy

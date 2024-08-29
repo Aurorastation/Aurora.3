@@ -15,7 +15,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "reinforce"
 	atom_flags = 0
-	var/obj/screen/grab/hud = null
+	var/atom/movable/screen/grab/hud = null
 	var/mob/living/affecting = null
 	var/mob/living/carbon/human/assailant = null
 	var/state = GRAB_PASSIVE
@@ -50,7 +50,7 @@
 
 	affecting.grabbed_by += src
 
-	hud = new /obj/screen/grab(src)
+	hud = new /atom/movable/screen/grab(src)
 	hud.icon_state = "reinforce"
 	icon_state = "grabbed"
 	hud.name = "reinforce grab"

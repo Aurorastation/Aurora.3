@@ -394,7 +394,7 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/living/carbon/throw_item(atom/target)
-	if(stat || !target || istype(target, /obj/screen))
+	if(stat || !target || istype(target, /atom/movable/screen))
 		return FALSE
 
 	var/atom/movable/item = src.get_active_hand()

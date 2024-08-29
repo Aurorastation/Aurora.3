@@ -12,39 +12,39 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	adding = list()
-	var/obj/screen/using
+	var/atom/movable/screen/using
 
-	using = new /obj/screen/new_player/title(src)
+	using = new /atom/movable/screen/new_player/title(src)
 	using.name = "Title"
 	using.hud = src
 	adding += using
 
-	using = new /obj/screen/new_player/selection/join_game(src)
+	using = new /atom/movable/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
 	using.hud = src
 	adding += using
 
-	using = new /obj/screen/new_player/selection/settings(src)
+	using = new /atom/movable/screen/new_player/selection/settings(src)
 	using.name = "Setup Character"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/manifest(src)
+	using = new /atom/movable/screen/new_player/selection/manifest(src)
 	using.name = "Crew Manifest"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/observe(src)
+	using = new /atom/movable/screen/new_player/selection/observe(src)
 	using.name = "Observe"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/changelog(src)
+	using = new /atom/movable/screen/new_player/selection/changelog(src)
 	using.name = "Changelog"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/polls(src)
+	using = new /atom/movable/screen/new_player/selection/polls(src)
 	using.name = "Polls"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/lore_summary(src)
+	using = new /atom/movable/screen/new_player/selection/lore_summary(src)
 	using.name = "Current Lore Summary"
 	adding += using
 
@@ -52,32 +52,32 @@
 	mymob.client.screen += adding
 	src.adding += using
 
-/obj/screen/new_player
+/atom/movable/screen/new_player
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
 	layer = HUD_BASE_LAYER
 
-/obj/screen/new_player/Initialize()
+/atom/movable/screen/new_player/Initialize()
 	set_sector_things()
 	. = ..()
 
-/obj/screen/new_player/proc/set_sector_things()
+/atom/movable/screen/new_player/proc/set_sector_things()
 	if(SSatlas.current_sector.sector_hud_menu)
 		icon = SSatlas.current_sector.sector_hud_menu
 
-/obj/screen/new_player/title
+/atom/movable/screen/new_player/title
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
 	var/lobby_index = 1
 	var/refresh_timer_id = null
 
-/obj/screen/new_player/title/Destroy(force)
+/atom/movable/screen/new_player/title/Destroy(force)
 	if(refresh_timer_id)
 		deltimer(refresh_timer_id)
 		refresh_timer_id = null
 	. = ..()
 
 
-/obj/screen/new_player/title/Initialize()
+/atom/movable/screen/new_player/title/Initialize()
 	if(SSatlas.current_sector.sector_lobby_art)
 		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
 	else if(!SSatlas.current_map.lobby_icon)
@@ -105,10 +105,10 @@
 
 	. = ..()
 
-/obj/screen/new_player/title/set_sector_things()
+/atom/movable/screen/new_player/title/set_sector_things()
 	return
 
-/obj/screen/new_player/title/proc/Update()
+/atom/movable/screen/new_player/title/proc/Update()
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(QDELETED(src))
@@ -125,24 +125,24 @@
 	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
 	refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
-/obj/screen/new_player/selection
+/atom/movable/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'
 	var/hud_arrow
 
-/obj/screen/new_player/selection/New(datum/hud/H)
+/atom/movable/screen/new_player/selection/New(datum/hud/H)
 	color = null
 	hud = H
 	..()
 
-/obj/screen/new_player/selection/Initialize()
+/atom/movable/screen/new_player/selection/Initialize()
 	. = ..()
 	set_sector_things()
 
-/obj/screen/new_player/selection/Destroy(force)
+/atom/movable/screen/new_player/selection/Destroy(force)
 	hud = null
 	. = ..()
 
-/obj/screen/new_player/selection/set_sector_things()
+/atom/movable/screen/new_player/selection/set_sector_things()
 	. = ..()
 	if(SSatlas.current_sector.sector_hud_menu_sound)
 		click_sound = SSatlas.current_sector.sector_hud_menu_sound
@@ -151,7 +151,7 @@
 		// We'll reset the animation just so it doesn't get stuck
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 
-/obj/screen/new_player/selection/MouseEntered(location, control, params)
+/atom/movable/screen/new_player/selection/MouseEntered(location, control, params)
 	if(hud_arrow)
 		AddOverlays(hud_arrow)
 	else
@@ -160,54 +160,54 @@
 		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
 	return ..()
 
-/obj/screen/new_player/selection/MouseExited(location,control,params)
+/atom/movable/screen/new_player/selection/MouseExited(location,control,params)
 	if(hud_arrow)
 		ClearOverlays()
 	else
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()
 
-/obj/screen/new_player/selection/join_game
+/atom/movable/screen/new_player/selection/join_game
 	name = "Join Game"
 	icon_state = "unready"
 	screen_loc = "LEFT+0.1,CENTER-1"
 
-/obj/screen/new_player/selection/settings
+/atom/movable/screen/new_player/selection/settings
 	name = "Setup"
 	icon_state = "setup"
 	screen_loc = "LEFT+0.1,CENTER-2"
 
-/obj/screen/new_player/selection/manifest
+/atom/movable/screen/new_player/selection/manifest
 	name = "Crew Manifest"
 	icon_state = "manifest"
 	screen_loc = "LEFT+0.1,CENTER-3"
 
-/obj/screen/new_player/selection/observe
+/atom/movable/screen/new_player/selection/observe
 	name = "Observe"
 	icon_state = "observe"
 	screen_loc = "LEFT+0.1,CENTER-4"
 
-/obj/screen/new_player/selection/changelog
+/atom/movable/screen/new_player/selection/changelog
 	name = "Changelog"
 	icon_state = "changelog"
 	screen_loc = "LEFT+0.1,CENTER-5"
 
-/obj/screen/new_player/selection/polls
+/atom/movable/screen/new_player/selection/polls
 	name = "Polls"
 	icon_state = "polls"
 	screen_loc = "LEFT+0.1,CENTER-6"
 
-/obj/screen/new_player/selection/lore_summary
+/atom/movable/screen/new_player/selection/lore_summary
 	name = "Current Lore Summary"
 	icon_state = "lore_summary"
 	screen_loc = "LEFT+0.1,CENTER-7"
 
-/obj/screen/new_player/selection/join_game/Initialize()
+/atom/movable/screen/new_player/selection/join_game/Initialize()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	update_icon(player)
 
-/obj/screen/new_player/selection/join_game/Click()
+/atom/movable/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
@@ -219,7 +219,7 @@
 		player.join_game()
 	update_icon(player)
 
-/obj/screen/new_player/selection/join_game/update_icon(var/mob/abstract/new_player/player)
+/atom/movable/screen/new_player/selection/join_game/update_icon(var/mob/abstract/new_player/player)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			icon_state = "ready"
@@ -228,7 +228,7 @@
 	else
 		icon_state = "joingame"
 
-/obj/screen/new_player/selection/manifest/Click()
+/atom/movable/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	if(SSticker.current_state < GAME_STATE_PLAYING)
@@ -236,22 +236,22 @@
 		return
 	player.ViewManifest()
 
-/obj/screen/new_player/selection/observe/Click()
+/atom/movable/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.new_player_observe()
 
-/obj/screen/new_player/selection/settings/Click()
+/atom/movable/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.setupcharacter()
 
-/obj/screen/new_player/selection/changelog/Click()
+/atom/movable/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.client.changes()
 
-/obj/screen/new_player/selection/polls/Initialize()
+/atom/movable/screen/new_player/selection/polls/Initialize()
 	. = ..()
 	if(establish_db_connection(GLOB.dbcon))
 		var/mob/M = hud.mymob
@@ -263,12 +263,12 @@
 		if(newpoll)
 			icon_state = "polls_new"
 
-/obj/screen/new_player/selection/polls/Click()
+/atom/movable/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.handle_player_polling()
 
-/obj/screen/new_player/selection/lore_summary/Click()
+/atom/movable/screen/new_player/selection/lore_summary/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.show_lore_summary()

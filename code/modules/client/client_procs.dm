@@ -898,10 +898,10 @@ var/list/localhost_addresses = list(
 /atom/proc/is_auto_clickable()
 	return TRUE
 
-/obj/screen/is_auto_clickable()
+/atom/movable/screen/is_auto_clickable()
 	return FALSE
 
-/obj/screen/click_catcher/is_auto_clickable()
+/atom/movable/screen/click_catcher/is_auto_clickable()
 	return TRUE
 
 /**

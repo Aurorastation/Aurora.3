@@ -54,8 +54,8 @@
 		if(!over_object || over_object == src)
 			return
 
-		if(istype(over_object, /obj/screen/inventory))
-			var/obj/screen/inventory/S = over_object
+		if(istype(over_object, /atom/movable/screen/inventory))
+			var/atom/movable/screen/inventory/S = over_object
 			if(S.slot_id == src.equip_slot)
 				return
 

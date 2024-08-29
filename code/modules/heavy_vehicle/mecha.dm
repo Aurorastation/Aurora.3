@@ -79,10 +79,10 @@
 	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
-	var/obj/screen/mecha/health/hud_health
-	var/obj/screen/mecha/toggle/hatch_open/hud_open
-	var/obj/screen/mecha/power/hud_power
-	var/obj/screen/mecha/toggle/power_control/hud_power_control
+	var/atom/movable/screen/mecha/health/hud_health
+	var/atom/movable/screen/mecha/toggle/hatch_open/hud_open
+	var/atom/movable/screen/mecha/power/hud_power
+	var/atom/movable/screen/mecha/toggle/power_control/hud_power_control
 	//POWER
 	var/power = MECH_POWER_OFF
 

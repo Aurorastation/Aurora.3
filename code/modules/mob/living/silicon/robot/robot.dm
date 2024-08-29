@@ -60,11 +60,11 @@
 	var/overclock_available = FALSE // if the overclock is available for use
 
 	// HUD Stuff
-	var/obj/screen/inv1
-	var/obj/screen/inv2
-	var/obj/screen/inv3
+	var/atom/movable/screen/inv1
+	var/atom/movable/screen/inv2
+	var/atom/movable/screen/inv3
 	var/shown_robot_modules = FALSE //Used to determine whether they have the module menu shown or not
-	var/obj/screen/robot_modules_background
+	var/atom/movable/screen/robot_modules_background
 
 	// Modules and active items
 	var/mod_type = "Default"

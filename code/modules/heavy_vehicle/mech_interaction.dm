@@ -161,7 +161,7 @@
 	var/old_next_move = next_move
 	next_move = max(world.time + timeout, next_move)
 	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = "#FF0000"
 	if(next_move > old_next_move) // TIMER_OVERRIDE would not work here, because the smaller delays tend to be called after the longer ones
@@ -169,7 +169,7 @@
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = null
 
@@ -188,7 +188,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoint != selected_hardpoint)
 				continue
-			var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+			var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 			if(istype(H))
 				H.icon_state = "hardpoint"
 				break
