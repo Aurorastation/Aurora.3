@@ -249,7 +249,7 @@
 		if(EAST)
 			animate(affecting, pixel_x =-shift, pixel_y = affecting.get_standard_pixel_y(), 5, 1, LINEAR_EASING)
 
-/obj/item/grab/proc/s_click(obj/screen/S)
+/obj/item/grab/proc/s_click(atom/movable/screen/S)
 	if(!affecting)
 		return
 	if(state == GRAB_UPGRADING)
