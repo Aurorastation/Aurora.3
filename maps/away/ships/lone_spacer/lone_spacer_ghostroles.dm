@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/lone_spacer
 	short_name = "lone_spacer"
 	name = "Lone Spacer"
-	desc = "Be alone. Not much unlike real life for you, is it?"
+	desc = "You never did mind the quiet. By whatever path your life has taken, you have found yourself the captain and sole crew of a small warp-capable vessel, scratching out a meek living from the stars. Are you a scientist, exploring the great unknown, or an opportunist scavenger? Are you a vicious pirate, or a hounded fugitive? You have only to decide for yourself."
 	tags = list("External")
 
 	spawnpoints = list("lone_spacer")

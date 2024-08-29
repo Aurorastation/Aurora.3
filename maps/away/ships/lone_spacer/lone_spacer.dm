@@ -23,10 +23,10 @@
 	name = "Independent Skiff"
 	class = "ICV"
 	shuttle = "Independent Skiff"
-	desc = "Of all the ships to string the stars, the Minnow-class skiff has perhaps seen one of the most meteoric rises. Designed some decades ago by Hephaestus Industries as a short-distance hauling craft, the Minnow-class quickly caught on with virtually every demographic imaginable - logisticians appreciated its standardised design and expansive cargo holds, scientists its ease of use and modification, smugglers its nimble speed and ability to dodge patrols with its warp drive, and pirates its discreet and inexpensive nature. Of these many groups, one thing can be said for sure: rarely is it that the Minnow is crewed by more than just one entrepreneurial soul, and it is true that few other ships have ever served more often as a tomb for the recklessly brave as it. Approach with caution, and expect the unexpected."
-	icon_state = "generic"
-	moving_state = "generic_moving"
-	colors = list("#434b43")
+	desc = "Of all of the most ubiquitous ships in the spur today, the Minnow-class skiff has perhaps seen one of the most meteoric rises. Designed in 2443 by Hephaestus Industries as a short-distance hauling craft intended to be operated by only one or two crewmates, the Minnow-class quickly caught on with virtually every demographic imaginable - logisticians appreciated its standardised design and expansive cargo holds, scientists its ease of use and modification, smugglers its nimble speed and ability to dodge patrols with its warp drive, and pirates its discreet and inexpensive nature. Due to this, it's challenging to make any reliable precursory judgement on how a Minnow-class hauler pays back its costs, and it's even harder to predict the character of its pilots. Some caution is advised."
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#567b56")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500
@@ -37,12 +37,12 @@
 	designer = "Hephaestus Industries"
 	volume = "30 meters length, 20 meters beam/width, 7 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Starboard low-end ballistic weapon hardpoint"
+	weapons = "Starboard low-end ballistic cannon"
 	sizeclass = "Minnow-class Hauler"
 	shiptype = "Eclectic short-distance shipping utilities"
 
 /obj/effect/overmap/visitable/ship/landable/lone_spacer/New()
-	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Goldfinger", "Starfarer", "Workhorse", "Light-in-the-Dark", "Meek", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning")]"
+	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Starfarer", "Workhorse", "Light-in-the-Dark", "Meek", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning", "Endless", "Finity", "Calm Drift", "Mercury's Hand")]"
 	..()
 
 // Shuttle control console
@@ -80,3 +80,5 @@
 
 /obj/item/clothing/accessory/scarf/lone_spacer_green
 	color = "#395340"
+	name = "faded green scarf"
+	desc = "A soft green scarf, worn at the edges. You see faint embroidery, faded with time beyond recognition."
