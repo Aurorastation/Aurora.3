@@ -133,6 +133,17 @@ else
     echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
 fi
 
+# Check that the text proc is not being used
+echo "Verifying no built in text proc calls are being added" >> code_error.log
+BUILTIN_TEXT_PROC_CALLS=`grep -r --include \*.dm -P --regexp='[^\w_\/\.]text\('`
+if [[ $BUILTIN_TEXT_PROC_CALLS != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found builtin calls to the text proc, use string interpolation instead:" >> code_error.log
+	echo $BUILTIN_TEXT_PROC_CALLS >> code_error.log
+else
+    echo "PASS: No builtin calls to the text proc were found" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
