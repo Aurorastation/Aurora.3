@@ -105,7 +105,7 @@ var/global/enabled_spooking = 0
 	if(isliving(M))
 		var/mob/living/psyker = M
 		if(psyker.psi)
-			body += "<a href='?src=[REF(src)];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
+			body += "<a href='?src=[REF(src)];remove_psionics=[REF(psyker.psi)]'>Remove psionics.</a><br/><br/>"
 		body += "<table width = '100%'>"
 		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
 			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
@@ -113,9 +113,9 @@ var/global/enabled_spooking = 0
 			if(psi_rank == owner_rank)
 				psi_title = "<b>[psi_title]</b>"
 			if(psi_rank != PSI_RANK_LIMITLESS)
-				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
+				body += "<tr><a href='?src=[REF(psyker.mind)];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
 			else
-				body += "<tr><a href='?src=\ref[psyker.mind];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
+				body += "<tr><a href='?src=[REF(psyker.mind)];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
 		body += "</table>"
 
 	if (M.client)
@@ -501,7 +501,7 @@ var/global/enabled_spooking = 0
 		if(12)
 			dat+={"
 				<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT> \]</FONT><BR>
-				<FONT SIZE=2><A href='?src=[REF(src)];ac_censor_channel_author=\ref[src.admincaster_feed_channel]'>[(src.admincaster_feed_channel.author=="\[REDACTED\]") ? ("Undo Author censorship") : ("Censor channel Author")]</A></FONT><HR>
+				<FONT SIZE=2><A href='?src=[REF(src)];ac_censor_channel_author=[REF(src.admincaster_feed_channel)]'>[(src.admincaster_feed_channel.author=="\[REDACTED\]") ? ("Undo Author censorship") : ("Censor channel Author")]</A></FONT><HR>
 			"}
 			if( isemptylist(src.admincaster_feed_channel.messages) )
 				dat+="<I>No feed messages found in channel...</I><BR>"
@@ -515,7 +515,7 @@ var/global/enabled_spooking = 0
 		if(13)
 			dat+={"
 				<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT> \]</FONT><BR>
-				Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=[REF(src)];ac_toggle_d_notice=\ref[src.admincaster_feed_channel]'>Bestow a D-Notice upon the channel</A>.<HR>
+				Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=[REF(src)];ac_toggle_d_notice=[REF(src.admincaster_feed_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>
 			"}
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
@@ -1079,66 +1079,66 @@ var/global/enabled_spooking = 0
 		alert("Not before roundstart!", "Alert")
 		return
 
-	var/out = "<font size=3><b>Current mode: [SSticker.mode.name] (<a href='?src=\ref[SSticker.mode];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b></font><br/>"
+	var/out = "<font size=3><b>Current mode: [SSticker.mode.name] (<a href='?src=[REF(SSticker.mode)];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b></font><br/>"
 	out += "<hr>"
 
 	if(SSticker.mode.ert_disabled)
-		out += "<b>Emergency Response Teams:</b> <a href='?src=\ref[SSticker.mode];toggle=ert'>disabled</a>"
+		out += "<b>Emergency Response Teams:</b> <a href='?src=[REF(SSticker.mode)];toggle=ert'>disabled</a>"
 	else
-		out += "<b>Emergency Response Teams:</b> <a href='?src=\ref[SSticker.mode];toggle=ert'>enabled</a>"
+		out += "<b>Emergency Response Teams:</b> <a href='?src=[REF(SSticker.mode)];toggle=ert'>enabled</a>"
 	out += "<br/>"
 
 	if(SSticker.mode.deny_respawn)
-		out += "<b>Respawning:</b> <a href='?src=\ref[SSticker.mode];toggle=respawn'>disallowed</a>"
+		out += "<b>Respawning:</b> <a href='?src=[REF(SSticker.mode)];toggle=respawn'>disallowed</a>"
 	else
-		out += "<b>Respawning:</b> <a href='?src=\ref[SSticker.mode];toggle=respawn'>allowed</a>"
+		out += "<b>Respawning:</b> <a href='?src=[REF(SSticker.mode)];toggle=respawn'>allowed</a>"
 	out += "<br/>"
 
-	out += "<b>Shuttle delay multiplier:</b> <a href='?src=\ref[SSticker.mode];set=shuttle_delay'>[SSticker.mode.shuttle_delay]</a><br/>"
+	out += "<b>Shuttle delay multiplier:</b> <a href='?src=[REF(SSticker.mode)];set=shuttle_delay'>[SSticker.mode.shuttle_delay]</a><br/>"
 
 	if(SSticker.mode.auto_recall_shuttle)
-		out += "<b>Shuttle auto-recall:</b> <a href='?src=\ref[SSticker.mode];toggle=shuttle_recall'>enabled</a>"
+		out += "<b>Shuttle auto-recall:</b> <a href='?src=[REF(SSticker.mode)];toggle=shuttle_recall'>enabled</a>"
 	else
-		out += "<b>Shuttle auto-recall:</b> <a href='?src=\ref[SSticker.mode];toggle=shuttle_recall'>disabled</a>"
+		out += "<b>Shuttle auto-recall:</b> <a href='?src=[REF(SSticker.mode)];toggle=shuttle_recall'>disabled</a>"
 	out += "<br/><br/>"
 
 	if(SSticker.mode.event_delay_mod_moderate)
-		out += "<b>Moderate event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_moderate'>[SSticker.mode.event_delay_mod_moderate]</a><br/>"
+		out += "<b>Moderate event time modifier:</b> <a href='?src=[REF(SSticker.mode)];set=event_modifier_moderate'>[SSticker.mode.event_delay_mod_moderate]</a><br/>"
 	else
-		out += "<b>Moderate event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_moderate'>unset</a><br/>"
+		out += "<b>Moderate event time modifier:</b> <a href='?src=[REF(SSticker.mode)];set=event_modifier_moderate'>unset</a><br/>"
 
 	if(SSticker.mode.event_delay_mod_major)
-		out += "<b>Major event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_severe'>[SSticker.mode.event_delay_mod_major]</a><br/>"
+		out += "<b>Major event time modifier:</b> <a href='?src=[REF(SSticker.mode)];set=event_modifier_severe'>[SSticker.mode.event_delay_mod_major]</a><br/>"
 	else
-		out += "<b>Major event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_severe'>unset</a><br/>"
+		out += "<b>Major event time modifier:</b> <a href='?src=[REF(SSticker.mode)];set=event_modifier_severe'>unset</a><br/>"
 
 	out += "<hr>"
 
 	if(LAZYLEN(SSticker.mode.antag_tags))
 		out += "<b>Core antag templates:</b></br>"
 		for(var/antag_tag in SSticker.mode.antag_tags)
-			out += "<a href='?src=\ref[SSticker.mode];debug_antag=[antag_tag]'>[antag_tag]</a>.</br>"
+			out += "<a href='?src=[REF(SSticker.mode)];debug_antag=[antag_tag]'>[antag_tag]</a>.</br>"
 
 	if(SSticker.mode.round_autoantag)
-		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>enabled</a></b>."
+		out += "<b>Autotraitor <a href='?src=[REF(SSticker.mode)];toggle=autotraitor'>enabled</a></b>."
 		if(SSticker.mode.antag_scaling_coeff > 0)
-			out += " (scaling with <a href='?src=\ref[SSticker.mode];set=antag_scaling'>[SSticker.mode.antag_scaling_coeff]</a>)"
+			out += " (scaling with <a href='?src=[REF(SSticker.mode)];set=antag_scaling'>[SSticker.mode.antag_scaling_coeff]</a>)"
 		else
-			out += " (not currently scaling, <a href='?src=\ref[SSticker.mode];set=antag_scaling'>set a coefficient</a>)"
+			out += " (not currently scaling, <a href='?src=[REF(SSticker.mode)];set=antag_scaling'>set a coefficient</a>)"
 		out += "<br/>"
 	else
-		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
+		out += "<b>Autotraitor <a href='?src=[REF(SSticker.mode)];toggle=autotraitor'>disabled</a></b>.<br/>"
 
 	out += "<b>All antag ids:</b>"
 	if(LAZYLEN(SSticker.mode.antag_templates))
 		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max()
-			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"
+			out += " <a href='?src=[REF(SSticker.mode)];debug_antag=[antag.id]'>[antag.id]</a>"
 			out += " ([antag.get_antag_count()]/[antag.cur_max]) "
-			out += " <a href='?src=\ref[SSticker.mode];remove_antag_type=[antag.id]'>\[-\]</a><br/>"
+			out += " <a href='?src=[REF(SSticker.mode)];remove_antag_type=[antag.id]'>\[-\]</a><br/>"
 	else
 		out += " None."
-	out += " <a href='?src=\ref[SSticker.mode];add_antag_type=1'>\[+\]</a><br/>"
+	out += " <a href='?src=[REF(SSticker.mode)];add_antag_type=1'>\[+\]</a><br/>"
 
 	usr << browse(out, "window=edit_mode[src]")
 	feedback_add_details("admin_verb","SGM")

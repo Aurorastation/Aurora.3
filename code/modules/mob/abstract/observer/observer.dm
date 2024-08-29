@@ -837,7 +837,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/abstract/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|\[<a href='byond://?src=[REF(ghost)];track=\ref[mind.current]'>B</a>\]"
+		return "|\[<a href='byond://?src=[REF(ghost)];track=[REF(mind.current)]'>B</a>\]"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return

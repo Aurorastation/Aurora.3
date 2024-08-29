@@ -360,7 +360,7 @@
 	<BR><B>Head(Mask):</B> <A href='?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
 	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
 	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
+	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
 	<BR>[(internal ? text("<A href='?src=[REF(src)];item=internal'>Remove Internal</A>") : "")]
 	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
 	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>

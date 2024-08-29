@@ -124,8 +124,8 @@ fi
 
 # Check that all the files in sound/ are referenced with static paths
 echo "Verifying no raw ref proc calls are being added" >> code_error.log
-RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref\(' | wc -l`
-if [[ $RAW_REF_BUILTIN_PROCS -ne 2 ]]; then
+RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref[\(\[]' | wc -l`
+if [[ $RAW_REF_BUILTIN_PROCS -ne 3 ]]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Found raw ref proc calls in code:" >> code_error.log
 	echo $RAW_REF_BUILTIN_PROCS >> code_error.log

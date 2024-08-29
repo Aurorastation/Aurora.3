@@ -597,7 +597,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *
  * Relays a new ban to jobban_fullban and also manages database insertions where needed.
  *
- * @param	str tgt_ref	The \ref[] of the target mob we want to dinbannu.
+ * @param	str tgt_ref	The REF() of the target mob we want to dinbannu.
  * @param	str job		The name of the job we want to ban the target from.
  *
  * @return	num		1 if something was done.

@@ -54,7 +54,7 @@
 			dat += "Linked Entities: <ol>"
 			for(var/obj/machinery/telecomms/T in SelectedMachine.links)
 				if(!T.hide)
-					dat += "<li><a href='?src=[REF(src)];viewmachine=[T.id]'>\ref[T.id] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='?src=[REF(src)];viewmachine=[T.id]'>[REF(T.id)] [T.name]</a> ([T.id])</li>"
 			dat += "</ol>"
 
 

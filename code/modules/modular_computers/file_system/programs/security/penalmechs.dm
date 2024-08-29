@@ -63,7 +63,7 @@
 	data["mechs"] = sortByKey(mechs, "pilot")
 	data["robots"] = sortByKey(robots, "pilot")
 
-	data["current_cam_loc"] = current_camera ? "\ref[current_camera.loc]" : null
+	data["current_cam_loc"] = current_camera ? "[REF(current_camera.loc)]" : null
 
 	return data
 

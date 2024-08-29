@@ -145,7 +145,7 @@
 /datum/tgui_module/moderator/shared/player_panel/ui_data(mob/user)
 	var/list/data = list()
 	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
-	data["holder_ref"] = "\ref[user.client.holder]"
+	data["holder_ref"] = "[REF(user.client.holder)]"
 	data["is_mod"] = isMod
 
 	var/list/mobs = sortmobs()

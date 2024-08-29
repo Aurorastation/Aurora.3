@@ -223,7 +223,7 @@
 	if(citizenship)
 		var/datum/browser/citizen_win = new(user, "citizen_win", "Citizenship")
 		var/dat = "<html><center><b>[citizenship.name]</center></b>"
-		dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
+		dat += "<br><br><center><a href='?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
 		dat += "<br>[citizenship.description]"
 		dat += "<br><center>\[<a href='?src=[REF(src)];set_citizenship=[html_encode(citizenship.name)]'>Select</a>\]</center>"
 		dat += "</html>"

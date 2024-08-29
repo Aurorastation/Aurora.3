@@ -887,12 +887,12 @@
 		if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")
 		else
-			dat += text("[module.emag]: <A HREF=?src=[REF(src)];act=\ref[module.emag]>Activate</A><BR>")
+			dat += text("[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>")
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
 			dat += text("[module.malf_AI_module]: <B>Activated</B><BR>")
 		else
-			dat += text("[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=\ref[module.malf_AI_module]>Activate</A><BR>")
+			dat += text("[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>")
 	src << browse(dat, "window=robotmod")
 
 

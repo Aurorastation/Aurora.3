@@ -1593,7 +1593,7 @@
 
 /mob/abstract/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
-		return "|<A HREF='?[source];adminplayerobservejump=\ref[mind.current]'>BDY</A>"
+		return "|<A HREF='?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
 
 /proc/admin_jump_link(var/atom/target, var/source)
 	if(!target) return

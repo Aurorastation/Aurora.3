@@ -155,7 +155,7 @@
 			mobnames += "Affected players: "
 			var/i = 1
 			do
-				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
+				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
 				if (touched_mobs[i+1])
 					mobnames += ", "
 				i++

@@ -205,7 +205,7 @@
 				<b>SE:</b> [src.active_record.dna.struc_enzymes]<br><br>"}
 
 				if(pods.len)
-					dat += {"<a href='byond://?src=[REF(src)];clone=\ref[src.active_record]'>Clone</a><br>"}
+					dat += {"<a href='byond://?src=[REF(src)];clone=[REF(src.active_record)]'>Clone</a><br>"}
 
 		if(4)
 			if (!src.active_record)
@@ -418,7 +418,7 @@
 		R.implant = "[REF(imp)]"
 
 	if (!isnull(subject.mind)) //Save that mind so traitors can continue traitoring after cloning.
-		R.mind = "\ref[subject.mind]"
+		R.mind = "[REF(subject.mind)]"
 
 	src.records += R
 	scantemp = "Subject successfully scanned."

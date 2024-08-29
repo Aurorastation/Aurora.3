@@ -202,7 +202,7 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[FACTION RESTRICTED]</b></td></tr>"
 			continue
 		else if (ban_reason)
-			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
+			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=[REF(user.client)];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if(job.blacklisted_species) // check for restricted species
 			var/datum/species/S = GLOB.all_species[pref.species]
@@ -485,7 +485,7 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
+	dat += "You can learn more about this faction on <a href='?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction selected\]"
