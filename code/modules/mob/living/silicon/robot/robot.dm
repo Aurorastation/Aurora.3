@@ -878,21 +878,21 @@
 
 	for(var/obj in module.modules)
 		if(!obj)
-			dat += text("<B>Resource depleted</B><BR>")
+			dat += "<B>Resource depleted</B><BR>"
 		else if(activated(obj))
-			dat += text("[obj]: <B>Activated</B><BR>")
+			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += text("[obj]: <A HREF=?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>")
+			dat += "[obj]: <A HREF=?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
 	if(emagged)
 		if(activated(module.emag))
-			dat += text("[module.emag]: <B>Activated</B><BR>")
+			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>")
+			dat += "[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
-			dat += text("[module.malf_AI_module]: <B>Activated</B><BR>")
+			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>")
+			dat += "[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
 	src << browse(dat, "window=robotmod")
 
 
