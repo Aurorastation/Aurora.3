@@ -1,4 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n13"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "an" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7,6 +16,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/redgrid,
+/area/space)
+"ap" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air11";
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
 /area/space)
 "as" = (
 /obj/structure/lattice,
@@ -80,6 +97,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"aT" = (
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-11";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
 "aX" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -133,6 +161,21 @@
 "bH" = (
 /turf/simulated/wall,
 /area/space)
+"bM" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "bR" = (
 /obj/structure/sign/directions/cryo{
 	pixel_x = -32;
@@ -142,6 +185,33 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"ch" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n15"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"cl" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"co" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n7"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "cp" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -171,6 +241,30 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/space)
+"cD" = (
+/obj/effect/floor_decal/corner/blue,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cU" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n3"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"dh" = (
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-6";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/oxygen,
 /area/space)
 "dz" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
@@ -203,9 +297,47 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"eh" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"er" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/omni/filter{
+	name = "oxygen filter";
+	tag_east = 3;
+	tag_north = 2;
+	tag_south = 1
+	},
+/turf/space,
+/area/space)
 "ex" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ey" = (
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-12";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
+"eC" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -226,6 +358,12 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/space,
 /area/space)
+"fd" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-2"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "fe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -234,6 +372,19 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"fg" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "lost_air_in";
+	use_power = 1;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"fl" = (
+/obj/structure/tank_wall/oxygen,
+/turf/simulated/floor/airless,
 /area/space)
 "fG" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -244,6 +395,43 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"fH" = (
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
+	icon_state = "n6";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
+"fV" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"gm" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "gp" = (
 /obj/structure/sign/directions/engineering{
@@ -259,6 +447,12 @@
 "gw" = (
 /turf/simulated/floor/redgrid,
 /area/space)
+"gE" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "gL" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 9
@@ -273,7 +467,51 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/redgrid,
 /area/space)
+"hk" = (
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
+	icon_state = "n11";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
 "hw" = (
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"hD" = (
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
+	icon_state = "n12";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
+"hT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
+/area/space)
+"ip" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+"iR" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "jE" = (
@@ -281,9 +519,70 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"jH" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"jM" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Air to Connector"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"kc" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/turf/space,
+/area/space)
+"kD" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "kX" = (
 /obj/item/stack/rods,
 /turf/space,
+/area/space)
+"lf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "ln" = (
 /obj/structure/table/standard,
@@ -338,6 +637,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"mk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/space)
+"mp" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
+"mN" = (
+/obj/machinery/atmospherics/binary/pump{
+	name = "Oxygen to Connector"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "mQ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains,
@@ -357,6 +680,10 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"mT" = (
+/obj/structure/tank_wall/nitrogen,
+/turf/simulated/floor/plating,
 /area/space)
 "nl" = (
 /obj/effect/floor_decal/industrial/arrow/engineering{
@@ -384,12 +711,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"nu" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/turf/simulated/floor/airless,
+/area/space)
 "nI" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/redgrid,
+/area/space)
+"nK" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air3"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "nM" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow,
@@ -447,6 +788,11 @@
 /obj/machinery/light/floor/decayed,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"pE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "pL" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/industrial/hatch/blue,
@@ -473,11 +819,71 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"pT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"qd" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-14"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"qg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/space)
 "qw" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"qz" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"qJ" = (
+/obj/machinery/atmospherics/tvalve/mirrored{
+	dir = 4;
+	name = "Nitrogen to Mixing/Connector"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_small/service,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"qX" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/westleft,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"rL" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_north";
+	name = "airlock_lost_atmos_north";
+	frequency = 1501
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor/plating,
 /area/space)
 "rQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -527,6 +933,23 @@
 /obj/machinery/light/floor/decayed,
 /turf/simulated/floor/redgrid/airless,
 /area/space)
+"sZ" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tq" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n14"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "tr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -536,9 +959,47 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"tv" = (
+/obj/structure/tank_wall/oxygen{
+	density = 0;
+	icon_state = "o2-5";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
 "tI" = (
 /obj/item/ore,
 /obj/effect/decal/cleanable/floor_damage/broken0,
+/turf/simulated/floor/airless,
+/area/space)
+"tX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/floor/airless,
+/area/space)
+"uj" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "Nitrogen to Connector"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"un" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/airless,
 /area/space)
 "uD" = (
@@ -559,6 +1020,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"uT" = (
+/obj/machinery/atmospherics/binary/pump{
+	name = "Waste to Filtering";
+	use_power = 1
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"vm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vn" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	id_tag = "lost_n_out"
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
 "vq" = (
 /obj/structure/cryofeed{
 	dir = 4
@@ -573,6 +1057,26 @@
 /obj/effect/floor_decal/corner/orange,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vV" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "lost_o2_in";
+	name = "oxygen injector";
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
+"wa" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -612,6 +1116,24 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"wJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
+"wV" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air4"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"xb" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n16"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "xf" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -626,6 +1148,23 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"xX" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-7"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"xZ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"yc" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/space,
 /area/space)
 "yk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -654,6 +1193,20 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/space)
+"yZ" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_north";
+	name = "airlock_lost_atmos_north";
+	frequency = 1501
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "zg" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
@@ -671,12 +1224,32 @@
 	},
 /turf/simulated/floor/redgrid,
 /area/space)
+"zn" = (
+/obj/machinery/atmospherics/tvalve{
+	dir = 4;
+	name = "Oxygen to Mixing/Connector"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_small/blue,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "zq" = (
 /obj/structure/railing/mapped{
 	dir = 1;
 	pixel_y = 8
 	},
 /turf/simulated/floor/redgrid/airless,
+/area/space)
+"zz" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air14"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "zK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -688,6 +1261,34 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"zM" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/space,
+/area/space)
+"zR" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air15"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"zT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"zY" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/nitrogen,
 /area/space)
 "Aa" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -703,6 +1304,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Ad" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Ae" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 10
@@ -712,6 +1321,20 @@
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Ag" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "AS" = (
 /obj/machinery/power/apc/empty/south,
@@ -745,6 +1368,16 @@
 	},
 /turf/simulated/floor/redgrid/airless,
 /area/space)
+"Bl" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "lost_n_in";
+	name = "nitrogen injector";
+	use_power = 1;
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
 "Bx" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 5
@@ -759,6 +1392,16 @@
 /obj/item/ore/slag,
 /obj/effect/decal/cleanable/floor_damage/broken6,
 /turf/simulated/floor/airless,
+/area/space)
+"BK" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/omni/filter{
+	name = "nitrogen filter";
+	tag_east = 4;
+	tag_north = 2;
+	tag_south = 1
+	},
+/turf/space,
 /area/space)
 "BZ" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -788,17 +1431,88 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/redgrid/airless,
 /area/space)
+"CD" = (
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lost_air_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"CM" = (
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lost_n_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/nitrogen,
+/area/space)
+"CP" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"CY" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Db" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Dg" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Dk" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Dl" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/redgrid,
+/area/space)
+"Dt" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Dy" = (
+/obj/machinery/atmospherics/tvalve{
+	dir = 4;
+	name = "Air to Distro/Connector"
+	},
+/obj/effect/floor_decal/industrial/hatch_small,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "DL" = (
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
@@ -834,6 +1548,15 @@
 /obj/item/ore/glass,
 /turf/simulated/floor/tiled/dark/airless,
 /area/space)
+"Ek" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air9"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "EG" = (
 /obj/machinery/power/apc/empty/north{
 	req_access = null
@@ -844,9 +1567,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Fb" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air16"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "FL" = (
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /turf/simulated/floor/airless,
+/area/space)
+"FM" = (
+/obj/structure/tank_wall/nitrogen{
+	density = 0;
+	icon_state = "n5";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/nitrogen,
 /area/space)
 "FQ" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
@@ -870,6 +1610,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/redgrid,
 /area/space)
+"FX" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "Ge" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 4
@@ -881,6 +1628,24 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Gs" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_south";
+	name = "airlock_lost_atmos_south";
+	frequency = 1500
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Gw" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -916,6 +1681,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"Hb" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Hc" = (
 /obj/effect/floor_decal/industrial/outline_segment/blue,
 /turf/simulated/floor/tiled/dark,
@@ -933,12 +1707,40 @@
 /obj/item/material/shard,
 /turf/space,
 /area/space)
+"Il" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-9"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ir" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Iz" = (
 /obj/effect/floor_decal/industrial/outline_segment/engineering{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark/airless,
+/area/space)
+"Jd" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 5
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Jx" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -959,8 +1761,10 @@
 /obj/effect/floor_decal/industrial/outline_segment/engineering{
 	dir = 5
 	},
-/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Ka" = (
+/turf/simulated/floor/reinforced/airmix,
 /area/space)
 "Kg" = (
 /obj/structure/railing/mapped{
@@ -969,15 +1773,41 @@
 	},
 /turf/simulated/floor/redgrid,
 /area/space)
+"Kj" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Kk" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Ko" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Kv" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"KM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/oxygen,
 /area/space)
 "KO" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
@@ -987,6 +1817,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"KP" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air7"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "La" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -1014,6 +1853,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"LC" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air6";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
 "Mh" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1029,6 +1879,20 @@
 /area/space)
 "Mp" = (
 /turf/space,
+/area/space)
+"MD" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	name = "Air to Distribution"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "MJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1048,6 +1912,24 @@
 "MN" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
+/area/space)
+"MQ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("lost_o2_sensor"="Tank");
+	output_tag = "lost_o2_out";
+	name = "Oxygen Supply Terminal";
+	input_tag = "lost_o2_in";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "MR" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1072,6 +1954,25 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"MX" = (
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Nb" = (
+/obj/machinery/atmospherics/omni/mixer{
+	active_power_usage = 7500;
+	name = "air mixer";
+	tag_north = 1;
+	tag_north_con = 0.21;
+	tag_south_con = 0.79;
+	tag_south = 1;
+	tag_west = 2
+	},
+/obj/effect/floor_decal/industrial/hatch,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "Nd" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
@@ -1082,6 +1983,17 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Nv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/space)
+"NQ" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-16"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "NV" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1111,6 +2023,12 @@
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Oi" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air10"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "OC" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1126,11 +2044,60 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"OI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/space)
+"OZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Pt" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("lost_air_sensor"="Tank");
+	output_tag = "lost_air_out";
+	name = "Air Supply Terminal";
+	input_tag = "lost_air_in";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "PA" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"PB" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n9"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"PQ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/floor/airless,
 /area/space)
 "Qc" = (
 /obj/effect/floor_decal/corner/orange{
@@ -1160,12 +2127,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"QE" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "QG" = (
 /obj/effect/floor_decal/industrial/outline_segment/blue{
 	dir = 1
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"QP" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_north";
+	name = "airlock_lost_atmos_north";
+	frequency = 1501
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Re" = (
 /obj/structure/sign/directions/engineering{
@@ -1177,6 +2165,45 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Rs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ru" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"RC" = (
+/obj/structure/tank_wall/nitrogen{
+	icon_state = "n10"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"RP" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air12";
+	opacity = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airmix,
 /area/space)
 "RQ" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1194,6 +2221,39 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"RW" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	id_tag = "lost_o2_out";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
+"RY" = (
+/obj/machinery/alarm/west,
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"So" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Ss" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
@@ -1206,6 +2266,21 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/space)
+"SN" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"Tp" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-3"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Tu" = (
 /obj/item/material/shard,
 /obj/item/material/shard,
@@ -1217,6 +2292,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"TA" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "TF" = (
 /obj/structure/sign/directions/engineering{
@@ -1235,11 +2317,50 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"TJ" = (
+/obj/structure/tank_wall/air,
+/turf/simulated/floor/plating,
+/area/space)
+"TS" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"TV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "TZ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Ud" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-13"
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Ul" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -1249,6 +2370,17 @@
 /obj/item/ore/slag,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken0,
 /turf/simulated/floor/tiled/dark/airless,
+/area/space)
+"Un" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "Uv" = (
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
@@ -1310,6 +2442,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"Vx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/space)
 "Vy" = (
 /obj/structure/table/standard,
 /obj/machinery/light/colored/decayed/dimmed{
@@ -1317,10 +2454,53 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"VG" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 1
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	sensors = list("lost_n_sensor"="Tank");
+	output_tag = "lost_n_out";
+	name = "Nitrogen Supply Terminal";
+	input_tag = "lost_n_in";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"VV" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"VX" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air5";
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
 "Wa" = (
 /obj/item/material/shard,
 /obj/item/stack/rods,
 /turf/space,
+/area/space)
+"Wg" = (
+/obj/structure/tank_wall/air{
+	icon_state = "air13"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "Wi" = (
 /obj/effect/floor_decal/industrial/outline_segment/engineering{
@@ -1396,9 +2576,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Xy" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_lost_atmos_north";
+	name = "airlock_lost_atmos_north";
+	frequency = 1501
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "XA" = (
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 10
+	},
+/obj/structure/barricade/wooden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1419,6 +2617,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"XV" = (
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lost_o2_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/oxygen,
+/area/space)
 "Yb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1437,6 +2643,52 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Yg" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Yj" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-4"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"Yr" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/turf/space,
+/area/space)
+"YB" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-15"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"YV" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/westright,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"YX" = (
+/obj/structure/tank_wall/oxygen{
+	icon_state = "o2-8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Zc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1445,6 +2697,27 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Zk" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 4;
+	id_tag = "lost_air_out"
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"Zt" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/space,
+/area/space)
+"ZE" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/turf/space,
 /area/space)
 
 (1,1,1) = {"
@@ -26734,13 +28007,13 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Yr
+yc
+yc
+yc
+yc
+yc
+kc
 Mp
 Mp
 Mp
@@ -26986,23 +28259,23 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Yr
+yc
+yc
+yc
+er
+zM
+ip
+wV
+jH
+Oi
+ip
+ZE
+BK
+yc
+yc
+yc
+kc
 Mp
 Mp
 Mp
@@ -27243,23 +28516,23 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Zt
+ip
+Yj
+YX
+SN
+ip
+TJ
+VX
+Ka
+ap
+zz
+ip
+Hb
+Dk
+RC
+ip
+Zt
 Mp
 Mp
 Mp
@@ -27500,23 +28773,23 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Zt
+fl
+tv
+RW
+aT
+qd
+VV
+Zk
+CD
+fg
+zR
+mT
+FM
+vn
+hk
+tq
+Zt
 Mp
 Mp
 Mp
@@ -27757,23 +29030,23 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Zt
+fd
+KM
+XV
+KM
+YB
+nK
+LC
+Ka
+RP
+Fb
+CP
+zY
+CM
+wJ
+ch
+Zt
 Mp
 Mp
 Mp
@@ -28013,25 +29286,25 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+Yr
+zM
+Tp
+dh
+vV
+ey
+NQ
+ip
+KP
+Ek
+Wg
+ip
+cU
+fH
+Bl
+hD
+xb
+ZE
+kc
 Mp
 Mp
 Mp
@@ -28270,25 +29543,25 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+mp
+ip
+ip
+xX
+Il
+Ud
+ip
+RY
+MD
+Pt
+jM
+fV
+ip
+co
+PB
+ak
+ip
+ip
+Zt
 Mp
 Mp
 Mp
@@ -28526,27 +29799,27 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+ip
+Xy
+ip
+TS
+zn
+MQ
+mN
+Dg
+wa
+Dy
+gE
+FX
+CY
+iR
+uj
+VG
+qJ
+sZ
+ip
+Gs
+ip
 Mp
 Mp
 Mp
@@ -28783,27 +30056,27 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+hT
+rL
+yZ
+Yg
+mk
+xZ
+xZ
+xZ
+qz
+Ru
+TA
+Nb
+Jd
+pT
+pE
+uT
+nu
+zT
+cl
+gm
+hT
 Mp
 Mp
 Mp
@@ -29040,27 +30313,27 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+hT
+rL
+QP
+Rs
+qg
+OI
+un
+un
+eh
+Un
+lf
+Vx
+Ad
+tX
+Nv
+PQ
+QE
+TV
+kD
+Dt
+hT
 Mp
 Mp
 Mp
@@ -29297,27 +30570,27 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+ip
+Xy
+ip
+Ko
+Kj
+So
+Kj
+Kj
+eC
+hw
+Ir
+hw
+cD
+Kj
+Kj
+So
+Kj
+OZ
+ip
+bM
+ip
 Mp
 Mp
 Mp
@@ -29556,23 +30829,23 @@ Mp
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-bH
-bH
+ip
+YV
+ip
+ip
+ip
+ip
+ip
 aZ
 ba
 JG
-bH
-bH
-Mp
-Mp
-Mp
-Mp
-Mp
+ip
+ip
+ip
+ip
+ip
+qX
+ip
 Mp
 Mp
 Mp
@@ -29813,23 +31086,23 @@ Mp
 Mp
 Mp
 Mp
+ip
+ip
+ip
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
-bH
+ip
 Cj
 DL
 Cj
-bH
+ip
 Mp
 Mp
 Mp
-Mp
-Mp
-Mp
+ip
+ip
+ip
 Mp
 Mp
 Mp
@@ -33409,7 +34682,7 @@ Db
 hw
 hw
 Li
-hw
+MX
 hw
 PA
 uD
@@ -33664,7 +34937,7 @@ nM
 FQ
 lQ
 aw
-aw
+Ag
 pS
 aw
 aw
@@ -33922,7 +35195,7 @@ uD
 TI
 hw
 hw
-XU
+vm
 hw
 hw
 jE
@@ -38042,13 +39315,13 @@ Mp
 Mp
 Mp
 Mp
+hw
+hw
+hw
 Mp
-Mp
-Mp
-Mp
-Mp
-Mp
-Mp
+hw
+hw
+hw
 Mp
 Mp
 Mp
