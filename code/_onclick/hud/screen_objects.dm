@@ -11,7 +11,6 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
