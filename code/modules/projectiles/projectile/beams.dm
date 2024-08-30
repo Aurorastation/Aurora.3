@@ -168,7 +168,8 @@
 	tracer_type = /obj/effect/projectile/tracer/laser
 	impact_type = /obj/effect/projectile/impact/laser
 
-/obj/projectile/beam/laser_tag/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/laser_tag/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit

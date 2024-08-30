@@ -769,9 +769,12 @@
 
 	//Turrets aim for the center of mass by default.
 	//If the target is grabbing someone then the turret smartly aims for extremities
-	var/def_zone = get_exposed_defense_zone(target)
+	A.def_zone = get_exposed_defense_zone(target)
 	//Shooting Code:
-	A.launch_projectile(target, def_zone)
+	A.preparePixelProjectile(target, T)
+	A.firer = src
+	A.fired_from = src
+	A.fire()
 	last_fired = TRUE
 	addtimer(CALLBACK(src, PROC_REF(reset_last_fired)), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
 

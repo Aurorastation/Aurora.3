@@ -13,8 +13,8 @@
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
-/obj/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if (..(target, blocked, def_zone))
+/obj/projectile/bullet/on_hit(atom/target, blocked, def_zone)
+	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
@@ -497,7 +497,8 @@
 	explosion(A, -1, 0, 2)
 	..()
 
-/obj/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	explosion(target, -1, 0, 2)
 	if(ismovable(target))
 		var/atom/movable/T = target
@@ -600,7 +601,7 @@
 
 	light_impact_range = 1
 
-/obj/projectile/bullet/peac/shrapnel/preparePixelProjectile()
+/obj/projectile/bullet/peac/shrapnel/preparePixelProjectile(atom/target, atom/source, list/modifiers, deviation)
 	. = ..()
 	range = get_dist(firer, original)
 
@@ -622,7 +623,9 @@
 		P.damage = 30
 		P.pellets = 4
 		P.range_step = 3
-		P.shot_from = src
 		P.range = 15
 		P.name = "shrapnel"
-		P.launch_projectile(T)
+		P.preparePixelProjectile(T, src)
+		P.firer = src
+		P.fired_from = src
+		P.fire()

@@ -341,12 +341,7 @@
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
 	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
-	var/obj/projectile/beam/LE = new (T)
-	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
-	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
-	LE.impact_type = /obj/effect/projectile/impact/eyelaser
-	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
-	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
+	fire_projectile(/obj/projectile/beam, T, 'sound/weapons/wave.ogg', firer = src)
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)

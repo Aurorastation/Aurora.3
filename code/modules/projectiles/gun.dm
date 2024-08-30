@@ -430,10 +430,11 @@
 			P.accuracy = accuracy + acc
 			P.dispersion = disp
 
-			P.shot_from = src.name
 			P.suppressed =  suppressed
 
-			P.launch_projectile(target)
+			P.preparePixelProjectile(target, get_turf(src))
+			P.fired_from = src
+			P.fire()
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
 
@@ -573,7 +574,12 @@
 		else if(mob.shock_stage > 70)
 			added_spread = 15
 
-	return !P.launch_from_gun(target, target_zone, user, params, null, added_spread, src)
+	P.preparePixelProjectile(target, src, deviation = added_spread)
+	P.firer = user
+	P.fired_from = src
+	P.def_zone = target_zone
+
+	return !P.fire()
 
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>

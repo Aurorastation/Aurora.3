@@ -230,7 +230,6 @@
 	projectile.desc = SA.desc
 	projectile.ammo = SA
 	projectile.dir = barrel.dir
-	projectile.shot_from = name
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
@@ -243,7 +242,9 @@
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
 	var/turf/target = get_step(projectile, barrel.dir)
-	projectile.launch_projectile(target)
+	projectile.preparePixelProjectile(target, firing_turf)
+	projectile.fired_from = barrel
+	projectile.fire()
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()

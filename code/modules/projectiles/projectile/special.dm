@@ -80,7 +80,9 @@
 	icon_state= "bolter"
 	damage = 15
 
-/obj/projectile/bullet/gyro/law/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/bullet/gyro/law/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
 	explosion(target, -1, 0, 2)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
@@ -97,7 +99,8 @@
 	//var/temperature = 300
 
 
-/obj/projectile/temp/on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
+/obj/projectile/temp/on_hit(atom/target, blocked, def_zone)//These two could likely check temp protection on the mob
+	. = ..()
 	if(istype(target, /mob/living))
 		var/mob/M = target
 		M.bodytemperature = -273
@@ -147,7 +150,8 @@
 	nodamage = TRUE
 	var/singleton/plantgene/gene = null
 
-/obj/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/energy/floramut/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	var/mob/living/M = target
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = M
@@ -180,7 +184,8 @@
 	nodamage = 1
 	check_armor = "energy"
 
-/obj/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/energy/florayield/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	var/mob/M = target
 	if(ishuman(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
@@ -195,7 +200,8 @@
 /obj/projectile/beam/mindflayer
 	name = "flayer ray"
 
-/obj/projectile/beam/mindflayer/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/mindflayer/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
 		M.adjustBrainLoss(5)

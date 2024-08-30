@@ -12,11 +12,13 @@
 		P.damage = p_dam
 		P.pellets = fragments_per_projectile
 		P.range_step = p_range
-		P.shot_from = source
 		P.range = shard_range
 		P.name = "shrapnel"
 
-		P.launch_projectile(T)
+		P.preparePixelProjectile(T, get_turf(source))
+		P.firer = source
+		P.fired_from = source
+		P.fire()
 
 		if(can_cover)
 			for(var/mob/living/M in O)

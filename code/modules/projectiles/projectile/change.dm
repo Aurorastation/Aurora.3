@@ -6,8 +6,9 @@
 	nodamage = 1
 	check_armor = "energy"
 
-/obj/projectile/change/on_hit(var/atom/change)
-	wabbajack(change)
+/obj/projectile/change/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	wabbajack(target)
 
 /obj/projectile/change/proc/wabbajack(var/mob/M)
 	if(istype(M, /mob/living) && M.stat != DEAD)

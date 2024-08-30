@@ -13,7 +13,8 @@
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(blocked < 100 && ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(H.can_inject(target_zone=def_zone))

@@ -176,7 +176,7 @@
 	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
-	hit_effect = /obj/effect/temp_visual/blaster_effect
+	impact_effect_type = /obj/effect/temp_visual/blaster_effect
 
 /obj/projectile/energy/blaster/disruptor
 	damage = 20

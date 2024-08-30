@@ -10,10 +10,10 @@
 		trace.obj_flags = obj_flags
 	trace.pass_flags = pass_flags
 
-	return trace.launch_projectile(target) //Test it!
+	trace.preparePixelProjectile(target, firer)
+	trace.firer = firer
 
-/obj/projectile/proc/_check_fire(atom/target as mob, mob/living/user as mob)  //Checks if you can hit them or not.
-	check_trajectory(target, user, pass_flags, obj_flags)
+	return trace.fire()
 
 //"Tracing" projectile
 /obj/projectile/test //Used to see if you can hit them.
