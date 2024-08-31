@@ -9,7 +9,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 4 // primarily cloud computing
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "AccountDatabase"
 
@@ -32,6 +32,9 @@
 	return held_card
 
 /datum/computer_file/program/account_db/proc/get_access_level()
+	// If AI program, give command access
+	if (computer.hardware_flag = PROGRAM_SILICON_AI)
+		return 1
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
 		return 0

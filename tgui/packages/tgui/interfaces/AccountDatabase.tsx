@@ -5,6 +5,7 @@ import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
   has_printer: BooleanLike;
+  is_ai: BooleanLike;
   id_card: string;
   access_level: number;
   machine_id: string;
@@ -55,7 +56,7 @@ export const AccountDatabase = (props, context) => {
             )}
           </LabeledList>
         </Section>
-        {data.id_card ? <AccountWindow /> : ''}
+        {data.id_card | data.is_ai ? <AccountWindow /> : ''}
       </NtosWindow.Content>
     </NtosWindow>
   );
