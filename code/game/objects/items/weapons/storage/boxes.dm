@@ -1100,13 +1100,13 @@
 	name = "googly eye box"
 	desc = "A box containing googly eyes."
 	illustration = "googlyeyes"
-	starts_with = list(/obj/item/sticker/googly_eye = 8)
+	starts_with = list(/obj/item/sticker/generic/googly_eye = 8)
 
 /obj/item/storage/box/goldstar
 	name = "gold star box"
 	desc = "A box containing gold star stickers."
 	illustration = "goldstar"
-	starts_with = list(/obj/item/sticker/goldstar = 8)
+	starts_with = list(/obj/item/sticker/generic/goldstar = 8)
 
 /obj/item/storage/box/folders
 	name = "box of folders"
