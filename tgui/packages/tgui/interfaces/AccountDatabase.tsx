@@ -56,7 +56,7 @@ export const AccountDatabase = (props, context) => {
             )}
           </LabeledList>
         </Section>
-        {data.id_card | data.is_ai ? <AccountWindow /> : ''}
+        {data.id_card || data.is_ai ? <AccountWindow /> : ''}
       </NtosWindow.Content>
     </NtosWindow>
   );

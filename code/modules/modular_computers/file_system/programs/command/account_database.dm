@@ -33,7 +33,7 @@
 
 /datum/computer_file/program/account_db/proc/get_access_level()
 	// If AI program, give command access
-	if (computer.hardware_flag = PROGRAM_SILICON_AI)
+	if (computer.hardware_flag & PROGRAM_SILICON_AI)
 		return 1
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
@@ -76,6 +76,7 @@
 	data["has_printer"] = !!computer.nano_printer
 	data["id_card"] = held_card ? text("[held_card.registered_name], [held_card.assignment]") : null
 	data["access_level"] = get_access_level()
+	data["is_ai"] = (computer.hardware_flag & PROGRAM_SILICON_AI) ? TRUE : FALSE
 	data["machine_id"] = machine_id
 	data["station_account_number"] = "[SSeconomy.station_account.account_number]"
 	data["station_account_money"] = SSeconomy.station_account.money
