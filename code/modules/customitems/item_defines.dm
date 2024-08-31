@@ -1919,9 +1919,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 
 /obj/item/rig/light/offworlder/fluff/aayun
-	name = "prototype exo-stellar skeleton module"
-	suit_type = "exoskeleton voidsuit"
-	desc = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
+	name = "command exo-stellar skeleton module"
+	suit_type = "exo-stellar skeleton"
+	desc = "A prototype, exo-stellar skeleton suit finished in SCC blue and gold, evidently built for someone in authority. Made of extremely expensive and custom-made parts, and bears an integrated golden metal scarf as a fashion statement."
+	desc_extended = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
 	Features microdoses of medicine in the air supply to aid in lung pain, electrostimulants to assist in muscle rehabilitation, and innumerable other features. Unfortunately, due to design limitations, \
 	it is only capable of maintaining a lower internal pressure when exposed to normal environments, and is not spaceworthy nor immune to environmental conditions. This particular model bears a small mark \
 	of Zeng-Hu Pharmaceuticals on the main back piece, and was largely designed by a collaborative effort of experts in their fields on the Horizon. A new future for off-worlders, or a money pit?"
