@@ -14,8 +14,37 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"d" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -22;
+	name = "Cargo Hold #3 Shutters";
+	id = "lone_spacer_cargo4";
+	pixel_y = -1
+	},
+/obj/structure/largecrate/animal/babycarp,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"e" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/largecrate/animal/reaver,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "g" = (
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/optable,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "h" = (
@@ -48,6 +77,19 @@
 	id = "lone_spacer_cargo4";
 	pixel_y = -1
 	},
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/masks{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 4;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "k" = (
@@ -55,6 +97,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "l" = (
@@ -70,9 +113,68 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"p" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure/large/larva,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"r" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/drop,
+/obj/item/device/mmi,
+/obj/item/stack/cable_coil/blue,
+/obj/item/stack/cable_coil,
+/obj/item/device/robotanalyzer,
+/obj/item/ipc_tag_scanner,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/device/assembly/prox_sensor,
+/obj/item/device/assembly/prox_sensor,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
+/obj/item/robot_parts/head,
+/obj/item/stock_parts/manipulator,
+/obj/item/device/mmi/digital/posibrain,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"s" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/seed_storage/garden,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"t" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/closet/crate/secure/weapon,
+/obj/random/melee,
+/obj/random/melee,
+/obj/random/melee/highvalue,
+/obj/random/projectile,
+/obj/item/material/hatchet/unathiknife,
+/obj/item/material/knife/butterfly,
+/obj/item/material/knife/raskariim,
+/obj/item/melee/energy/sword/knife/sol,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"w" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/stasis_cage{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "x" = (
@@ -99,21 +201,62 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "A" = (
 /obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"F" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 22;
-	name = "Cargo Hold #1 Shutters";
-	id = "lone_spacer_cargo1";
-	pixel_y = -1
+"B" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
 	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"C" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/vending/hydronutrients,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"D" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/drop/grey,
+/obj/item/organ/internal/augment/fuel_cell,
+/obj/item/organ/internal/augment/gustatorial/hand,
+/obj/item/organ/internal/augment/health_scanner,
+/obj/item/organ/internal/augment/psi,
+/obj/item/organ/internal/augment/suspension,
+/obj/item/organ/internal/augment/tool/combitool,
+/obj/item/organ/internal/augment/tool/correctivelens/glare_dampener,
+/obj/item/organ/internal/augment/eye_sensors/medical,
+/obj/item/organ/internal/augment/cyber_hair,
+/obj/item/organ/internal/augment/timepiece,
+/obj/item/organ/internal/augment/synthetic_cords,
+/obj/item/organ/internal/augment/taste_booster,
+/obj/item/organ/internal/augment/emotional_manipulator,
+/obj/item/organ/internal/augment/enhanced_vision,
+/obj/item/organ/internal/augment/memory_inhibitor,
+/obj/item/organ/internal/augment/sightlights,
+/obj/item/organ/external/leg/right/ipc,
+/obj/item/organ/external/leg/ipc,
+/obj/item/organ/external/arm/right/ipc,
+/obj/item/organ/external/arm/ipc,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"E" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"F" = (
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "G" = (
@@ -126,6 +269,11 @@
 	pixel_y = -2;
 	pixel_x = 1
 	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"H" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/largecrate/animal/carp,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "I" = (
@@ -155,6 +303,101 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"K" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/secure/large/viscerator,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"L" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/animal_crate,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"M" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"O" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"P" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
+/obj/item/gun/projectile/heavysniper/tranq{
+	pixel_y = 5
+	},
+/obj/item/gun/energy/net,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Q" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/material/minihoe,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -22;
+	name = "Cargo Hold #3 Shutters";
+	id = "lone_spacer_cargo4";
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"T" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/stasis_cage{
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"W" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 19;
+	name = "surgical sink"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"X" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/secure/large/rats,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Y" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Z" = (
@@ -229,56 +472,56 @@ a
 (3,1,1) = {"
 a
 a
-h
+L
 l
 l
 h
 a
 a
-z
+h
 l
 l
-z
+M
+a
+a
+p
+l
+l
+e
 a
 a
 z
+F
 l
-l
-z
-a
-a
-z
-l
-l
-z
+h
 a
 a
 "}
 (4,1,1) = {"
 a
 a
-q
+G
 l
 l
 q
 a
 a
-g
+q
 l
 l
-g
+K
 a
 a
-g
+R
 l
 l
-g
+q
 a
 a
-g
+t
 l
 l
-g
+q
 a
 a
 "}
@@ -288,25 +531,25 @@ a
 c
 l
 l
+q
+a
+a
+c
+l
+l
 G
 a
 a
-F
+c
 l
 l
-g
+q
 a
 a
-F
+c
 l
 l
-g
-a
-a
-F
-l
-l
-g
+X
 a
 a
 "}
@@ -378,19 +621,19 @@ a
 j
 l
 l
-g
+D
 a
 a
-j
+d
 l
 l
-g
+P
 a
 a
-j
+Q
 l
 l
-g
+Y
 a
 a
 "}
@@ -404,21 +647,21 @@ J
 a
 a
 g
+F
 l
-l
-g
+q
 a
 a
-g
+H
 l
 l
-g
+w
 a
 a
-g
+s
 l
 l
-g
+Y
 a
 a
 "}
@@ -431,22 +674,22 @@ l
 Z
 a
 a
-k
-l
-l
-k
-a
-a
-k
-l
-l
+r
+W
+B
 k
 a
 a
-k
+f
+E
 l
+T
+a
+a
+C
 l
-k
+O
+N
 a
 a
 "}

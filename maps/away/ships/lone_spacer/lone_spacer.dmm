@@ -95,11 +95,8 @@
 "aB" = (
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/belt/utility,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
-/obj/item/storage/toolbox/electrical,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow/specialt,
@@ -114,6 +111,9 @@
 	pixel_x = 23
 	},
 /obj/item/clothing/head/welding,
+/obj/item/device/multitool,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aC" = (
@@ -224,6 +224,10 @@
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "lone_spacer_co2";
 	name = "lone_spacer_co2"
+	},
+/obj/machinery/sparker{
+	pixel_x = -10;
+	id = "spacer_igniter"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/shuttle/lone_spacer/starboard_nacelle)
@@ -347,12 +351,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = list()
-	},
 /obj/structure/cable/green,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/storage/bag/inflatable,
+/obj/machinery/power/apc/east{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "ds" = (
@@ -591,11 +595,6 @@
 "gK" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"gN" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "gT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -603,13 +602,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "gU" = (
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
 /obj/machinery/computer/ship/sensors/terminal,
 /obj/machinery/alarm/north{
 	req_one_access = list()
+	},
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -927,6 +925,7 @@
 	},
 /obj/item/melee/baton/loaded,
 /obj/item/material/hatchet/lumber,
+/obj/item/clothing/accessory/holster/thigh/brown,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
 "pd" = (
@@ -966,13 +965,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
 /turf/simulated/floor/airless,
-/area/shuttle/lone_spacer/storage)
-"qh" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "qM" = (
 /obj/structure/ship_weapon_dummy,
@@ -1611,10 +1603,6 @@
 	},
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/peridaxon,
-/obj/item/clothing/accessory/holster/thigh/brown{
-	pixel_x = -2;
-	pixel_y = -4
-	},
 /obj/item/reagent_containers/syringe/antibiotic,
 /obj/item/storage/pill_bottle/bicaridine{
 	pixel_x = -2;
@@ -1632,18 +1620,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
-"Bv" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/item/cargo_package/offship/to_horizon{
-	pixel_y = 10;
-	pixel_x = -1
-	},
-/obj/item/cargo_package/offship{
-	pixel_y = -2;
-	pixel_x = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "Bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1726,6 +1702,11 @@
 	dir = 4
 	},
 /obj/machinery/meter,
+/obj/machinery/button/ignition{
+	dir = 8;
+	pixel_x = 25;
+	id = "spacer_igniter"
+	},
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "Dv" = (
@@ -2116,20 +2097,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"Lq" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "Lx" = (
 /obj/machinery/suit_cycler/freelancer/prepared{
 	req_access = list();
 	name = "armored suit cycler"
 	},
-/obj/machinery/alarm/south{
+/obj/machinery/alarm/west{
 	req_one_access = list()
 	},
 /turf/simulated/floor/tiled/ridged,
@@ -2234,12 +2207,12 @@
 /turf/simulated/floor/airless,
 /area/shuttle/lone_spacer/fore_hall)
 "NI" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/structure/undies_wardrobe,
 /obj/structure/weapon_rack/double_pellet{
 	pixel_y = 32
+	},
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -2289,10 +2262,17 @@
 /obj/item/storage/firstaid/surgery,
 /obj/item/cane/crutch,
 /obj/item/material/stool/chair/wheelchair,
-/obj/item/circuitboard/iv_drip,
 /obj/item/circuitboard/biogenerator,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/item/roller,
+/obj/item/deployable_kit/iv_drip,
+/obj/item/stack/medical/splint/full,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/storage/box/monkeycubes,
+/obj/item/reagent_containers/glass/bottle/toxin,
+/obj/item/reagent_containers/glass/bottle/cryosilicate,
+/obj/item/reagent_containers/glass/bottle/bicaridine,
+/obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "Os" = (
@@ -2332,7 +2312,6 @@
 	output = 31;
 	frequency = 1441
 	},
-/obj/machinery/artifact,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/lone_spacer/storage)
 "Pk" = (
@@ -2397,15 +2376,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "PZ" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -22;
-	name = "Cargo Hold #3 Shutters";
-	id = "lone_spacer_cargo4";
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "Qi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -2956,10 +2927,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
-"YK" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "YN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3020,17 +2987,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
-"Zw" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 22;
-	name = "Cargo Hold #1 Shutters";
-	id = "lone_spacer_cargo1";
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "ZC" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -34525,10 +34481,10 @@ Dq
 QA
 Rr
 Wu
-Lq
-gK
-gK
-Lq
+PZ
+PZ
+PZ
+PZ
 Wu
 Cf
 gT
@@ -34782,10 +34738,10 @@ xN
 db
 xN
 Wu
-gN
-gK
-gK
-YK
+PZ
+PZ
+PZ
+PZ
 Wu
 tt
 Fh
@@ -35039,10 +34995,10 @@ kG
 bG
 XY
 Wu
-Zw
-gK
-gK
-Bv
+PZ
+PZ
+PZ
+PZ
 Wu
 fo
 jP
@@ -36582,9 +36538,9 @@ Qi
 Lx
 Wu
 PZ
-gK
-gK
-YK
+PZ
+PZ
+PZ
 Wu
 vM
 rt
@@ -36838,10 +36794,10 @@ aB
 SW
 de
 Wu
-YK
-gK
-gK
-YK
+PZ
+PZ
+PZ
+PZ
 Wu
 Qt
 Zn
@@ -37095,10 +37051,10 @@ Ya
 Uu
 Ya
 Wu
-qh
-gK
-gK
-qh
+PZ
+PZ
+PZ
+PZ
 Wu
 mm
 sO
