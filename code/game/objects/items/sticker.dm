@@ -203,7 +203,7 @@ obj/item/sticker/generic/smile
 
 /obj/item/sticker/flagpole
 	name = "white flagp sticker"
-	desc = "A white flag on a flagpole"
+	desc = "A white flag on a flagpole."
 	icon_state = "poleflagtemplate"
 
 /obj/item/sticker/flagpole/biesel
@@ -218,15 +218,100 @@ obj/item/sticker/generic/smile
 
 /obj/item/sticker/flagpole/biesel/mictlan
 	name = "mictlan flag sticker"
-	desc = "The flag of Mictlan on a flagpole"
+	desc = "The flag of Mictlan on a flagpole."
 	icon_state = "mictlanpole"
 
 /obj/item/sticker/flagpole/biesel/valkyrie
 	name = "valkyrie flag sticker"
-	desc = "The flag of Valkyrie on a flagpole"
+	desc = "The flag of Valkyrie on a flagpole."
 	icon_state = "valkyriepole"
 
 /obj/item/sticker/flagpole/biesel/port_antilla
 	name = "port antilla flag sticker"
-	desc = "The flag of Port Antilla on a flagpole"
+	desc = "The flag of Port Antilla on a flagpole."
 	icon_state = "portantillapole"
+
+/obj/item/sticker/flagpole/persepolis
+	name = "persepolis flag sticker"
+	desc = "The flag of Persepolis on a flagpole."
+	icon_state = "persepolispole"
+
+/obj/item/sticker/flagpole/persepolis/aemaq
+	name = "aemaq flag sticker"
+	desc = "The flag of Aemaq on a flagpole."
+	icon_state = "aemaqpole"
+
+/obj/item/sticker/flagpole/persepolis/damascus
+	name = "damascus flag sticker"
+	desc = "The flag of Damascus II on a flagpole."
+	icon_state = "damascuspole"
+
+/obj/item/sticker/flagpole/persepolis/medinapole
+	name = "medina flag sticker"
+	desc = "The flag of Medina on a flagpole."
+	icon_state = "medinapole"
+
+/obj/item/sticker/flagpole/persepolis/newsuez
+	name = "new suez flag sticker"
+	desc = "The flag of New Suez on a flagpole."
+	icon_state = "newsuezpole"
+
+/obj/item/sticker/flagpole/assn
+	name = "assn flag sticker"
+	desc = "The flag of the Alliance of Sovereign Solarian Nations on a flagpole."
+	icon_state = "assnpole"
+
+/obj/item/sticker/flagpole/assn/callisto
+	name = "callisto flag sticker"
+	desc = "The flag of Callisto on a flagpole."
+	icon_state = "callistopole"
+
+/obj/item/sticker/flagpole/assn/europa
+	name = "europa flag sticker"
+	desc = "The flag of Europa on a flagpole."
+	icon_state = "europapole"
+
+/obj/item/sticker/flagpole/assn/luna
+	name = "luna flag sticker"
+	desc = "The flag of Luna on a flagpole."
+	icon_state = "lunapole"
+
+/obj/item/sticker/flagpole/assn/mars
+	name = "mars flag sticker"
+	desc = "The flag of Mars on a flagpole."
+	icon_state = "marspole"
+
+/obj/item/sticker/flagpole/assn/pluto
+	name = "pluto flag sticker"
+	desc = "The flag of Pluto on a flagpole."
+	icon_state = "plutopole"
+
+/obj/item/sticker/flagpole/assn/venus
+	name = "venus flag"
+	desc = "The flag of Venus on a flagpole."
+	icon_state = "venuspole"
+
+/obj/item/sticker/flagpole/assn/newhaiphong
+	name = "new hai phong sticker"
+	desc = "The flag of New Hai Phong on a flagpole."
+	icon_state = "newhaiphongpole"
+
+/obj/item/sticker/flagpole/assn/sancolette
+	name = "san colette sticker"
+	desc = "The flag of San Colette on a flagpole."
+	icon_state = "sancolettepole"
+
+/obj/item/sticker/flagpole/assn/silversun
+	name = "silversun sticker"
+	desc = "The flag of Silversun on a flagpole."
+	icon_state = "silversunpole"
+
+/obj/item/sticker/flagpole/assn/visegrad
+	name = "visegrad sticker"
+	desc = "The flag of Visegrad on a flagpole."
+	icon_state = "visegradpole"
+
+/obj/item/sticker/flagpole/assn/solkonyang
+	name = "old konyang flag"
+	desc = "The old Solarian flag of Konyang on a flagpole"
+	icon_state = "solkonyangpole"
