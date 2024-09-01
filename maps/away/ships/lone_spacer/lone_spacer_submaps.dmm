@@ -5,6 +5,7 @@
 "b" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "c" = (
@@ -58,8 +59,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
-/obj/structure/closet/wardrobe,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "i" = (
@@ -121,7 +121,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "n" = (
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"o" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "p" = (
@@ -129,7 +139,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/crate/secure/large/larva,
 /obj/random/highvalue/no_weapon,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -140,11 +149,15 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/structure/closet/crate/secure/large/rats,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/loot,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "r" = (
@@ -170,6 +183,8 @@
 /obj/item/stock_parts/manipulator,
 /obj/item/device/mmi/digital/posibrain,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/item/robot_parts/r_arm,
+/obj/item/robot_parts/r_arm,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "s" = (
@@ -191,13 +206,12 @@
 /obj/item/melee/energy/sword/knife/sol,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"v" = (
+"u" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/mecha_part_fabricator{
+	req_access = null;
+	dir = 1
 	},
-/obj/structure/closet/crate/loot,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "w" = (
@@ -289,7 +303,6 @@
 /area/shuttle/lone_spacer/storage)
 "F" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/machinery/media/jukebox/gramophone,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "G" = (
@@ -423,6 +436,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "T" = (
@@ -446,16 +460,12 @@
 /area/shuttle/lone_spacer/storage)
 "X" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/closet/crate/secure/large/rats,
-/obj/vehicle/bike{
-	dir = 4
-	},
+/obj/machinery/media/jukebox/gramophone,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Y" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Z" = (
@@ -533,10 +543,10 @@ a
 L
 l
 l
+o
+a
+a
 h
-a
-a
-S
 l
 l
 M
@@ -551,7 +561,7 @@ a
 z
 F
 l
-v
+S
 a
 a
 "}
@@ -561,7 +571,7 @@ a
 G
 l
 l
-q
+n
 a
 a
 q
@@ -573,13 +583,13 @@ a
 R
 l
 l
-q
+n
 a
 a
 t
 l
 l
-q
+n
 a
 a
 "}
@@ -589,7 +599,7 @@ a
 c
 l
 l
-q
+n
 a
 a
 c
@@ -601,7 +611,7 @@ a
 c
 l
 l
-q
+n
 a
 a
 c
@@ -691,7 +701,7 @@ a
 Q
 l
 l
-Y
+b
 a
 a
 "}
@@ -705,9 +715,9 @@ J
 a
 a
 g
-n
+F
 l
-q
+u
 a
 a
 H
@@ -719,7 +729,7 @@ a
 s
 l
 l
-b
+Y
 a
 a
 "}

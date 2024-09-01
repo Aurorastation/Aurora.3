@@ -638,6 +638,76 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/rig/light/offworlder,
+/obj/item/clothing/mask/offworlder{
+	color = "#7d3e6a"
+	},
+/obj/item/clothing/under/skirt/offworlder{
+	color = "#604343"
+	},
+/obj/item/clothing/under/offworlder{
+	color = "#604343"
+	},
+/obj/item/clothing/accessory/offworlder/bracer{
+	color = "#604343"
+	},
+/obj/item/clothing/accessory/offworlder{
+	color = "#604343"
+	},
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace{
+	color = "#604343"
+	},
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/shoes/vaurca/brown,
+/obj/item/clothing/accessory/crucifix/silver,
+/obj/item/clothing/accessory/assunzione,
+/obj/item/clothing/head/hijab/black,
+/obj/item/clothing/head/kippah,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/device/versebook/tribunal,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/under/dominia/imperial_suit/black,
+/obj/item/clothing/mask/trinary_mask,
+/obj/item/clothing/accessory/badge/trinary,
+/obj/item/device/versebook/trinary,
+/obj/item/clothing/accessory/poncho/trinary/shouldercape,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/under/dress/tajaran/formal,
+/obj/item/clothing/suit/storage/toggle/tajaran{
+	color = "#7d9fee"
+	},
+/obj/item/clothing/shoes/laceup/tajara,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/winter,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/sneakers/black,
+/obj/item/clothing/suit/storage/galatea_labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/hooded/wintercoat/red,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/under/color/grey,
+/obj/item/clothing/suit/storage/toggle/trench/green,
+/obj/item/clothing/head/softcap,
+/obj/item/clothing/suit/storage/hazardvest/green,
+/obj/item/clothing/gloves/black,
+/obj/item/clothing/gloves/evening{
+	color = "#7B5143"
+	},
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
+/obj/item/clothing/ears/skrell/scrunchy,
+/obj/item/clothing/under/shorts/athletic/black,
+/obj/item/clothing/under/pants/track,
+/obj/item/storage/backpack/messenger/engi,
+/obj/item/storage/backpack/satchel/eng,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/accessory/wcoat_rec{
+	color = "#494949"
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "hM" = (
@@ -820,10 +890,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/lone_spacer/storage)
-"ml" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2,
-/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "mm" = (
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1735,6 +1801,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
+"DD" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2,
+/turf/template_noop,
+/area/shuttle/lone_spacer/storage)
 "Ei" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/door/airlock/glass{
@@ -1770,6 +1840,10 @@
 	dir = 10
 	},
 /turf/simulated/floor/airless,
+/area/shuttle/lone_spacer/storage)
+"Ez" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1,
+/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "EF" = (
 /obj/machinery/recharge_station,
@@ -2282,7 +2356,9 @@
 /obj/item/reagent_containers/glass/bottle/toxin,
 /obj/item/reagent_containers/glass/bottle/cryosilicate,
 /obj/item/reagent_containers/glass/bottle/bicaridine,
-/obj/item/storage/box/syringes,
+/obj/item/reagent_containers/glass/bottle/perconol,
+/obj/item/reagent_containers/glass/bottle/coagzolug,
+/obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "Os" = (
@@ -2531,10 +2607,6 @@
 /obj/item/pickaxe,
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
-"Rw" = (
-/obj/item/clothing/accessory/scarf/lone_spacer_green,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/fore_hall)
 "RE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2768,10 +2840,6 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/airless,
 /area/shuttle/lone_spacer/storage)
-"VJ" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1,
-/turf/template_noop,
-/area/shuttle/lone_spacer/storage)
 "VO" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/hailing{
@@ -2882,6 +2950,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
+"XN" = (
+/obj/item/clothing/accessory/scarf/lone_spacer_green,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/lone_spacer/fore_hall)
 "XU" = (
 /obj/effect/decal/cleanable/floor_damage/broken6,
 /obj/structure/disposalpipe/segment{
@@ -2953,6 +3025,10 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
+/obj/item/reagent_containers/food/drinks/dry_ramen,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
 "YV" = (
@@ -34502,7 +34578,7 @@ Wu
 PZ
 PZ
 PZ
-VJ
+Ez
 Wu
 Cf
 gT
@@ -36558,7 +36634,7 @@ Wu
 PZ
 PZ
 PZ
-ml
+DD
 Wu
 vM
 rt
@@ -37849,7 +37925,7 @@ Wu
 Pg
 Wu
 IB
-Rw
+XN
 ks
 XE
 lB
