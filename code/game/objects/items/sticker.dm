@@ -122,7 +122,7 @@ obj/item/sticker/generic/smile
 	icon_state = "smile"
 
 //
-//All of the major corporations.
+//All of the major corporations logos. Unless we add or remove a megacorp, these should remain unchanged.
 //
 /obj/item/sticker/corporate
 	name = "scc sticker"
@@ -311,7 +311,195 @@ obj/item/sticker/generic/smile
 	desc = "The flag of Visegrad on a flagpole."
 	icon_state = "visegradpole"
 
-/obj/item/sticker/flagpole/assn/solkonyang
-	name = "old konyang flag"
-	desc = "The old Solarian flag of Konyang on a flagpole"
+/obj/item/sticker/flagpole/coalition
+	name = "coalition of colonies sticker"
+	desc = "The flag of the Coalition of Colonies on a flagpole."
+	icon_state = "cocpole"
+
+/obj/item/sticker/flagpole/coalition/assunzione
+	name = "assunzione flag sticker"
+	desc = "The flag of Assunzione on a flagpole."
+	icon_state = "assunzionepole"
+
+/obj/item/sticker/flagpole/coalition/burzsiapole
+	name = "burzsia flag sticker"
+	desc = "The flag of Burzsia on a flagpole."
+	icon_state = "burzsiapole"
+
+/obj/item/sticker/flagpole/coalition/gadpathur
+	name = "gadpathur flag sticker"
+	desc = "The flag of Gadpathur on a flagpole."
+	icon_state = "gadpathurpole"
+
+/obj/item/sticker/flagpole/coalition/galatea
+	name = "galatea flag sticker"
+	desc = "The flag of Galatea on a flagpole."
+	icon_state = "galateapole"
+
+/obj/item/sticker/flagpole/coalition/himeo
+	name = "himeo flag sticker"
+	desc = "The flag of himeo on a flagpole."
+	icon_state = "himeopole"
+
+/obj/item/sticker/flagpole/coalition/konyang
+	name = "konyang flag sticker"
+	desc = "The flag of Konyang on a flagpole."
+	icon_state = "konyangpole"
+
+/obj/item/sticker/flagpole/coalition/scarab
+	name = "scarab emblem sticker"
+	desc = "The flag of the symbol of the Scarabs confederation on a flagpole."
+	icon_state = "scarabpole"
+
+/obj/item/sticker/flagpole/coalition/xanu
+	name = "all xanu repiblic flag sticker"
+	desc = "The flag of the All Xanu-Republic on a flagpole."
+	icon_state = "xanupole"
+
+/obj/item/sticker/flagpole/coalition/vysoka
+	name = "vysoka flag sticker"
+	desc = "The flag of Vysoka on a flagpole."
+	icon_state = "vysokapole"
+
+/obj/item/sticker/flagpole/dominia
+	name = "moroz flag sticker"
+	desc = "The flag of Moroz and the Keeser Royal Family on a flagpole."
+	icon_state = "morozpole"
+
+/obj/item/sticker/flagpole/dominia/caladius
+	name = "caladius flag sticker"
+	desc = "The flag and standard of House Caladius on a flagpole."
+	icon_state = "caladiuspole"
+
+/obj/item/sticker/flagpole/dominia/volvalaad
+	name = "volvalaad flag sticker"
+	desc = "The flag and standard of House Volvalaad on a flagpole."
+	icon_state = "volvalaadpole"
+
+/obj/item/sticker/flagpole/dominia/zhao
+	name = "zhao flag sticker"
+	desc = "The flag and standard of House Zhao on a flagpole."
+	icon_state = "zhaopole"
+
+/obj/item/sticker/flagpole/dominia/strelitzpole
+	name = "strelitz flag sticker"
+	desc = "The flag and standard of House Strelitz on a flagpole."
+	icon_state = "strelitzpole"
+
+/obj/item/sticker/flagpole/dominia/kazhkz
+	name = "kazhkz flag sticker"
+	desc = "The flag and standard of House Kazhkz on a flagpole."
+	icon_state = "kazhkzpole"
+
+/obj/item/sticker/flagpole/dominia/hansan
+	name = "han'san flag sticker"
+	desc = "The flag and standard of Clan Han'san on a flagpole."
+	icon_state = "hansanpole"
+
+/obj/item/sticker/flagpole/dominia/frontier
+	name = "imperial frontier flag sticker"
+	desc = "The flag of the Imperial Frontier on a flagpole."
+	icon_state = "frontierpole"
+
+/obj/item/sticker/flagpole/nralakk
+	name = "nralakk federation flag sticker"
+	desc = "The flag of the Nralakk Federation on a flagpole."
+	icon_state = "nralakkpole"
+
+/obj/item/sticker/flagpole/nralakk/aweiji
+	name = "aweiji flag sticker"
+	desc = "The flag of Aweiji on a flagpole."
+	icon_state = "aweijipole"
+
+/obj/item/sticker/flagpole/nralakk/aloise
+	name = "aloise flag sticker"
+	desc = "The flag of Aloise on a flagpole."
+	icon_state = "aloisepole"
+
+/obj/item/sticker/flagpole/nralakk/xrim
+	name = "xrim flag sticker"
+	desc = "The flag of Xrim on a flagpole."
+	icon_state = "xrimpole"
+
+/obj/item/sticker/flagpole/adhomai
+	name = "pra flag sticker"
+	desc = "The flag of the People's Republic of Adhomai on a flagpole."
+	icon_state = "prapole"
+
+/obj/item/sticker/flagpole/adhomai/dpra
+	name = "dpra flag sticker"
+	desc = "The flag of the Democratic People's Republic of Adhomai on a flagpole."
+	icon_state = "dprapole"
+
+/obj/item/sticker/flagpole/adhomai/nka
+	name = "nka flag sticker"
+	desc = "The flag of the New Kingdom of Adhomai on a flagpole."
+	icon_state = "nkapole"
+
+/obj/item/sticker/flagpole/adhomai/crevus
+	name = "crevus flag sticker"
+	desc = "The flag of the Free City of Crevus on a flagpole."
+	icon_state = "crevuspole"
+
+/obj/item/sticker/flagpole/hieroaetheria
+	name = "consortium flag sticker"
+	desc = "The flag of The Consortium of Hieroaetheria on a flagpole."
+	icon_state = "consortiumpole"
+
+/obj/item/sticker/flagpole/hieroaetheria/ekane
+	name = "ekane flag sticker"
+	desc = "The flag of the Eternal Republic of the Ekane on a flagpole."
+	icon_state = "ekanepole"
+
+/obj/item/sticker/flagpole/hieroaetheria/glaorr
+	name = "gla'orr flag sticker"
+	desc = "The flag of the Union of Gla'orr on a flagpole."
+	icon_state = "glaorrpole"
+
+/obj/item/sticker/flagpole/hegemony
+	name = "hegemony flag sticker"
+	desc = "The flag of the Hegemony on a flagpole."
+	icon_state = ""
+
+/obj/item/sticker/flagpole/hegemony/ouerea
+	name = "ouerea flag sticker"
+	desc = "The flag of Ouerea on a flagpole."
+	icon_state = "ouereapole"
+
+/obj/item/sticker/flagpole/hegemony/queendom
+	name = "sezk-hakh queendom flag sticker"
+	desc = "The flag of the Queendom of Sezk-Hakh on a flagpole."
+	icon_state = 'queendompole'
+
+//
+//Anti Establishment flags, for the once were's and freedom fighters.
+//
+// Fishanduh, exiled to Xanu Prime
+/obj/item/sticker/flagpole/resistance
+	name = "fisanduh flag sticker"
+	desc = "The flag of the Confederated States of Fisanduh on a flagpole."
+	icon_state = "fisanduhpole"
+
+//Free Tajaran Council, exiled to Himeo
+/obj/item/sticker/flagpole/resistance/ftc
+	name = "free tajaran council sticker"
+	desc = "The flag of the Free Tajaran Council on a flagpole."
+	icon_state = "ftcpole"
+
+//Traverse Resistance, exiled to Biesel.
+/obj/item/sticker/flagpole/resistance/traverse
+	name =
+	desc = "The flag of on a flagpole."
+	icon_state =
+
+//Old Konyang, handed its L during the civil war by CoC Konyang.
+/obj/item/sticker/flagpole/resistance/solkonyang
+	name = "old konyang flag sticker"
+	desc = "The old Solarian flag of Konyang on a flagpole."
 	icon_state = "solkonyangpole"
+
+//Ouerea Rebels, in truce with the establishment... for now.
+/obj/item/sticker/flagpole/resistance/newouerea
+	name = "new ouerea flag sticker"
+	desc = "The flag of on a flagpole."
+	icon_state = "newouereapole"
