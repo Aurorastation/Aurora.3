@@ -24,9 +24,9 @@
 	class = "ICV"
 	shuttle = "Independent Skiff"
 	desc = "Of all of the most ubiquitous ships in the spur today, the Minnow-class skiff has perhaps seen one of the most meteoric rises. Designed in 2443 by Hephaestus Industries as a short-distance hauling craft intended to be operated by only one or two crewmates, the Minnow-class quickly caught on with virtually every demographic imaginable - logisticians appreciated its standardised design and expansive cargo holds, scientists its ease of use and modification, smugglers its nimble speed and ability to dodge patrols with its warp drive, and pirates its discreet and inexpensive nature. Due to this, it's challenging to make any reliable precursory judgement on how a Minnow-class hauler pays back its costs, and it's even harder to predict the character of its pilots. Some caution is advised."
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
-	colors = list("#567b56")
+	icon_state = "spacer"
+	moving_state = "spacer_moving"
+	colors = list("#70a170")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500
@@ -42,7 +42,7 @@
 	shiptype = "Eclectic short-distance shipping utilities"
 
 /obj/effect/overmap/visitable/ship/landable/lone_spacer/New()
-	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Starfarer", "Workhorse", "Light-in-the-Dark", "Meek", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning", "Endless", "Finity", "Calm Drift", "Mercury's Hand")]"
+	designation = "[pick("Roach", "Moonskipper", "Thunder", "Firefly", "Starfarer", "Workhorse", "Light-in-the-Dark", "Gift Horse", "Rain", "Mirth", "Ever-Lucky", "Tin-and-Copper", "Bright Burning", "Bird-of-the-Heavens", "Ruby", "Old Story", "Fardancer", "Albedo", "Lightchaser", "Sooner-than-Later", "Sunlight", "Pearl-of-the-Morning", "Endless", "Finity", "Calm Drift", "Mercury's Hand")]"
 	..()
 
 // Shuttle control console
@@ -53,7 +53,7 @@
 // This controls how docking behaves
 /datum/shuttle/autodock/overmap/lone_spacer
 	name = "Independent Skiff"
-	move_time = 35
+	move_time = 20
 	range = 2
 	fuel_consumption = 2
 	shuttle_area = list(/area/shuttle/lone_spacer/bridge, /area/shuttle/lone_spacer/bridge_foyer, /area/shuttle/lone_spacer/fore_hall, /area/shuttle/lone_spacer/washroom, /area/shuttle/lone_spacer/storage, /area/shuttle/lone_spacer/port_storage, /area/shuttle/lone_spacer/port_nacelle, /area/shuttle/lone_spacer/starboard_storage, /area/shuttle/lone_spacer/starboard_nacelle)

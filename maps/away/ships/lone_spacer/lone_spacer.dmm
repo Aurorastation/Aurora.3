@@ -606,7 +606,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list()
 	},
-/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -813,7 +813,6 @@
 "lF" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "mj" = (
@@ -821,6 +820,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
+/area/shuttle/lone_spacer/storage)
+"ml" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2,
+/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "mm" = (
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1331,6 +1334,12 @@
 	pixel_y = 11;
 	pixel_x = -7
 	},
+/obj/item/device/gps{
+	pixel_x = -4
+	},
+/obj/item/device/gps{
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "ws" = (
@@ -1648,7 +1657,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
-	name = "Cargo Hold #2 Shutters";
+	name = "Cargo Hold #2 Window Shutters";
 	id = "lone_spacer_harvesting_shutters";
 	dir = 1;
 	pixel_y = 28
@@ -1895,7 +1904,7 @@
 	pixel_y = 25
 	},
 /obj/machinery/button/remote/blast_door{
-	name = "Cargo Hold #2 Shutters";
+	name = "Cargo Hold #2 Window Shutters";
 	id = "lone_spacer_harvesting_shutters";
 	dir = 1;
 	pixel_x = -5;
@@ -2211,8 +2220,9 @@
 /obj/structure/weapon_rack/double_pellet{
 	pixel_y = 32
 	},
-/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
-	dir = 8
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -2521,6 +2531,10 @@
 /obj/item/pickaxe,
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/starboard_nacelle)
+"Rw" = (
+/obj/item/clothing/accessory/scarf/lone_spacer_green,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/lone_spacer/fore_hall)
 "RE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2753,6 +2767,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/airless,
+/area/shuttle/lone_spacer/storage)
+"VJ" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1,
+/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "VO" = (
 /obj/structure/table/standard,
@@ -34484,7 +34502,7 @@ Wu
 PZ
 PZ
 PZ
-PZ
+VJ
 Wu
 Cf
 gT
@@ -36540,7 +36558,7 @@ Wu
 PZ
 PZ
 PZ
-PZ
+ml
 Wu
 vM
 rt
@@ -37831,7 +37849,7 @@ Wu
 Pg
 Wu
 IB
-Xn
+Rw
 ks
 XE
 lB
