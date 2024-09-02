@@ -110,13 +110,13 @@
 	desc = "A sticker of the Schlorgo. A penguin like animal mostly made of fat, renowned for its resistance to all blunt force."
 	icon_state = "schlorgo"
 
-obj/item/sticker/generic/peace
+/obj/item/sticker/generic/peace
 	name = "peace sign sticker"
 	desc = "A peace sign, white on a black background. It has become a universal symbol among humans, \
 	and still remains popular among student protestors to this day."
 	icon_state = "peace"
 
-obj/item/sticker/generic/smile
+/obj/item/sticker/generic/smile
 	name = "smiley face sticker"
 	desc = "A yellow smiley face. A meme 500 years old, the universal sign for positivity. :)"
 	icon_state = "smile"
@@ -404,7 +404,7 @@ obj/item/sticker/generic/smile
 /obj/item/sticker/flagpole/nralakk
 	name = "nralakk federation flag sticker"
 	desc = "The flag of the Nralakk Federation on a flagpole."
-	icon_state = "nralakkpole"
+	icon_state = "nralakkfedpole"
 
 /obj/item/sticker/flagpole/nralakk/aweiji
 	name = "aweiji flag sticker"
@@ -459,7 +459,7 @@ obj/item/sticker/generic/smile
 /obj/item/sticker/flagpole/hegemony
 	name = "hegemony flag sticker"
 	desc = "The flag of the Hegemony on a flagpole."
-	icon_state = ""
+	icon_state = "hegemonypole"
 
 /obj/item/sticker/flagpole/hegemony/ouerea
 	name = "ouerea flag sticker"
@@ -469,7 +469,7 @@ obj/item/sticker/generic/smile
 /obj/item/sticker/flagpole/hegemony/queendom
 	name = "sezk-hakh queendom flag sticker"
 	desc = "The flag of the Queendom of Sezk-Hakh on a flagpole."
-	icon_state = 'queendompole'
+	icon_state = "queendompole"
 
 //
 //Anti Establishment flags, for the once were's and freedom fighters.
@@ -488,9 +488,9 @@ obj/item/sticker/generic/smile
 
 //Traverse Resistance, exiled to Biesel.
 /obj/item/sticker/flagpole/resistance/traverse
-	name =
+	name = "traverse resistance flag sticker"
 	desc = "The flag of on a flagpole."
-	icon_state =
+	icon_state = "freetraversepole"
 
 //Old Konyang, handed its L during the civil war by CoC Konyang.
 /obj/item/sticker/flagpole/resistance/solkonyang

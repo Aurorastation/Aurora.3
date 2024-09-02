@@ -28,6 +28,36 @@
 		/obj/item/sticker/generic/googly_eye = 12
 	)
 
+/obj/item/storage/stickersheet/generic
+	name = "generic sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/sol = 2,
+		/obj/item/sticker/generic/sancolette = 2,
+		/obj/item/sticker/generic/domadice = 2,
+		/obj/item/sticker/generic/schlorgo = 2,
+		/obj/item/sticker/generic/peace = 2,
+		/obj/item/sticker/generic/smile = 2
+	)
+
+/obj/item/storage/stickersheet/religion
+	name = "religious sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/religious = 1,
+		/obj/item/sticker/religious/cross = 1,
+		/obj/item/sticker/religious/crucifix = 1,
+		/obj/item/sticker/religious/islam = 1,
+		/obj/item/sticker/religious/twinsuns = 2,
+		/obj/item/sticker/religious/luceism = 2,
+		/obj/item/sticker/religious/tribunal = 2,
+		/obj/item/sticker/religious/trinary = 2
+	)
+
+/obj/item/storage/stickersheet/domadice
+	name = "domadice sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/domadice = 12
+	)
+
 /obj/item/storage/stickersheet/biesel
 	name = "republic of biesel sticker sheet"
 	starts_with = list(
@@ -76,23 +106,63 @@
 		/obj/item/sticker/flagpole/coalition/konyang = 1,
 		/obj/item/sticker/flagpole/coalition/scarab = 1,
 		/obj/item/sticker/flagpole/coalition/xanu = 1,
-		/obj/item/sticker/flagpole/coalition/vysoska = 1
+		/obj/item/sticker/flagpole/coalition/vysoka = 1
 	)
 
-/obj/item/storage/stickersheet/
-	name = " sticker sheet"
+/obj/item/storage/stickersheet/dominia
+	name = "empire of dominia sticker sheet"
 	starts_with = list(
-
+		/obj/item/sticker/flagpole/dominia = 3,
+		/obj/item/sticker/flagpole/dominia/caladius = 1,
+		/obj/item/sticker/flagpole/dominia/volvalaad = 1,
+		/obj/item/sticker/flagpole/dominia/zhao = 1,
+		/obj/item/sticker/flagpole/dominia/strelitzpole = 1,
+		/obj/item/sticker/flagpole/dominia/kazhkz = 1,
+		/obj/item/sticker/flagpole/dominia/hansan = 1,
+		/obj/item/sticker/flagpole/dominia/frontier = 3
 	)
 
-/obj/item/storage/stickersheet/
-	name = " sticker sheet"
+/obj/item/storage/stickersheet/nralakk
+	name = "nralakk federation sticker sheet"
 	starts_with = list(
-
+		/obj/item/sticker/flagpole/nralakk = 3,
+		/obj/item/sticker/flagpole/nralakk/aweiji = 3,
+		/obj/item/sticker/flagpole/nralakk/aloise = 3,
+		/obj/item/sticker/flagpole/nralakk/xrim = 3
 	)
 
-/obj/item/storage/stickersheet/
-	name = " sticker sheet"
+/obj/item/storage/stickersheet/adhomai
+	name = "tajaran governments sticker sheet"
 	starts_with = list(
+		/obj/item/sticker/flagpole/adhomai = 3,
+		/obj/item/sticker/flagpole/adhomai/dpra = 3,
+		/obj/item/sticker/flagpole/adhomai/nka = 3,
+		/obj/item/sticker/flagpole/adhomai/crevus = 3
+	)
 
+/obj/item/storage/stickersheet/hieroaetheria
+	name = "hieroaetheria sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/flagpole/hieroaetheria = 4,
+		/obj/item/sticker/flagpole/hieroaetheria/ekane = 4,
+		/obj/item/sticker/flagpole/hieroaetheria/glaorr = 4
+	)
+
+/obj/item/storage/stickersheet/hegemony
+	name = "uueoa-esa sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/flagpole/hegemony = 4,
+		/obj/item/sticker/flagpole/hegemony/ouerea = 4,
+		/obj/item/sticker/flagpole/hegemony/queendom = 4
+	)
+
+/obj/item/storage/stickersheet/resistance
+	name = "anti-establishment sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/flagpole/resistance = 2,
+		/obj/item/sticker/flagpole/resistance/ftc = 2,
+		/obj/item/sticker/flagpole/resistance/traverse = 2,
+		/obj/item/sticker/flagpole/resistance/solkonyang = 2,
+		/obj/item/sticker/flagpole/resistance/newouerea = 2,
+		/obj/item/sticker/generic/peace = 2
 	)
