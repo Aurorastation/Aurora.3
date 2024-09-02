@@ -15,7 +15,6 @@
 	special_role = "Independent Spacer"
 	respawn_flag = null
 
-
 /obj/outfit/admin/lone_spacer
 	name = "Lone Spacer"
 

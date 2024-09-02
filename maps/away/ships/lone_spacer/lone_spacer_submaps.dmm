@@ -2,12 +2,6 @@
 "a" = (
 /turf/template_noop,
 /area/space)
-"b" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "c" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/button/remote/blast_door{
@@ -52,6 +46,7 @@
 "g" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/optable,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "h" = (
@@ -120,20 +115,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"n" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"o" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "p" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/small{
@@ -155,9 +136,6 @@
 "q" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/loot,
-/obj/structure/sign/poster{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "r" = (
@@ -185,11 +163,7 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/robot_parts/r_arm,
 /obj/item/robot_parts/r_arm,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"s" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/seed_storage/garden,
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (
@@ -204,14 +178,6 @@
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/raskariim,
 /obj/item/melee/energy/sword/knife/sol,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"u" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/mecha_part_fabricator{
-	req_access = null;
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "w" = (
@@ -258,15 +224,14 @@
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "C" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 4
+/obj/structure/closet/crate/loot,
+/obj/structure/sign/poster{
+	pixel_y = 32
 	},
-/obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "D" = (
@@ -296,9 +261,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "E" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "F" = (
@@ -384,16 +352,12 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"N" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "O" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/mecha_part_fabricator{
+	req_access = null;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "P" = (
@@ -410,33 +374,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Q" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/material/hatchet,
-/obj/item/wirecutters/clippers,
-/obj/item/material/minihoe,
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -22;
-	name = "Cargo Hold #3 Shutters";
-	id = "lone_spacer_cargo4";
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"R" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"S" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "T" = (
@@ -460,12 +408,7 @@
 /area/shuttle/lone_spacer/storage)
 "X" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/media/jukebox/gramophone,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"Y" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Z" = (
@@ -543,7 +486,7 @@ a
 L
 l
 l
-o
+E
 a
 a
 h
@@ -561,7 +504,7 @@ a
 z
 F
 l
-S
+Q
 a
 a
 "}
@@ -571,10 +514,10 @@ a
 G
 l
 l
-n
-a
-a
 q
+a
+a
+C
 l
 l
 K
@@ -583,13 +526,13 @@ a
 R
 l
 l
-n
+q
 a
 a
 t
 l
 l
-n
+q
 a
 a
 "}
@@ -599,7 +542,7 @@ a
 c
 l
 l
-n
+q
 a
 a
 c
@@ -611,7 +554,7 @@ a
 c
 l
 l
-n
+q
 a
 a
 c
@@ -698,10 +641,10 @@ l
 P
 a
 a
-Q
-l
-l
-b
+a
+a
+a
+a
 a
 a
 "}
@@ -715,9 +658,9 @@ J
 a
 a
 g
-F
 l
-u
+l
+O
 a
 a
 H
@@ -726,10 +669,10 @@ l
 w
 a
 a
-s
-l
-l
-Y
+a
+a
+a
+a
 a
 a
 "}
@@ -749,15 +692,15 @@ k
 a
 a
 f
-E
+B
 l
 T
 a
 a
-C
-l
-O
-N
+a
+a
+a
+a
 a
 a
 "}

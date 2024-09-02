@@ -701,6 +701,9 @@
 /obj/item/clothing/ears/skrell/scrunchy,
 /obj/item/clothing/under/shorts/athletic/black,
 /obj/item/clothing/under/pants/track,
+/obj/item/clothing/gloves/offworlder{
+	color = "#604343"
+	},
 /obj/item/storage/backpack/messenger/engi,
 /obj/item/storage/backpack/satchel/eng,
 /obj/item/storage/backpack/satchel/leather,
@@ -1249,6 +1252,10 @@
 	dir = 1
 	},
 /turf/simulated/floor,
+/area/shuttle/lone_spacer/storage)
+"tx" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1,
+/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "tA" = (
 /obj/machinery/door/airlock/hatch{
@@ -1801,10 +1808,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
-"DD" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2,
-/turf/template_noop,
-/area/shuttle/lone_spacer/storage)
 "Ei" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/door/airlock/glass{
@@ -1840,10 +1843,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/lone_spacer/storage)
-"Ez" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_1,
-/turf/template_noop,
 /area/shuttle/lone_spacer/storage)
 "EF" = (
 /obj/machinery/recharge_station,
@@ -2390,6 +2389,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/port_storage)
+"OI" = (
+/obj/item/clothing/accessory/scarf/lone_spacer_green,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/lone_spacer/fore_hall)
 "Pg" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/effect/floor_decal/industrial/hatch_tiny/research,
@@ -2421,6 +2424,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sink/kitchen{
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
@@ -2771,6 +2777,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/port_nacelle)
+"Uw" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/lone_spacer/storage_2,
+/turf/template_noop,
+/area/shuttle/lone_spacer/storage)
 "UN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
@@ -2950,10 +2960,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
-"XN" = (
-/obj/item/clothing/accessory/scarf/lone_spacer_green,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/fore_hall)
 "XU" = (
 /obj/effect/decal/cleanable/floor_damage/broken6,
 /obj/structure/disposalpipe/segment{
@@ -34578,7 +34584,7 @@ Wu
 PZ
 PZ
 PZ
-Ez
+tx
 Wu
 Cf
 gT
@@ -36634,7 +36640,7 @@ Wu
 PZ
 PZ
 PZ
-DD
+Uw
 Wu
 vM
 rt
@@ -37925,7 +37931,7 @@ Wu
 Pg
 Wu
 IB
-XN
+OI
 ks
 XE
 lB
