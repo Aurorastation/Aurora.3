@@ -12,6 +12,7 @@
 	pixel_y = -1
 	},
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "d" = (
@@ -24,6 +25,7 @@
 	pixel_y = -1
 	},
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "e" = (
@@ -33,6 +35,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "f" = (
@@ -41,11 +44,13 @@
 	dir = 4
 	},
 /obj/structure/largecrate/animal/shark,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "g" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "h" = (
@@ -55,6 +60,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "i" = (
@@ -68,6 +74,7 @@
 	pixel_x = -1;
 	pixel_y = -2
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "j" = (
@@ -92,6 +99,7 @@
 	pixel_y = 4;
 	pixel_x = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "k" = (
@@ -100,6 +108,7 @@
 	dir = 4
 	},
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "l" = (
@@ -114,6 +123,7 @@
 /obj/machinery/chemical_dispenser/full{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "p" = (
@@ -132,11 +142,13 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/structure/closet/crate/secure/large/rats,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "r" = (
@@ -164,6 +176,7 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/robot_parts/r_arm,
 /obj/item/robot_parts/r_arm,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (
@@ -178,6 +191,7 @@
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/raskariim,
 /obj/item/melee/energy/sword/knife/sol,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "w" = (
@@ -185,6 +199,7 @@
 /obj/machinery/stasis_cage{
 	req_access = list()
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "x" = (
@@ -208,6 +223,7 @@
 	pixel_x = -2
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "z" = (
@@ -217,6 +233,7 @@
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "A" = (
@@ -239,6 +256,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "D" = (
@@ -265,6 +283,7 @@
 /obj/item/organ/external/arm/right/ipc,
 /obj/item/organ/external/arm/ipc,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "E" = (
@@ -292,11 +311,13 @@
 	pixel_y = -2;
 	pixel_x = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "H" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/largecrate/animal/babycarp,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "I" = (
@@ -309,6 +330,7 @@
 	pixel_y = -1
 	},
 /obj/machinery/chem_master,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "J" = (
@@ -326,6 +348,7 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "K" = (
@@ -342,6 +365,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "L" = (
@@ -350,6 +374,7 @@
 	dir = 8
 	},
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "M" = (
@@ -359,6 +384,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "N" = (
@@ -367,6 +393,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "O" = (
@@ -375,6 +402,7 @@
 	req_access = null;
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "P" = (
@@ -391,6 +419,7 @@
 	pixel_y = 5
 	},
 /obj/item/gun/energy/net,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Q" = (
@@ -400,11 +429,13 @@
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "T" = (
@@ -415,6 +446,7 @@
 /obj/machinery/stasis_cage{
 	req_access = list()
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "W" = (
@@ -426,11 +458,13 @@
 /obj/effect/floor_decal/industrial/arrow/operations{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "X" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/vending/cigarette/hacked,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Y" = (
@@ -450,6 +484,7 @@
 /obj/item/stack/material/phoron{
 	amount = 15
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 
