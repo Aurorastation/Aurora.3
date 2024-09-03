@@ -40,7 +40,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/largecrate/animal/reaver,
+/obj/structure/largecrate/animal/shark,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "g" = (
