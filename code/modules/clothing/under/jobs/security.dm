@@ -73,6 +73,17 @@
 	icon_state = "epmc_alt"
 	item_state = "epmc_alt"
 
+/obj/item/clothing/under/rank/security/pmc/epmc/shorts
+	name = "EPMC security uniform shorts"
+	desc_extended = "The EPMC is a subsidiary of the PMCG. This uniform has shorts instead of the full pants."
+	icon_state = "epmc_shorts"
+	item_state = "epmc_shorts"
+
+/obj/item/clothing/under/rank/security/pmc/epmc/alt/shorts
+	name = "EPMC security uniform shorts"
+	icon_state = "epmc_alt_shorts"
+	item_state = "epmc_alt_shorts"
+
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."

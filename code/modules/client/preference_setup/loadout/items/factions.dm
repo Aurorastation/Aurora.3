@@ -372,7 +372,9 @@
 	pmcg_sec_uniforms["PMCG uniform"] = /obj/item/clothing/under/rank/security/pmc/pmcsec
 	pmcg_sec_uniforms["PMCG uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/pmcsec/alt
 	pmcg_sec_uniforms["EPMC uniform"] = /obj/item/clothing/under/rank/security/pmc/epmc
+	pmcg_sec_uniforms["EPMC uniform (shorts)"] = /obj/item/clothing/under/rank/security/pmc/epmc/shorts
 	pmcg_sec_uniforms["EPMC uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt
+	pmcg_sec_uniforms["EPMC uniform, alt (shorts)"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt/shorts
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
