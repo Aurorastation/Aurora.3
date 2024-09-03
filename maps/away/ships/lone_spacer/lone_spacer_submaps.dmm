@@ -46,7 +46,6 @@
 "g" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/optable,
-/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "h" = (
@@ -54,6 +53,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -103,6 +103,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "l" = (
+/obj/effect/floor_decal/industrial/arrow/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "m" = (
@@ -163,7 +164,6 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/robot_parts/r_arm,
 /obj/item/robot_parts/r_arm,
-/obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (
@@ -189,6 +189,9 @@
 /area/shuttle/lone_spacer/storage)
 "x" = (
 /obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/arrow/operations{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -218,12 +221,16 @@
 /area/shuttle/lone_spacer/storage)
 "A" = (
 /obj/machinery/chem_heater,
+/obj/effect/floor_decal/industrial/arrow/operations{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "B" = (
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/arrow/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "C" = (
@@ -261,16 +268,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "E" = (
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/sign/poster{
+	pixel_x = 32
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
-/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/arrow/operations{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "F" = (
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/floor_decal/industrial/arrow/operations{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "G" = (
@@ -352,6 +361,14 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/mecha_part_fabricator{
@@ -366,11 +383,14 @@
 /obj/item/storage/box/tranquilizer{
 	pixel_y = 14
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
 /obj/item/gun/projectile/heavysniper/tranq{
 	pixel_y = 5
 	},
 /obj/item/gun/energy/net,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Q" = (
@@ -398,17 +418,26 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "W" = (
-/obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/sink/kitchen{
 	dir = 8;
 	pixel_x = 19;
 	name = "surgical sink"
+	},
+/obj/effect/floor_decal/industrial/arrow/operations{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "X" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/vending/cigarette/hacked,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"Y" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/floor_decal/industrial/arrow/operations{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Z" = (
@@ -484,25 +513,25 @@ a
 a
 a
 L
+F
 l
-l
-E
-a
-a
 h
-l
+a
+a
+N
+F
 l
 M
 a
 a
 p
-l
+F
 l
 e
 a
 a
 z
-F
+Y
 l
 Q
 a
@@ -512,25 +541,25 @@ a
 a
 a
 G
-l
+F
 l
 q
 a
 a
 C
-l
+F
 l
 K
 a
 a
 R
-l
+F
 l
 q
 a
 a
 t
-l
+F
 l
 q
 a
@@ -540,25 +569,25 @@ a
 a
 a
 c
-l
+F
 l
 q
 a
 a
 c
-l
+F
 l
 G
 a
 a
 c
-l
+F
 l
 q
 a
 a
 c
-l
+F
 l
 X
 a
@@ -624,19 +653,19 @@ a
 a
 a
 I
-l
+F
 l
 y
 a
 a
 j
-l
+F
 l
 D
 a
 a
 d
-l
+F
 l
 P
 a
@@ -658,13 +687,13 @@ J
 a
 a
 g
-l
+F
 l
 O
 a
 a
 H
-l
+F
 l
 w
 a
@@ -692,7 +721,7 @@ k
 a
 a
 f
-B
+E
 l
 T
 a
