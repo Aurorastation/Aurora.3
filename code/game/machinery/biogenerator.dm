@@ -57,11 +57,6 @@
 	object = /obj/item/reagent_containers/food/snacks/soywafers
 	cost = 150
 
-/singleton/biorecipe/food/mre
-	name = "Meals Ready to Eat"
-	object = /obj/random/mre
-	cost = 450
-
 /singleton/biorecipe/food/boba
 	name = "Boba Pearls"
 	object = /obj/item/reagent_containers/food/drinks/boba
@@ -225,11 +220,6 @@ ITEMS
 	object = /obj/item/storage/box/goldstar
 	cost = 600
 
-/singleton/biorecipe/item/googly
-	name = "Box of Googly Eyes"
-	object = /obj/item/storage/box/googly
-	cost = 600
-
 /singleton/biorecipe/item/cash
 	name = "Money Bag"
 	object = /obj/item/storage/bag/money
@@ -384,9 +374,9 @@ CLOTHING
 	object = /obj/random/biogenerator/gloves
 	cost = 125
 
-/singleton/biorecipe/clothes/gloves/random
+/singleton/biorecipe/clothes/randomgloves
 	name = "Random Gloves"
-	object = /obj/random/biogenerator/gloves
+	object = /obj/random/biogenerator/gloves/random
 	cost = 125
 
 /singleton/biorecipe/clothes/utility

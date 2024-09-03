@@ -63,7 +63,6 @@ changes:
   - rscadd: "Added a bunch of new random item spawners."
   - qol: "Added back access to the command stairwell, to make it an actually usable emergency exit."
   - qol: "Tweaked the blue color for the hydroponics overalls and apron, making it a less intense blue. Also made it a defined color instead of an undefined hex code."
-  - experiment: "Changed the defined color for warm yellow. Changed the floor decals that uses COLOR_YELLOW_ENGI to use COLOR_WARM_YELLOW instead."
   - balance: "Shamelessly buffed the biogenerator by reducing the time it takes to make products by half. Also, reduced the cost of several items, and added cost to items that did not have one defined."
   - balance: "Buffed the xenobotany vendor, giving it more items to vend and more fertilizer."
   - imageadd: "Added six new sprites for the horticulture magazines."
