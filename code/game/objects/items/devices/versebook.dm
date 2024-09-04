@@ -160,3 +160,18 @@
 	icon_state = "luce_pocket"
 	w_class = WEIGHT_CLASS_TINY
 
+/// Tajaran Political Books
+
+/obj/item/device/versebook/pra
+	name = "\improper Hadiist Manifesto"
+	desc = "A compact red book that outlines the principles of Hadiism, required reading for PRA citizens."
+	desc_extended = "TODO: HE/SHE LOVES HADII."
+	icon_state = "prabook"
+	item_state = "pra"
+
+/obj/item/device/versebook/pra/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/hadiism.txt")
+
+
+///
