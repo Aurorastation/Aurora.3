@@ -10,7 +10,6 @@
 	spawn_weight = 1
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	unit_test_groups = list(3)
 
