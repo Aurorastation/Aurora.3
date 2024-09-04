@@ -2103,7 +2103,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/storage/box/fancy/cigarettes/cigar,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -3318,7 +3318,7 @@
 /area/headmaster_ship)
 "jW" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "kb" = (
@@ -7091,7 +7091,7 @@
 /obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 8
 	},
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},

@@ -1630,7 +1630,7 @@
 /area/pra_satellite)
 "JL" = (
 /obj/structure/table/wood,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
