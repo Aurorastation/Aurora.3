@@ -5,7 +5,7 @@
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
 	species_height = HEIGHT_CLASS_AVERAGE
-	height_min = 140
+	height_min = 145
 	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
@@ -129,6 +129,7 @@
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	species_height = HEIGHT_CLASS_HUGE
+	height_min = 180
 	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
@@ -359,6 +360,7 @@
 	short_name = "xmf"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 180
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
