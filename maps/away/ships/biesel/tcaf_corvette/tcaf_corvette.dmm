@@ -1571,10 +1571,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
 	req_one_access = list(204,111)
 	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	req_one_access = list(204,111)
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/bridge)
 "ll" = (
