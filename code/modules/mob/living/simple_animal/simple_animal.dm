@@ -1018,6 +1018,10 @@
 /mob/living/simple_animal/InStasis()
 	return in_stasis
 
+/mob/living/simple_animal/proc/derez()
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
+	qdel(src)
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
