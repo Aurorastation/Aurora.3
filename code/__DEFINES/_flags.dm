@@ -51,6 +51,16 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSTRACE	(1<<16) //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
 #define PASSRAILING	(1<<17)
 
+//Movement Types
+#define GROUND (1<<0)
+#define FLYING (1<<1)
+#define VENTCRAWLING (1<<2)
+#define FLOATING (1<<3)
+/// When moving, will Cross() everything, but won't stop or Bump() anything.
+#define PHASING (1<<4)
+/// The mob is walking on the ceiling. Or is generally just, upside down.
+#define UPSIDE_DOWN (1<<5)
+
 //TURF FLAGS
 /// If a turf is an usused reservation turf awaiting assignment
 #define UNUSED_RESERVATION_TURF BITFLAG(1)
