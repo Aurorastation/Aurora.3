@@ -14,3 +14,8 @@
 2024-09-05:
   nauticall:
   - rscadd: Changed Aayun Kaiser's custom suit's design and paintjob.
+2024-09-07:
+  FluffyGhost:
+  - refactor: Ported and implemented movespeed_modifer, for most things, from TG.
+  - code_imp: Gave deprecation DMDocs to the old calculation system.
+  - code_imp: Some code cleanup around.
