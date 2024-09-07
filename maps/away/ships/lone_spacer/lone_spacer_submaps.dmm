@@ -9,7 +9,8 @@
 	pixel_x = 22;
 	name = "Cargo Hold #1 Shutters";
 	id = "lone_spacer_cargo1";
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(243)
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
@@ -22,7 +23,8 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(243)
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
@@ -84,7 +86,8 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(243)
 	},
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/box/masks{
@@ -112,7 +115,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "l" = (
-/obj/effect/floor_decal/industrial/arrow/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "m" = (
@@ -186,12 +188,12 @@
 /obj/random/melee,
 /obj/random/melee,
 /obj/random/melee/highvalue,
-/obj/random/projectile,
 /obj/item/material/hatchet/unathiknife,
 /obj/item/material/knife/butterfly,
 /obj/item/material/knife/raskariim,
 /obj/item/melee/energy/sword/knife/sol,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "w" = (
@@ -204,9 +206,6 @@
 /area/shuttle/lone_spacer/storage)
 "x" = (
 /obj/structure/bed/stool/chair/office/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/arrow/operations{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -238,16 +237,12 @@
 /area/shuttle/lone_spacer/storage)
 "A" = (
 /obj/machinery/chem_heater,
-/obj/effect/floor_decal/industrial/arrow/operations{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "B" = (
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/arrow/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "C" = (
@@ -286,21 +281,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"E" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
-/obj/effect/floor_decal/industrial/arrow/operations{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
-"F" = (
-/obj/effect/floor_decal/industrial/arrow/operations{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/lone_spacer/storage)
 "G" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/cargo_package/offship/to_horizon{
@@ -327,7 +307,8 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(243)
 	},
 /obj/machinery/chem_master,
 /obj/effect/decal/cleanable/dirt,
@@ -349,6 +330,10 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "K" = (
@@ -455,9 +440,6 @@
 	pixel_x = 19;
 	name = "surgical sink"
 	},
-/obj/effect/floor_decal/industrial/arrow/operations{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -469,9 +451,6 @@
 /area/shuttle/lone_spacer/storage)
 "Y" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/floor_decal/industrial/arrow/operations{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Z" = (
@@ -479,12 +458,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/closet/crate/drop/grey,
-/obj/item/reagent_containers/dropper/electronic_pipette,
-/obj/item/stack/material/phoron{
-	amount = 15
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 
@@ -548,19 +523,19 @@ a
 a
 a
 L
-F
+l
 l
 h
 a
 a
 N
-F
+l
 l
 M
 a
 a
 p
-F
+l
 l
 e
 a
@@ -576,25 +551,25 @@ a
 a
 a
 G
-F
+l
 l
 q
 a
 a
 C
-F
+l
 l
 K
 a
 a
 R
-F
+l
 l
 q
 a
 a
 t
-F
+l
 l
 q
 a
@@ -604,25 +579,25 @@ a
 a
 a
 c
-F
+l
 l
 q
 a
 a
 c
-F
+l
 l
 G
 a
 a
 c
-F
+l
 l
 q
 a
 a
 c
-F
+l
 l
 X
 a
@@ -688,19 +663,19 @@ a
 a
 a
 I
-F
+l
 l
 y
 a
 a
 j
-F
+l
 l
 D
 a
 a
 d
-F
+l
 l
 P
 a
@@ -722,13 +697,13 @@ J
 a
 a
 g
-F
+l
 l
 O
 a
 a
 H
-F
+l
 l
 w
 a
@@ -756,7 +731,7 @@ k
 a
 a
 f
-E
+B
 l
 T
 a

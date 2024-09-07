@@ -10,6 +10,7 @@
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lone_spacer)
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
@@ -81,3 +82,9 @@
 	color = "#395340"
 	name = "faded green scarf"
 	desc = "A soft green scarf, worn at the edges. You see faint embroidery, faded with time beyond recognition."
+
+// Feels bad to develop around bugs, but I don't see myself fixing the telecommunications bug imminently so it'll have to do.
+/obj/item/paper/fluff/lone_spacer_note
+	name = "scrawled note"
+	desc = "A paper. It's a little crumpled."
+	info = "<font face=\"Verdana\"><b>NOTE TO SELF: MUST CLEAR FILTERING FREQUENCIES IN SERVER.</b></center></font>"
