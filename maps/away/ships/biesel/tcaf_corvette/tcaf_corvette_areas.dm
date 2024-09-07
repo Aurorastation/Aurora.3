@@ -7,10 +7,6 @@
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/tcaf_corvette/bridge
-	name = "Republican Fleet Corvette - Bridge"
-	icon_state = "bridge"
-
 /area/tcaf_corvette/grauwolf
 	name = "Republican Fleet Corvette - Flak Battery"
 	icon_state = "thunder"
@@ -42,14 +38,6 @@
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 
-/area/tcaf_corvette/thrustport
-	name = "Republican Fleet Corvette - Port Thruster"
-	icon_state = "engine"
-
-/area/tcaf_corvette/thruststarb
-	name = "Republican Fleet Corvette - Starboard Thruster"
-	icon_state = "engine"
-
 /area/tcaf_corvette/hangar
 	name = "Republican Fleet Corvette - Hangar"
 	icon_state = "exit"
@@ -67,18 +55,19 @@
 	name = "Republican Fleet Corvette - Equipment Storage"
 	icon_state = "storage"
 
-/area/tcaf_corvette/armory
-	name = "Republican Fleet Corvette - Armory"
-	icon_state = "armory"
-	ambience = AMBIENCE_HIGHSEC
-
-/area/tcaf_corvette/dock
-	name = "Republican Fleet Corvette - Docking Port"
-	icon_state = "exit"
-
 /area/tcaf_corvette/security
 	name = "Republican Fleet Corvette - Holding Cells"
 	icon_state = "brig"
+
+/area/tcaf_corvette/central_ring
+	name = "Republican Fleet Corvette - Central Ring"
+
+/area/tcaf_corvette/custodial
+	name = "Republican Fleet Corvette - Custodial Closet"
+
+/area/tcaf_corvette/engine
+	name = "Republican Fleet Corvette - Engine Room"
+
 
 /area/shuttle/tcaf
 	name = "Republican Fleet Shuttle"
