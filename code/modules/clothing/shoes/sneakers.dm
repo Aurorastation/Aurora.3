@@ -31,6 +31,9 @@
 	src.slowdown = 15
 	src.icon_state = "orange1"
 	src.item_state = "orange1"
+	if(ismob(src.loc))
+		var/mob/holder_user = src.loc
+		holder_user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/sneakers/orange/proc/remove_cuffs(mob/user as mob)
 	if (!src.chained) return
@@ -42,6 +45,9 @@
 	src.icon_state = "orange"
 	src.item_state = "orange"
 	src.chained = null
+	if(ismob(src.loc))
+		var/mob/holder_user = src.loc
+		holder_user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user as mob)
 	..()

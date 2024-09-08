@@ -137,18 +137,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/sparring_chamber)
 "at" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "katamess"
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/mess)
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/portpropulsion)
 "au" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/east,
@@ -268,7 +262,7 @@
 /area/kataphract_chapter/frankie)
 "aS" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
+	name = "starboard, reactor"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/engineering)
@@ -536,11 +530,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/portpropulsion)
 "ca" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, bruiser"
+/obj/effect/landmark/entry_point/port{
+	name = "port, CIC"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/frankie)
+/area/kataphract_chapter/cic)
 "cb" = (
 /obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/full,
@@ -2051,7 +2045,7 @@
 /area/kataphract_chapter/sparring_chamber)
 "hr" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
+	name = "starboard, rotary cannon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/frankie)
@@ -3297,7 +3291,8 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "HMV Supreme";
 	req_access = list(113);
-	req_one_access = null
+	req_one_access = null;
+	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -4213,20 +4208,27 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
 "qz" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, thrusters"
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, rotary cannon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/portpropulsion)
+/area/kataphract_chapter/frankie)
 "qI" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/mess)
 "qK" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/medical)
+/obj/machinery/door/blast/regular/open{
+	id = "katamess"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, kitchen"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/mess)
 "qM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4475,12 +4477,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "sG" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/south{
-	name = "south, port thrusters"
+/obj/effect/landmark/entry_point/port{
+	name = "port, propellant tank"
 	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/portpropulsion)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/atmospherics)
 "sJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
@@ -4490,7 +4491,7 @@
 /area/kataphract_chapter/atmospherics)
 "sM" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port, washroom"
+	name = "port, knightly quarters"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/specoffice)
@@ -4654,7 +4655,7 @@
 /area/kataphract_chapter/armoury)
 "uF" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port, bruiser"
+	name = "port, bruiser cannon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/bruiser)
@@ -4890,10 +4891,16 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
 "yh" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, shuttle"
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "starboard"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "yi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -5117,8 +5124,8 @@
 	dir = 8;
 	id = "katabridgeshutter"
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "north, bridge"
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
@@ -5303,15 +5310,15 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/effect/landmark/entry_point/north{
-	name = "north, airlock"
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -28;
 	pixel_y = -8
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, thrusters"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -5978,11 +5985,11 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "IU" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, shuttle"
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medical"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/area/kataphract_chapter/medical)
 "Jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6032,8 +6039,8 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/portentry)
 "JF" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, bruiser"
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bruiser cannon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/bruiser)
@@ -6404,12 +6411,12 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1
 	},
-/obj/effect/landmark/entry_point/south{
-	name = "south, cockpit"
-	},
 /obj/machinery/door/blast/regular/open{
 	id = "kataphract_shuttle_shutters";
 	dir = 4
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "fore, cockpit"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -7005,8 +7012,8 @@
 /area/kataphract_chapter/starentry)
 "SG" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/south{
-	name = "south, port thrusters"
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboardpropulsion)
@@ -7038,25 +7045,17 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Td" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/sandals/caligae/socks,
-/obj/item/clothing/shoes/sandals/caligae/socks,
-/obj/item/clothing/shoes/sandals/caligae/socks,
-/obj/item/clothing/suit/armor/unathi/hegemony,
-/obj/item/clothing/suit/armor/unathi/hegemony,
-/obj/item/clothing/suit/armor/unathi/hegemony,
-/obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/effect/floor_decal/corner/red{
-	dir = 9
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/armoury)
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters"
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "port"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Tf" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, washroom"
@@ -7550,7 +7549,7 @@
 /area/space)
 "ZJ" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
+	name = "starboard, armory"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/armoury)
@@ -33143,8 +33142,8 @@ iB
 lz
 mQ
 mQ
+qK
 mQ
-at
 mQ
 lz
 iB
@@ -33388,7 +33387,7 @@ iB
 iB
 iB
 iB
-qK
+le
 le
 le
 le
@@ -33637,7 +33636,7 @@ op
 TM
 iT
 le
-le
+IU
 le
 le
 le
@@ -34920,7 +34919,7 @@ JW
 RL
 DT
 dW
-dW
+qz
 iB
 iB
 iB
@@ -35172,7 +35171,7 @@ dW
 dW
 dW
 dW
-ca
+dW
 iB
 iB
 iB
@@ -35885,8 +35884,8 @@ iB
 Bi
 Bi
 bO
-bO
 yh
+Bi
 Bi
 Bi
 Bi
@@ -37397,8 +37396,8 @@ iB
 Bi
 Bi
 bO
-bO
-IU
+Td
+Bi
 Bi
 Bi
 Bi
@@ -38403,7 +38402,7 @@ iB
 iB
 iB
 iB
-sG
+nM
 Xy
 cW
 an
@@ -38655,7 +38654,7 @@ iB
 iB
 iB
 iB
-nM
+at
 lf
 mt
 mA
@@ -39413,7 +39412,7 @@ iB
 iB
 dQ
 dQ
-qz
+dQ
 dQ
 dQ
 mP
@@ -39921,7 +39920,7 @@ iB
 iB
 mL
 mL
-mL
+sG
 mL
 mL
 mL
@@ -40181,7 +40180,7 @@ iB
 iB
 iB
 Rv
-Rv
+ca
 Rv
 Rv
 Rv
