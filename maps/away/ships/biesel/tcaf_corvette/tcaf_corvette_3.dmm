@@ -4,26 +4,31 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "ag" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"am" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner_wide/brown/full,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "az" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
 "aB" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -32,7 +37,13 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"aC" = (
+/obj/structure/bed/stool/chair/office/bridge/legion{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "aZ" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -41,29 +52,38 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "bd" = (
 /turf/simulated/floor/tiled/freezer,
-/area/space)
+/area/tcaf_corvette/messhall)
+"bf" = (
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/custodial)
+"bl" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "bB" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "bC" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "bE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "bH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -72,41 +92,78 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"bK" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "bL" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/storage)
 "bT" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "bU" = (
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "ch" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"cm" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
+"co" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10;
+	icon_state = "warning"
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"cu" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/medical)
 "cw" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "cI" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"cP" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/central_ring)
 "da" = (
 /obj/structure/viewport,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "dc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -120,28 +177,66 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"dh" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/storage)
 "dm" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/space)
+/area/tcaf_corvette/cic)
+"dQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
 "dS" = (
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
 "dU" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4;
+	pixel_x = -4
+	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"dV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "dX" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/brig)
 "eb" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -152,29 +247,41 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
 "ed" = (
 /obj/structure/toilet{
 	dir = 8
 	},
 /turf/simulated/floor/marble,
-/area/space)
+/area/tcaf_corvette/washroom)
 "ef" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "ey" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
+"ez" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/forensics)
+"eT" = (
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "eW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "fa" = (
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -211,56 +318,108 @@
 	},
 /obj/structure/closet/secure_closet/refrigerator,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "fn" = (
 /obj/machinery/chemical_dispenser/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "fE" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"fG" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"fI" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/central_ring)
 "fU" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "fW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"gb" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "gc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "gd" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "gg" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "gj" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"gn" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "gq" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 8
@@ -268,25 +427,56 @@
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"gr" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/crew)
 "gy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/suit_cycler/offship/biesel,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
+"gz" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
+"gF" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
+"gG" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/crew)
+"gI" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "gJ" = (
 /obj/effect/floor_decal/industrial/hatch/security,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/brig)
 "gM" = (
 /turf/simulated/floor/tiled/techfloor,
-/area/space)
+/area/tcaf_corvette/crew)
 "hc" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/tcaf_corvette/engine)
+"hd" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/brig)
 "hA" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -298,25 +488,36 @@
 	name = "Air Distro Line Meter"
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "hB" = (
 /obj/effect/floor_decal/industrial/loading/security{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/forensics)
+"hF" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/mredispenser,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "hK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"ia" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "in" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "ip" = (
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
@@ -326,17 +527,21 @@
 	density = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "iw" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "iz" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"iM" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "iX" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -344,60 +549,66 @@
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "iY" = (
 /turf/simulated/floor/carpet/brown,
-/area/space)
+/area/tcaf_corvette/lounge)
 "jl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "jm" = (
 /obj/machinery/sleeper,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/medical)
 "jo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/tcaf_corvette/hangar)
 "js" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "jN" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "jZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
+	dir = 8;
 	icon_state = "warning"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/hangar)
 "kt" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "kA" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "kR" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"kU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/grauwolf)
 "kV" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
@@ -406,17 +617,41 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"lc" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/cic)
+"le" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"ll" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "lp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "lr" = (
 /obj/structure/bed/stool/chair/office/bridge/legion{
 	name = "legion command seat"
 	},
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
+"ls" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "lu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -426,7 +661,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"lw" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "lC" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
@@ -434,18 +672,24 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "lL" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/space)
+/area/tcaf_corvette/exterior)
+"lP" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "lR" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
 "lS" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -454,73 +698,103 @@
 	req_access = list()
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "lX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/space)
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/brig)
 "mg" = (
 /obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"mm" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
+/obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"ml" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/custodial)
+"mm" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/hangar)
 "mq" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "ms" = (
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"my" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "mD" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "mF" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full,
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"mO" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/captain_quarters)
 "mV" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
+"nb" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "ng" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"nk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/francisca)
 "nl" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/brig)
 "ns" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "ny" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/hos{
@@ -528,11 +802,25 @@
 	desc = "It is decorated with a shield emblem. For those that would like to think of themselves as protectors of valuable things."
 	},
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - tcaf_officer";
+	identifier = "tcaf_officer"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/captain_quarters)
 "nG" = (
 /turf/simulated/floor/marble,
-/area/space)
+/area/tcaf_corvette/washroom)
+"nI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"nL" = (
+/obj/effect/floor_decal/corner_wide/brown,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "nN" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5F78A0";
@@ -541,23 +829,42 @@
 	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/tcaf_corvette/francisca)
+"nR" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/medical)
 "nS" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"nV" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/central_lift)
 "nY" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "ob" = (
-/turf/unsimulated/wall/fakepdoor,
-/area/space)
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
+"oo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "or" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -565,29 +872,66 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"oy" = (
+/obj/effect/floor_decal/industrial/hatch/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
+"oC" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
+"oJ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/messhall)
 "oQ" = (
 /obj/machinery/door/blast/regular{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "oZ" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "pm" = (
 /obj/structure/morgue/crematorium{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/forensics)
+"pn" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "ps" = (
 /obj/machinery/chem_master,
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
+"pw" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
+"pB" = (
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "pE" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 1
@@ -597,77 +941,112 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"pK" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/engine)
 "pL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"pN" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/medical)
 "pR" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1;
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"qg" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "qh" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
 "qm" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
 "qv" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
 "qM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/hangar)
 "rb" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
+"re" = (
+/obj/structure/bed/stool/chair/office/bridge/legion,
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
+"rD" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/captain)
 "rG" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/brig)
 "rI" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "rJ" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/captain_quarters)
 "rM" = (
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/tcaf_corvette/engine)
+"si" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "sm" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "su" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "sC" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
+"sK" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/engineering)
 "sN" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -675,7 +1054,16 @@
 /obj/machinery/vending/engivend,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"sO" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
+"sZ" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/hangar)
 "td" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -684,25 +1072,38 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "tf" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"tp" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/tcaf_corvette/captain_quarters)
 "tR" = (
 /obj/machinery/ammunition_loader/francisca{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/tcaf_corvette/francisca)
+"tU" = (
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/francisca)
+"tZ" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/carpet/magenta,
+/area/tcaf_corvette/captain)
 "uc" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "uh" = (
 /obj/machinery/meter{
 	name = "Air Distro Line Meter"
@@ -711,7 +1112,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"um" = (
+/turf/simulated/floor/tiled/gridded,
+/area/tcaf_corvette/engine)
+"ut" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
 "uA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -720,42 +1128,64 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "uB" = (
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/tcaf_corvette/washroom)
+"uE" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
+"uG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/francisca)
 "uO" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 9
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "uR" = (
 /obj/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
+"uS" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "uZ" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
 "vp" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"vz" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/forensics)
 "vD" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "vF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/engine)
 "vH" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -764,136 +1194,214 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"vN" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "vO" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"vR" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "vS" = (
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "vY" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
+"wd" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
 "wk" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"wp" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/brig)
 "wt" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "wu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"wv" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "ww" = (
 /obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "wy" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "wB" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "wC" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1;
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "wI" = (
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"wP" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#5F78A0";
-	frame_color = "#5F78A0";
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/area/tcaf_corvette/medical)
+"wL" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 1
 	},
-/turf/simulated/floor,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
+"wP" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/grauwolf)
+"wT" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/green/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "wW" = (
 /turf/simulated/floor/carpet/magenta,
-/area/space)
+/area/tcaf_corvette/captain)
 "xd" = (
 /turf/simulated/open/airless,
-/area/space)
+/area/tcaf_corvette/exterior)
+"xh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/francisca)
+"xl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/grauwolf)
 "xm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"xB" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/cic)
 "xC" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
 "xF" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10;
 	icon_state = "warning"
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "xH" = (
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/crew)
+"yg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "yk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "yp" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
+"yu" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/forensics)
 "yN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"yP" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "yV" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"yW" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/hangar)
 "zr" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
 "zs" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -903,19 +1411,19 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "zx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "zz" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "zB" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 5
@@ -923,7 +1431,7 @@
 /obj/structure/platform,
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "zD" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -932,14 +1440,24 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
+"zF" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/forensics)
+"zL" = (
+/obj/machinery/door/airlock/glass_medical{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/medical)
 "zT" = (
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/tcaf_corvette/grauwolf)
 "Ak" = (
 /obj/effect/floor_decal/corner_wide/brown,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Am" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -948,25 +1466,71 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/brig)
+"Ao" = (
+/obj/machinery/door/airlock/glass_command,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/cic)
+"Ap" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/brig)
+"Ax" = (
+/obj/structure/bed/stool/chair/office/bridge/legion{
+	name = "legion command seat";
+	dir = 1
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/tcaf_corvette/captain)
+"AQ" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
+"AS" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"AW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
+"Bc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/grauwolf)
 "Bf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "Bg" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "Bh" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"Bz" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "BT" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -975,36 +1539,54 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "BX" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
+"Cb" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/captain)
 "CA" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/tcaf_corvette/engine)
+"CG" = (
+/obj/machinery/door/airlock/glass_service{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/messhall)
 "CI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"CS" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/francisca)
 "CX" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Da" = (
 /obj/structure/bed/stool/padded/brown{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "Dg" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -1012,34 +1594,53 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "Dk" = (
 /obj/machinery/ship_weapon/francisca{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/legion,
+/turf/template_noop,
 /area/space)
+"Dl" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/forensics)
 "Dm" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "Dp" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/lounge)
+"DQ" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "Ej" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "En" = (
 /turf/simulated/wall/shuttle/legion,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"Et" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/storage)
 "Eu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -1048,20 +1649,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "EE" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"EG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
 "EL" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
 "Fa" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -1071,16 +1678,16 @@
 	},
 /obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "Fb" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Ff" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
 "Fh" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 9
@@ -1088,30 +1695,46 @@
 /obj/structure/platform,
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"Fn" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "Fx" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
 "Fy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/turf/simulated/floor,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "FE" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/hatch/custodial,
+/obj/structure/closet/crate/drop/grey,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/tcaf_corvette/medical)
+"FF" = (
+/turf/template_noop,
+/area/tcaf_corvette/grauwolf)
 "FH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/captain)
+"FI" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
+"FL" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
 	},
-/turf/simulated/floor,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "Ga" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/captain_quarters)
 "Gc" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 8
@@ -1122,7 +1745,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
 "Gm" = (
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
@@ -1130,20 +1753,16 @@
 	weapon_id = "KASF Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "Go" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
 "Gp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/hangar)
 "Gt" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -1153,31 +1772,44 @@
 	},
 /obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"Gv" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "Gy" = (
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Gz" = (
 /obj/structure/platform_stairs/south_north_solo,
 /turf/simulated/floor/plating,
-/area/space)
+/area/tcaf_corvette/cic)
 "GI" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"GL" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/tcaf_corvette/francisca)
+"GP" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/messhall)
 "Hm" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "Ho" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/medical)
 "Hr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -1186,38 +1818,63 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"Hw" = (
+/obj/machinery/door/airlock/glass_service,
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/messhall)
 "HB" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"HT" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "HU" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Ig" = (
 /obj/structure/morgue,
 /turf/simulated/floor/tiled/freezer,
-/area/space)
+/area/tcaf_corvette/brig)
+"Ij" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/messhall)
 "Ik" = (
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "Iu" = (
 /obj/machinery/power/generator{
 	anchored = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "IP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/tcaf_corvette/forensics)
+"IX" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/grauwolf)
+"Jd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "Je" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/carbondioxide,
@@ -1227,21 +1884,39 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
 "Jf" = (
 /obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
-"JK" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
+/area/tcaf_corvette/central_ring)
+"Jo" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
+"JD" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
+"JK" = (
+/turf/unsimulated/wall/fakepdoor,
+/area/tcaf_corvette/hangar)
 "Km" = (
 /obj/effect/floor_decal/corner_wide/dark_blue,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"Ks" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/zora,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
+"Ku" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "Ky" = (
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/glass/reinforced/full,
@@ -1257,80 +1932,102 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "KC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "KI" = (
 /turf/simulated/floor/lino,
-/area/space)
+/area/tcaf_corvette/messhall)
 "KQ" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/washroom)
 "Lb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"Ln" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"Lo" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/captain)
 "Lq" = (
 /obj/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "Ls" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "LF" = (
 /mob/living/heavy_vehicle/premade/combat/tcaf,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
 "LH" = (
 /obj/machinery/meter{
 	name = "Air Distro Line Meter"
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"LI" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/francisca)
 "LS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/francisca)
+"LV" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/custodial)
 "Mc" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "Ml" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
-/area/space)
+/area/tcaf_corvette/captain_quarters)
 "Mm" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 10
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"Mo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "Mv" = (
 /turf/template_noop,
 /area/space)
@@ -1340,12 +2037,23 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"MA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/grauwolf)
 "MG" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
+"MZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/francisca)
 "Nc" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -1354,7 +2062,10 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"Ne" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/central_ring)
 "Np" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -1367,46 +2078,67 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "NA" = (
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/storage)
+"NF" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
+"NQ" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "NR" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "NV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
 "NW" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "Oe" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Of" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/cic)
+"Og" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "Ok" = (
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engine)
 "Ol" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1416,7 +2148,13 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"Oo" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "OC" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -1433,43 +2171,59 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "OF" = (
 /obj/structure/bed/stool/chair/office/bridge/legion{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/paleblue,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "OI" = (
 /obj/machinery/optable,
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "OJ" = (
 /obj/structure/bed/stool/padded/brown{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "OT" = (
 /obj/structure/bed/stool/chair/office/bridge/legion,
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
+"OY" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "Pk" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "Pr" = (
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
+"Ps" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/captain)
 "Py" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1478,25 +2232,44 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"PD" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/lounge)
 "PR" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/engine)
 "Qd" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 5
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "Qf" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/forensics)
+"Qi" = (
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"Qx" = (
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
+"QA" = (
+/obj/effect/floor_decal/corner_wide/brown,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
+"QS" = (
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/forensics)
 "Rb" = (
 /obj/effect/floor_decal/spline/plain/blue,
 /obj/structure/bed/stool/padded/black{
@@ -1504,20 +2277,40 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
+"Rd" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
+"Rf" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/captain)
+"Rg" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/forensics)
+"Rh" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "Rt" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/paleblue,
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/tcaf_corvette/cic)
 "Rw" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "RO" = (
 /obj/machinery/pipedispenser,
 /obj/item/pipewrench,
@@ -1526,45 +2319,76 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
 "RP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "RU" = (
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
 "Sd" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/custodial)
 "Sf" = (
-/obj/effect/floor_decal/corner_wide/brown/full,
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/hangar)
+"Sh" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "Si" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/forensics)
 "Sm" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/black,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
+"Sq" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"Su" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
+"Sv" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
 "Sy" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "SG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1574,7 +2398,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "SI" = (
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/atmospherics/binary/pump/on{
@@ -1586,17 +2410,24 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
+"SS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/grauwolf)
 "SV" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "Th" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/francisca)
 "TO" = (
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -1606,14 +2437,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/engineering)
 "TQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "TT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -1622,36 +2453,59 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
 "Ud" = (
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"Ue" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "Uf" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
+"Uw" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/grauwolf)
 "Uy" = (
 /turf/simulated/floor/carpet/red,
-/area/space)
+/area/tcaf_corvette/captain_quarters)
 "Vb" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/tcaf_corvette/cic)
+"Vl" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - tcaf_crewman";
+	identifier = "tcaf_crewman"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/tcaf_corvette/crew)
 "Vp" = (
 /obj/effect/floor_decal/corner_wide/blue/full,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "Vt" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/brig)
 "Wa" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 4
@@ -1662,33 +2516,154 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/tcaf_corvette/storage)
+"Wc" = (
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/captain_quarters)
+"Wd" = (
+/obj/machinery/door/airlock/glass_medical,
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/medical)
+"Wh" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/brig)
 "Wk" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"Wl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
+"Wp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/francisca)
+"Wq" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/lounge)
+"Wt" = (
+/obj/effect/floor_decal/corner_wide/blue/full,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "WE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/tcaf_corvette/central_ring)
+"WH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/grauwolf)
+"WI" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/tcaf_corvette/hangar)
+"WR" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/central_ring)
 "Xc" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
+"Xe" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10;
+	icon_state = "warning"
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/central_ring)
+"Xh" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/central_ring)
 "Xm" = (
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/tcaf_corvette/engineering)
+"Xn" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/tcaf_corvette/francisca)
 "XB" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/messhall)
 "XD" = (
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen/double,
@@ -1703,47 +2678,79 @@
 /obj/item/device/gps,
 /obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/storage)
 "XE" = (
 /obj/structure/curtain/open/privacy,
 /obj/structure/toilet,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/brig)
+"XH" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
+"XK" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "XP" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "XU" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
+"Yd" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/brig)
 "Ye" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
+"Yf" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
+"Yi" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "Yk" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
+"Yl" = (
+/turf/simulated/floor/tiled/freezer,
+/area/tcaf_corvette/brig)
 "Yr" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "Ys" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/engine)
 "Yz" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -1752,54 +2759,53 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/brig)
 "YE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "YG" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/tcaf_corvette/engine)
 "YI" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/tcaf_corvette/medical)
 "YL" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/brig)
 "YO" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/lounge)
 "Zf" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/central_lift)
 "Zh" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/brig)
 "Zj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/tcaf_corvette/hangar)
+"ZG" = (
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "ZH" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
@@ -1809,17 +2815,23 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/tcaf_corvette/brig)
+"ZK" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/medical)
 "ZQ" = (
 /obj/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/tcaf_corvette/grauwolf)
 "ZW" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tcaf_corvette/hangar)
 
 (1,1,1) = {"
 Mv
@@ -32001,10 +33013,10 @@ Mv
 Mv
 Mv
 Mv
-Mv
-Mv
-Mv
-Mv
+yW
+vN
+vN
+yW
 Mv
 Mv
 Mv
@@ -32258,10 +33270,10 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-Gy
-En
+yW
+WI
+WI
+yW
 Mv
 Mv
 Mv
@@ -32515,28 +33527,28 @@ Mv
 Mv
 Mv
 Mv
-En
-iz
-iz
-En
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
+yW
+vN
+vN
+yW
+yW
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+yW
+yW
+yW
 Mv
 Mv
 Mv
@@ -32768,33 +33780,33 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-En
-En
-Gy
-Gy
-En
-En
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-ob
-En
-En
-En
-Mv
+yW
+yW
+yW
+yW
+yW
+sO
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+Fn
+yW
+yW
 Mv
 Mv
 Mv
@@ -33025,33 +34037,33 @@ Mv
 Mv
 Mv
 Mv
-En
-iz
-Gy
-iz
-En
-ZW
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
+yW
+WI
+Rh
+WI
+yW
+mm
+ZG
+ZG
+QA
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+ob
+pn
 Sf
-En
-En
+Zj
+yW
 Mv
 Mv
 Mv
@@ -33282,33 +34294,33 @@ Mv
 Mv
 Mv
 Mv
-En
-iz
-Gy
-iz
-En
-Bh
+yW
+WI
+Rh
+WI
+yW
+mm
 jo
 jo
-Ak
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-iw
-ag
+Sf
+EG
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+jZ
+co
+mm
+Sf
 Zj
-En
+yW
 Mv
 Mv
 Mv
@@ -33535,20 +34547,20 @@ Mv
 Mv
 Mv
 Mv
-Mv
-En
-En
-En
-En
-En
-Gy
-En
-En
-Bh
+yW
+yW
+yW
+yW
+yW
+yW
+Rh
+yW
+yW
+mm
 jo
 jo
-ag
-Fy
+Sf
+qM
 Gp
 Gp
 Gp
@@ -33562,10 +34574,10 @@ Gp
 Gp
 Gp
 vO
-Bh
-ag
+mm
+Sf
 Zj
-En
+yW
 Mv
 Mv
 Mv
@@ -33792,37 +34804,37 @@ Mv
 Mv
 Mv
 Mv
-Mv
-Gy
-iz
-Gy
+iM
+WI
+iM
+sO
 ZW
-HB
-HB
-HB
-HB
-zz
-jo
-jo
-ag
+ZW
+ZW
+ZW
+ZW
+Ku
+ZG
+ZG
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
+Gp
+Gp
+Gp
+yW
+yW
+yW
+yW
+yW
+yW
+Gp
+Gp
+Gp
+vO
+mm
+Sf
 Zj
-En
+yW
 Mv
 Mv
 Mv
@@ -34049,37 +35061,37 @@ Mv
 Mv
 Mv
 Mv
-Mv
-Gy
-iz
-Gy
-mm
-gd
-iw
-Ak
-gd
-gd
-gd
-iw
-ag
+iM
+WI
+iM
+NF
+ob
+ob
+pn
+QA
+ob
+ob
+ob
+pn
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
+yW
+yW
+yW
+yW
+Gp
+Gp
+Gp
+Gp
+yW
+fG
+fG
+Gp
+vO
+mm
+Sf
 Zj
-En
+yW
 Mv
 Mv
 Mv
@@ -34306,37 +35318,37 @@ Mv
 Mv
 Mv
 Mv
-Mv
-En
-En
-En
-En
-En
-Bh
-ag
-KC
-ao
-TQ
-Bh
-ag
+yW
+yW
+yW
+yW
+yW
+yW
+mm
+Sf
+Jd
+Mo
+AW
+mm
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
-En
-En
+yW
+Gp
+Gp
+yW
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+fG
+fG
+vO
+mm
+Sf
+yW
+yW
 Mv
 Mv
 Mv
@@ -34564,35 +35576,35 @@ Mv
 Mv
 Mv
 Mv
-En
-Fx
-Fx
-Fx
-En
-Bh
-ag
-gc
-Gy
-Fb
-Bh
-ag
+yW
+jo
+jo
+jo
+yW
+mm
+Sf
+Og
+Rh
+uS
+mm
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
-En
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+fG
+vO
+mm
+Sf
+yW
 Mv
 Mv
 Mv
@@ -34821,37 +35833,37 @@ Mv
 Mv
 Mv
 Mv
-En
-Fx
-Fx
-Fx
-uB
-Bh
-ag
-ch
-yk
-hK
-Bh
-ag
+yW
+ZG
+ZG
+ZG
+sZ
+mm
+Sf
+yg
+oo
+Wl
+mm
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
-En
-En
-En
+yW
+Gp
+Gp
+yW
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+fG
+fG
+vO
+mm
+Sf
+yW
+Mv
+Mv
 Mv
 Mv
 Mv
@@ -35078,37 +36090,37 @@ Mv
 Mv
 Mv
 Mv
-En
-Fx
-Fx
-Fx
-uB
-Bh
-Xc
-HB
-HB
-HB
-zz
-ag
+yW
+ZG
+ZG
+ZG
+sZ
+mm
+yP
+ZW
+ZW
+ZW
+Ku
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
-Gy
-iz
-Gy
+yW
+yW
+yW
+yW
+Gp
+Gp
+Gp
+Gp
+yW
+fG
+fG
+Gp
+vO
+mm
+Sf
+yW
+yW
+yW
 Mv
 Mv
 Mv
@@ -35335,37 +36347,37 @@ Mv
 Mv
 Mv
 Mv
-En
-Fx
-Fx
-Fx
-En
-mm
-gd
-gd
-iw
+yW
 jo
 jo
-ag
+jo
+yW
+NF
+ob
+ob
+pn
+ZG
+ZG
+Sf
 qM
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-Ud
-sm
-Bh
-ag
-Gy
-iz
-Gy
+Gp
+Gp
+Gp
+yW
+yW
+yW
+yW
+yW
+yW
+Gp
+Gp
+Gp
+vO
+mm
+Sf
+iM
+WI
+iM
 Mv
 Mv
 Mv
@@ -35591,38 +36603,38 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-Gy
-En
-En
-Gy
-En
-En
-Bh
+yW
+yW
+yW
+Rh
+yW
+yW
+Rh
+yW
+yW
+mm
 jo
 jo
-ag
-FH
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-jZ
-lX
-Bh
-ag
-En
-En
-En
+Sf
+qM
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+Gp
+vO
+mm
+Sf
+iM
+WI
+iM
 Mv
 Mv
 Mv
@@ -35848,38 +36860,38 @@ Mv
 Mv
 Mv
 Mv
-En
-Ud
-iz
-iz
-En
-iz
-Gy
-iz
-En
-Bh
+yW
+Gp
+WI
+WI
+yW
+WI
+Rh
+WI
+yW
+mm
 jo
 jo
-Xc
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-zz
-ag
-En
-Mv
-Mv
+Sf
+nI
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+dQ
+mm
+Sf
+yW
+yW
+yW
 Mv
 Mv
 Mv
@@ -36105,36 +37117,36 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-En
-En
-iz
-Gy
-iz
-En
+yW
+yW
+yW
+yW
+yW
+WI
+Rh
+WI
+yW
 mm
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-gd
-Dp
-En
+ZG
+ZG
+yP
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+ZW
+Ku
+Sf
+yW
 Mv
 Mv
 Mv
@@ -36366,15 +37378,12 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-En
-En
-Gy
-Gy
-En
-En
+yW
+yW
+yW
+yW
+yW
+NF
 ob
 ob
 ob
@@ -36389,9 +37398,12 @@ ob
 ob
 ob
 ob
-En
-En
-En
+ob
+ob
+ob
+ob
+FL
+yW
 Mv
 Mv
 Mv
@@ -36627,28 +37639,28 @@ Mv
 Mv
 Mv
 Mv
-En
-iz
-iz
-En
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
-Mv
+yW
+vN
+vN
+yW
+yW
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+JK
+yW
+yW
+yW
 Mv
 Mv
 Mv
@@ -36884,10 +37896,10 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-Gy
-En
+yW
+WI
+WI
+yW
 Mv
 Mv
 Mv
@@ -37141,10 +38153,10 @@ Mv
 Mv
 Mv
 Mv
-Mv
-Mv
-Mv
-Mv
+yW
+vN
+vN
+yW
 Mv
 Mv
 Mv
@@ -95232,14 +96244,14 @@ Mv
 Mv
 Mv
 Mv
-En
-En
 wP
 wP
-En
-En
-En
-En
+wP
+wP
+wP
+wP
+wP
+wP
 Mv
 Mv
 Mv
@@ -95489,14 +96501,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
-YE
-vS
-vS
-zT
-Mv
+wP
+gb
+am
+MA
+SS
+SS
+pB
+FF
 Mv
 Mv
 Mv
@@ -95746,14 +96758,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
+WH
+re
+nb
 YE
 Gm
 vS
-zT
-Mv
+pB
+FF
 Mv
 Mv
 Mv
@@ -96003,14 +97015,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
+WH
+IX
+wd
 YE
 vS
 vS
-zT
-Mv
+pB
+FF
 Mv
 Mv
 Mv
@@ -96260,14 +97272,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
+WH
+IX
+bl
 YE
 ZQ
 vS
 da
-Mv
+FF
 Mv
 Mv
 Mv
@@ -96517,24 +97529,24 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
-YE
+wP
+xl
+bK
+kU
 Pk
-vS
-En
-En
-Mv
-Mv
-Mv
-Mv
-Mv
-En
+Bc
 wP
 wP
-wP
-En
+Mv
+Mv
+Mv
+Mv
+Mv
+GP
+oJ
+oJ
+oJ
+GP
 Mv
 Mv
 Mv
@@ -96774,24 +97786,24 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-Gy
-En
-En
-En
-En
-En
+wP
+wP
+Uw
+wP
+wP
+wP
+wP
+wP
 Mv
 Mv
 Mv
 Mv
 Mv
-En
+GP
 bd
 bd
 bd
-En
+GP
 Mv
 Mv
 Mv
@@ -97032,9 +98044,9 @@ Mv
 Mv
 Mv
 Mv
-En
+wP
 zT
-En
+wP
 Mv
 Mv
 Mv
@@ -97044,11 +98056,11 @@ Mv
 Mv
 Mv
 Mv
-En
+GP
 bd
 bd
 bd
-En
+GP
 Mv
 Mv
 Mv
@@ -97278,20 +98290,20 @@ xd
 xd
 lL
 Mv
-En
-En
-En
-En
-En
-En
-En
+Et
+Et
+Et
+Et
+Et
+Et
+Et
 Mv
 Mv
 Mv
 Mv
-En
+wP
 zT
-En
+wP
 Mv
 Mv
 Mv
@@ -97299,17 +98311,17 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-uB
-En
-En
-En
+GP
+GP
+GP
+Ij
+GP
+GP
+GP
 Mv
-En
-Gy
-En
+zF
+Rg
+zF
 Mv
 Mv
 Mv
@@ -97532,41 +98544,41 @@ xd
 xd
 xd
 xd
-En
+pK
 PR
-En
-En
+Et
+Et
 gy
 gy
 gy
 gy
 gy
-En
-En
-En
-En
-En
-En
+Et
+Et
+Ne
+Ne
+Ne
+wP
 zT
-En
+wP
 Mv
-En
-En
-En
-En
-En
-PR
-En
-En
+Ne
+Ne
+Ne
+Ne
+Ne
+oy
+GP
+GP
 cw
 KI
 js
 Pr
-En
+GP
 Mv
-En
-Gy
-En
+zF
+ez
+zF
 Mv
 Mv
 Mv
@@ -97789,55 +98801,55 @@ xd
 xd
 xd
 xd
-En
-ms
-En
+pK
+gF
+Et
 LF
 NA
-xm
-xm
-xm
+dh
+dh
+dh
 bL
 sC
-En
-dU
+Et
+WR
 Lb
 xF
-En
+wP
 zT
-En
-En
-En
-Gy
-Gy
-Gy
-En
+wP
+Ne
+Ne
+lw
+lw
+lw
+Ne
 ms
-En
+GP
 fa
 KI
 KI
 KI
 KI
-En
-En
-En
-Gy
-En
-En
-En
+GP
+zF
+zF
+Rg
+zF
+zF
+lX
 rG
 rG
-En
-En
+lX
+lX
 rG
 rG
-En
-En
+lX
+lX
 rG
 rG
-En
-En
+lX
+lX
 Mv
 Mv
 Mv
@@ -98032,70 +99044,70 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-wP
-wP
-wP
-En
-En
+pK
+pK
+pK
+cm
+cm
+cm
+pK
+pK
 xd
 xd
 xd
 xd
 xd
 xd
-wP
-iz
-En
+cm
+Jo
+Et
 qh
-CX
+Sv
 az
 Gc
 zr
-Zf
+pw
 XD
-En
+Et
 nS
 ng
 NW
-En
+wP
 zT
-En
-Gy
-En
-Gy
-Gy
-Gy
-En
+wP
+lw
+Ne
+lw
+lw
+lw
+Ne
 iz
-En
+GP
 uR
 XB
 XB
 XB
 KI
-En
+GP
 lR
 mV
-EE
+vz
 pm
-En
+zF
 XE
 Vt
 YL
-En
+lX
 XE
 Vt
 YL
-En
+lX
 XE
 Vt
 YL
-En
-En
-En
+lX
+lX
+lX
 Mv
 Mv
 Mv
@@ -98289,71 +99301,71 @@ Mv
 Mv
 Mv
 Mv
-En
-En
+pK
+pK
 in
 Ls
 Ls
 Ls
 Ik
-En
-En
-En
-En
-En
-En
-En
-En
-ms
-En
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+gF
+Et
 qh
-CX
+Sv
 Sm
 qm
 Rb
-Zf
+pw
 Je
-En
-En
-Gy
-En
-En
-Gy
-En
-Gy
-En
+Et
+Ne
+XK
+Ne
+wP
+Uw
+wP
+XK
+Ne
 Jf
 Jf
 Jf
-En
+Ne
 ms
-En
+GP
 jN
 ns
 ns
 ns
 Vp
-En
+GP
 xC
 Fx
 Fx
 hB
-En
-En
+zF
+lX
 ZH
 Zh
-En
-En
+lX
+lX
 ZH
 Zh
-En
-En
+lX
+lX
 ZH
 Zh
-En
-En
-En
-En
+lX
+lX
+lX
+lX
 Mv
 Mv
 Mv
@@ -98547,71 +99559,71 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
-Gy
+Yf
+Yf
+Yf
 bB
-En
-Zj
-Zj
-Zj
-Zj
-Zj
-En
+pK
+ut
+ut
+ut
+ut
+ut
+pK
 Ud
-iz
-En
+Jo
+Et
 qh
-CX
+Sv
 uZ
 Wa
 BX
-Zf
+pw
 Ff
-En
-Gy
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
+Et
+NQ
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
 wy
-En
+GP
 fU
 OJ
 OJ
 OJ
 rI
-En
+GP
 xC
 Fx
 Fx
 Si
-En
-En
+zF
+lX
 gJ
-En
-En
-En
+lX
+lX
+lX
 gJ
-En
-En
-En
+lX
+lX
+lX
 gJ
-En
-En
-En
-En
-En
-En
+lX
+lX
+lX
+lX
+lX
+lX
 Mv
 Mv
 Mv
@@ -98804,51 +99816,51 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
-Gy
+Yf
+Yf
+Yf
 bB
-En
-Zj
-Zj
-Zj
-Zj
-Zj
-En
-En
-Gy
-En
+pK
+ut
+ut
+ut
+ut
+ut
+pK
+pK
+Yf
+Et
 qh
-kt
-EE
-EE
-EE
-Mc
+AQ
+gz
+gz
+gz
+wL
 MG
-En
-Zf
+Et
+hF
 Km
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
 Sy
-CX
-uB
+uE
+Hw
 fU
 vY
 vY
 vY
 rI
-uB
-Zf
+GP
+xC
 Fx
 Fx
 zD
@@ -98863,13 +99875,13 @@ nl
 nl
 nl
 Am
-wy
-En
+Yd
+lX
 Ig
 Ig
 Ig
-En
-En
+lX
+lX
 Mv
 Mv
 Mv
@@ -99061,73 +100073,73 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
+Yf
+Yf
 su
 Ol
-En
+pK
 vF
 vF
 vF
 vF
 vF
-En
+pK
 rb
 Ok
 En
 En
 En
-uB
+nV
 En
-uB
+nV
 En
 En
 En
-Zf
-CX
+JD
+uE
 eW
 WE
-En
-En
-En
-Gy
-En
-En
-En
-Zf
-CX
-En
+xB
+xB
+xB
+lc
+xB
+xB
+xB
+JD
+uE
+GP
 fU
 Da
 Da
 Da
 rI
-En
+GP
 Qf
-XP
+yu
 ey
-wk
-uB
-wt
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-wk
-uB
-bd
-bd
-bd
-En
-En
-En
+Dl
+QS
+wp
+hd
+hd
+hd
+hd
+hd
+hd
+hd
+hd
+hd
+Wh
+Ap
+Yl
+Yl
+Yl
+lX
+lX
+lX
 Mv
 Mv
 Mv
@@ -99317,8 +100329,8 @@ Mv
 Mv
 Mv
 Mv
-En
-En
+pK
+pK
 zs
 Bf
 fE
@@ -99331,7 +100343,7 @@ YG
 YG
 YG
 NV
-Xm
+um
 qv
 En
 Mx
@@ -99342,50 +100354,50 @@ EE
 EE
 nY
 En
-Zf
-CX
+JD
+uE
 Hr
 bH
-En
-En
+xB
+xB
 Mm
 dm
 uO
-KQ
-En
-Zf
-CX
-En
+Mm
+xB
+JD
+uE
+GP
 ip
 uc
 uc
 uc
 bU
-En
-En
-uB
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
+GP
+zF
+QS
+zF
+zF
+zF
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
+lX
 Mv
 Mv
 Mv
@@ -99573,9 +100585,9 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
+pK
+pK
+pK
 Ej
 CA
 Ys
@@ -99588,7 +100600,7 @@ Ud
 Ud
 Ud
 NV
-Xm
+um
 qv
 En
 Oe
@@ -99599,33 +100611,33 @@ aZ
 iw
 CX
 En
-Zf
-CX
-En
-En
-En
+JD
+uE
+xB
+xB
+xB
 Gt
 OF
 dm
 OT
 Rt
-En
-Zf
-CX
-En
-En
-En
-uB
-En
-En
-En
+xB
+JD
+uE
+GP
+GP
+GP
+CG
+GP
+GP
+GP
 Rw
 wy
-En
+KQ
 nG
-En
+KQ
 nG
-En
+KQ
 Mv
 Mv
 Mv
@@ -99845,9 +100857,9 @@ yN
 jl
 Ud
 NV
-Xm
+um
 qv
-uB
+nV
 Zf
 gg
 KC
@@ -99855,10 +100867,10 @@ ao
 TQ
 kV
 CX
-uB
-Zf
-CX
-En
+nV
+JD
+uE
+xB
 Go
 EL
 zB
@@ -99866,23 +100878,23 @@ mq
 dm
 wB
 Nc
-En
-Zf
+xB
+JD
 kt
-EE
-EE
-EE
-EE
-EE
-EE
-EE
+ia
+ia
+ia
+ia
+ia
+ia
+ia
 Mc
-CX
-En
+uE
+KQ
 nG
 nG
 nG
-En
+KQ
 Mv
 Mv
 Mv
@@ -100099,10 +101111,10 @@ sm
 pR
 Iu
 wC
-qM
+vR
 Ud
 NV
-Xm
+um
 qv
 En
 Zf
@@ -100113,9 +101125,9 @@ Fb
 Bh
 CX
 En
-Zf
-CX
-En
+JD
+uE
+xB
 lr
 dS
 Gz
@@ -100123,23 +101135,23 @@ dm
 Of
 dm
 dm
-Gy
-Zf
-uB
+Ao
+JD
+cP
 lp
 lp
 lp
-uB
+cP
 lp
 lp
 lp
-uB
-CX
+cP
+uE
 uB
 nG
 nG
 nG
-En
+KQ
 Mv
 Mv
 Mv
@@ -100359,9 +101371,9 @@ RP
 pL
 Ud
 NV
-Xm
+um
 qv
-uB
+nV
 Zf
 gg
 ch
@@ -100369,10 +101381,10 @@ yk
 hK
 kV
 CX
-uB
-Zf
-CX
-En
+nV
+JD
+uE
+xB
 RU
 Vb
 Fh
@@ -100380,23 +101392,23 @@ Hm
 dm
 kA
 aB
-En
-Zf
+xB
+JD
 Km
-XP
-XP
-XP
-XP
-XP
-XP
-XP
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
 Sy
-CX
-En
+uE
+KQ
 nG
-En
+KQ
 nG
-En
+KQ
 Mv
 Mv
 Mv
@@ -100601,9 +101613,9 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
+pK
+pK
+pK
 SV
 CA
 Ys
@@ -100616,7 +101628,7 @@ Ud
 Ud
 Ud
 NV
-Xm
+um
 qv
 En
 Oe
@@ -100627,33 +101639,33 @@ vH
 zz
 CX
 En
-Zf
-CX
-En
-En
-En
+JD
+uE
+xB
+xB
+xB
 Fa
 OF
 dm
 OT
 Rt
-En
-Zf
-CX
-En
-En
-En
-uB
-En
-En
-En
+xB
+JD
+uE
+pN
+pN
+pN
+zL
+pN
+pN
+pN
 wt
 wk
-En
+KQ
 ed
-En
+KQ
 ed
-En
+KQ
 Mv
 Mv
 Mv
@@ -100859,8 +101871,8 @@ Mv
 Mv
 Mv
 Mv
-En
-En
+pK
+pK
 BT
 bE
 Uf
@@ -100873,7 +101885,7 @@ Ud
 Ud
 Ud
 NV
-Xm
+um
 qv
 En
 HU
@@ -100884,50 +101896,50 @@ XP
 XP
 iX
 En
-Zf
-CX
+JD
+uE
 Eu
 dc
-En
-En
+xB
+xB
 yV
 dm
 Qd
-YO
-En
-Zf
-CX
-En
+yV
+xB
+JD
+uE
+pN
 wI
 Ho
 Yk
 ww
-mg
-En
-En
-uB
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
-En
+wT
+pN
+YO
+PD
+YO
+YO
+YO
+YO
+YO
+YO
+YO
+YO
+FH
+FH
+FH
+FH
+FH
+Wc
+Wc
+Wc
+Wc
+Wc
+Wc
+Wc
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -101117,73 +102129,73 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
+Yf
+Yf
 vD
 Py
-En
-En
-En
-En
-En
-Gy
-En
+pK
+pK
+pK
+pK
+pK
+Yf
+pK
 eb
 yp
 En
 En
 En
-uB
+nV
 En
-uB
+nV
 En
 En
 En
-Zf
-CX
+JD
+uE
 fW
 TT
-En
-En
-En
-Gy
-En
-En
-En
-Zf
-CX
-En
+xB
+xB
+xB
+lc
+xB
+xB
+xB
+JD
+uE
+pN
 jm
-zT
-ef
-ww
-mg
-En
-ZW
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-HB
-Sf
-En
-CX
+ZK
+dV
+ls
+Sq
+pN
+Gv
+Oo
+Oo
+Oo
+Oo
+Oo
+Oo
+Oo
+Oo
+qg
+FH
+Cb
 wW
+tZ
 wW
-wW
-En
+Wc
 Ml
 Ml
 Ml
-En
-En
-En
-En
+Wc
+Wc
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -101374,22 +102386,22 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
-Gy
+Yf
+Yf
+Yf
 bB
-wP
+cm
 hc
 hc
 hc
-En
-Gy
-En
-En
-Gy
-En
+pK
+Yf
+pK
+pK
+Yf
+sK
 gq
 kR
 kR
@@ -101397,49 +102409,49 @@ OC
 kR
 kR
 mF
-En
-Zf
+sK
+Ks
 kt
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
-EE
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
+ia
 Mc
-CX
-uB
-Dm
-ef
-ef
-ef
+uE
+Wd
+Ue
+le
+my
+eT
 YI
-uB
-Bh
+Wd
+HT
 iY
 iY
-Ak
-gd
-gd
-gd
-gd
-gd
+nL
+ll
+ll
+ll
+ll
+ll
 Dp
-uB
-CX
+Ps
+Cb
 wW
-wW
-wW
-En
+tZ
+Ax
+Wc
 Ml
-Uy
+tp
 Uy
 ny
-En
-En
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -101631,22 +102643,22 @@ Mv
 Mv
 Mv
 cI
-En
+pK
 gj
-Gy
-Gy
-Gy
+Yf
+Yf
+Yf
 bB
-wP
+cm
 hc
 hc
 hc
-En
-En
-En
+pK
+pK
+pK
 Ud
-iz
-En
+Jo
+sK
 sN
 Xm
 Xm
@@ -101654,48 +102666,48 @@ vp
 Xm
 Xm
 Ky
-En
-Gy
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
-XP
+sK
+FI
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
 wk
-En
+pN
 Ye
 bC
 lS
-ef
+lP
 YI
-En
-Bh
+pN
+HT
 iY
 iY
-ag
-En
-En
-En
-uB
-En
-En
-En
-CX
+gn
+gr
+gr
+gr
+gG
+gr
+gr
+FH
+Cb
 wW
 wW
 wW
-uB
+mO
 Uy
 Uy
 Uy
-En
-En
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -101887,23 +102899,23 @@ Mv
 Mv
 Mv
 Mv
-En
-En
+pK
+pK
 NR
 xm
 xm
 xm
 tf
-En
-En
-En
-En
-En
-En
-En
-En
-ms
-En
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+gF
+sK
 pE
 hA
 oZ
@@ -101911,47 +102923,47 @@ Dg
 oZ
 hA
 RO
-En
-En
-Gy
-En
-En
-Gy
-En
-Gy
-En
-En
-uB
-En
-En
+sK
+Ne
+XK
+Ne
+LI
+CS
+LI
+XK
+ml
+ml
+LV
+ml
+ml
 ms
-En
-En
-En
-En
+pN
+pN
+pN
+pN
 Dm
 YI
-En
-Bh
+pN
+HT
 iY
 iY
-ag
-En
-gM
+gn
+gr
 xH
 xH
 xH
-gM
-En
-CX
+xH
+Vl
+FH
+Cb
 wW
 wW
 wW
-En
+Wc
 rJ
 Ga
-En
-En
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -102144,23 +103156,23 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-wP
-wP
-wP
-En
-En
+pK
+pK
+pK
+cm
+cm
+cm
+pK
+pK
 xd
 xd
 xd
 xd
 xd
 xd
-wP
-iz
-En
+cm
+Jo
+sK
 uA
 Np
 CI
@@ -102168,46 +103180,46 @@ CI
 CI
 SI
 td
-En
+sK
 dU
 Lb
-xF
-En
-zT
-En
-Gy
-En
+Xe
+LI
+GL
+LI
+lw
+ml
 Sd
-Fx
+bf
 Sd
-En
+ml
 iz
-En
-bT
-ef
-En
+pN
+OY
+Wt
+pN
 Dm
 YI
-En
-mm
-gd
-gd
+pN
+si
+ll
+ll
 Dp
-En
+gr
+gM
+gM
 gM
 xH
-xH
-xH
-gM
-En
-kt
-EE
-EE
-EE
-En
-En
-En
-En
+Vl
+FH
+Lo
+Rf
+Rf
+Rf
+Wc
+Wc
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -102415,55 +103427,55 @@ xd
 xd
 xd
 xd
-En
-ms
-En
-En
+pK
+gF
+sK
+sK
 uh
 Bg
 zx
 wu
 LH
-En
-En
-nS
+sK
+sK
+Xh
 ng
-NW
-En
-zT
-En
-En
-En
+fI
+LI
+GL
+LI
+Ne
+ml
 Sd
-Fx
+bf
 Sd
-En
+ml
 ms
-En
+pN
 OI
-ef
-uB
-Dm
+Sh
+nR
+XH
 YI
-En
-En
-En
-uB
-En
-En
-En
-En
-En
-En
-En
-En
-En
-wP
-wP
-En
-En
-En
-En
+pN
+YO
+YO
+PD
+YO
+gr
+gr
+gr
+gr
+gr
+gr
+FH
+FH
+rD
+rD
+FH
+Wc
+Wc
+Wc
 Mv
 Mv
 Mv
@@ -102672,41 +103684,41 @@ xd
 xd
 xd
 xd
-En
+pK
 PR
-En
-En
+sK
+sK
 or
 lC
 lC
 TO
 Lq
-En
-En
-En
-En
-En
-En
-zT
-En
+sK
+sK
+Ne
+Ne
+Ne
+LI
+GL
+LI
 Mv
-En
-En
-En
-En
-En
-PR
-En
+ml
+ml
+ml
+ml
+ml
+oy
+pN
 mg
-ef
-En
+Qi
+pN
 af
 mD
-En
+pN
 Mv
-wP
-uB
-wP
+Wq
+PD
+Wq
 Mv
 Mv
 Mv
@@ -102932,20 +103944,20 @@ xd
 xd
 lL
 Mv
-En
-En
-En
-En
-En
-En
-En
+sK
+sK
+sK
+sK
+sK
+sK
+sK
 Mv
 Mv
 Mv
 Mv
-En
-zT
-En
+LI
+GL
+LI
 Mv
 Mv
 Mv
@@ -102953,17 +103965,17 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-En
-En
-uB
-En
-En
+pN
+pN
+pN
+pN
+nR
+pN
+pN
 Mv
-wP
-wP
-wP
+Wq
+Wq
+Wq
 Mv
 Mv
 Mv
@@ -103200,9 +104212,9 @@ Mv
 Mv
 Mv
 Mv
-En
-zT
-En
+LI
+GL
+LI
 Mv
 Mv
 Mv
@@ -103212,11 +104224,11 @@ Mv
 Mv
 Mv
 Mv
-En
+pN
 ps
 ef
 FE
-En
+pN
 Mv
 Mv
 Mv
@@ -103456,24 +104468,24 @@ Mv
 Mv
 Mv
 Mv
-En
-En
-Gy
-En
-En
-En
-En
-En
+LI
+LI
+CS
+LI
+LI
+LI
+LI
 Mv
 Mv
 Mv
 Mv
 Mv
-En
+Mv
+pN
 fn
+AS
 bT
-bT
-En
+pN
 Mv
 Mv
 Mv
@@ -103713,24 +104725,24 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
-zT
-zT
-zT
-zT
-En
+LI
+xh
+Bz
+DQ
+MZ
+Rd
+LI
 Mv
 Mv
 Mv
 Mv
 Mv
-En
-wP
-wP
-wP
-En
+Mv
+pN
+cu
+cu
+cu
+pN
 Mv
 Mv
 Mv
@@ -103970,14 +104982,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
-zT
-zT
-zT
-zT
-En
+LI
+xh
+gI
+Qx
+aC
+Su
+LI
+Mv
 Mv
 Mv
 Mv
@@ -104227,14 +105239,14 @@ Mv
 Mv
 Mv
 Mv
-En
-Gy
-zT
-zT
-zT
-zT
-zT
-En
+LI
+xh
+oC
+wv
+wv
+Yi
+LI
+Mv
 Mv
 Mv
 Mv
@@ -104484,14 +105496,14 @@ Mv
 Mv
 Mv
 Mv
-En
+LI
+Wp
+nk
+nk
 Th
-Th
-Th
-Th
-Th
-Th
-En
+LI
+LI
+Mv
 Mv
 Mv
 Mv
@@ -104741,14 +105753,14 @@ Mv
 Mv
 Mv
 Mv
-En
-vS
+LI
+uG
 LS
-vS
-vS
-vS
-vS
-En
+tU
+Xn
+nN
+Mv
+Mv
 Mv
 Mv
 Mv
@@ -104998,13 +106010,13 @@ Mv
 Mv
 Mv
 Mv
-En
-En
+LI
+LI
 tR
 nN
 nN
 nN
-nN
+Mv
 Dk
 Mv
 Mv
@@ -113315,7 +114327,7 @@ Mv
 Mv
 Mv
 Mv
-JK
+Mv
 Mv
 Mv
 Mv

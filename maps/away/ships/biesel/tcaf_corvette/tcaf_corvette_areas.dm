@@ -9,7 +9,7 @@
 
 /area/tcaf_corvette/grauwolf
 	name = "Republican Fleet Corvette - Flak Battery"
-	icon_state = "thunder"
+	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/francisca
@@ -19,18 +19,22 @@
 
 /area/tcaf_corvette/cic
 	name = "Republican Fleet Corvette - CIC"
-	icon_state = "security"
-
-/area/tcaf_corvette/eva
-	name = "Republican Fleet Corvette - EVA Storage"
-	icon_state = "exit"
+	icon_state = "bridge"
 
 /area/tcaf_corvette/crew
 	name = "Republican Fleet Corvette - Crew Quarters"
 	icon_state = "crew_quarters"
 
+/area/tcaf_corvette/lounge
+	name = "Republican Fleet Corvette - Crew Lounge"
+	icon_state = "crew_quarters"
+
 /area/tcaf_corvette/captain
 	name = "Republican Fleet Corvette - Captain's Office"
+	icon_state = "captain"
+
+/area/tcaf_corvette/captain_quarters
+	name = "Republican Fleet Corvette - Captain's Quarters"
 	icon_state = "captain"
 
 /area/tcaf_corvette/engineering
@@ -55,19 +59,38 @@
 	name = "Republican Fleet Corvette - Equipment Storage"
 	icon_state = "storage"
 
-/area/tcaf_corvette/security
+/area/tcaf_corvette/forensics
+	name = "Republican Fleet Corvette - Forensics"
+	icon_state = "investigations"
+
+/area/tcaf_corvette/brig
 	name = "Republican Fleet Corvette - Holding Cells"
 	icon_state = "brig"
 
 /area/tcaf_corvette/central_ring
 	name = "Republican Fleet Corvette - Central Ring"
+	icon_state = "hallC"
 
 /area/tcaf_corvette/custodial
 	name = "Republican Fleet Corvette - Custodial Closet"
+	icon_state = "janitor"
 
 /area/tcaf_corvette/engine
 	name = "Republican Fleet Corvette - Engine Room"
+	icon_state = "engine"
 
+/area/tcaf_corvette/washroom
+	name = "Republican Fleet Corvette - Washroom"
+	icon_state = "washroom"
+
+/area/tcaf_corvette/central_lift
+	name = "Republican Fleet Corvette - Central Lift"
+	icon_state = "blue2"
+
+/area/tcaf_corvette/exterior
+	name = "Republican Fleet Corvette - Exterior"
+	requires_power = FALSE
+	icon_state = "exterior"
 
 /area/shuttle/tcaf
 	name = "Republican Fleet Shuttle"
