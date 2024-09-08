@@ -5,12 +5,20 @@
 	prefix = "ships/biesel/tcaf_corvette/"
 	suffix = "tcaf_corvette.dmm"
 
+	traits = list(
+		// Deck one
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		// Deck two
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
