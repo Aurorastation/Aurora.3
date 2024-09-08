@@ -59,6 +59,10 @@
 	name = "Republican Fleet Corvette - Equipment Storage"
 	icon_state = "storage"
 
+/area/tcaf_corvette/cargo_bay
+	name = "Republican Fleet Corvette - Cargo Bay"
+	icon_state = "storage"
+
 /area/tcaf_corvette/forensics
 	name = "Republican Fleet Corvette - Forensics"
 	icon_state = "investigations"
@@ -82,6 +86,10 @@
 /area/tcaf_corvette/washroom
 	name = "Republican Fleet Corvette - Washroom"
 	icon_state = "washroom"
+
+/area/tcaf_corvette/freezer
+	name = "Republican Fleet Corvette - Freezer"
+	icon_state = "kitchen"
 
 /area/tcaf_corvette/central_lift
 	name = "Republican Fleet Corvette - Central Lift"
