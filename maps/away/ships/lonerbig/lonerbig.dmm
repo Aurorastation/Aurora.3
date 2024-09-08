@@ -1,18 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"as" = (
+"ae" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
+"am" = (
 /turf/simulated/floor,
 /area/ship/lonerbig/aft)
-"aB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
 "aG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -45,6 +41,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
+"bb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/center)
 "bd" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 8
@@ -66,6 +80,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
+"bx" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/center)
 "bA" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -78,6 +98,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/space)
+"bX" = (
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/ship/lonerbig/atmospherics)
 "cd" = (
 /obj/structure/bed/handrail,
 /turf/simulated/floor,
@@ -122,6 +146,12 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/bridge)
+"cL" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
 "cU" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid{
@@ -148,11 +178,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
-"de" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
+/area/ship/lonerbig/port)
 "dk" = (
 /obj/item/device/debugger{
 	name = "bugger";
@@ -176,15 +202,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle,
-/area/ship/lonerbig/engineering)
-"dq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
+/area/ship/lonerbig/atmospherics)
 "dt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -195,7 +213,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/ship/lonerbig/atmospherics)
+/area/ship/lonerbig/port)
 "du" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/yellow{
@@ -204,29 +222,12 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/ship/lonerbig/starboard)
-"dv" = (
-/obj/machinery/computer/ship/helm/terminal{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
-"dz" = (
-/obj/effect/map_effect/window_spawner/full/shuttle,
-/turf/simulated/floor,
-/area/ship/lonerbig/bridge)
+/area/ship/lonerbig/port)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/ship/lonerbig/port)
-"dM" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
 "dS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 4
@@ -240,29 +241,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
-"dV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
-"ea" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
 "ez" = (
@@ -295,9 +273,6 @@
 /obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
-"eI" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/bridge)
 "eL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -307,6 +282,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
+"eT" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
+"eY" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
+"fa" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/lonerbig/atmospherics)
 "fz" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
@@ -324,6 +318,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
+"ge" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/engineering)
 "gg" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -342,8 +342,11 @@
 "gT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
+/area/ship/lonerbig/aft)
 "hc" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/shotgun/doublebarrel,
@@ -355,13 +358,11 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor,
 /area/ship/lonerbig/port)
-"hL" = (
-/obj/machinery/atmospherics/unary/vent_scrubber{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
+"hn" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/port)
+"hP" = (
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
 "hS" = (
@@ -372,6 +373,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/space)
+"ih" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/atmospherics)
 "iw" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -391,10 +398,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"ix" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "iE" = (
 /obj/structure/bed/handrail,
 /turf/simulated/floor/tiled,
 /area/space)
+"iJ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
+/area/ship/lonerbig/starboard)
 "iL" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -417,6 +432,9 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/port)
+"jq" = (
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/aft)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 8
@@ -476,24 +494,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"kA" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+"kx" = (
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/engineering)
 "kK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -517,7 +523,7 @@
 	pixel_x = -19
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
+/area/ship/lonerbig/center)
 "lg" = (
 /obj/structure/table/rack,
 /obj/machinery/power/apc/north{
@@ -563,12 +569,6 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
-"mA" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
 "mK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -585,22 +585,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
-"mM" = (
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
-"mN" = (
-/obj/machinery/power/tracker,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/space)
-"mV" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/ship/lonerbig/atmospherics)
 "nt" = (
 /obj/machinery/power/apc/east{
 	req_access = null
@@ -621,11 +605,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
+/area/ship/lonerbig/starboard)
 "nJ" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -640,10 +621,14 @@
 /turf/simulated/floor,
 /area/ship/lonerbig/atmospherics)
 "nM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
+/area/ship/lonerbig/starboard)
+"oh" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/atmospherics)
 "oj" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/carpet/rubber,
@@ -688,12 +673,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor,
 /area/ship/lonerbig/atmospherics)
-"oW" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+"oL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
@@ -714,37 +704,18 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"pl" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
-"po" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/solar_control{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
 "pt" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/engineering)
+/area/ship/lonerbig/port)
+"py" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/bridge)
 "pP" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -760,30 +731,21 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/lonerbig/center)
-"pT" = (
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
 "qh" = (
 /obj/machinery/mass_driver{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/port)
-"qk" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/atmospherics)
-"qm" = (
-/obj/machinery/atmospherics/unary/vent_scrubber{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
 "qq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"qs" = (
+/turf/simulated/floor,
+/area/ship/lonerbig/atmospherics)
 "qt" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -810,6 +772,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
+"qD" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/solar_control{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/starboard)
 "qI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/shuttle,
@@ -817,18 +798,18 @@
 "qK" = (
 /turf/template_noop,
 /area/space)
-"rl" = (
-/obj/machinery/light/small{
-	dir = 8
+"qM" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = -19
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
-"rx" = (
-/obj/machinery/computer/ship/engines/terminal{
-	dir = 1
-	},
+"rb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
+/area/ship/lonerbig/center)
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/power/apc/north{
@@ -860,10 +841,29 @@
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/port)
-"sF" = (
-/obj/machinery/light,
+"sh" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
+"sK" = (
+/obj/machinery/atmospherics/unary/vent_scrubber{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
+"sO" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/port)
 "sU" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -886,6 +886,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/port)
+"ty" = (
+/obj/machinery/atmospherics/unary/vent_pump,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/aft)
 "tA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -907,6 +911,9 @@
 /obj/machinery/atmospherics/unary/outlet_injector,
 /turf/template_noop,
 /area/ship/lonerbig/center)
+"tP" = (
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
 "tW" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 1
@@ -952,6 +959,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"uq" = (
+/turf/simulated/floor,
+/area/ship/lonerbig/starboard)
 "uu" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/structure/railing/mapped{
@@ -968,55 +978,24 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle,
-/area/ship/lonerbig/atmospherics)
+/area/ship/lonerbig/port)
 "uH" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
 /area/ship/lonerbig/engineering)
-"uK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
-"va" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/ship/lonerbig/port)
 "vm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/engineering)
-"vn" = (
-/obj/machinery/power/solar,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
+"vs" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
 	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/ship/lonerbig/port)
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
 "vx" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
@@ -1033,14 +1012,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"vN" = (
-/obj/effect/map_effect/window_spawner/full/shuttle,
-/turf/simulated/floor,
-/area/ship/lonerbig/aft)
 "wa" = (
 /obj/machinery/ship_weapon/francisca,
 /turf/template_noop,
 /area/space)
+"wb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
+"wg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
 "wi" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4
@@ -1055,10 +1050,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
-"wk" = (
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/space)
+"wj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/ship/lonerbig/atmospherics)
+"wm" = (
+/obj/machinery/power/solar,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/ship/lonerbig/starboard)
 "wq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -1075,50 +1086,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
-"wC" = (
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
-"wG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/center)
-"wH" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"wM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
-/area/ship/lonerbig/engineering)
+/area/ship/lonerbig/starboard)
 "wN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -1139,10 +1107,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
-"wW" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/ship/lonerbig/engineering)
 "wY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1199,6 +1163,24 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/starboard)
+"xV" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
+"xY" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
+/area/ship/lonerbig/aft)
 "xZ" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -1210,10 +1192,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"ya" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/starboard)
+"ye" = (
+/obj/machinery/atmospherics/unary/vent_scrubber{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/engineering)
 "yj" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
+/area/ship/lonerbig/aft)
+"yx" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
 "yD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1228,15 +1228,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
+"yI" = (
+/obj/machinery/power/tracker,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/ship/lonerbig/starboard)
 "yQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/center)
-"zE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/wall/shuttle,
+"yZ" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
 "zQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1265,6 +1276,24 @@
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/starboard)
+"Au" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/port)
 "AD" = (
 /obj/structure/closet/crate/drop,
 /obj/item/ship_ammunition/francisca/frag,
@@ -1281,6 +1310,17 @@
 /obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
+"AP" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/center)
 "AQ" = (
 /obj/structure/bed/handrail,
 /obj/machinery/power/apc/north{
@@ -1300,29 +1340,33 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/aft)
-"Bq" = (
-/obj/structure/sink/kitchen{
-	dir = 4;
-	pixel_x = -19
+"AW" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
+"BE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
-"Bt" = (
-/obj/machinery/power/tracker,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/ship/lonerbig/starboard)
 "BH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/engineering)
-"BI" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/center)
 "BP" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool{
@@ -1335,24 +1379,21 @@
 /obj/machinery/suit_cycler/freelancer/prepared,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
-"BY" = (
+"BV" = (
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
-"Cc" = (
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
+/area/ship/lonerbig/bridge)
 "Cm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"Cx" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4
+"Cz" = (
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
+/area/ship/lonerbig/starboard)
 "CH" = (
 /obj/machinery/shipsensors,
 /obj/structure/railing/mapped{
@@ -1361,6 +1402,9 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/space)
+"CJ" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/starboard)
 "CS" = (
 /obj/machinery/ammunition_loader/francisca,
 /turf/simulated/floor/tiled,
@@ -1392,15 +1436,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/aft)
-"Dj" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
 "DG" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -1426,15 +1461,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/lonerbig/center)
-"DK" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/aft)
-"DO" = (
-/obj/machinery/atmospherics/unary/vent_scrubber{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
 "DZ" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1452,22 +1478,16 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"Ea" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
+/area/ship/lonerbig/starboard)
+"Ec" = (
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
 "Ef" = (
 /turf/simulated/floor/airless,
+/area/ship/lonerbig/starboard)
+"Ez" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
 /area/ship/lonerbig/port)
 "ER" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -1487,6 +1507,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"FD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/center)
 "FT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 8
@@ -1502,16 +1539,9 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"FX" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+"Gh" = (
+/turf/simulated/wall/shuttle,
 /area/ship/lonerbig/engineering)
-"Gi" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
 "Gq" = (
 /turf/simulated/wall/shuttle,
 /area/space)
@@ -1520,12 +1550,6 @@
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"Gz" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
 "GM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -1540,7 +1564,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"GZ" = (
+"Hu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/ship/lonerbig/starboard)
 "HH" = (
@@ -1556,10 +1582,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"HT" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/engineering)
+/area/ship/lonerbig/starboard)
 "HV" = (
 /obj/structure/platform_stairs,
 /turf/simulated/floor/tiled,
@@ -1632,39 +1655,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"IX" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/starboard)
-"Kb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor,
-/area/ship/lonerbig/starboard)
-"Kj" = (
-/turf/simulated/floor,
-/area/ship/lonerbig/center)
+"JU" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
 "Ko" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/space)
-"Kp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
 "KB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
-"KD" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/bridge)
@@ -1702,6 +1713,12 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
+"Lo" = (
+/obj/machinery/atmospherics/unary/vent_scrubber{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
 "Lv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1716,24 +1733,6 @@
 /obj/machinery/atmospherics/unary/vent_pump,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
-"LT" = (
-/obj/machinery/atmospherics/unary/vent_pump,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
-"LV" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
 "Me" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/reinforced,
@@ -1763,13 +1762,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/aft)
-"Mq" = (
-/obj/effect/map_effect/window_spawner/full/shuttle,
-/turf/simulated/floor,
-/area/ship/lonerbig/center)
-"Mr" = (
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/port)
+"Mn" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
 "ME" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -1786,29 +1782,25 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
-"Nh" = (
-/obj/effect/map_effect/window_spawner/full/shuttle,
-/turf/simulated/floor,
-/area/ship/lonerbig/port)
+"Nj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/aft)
 "Nn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/template_noop,
 /area/space)
-"No" = (
-/obj/machinery/light,
-/turf/simulated/floor,
-/area/ship/lonerbig/atmospherics)
-"Nu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/engineering)
 "Nv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1822,10 +1814,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/bridge)
+"NG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/aft)
 "NO" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
+"NT" = (
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/port)
 "Od" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/spray/cleaner{
@@ -1845,18 +1845,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
-"Oo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
+"Of" = (
+/obj/machinery/power/tracker,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/port)
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/space)
 "Op" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/engineering)
+/area/ship/lonerbig/aft)
+"OF" = (
+/turf/simulated/floor,
+/area/ship/lonerbig/center)
 "OM" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1873,21 +1879,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
-"OP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/engineering)
 "OW" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/lonerbig/center)
-"OX" = (
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
 "Pe" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1895,6 +1892,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
 /area/ship/lonerbig/center)
+"Pj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/engineering)
 "Pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
@@ -1907,12 +1910,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
-"Pz" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/starboard)
+"Pq" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
 "PB" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -1924,7 +1925,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
+/area/ship/lonerbig/port)
 "PP" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -1935,6 +1936,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
+"PY" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/bridge)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/railing/mapped{
@@ -1945,32 +1952,31 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/lonerbig/center)
+"Qj" = (
+/turf/simulated/floor,
+/area/ship/lonerbig/port)
 "Qn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/structure/warp_drive{
 	name = "retrofitted warp drive";
-	desc = "A warpdrive haphazardly installed into the hull of the ship. It's a miracle this thing works..."
+	desc = "A warpdrive haphazardly installed into the hull of the ship. It's a miracle this thing works...";
+	desc_extended = "A low-class warp drive with faded Einstein Engines markings on it. This one is still undergoing a spool down, and will not be usable in the coming days."
 	},
 /turf/simulated/floor/bluegrid,
 /area/ship/lonerbig/center)
-"QJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
 "QM" = (
 /obj/item/bedsheet/purple,
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"RC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/aft)
 "RD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1996,6 +2002,9 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/starboard)
+"RU" = (
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/center)
 "Sk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2011,10 +2020,23 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"Sw" = (
+/area/ship/lonerbig/starboard)
+"Sz" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
 /turf/simulated/floor,
-/area/ship/lonerbig/atmospherics)
+/area/ship/lonerbig/bridge)
+"SF" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
 "SI" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -2027,6 +2049,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/port)
+"ST" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/lonerbig/starboard)
+"SV" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/center)
+"Tc" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/ship/lonerbig/engineering)
 "To" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -2039,19 +2074,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/starboard)
-"Tr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/aft)
 "TJ" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
@@ -2108,9 +2130,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/lonerbig/atmospherics)
-"UX" = (
-/turf/simulated/floor,
-/area/ship/lonerbig/port)
 "Vd" = (
 /obj/effect/map_effect/window_spawner/full/shuttle,
 /turf/simulated/floor,
@@ -2119,37 +2138,25 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
-"Vg" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
+"VH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"Vk" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4
-	},
+/turf/simulated/floor,
+/area/ship/lonerbig/engineering)
+"VN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
-"VS" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless,
-/area/ship/lonerbig/port)
-"Wi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
+"VU" = (
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/aft)
 "WC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
 	dir = 8
@@ -2160,24 +2167,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/bridge)
-"WL" = (
-/obj/effect/map_effect/window_spawner/full/shuttle,
-/turf/simulated/floor,
-/area/ship/lonerbig/starboard)
-"Xg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/port)
 "Xm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2186,20 +2175,17 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/ship/lonerbig/starboard)
-"Xs" = (
+/area/ship/lonerbig/engineering)
+"Xv" = (
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
 "XA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/atmospherics)
-"XJ" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
 "XV" = (
 /obj/structure/toilet{
 	dir = 1
@@ -2215,6 +2201,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/bridge)
+"Yn" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/airless,
+/area/ship/lonerbig/port)
 "Ys" = (
 /obj/machinery/air_sensor,
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2229,6 +2228,10 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
+/area/ship/lonerbig/center)
+"YO" = (
+/obj/effect/map_effect/window_spawner/full/shuttle,
+/turf/simulated/floor,
 /area/ship/lonerbig/center)
 "YS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber{
@@ -2247,12 +2250,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/center)
-"Zc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle,
-/area/ship/lonerbig/atmospherics)
 "Zf" = (
 /turf/simulated/floor,
 /area/space)
@@ -2280,6 +2277,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"ZH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle,
+/area/ship/lonerbig/engineering)
 "ZX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 5
@@ -23492,19 +23493,19 @@ qK
 qK
 qK
 qK
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
 qK
@@ -23749,19 +23750,19 @@ qK
 qK
 qK
 qK
-du
-kA
+wm
+DZ
 IA
-du
+wm
 jW
 IA
-du
+wm
 pb
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 jW
 IA
 qK
@@ -24006,20 +24007,20 @@ qK
 qK
 qK
 qK
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 jW
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -24263,20 +24264,20 @@ qK
 qK
 qK
 qK
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -24520,19 +24521,19 @@ qK
 qK
 qK
 qK
-du
+wm
 xS
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 xS
 IA
-du
+wm
 xS
 IA
 qK
@@ -24777,19 +24778,19 @@ qK
 qK
 qK
 qK
-du
+wm
 pb
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 pb
 IA
-du
+wm
 jW
 IA
 qK
@@ -25034,20 +25035,20 @@ qK
 qK
 qK
 qK
-du
+wm
 jW
 IA
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 pb
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -25291,20 +25292,20 @@ qK
 qK
 qK
 qK
-du
-kA
+wm
+DZ
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 xS
 IA
-du
+wm
 pb
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -25548,19 +25549,19 @@ qK
 qK
 qK
 qK
-du
+wm
 xS
 IA
-du
-kA
+wm
+DZ
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
-du
+wm
 xS
 IA
 qK
@@ -25805,19 +25806,19 @@ qK
 qK
 qK
 qK
-du
+wm
 pb
 IA
-du
+wm
 xS
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
-du
+wm
 pb
 IA
 qK
@@ -26062,20 +26063,20 @@ qK
 qK
 qK
 qK
-Bt
-Pz
-Cc
-Cc
-Cc
-Cc
-Cc
+yI
+ya
+Ef
+Ef
+Ef
+Ef
+Ef
 qt
-Cc
-Cc
-Cc
-Cc
-Cc
-Cc
+Ef
+Ef
+Ef
+Ef
+Ef
+Ef
 qK
 qK
 qK
@@ -26319,14 +26320,14 @@ qK
 qK
 qK
 qK
-du
+wm
 To
 IA
-du
-Dj
+wm
+Su
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -26576,14 +26577,14 @@ qK
 qK
 qK
 qK
-du
-LV
+wm
+HH
 IA
-du
+wm
 To
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -26833,14 +26834,14 @@ qK
 qK
 qK
 qK
-du
+wm
 Ic
 IA
-du
-LV
+wm
+HH
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -27090,14 +27091,14 @@ qK
 qK
 qK
 qK
-du
+wm
 RQ
 IA
-du
+wm
 RQ
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -27347,14 +27348,14 @@ qK
 qK
 qK
 qK
-du
-Dj
+wm
+Su
 IA
-du
-Dj
+wm
+Su
 IA
-du
-kA
+wm
+DZ
 IA
 qK
 qK
@@ -27610,7 +27611,7 @@ qK
 qK
 qK
 qK
-po
+qD
 Da
 qK
 qK
@@ -27868,7 +27869,7 @@ qK
 qK
 qK
 qK
-dM
+nG
 qK
 qK
 qK
@@ -28124,9 +28125,9 @@ qK
 qK
 qK
 qK
-IX
+CJ
 pP
-IX
+CJ
 qK
 qK
 qK
@@ -28381,9 +28382,9 @@ qK
 qK
 qK
 qK
-IX
+CJ
 PP
-IX
+CJ
 qK
 qK
 qK
@@ -28637,10 +28638,10 @@ qK
 qK
 qK
 qK
-IX
-IX
+CJ
+CJ
 TR
-IX
+CJ
 qK
 qK
 qK
@@ -28894,10 +28895,10 @@ qK
 qK
 qK
 qK
-IX
+CJ
 Ak
 cr
-WL
+iJ
 qK
 qK
 qK
@@ -29151,10 +29152,10 @@ qK
 qK
 qK
 qK
-IX
+CJ
 Iy
 CW
-WL
+iJ
 qK
 qK
 qK
@@ -29405,13 +29406,13 @@ qK
 qK
 qK
 qK
-IX
-IX
-WL
-IX
-IX
+CJ
+CJ
+iJ
+CJ
+CJ
 dS
-IX
+CJ
 qK
 qK
 qK
@@ -29662,15 +29663,15 @@ qK
 qK
 qK
 qK
-IX
+CJ
 mt
-BY
+Ec
 XV
-IX
+CJ
 TL
-IX
-IX
-IX
+CJ
+CJ
+CJ
 qK
 qK
 qK
@@ -29919,15 +29920,15 @@ qK
 qK
 qK
 qK
-IX
-IX
-BY
-IX
-IX
+CJ
+CJ
+Ec
+CJ
+CJ
 TL
-BY
-GZ
-yj
+Ec
+uq
+Mn
 qK
 qK
 qK
@@ -30176,15 +30177,15 @@ qK
 qK
 qK
 qK
-WL
+iJ
 NO
-Vk
-kS
-IX
+ST
+qM
+CJ
 TL
-BY
-GZ
-yj
+Ec
+uq
+Mn
 qK
 qK
 qK
@@ -30433,15 +30434,15 @@ qK
 qK
 qK
 qK
-WL
+iJ
 PQ
-Xm
-ea
-Kb
+wb
+VN
+Hu
 os
-IX
-IX
-IX
+CJ
+CJ
+CJ
 qK
 qK
 qK
@@ -30690,13 +30691,13 @@ qK
 qK
 qK
 qK
-WL
+iJ
 rX
-hL
+sK
 li
-IX
+CJ
 TL
-IX
+CJ
 qK
 qK
 qK
@@ -30946,15 +30947,15 @@ qK
 qK
 qK
 qK
-HT
-HT
-HT
-HT
-HT
-IX
+Gh
+Gh
+Gh
+Gh
+Gh
+CJ
 TL
-IX
-IX
+CJ
+CJ
 qK
 qK
 qK
@@ -31202,16 +31203,16 @@ qK
 qK
 qK
 qK
-HT
-HT
+Gh
+Gh
 BP
-FX
+kx
 MS
-HT
+Gh
 hc
 TL
-sF
-IX
+hP
+CJ
 qK
 qK
 qK
@@ -31462,13 +31463,13 @@ qK
 uH
 vm
 Yv
-pt
+yZ
 Lm
-HT
+Gh
 CY
 TL
 PB
-WL
+iJ
 qK
 qK
 qK
@@ -31716,16 +31717,16 @@ qK
 qK
 qK
 qK
-wW
-zE
+Tc
+ZH
 Vf
-Nu
+Xm
 eD
-HT
+Gh
 AD
 TL
 PQ
-WL
+iJ
 qK
 qK
 qK
@@ -31973,16 +31974,16 @@ qK
 qK
 qK
 qK
-HT
-OP
+Gh
+Pj
 BU
-Op
+ye
 aG
-HT
+Gh
 OO
 ez
 sU
-WL
+iJ
 qK
 qK
 qK
@@ -32230,16 +32231,16 @@ qK
 qK
 qK
 qK
-wW
+Tc
 BH
 rN
 ER
 kc
-wM
-cX
+VH
+wg
 mK
-DO
-WL
+Lo
+iJ
 qK
 qK
 qK
@@ -32487,16 +32488,16 @@ qK
 qK
 qK
 qK
-wW
-dp
+Tc
+ge
 uu
-HT
-HT
-HT
-IX
+Gh
+Gh
+Gh
+CJ
 qz
-Gz
-WL
+nM
+iJ
 qK
 qK
 qK
@@ -32743,17 +32744,17 @@ qK
 qK
 qK
 qK
-BI
-BI
-BI
-BI
-BI
+SV
+SV
+SV
+SV
+SV
 cU
-rl
-GZ
-uK
+Cz
+uq
+wq
 cn
-IX
+CJ
 qK
 qK
 qK
@@ -33004,13 +33005,13 @@ yQ
 DJ
 RN
 YK
-BI
+SV
 PQ
 tX
-IX
-uK
-IX
-IX
+CJ
+wq
+CJ
+CJ
 qK
 qK
 qK
@@ -33256,17 +33257,17 @@ qK
 qK
 qK
 qK
-BI
-BI
+SV
+SV
 xK
 Qn
 fz
-BI
-BI
-BI
-BI
-wq
-BI
+SV
+SV
+SV
+SV
+FD
+SV
 qK
 qK
 qK
@@ -33498,10 +33499,10 @@ qK
 qK
 qK
 qK
-DK
+VU
 ce
 ce
-DK
+VU
 qK
 qK
 qK
@@ -33513,17 +33514,17 @@ qK
 qK
 qK
 qK
-BI
+SV
 oj
 Qb
 Me
 Pe
-BI
-Bq
+SV
+kS
 Od
-BI
-wG
-BI
+SV
+bb
+SV
 Gq
 Gq
 qK
@@ -33755,32 +33756,32 @@ qK
 qK
 qK
 qK
-DK
-as
-as
-DK
+VU
+am
+am
+VU
 qK
 qK
 qK
 qK
 qK
-DK
-DK
-DK
-DK
+VU
+VU
+VU
+VU
 TJ
 qK
-BI
+SV
 oj
 Ij
 pR
 OW
-BI
-mA
+SV
+bx
 be
-BI
-wq
-BI
+SV
+FD
+SV
 kN
 Gq
 Zf
@@ -34009,35 +34010,35 @@ qK
 qK
 qK
 qK
-DK
-DK
-DK
-DK
-OX
-OX
-DK
-DK
-vN
-vN
-vN
-DK
-DK
-as
-as
-DK
-DK
-DK
-BI
-BI
-BI
-Kj
-BI
-BI
-Kj
-BI
-BI
-wq
-BI
+VU
+VU
+VU
+VU
+jq
+jq
+VU
+VU
+xY
+xY
+xY
+VU
+VU
+am
+am
+VU
+VU
+VU
+SV
+SV
+SV
+OF
+SV
+SV
+OF
+SV
+SV
+FD
+SV
 Gq
 Gq
 Gq
@@ -34266,26 +34267,26 @@ qK
 qK
 qK
 qK
-Gi
-as
-OX
-LT
+yj
+am
+jq
+ty
 Sk
-Kp
-dq
+NG
+gT
 IG
 Lv
 Lv
 Lv
-Tr
+Nj
 Lv
 Lv
 Lv
-Tr
+Nj
 wY
 AS
 yD
-aB
+AP
 HX
 HX
 YS
@@ -34294,7 +34295,7 @@ HX
 HX
 HX
 wN
-Xs
+RU
 gr
 Zf
 Zf
@@ -34523,35 +34524,35 @@ qK
 qK
 qK
 qK
-Gi
-as
-OX
+yj
+am
+jq
 Di
-PF
-OX
-OX
+RC
+jq
+jq
 nt
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
+jq
+jq
+jq
+jq
+jq
+jq
+jq
+jq
 xL
-qm
+Op
 eL
-gT
-gT
-gT
+BE
+BE
+BE
 fV
 ku
-gT
-gT
-gT
+BE
+BE
+BE
 kK
-nM
+rb
 KO
 Ko
 Ko
@@ -34780,35 +34781,35 @@ qK
 qK
 qK
 qK
-DK
-DK
-DK
-DK
-OX
-OX
-DK
-DK
-vN
-vN
-vN
-vN
-DK
-DK
-as
-DK
-DK
-DK
-BI
-Kj
-Kj
-Kj
-BI
-Kj
-Kj
-Kj
-BI
-wq
-BI
+VU
+VU
+VU
+VU
+jq
+jq
+VU
+VU
+xY
+xY
+xY
+xY
+VU
+VU
+am
+VU
+VU
+VU
+SV
+OF
+OF
+OF
+SV
+OF
+OF
+OF
+SV
+FD
+SV
 Gq
 Gq
 Gq
@@ -35040,32 +35041,32 @@ qK
 qK
 qK
 qK
-DK
-as
-as
-DK
+VU
+am
+am
+VU
 qK
 qK
 qK
 qK
 qK
 qK
-DK
-DK
-DK
+VU
+VU
+VU
 Ml
 qK
-BI
-Xs
-Xs
-Xs
-BI
-Xs
-Xs
-Xs
-BI
-wq
-BI
+SV
+RU
+RU
+RU
+SV
+RU
+RU
+RU
+SV
+FD
+SV
 kN
 Gq
 Zf
@@ -35297,10 +35298,10 @@ qK
 qK
 qK
 qK
-DK
+VU
 ce
 ce
-DK
+VU
 qK
 qK
 qK
@@ -35312,17 +35313,17 @@ qK
 qK
 qK
 qK
-Mq
-Xs
-Xs
-Xs
-BI
-Xs
-Xs
-Xs
-BI
-wG
-BI
+YO
+RU
+RU
+RU
+SV
+RU
+RU
+RU
+SV
+bb
+SV
 Gq
 Gq
 qK
@@ -35569,17 +35570,17 @@ qK
 qK
 qK
 qK
-Mq
-Xs
-Xs
-Xs
-BI
-Xs
-Xs
-Xs
-BI
-wq
-BI
+YO
+RU
+RU
+RU
+SV
+RU
+RU
+RU
+SV
+FD
+SV
 qK
 qK
 qK
@@ -35826,17 +35827,17 @@ qK
 qK
 qK
 qK
-BI
-Xs
-pl
-Xs
-BI
-Xs
-pl
-Xs
-BI
-wq
-Mq
+SV
+RU
+Xv
+RU
+SV
+RU
+Xv
+RU
+SV
+FD
+YO
 qK
 qK
 qK
@@ -36083,23 +36084,23 @@ qK
 qK
 qK
 qK
-BI
-BI
-BI
-BI
-BI
-BI
-BI
-BI
-BI
-wq
-Mq
+SV
+SV
+SV
+SV
+SV
+SV
+SV
+SV
+SV
+FD
+YO
 qK
 qK
-wk
-wk
-wk
-wk
+ix
+ix
+ix
+ix
 qK
 qK
 qK
@@ -36341,18 +36342,18 @@ qK
 qK
 qK
 qK
-qk
+oh
 dk
-qk
-Sw
-Sw
-Sw
-Sw
-qk
+oh
+qs
+qs
+qs
+qs
+oh
 tA
-Mr
+hn
 qK
-wk
+ix
 qK
 qK
 qK
@@ -36598,21 +36599,21 @@ qK
 qK
 qK
 qK
-qk
-qk
-qk
-Sw
-Sw
-Sw
-No
-qk
-dV
-eI
-eI
+oh
+oh
+oh
+qs
+qs
+qs
+bX
+oh
+Au
+py
+py
 CS
-dz
-dz
-dz
+Sz
+Sz
+Sz
 qK
 qK
 qK
@@ -36856,20 +36857,20 @@ qK
 qK
 qK
 qK
-mV
+fa
 sf
 oK
 oK
 oK
 wZ
-qk
+oh
 tA
-eI
+py
 Nw
-pT
-de
+BV
+Pq
 vx
-dz
+Sz
 qK
 qK
 qK
@@ -37113,20 +37114,20 @@ qK
 qK
 qK
 qK
-mV
+fa
 XA
 bA
 Zq
 uj
 ZX
-qk
+oh
 tA
-eI
+py
 lg
-Cx
-pT
-KD
-dz
+vs
+BV
+sh
+Sz
 qK
 qK
 qK
@@ -37370,20 +37371,20 @@ qK
 qK
 qK
 qK
-qk
-uF
+oh
+ih
 vz
 UM
 uj
 nJ
-dt
+wj
 Uc
 oF
 Ym
 KB
-de
-rx
-dz
+Pq
+cL
+Sz
 qK
 qK
 qK
@@ -37627,20 +37628,20 @@ qK
 qK
 qK
 qK
-mV
+fa
 XA
 vz
 tl
 Zq
 cl
-qk
+oh
 tA
-eI
+py
 OM
 WC
-pT
-dv
-dz
+BV
+yx
+Sz
 qK
 qK
 qK
@@ -37884,20 +37885,20 @@ qK
 qK
 qK
 qK
-mV
-Zc
-qk
-qk
-qk
-qk
-qk
-dV
-eI
-XJ
+fa
+dp
+oh
+oh
+oh
+oh
+oh
+Au
+py
+PY
 cF
-pT
-pT
-dz
+BV
+BV
+Sz
 qK
 qK
 qK
@@ -38141,20 +38142,20 @@ qK
 qK
 qK
 qK
-Mr
-Mr
-Mr
-mM
-mM
-mM
-Mr
+hn
+hn
+hn
+NT
+NT
+NT
+hn
 tA
-eI
-pT
+py
+BV
 HV
-pT
-pT
-dz
+BV
+BV
+Sz
 qK
 qK
 qK
@@ -38400,18 +38401,18 @@ qK
 qK
 hm
 qh
-UX
+Qj
 LQ
 zQ
-QJ
-va
+cX
+dt
 ou
-eI
-eI
-eI
-eI
-dz
-dz
+py
+py
+py
+py
+Sz
+Sz
 qK
 qK
 qK
@@ -38655,18 +38656,18 @@ qK
 qK
 qK
 qK
-Mr
-Mr
-Mr
+hn
+hn
+hn
 uo
 jL
 bd
-Mr
-Xg
-Mr
+hn
+oL
+hn
 pd
 pd
-Mr
+hn
 qK
 qK
 qK
@@ -38914,16 +38915,16 @@ qK
 qK
 qK
 qK
-Mr
-Oo
+hn
+uF
 ME
-Nh
-Mr
+Ez
+hn
 Lh
-Mr
-oW
+hn
+pt
 qq
-Nh
+Ez
 qK
 qK
 qK
@@ -39175,12 +39176,12 @@ qK
 Nn
 RD
 tW
-Mr
+hn
 GM
 dJ
 ZD
-Wi
-Nh
+PF
+Ez
 qK
 qK
 qK
@@ -39432,12 +39433,12 @@ qK
 Pm
 qI
 zR
-Mr
-Xg
-Mr
+hn
+oL
+hn
 Gv
 QM
-Mr
+hn
 qK
 qK
 qK
@@ -39687,14 +39688,14 @@ qK
 qK
 qK
 qK
-Mr
+hn
 Ys
-Mr
-Xg
-Mr
-Nh
-Nh
-Mr
+hn
+oL
+hn
+Ez
+Ez
+hn
 qK
 qK
 qK
@@ -39944,11 +39945,11 @@ qK
 qK
 qK
 qK
-Mr
-Mr
-Mr
+hn
+hn
+hn
 FT
-Mr
+hn
 qK
 qK
 qK
@@ -40202,10 +40203,10 @@ qK
 qK
 qK
 qK
-Mr
+hn
 ts
 IH
-Mr
+hn
 qK
 qK
 qK
@@ -40459,10 +40460,10 @@ qK
 qK
 qK
 qK
-Nh
+Ez
 sg
 Zz
-Nh
+Ez
 qK
 qK
 qK
@@ -40716,10 +40717,10 @@ qK
 qK
 qK
 qK
-Mr
-Mr
-wC
-Mr
+hn
+hn
+sO
+hn
 qK
 qK
 qK
@@ -40974,9 +40975,9 @@ qK
 qK
 qK
 qK
-Mr
+hn
 lQ
-Mr
+hn
 qK
 qK
 qK
@@ -41231,9 +41232,9 @@ qK
 qK
 qK
 qK
-Mr
+hn
 xZ
-Mr
+hn
 qK
 qK
 qK
@@ -41746,7 +41747,7 @@ qK
 qK
 qK
 iw
-nG
+JU
 qK
 qK
 qK
@@ -41996,14 +41997,14 @@ qK
 qK
 qK
 qK
-vn
-Ea
+du
+Yn
 Lb
-vn
-Ea
+du
+Yn
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -42253,14 +42254,14 @@ qK
 qK
 qK
 qK
-vn
-DZ
+du
+AW
 Lb
-vn
+du
 Mj
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -42510,14 +42511,14 @@ qK
 qK
 qK
 qK
-vn
-DZ
+du
+AW
 Lb
-vn
-DZ
+du
+AW
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -42767,14 +42768,14 @@ qK
 qK
 qK
 qK
-vn
+du
 jh
 Lb
-vn
-DZ
+du
+AW
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -43024,13 +43025,13 @@ qK
 qK
 qK
 qK
-vn
-Ea
+du
+Yn
 Lb
-vn
-DZ
+du
+AW
 Lb
-vn
+du
 SI
 Lb
 qK
@@ -43281,20 +43282,20 @@ qK
 qK
 qK
 qK
-mN
-wH
-Ef
-Ef
+Of
+eT
+tP
+tP
 iL
-Ef
-Ef
-Ef
-Ef
-Ef
-Ef
-Ef
-Ef
-Vg
+tP
+tP
+tP
+tP
+tP
+tP
+tP
+tP
+ae
 qK
 qK
 qK
@@ -43538,20 +43539,20 @@ qK
 qK
 qK
 qK
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -43795,20 +43796,20 @@ qK
 qK
 qK
 qK
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
+du
 DG
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -44052,20 +44053,20 @@ qK
 qK
 qK
 qK
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -44309,20 +44310,20 @@ qK
 qK
 qK
 qK
-vn
-Su
+du
+eY
 Lb
-vn
+du
 DG
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -44566,20 +44567,20 @@ qK
 qK
 qK
 qK
-vn
-VS
+du
+SF
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
 qK
 qK
@@ -44823,19 +44824,19 @@ qK
 qK
 qK
 qK
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
+du
 DG
 Lb
-vn
+du
 SI
 Lb
 qK
@@ -45080,20 +45081,20 @@ qK
 qK
 qK
 qK
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
 qK
 qK
@@ -45337,20 +45338,20 @@ qK
 qK
 qK
 qK
-vn
-HH
+du
+xV
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
+du
 SI
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
 qK
 qK
@@ -45594,20 +45595,20 @@ qK
 qK
 qK
 qK
-vn
-HH
+du
+xV
 Lb
-vn
+du
 SI
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-HH
+du
+xV
 Lb
-vn
-Su
+du
+eY
 Lb
 qK
 qK
@@ -45851,20 +45852,20 @@ qK
 qK
 qK
 qK
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
-vn
-Su
+du
+eY
 Lb
 qK
 qK
