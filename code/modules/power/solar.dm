@@ -287,6 +287,17 @@
 	var/obj/machinery/power/tracker/connected_tracker = null
 	var/list/connected_panels = list()
 
+/obj/machinery/power/solar_control/terminal
+	name = "\improper solar panel control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "solar_screen"
+	icon_keyboard = "power_key"
+	icon_keyboard_emis = "power_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/power/solar_control/drain_power()
 	return -1
 
