@@ -66,8 +66,7 @@
 /area/shuttle/haneunim_crash)
 "jc" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /obj/machinery/alarm/south,
 /turf/simulated/floor/plating,

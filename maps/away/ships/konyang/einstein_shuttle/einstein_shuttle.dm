@@ -4,7 +4,7 @@
 	description = "An Einstein Engines transport shuttle."
 
 	prefix = "ships/konyang/einstein_shuttle/"
-	suffixes = list("einstein_shuttle.dmm")
+	suffix = "einstein_shuttle.dmm"
 
 	spawn_weight = 1
 	ship_cost = 1

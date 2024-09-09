@@ -166,7 +166,7 @@ var/global/Holiday = null
 	else if (T == "None")
 		Holiday = null
 		message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] unset today's Holiday."))
-		log_admin("[key_name(src)] unset today's Holiday",admin_key=key_name(src))
+		log_admin("[key_name(src)] unset today's Holiday")
 		return TRUE
 
 	Holiday = T
@@ -174,7 +174,7 @@ var/global/Holiday = null
 	Holiday_Game_Start()
 
 	message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\""))
-	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"",admin_key=key_name(src))
+	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"")
 	return TRUE
 
 //Run at the  start of a round

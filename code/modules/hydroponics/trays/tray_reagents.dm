@@ -5,7 +5,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 4
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 10
 	var/toxicity = 4
@@ -37,7 +37,7 @@
 	atom_flags = 0
 	possible_transfer_amounts = list(5, 10, 20, 40, 80)
 	volume = 80
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	hitsound = 'sound/weapons/jug_empty_impact.ogg'
 	drop_sound = 'sound/weapons/jug_empty_impact.ogg'

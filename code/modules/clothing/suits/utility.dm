@@ -21,7 +21,7 @@
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -67,7 +67,7 @@
 	name = "bomb hood"
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
-	w_class = ITEMSIZE_HUGE//Too large to fit in a backpack
+	w_class = WEIGHT_CLASS_HUGE//Too large to fit in a backpack
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -93,7 +93,7 @@
 	desc = "A suit designed for safety when handling explosives. It looks heavy and uncomfortable to wear for even a short time."
 	icon_state = "bombsuit"
 	item_state = "bombsuit"
-	w_class = ITEMSIZE_HUGE //bulky item
+	w_class = WEIGHT_CLASS_HUGE //bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 8
@@ -224,7 +224,7 @@
 	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una")
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET

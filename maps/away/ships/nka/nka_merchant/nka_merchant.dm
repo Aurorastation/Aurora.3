@@ -4,7 +4,7 @@
 	description = "A merchant ship of the New Kingdom's Mercantile Flotilla."
 
 	prefix = "ships/nka/nka_merchant/"
-	suffixes = list("nka_merchant.dmm")
+	suffix = "nka_merchant.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1

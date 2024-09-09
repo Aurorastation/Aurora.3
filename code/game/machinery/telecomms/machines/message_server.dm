@@ -1,7 +1,9 @@
 #define MESSAGE_SERVER_SPAM_REJECT 1
 #define MESSAGE_SERVER_DEFAULT_SPAM_LIMIT 10
 
-// Log datums stored by the message server.
+/**
+ * Log datums stored by the message server
+ */
 /datum/data_pda_msg
 	var/sender = "Unspecified"
 	var/recipient = "Unspecified"
@@ -175,7 +177,8 @@
 	frequency = PUB_FREQ
 	server_type = /obj/machinery/telecomms/message_server
 
-/datum/signal/subspace/pda/New(source, data)
+/datum/signal/subspace/pda/New(obj/source, data)
+	. = ..(source, frequency, data = data)
 	src.source = source
 	src.data = data
 	var/turf/T = get_turf(source)

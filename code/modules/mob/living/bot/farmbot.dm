@@ -134,7 +134,7 @@
 	else
 		icon_state = "farmbot[on]"
 
-/mob/living/bot/farmbot/Life()
+/mob/living/bot/farmbot/Life(seconds_per_tick, times_fired)
 	..()
 	if(emagged && prob(1))
 		flick("farmbot_broke", src)

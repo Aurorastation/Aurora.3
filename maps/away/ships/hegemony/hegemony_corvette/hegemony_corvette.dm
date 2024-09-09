@@ -3,7 +3,7 @@
 	description = "Ship with lizards."
 
 	prefix = "ships/hegemony/hegemony_corvette/"
-	suffixes = list("hegemony_corvette.dmm")
+	suffix = "hegemony_corvette.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)

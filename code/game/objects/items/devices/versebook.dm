@@ -9,7 +9,7 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominia"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/reading = FALSE
 
 	drop_sound = 'sound/items/drop/book.ogg'
@@ -158,5 +158,5 @@
 	desc = "A miniaturized edition of the Luceian Book of Scripture, a collection of historically-backed texts mixed with fables and stories detailing the reasonings, history, and \
 	beliefs of the Luceism religion of Assunzione. Translated into Basic by the Luceian Monastery on Biesel. This one fits nicely in a pocket or in a bag."
 	icon_state = "luce_pocket"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 

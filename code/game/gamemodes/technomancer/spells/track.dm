@@ -78,5 +78,5 @@ var/list/technomancer_belongings = list()
 			if(16 to INFINITY)
 				icon_state = "track_far"
 
-	spawn(5)
-		.()
+	//Shitty loop
+	addtimer(CALLBACK(src, PROC_REF(track)), 5)

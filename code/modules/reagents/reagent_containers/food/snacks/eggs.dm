@@ -213,3 +213,15 @@
 	reagent_data = list(/singleton/reagent/nutriment/protein/egg = list("rich, creamy eggs" = 10), /singleton/reagent/nutriment = list("toasted bread" = 5, "ham" = 3))
 	filling_color = "#ebcd49"
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/nakarka_omelette
+	name = "nakarka omelette"
+	desc = "A green omelette. The Nakarka cheese gives it a unique sort of kick. This dish is believed to originally be from Tret."
+	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon_state = "omelette_nakarka"
+	trash = /obj/item/trash/plate
+	filling_color = "#8fda18"
+	center_of_mass = list("x"=16, "y"=13)
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 5, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("sharp tanginess" = 5))

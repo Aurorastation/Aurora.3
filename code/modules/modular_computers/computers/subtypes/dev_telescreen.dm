@@ -15,7 +15,7 @@
 	max_hardware_size = 2
 	steel_sheet_cost = 10
 	light_range = 4
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	is_holographic = TRUE
 
 /obj/item/modular_computer/telescreen/attackby(obj/item/attacking_item, mob/user)

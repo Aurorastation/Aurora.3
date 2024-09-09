@@ -287,7 +287,8 @@
 		/obj/item/advanced_docility_serum,
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/device/integrated_circuit_printer
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab

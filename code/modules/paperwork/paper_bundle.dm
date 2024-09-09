@@ -5,7 +5,7 @@
 	icon_state = "paper"
 	item_state = "paper"
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_range = 2
 	throw_speed = 1
 	layer = ABOVE_OBJ_LAYER
@@ -203,7 +203,7 @@
 
 
 		if(pages.len <= 1)
-			var/obj/item/paper/P = src[1]
+			var/obj/item/paper/P = src.vars[1]
 			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
 				var/obj/item/gripper/G = loc
 				G.drop(get_turf(src), usr, FALSE)

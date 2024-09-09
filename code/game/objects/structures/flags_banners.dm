@@ -22,6 +22,7 @@
 	desc = "Nothing to see here."
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
+	opacity = TRUE
 
 	///If a big flag, the other half of the flag is referenced here
 	var/obj/structure/sign/flag/linked_flag
@@ -51,17 +52,6 @@
 		else
 			flag_path = icon_state
 
-	if(deploy)
-		switch(dir)
-			if(NORTH)
-				pixel_y = 32
-			if(SOUTH)
-				pixel_y = -32
-			if(EAST)
-				pixel_x = 32
-			if(WEST)
-				pixel_x = -32
-
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
@@ -74,23 +64,21 @@
 	//Handles the creation of the large flags and single flags
 	if(flag_size)
 		create_other_half(loc, dir, flag_path, icon, pixel_x, pixel_y)
+
 	else
 		icon_state = "[flag_path]"
 		flag_icon = new(icon, icon_state)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-		var/turf/T = get_step(loc, dir)
-		if(iswall(T))
+
+		//If on a wall or window, just use the icon, otherwise also add the stand the flag is hanged on
+		if(iswall(loc) || (locate(/obj/structure/window) in loc))
 			icon = flag_icon
-			return
-		for(var/obj/A in T)
-			if(istype(A, /obj/structure/window))
-				icon = flag_icon
-				return
-		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
-		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
-		verbs += /obj/structure/sign/flag/proc/toggle
-		icon = flag_icon
+		else
+			banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
+			flag_icon.Blend(banner_icon, ICON_UNDERLAY)
+			verbs += /obj/structure/sign/flag/proc/toggle
+			icon = flag_icon
 
 /**
  * If the flag is a big flag, handles the creation and alignment of the other half of it
@@ -184,7 +172,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
+	new flag_structure(get_turf(A), placement_dir, deploy = TRUE, item_flag_path = flag_path)
 	qdel(src)
 
 
@@ -240,7 +228,7 @@
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
 				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
-				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You \the [src] in a single, decisive motion!"))
+				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You rip \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 				add_fingerprint(user)
 				rip(user)
@@ -256,6 +244,8 @@
 	name = "ripped flag"
 	desc = "You can't make out anything from the flag's original print. It's ruined."
 	ripped = TRUE
+	opacity = FALSE
+
 	if(rip_linked)
 		var/obj/item/stack/material/cloth/C = new(src.loc, flag_size ? 2 : 1)
 		if(user)
@@ -1558,14 +1548,14 @@
 /obj/item/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
 	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "biesel_antique"
+	flag_path = "antique_biesel"
 	flag_structure = /obj/structure/sign/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
 	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "biesel_antique"
-	icon_state = "biesel_antique"
+	flag_path = "antique_biesel"
+	icon_state = "antique_biesel"
 	flag_item = /obj/item/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique/unmovable
@@ -3287,6 +3277,136 @@
 
 /obj/structure/sign/flag/hiskyn/unmovable
 	unmovable = TRUE
+
+//The Consortium
+
+/obj/item/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
+	flag_path = "consortium"
+	flag_structure = /obj/structure/sign/flag/consortium
+
+/obj/structure/sign/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
+	flag_path = "consortium"
+	icon_state = "consortium"
+	flag_item = /obj/item/flag/consortium
+
+/obj/structure/sign/flag/consortium/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/consortium/l
+	name = "large Consortium flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/consortium/large
+
+/obj/structure/sign/flag/consortium/large
+	icon_state = "consortium_l"
+	flag_path = "consortium"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/consortium/l
+
+/obj/structure/sign/flag/consortium/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/consortium/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/consortium/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/consortium/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+	//The Eternal Republic of the Ekane
+/obj/item/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane."
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
+	flag_path = "ekane"
+	flag_structure = /obj/structure/sign/flag/ekane
+
+/obj/structure/sign/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane"
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
+	flag_path = "ekane"
+	icon_state = "ekane"
+	flag_item = /obj/item/flag/ekane
+
+/obj/structure/sign/flag/ekane/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ekane/l
+	name = "large Ekane flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ekane/large
+
+/obj/structure/sign/flag/ekane/large
+	icon_state = "ekane_l"
+	flag_path = "ekane"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ekane/l
+
+/obj/structure/sign/flag/ekane/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ekane/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ekane/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ekane/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//The Union of Gla'orr
+/obj/item/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr."
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
+	flag_path = "glaorr"
+	flag_structure = /obj/structure/sign/flag/glaorr
+
+/obj/structure/sign/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr"
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
+	flag_path = "glaorr"
+	icon_state = "glaorr"
+	flag_item = /obj/item/flag/glaorr
+
+/obj/structure/sign/flag/glaorr/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/glaorr/l
+	name = "large Gla'orr flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/glaorr/large
+
+/obj/structure/sign/flag/glaorr/large
+	icon_state = "glaorr_l"
+	flag_path = "glaorr"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/glaorr/l
+
+/obj/structure/sign/flag/glaorr/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/glaorr/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/glaorr/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry

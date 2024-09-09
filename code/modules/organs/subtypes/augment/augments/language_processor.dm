@@ -82,8 +82,8 @@
 	)
 
 
-/obj/item/organ/internal/augment/language/eridani
-	name = "Eridani language processor"
+/obj/item/organ/internal/augment/language/tradeband
+	name = "Tradeband language processor"
 	augment_languages = list(LANGUAGE_TRADEBAND)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,

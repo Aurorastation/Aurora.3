@@ -247,7 +247,7 @@
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
-	SSmove_manager.stop_looping(src) //This stops the bear's walking
+	GLOB.move_manager.stop_looping(src) //This stops the bear's walking
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
@@ -274,7 +274,7 @@
 			instant_aggro(1)
 
 
-/mob/living/simple_animal/hostile/bear/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -320,7 +320,7 @@
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
 		target_mob = null
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
 	var/targetname = target_mob.name
@@ -508,7 +508,7 @@
 	forceMove(target)
 	spark_system.queue()
 
-/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
 	..(P, def_zone)
 	if (prob(P.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
 		teleport_tactical()

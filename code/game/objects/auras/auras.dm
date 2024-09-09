@@ -24,8 +24,8 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 /obj/aura/attackby(obj/item/attacking_item, mob/user)
 	return FALSE
 
-/obj/aura/bullet_act(obj/item/projectile/P, def_zone)
+/obj/aura/bullet_act(obj/projectile/P, def_zone)
 	return FALSE
 
-/obj/aura/hitby(atom/movable/M, speed)
+/obj/aura/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return FALSE

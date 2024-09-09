@@ -110,7 +110,9 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/user as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(src.occupant == user && !user.stat)
 		go_out()
 

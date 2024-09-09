@@ -120,8 +120,7 @@
  *
  * Parent class for all alcoholic reagents, though this one shouldn't be used anywhere
  */
-/singleton/reagent/alcohol
-	abstract_type = /singleton/reagent/alcohol
+ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = null
 	description = DESC_PARENT
 	reagent_state = LIQUID
@@ -175,10 +174,10 @@
 
 		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 		if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
-			M.adjustToxLoss(12 * removed * (strength / 100))
+			M.adjustToxLoss(3 * removed * (strength / 100))
 
 		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
-			M.adjustToxLoss(12 * removed * (strength / 100))
+			M.adjustToxLoss(3 * removed * (strength / 100))
 			if(!M.lastpuke)
 				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))//Make it clear that you should not be drinking this.
 			var/mob/living/carbon/human/H = M
@@ -192,7 +191,6 @@
 				M.hallucination = max(M.hallucination, halluci)
 			if(caffeine)
 				M.add_chemical_effect(CE_PULSE, caffeine*2)
-				M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 			M.adjustNutritionLoss(-nutriment_factor * removed)
 			M.adjustHydrationLoss(-hydration_factor * removed)
 
@@ -264,7 +262,7 @@
 			M.hallucination = max(M.hallucination, halluci)
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+			M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol, TRUE, caffeine*2)
 
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
@@ -273,6 +271,10 @@
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/singleton/reagent/alcohol/butanol/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol)
+	. = ..()
 
 
 /singleton/reagent/hydrazine

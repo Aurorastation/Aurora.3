@@ -15,7 +15,6 @@
 	},
 /obj/item/material/kitchen/rollingpin,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -4
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
@@ -456,12 +455,10 @@
 "xB" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -721,7 +718,6 @@
 	desc = "A bland air conditioning unit.";
 	icon = 'icons/effects/city.dmi';
 	icon_state = "ac";
-	layer = 2.7;
 	name = "AC unit"
 	},
 /turf/simulated/floor/bluegrid/cooled,
@@ -808,7 +804,6 @@
 "Qg" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -1009,7 +1004,6 @@
 	dir = 4;
 	icon = 'icons/effects/city.dmi';
 	icon_state = "flatscreen";
-	layer = 6.1;
 	name = "expensive flatscreen holovision";
 	pixel_y = 15
 	},

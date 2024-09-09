@@ -2815,7 +2815,7 @@
 	pixel_y = 6;
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/aluminium/full{
 	pixel_x = -5
 	},
@@ -2860,8 +2860,7 @@
 /area/konyang_wreck/pod8)
 "yh" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -3300,8 +3299,7 @@
 /area/konyang_wreck/engineering)
 "BC" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/dark,
@@ -3777,7 +3775,6 @@
 /area/konyang_wreck/pod5)
 "GP" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -4045,8 +4042,7 @@
 /area/konyang_wreck/pod1)
 "Ju" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/brown{
@@ -4816,7 +4812,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/gas,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/atmos)
@@ -5034,7 +5030,7 @@
 /area/konyang_wreck/pod1)
 "Ry" = (
 /obj/machinery/autolathe,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -5562,8 +5558,7 @@
 /area/konyang_wreck/mechbay)
 "Xc" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,

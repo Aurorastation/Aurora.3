@@ -89,7 +89,7 @@
 
 		balloon_alert_to_viewers("[user] starts to cut through the lock on \the [src]!")
 
-		if(WT.use_tool(src, user, 20 SECONDS, extra_checks = CALLBACK(src, PROC_REF(can_continue_opening))))
+		if(WT.use_tool(src, user, 20 SECONDS, extra_checks = CALLBACK(src, PROC_REF(can_be_opened))))
 			//Last check because use_tool() is shitcoded
 			if(forced_open || !can_be_opened())
 				return
@@ -172,7 +172,7 @@
 	. = ..()
 
 	to_chat(user, SPAN_NOTICE("You start to fiddle with the electronic lock of \the [src]."))
-	if(do_after(user, 10 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(can_continue_opening))))
+	if(do_after(user, 10 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(can_be_opened))))
 		to_chat(user, SPAN_NOTICE("You manage to unlock \the [src]."))
 		toggle_lock(user)
 
@@ -247,14 +247,3 @@
 		return TRUE
 	else
 		return FALSE
-
-/**
- * Basically the inverse of `can_be_opened()`, because the `do_* / use_*` callbacks work the other way around
- *
- * Used only for callbacks, do not call directly
- */
-/obj/structure/weapons_rack/proc/can_continue_opening()
-	SHOULD_NOT_SLEEP(TRUE)
-	SHOULD_BE_PURE(TRUE)
-
-	return !can_be_opened()

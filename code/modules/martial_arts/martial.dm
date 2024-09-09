@@ -163,6 +163,12 @@
 
 	return TRUE
 
+/datum/martial_art/proc/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
+	if(A.a_intent == I_DISARM)
+		A.visible_message("[SPAN_BOLD("\The [A]")] [D.response_disarm] \the [D]")
+		A.do_attack_animation(D)
+		D.poke(1)
+		D.handle_attack_by(A)
 
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)

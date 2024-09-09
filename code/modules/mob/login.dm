@@ -3,7 +3,7 @@
 	//Multikey checks and logging
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
-	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
+	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]")
 	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
 		return
 	if(GLOB.config.logsettings["log_access"])
@@ -20,10 +20,10 @@
 				if(matches)
 					if(M.client)
 						message_admins(SPAN_WARNING("<B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>."), 1)
-						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].",ckey=key_name(src))
+						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].")
 					else
 						message_admins(SPAN_WARNING("<B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). "), 1)
-						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
+						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 
 /mob
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled

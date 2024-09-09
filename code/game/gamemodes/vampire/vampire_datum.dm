@@ -52,9 +52,9 @@
 /datum/vampire/proc/assign_master(var/mob/M, var/mob/set_master, var/datum/vampire/V)
 	master = set_master
 	V.thralls += M
-	thrall_image = image('icons/mob/hud.dmi', M, "hudthrall")
+	thrall_image = image('icons/hud/hud.dmi', M, "hudthrall")
 	set_master.client.images += thrall_image
-	master_image = image('icons/mob/hud.dmi', set_master, "hudvampire")
+	master_image = image('icons/hud/hud.dmi', set_master, "hudvampire")
 	M.client.images += master_image
 
 /datum/vampire/proc/lose_master(var/mob/M)

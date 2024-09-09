@@ -46,7 +46,7 @@ var/global/list/default_interrogation_channels = list(
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_ALUMINIUM = 75, MATERIAL_GLASS = 25)
 	suffix = "\[3\]"
 	var/radio_desc = ""

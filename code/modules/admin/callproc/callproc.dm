@@ -92,22 +92,24 @@
 				if(!object)
 					return
 
-				var/list/types = typesof(/atom)
+				var/list/types = typesof(/datum)
 				var/list/matches = new()
 
 				for(var/path in types)
 					if(findtext("[path]", object))
 						matches += path
 
-				if(matches.len==0)
+				if(!length(matches))
+					tgui_alert("No matches found for typepath [object].")
 					return
 
 				if(matches.len==1)
 					current = matches[1]
 				else
-					current = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+					current = input("Select a typepath", "Typepath Selection", matches[1]) as null|anything in matches
 
-				if(isnull(current)) return
+				if(isnull(current))
+					return
 
 			if("obj reference")
 				current = input("Select object for [arguments.len+1]\th argument") as null|obj in world
@@ -151,7 +153,7 @@
 		if(!target)
 			to_chat(usr, "Your callproc target no longer exists.")
 			return
-		log_admin("[key_name(src)] called [target]'s [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
+		log_admin("[key_name(src)] called [target]'s [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].")
 		if(arguments.len)
 			returnval = call(target, procname)(arglist(arguments))
 		else
@@ -162,7 +164,7 @@
 			to_chat(usr, "Invalid proc path /proc/[procname].")
 			return
 
-		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
+		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].")
 		returnval = call(procpath)(arglist(arguments))
 
 	to_chat(usr, "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>")

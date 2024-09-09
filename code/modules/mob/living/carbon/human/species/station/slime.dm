@@ -52,6 +52,5 @@
 		)
 
 /datum/species/slime/handle_death(var/mob/living/carbon/human/H)
-	spawn(1)
-		if(H)
-			H.gib()
+	if(H)
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)),  1)

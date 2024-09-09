@@ -537,7 +537,7 @@
 		nutrition += 40
 
 		playsound(loc, 'sound/effects/splat.ogg', 20, 1)
-		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.species.blood_color)
+		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.get_blood_color())
 		if (target.getBruteLoss() > target.maxHealth*0.75)
 			if (prob(50))
 				gibs(get_turf(src), target.dna)

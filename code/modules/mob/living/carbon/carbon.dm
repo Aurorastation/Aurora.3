@@ -10,7 +10,7 @@
 	if(species && species.indefinite_sleep)
 		add_verb(src, /verb/toggle_indefinite_sleep)
 
-/mob/living/carbon/Life()
+/mob/living/carbon/Life(seconds_per_tick, times_fired)
 	if(!..())
 		return
 
@@ -76,7 +76,9 @@
 
 		src.help_up_offer = 0
 
-/mob/living/carbon/relaymove(var/mob/living/user, direction)
+/mob/living/carbon/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)
 			user.last_special = world.time + 50
@@ -556,3 +558,6 @@
 
 /mob/living/carbon/proc/should_have_limb(var/organ_check)
 	return FALSE
+
+/mob/living/carbon/get_equipped_speed_mod_items()
+	return ..() + get_equipped_items()

@@ -186,12 +186,6 @@
 	atmos_canpass = CANPASS_DENSITY
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
-/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(density)
-		return 0
-	else
-		return ..()
-
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."

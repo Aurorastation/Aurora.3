@@ -4,7 +4,7 @@
 	desc = "Yummy!"
 	icon_state = null
 	center_of_mass = list("x"=16, "y"=16)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	is_liquid = FALSE
 	var/slice_path
 	var/slices_num

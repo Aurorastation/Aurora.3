@@ -8,8 +8,7 @@
 */
 
 /// The base /renderer definition and defaults.
-/atom/movable/renderer
-	abstract_type = /atom/movable/renderer
+ABSTRACT_TYPE(/atom/movable/renderer)
 	appearance_flags = DEFAULT_RENDERER_APPEARANCE_FLAGS
 	screen_loc = "CENTER"
 	plane = LOWEST_PLANE
@@ -90,14 +89,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 /mob/proc/CreateRenderers()
 	if (!renderers)
 		renderers = list()
-	for (var/atom/movable/renderer/renderer as anything in subtypesof(/atom/movable/renderer))
+	for (var/renderer as anything in subtypesof(/atom/movable/renderer))
 		if(ispath(renderer, /atom/movable/renderer/shared))
 			continue
-		renderer = new renderer (null, src)
-		renderers[renderer] = renderer.plane // (renderer = plane) format for visual debugging
-		if (renderer.relay)
-			my_client.screen += renderer.relay
-		my_client.screen += renderer
+		var/atom/movable/renderer/render = new renderer (null, src)
+		renderers["[render.plane]"] = render // (render = plane) format for visual debugging
+		if (render.relay)
+			my_client.screen += render.relay
+		my_client.screen += render
 
 	for (var/atom/movable/renderer/zrenderer as anything in GLOB.zmimic_renderers)
 		if (zrenderer.relay)
@@ -107,11 +106,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 /// Removes the mob's renderers on /Logout()
 /mob/proc/RemoveRenderers()
 	if(my_client)
-		for(var/atom/movable/renderer/renderer as anything in renderers)
-			my_client.screen -= renderer
-			if (renderer.relay)
-				my_client.screen -= renderer.relay
-			qdel(renderer)
+		for(var/renderer as anything in renderers)
+			var/atom/movable/renderer/render = renderers[renderer]
+			my_client.screen -= render
+			if (render.relay)
+				my_client.screen -= render.relay
+			qdel(render)
 		for (var/atom/movable/renderer/renderer as anything in GLOB.zmimic_renderers)
 			my_client.screen -= renderer
 	if (renderers)
@@ -181,6 +181,11 @@ GLOBAL_LIST_EMPTY(zmimic_renderers)
 	group = RENDER_GROUP_SCENE
 	plane = OBSERVER_PLANE
 
+/atom/movable/renderer/roofs
+	name = "Roofs"
+	group = RENDER_GROUP_SCENE
+	plane = ROOF_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /// Draws darkness effects.
 /atom/movable/renderer/lighting

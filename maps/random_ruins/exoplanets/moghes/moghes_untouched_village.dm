@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_untouched_village.dmm")
+	suffix = "moghes_untouched_village.dmm"
 	ban_ruins = list("ouerea_village") //literally 90% the same
 
 	unit_test_groups = list(1)
@@ -22,6 +22,18 @@
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "A cozy Unathi village. Lights can be seen through the windows of the buildings here, and the smell of cooking fish drifts on the wind."
+
+/area/moghes_village/indoors
+	name = "Moghes Village Indoors"
+	icon_state = "red"
+	is_outside = OUTSIDE_NO
+	area_blurb = "The interior of these little houses are comfortable and tightly-packed, built for an entire extended family."
+
+/area/moghes_village/shrine
+	name = "Moghes Village Shrine"
+	icon_state = "blue2"
+	is_outside = OUTSIDE_NO
+	area_blurb = "The air inside this shrine is still, every step on the tile feeling louder than it should. The floors and altars are polished to a shine."
 
 /datum/ghostspawner/human/moghes_villager
 	name = "Moghresian Villager"

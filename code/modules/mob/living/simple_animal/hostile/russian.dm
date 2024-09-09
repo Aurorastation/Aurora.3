@@ -44,7 +44,7 @@
 	corpse = /obj/effect/landmark/mobcorpse/russian/ranged
 	weapon1 = /obj/item/gun/projectile/revolver/mateba
 	ranged = 1
-	projectiletype = /obj/item/projectile/bullet
+	projectiletype = /obj/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot1.ogg'
 	casingtype = /obj/item/ammo_casing/a357
 	smart_ranged = TRUE

@@ -6,7 +6,7 @@
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE
 
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3
 	throwforce = 10

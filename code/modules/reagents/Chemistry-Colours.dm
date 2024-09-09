@@ -30,4 +30,7 @@
 	if(!holder || isemptylist(REAGENT_DATA(holder, type)))
 		return color
 
+	if(LAZYACCESS(holder.reagent_data[type], "blood_type") == "SBS") // synthetic blood substitute
+		return COLOR_SYNTH_BLOOD
+
 	return LAZYACCESS(holder.reagent_data[type], "blood_colour") || color // return default colour if not set

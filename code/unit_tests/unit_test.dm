@@ -41,8 +41,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 // We list these here so we can remove them from the for loop running this.
 // Templates aren't intended to be ran but just serve as a way to create child objects of it with inheritable tests for quick test creation.
 
-/datum/unit_test
-	abstract_type = /datum/unit_test
+ABSTRACT_TYPE(/datum/unit_test)
 	var/name = "template - should not be ran."
 	var/disabled = 0        // If we want to keep a unit test in the codebase but not run it for some reason.
 	var/async = 0           // If the check can be left to do it's own thing, you must define a check_result() proc if you use this.

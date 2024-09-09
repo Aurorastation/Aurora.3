@@ -3,6 +3,7 @@
 	desc = "Some sort of woody fungal growth, grown to extreme proportions."
 	icon = 'icons/obj/flora/fungaltrees.dmi'
 	icon_state = "shroom"
+	sample_data = list("Cells appear fungal in nature")
 
 /obj/structure/flora/tree/mushroom/Initialize(mapload)
 	. = ..()
@@ -16,6 +17,7 @@
 	desc = "A rather large variety of fungus."
 	icon = 'icons/obj/flora/fungalflora.dmi'
 	icon_state = "fungus_bush"
+	sample_data = list("Cells appear fungal in nature")
 
 /obj/structure/flora/bush/mushroom/Initialize()
 	. = ..()

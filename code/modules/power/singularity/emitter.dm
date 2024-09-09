@@ -88,7 +88,7 @@
 					to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 					if(special_emitter)
 						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <span class='warning'>off</span> by [user.key]","singulo")
 			else
 				active = TRUE
@@ -99,7 +99,7 @@
 					to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 					if(special_emitter)
 						message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()
 		else
@@ -156,7 +156,7 @@
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
+		var/obj/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
@@ -270,7 +270,7 @@
 	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
 
 /obj/machinery/power/emitter/proc/get_emitter_beam()
-	return new /obj/item/projectile/beam/emitter(get_turf(src))
+	return new /obj/projectile/beam/emitter(get_turf(src))
 
 #undef EMITTER_LOOSE
 #undef EMITTER_BOLTED

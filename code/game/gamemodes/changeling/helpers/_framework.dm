@@ -159,7 +159,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
-		log_and_message_admins("has the changeling_transform() verb but is not a changeling.", src, get_turf(src))
 		return
 	if(src.stat > max_stat)
 		to_chat(src, SPAN_WARNING("We are incapacitated."))

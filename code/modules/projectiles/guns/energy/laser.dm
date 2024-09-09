@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
+	desc = "A NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
@@ -8,11 +8,11 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/beam/midlaser
+	projectile_type = /obj/projectile/beam/midlaser
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
@@ -32,8 +32,8 @@
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser carbine"
-	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
-	projectile_type = /obj/item/projectile/beam/practice
+	desc = "A modified version of the NT G40E, this one fires less concentrated energy bolts designed for target practice."
+	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/retro
 	name = "retro laser"
@@ -46,9 +46,9 @@
 	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 1
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	fire_delay = 5
 	can_turret = 1
 	turret_is_lethal = 1
@@ -68,9 +68,9 @@
 	force = 11
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 2
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
@@ -80,7 +80,7 @@
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
-	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
+	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
 	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
@@ -88,7 +88,7 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	projectile_type = /obj/item/projectile/beam/heavylaser
+	projectile_type = /obj/projectile/beam/heavylaser
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
@@ -119,7 +119,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-	projectile_type = /obj/item/projectile/beam/xray
+	projectile_type = /obj/projectile/beam/xray
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 4
@@ -138,7 +138,7 @@
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
-	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
 	To use the scope, use the appropriate verb in the object tab."
@@ -148,13 +148,13 @@
 	has_item_ratio = FALSE // same as the laserrifle
 	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
-	projectile_type = /obj/item/projectile/beam/sniper
+	projectile_type = /obj/projectile/beam/sniper
 	slot_flags = SLOT_BACK
 	charge_cost = 400
 	max_shots = 4
 	fire_delay = 45
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
 	can_turret = 1
@@ -187,12 +187,12 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 0
 	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam/shotgun
+	projectile_type = /obj/projectile/beam/shotgun
 	max_shots = 20
 	sel_mode = 1
 	is_wieldable = TRUE
@@ -222,7 +222,7 @@
 	recharge_time = 2
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
-	projectile_type = /obj/item/projectile/beam/laser_tag
+	projectile_type = /obj/projectile/beam/laser_tag
 	pin = /obj/item/device/firing_pin/tag/red
 	can_turret = TRUE
 	turret_is_lethal = FALSE
@@ -239,7 +239,7 @@
 	return ..()
 
 /obj/item/gun/energy/lasertag/proc/get_tag_color(var/set_color)
-	projectile_type = text2path("/obj/item/projectile/beam/laser_tag/[set_color]")
+	projectile_type = text2path("/obj/projectile/beam/laser_tag/[set_color]")
 	if(pin)
 		QDEL_NULL(pin)
 		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
@@ -258,7 +258,7 @@
 	icon = 'icons/obj/guns/bluetag.dmi'
 	icon_state = "bluetag"
 	item_state = "bluetag"
-	projectile_type = /obj/item/projectile/beam/laser_tag/blue
+	projectile_type = /obj/projectile/beam/laser_tag/blue
 	pin = /obj/item/device/firing_pin/tag/blue
 	turret_sprite_set = "blue"
 

@@ -15,7 +15,7 @@ BREATH ANALYZER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
 	matter = list(MATERIAL_ALUMINIUM = 200)
@@ -377,7 +377,7 @@ BREATH ANALYZER
 	icon_state = "analyzer"
 	item_state = "analyzer"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -411,7 +411,7 @@ BREATH ANALYZER
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -485,7 +485,7 @@ BREATH ANALYZER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -526,7 +526,7 @@ BREATH ANALYZER
 	icon_state = "adv_spectrometer"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 0
 	throw_speed = 3
@@ -568,9 +568,10 @@ BREATH ANALYZER
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon_state = "price_scanner"
+	item_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
@@ -589,7 +590,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 0
@@ -698,7 +699,7 @@ BREATH ANALYZER
 	icon_state = "adv-analyzer"
 	item_state = "adv-analyzer"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
 	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 

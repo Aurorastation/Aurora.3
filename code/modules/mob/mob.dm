@@ -267,7 +267,13 @@
 			return M
 	return 0
 
+/**
+ * OLD PROC, DO NOT ADD SHIT TO IT ANYMORE
+ * USE `/datum/movespeed_modifier`s instead!
+ */
 /mob/proc/movement_delay()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(lying) //Crawling, it's slower
 		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
@@ -279,10 +285,24 @@
 		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
-/mob/proc/Life()
+/**
+ * Handles the biological and general over-time processes of the mob.
+ *
+ *
+ * Arguments:
+ * - seconds_per_tick: The amount of time that has elapsed since this last fired
+ * - times_fired: The number of times SSmobs has fired
+ */
+/mob/proc/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(LAZYLEN(spell_masters))
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
+
+	if(stat != DEAD)
+		return TRUE
 
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
@@ -504,19 +524,19 @@
 				failure = "You are not allowed to respawn."
 			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
 				return
-			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").")
 		else
 			if(failure != "")
 				to_chat(usr, SPAN_DANGER(failure))
 			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
+	log_game("[usr.name]/[usr.key] used abandon mob.")
 	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -524,7 +544,7 @@
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		qdel(M)
 		return
 
@@ -752,7 +772,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
-	SSmove_manager.stop_looping(AM)
+	GLOB.move_manager.stop_looping(AM)
 
 	if(pullin)
 		pullin.icon_state = "pull1"
@@ -1333,7 +1353,7 @@
 
 	SetWeakened(200)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
-	log_admin("[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "WIND")
@@ -1349,7 +1369,7 @@
 
 	SetWeakened(0)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
-	log_admin("[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "UNWIND")
@@ -1459,6 +1479,11 @@
 		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
 		if(!istype(check_body) || !check_body.protects_against_weather)
 			return
+		for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit, head))
+			for(var/obj/item/clothing/accessory/check_accessory in clothing)
+				if(!istype(check_accessory) || !check_accessory.protects_against_weather)
+					continue
+				LAZYADD(., check_accessory)
 		LAZYADD(., check_head)
 		LAZYADD(., check_body)
 
@@ -1473,12 +1498,12 @@
 	if(!T.is_outside())
 
 		// For non-multiz we'll give everyone some nice ambience.
-		if(!HasAbove(T.z))
+		if(!GET_TURF_ABOVE(T))
 			return WEATHER_ROOFED
 
 		// For multi-z, check the actual weather on the turf above.
 		// TODO: maybe make this a property of the z-level marker.
-		var/turf/above = GetAbove(T)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(above.weather)
 			return WEATHER_ROOFED
 
@@ -1492,10 +1517,36 @@
 
 	return WEATHER_EXPOSED
 
+///Apply a proper movespeed modifier based on items we have equipped
+/mob/proc/update_equipment_speed_mods()
+	var/speedies = 0
+	for(var/obj/item/thing in get_equipped_speed_mod_items())
+		speedies += (thing.slowdown + thing.slowdown_accessory)
+
+	if(speedies)
+		add_or_update_variable_movespeed_modifier(
+			/datum/movespeed_modifier/equipment_speedmod,
+			multiplicative_slowdown = speedies,
+		)
+	else
+		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
+
+///Get all items in our possession that should affect our movespeed
+/mob/proc/get_equipped_speed_mod_items()
+	. = list()
+	//Aurora BS
+	var/list/held_items = list()
+	held_items += l_hand
+	held_items += r_hand
+	//END AURORA BS
+	for(var/obj/item/thing in held_items)
+		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
+		. += thing
+
 /mob/proc/check_emissive_equipment()
 	var/old_zflags = z_flags
 	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(TRUE))
+	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
 		if(AM.z_flags & ZMM_MANGLE_PLANES)
 			z_flags |= ZMM_MANGLE_PLANES
 			break

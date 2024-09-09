@@ -163,8 +163,7 @@
 "ii" = (
 /obj/structure/table/rack/cafe_table,
 /obj/structure/window/urban{
-	dir = 4;
-	layer = 3.3
+	dir = 4
 	},
 /obj/item/mirror,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -219,9 +218,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "jN" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
@@ -293,8 +290,7 @@
 "mi" = (
 /obj/machinery/washing_machine,
 /obj/structure/window/urban{
-	dir = 4;
-	layer = 3.3
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -414,8 +410,7 @@
 	dir = 8
 	},
 /obj/structure/window/urban{
-	dir = 4;
-	layer = 3.3
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -467,9 +462,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "tn" = (
-/obj/structure/table/rack/clothing{
-	layer = 3.1
-	},
+/obj/structure/table/rack/clothing,
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang{
 	pixel_y = 9
 	},
@@ -832,9 +825,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_homestead)
 "Ip" = (
-/obj/structure/table/rack/clothing{
-	layer = 3.1
-	},
+/obj/structure/table/rack/clothing,
 /obj/item/clothing/under/konyangdresstraditional/red,
 /obj/item/clothing/under/konyangdresstraditional/national/vest,
 /obj/structure/window/urban{
@@ -846,9 +837,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "IL" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_homestead)
 "IM" = (
@@ -963,9 +952,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_homestead)
 "QV" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/konyang_homestead)
 "QY" = (
@@ -1049,9 +1036,7 @@
 	pixel_y = 8
 	},
 /obj/item/clothing/under/konyangdress,
-/obj/structure/table/rack/clothing{
-	layer = 3.1
-	},
+/obj/structure/table/rack/clothing,
 /obj/structure/window/urban{
 	dir = 8
 	},

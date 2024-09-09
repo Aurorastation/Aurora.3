@@ -9,7 +9,7 @@ export type APCData = {
   power_cell_charge: number;
   fail_time: number;
   silicon_user: BooleanLike;
-  is_AI: BooleanLike;
+  is_AI_or_robot: BooleanLike;
   total_load: number;
   total_charging: number;
   is_operating: BooleanLike;
@@ -171,7 +171,7 @@ export const APCWindow = (props, context) => {
                 [{channelStatus(channel.status)}] | [
                 {channelPower(channel.status)}] | {channel.power_load} W
               </Box>
-              {(!data.locked && !data.silicon_user) || data.is_AI ? (
+              {(!data.locked && !data.silicon_user) || data.is_AI_or_robot ? (
                 <Section>
                   <Button
                     content="Auto"
@@ -225,7 +225,7 @@ export const APCWindow = (props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      {data.silicon_user || data.is_AI ? (
+      {data.silicon_user || data.is_AI_or_robot ? (
         <Section title="System Overrides">
           <Button
             content="Overload Lighting Circuit"

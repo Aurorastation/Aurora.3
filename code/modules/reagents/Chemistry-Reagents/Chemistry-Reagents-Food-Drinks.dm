@@ -1014,7 +1014,10 @@
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
 	var/adj_temp = 0 //do NOT use for temp changes based on the temperature of the drinks, only for things such as spices.
-	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
+
+	///Strength of stimulant effect, since so many drinks use it - how fast it makes you move
+	var/caffeine = 0
+
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
 	fallback_specific_heat = 1.75
@@ -1025,10 +1028,15 @@
 /singleton/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	digest(M, alien, removed, holder = holder)
 
+/singleton/reagent/drink/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+
+	if(caffeine && (alien != IS_DIONA))
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+		M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine, TRUE, (caffeine * -1))
+
 /singleton/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
-		if (caffeine)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsiness = max(0, M.drowsiness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -1041,6 +1049,12 @@
 		M.bodytemperature = min(310, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if(adj_temp < 0 && M.bodytemperature > 310)
 		M.bodytemperature = min(310, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/singleton/reagent/drink/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(caffeine && (alien != IS_DIONA))
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+
+	. = ..()
 
 // Juices
 /singleton/reagent/drink/banana
@@ -2845,6 +2859,17 @@
 	glass_name = "glass of Flagsdale Mule"
 	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/skyemok
+	name = "Skye'mok mead"
+	description = "A traditional mead produced by V'krexi fermentation of the Skye'mok fungus."
+	strength = 25
+	taste_description = "fresh, tangy, and lingering taste"
+	color = "#8ae5bf"
+	glass_icon_state = "skyemok_glass"
+	glass_name = "glass of Skye'mok"
+	glass_desc = "A plastic recipient meant to look like a V'krexi head full of a gooey fungus."
+	glass_center_of_mass = list("x"=14, "y"=8)
 
 /* Alcohol */
 
@@ -5986,13 +6011,19 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/zorasoda/drone)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
 		if (prob(M.chem_doses[type]))
 			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 			M.vomit()
+
+/singleton/reagent/drink/zorasoda/drone/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/zorasoda/drone)
+
+	. = ..()
+
 
 /singleton/reagent/drink/zorasoda/jelly
 	name = "Royal Vaurca Jelly"
@@ -6350,6 +6381,28 @@
 	glass_name = "glass of forbidden apple"
 	glass_desc = "A champagne cocktail spiked with applejack and orange liqueur."
 
+/singleton/reagent/alcohol/ogogoro
+	name = "Ogogoro"
+	description = "A common Eridani dreg palm wine, it seems like it'll have a kick to it."
+	color = "#FFFFFF"
+	strength = 60
+	taste_description = "strong moonshine"
+
+	glass_icon_state = "ogogoro_glass"
+	glass_name = "glass of Ogogoro"
+	glass_desc = "A common Eridani dreg palm wine, it seems like it'll have a kick to it."
+
+/singleton/reagent/alcohol/burukutu
+	name = "Burukutu"
+	description = "A refined millet beer for the esteemed colleagues of the Spur."
+	color = "#6B391C"
+	strength = 6
+	taste_description = "millet beer"
+
+	glass_icon_state = "burukutu_glass"
+	glass_name = "gourd of Burukutu"
+	glass_desc = "Burukutu is traditionally served in a gourd; this is a mass-produced plastic alternative."
+
 /singleton/reagent/drink/gibbfloats
 	name = "Root-Cola Floats"
 	description = "A floating soda of icecream and Getmore Root-Cola."
@@ -6608,3 +6661,13 @@
 	glass_name = "lovebug boba"
 	glass_desc = "Ancient boba-tea marketing teams believed this cherry-strawberry flavored drink holds magical powers of love! What does that mean? Nobody knows!"
 	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/zobo
+	name = "Zobo"
+	description = "A roselle juice popular across Eridani, often drunk cold."
+	color = "#71192F"
+	taste_description = "hibiscus tea"
+
+	glass_icon_state = "zobo_glass"
+	glass_name = "glass of zobo"
+	glass_desc = "A roselle juice popular across Eridani, often drunk cold."

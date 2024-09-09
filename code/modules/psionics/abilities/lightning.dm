@@ -12,7 +12,7 @@
 	icon_state = "chain_lightning"
 	cast_methods = CAST_RANGED|CAST_USE
 	aspect = ASPECT_PSIONIC
-	spell_projectile = /obj/item/projectile/beam/psi_lightning
+	spell_projectile = /obj/projectile/beam/psi_lightning
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	cooldown = 10
 	psi_cost = 15
@@ -23,13 +23,13 @@
 	mode = !mode
 	if(mode)
 		to_chat(user, SPAN_NOTICE("You will now fire area-of-effect lightning in a 4x3 area in front of you."))
-		spell_projectile = /obj/item/projectile/beam/psi_lightning/wide
+		spell_projectile = /obj/projectile/beam/psi_lightning/wide
 
 	else
 		to_chat(user, SPAN_NOTICE("You will now fire a normal lightning bolt."))
-		spell_projectile = /obj/item/projectile/beam/psi_lightning
+		spell_projectile = /obj/projectile/beam/psi_lightning
 
-/obj/item/projectile/beam/psi_lightning
+/obj/projectile/beam/psi_lightning
 	name = "psionic lightning"
 	damage = 30
 	armor_penetration = 30
@@ -43,18 +43,18 @@
 	impact_type = /obj/effect/projectile/impact/tesla
 
 
-/obj/item/projectile/beam/psi_lightning/pellet
+/obj/projectile/beam/psi_lightning/pellet
 	damage = 20
 	armor_penetration = 20
 
-/obj/item/projectile/beam/psi_lightning/wide
+/obj/projectile/beam/psi_lightning/wide
 	damage = 20
 	armor_penetration = 20
 
-/obj/item/projectile/beam/psi_lightning/wide/Initialize()
+/obj/projectile/beam/psi_lightning/wide/Initialize()
 	. = ..()
 	for(var/i = 1 to 4)
 		var/turf/new_turf = get_random_turf_in_range(get_turf(firer), i + rand(0, i), 0, TRUE, FALSE)
-		var/obj/item/projectile/beam/psi_lightning/pellet/pellet = new type(new_turf)
+		var/obj/projectile/beam/psi_lightning/pellet/pellet = new type(new_turf)
 		var/turf/front_turf = get_step(pellet, pellet.dir)
-		INVOKE_ASYNC(pellet, TYPE_PROC_REF(/obj/item/projectile/beam/psi_lightning/pellet, launch_projectile), front_turf)
+		INVOKE_ASYNC(pellet, TYPE_PROC_REF(/obj/projectile/beam/psi_lightning/pellet, launch_projectile), front_turf)

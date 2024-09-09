@@ -1,0 +1,3272 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/vending/medical{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ah" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ao" = (
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"aD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"bm" = (
+/obj/machinery/vending/security,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"bB" = (
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"bC" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"bI" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"bN" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 28
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 24;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 24;
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"bW" = (
+/obj/item/modular_computer/console/preset/research{
+	dir = 1
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"ck" = (
+/obj/machinery/power/apc/hyper/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"dk" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"dm" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"dy" = (
+/obj/structure/closet/crate{
+	name = "surgical tables"
+	},
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"dU" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"eb" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "PEAC (Emergency Use Only)"
+	},
+/obj/item/gun/projectile/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac/he,
+/obj/item/ammo_casing/peac/he,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"ec" = (
+/obj/effect/floor_decal/industrial/outline_door/service{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ed" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/megaphone/command,
+/obj/item/device/megaphone/command,
+/obj/item/device/megaphone/command,
+/obj/item/device/megaphone/command,
+/obj/item/device/megaphone/command,
+/obj/item/device/megaphone/command,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/device/vending_refill/encryption,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"ex" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "shuttle_bridge_blast_doors"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"ez" = (
+/obj/effect/floor_decal/industrial/outline_door/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"eG" = (
+/obj/machinery/status_display/supply_display{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"fg" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/scc{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_blast_doors"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"fl" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"fQ" = (
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"gn" = (
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/structure/closet/crate{
+	name = "deployed workstation crate"
+	},
+/obj/item/storage/box/fancy/tray/machinist,
+/obj/item/storage/box/fancy/tray/machinist,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"gt" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"gL" = (
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"gX" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"gZ" = (
+/obj/item/modular_computer/console/preset/command/captain{
+	dir = 8;
+	density = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"hj" = (
+/obj/structure/closet/crate{
+	name = "anomaly suits"
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ho" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"hz" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
+"hG" = (
+/obj/item/device/gps/stationary{
+	gpstag = "DROPSHIP"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"hR" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"hU" = (
+/obj/structure/bed/handrail,
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"iv" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -3
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"iH" = (
+/obj/machinery/seed_extractor,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"iO" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	pixel_y = 5;
+	pixel_x = 6;
+	name = "External Blast Doors";
+	id = "shuttle_blast_doors"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	pixel_y = 5;
+	pixel_x = -6;
+	name = "Bridge Blast Shield";
+	id = "shuttle_bridge_blast_doors"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"iX" = (
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"jA" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"jE" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"kh" = (
+/obj/structure/table/standard,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/crowbar/red{
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"kl" = (
+/obj/structure/closet/wardrobe/pharmacy_white,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"kL" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
+"kY" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ll" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"lr" = (
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	dir = 8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"lI" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1;
+	name = "Power Maintanence";
+	req_access = list(103)
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"lO" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"mG" = (
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"mM" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"mX" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "556 ammo cabinet"
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"ns" = (
+/obj/structure/bed/handrail,
+/obj/structure/sign/directions/medical{
+	dir = 1;
+	pixel_y = 35
+	},
+/obj/structure/sign/directions/science{
+	pixel_y = 29;
+	dir = 1
+	},
+/obj/structure/sign/directions/security{
+	pixel_y = 23;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"nY" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ob" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/barbed_wire/full,
+/obj/item/stack/barbed_wire/full,
+/obj/item/stack/barbed_wire/full,
+/obj/item/stack/barbed_wire/full,
+/obj/item/stack/barbed_wire/full,
+/obj/item/stack/barbed_wire/full,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"oD" = (
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"oE" = (
+/obj/structure/bed/stool/chair/office/bridge{
+	name = "Captain Chair"
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Captain"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"oQ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 12;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"oX" = (
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/chem_master{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ph" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/structure/closet/crate{
+	name = "anomaly suits"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"pn" = (
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/chem_master{
+	anchored = 0
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"pY" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"qg" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"qi" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "office supplies"
+	},
+/obj/item/folder/purple,
+/obj/item/folder/purple,
+/obj/item/folder/purple,
+/obj/item/folder/purple,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/pen/black,
+/obj/item/pen/black,
+/obj/item/pen/black,
+/obj/item/pen/black,
+/obj/item/pen/black,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"qk" = (
+/obj/effect/floor_decal/industrial/outline_door/service{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"qs" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge";
+	req_one_access = list(19)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
+"qI" = (
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"rw" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/structure/closet/crate{
+	name = "insulated gloves crate"
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"rx" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"rC" = (
+/obj/structure/closet/secure_closet/bridge_crew,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"rU" = (
+/obj/machinery/door/airlock/glass{
+	dir = 2;
+	name = "Cryogenic Storage"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"rW" = (
+/obj/structure/closet/crate{
+	name = "hardhat and bands crate"
+	},
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"sc" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"sm" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"su" = (
+/obj/structure/closet/excavation,
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"sH" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/stack/material/wood/full{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"sO" = (
+/obj/machinery/suspension_gen{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"sW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"sX" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/photocopier/faxmachine{
+	pixel_y = 6;
+	department = "SCCV Apollo"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"tb" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"th" = (
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/rods/full,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"tD" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/storage/box/freezer/organcooler,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"tE" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"tO" = (
+/obj/item/modular_computer/console/preset/medical/cmo{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"ub" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"uf" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ui" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"um" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "GPS units"
+	},
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"uu" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"uI" = (
+/obj/machinery/suspension_gen{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"vc" = (
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
+	},
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
+"vW" = (
+/obj/structure/table/standard,
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/flashlight{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/device/flashlight{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/device/flashlight{
+	pixel_y = -3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"wv" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/hydroseeds{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"wA" = (
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
+"xc" = (
+/obj/structure/bed/handrail,
+/obj/structure/sign/directions/civ{
+	pixel_y = 32;
+	dir = 1
+	},
+/obj/structure/sign/directions/engineering{
+	pixel_y = 26;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"xA" = (
+/obj/structure/closet/crate,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"xH" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 4;
+	id_tag = "";
+	name = "Bridge Officer Preparation";
+	req_access = list(19)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
+"xK" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Research Director"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"yl" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"yr" = (
+/obj/machinery/light/floor{
+	pixel_x = 16
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"yz" = (
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"yR" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/dinnerware/bar{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"yT" = (
+/obj/structure/closet/crate{
+	name = "tools and gear crate"
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/ipc_tag_scanner,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"yZ" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/vending/medical{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"zf" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/obj/effect/floor_decal/industrial/outline_door/service{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"zp" = (
+/obj/item/modular_computer/console/preset/engineering/ce{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"zS" = (
+/obj/effect/landmark/scorcher,
+/turf/template_noop,
+/area/space)
+"Aa" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"AD" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "armor cabinet"
+	},
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Bg" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Bk" = (
+/obj/machinery/light/small/emergency{
+	brightness_range = 5;
+	dir = 1;
+	name = "adjusted emergency light";
+	pixel_y = 17
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"BO" = (
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"BS" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/structure/closet/crate{
+	name = "gas masks"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"BV" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Medical Officer"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Cl" = (
+/obj/structure/reagent_dispensers/cookingoil,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Co" = (
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"Dk" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Dm" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Dn" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Head of Security"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Dy" = (
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Dz" = (
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"DS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"En" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Eo" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Er" = (
+/obj/machinery/cryopod{
+	dir = 2
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"Et" = (
+/obj/machinery/vending/engivend{
+	anchored = 0
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Eu" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/hydronutrients{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"EN" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"ET" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Fc" = (
+/obj/structure/closet/crate{
+	name = "rapid fabrication crate"
+	},
+/obj/item/rfd/construction,
+/obj/item/rfd/construction,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/device/paint_sprayer,
+/obj/item/device/paint_sprayer,
+/obj/item/device/paint_sprayer,
+/obj/item/device/paint_sprayer,
+/obj/item/taperoll/engineering,
+/obj/item/taperoll/engineering,
+/obj/item/taperoll/engineering,
+/obj/item/taperoll/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Fg" = (
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Fh" = (
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Fl" = (
+/turf/simulated/wall/shuttle/scc,
+/area/scc_event_shuttle)
+"Gi" = (
+/obj/machinery/vending/engineering{
+	anchored = 0
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Gk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"Hc" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/boozeomat{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ho" = (
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Hp" = (
+/obj/structure/closet/crate,
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"HD" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"HE" = (
+/obj/structure/closet/crate{
+	name = "pharmacy equipment"
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/item/screwdriver,
+/obj/item/storage/box/fancy/vials,
+/obj/item/storage/box/fancy/vials,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/device/hand_labeler,
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Id" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Iq" = (
+/obj/machinery/vending/encryption{
+	pixel_y = 29
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Ir" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/closet/crate{
+	name = "cooking seasonings"
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice,
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"IC" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"IS" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"IW" = (
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Jc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Jd" = (
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"JZ" = (
+/obj/structure/closet/secure_closet/freezer/kois/spores,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ld" = (
+/obj/structure/closet/crate{
+	name = "surgical crate"
+	},
+/obj/item/storage/box/fancy/tray,
+/obj/item/storage/box/fancy/tray,
+/obj/item/storage/box/fancy/tray,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ln" = (
+/obj/structure/closet/wardrobe/red,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Lp" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm cabinet"
+	},
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Lz" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"LD" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"LE" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"LN" = (
+/turf/template_noop,
+/area/space)
+"LR" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ma" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/vending/robotics{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ms" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "observational equipment"
+	},
+/obj/item/device/camera,
+/obj/item/device/camera,
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/device/camera_film,
+/obj/item/device/camera_film,
+/obj/item/storage/box/fancy/vials,
+/obj/item/storage/box/fancy/vials,
+/obj/item/storage/box/samplebags,
+/obj/item/storage/box/samplebags,
+/obj/item/storage/box/beakers,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Mu" = (
+/obj/structure/closet/crate/solar,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Mz" = (
+/obj/structure/closet/excavation,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"MJ" = (
+/obj/structure/closet/crate{
+	name = "cooking surfaces parts"
+	},
+/obj/item/circuitboard/stove,
+/obj/item/circuitboard/stove,
+/obj/item/circuitboard/grill,
+/obj/item/circuitboard/grill,
+/obj/item/circuitboard/oven,
+/obj/item/circuitboard/oven,
+/obj/item/circuitboard/fryer,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Nu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"NK" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Chief Engineer"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"NW" = (
+/obj/structure/closet/crate{
+	name = "autolathe crate"
+	},
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow,
+/obj/item/circuitboard/autolathe,
+/obj/item/circuitboard/autolathe,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Od" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Executive Officer"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Og" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Pt" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = -3;
+	pixel_x = -8
+	},
+/obj/item/stack/material/glass/reinforced/full{
+	pixel_y = -3;
+	pixel_x = 8
+	},
+/obj/item/stack/material/glass/reinforced/full{
+	pixel_y = -3;
+	pixel_x = 8
+	},
+/obj/item/stack/material/plasteel/full{
+	pixel_y = 9;
+	pixel_x = -8
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Py" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "rifle and carbine cabinet"
+	},
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"PE" = (
+/obj/machinery/smartfridge/secure/medbay,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Qp" = (
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"QG" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"QM" = (
+/obj/structure/closet/crate,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ru" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "sterile gloves"
+	},
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"RV" = (
+/obj/machinery/vending/tool{
+	anchored = 0
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"RX" = (
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ST" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Tg" = (
+/obj/effect/floor_decal/industrial/outline_door/security,
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Tj" = (
+/obj/structure/closet/crate,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/bloodpacks,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Tn" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Operations Manager"
+	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Tz" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"TC" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm ammo cabinet"
+	},
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"TL" = (
+/obj/machinery/door/airlock/glass_security,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
+"TZ" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "";
+	name = "Bridge Officer Preparation";
+	req_access = list(19)
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
+"Ul" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Uo" = (
+/obj/item/modular_computer/console/preset/supply{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Uu" = (
+/obj/structure/closet/crate{
+	name = "toolbelts and gear crate"
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ux" = (
+/obj/structure/bed/handrail,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Vy" = (
+/obj/machinery/power/smes/magical,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"VZ" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"Wq" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/plasteel/full{
+	pixel_y = 0;
+	pixel_x = -6
+	},
+/obj/item/stack/material/plasteel/full{
+	pixel_y = 0;
+	pixel_x = -6
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/item/stack/material/cardboard/full{
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Wy" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"WN" = (
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/chemical_dispenser/full{
+	dir = 1;
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Xc" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 0;
+	pixel_x = -5
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 0;
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Xq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/cryopod{
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"Yd" = (
+/obj/machinery/door/blast/regular{
+	id = "shuttle_blast_doors"
+	},
+/turf/simulated/floor,
+/area/scc_event_shuttle)
+"Yg" = (
+/obj/effect/floor_decal/industrial/outline_straight/service,
+/obj/machinery/light/floor{
+	dir = 4;
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Yl" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/vending/dinnerware{
+	anchored = 0
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Yy" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"YA" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = -8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"YL" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Zf" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/item/device/gps{
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"Zp" = (
+/obj/structure/closet/crate{
+	name = "insulated gloves crate"
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+
+(1,1,1) = {"
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+"}
+(2,1,1) = {"
+LN
+LN
+LN
+LN
+Fl
+Fl
+Fl
+Fl
+Fl
+Yd
+Yd
+Yd
+Fl
+Fl
+Fl
+Fl
+fg
+fg
+fg
+fg
+Fl
+wA
+vc
+Fl
+Fl
+Fl
+Fl
+LN
+LN
+"}
+(3,1,1) = {"
+LN
+LN
+LN
+Fl
+Fl
+Fl
+oX
+WN
+Ho
+DS
+DS
+DS
+IC
+dy
+Fl
+ui
+ui
+ui
+ui
+ui
+jE
+IS
+Bg
+Fl
+rx
+rx
+Fl
+Fl
+LN
+"}
+(4,1,1) = {"
+LN
+Fl
+Fl
+Fl
+Vy
+Fl
+pn
+WN
+Ho
+Ho
+Ho
+Ho
+IC
+Ld
+Fl
+Ux
+YL
+YL
+YL
+YL
+yl
+mG
+lr
+Fl
+hG
+rx
+rx
+Fl
+Fl
+"}
+(5,1,1) = {"
+zS
+Co
+Fl
+ck
+Tz
+lI
+Aa
+Ho
+ao
+tD
+tD
+BO
+IC
+IC
+Fl
+Ux
+YL
+YL
+YL
+YL
+yl
+gt
+oD
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+"}
+(6,1,1) = {"
+zS
+Co
+Fl
+Bk
+fQ
+Fl
+ac
+ac
+Ho
+Dz
+Dm
+Ho
+IC
+ac
+Fl
+Og
+sm
+hR
+sm
+sm
+kY
+mG
+Tg
+TZ
+jA
+Jd
+Eo
+rC
+Fl
+"}
+(7,1,1) = {"
+LN
+Fl
+Fl
+Fl
+Fl
+Fl
+ac
+ac
+Ho
+QM
+bC
+Ho
+tb
+yZ
+Fl
+uf
+uf
+uf
+uf
+uf
+LR
+mG
+oD
+Fl
+kh
+Ho
+Ho
+rC
+Fl
+"}
+(8,1,1) = {"
+LN
+LN
+Fl
+Er
+aD
+Fl
+PE
+PE
+Ho
+Hp
+xA
+Ho
+gn
+bI
+Fl
+hU
+Wy
+Wy
+Wy
+Wy
+uu
+mG
+oD
+Fl
+vW
+Ho
+Nu
+rC
+Fl
+"}
+(9,1,1) = {"
+LN
+Fl
+Fl
+Er
+Gk
+rU
+ec
+Ho
+Dk
+Lz
+En
+Dk
+Zp
+bI
+Fl
+hU
+Wy
+Wy
+Wy
+Wy
+uu
+mG
+oD
+Fl
+Fl
+xH
+Fl
+Fl
+Fl
+"}
+(10,1,1) = {"
+zS
+Co
+Fl
+Er
+Gk
+Fl
+Ho
+Ho
+Ho
+Tj
+dk
+Ho
+Ho
+Ma
+Fl
+Og
+sm
+hR
+sm
+sm
+kY
+mG
+oD
+Fl
+ed
+mG
+Od
+bB
+Fl
+"}
+(11,1,1) = {"
+zS
+Co
+Fl
+Er
+Xq
+Fl
+LD
+Ho
+Ho
+fl
+HE
+Ho
+Ho
+yT
+Fl
+uf
+uf
+uf
+uf
+uf
+LR
+mG
+Tg
+qs
+HD
+mG
+Tn
+VZ
+ex
+"}
+(12,1,1) = {"
+LN
+Fl
+Fl
+Fl
+Fl
+Fl
+Ho
+Ho
+ao
+th
+kl
+BO
+Ho
+Ho
+Fl
+ns
+qg
+qg
+qg
+qg
+Jc
+mG
+oD
+Fl
+Fh
+mG
+Dy
+sX
+ex
+"}
+(13,1,1) = {"
+LN
+LN
+Fl
+ho
+BO
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+ez
+kL
+zf
+mG
+mG
+mG
+mG
+mG
+yr
+qI
+Fl
+oE
+mG
+Dy
+iO
+ex
+"}
+(14,1,1) = {"
+LN
+LN
+Fl
+ob
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+ez
+hz
+qk
+mG
+mG
+mG
+mG
+mG
+mG
+qI
+Fl
+gZ
+mG
+BV
+tO
+ex
+"}
+(15,1,1) = {"
+LN
+Fl
+Fl
+dU
+Ho
+Ho
+NW
+Fg
+ao
+Yl
+Hc
+BO
+hj
+sO
+Fl
+xc
+Yy
+Yy
+Yy
+Yy
+mM
+mG
+oD
+Fl
+Iq
+mG
+NK
+zp
+ex
+"}
+(16,1,1) = {"
+zS
+Co
+Fl
+sH
+BO
+Ho
+Ho
+Ho
+Ho
+JZ
+yR
+Ho
+ph
+uI
+Fl
+sm
+sm
+sm
+sm
+sm
+kY
+mG
+Tg
+qs
+HD
+mG
+xK
+bW
+ex
+"}
+(17,1,1) = {"
+zS
+Co
+Fl
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+JZ
+ah
+Ho
+Ms
+BS
+Fl
+Ul
+uf
+tE
+uf
+uf
+LR
+mG
+oD
+Fl
+sW
+eG
+Dn
+Uo
+Fl
+"}
+(18,1,1) = {"
+LN
+Fl
+Fl
+RV
+Mu
+iX
+wv
+Eu
+Ho
+lO
+Ir
+Ho
+qi
+Ru
+Fl
+Ux
+YL
+YL
+YL
+YL
+yl
+mG
+oD
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+"}
+(19,1,1) = {"
+LN
+LN
+Fl
+Et
+rw
+Ho
+IW
+iH
+Dk
+lO
+ST
+Dk
+yz
+um
+Fl
+Ux
+YL
+YL
+YL
+YL
+yl
+mG
+oD
+Fl
+Py
+mX
+Lp
+TC
+Fl
+"}
+(20,1,1) = {"
+LN
+Fl
+Fl
+Gi
+Uu
+Dk
+ll
+RX
+Ho
+ST
+ST
+Ho
+yz
+LE
+Fl
+sm
+sm
+sm
+sm
+sm
+kY
+mG
+oD
+Fl
+Id
+Id
+Id
+Id
+Fl
+"}
+(21,1,1) = {"
+zS
+Co
+Fl
+Pt
+rW
+Ho
+gL
+RX
+Ho
+ST
+ST
+Ho
+yz
+LE
+Fl
+Ul
+uf
+tE
+uf
+uf
+LR
+mG
+oD
+TL
+pY
+Id
+Id
+Ln
+Fl
+"}
+(22,1,1) = {"
+zS
+Co
+Fl
+bI
+Fc
+Qp
+MJ
+Cl
+ao
+ST
+ST
+BO
+nY
+nY
+Fl
+hU
+Wy
+Wy
+Wy
+Wy
+uu
+gt
+oD
+Fl
+bN
+Id
+Id
+bm
+Fl
+"}
+(23,1,1) = {"
+LN
+Fl
+Fl
+Fl
+Wq
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Ho
+Mz
+ub
+Fl
+hU
+Wy
+Wy
+Wy
+Wy
+uu
+mG
+Yg
+Fl
+oQ
+Id
+Id
+Zf
+Fl
+"}
+(24,1,1) = {"
+LN
+LN
+LN
+Fl
+Fl
+Xc
+YA
+sc
+Mz
+Mz
+Mz
+Mz
+su
+iv
+Fl
+dm
+dm
+dm
+dm
+dm
+QG
+EN
+ET
+Fl
+eb
+AD
+Id
+gX
+Fl
+"}
+(25,1,1) = {"
+LN
+LN
+LN
+LN
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+fg
+fg
+fg
+fg
+Fl
+wA
+vc
+Fl
+Fl
+Fl
+Fl
+Fl
+Fl
+"}
+(26,1,1) = {"
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+LN
+"}

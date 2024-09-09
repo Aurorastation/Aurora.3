@@ -29,7 +29,7 @@
 	var/pressure_alert = 0
 	var/temperature_alert = 0
 
-/mob/living/carbon/human/Life()
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
 		return
 
@@ -185,9 +185,8 @@
 	if (disabilities & COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
+			emote("cough")
+			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))
@@ -643,18 +642,12 @@
 			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-		move_delay_mod = 0
 
 		if(CE_ADRENALINE in chem_effects)
 			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
 			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
-
-		if(CE_SPEEDBOOST in chem_effects)
-			sprint_speed_factor += 0.2 * chem_effects[CE_SPEEDBOOST]
-			stamina_recovery *= 1 + 0.3 * chem_effects[CE_SPEEDBOOST]
-			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
 		var/obj/item/clothing/C = wear_suit
 		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
@@ -944,13 +937,13 @@
 				// Add wound overlays
 				for(var/obj/item/organ/external/O in organs)
 					if(O.damage_state == "00") continue
-					var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
+					var/cache_index = "[O.damage_state]/[O.icon_name]/[get_blood_color()]/[species.get_bodytype()]"
 					var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 					var/icon/DI = damage_icon_parts[cache_index]
 					if(!DI)
 						DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 						DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
-						DI.Blend(species.blood_color, ICON_MULTIPLY)
+						DI.Blend(get_blood_color(), ICON_MULTIPLY)
 						damage_icon_parts[cache_index] = DI
 					health_images += DI
 					if(O.is_stump())

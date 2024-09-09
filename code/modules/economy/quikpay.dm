@@ -5,7 +5,7 @@
 	desc = "Swipe your ID to make direct company purchases."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "quikpay"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/machine_id = ""
 	var/list/items = list()

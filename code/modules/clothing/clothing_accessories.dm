@@ -103,19 +103,19 @@
 		for(var/obj/item/clothing/accessory/A in accessories)
 			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
-/obj/item/clothing/proc/update_accessory_slowdown()
+/obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		slowdown_accessory += bling.slowdown
+	user?.update_equipment_speed_mods()
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
 	A.on_attached(src, user)
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
-	update_accessory_slowdown()
+	update_accessory_slowdown(user)
 	recalculate_body_temperature_change()
-	recalculate_item_size()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -124,17 +124,8 @@
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
-	update_accessory_slowdown()
+	update_accessory_slowdown(user)
 	recalculate_body_temperature_change()
-	recalculate_item_size()
-
-/obj/item/clothing/proc/recalculate_item_size()
-	w_class = initial(w_class)
-
-	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
-		w_class += accessory.accessory_w_class_adjustment
-
-	w_class = Clamp(Ceil(w_class), ITEMSIZE_TINY, ITEMSIZE_IMMENSE)
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"

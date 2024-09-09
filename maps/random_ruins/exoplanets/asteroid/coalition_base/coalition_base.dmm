@@ -203,7 +203,6 @@
 "eG" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/toothbrush,
@@ -659,8 +658,7 @@
 /area/coalition_base/hydroponics)
 "lw" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
-	layer = 3.5
+	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -744,8 +742,7 @@
 /area/coalition_base/medbay)
 "mL" = (
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/coalition_base/telecomms)
@@ -1011,7 +1008,6 @@
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,

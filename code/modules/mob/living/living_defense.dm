@@ -23,7 +23,7 @@
 		if(armor)
 			. += armor
 
-/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
+/mob/living/bullet_act(var/obj/projectile/P, var/def_zone, var/used_weapon = null)
 
 	//Being hit while using a cloaking device
 	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
@@ -86,7 +86,7 @@
 			break
 
 //For visuals, blood splatters and so on.
-/mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
+/mob/living/proc/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	var/list/impact_sounds = LAZYACCESS(P.impact_sounds, get_bullet_impact_effect_type(def_zone))
 	if(length(impact_sounds))
 		playsound(src, pick(impact_sounds), 75)
@@ -166,17 +166,17 @@
 	return apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 //this proc handles being hit by a thrown atom
-/mob/living/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
-	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
+/mob/living/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(!aura_check(AURA_TYPE_THROWN, hitting_atom, throwingdatum.speed))
 		return
-	if(isobj(AM))
-		var/obj/O = AM
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
+		var/throw_damage = O.throwforce*(throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/miss_chance = 15
-		if (O.throw_source)
-			var/distance = get_dist(O.throw_source, loc)
+		if (O.throwing?.thrower?.resolve())
+			var/distance = get_dist(O.throwing?.thrower?.resolve(), loc)
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
@@ -187,10 +187,10 @@
 		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."))
 		apply_damage(throw_damage, dtype, null, damage_flags = O.damage_flags(), used_weapon = O)
 
-		O.throwing = 0		//it hit, so stop moving
+		O.throwing?.finalize(hit = TRUE, target = src)		//it hit, so stop moving
 
-		if(ismob(O.thrower))
-			var/mob/M = O.thrower
+		if(ismob(O.throwing?.thrower?.resolve()))
+			var/mob/M = O.throwing?.thrower?.resolve()
 			var/client/assailant = M.client
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
@@ -203,10 +203,10 @@
 		if(istype(O, /obj/item))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-		var/momentum = speed*mass
+		var/momentum = throwingdatum.speed*mass
 
-		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
-			var/dir = get_dir(O.throw_source, src)
+		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
+			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
 							SPAN_WARNING("You stagger under the impact!"))
@@ -235,6 +235,7 @@
 	src.embedded += O
 	add_verb(src, /mob/proc/yank_out_object)
 
+///This is called when the mob is thrown into a dense turf
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message(SPAN_DANGER("[src] slams into \the [T]!"))
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
