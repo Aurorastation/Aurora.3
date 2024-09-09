@@ -47,14 +47,41 @@
 	faction = "Hro'zamal"
 
 	var/starting_nutrition = 100
+	/// When this threshold is reached, grow the Schlorrgo
 	var/nutrition_threshold = 80
 
+	/// Current size of the Schlorrgo.
 	var/current_size = BABY_SCHLORRGO
+
+	/// How many eggs the Schlorrgo is able to lay
+	var/eggs_left = 0
+	/// Bigger Schlorrgos can lay more eggs. Starts to increase after schlorrgo becomes fat. When set to 0, Schlorrgo will never lay eggs
+	var/max_eggs = 0
 
 /mob/living/simple_animal/schlorrgo/Initialize()
 	. = ..()
 	nutrition = starting_nutrition
 	check_wideness_change()
+
+/mob/living/simple_animal/schlorrgo/Life(seconds_per_tick, times_fired)
+	. =..()
+	if(!.)
+		return
+	if(!stat && prob(99) && eggs_left > 0) // Only fat schlorrgos lay eggs
+		lay_egg()
+
+/mob/living/simple_animal/schlorrgo/proc/lay_egg()
+	// If colossal, high chance for egg to be crushed under weight.....
+	if(current_size == COLOSSAL_SCHLORRGO && prob(75))
+		visible_message("[src] attempts to lift up high enough to lay an egg, but fails, crushing the egg!")
+		audible_emote("cries out in agony!",0)
+		make_noise()
+		eggs_left--
+		new /obj/effect/decal/cleanable/egg_smudge(get_turf(src))
+		return
+	visible_message("[src] lays an egg.")
+	eggs_left--
+	new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src))
 
 /mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
 	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)
@@ -93,6 +120,8 @@
 
 /mob/living/simple_animal/schlorrgo/process_food()
 	..()
+	if(prob(6) && eggs_left < max_eggs) // Change to add egg when fat
+		eggs_left += 1 // only +1 since this can proc often
 	check_wideness_change()
 
 /mob/living/simple_animal/schlorrgo/proc/check_wideness_change()
@@ -152,6 +181,7 @@
 			icon_living = "schlorrgo_fat"
 			icon_dead = "schlorrgo_fat_dead"
 			holder_type = /obj/item/holder/schlorrgo/fat
+			max_eggs = 3
 
 		if(FAT_SCHLORRGO)
 			if(!named)
@@ -168,6 +198,7 @@
 			icon_state = "schlorrgo_wide"
 			icon_living = "schlorrgo_wide"
 			icon_dead = "schlorrgo_wide_dead"
+			response_help = "rubs [name]'s belly"
 			melee_damage_lower = 15
 			melee_damage_upper = 15
 			attacktext = "crushed"
@@ -178,6 +209,7 @@
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 			holder_type = null
+			max_eggs = 6
 
 		if(WIDE_SCHLORRGO)
 			if(!named)
@@ -195,6 +227,7 @@
 			icon_living = "schlorrgo_colossal"
 			icon_dead = "schlorrgo_colossal_dead"
 			response_help = "rubs a part of the [name]'s fat mass"
+			emote_see = list("attempts to roll")
 			pixel_x = -8
 			anchored = TRUE
 			opacity = TRUE
@@ -202,12 +235,14 @@
 			melee_damage_upper = 25
 			environment_smash = 2
 			resistance = 3
-			mob_bump_flag = HEAVY // Oh lord he comin
-			mob_swap_flags = HEAVY
-			mob_push_flags = HEAVY
+			mob_bump_flag = ALLMOBS // Oh lord he comin
+			mob_swap_flags = ALLMOBS
+			mob_push_flags = ALLMOBS
+			can_be_buckled = FALSE
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 			holder_type = null
+			max_eggs = 9
 
 	update_icon()
 
