@@ -76,6 +76,7 @@
 	data["machine_id"] = machine_id
 	data["station_account_number"] = "[SSeconomy.station_account.account_number]"
 	data["station_account_money"] = SSeconomy.station_account.money
+
 	data["accounts"] = list()
 	if(get_access_level())
 		var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()
