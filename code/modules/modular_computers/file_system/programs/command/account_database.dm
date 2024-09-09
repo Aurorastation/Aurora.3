@@ -9,7 +9,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 4 // primarily cloud computing
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
+	usage_flags = PROGRAM_CONSOLE
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "AccountDatabase"
 
@@ -32,9 +32,6 @@
 	return held_card
 
 /datum/computer_file/program/account_db/proc/get_access_level()
-	// If AI program, give command access
-	if (isAI(ui_host()) || computer.hardware_flag & PROGRAM_SILICON_AI)
-		return 1
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
 		return 0
@@ -71,10 +68,6 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/is_ai = FALSE
-	if(isAI(ui_host()) || (computer.hardware_flag & PROGRAM_SILICON_AI))
-		is_ai = TRUE
-
 	var/obj/item/card/id/held_card = get_held_card()
 
 	data["has_printer"] = !!computer.nano_printer
@@ -83,7 +76,6 @@
 	data["machine_id"] = machine_id
 	data["station_account_number"] = "[SSeconomy.station_account.account_number]"
 	data["station_account_money"] = SSeconomy.station_account.money
-	data["is_ai"] = is_ai
 	data["accounts"] = list()
 	if(get_access_level())
 		var/list/SSeconomy_accounts = centcomm_db ? SSeconomy.all_money_accounts : SSeconomy.get_public_accounts()

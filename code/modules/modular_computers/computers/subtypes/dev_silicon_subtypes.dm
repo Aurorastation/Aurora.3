@@ -16,7 +16,6 @@
 	hard_drive.store_file(new /datum/computer_file/program/docks(src))
 	hard_drive.store_file(new /datum/computer_file/program/implant_tracker(src))
 	hard_drive.store_file(new /datum/computer_file/program/guntracker(src))
-	hard_drive.store_file(new /datum/computer_file/program/account_db(src))
 	hard_drive.store_file(new /datum/computer_file/program/comm(src))
 
 /obj/item/modular_computer/silicon/robot
