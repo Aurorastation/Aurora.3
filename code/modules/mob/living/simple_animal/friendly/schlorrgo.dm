@@ -67,7 +67,7 @@
 	. =..()
 	if(!.)
 		return
-	if(!stat && prob(99) && eggs_left > 0) // Only fat schlorrgos lay eggs
+	if(!stat && prob(3) && eggs_left > 0) // Only fat schlorrgos lay eggs
 		lay_egg()
 
 /mob/living/simple_animal/schlorrgo/proc/lay_egg()
@@ -235,9 +235,9 @@
 			melee_damage_upper = 25
 			environment_smash = 2
 			resistance = 3
-			mob_bump_flag = ALLMOBS // Oh lord he comin
-			mob_swap_flags = ALLMOBS
-			mob_push_flags = ALLMOBS
+			mob_bump_flag = HEAVY // Oh lord he comin
+			mob_swap_flags = HEAVY
+			mob_push_flags = HEAVY
 			can_be_buckled = FALSE
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
