@@ -335,7 +335,6 @@
 	M.make_jittery(5 + holder.reagent_data[type]["special"])
 	M.drowsiness = max(0,M.drowsiness - (1 + holder.reagent_data[type]["special"]*0.1))
 	if(holder.reagent_data[type]["special"] > 5)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.apply_effect(1 + holder.reagent_data[type]["special"]*0.25, STUTTER)
 		M.druggy = max(M.druggy, holder.reagent_data[type]["special"]*0.25)
 		M.make_jittery(holder.reagent_data[type]["special"])
@@ -392,6 +391,10 @@
 	overdose = 10
 	strength = 3
 
+/singleton/reagent/toxin/stimm/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/stimm)
+
 /singleton/reagent/toxin/stimm/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
@@ -403,7 +406,10 @@
 	if(prob(5)) // average of 6 brute every 20 seconds.
 		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0)
-	M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+
+/singleton/reagent/toxin/stimm/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/stimm)
+	. = ..()
 
 /singleton/reagent/toxin/krok
 	name = "Krok Juice"
@@ -589,17 +595,19 @@
 	if(prob(2))
 		to_chat(M, SPAN_GOOD(pick("You have a renewed sense of focus.", "You feel more determined to get things done.", "You feel more confident in your own abilities.", "Your head-space feels tidy and organised - now's the time to get to work.", "You could climb a mountain right now!")))
 
-/singleton/reagent/drugs/skrell_nootropic/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	if(M.psi && psi_boosted)
-		M.psi.max_stamina = initial_stamina
-		psi_boosted = FALSE
-
 /singleton/reagent/drugs/skrell_nootropic/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	M.add_chemical_effect(CE_SPEEDBOOST, 0.5)
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/skrell_nootropic)
 	if(prob(25))
 		M.add_chemical_effect(CE_NEPHROTOXIC, 0.5)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("You can't allow anyone to get between you and your tasks.", "You feel like screaming at the next person who interrupts you.", "No one can stop you!", "You can power through this...")))
+
+/singleton/reagent/drugs/skrell_nootropic/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/skrell_nootropic)
+	if(M.psi && psi_boosted)
+		M.psi.max_stamina = initial_stamina
+		psi_boosted = FALSE
+	. = ..()
 
 /singleton/reagent/drugs/cocaine
 	name = "Cocaine"
@@ -723,10 +731,14 @@
 	initial_effect_message_list = list("A heat builds within you.", )
 	sober_message_list = list("The heat within you begins to dull...")
 
+/singleton/reagent/drugs/dionae_stimulant/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	if(alien == IS_DIONA)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
+
 /singleton/reagent/drugs/dionae_stimulant/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	if(alien == IS_DIONA)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		if(prob(5))
 			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
 			M.emote(pick("chirp", "twitch", "shiver"))
@@ -747,6 +759,11 @@
 			if(!glow)
 				new /obj/effect/decal/cleanable/greenglow(T)
 			return
+
+/singleton/reagent/drugs/dionae_stimulant/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(alien == IS_DIONA)
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
+	. = ..()
 
 #undef DRUG_MESSAGE_DELAY
 

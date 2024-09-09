@@ -728,10 +728,13 @@
 	color = "#FF3300"
 	metabolism = REM * 0.15
 	overdose = 15
-	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+
+/singleton/reagent/hyperzine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/hyperzine)
 
 /singleton/reagent/hyperzine/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
@@ -748,7 +751,6 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 		to_chat(M, SPAN_GOOD(pick("You feel pumped!", "Energy, energy, energy - so much energy!", "You could run a marathon!", "You can't sit still!", "It's difficult to focus right now... but that's not important!")))
 	if(check_min_dose(M, 0.5))
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_PULSE, 1)
 
 /singleton/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -761,9 +763,9 @@
 		M.take_organ_damage(5 * removed, 0)
 		M.adjustHalLoss(15)
 
-/singleton/reagent/hyperzine/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
+/singleton/reagent/hyperzine/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/hyperzine)
+	. = ..()
 
 #define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
 #define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
@@ -1346,13 +1348,21 @@
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
+
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	. = ..()
+
 	if(isunathi(M))
-		M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/kokoreed)
+
+/singleton/reagent/mental/kokoreed/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(isunathi(M))
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/kokoreed)
+
+	. = ..()
 
 /singleton/reagent/cataleptinol
 	name = "Cataleptinol"
@@ -1849,7 +1859,7 @@
 /singleton/reagent/kilosemine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/kilosemine)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
 		M.add_chemical_effect(CE_PAINKILLER, 30)
@@ -1875,6 +1885,10 @@
 				if(heart)
 					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
 					heart.take_internal_damage(10)
+
+/singleton/reagent/kilosemine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/kilosemine)
+	. = ..()
 
 /singleton/reagent/antiparasitic
 	name = "Helmizole"
@@ -1933,6 +1947,11 @@
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
 
+/singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+	M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+	M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine, TRUE, -0.35)
+
 /singleton/reagent/caffeine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
 		return 0 // Takes effect instantly.
@@ -1947,7 +1966,6 @@
 /singleton/reagent/caffeine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
-	M.add_chemical_effect(CE_SPEEDBOOST, 0.35) // Coffee = 0.3, Zora Soda = 0.4, Thirteen Loko = 0.5. Seems fine here, if a bit low.
 	M.make_jittery(5)
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
@@ -1955,6 +1973,10 @@
 		M.emote(pick("twitch", "blink_r", "shiver"))
 		M.take_organ_damage(5 * removed, 0)
 		M.adjustHalLoss(15)
+
+/singleton/reagent/caffeine/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+	. = ..()
 
 /singleton/reagent/caffeine/Destroy()
 	QDEL_NULL(modifier)

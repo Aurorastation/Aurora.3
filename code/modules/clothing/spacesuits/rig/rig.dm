@@ -426,7 +426,9 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			slowdown = initial(slowdown)
+			if(slowdown != initial(slowdown))
+				slowdown = initial(slowdown)
+				wearer?.update_equipment_speed_mods()
 
 	set_vision(!offline)
 	if(offline)
@@ -435,7 +437,9 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			slowdown = offline_slowdown
+			if(slowdown != offline_slowdown)
+				slowdown = offline_slowdown
+				wearer?.update_equipment_speed_mods()
 		return
 
 	if(crushing)
