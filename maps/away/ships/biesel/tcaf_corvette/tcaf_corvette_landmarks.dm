@@ -1,11 +1,11 @@
 // Lift
 /datum/shuttle/autodock/multi/lift/tcaf
 	name = "TCAF Lift"
-	current_location = "nav_tcaf_lift_second_deck"
+	current_location = "nav_tcaf_lift_first_deck"
 	shuttle_area = /area/turbolift/tcaf_corvette/tcaf_lift
 	destination_tags = list(
 		"nav_tcaf_lift_first_deck",
-		"nav_tcaf_lift_second_deck"
+		"nav_tcaf_lift_second_deck",
 		)
 
 /obj/effect/shuttle_landmark/lift/tcaf_first_deck

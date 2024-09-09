@@ -111,7 +111,7 @@
 	colors = list("#263aeb", "#3d8cfa")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 3000 //very inefficient pod
+	vessel_mass = 2500 // Same as the SCCV Canary
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
