@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: GeneralCamo
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Changed the minimum height of baseline, bishop, and mobility IPCs from 100cm to 120cm."
-  - qol: "Changed the minimum height of shell IPCs from 100cm to 145cm."
-  - qol: "Changed the minimum height of G1, G2, and xion IPCs from 100cm to 180cm."
+  - bugfix: "Database Freighter shuttle fuel pump now faces the correct direction."
+  - bugfix: "Database Freighter shuttle canister now holds more air, and other docking fixes."
