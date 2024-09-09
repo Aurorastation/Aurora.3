@@ -379,14 +379,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/crew)
-"dK" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/lino,
-/area/tcaf_corvette/messhall)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -474,10 +466,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/computer/ship/engines/terminal{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
 "ed" = (
@@ -535,11 +527,11 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/forensics)
 "ez" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/forensics)
+/turf/simulated/floor/tiled/gridded,
+/area/tcaf_corvette/engine)
 "eS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
@@ -700,8 +692,8 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/computer/ship/navigation/terminal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
 "gb" = (
@@ -1547,12 +1539,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
-"oc" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/engine)
 "oo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1567,9 +1553,6 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/engineering)
-"ou" = (
-/turf/simulated/wall/shuttle/legion,
-/area/tcaf_corvette/freezer)
 "ow" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -1678,14 +1661,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
-"pD" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/lino,
-/area/tcaf_corvette/messhall)
 "pE" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 1
@@ -1906,9 +1881,13 @@
 /turf/simulated/open/airless,
 /area/tcaf_corvette/exterior)
 "rV" = (
-/obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/lounge)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/lino,
+/area/tcaf_corvette/messhall)
 "si" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
@@ -1994,6 +1973,16 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
+"tr" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/tcaf_corvette/freezer)
 "ty" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2030,13 +2019,11 @@
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "uc" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
 	},
-/turf/simulated/floor/lino,
-/area/tcaf_corvette/messhall)
+/turf/simulated/floor/tiled/gridded,
+/area/tcaf_corvette/engine)
 "uf" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2063,6 +2050,14 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/engineering)
+"uk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/lino,
+/area/tcaf_corvette/messhall)
 "um" = (
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
@@ -2142,14 +2137,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
-"uY" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/lino,
-/area/tcaf_corvette/messhall)
 "uZ" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 5
@@ -3281,13 +3268,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_lift)
-"HV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/engine)
 "HW" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -3333,16 +3313,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
-"Il" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc/north{
-	pixel_x = -1
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/tcaf_corvette/freezer)
 "Is" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/cable/green{
@@ -4051,11 +4021,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engine)
 "PD" = (
-/obj/structure/bed/stool/chair/folding{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/lounge)
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/freezer)
 "PR" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4159,9 +4126,13 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/captain)
 "Rg" = (
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/forensics)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/lino,
+/area/tcaf_corvette/messhall)
 "Rh" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
@@ -4619,14 +4590,13 @@
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/francisca)
 "Wq" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#5F78A0";
-	frame_color = "#5F78A0";
-	spawn_firedoor = 1;
-	spawn_grille = 1
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
-/turf/simulated/floor,
-/area/tcaf_corvette/lounge)
+/turf/simulated/floor/lino,
+/area/tcaf_corvette/messhall)
 "Wt" = (
 /obj/effect/floor_decal/corner_wide/blue/full,
 /turf/simulated/floor/tiled/white,
@@ -99747,11 +99717,11 @@ Mv
 Mv
 Mv
 Mv
-ou
+PD
 oJ
 oJ
 oJ
-ou
+PD
 Mv
 Mv
 Mv
@@ -100004,11 +99974,11 @@ Mv
 Mv
 Mv
 Mv
-ou
+PD
 bd
 bd
 bd
-ou
+PD
 Mv
 Mv
 Mv
@@ -100261,11 +100231,11 @@ Mv
 Mv
 Mv
 Mv
-ou
-Il
+PD
+tr
 qx
 bd
-ou
+PD
 Mv
 Mv
 Mv
@@ -100518,15 +100488,15 @@ Mv
 Mv
 GP
 GP
-ou
+PD
 Ij
-ou
-ou
-ou
+PD
+PD
+PD
 Mv
-zF
-Rg
-zF
+Mv
+Mv
+Mv
 Mv
 Mv
 Mv
@@ -100776,14 +100746,14 @@ oy
 GP
 GP
 cw
-dK
+rV
 js
 Pr
 GP
 Mv
-zF
-ez
-zF
+Mv
+Mv
+Mv
 Mv
 Mv
 Mv
@@ -101033,13 +101003,13 @@ ms
 GP
 fa
 KI
-pD
-uY
-uc
+Wq
+Rg
+uk
 GP
 zF
 zF
-Rg
+zF
 zF
 zF
 lX
@@ -101292,7 +101262,7 @@ uR
 XB
 XB
 XB
-dK
+rV
 GP
 lR
 mV
@@ -103576,7 +103546,7 @@ YC
 pL
 Kc
 fY
-HV
+Qb
 dp
 nV
 Zf
@@ -103833,7 +103803,7 @@ Kc
 rG
 Mu
 Lt
-um
+uc
 qv
 En
 Oe
@@ -104090,7 +104060,7 @@ dt
 Ud
 Ud
 cO
-oc
+ez
 qv
 En
 HU
@@ -105665,7 +105635,7 @@ YI
 pN
 YO
 YO
-rV
+YO
 YO
 gr
 gr
@@ -105921,9 +105891,9 @@ af
 mD
 pN
 Mv
-Wq
-PD
-Wq
+Mv
+Mv
+Mv
 Mv
 Mv
 Mv
@@ -106178,9 +106148,9 @@ nR
 pN
 pN
 Mv
-Wq
-Wq
-Wq
+Mv
+Mv
+Mv
 Mv
 Mv
 Mv
