@@ -115,7 +115,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tcaf_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCAF Gunship"
 	req_access = list(ACCESS_TCAF_SHIPS)

@@ -91,6 +91,10 @@
 	name = "Republican Fleet Corvette - Freezer"
 	icon_state = "kitchen"
 
+/area/tcaf_corvette/morgue
+	name = "Republican Fleet Corvette - Morgue"
+	icon_state = "morgue"
+
 /area/tcaf_corvette/central_lift
 	name = "Republican Fleet Corvette - Central Lift"
 	icon_state = "blue2"
@@ -99,8 +103,15 @@
 	name = "Republican Fleet Corvette - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
+	has_gravity = FALSE
 
+// Shuttle area.
 /area/shuttle/tcaf
 	name = "Republican Fleet Shuttle"
 	requires_power = TRUE
+
+// Lift area.
+/area/turbolift/tcaf_corvette/tcaf_lift
+	name = "TCAF Lift"
+	station_area = FALSE
 

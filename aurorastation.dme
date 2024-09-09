@@ -3873,6 +3873,7 @@
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_ghostroles.dm"
+#include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_landmarks.dm"
 #include "maps\away\ships\biesel\tcfl_patrol\tcfl_peacekeeper_ship.dm"
 #include "maps\away\ships\biesel\tcfl_patrol\tcfl_peacekeeper_ship_ghostroles.dm"
 #include "maps\away\ships\casino\casino.dm"
