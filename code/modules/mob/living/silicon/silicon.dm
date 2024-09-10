@@ -138,17 +138,19 @@
 /mob/living/silicon/IsAdvancedToolUser()
 	return TRUE
 
-/mob/living/silicon/bullet_act(obj/projectile/Proj)
-	if(!Proj.nodamage)
-		switch(Proj.damage_type)
-			if(DAMAGE_BRUTE)
-				adjustBruteLoss(Proj.damage)
-			if(DAMAGE_BURN)
-				adjustFireLoss(Proj.damage)
+/mob/living/silicon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //More shitcode
 
-	Proj.on_hit(src, 100)
+	if(hitting_projectile.damage > 0)
+		switch(hitting_projectile.damage_type)
+			if(DAMAGE_BRUTE)
+				adjustBruteLoss(hitting_projectile.damage)
+			if(DAMAGE_BURN)
+				adjustFireLoss(hitting_projectile.damage)
+
+	hitting_projectile.on_hit(src, 100)
 	updatehealth()
-	return 100
+	return BULLET_ACT_HIT
 
 /mob/living/silicon/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	return FALSE

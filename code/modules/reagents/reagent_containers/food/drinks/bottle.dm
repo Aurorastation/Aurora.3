@@ -187,7 +187,11 @@
 
 	return blocked
 
-/obj/item/reagent_containers/food/drinks/bottle/bullet_act()
+/obj/item/reagent_containers/food/drinks/bottle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	smash(loc)
 
 /*
@@ -450,8 +454,8 @@
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/projectile/bullet/champagne_cork/on_impact(var/atom/A)
-	..()
+/obj/projectile/bullet/champagne_cork/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
 /obj/item/trash/champagne_cork

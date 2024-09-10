@@ -36,7 +36,7 @@
 
 	// Should this all be in Touch()?
 	if(istype(H))
-		if(H != src && check_shields(0, null, H, H.zone_sel.selecting, H.name))
+		if(H != src && (check_shields(0, null, H, H.zone_sel.selecting, H.name) != BULLET_ACT_HIT))
 			H.do_attack_animation(src)
 			return 0
 
@@ -549,7 +549,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
 	user.do_attack_animation(src)
-	if(damage < 15 && check_shields(damage, null, user, null, "\the [user]"))
+	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") == BULLET_ACT_HIT))
 		return
 
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))

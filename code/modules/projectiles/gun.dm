@@ -428,7 +428,7 @@
 			var/disp = dispersion[min(i, dispersion.len)]
 
 			P.accuracy = accuracy + acc
-			P.dispersion = disp
+			P.spread += disp
 
 			P.suppressed =  suppressed
 
@@ -540,7 +540,7 @@
 
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
-	P.dispersion = dispersion
+	P.spread += dispersion
 
 	//Increasing accuracy across the board, ever so slightly
 	P.accuracy += 1
@@ -557,7 +557,7 @@
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
 		P.accuracy -= one_hand_fa_penalty * 0.5
-		P.dispersion -= one_hand_fa_penalty * 0.5
+		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)

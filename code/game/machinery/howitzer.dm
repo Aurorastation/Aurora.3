@@ -386,7 +386,6 @@ ABSTRACT_TYPE(/obj/projectile/howitzer)
 	icon_state = "howitzer_ammo"
 	damage = 0
 	range = 999 //Follow what the path says, not range
-	forcedodge = TRUE //Don't directly hit people
 
 /obj/projectile/howitzer/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(target == original)
@@ -397,14 +396,14 @@ ABSTRACT_TYPE(/obj/projectile/howitzer)
 //We have to handle collisions like the snowflake projectile we are. Or rewrite the projectile logic, you can do that if you want, I do not
 /obj/projectile/howitzer/Collide(atom/A)
 	if(A == original)
-		on_impact(A)
+		on_hit(A)
 		qdel(src)
 
-/obj/projectile/howitzer/on_impact(atom/A, affected_limb)
+/obj/projectile/howitzer/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	if(A == original)
-		terminal_effect(get_turf(A))
+	if(target == original)
+		terminal_effect(get_turf(target))
 
 /**
  * Takes care of performing the terminal effect of the projectile

@@ -25,6 +25,8 @@
 // E.g: 540 becomes 180. -180 becomes 180.
 #define SIMPLIFY_DEGREES(degrees) (MODULUS((degrees), 360))
 
+#define GET_ANGLE_OF_INCIDENCE(face, input) (MODULUS((face) - (input), 360))
+
 //Finds the shortest angle that angle A has to change to get to angle B. Aka, whether to move clock or counterclockwise.
 /proc/closer_angle_difference(a, b)
 	if(!isnum(a) || !isnum(b))

@@ -25,9 +25,10 @@
 				//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
 				//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
 				if(M.lying && isturf(get_turf(source)))
-					P.attack_mob(M, 0, 0)
+					P.process_hit(get_turf(M), M)
 				else
-					P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+					if(prob(20))
+						P.process_hit(get_turf(M), M)
 
 //Fragmentation grenade projectile
 /obj/projectile/bullet/pellet/fragment

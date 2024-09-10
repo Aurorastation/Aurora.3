@@ -582,10 +582,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/fusion_em_field/bullet_act(obj/projectile/Proj)
-	AddEnergy(Proj.damage)
+/obj/effect/fusion_em_field/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	AddEnergy(hitting_projectile.damage)
 	update_icon()
-	return 0
 
 /particles/fusion
 	width = 500

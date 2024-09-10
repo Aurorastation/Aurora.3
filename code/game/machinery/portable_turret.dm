@@ -444,17 +444,20 @@
 	if(health <= 0)
 		die()	//the death process :(
 
-/obj/machinery/porta_turret/bullet_act(obj/projectile/Proj)
-	var/damage = Proj.get_structure_damage()
+/obj/machinery/porta_turret/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/damage = hitting_projectile.get_structure_damage()
 
 	if(!damage)
-		return
+		return BULLET_ACT_BLOCK
 
 	if(enabled)
 		if(!attacked && !emagged)
 			attacked = 1
 			addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 60, TIMER_UNIQUE | TIMER_OVERRIDE)
-	..()
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	take_damage(damage)
 
@@ -609,8 +612,8 @@
 	if(ispath(projectile, /obj/projectile/beam) || ispath(eprojectile, /obj/projectile/beam))
 		flags |= PASSTABLE|PASSGLASS|PASSGRILLE|PASSRAILING
 
-	if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
-		return TURRET_NOT_TARGET
+	// if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
+	// 	return TURRET_NOT_TARGET
 
 	if(emagged)		// If emagged not even the dead get a rest
 		return L.stat ? TURRET_SECONDARY_TARGET : TURRET_PRIORITY_TARGET

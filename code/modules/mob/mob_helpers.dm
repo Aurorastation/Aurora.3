@@ -276,6 +276,14 @@ var/list/global/organ_rel_size = list(
 	BP_R_FOOT = 10
 )
 
+///Find the mob at the bottom of a buckle chain
+/mob/proc/lowest_buckled_mob()
+	. = src
+	//buckled -> buckled_to from TG
+	if(buckled_to && ismob(buckled_to))
+		var/mob/Buckled = buckled_to
+		. = Buckled.lowest_buckled_mob()
+
 /proc/check_zone(zone)
 	if(!zone)
 		return BP_CHEST
@@ -286,36 +294,24 @@ var/list/global/organ_rel_size = list(
 			zone = BP_HEAD
 	return zone
 
-// Returns zone with a certain probability. If the probability fails, or no zone is specified, then a random body part is chosen.
-// Do not use this if someone is intentionally trying to hit a specific body part.
-// Use get_zone_with_miss_chance() for that.
-/proc/ran_zone(zone, probability)
-	if (zone)
+/**
+ * Return the zone or randomly, another valid zone
+ *
+ * _Do not use this if someone is intentionally trying to hit a specific body part - use get_zone_with_miss_chance() for that_
+ *
+ * probability controls the chance it chooses the passed in zone, or another random zone
+ * defaults to 80
+ */
+/proc/ran_zone(zone, probability = 80, list/weighted_list)
+	if(prob(probability))
 		zone = check_zone(zone)
-		if (prob(probability))
-			return zone
+	else
+		zone = pick_weight(weighted_list ? weighted_list : organ_rel_size) //Slightly different from TG, we have a list with organ sizes
+	return zone
 
-	var/ran_zone = zone
-	while (ran_zone == zone)
-		ran_zone = pick (
-			organ_rel_size[BP_HEAD]; BP_HEAD,
-			organ_rel_size[BP_CHEST]; BP_CHEST,
-			organ_rel_size[BP_GROIN]; BP_GROIN,
-			organ_rel_size[BP_L_ARM]; BP_L_ARM,
-			organ_rel_size[BP_R_ARM]; BP_R_ARM,
-			organ_rel_size[BP_L_LEG]; BP_L_LEG,
-			organ_rel_size[BP_R_LEG]; BP_R_LEG,
-			organ_rel_size[BP_L_HAND]; BP_L_HAND,
-			organ_rel_size[BP_R_HAND]; BP_R_HAND,
-			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
-			organ_rel_size[BP_R_FOOT]; BP_R_FOOT
-		)
-
-	return ran_zone
-
-// Emulates targetting a specific body part, and miss chances
-// May return null if missed
-// miss_chance_mod may be negative.
+/// Emulates targetting a specific body part, and miss chances
+/// May return null if missed
+/// miss_chance_mod may be negative.
 /proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 

@@ -120,10 +120,13 @@
 		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
 	master.disrupt()
 
-/obj/effect/dummy/chameleon/bullet_act()
+/obj/effect/dummy/chameleon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	for(var/mob/M in src)
 		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
-	..()
 	master.disrupt()
 
 /obj/effect/dummy/chameleon/relaymove(mob/living/user, direction)

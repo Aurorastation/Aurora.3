@@ -18,7 +18,7 @@
 		M.throw_at(get_edge_target_turf(target, throwdir),10,10)
 		return BULLET_ACT_HIT
 
-/obj/projectile/forcebolt/strong/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/forcebolt/strong/on_hit(atom/target, blocked, def_zone)
 	for(var/mob/M in hearers(2, src))
 		if(M.loc != src.loc)
 			var/throwdir = get_dir(firer,target)

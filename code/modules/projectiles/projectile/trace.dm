@@ -17,9 +17,9 @@
 
 //"Tracing" projectile
 /obj/projectile/test //Used to see if you can hit them.
-	invisibility = 101 //Nope!  Can't see me!
+	invisibility = INVISIBILITY_ABSTRACT //Nope!  Can't see me!
 	hitscan = TRUE
-	nodamage = TRUE
+	do_not_log = TRUE
 	damage = 0
 	var/list/hit = list()
 
@@ -34,5 +34,6 @@
 		hit |= A
 	return ..()
 
-/obj/projectile/test/attack_mob()
+/obj/projectile/test/on_hit(atom/target, blocked, def_zone)
+	SHOULD_CALL_PARENT(FALSE)
 	return

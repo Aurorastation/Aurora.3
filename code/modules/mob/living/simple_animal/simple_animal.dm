@@ -654,10 +654,13 @@
 	if(ismob(throwingdatum.thrower?.resolve()))
 		handle_attack_by(throwingdatum.thrower.resolve())
 
-/mob/living/simple_animal/bullet_act(obj/projectile/P, def_zone)
+/mob/living/simple_animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(ismob(P.firer))
-		handle_attack_by(P.firer)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(ismob(hitting_projectile.firer))
+		handle_attack_by(hitting_projectile.firer)
 
 /mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
@@ -965,12 +968,12 @@
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/mob/living/simple_animal/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage)
-	..()
+/mob/living/simple_animal/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	. = ..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == DAMAGE_BRUTE)
-				var/hit_dir = get_dir(P.starting, src)
+			if(impacting_projectile.damage_type == DAMAGE_BRUTE)
+				var/hit_dir = get_dir(impacting_projectile.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = blood_type

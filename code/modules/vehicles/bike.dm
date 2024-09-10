@@ -251,10 +251,10 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/projectile/Proj)
+/obj/vehicle/bike/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if(buckled && prob(protection_percent))
-		buckled.bullet_act(Proj)
-		return
+		return buckled.bullet_act(arglist(args))
+
 	..()
 
 /obj/vehicle/bike/update_icon()

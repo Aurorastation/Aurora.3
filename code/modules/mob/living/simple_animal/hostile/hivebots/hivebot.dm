@@ -81,11 +81,11 @@
 	else
 		return "blood_overlay_armed"
 
-/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebot/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		return ..(Proj)
+		return ..()
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
@@ -194,10 +194,14 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
-/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else if(!has_exploded)
+		. = ..()
+		if(. != BULLET_ACT_HIT)
+			return .
+
 		has_exploded = TRUE
 		burst()
 

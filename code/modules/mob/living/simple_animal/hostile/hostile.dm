@@ -118,10 +118,13 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/projectile/P, var/def_zone)
-	..()
-	if (ismob(P.firer) && target_mob != P.firer)
-		target_mob = P.firer
+/mob/living/simple_animal/hostile/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (ismob(hitting_projectile.firer) && target_mob != hitting_projectile.firer)
+		target_mob = hitting_projectile.firer
 		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)

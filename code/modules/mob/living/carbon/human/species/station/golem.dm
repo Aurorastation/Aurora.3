@@ -408,7 +408,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
 	for(var/i in 1 to 5)
@@ -614,7 +614,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/marble
 	name = SPECIES_GOLEM_MARBLE

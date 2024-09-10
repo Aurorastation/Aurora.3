@@ -152,9 +152,7 @@
 	penetrating = 6
 	stun = 4
 	weaken = 4
-	maiming = TRUE
 	maim_rate = 3
-	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
 /obj/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)

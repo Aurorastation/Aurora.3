@@ -301,8 +301,12 @@
 			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)
-	connected.bullet_act(P)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	connected.bullet_act(hitting_projectile)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)
 	connected.ex_act(severity)

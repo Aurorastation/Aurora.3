@@ -393,14 +393,17 @@ update_flag
 		return GM.return_pressure()
 	return 0
 
-/obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/projectile/Proj)
-	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+/obj/machinery/portable_atmospherics/canister/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	if(Proj.damage)
-		src.health -= round(Proj.damage / 2)
+	if(!(hitting_projectile.damage_type == DAMAGE_BRUTE || hitting_projectile.damage_type == DAMAGE_BURN))
+		return BULLET_ACT_BLOCK
+
+	if(hitting_projectile.damage)
+		src.health -= round(hitting_projectile.damage / 2)
 		healthcheck()
-	..()
 
 /obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))

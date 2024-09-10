@@ -397,8 +397,12 @@
 		return
 	return ..()
 
-/obj/structure/cult/pylon/bullet_act(var/obj/projectile/Proj)
-	attackpylon(Proj.firer, Proj.damage, Proj)
+/obj/structure/cult/pylon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	attackpylon(hitting_projectile.firer, hitting_projectile.damage, hitting_projectile)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter

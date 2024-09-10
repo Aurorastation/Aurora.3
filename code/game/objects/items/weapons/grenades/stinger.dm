@@ -49,9 +49,10 @@
 		if(can_cover)
 			for(var/mob/living/M in O)
 				if(M.lying && isturf(get_turf(source)))
-					P.attack_mob(M, 0, 0)
+					P.process_hit(get_turf(M), M)
 				else
-					P.attack_mob(M, 0, 100)
+					if(prob(20))
+						P.process_hit(get_turf(M), M)
 
 /obj/item/grenade/stinger/prime()
 	..()
