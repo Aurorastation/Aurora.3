@@ -300,7 +300,9 @@
 
 	if(!do_not_log)
 		log_combat(firer, living_target, "shot", src)
-		admin_attack_log(firer, living_target, "shot with \a [src.type]", "shot with \a [src.type]", "shot (\a [src.type])")
+		//Because `admin_attack_log` expects both to be mobs
+		if(ismob(target) && ismob(firer))
+			admin_attack_log(firer, living_target, "shot with \a [src.type]", "shot with \a [src.type]", "shot (\a [src.type])")
 
 	return BULLET_ACT_HIT
 
