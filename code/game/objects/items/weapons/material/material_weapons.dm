@@ -23,6 +23,7 @@
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
 	var/drops_debris = TRUE
+	var/worth_multiplier = 1
 
 /obj/item/material/Initialize(var/newloc, var/material_key)
 	. = ..()

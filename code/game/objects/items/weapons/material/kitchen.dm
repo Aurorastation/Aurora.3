@@ -1,6 +1,7 @@
 /obj/item/material/kitchen
 	icon = 'icons/obj/kitchen.dmi'
 	contained_sprite = TRUE
+	worth_multiplier = 1.1
 
 /*
  * Utensils
