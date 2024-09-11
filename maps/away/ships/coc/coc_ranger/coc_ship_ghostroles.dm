@@ -10,7 +10,7 @@
 	max_count = 5
 
 	outfit = /obj/outfit/admin/ranger
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Frontier Ranger"
@@ -31,12 +31,6 @@
 	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
-
-	species_shoes = list(
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/dark,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/dark,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark
-	)
 
 /obj/outfit/admin/ranger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
