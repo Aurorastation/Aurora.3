@@ -2234,7 +2234,7 @@
 
 	V.transmitting = TRUE
 	say("[message]", GLOB.all_languages[LANGUAGE_VAURCA])
-	custom_emote(VISIBLE_MESSAGE, "'s Hivenet receiver vibrates!")
+	custom_emote(VISIBLE_MESSAGE, "'s receiver antenna vibrates!")
 	playsound(src, 'sound/voice/vaurca_antenna_twitch.ogg', 60, 1)
 	V.transmitting = FALSE
 
