@@ -1459,7 +1459,9 @@
 /area/ship/ranger_corvette/engine1)
 "fJE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /obj/item/disk/tech_disk{
 	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450.";
 	name = "\improper Greatest Hits of The 2450's disk"
@@ -5149,7 +5151,8 @@
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
