@@ -696,3 +696,25 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	sort_category = "Xenowear - Tajara"
 	path = /obj/item/typewriter_case
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/prosthetic_tail
+	display_name = "prosthetic tail selection"
+	description = "A selection of colourable prosthetics tails for tajara. Only useable with the Hakh'jar tail."
+	path = /obj/item/clothing/tail_accessory/prosthetic
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/prosthetic_tail/tajara/New()
+	..()
+	var/list/tail_pros = list()
+	tail_pros["solid prosthetic"] = /obj/item/clothing/tail_accessory/prosthetic
+	tail_pros["flexible prosthetic"] = /obj/item/clothing/tail_accessory/prosthetic/flexible
+	gear_tweaks += new /datum/gear_tweak/path(tail_pros)
+
+/datum/gear/tesla_prosthetic_tail
+	display_name = "tesla prosthetic tail"
+	path = /obj/item/clothing/tail_accessory/prosthetic/tesla
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

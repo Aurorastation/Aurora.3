@@ -83,6 +83,9 @@
 			slowdown = 2
 		else
 			slowdown = 0
+
+		user.update_equipment_speed_mods()
+
 		return TRUE
 	return FALSE
 

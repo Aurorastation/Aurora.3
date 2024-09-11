@@ -552,6 +552,22 @@
 					break
 	return
 
+/obj/structure/closet/crate/secure/large/larva // Spawns with one greimorian larva inside of it. Can mature inside, so be careful.
+
+/obj/structure/closet/crate/secure/large/larva/fill()
+	new /obj/effect/spider/spiderling(src)
+
+/obj/structure/closet/crate/secure/large/viscerator // Spawns with one viscerator inside of it.
+
+/obj/structure/closet/crate/secure/large/viscerator/fill()
+	new /mob/living/simple_animal/hostile/viscerator(src)
+
+/obj/structure/closet/crate/secure/large/rats // Spawns with rats inside it.
+
+/obj/structure/closet/crate/secure/large/rats/fill()
+	for(var/i=1,i<=5,i++)
+		new /mob/living/simple_animal/rat(src)
+
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"
 	desc = "All you need to destroy those pesky weeds and pests."

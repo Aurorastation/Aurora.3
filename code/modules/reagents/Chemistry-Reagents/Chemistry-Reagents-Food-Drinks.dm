@@ -1014,7 +1014,10 @@
 	var/adj_drowsy = 0
 	var/adj_sleepy = 0
 	var/adj_temp = 0 //do NOT use for temp changes based on the temperature of the drinks, only for things such as spices.
-	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
+
+	///Strength of stimulant effect, since so many drinks use it - how fast it makes you move
+	var/caffeine = 0
+
 	unaffected_species = IS_MACHINE
 	var/blood_to_ingest_scale = 2
 	fallback_specific_heat = 1.75
@@ -1025,10 +1028,15 @@
 /singleton/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	digest(M, alien, removed, holder = holder)
 
+/singleton/reagent/drink/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	. = ..()
+
+	if(caffeine && (alien != IS_DIONA))
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+		M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine, TRUE, (caffeine * -1))
+
 /singleton/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE, var/datum/reagents/holder)
 	if(alien != IS_DIONA)
-		if (caffeine)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, caffeine)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsiness = max(0, M.drowsiness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -1041,6 +1049,12 @@
 		M.bodytemperature = min(310, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if(adj_temp < 0 && M.bodytemperature > 310)
 		M.bodytemperature = min(310, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/singleton/reagent/drink/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(caffeine && (alien != IS_DIONA))
+		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/caffeine)
+
+	. = ..()
 
 // Juices
 /singleton/reagent/drink/banana
@@ -5997,13 +6011,19 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.add_chemical_effect(CE_SPEEDBOOST, 1)
+		M.add_movespeed_modifier(/datum/movespeed_modifier/reagent/zorasoda/drone)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
 		M.make_jittery(5)
 	else if(alien != IS_DIONA)
 		if (prob(M.chem_doses[type]))
 			to_chat(M, pick(SPAN_WARNING("You feel nauseous!"), SPAN_WARNING("Ugh... You're going to be sick!"), SPAN_WARNING("Your stomach churns uncomfortably!"), SPAN_WARNING("You feel like you're about to throw up!"), SPAN_WARNING("You feel queasy!")))
 			M.vomit()
+
+/singleton/reagent/drink/zorasoda/drone/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/zorasoda/drone)
+
+	. = ..()
+
 
 /singleton/reagent/drink/zorasoda/jelly
 	name = "Royal Vaurca Jelly"

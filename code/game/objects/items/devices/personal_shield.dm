@@ -17,39 +17,65 @@
 	. = ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("\The [src] has [cell.charge] charge remaining.")
-		. += SPAN_NOTICE("Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [SPAN_NOTICE(charge_per_shot)] charge.")
+		. += SPAN_NOTICE("Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [SPAN_NOTICE("[charge_per_shot]")] charge.")
 
 /obj/item/device/personal_shield/Initialize()
 	. = ..()
 	cell = new(src)
 	cell.charge = cell.maxcharge //1000 charge
-	START_PROCESSING(SSprocessing, src)
+
+/obj/item/device/personal_shield/Destroy()
+	dissipate()
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(cell)
+
+	return ..()
 
 /obj/item/device/personal_shield/get_cell()
 	return cell
 
-/obj/item/device/personal_shield/process()
+/obj/item/device/personal_shield/process(seconds_per_tick)
 	if(shield)
-		cell.use(upkeep_cost)
+		if(!ismob(src.loc))
+			deactivate()
+			return
+		cell.use(upkeep_cost*seconds_per_tick)
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
+	if(cell.charge && !shield)
+		activate(user)
+	else
+		deactivate(user)
+
+/**
+ * Activates the shield
+ *
+ * * user - The user that activated the shield
+ */
+/obj/item/device/personal_shield/proc/activate(mob/living/user)
 	if(cell.charge && !shield)
 		shield = new /obj/aura/personal_shield/device(user)
 		shield.added_to(user)
 		shield.set_shield(src)
 		user.update_inv_belt()
-	else
-		dissipate()
-		user.update_inv_belt()
+
+	START_PROCESSING(SSprocessing, src)
+
 	update_icon()
 
-/obj/item/device/personal_shield/Move()
-	dissipate()
-	return ..()
+/**
+ * Deactivates the shield
+ *
+ * * user - The user that deactivated the shield, if any
+ */
+/obj/item/device/personal_shield/proc/deactivate(mob/living/user)
+	if(shield)
+		dissipate()
+		user?.update_inv_belt()
 
-/obj/item/device/personal_shield/forceMove()
-	dissipate()
-	return ..()
+	STOP_PROCESSING(SSprocessing, src)
+
+	update_icon()
 
 /obj/item/device/personal_shield/proc/take_charge()
 	cell.use(charge_per_shot)
@@ -66,12 +92,6 @@
 	else
 		icon_state = "[initial(icon_state)]"
 		item_state = "[initial(item_state)]"
-
-/obj/item/device/personal_shield/Destroy()
-	dissipate()
-	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL(cell)
-	return ..()
 
 /obj/item/device/personal_shield/proc/dissipate()
 	if(shield?.user)
