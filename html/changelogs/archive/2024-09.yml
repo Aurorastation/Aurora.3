@@ -1,0 +1,61 @@
+2024-09-04:
+  CourierBravo:
+  - rscadd: Replaced the encryption key crates on the event shuttle helpers with the
+      encryption vending machine.
+  - bugfix: Fixed the door bolting buttons on the Artemis shuttle helper, allowing
+      the bathroom doors to be bolted shut.
+  Furrycactus:
+  - qol: Replaced the Nitrogen canisters in Engineering Hard Storage with Helium canisters.
+  GeneralCamo:
+  - qol: Changed the minimum height of baseline, bishop, and mobility IPCs from 100cm
+      to 120cm.
+  - qol: Changed the minimum height of shell IPCs from 100cm to 145cm.
+  - qol: Changed the minimum height of G1, G2, and xion IPCs from 100cm to 180cm.
+2024-09-05:
+  nauticall:
+  - rscadd: Changed Aayun Kaiser's custom suit's design and paintjob.
+2024-09-07:
+  FluffyGhost:
+  - refactor: Ported and implemented movespeed_modifer, for most things, from TG.
+  - code_imp: Gave deprecation DMDocs to the old calculation system.
+  - code_imp: Some code cleanup around.
+2024-09-08:
+  Ben10083:
+  - rscadd: Battlemonsters vending machine added to Library.
+  - rscadd: Second reference bookshelf in Horizon Library replaced with Religion bookshelf.
+  - qol: Adds additional light to Medical Lobby.
+  - rscadd: Adds blue alert and radiation warning statuses to command and control
+      program.
+  CourierBravo:
+  - rscadd: 'Added a 79 new stickers. Sprites were made by other contributors: 60
+      by LforLouise, 1 by Noble Row, 2 by Ben10083, 10 by Hazelmouse, 1 by Mr.Popper,
+      4 by FabianK3, and 1 by Kermit.'
+  - rscadd: Added a sticker sheet as a new storage, which only accepts stickers. Sprite
+      by Noble Row.
+  - rscadd: Added sticker sheets to the loadout menu, under toys.
+  - rscdel: Removed the gold star box and googly eye box, replacing them in lockers
+      and on maps with sticker sheets.
+  Greenjoe12345:
+  - rscadd: Adds several prosthetic tails for tajara.
+  SimpleMaroon:
+  - qol: Corporate Reporters employed with the Ve'katak Phalanx can now take the relevant
+      augments.
+  hazelmouse:
+  - bugfix: Resolved a few bugs with the Kataphract offship, including reducing its
+      spawn weight and making it properly targetable in ship combat.
+2024-09-10:
+  Ben10083:
+  - bugfix: Database Freighter shuttle fuel pump now faces the correct direction.
+  - bugfix: Database Freighter shuttle canister now holds more air, and other docking
+      fixes.
+  - bugfix: Fixes to TCAF Ship docking.
+  - rscadd: TCAF Ship missing items such as rechargers added.
+  FluffyGhost:
+  - balance: Personal shields can now remain active while put back in the belt, freeing
+      your hands.
+  - code_imp: Some code reordering and cleanup.
+  - bugfix: Fixed a runtime on inspection of the personal shield.
+  hazelmouse:
+  - bugfix: Prevents the Lone Spacer offship from spawning every round.
+  - rscadd: Adds the Lone Spacer ghostrole, a small ship crewed by only one person,
+      spawning in all sectors.

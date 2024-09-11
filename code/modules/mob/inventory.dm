@@ -377,15 +377,24 @@ var/list/slot_equipment_priority = list( \
 		if(slot_wear_mask) return wear_mask
 	return null
 
-//Outdated but still in use apparently. This should at least be a human proc.
-/mob/proc/get_equipped_items(var/include_carried = 0)
+/**
+ * Used to return a list of equipped items on a human mob; does not by default include held items, see include_flags
+ *
+ * Argument(s):
+ * * Optional - include_flags, (see `code\__DEFINES\obj_flags.dm`) describes which optional things to include or not (pockets, accessories, held items)
+ */
+/mob/proc/get_equipped_items(include_flags = NONE)
 	. = list()
-	if(back) . += back
-	if(wear_mask) . += wear_mask
+	if(back)
+		. += back
+	if(wear_mask)
+		. += wear_mask
 
-	if(include_carried)
-		if(l_hand) . += l_hand
-		if(r_hand) . += r_hand
+	if(include_flags & INCLUDE_HELD)
+		if(l_hand)
+			. += l_hand
+		if(r_hand)
+			. += r_hand
 
 
 
@@ -510,7 +519,7 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
-	for(var/obj/item/I as anything in get_equipped_items(include_carried))
+	for(var/obj/item/I as anything in get_equipped_items(include_carried ? INCLUDE_POCKETS|INCLUDE_HELD : 0))
 		drop_from_inventory(I)
 		qdel(I)
 

@@ -82,4 +82,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > speed)
 			. += H.species.slowdown - speed
-		. += H.ClothesSlowdown()
+		// . += H.ClothesSlowdown()
