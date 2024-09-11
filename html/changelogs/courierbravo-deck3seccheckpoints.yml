@@ -57,6 +57,6 @@ delete-after: True
 changes:
   - rscadd: "Added two new checkpoints to deck three at each dock."
   - balance: "Moved the lockers from both deck one and two's checkpoints to the deck three checkpoints."
-  - balance: "Added a third xenogun to the Horizon. So now, there's a deck two gun, and two guns on deck three."
+  - balance: "Added a fourth xenogun to the Horizon. So now, there's a deck two gun, and two guns on deck three."
   - bugfix: "Fixed a random area on the side of the ship that shouldn't have been there, and moved the area around the Horizon's sensors back into its proper place."
   - qol: "Made the deck two checkpoint ever so slightly nicer looking."
