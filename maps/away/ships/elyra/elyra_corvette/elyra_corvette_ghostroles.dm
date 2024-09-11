@@ -10,7 +10,7 @@
 	max_count = 2
 
 	outfit = /obj/outfit/admin/elyran_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Elyran Naval Infantryman"
