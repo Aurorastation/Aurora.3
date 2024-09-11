@@ -39,6 +39,7 @@
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
 
+	/// Adds to the value of whatever container's holding it, value * units of reagents
 	var/value = 1
 
 /singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.

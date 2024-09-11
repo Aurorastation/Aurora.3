@@ -23,6 +23,8 @@
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
 	var/drops_debris = TRUE
+
+	/// Multiplies the amount this item is worth with the following calculation: material.value * worth_multiplier
 	var/worth_multiplier = 1
 
 /obj/item/material/Initialize(var/newloc, var/material_key)
