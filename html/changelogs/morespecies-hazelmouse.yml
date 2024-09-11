@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Makes a few more species available to certain ghostroles, including IPCs to the Orion Express ship, IPCs to the Elyran Corvette, and Skrell, Tajara, and IPCs to the Coalition Ranger ship."
+  - rscadd: "IPCs are now available to play in the Coalition Ranger, Orion Express, and Elyran Navy ghostroles."
