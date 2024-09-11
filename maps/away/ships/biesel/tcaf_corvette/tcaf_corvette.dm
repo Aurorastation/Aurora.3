@@ -16,7 +16,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tcaf_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
