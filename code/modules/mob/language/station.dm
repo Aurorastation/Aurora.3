@@ -409,3 +409,33 @@
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	return pick(ai_names)
+
+/datum/language/machine/ebsl
+	name = LANGUAGE_EBSL
+	short = "EBSL"
+	desc = "Encoded Broad Spectrum Language (EBSL), colloquially known as Midband, is a audio-based communications protocol similar to Encoded Audio Language (EAL), designed by the Orion Express Robotics Division specifically to be compatible with receiver augments installed into organics. These augments allow organics to receive EBSL transmissions, while they allow synthetics to both receive and transmit."
+	speech_verb = list("blips and boops", "blips and dwoops")
+	ask_verb = list("blips and boops", "blips and dwoops")
+	exclaim_verb = list("loudly blips", "loudly boops", "loudly dwoops")
+	sing_verb = list("rhythmically beeps and boops", "rhythmically blips and boops", "rhythmically blips and dwoops")
+	colour = "ebsl"
+	written_style = null
+	key = "eb"
+	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
+	syllables = list("beeeep","beeeep","beeeep","beeeep","beeeep","boooop","boooop","boooop","deeee","deeee","doooo","doooo","hiiiisss","hiiiss","buuuuzz","buuuuzz","buuzz","kssssshhh","keeeey","wuuurr","waaaahh","thhzzzz")
+	space_chance = 10
+
+// synthetics can receive and transmit
+// organics can only receive
+/datum/language/machine/ebsl/check_speech_restrict(mob/speaker)
+	if(issilicon(speaker))
+		return TRUE
+
+	if(!ishuman(speaker))
+		return FALSE
+
+	var/mob/living/carbon/human/human = speaker
+	if(human.isSynthetic())
+		return TRUE
+
+	return FALSE

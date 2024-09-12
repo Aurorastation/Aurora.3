@@ -84,6 +84,7 @@
 #define LANGUAGE_LOCAL_DRONE "Drone Transmission"
 #define LANGUAGE_DRONE "Matrix Weave"
 #define LANGUAGE_EAL "Encoded Audio Language"
+#define LANGUAGE_EBSL "Encoded Broad Spectrum Language"
 
 // Language flags.
 #define WHITELISTED   BITFLAG(0)  // Language is available if the speaker is whitelisted.

@@ -136,3 +136,28 @@
 	owner.adjustHalLoss(15)
 	owner.flash_pain(15)
 	owner.adjustBrainLoss(5)
+
+/obj/item/organ/internal/augment/language/ebsl
+	name = "Orion Express Encoded Broad Spectrum Language processor"
+	augment_languages = list(LANGUAGE_EBSL)
+	action_button_name = "Say EBSL Phrase"
+	action_button_icon = "ebsl_speak"
+	activable = TRUE
+	cooldown = 0
+
+	/// The list of phrases the user of this augment can say via the action button
+	var/static/list/phrases = list("Yes", "No", "Need help")
+
+// The intention with this augment is that synthetics can speak EBSL freely, but organics are limited to a set number of phrases they can speak
+// This attack_self handles picking and saying the phrase
+// Note: The attack_self parent checks use_check_and_message already, so an incapacitated person can't use it to bypass stuns or whatever
+/obj/item/organ/internal/augment/language/ebsl/attack_self(var/mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/chosen_message = tgui_input_list(user, "Select a message to transmit", "EBSL Processor", phrases)
+	if(!chosen_message)
+		return
+
+	user.say(chosen_message, GLOB.all_languages[LANGUAGE_EBSL])

@@ -112,6 +112,7 @@ h1.alert, h2.alert		{color: #000000;}
 .siiktau				{color: #A52A2A;}
 .freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
 .tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
+.ebsl					{color: #d1b61f;}
 
 .interface				{color: #330033;}
 

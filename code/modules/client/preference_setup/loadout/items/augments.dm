@@ -276,3 +276,9 @@
 	faction = "Private Military Contracting Group"
 	cost = 4
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter")
+
+/datum/gear/augment/ebsl_language
+	display_name = "Orion Express Encoded Broad Spectrum Language processor"
+	description = "An augment developed by Orion Express that lets synthetics transmit and receive their proprietary language, EBSL. Organics can receive, but not transmit this language."
+	path = /obj/item/organ/internal/augment/language/ebsl
+	cost = 2
