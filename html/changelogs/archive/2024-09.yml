@@ -59,3 +59,7 @@
   - bugfix: Prevents the Lone Spacer offship from spawning every round.
   - rscadd: Adds the Lone Spacer ghostrole, a small ship crewed by only one person,
       spawning in all sectors.
+2024-09-12:
+  SimpleMaroon:
+  - rscadd: 'Added two colorable hazard vests to the loadout: One with default-colored
+      stripes, and one that you can color the stripes on as well.'
