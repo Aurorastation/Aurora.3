@@ -1218,7 +1218,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "aKz" = (
-/obj/structure/noose,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/platform,
 /turf/simulated/open,
@@ -1359,16 +1358,9 @@
 /area/space)
 "aQe" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_atmos_north";
-	frequency = 1501;
-	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -1723,6 +1715,7 @@
 "blj" = (
 /obj/structure/curtain/open/medical,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "bmn" = (
@@ -1874,6 +1867,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "buG" = (
@@ -3702,7 +3696,8 @@
 /obj/machinery/door/airlock/command{
 	dir = 1;
 	name = "Administrator's Office";
-	id_tag = "lost_capoffice"
+	id_tag = "lost_capoffice";
+	req_access = list(244)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4764,8 +4759,7 @@
 	id = "bridge blast";
 	name = "Bridge Lockdown";
 	pixel_x = -38;
-	pixel_y = 42;
-	req_access = list(19)
+	pixel_y = 42
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 6;
@@ -5241,7 +5235,9 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/medical3,
+/obj/structure/closet/secure_closet/medical3{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "dDs" = (
@@ -6512,22 +6508,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/airmix,
 /area/space)
-"ewO" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "exq" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/tiled,
@@ -7768,7 +7748,6 @@
 /area/space)
 "fqv" = (
 /obj/structure/weapons_rack{
-	req_one_access = list(3);
 	name = "Shotguns Rack"
 	},
 /obj/item/gun/projectile/shotgun/pump,
@@ -10515,6 +10494,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hmg" = (
@@ -10616,14 +10596,9 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "hqS" = (
-/obj/structure/platform_stairs/full/south_north_cap,
-/obj/effect/decal/remains{
-	layer = 3
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/structure/noose,
+/obj/effect/decal/remains/human,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "hrM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12363,7 +12338,8 @@
 "iua" = (
 /obj/machinery/door/airlock/vault/bolted{
 	dir = 1;
-	id_tag = "Vault_Airlock"
+	id_tag = "Vault_Airlock";
+	req_access = list(244)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -13601,8 +13577,7 @@
 	id = "bridge blast";
 	name = "Bridge Lockdown";
 	pixel_x = -38;
-	pixel_y = 42;
-	req_access = list(19)
+	pixel_y = 42
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 10;
@@ -14088,7 +14063,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/closet/secure_closet/atmos_personal,
+/obj/structure/closet/secure_closet/atmos_personal{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "jyT" = (
@@ -16110,7 +16087,9 @@
 /area/space)
 "kVO" = (
 /obj/effect/floor_decal/corner/green/full,
-/obj/structure/closet/secure_closet/medical3,
+/obj/structure/closet/secure_closet/medical3{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "kVY" = (
@@ -17692,7 +17671,8 @@
 /area/space)
 "mit" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Less than Lethal Ammunitions"
+	name = "Less than Lethal Ammunitions";
+	req_access = null
 	},
 /obj/item/storage/box/beanbags,
 /obj/item/storage/box/beanbags,
@@ -17892,14 +17872,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "mon" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_atmos_north";
-	frequency = 1501;
-	req_one_access = null
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/space)
 "mor" = (
@@ -18678,7 +18655,6 @@
 /area/space)
 "mQU" = (
 /obj/structure/weapons_rack{
-	req_one_access = list(3);
 	name = "Laser Rifles Rack"
 	},
 /obj/item/gun/energy/rifle/laser,
@@ -18704,12 +18680,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -19452,6 +19422,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/space)
 "nyq" = (
@@ -20177,16 +20148,9 @@
 /area/space)
 "oaD" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -20489,6 +20453,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ohV" = (
@@ -20511,7 +20476,8 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Medical Equipment"
+	name = "Medical Equipment";
+	req_access = list(244)
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -20600,21 +20566,6 @@
 	prices = list()
 	},
 /turf/simulated/floor/wood/walnut,
-/area/space)
-"olo" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_atmos_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "olK" = (
 /obj/structure/flora/rock/pile,
@@ -20731,6 +20682,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "otE" = (
@@ -20998,18 +20950,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -23054,6 +22999,10 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
+/obj/item/reagent_containers/food/drinks/bottle/hooch{
+	pixel_y = 7;
+	pixel_x = -6
+	},
 /turf/simulated/floor/redgrid,
 /area/space)
 "pVa" = (
@@ -24058,22 +24007,6 @@
 	icon_state = "solarpanel"
 	},
 /area/space)
-"qIm" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_atmos_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "qIL" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/dark_green{
@@ -24799,7 +24732,6 @@
 /area/space)
 "rgg" = (
 /obj/structure/weapons_rack{
-	req_one_access = list(3);
 	name = "Ballistics Rack"
 	},
 /obj/effect/floor_decal/corner/red/full{
@@ -24916,6 +24848,7 @@
 "rkE" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "rlr" = (
@@ -25625,12 +25558,6 @@
 "rNh" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_atmos_north";
-	frequency = 1501;
-	req_one_access = null
-	},
 /turf/simulated/floor/plating,
 /area/space)
 "rNv" = (
@@ -26281,18 +26208,11 @@
 /area/space)
 "smB" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "snq" = (
@@ -26667,6 +26587,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "szK" = (
@@ -27637,7 +27558,8 @@
 /area/space)
 "tlz" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Lethal Ammunitions"
+	name = "Lethal Ammunitions";
+	req_access = null
 	},
 /obj/item/storage/box/shotgunshells,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -28052,7 +27974,8 @@
 /area/space)
 "tyf" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Pistols"
+	name = "Pistols";
+	req_access = null
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
@@ -28267,7 +28190,9 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "tCo" = (
-/obj/structure/closet/secure_closet/security,
+/obj/structure/closet/secure_closet/security{
+	req_access = null
+	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -28898,7 +28823,6 @@
 /area/space)
 "tYb" = (
 /obj/structure/weapons_rack{
-	req_one_access = list(3);
 	name = "Small Arms Rack"
 	},
 /obj/item/gun/energy/gun,
@@ -29790,7 +29714,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/closet/secure_closet/engineering_personal,
+/obj/structure/closet/secure_closet/engineering_personal{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "uBd" = (
@@ -31606,7 +31532,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "vSy" = (
-/obj/structure/closet/secure_closet/security,
+/obj/structure/closet/secure_closet/security{
+	req_access = null
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -31638,6 +31566,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vUS" = (
@@ -34362,7 +34291,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/structure/closet/secure_closet/medical3,
+/obj/structure/closet/secure_closet/medical3{
+	req_access = null
+	},
 /obj/machinery/light/colored/decayed/dimmed,
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -34916,19 +34847,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
-"xWX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_atmos_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
 /area/space)
 "xYk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -62319,7 +62237,7 @@ jLj
 jLj
 jLj
 nBd
-qIm
+mwL
 nBd
 ukZ
 qKZ
@@ -62833,8 +62751,8 @@ jLj
 jLj
 jLj
 xvi
-mon
-olo
+lAi
+oaD
 kxF
 ciT
 roQ
@@ -62851,7 +62769,7 @@ jGF
 iaa
 eut
 oaD
-xWX
+amF
 xvi
 jLj
 jLj
@@ -63090,7 +63008,7 @@ jLj
 jLj
 jLj
 nBd
-qIm
+mwL
 nBd
 cmF
 kxB
@@ -63108,7 +63026,7 @@ dsb
 kxB
 pBs
 nBd
-ewO
+mwL
 nBd
 jLj
 jLj
@@ -132724,7 +132642,7 @@ cuC
 qoD
 roR
 eRe
-jEL
+hqS
 pUN
 pgX
 bzn
@@ -135837,7 +135755,7 @@ jEL
 bwA
 vcd
 kVb
-hqS
+cea
 cea
 jVK
 rOY
@@ -197504,7 +197422,7 @@ itB
 vfk
 nff
 jhA
-hZa
+mon
 mMG
 cuC
 oXj
