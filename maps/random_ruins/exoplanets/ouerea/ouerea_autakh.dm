@@ -31,7 +31,7 @@
 	spawnpoints = list("ouerea_autakh")
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/autakh
+	outfit = /datum/outfit/admin/autakh
 
 	assigned_role = "Aut'akh Commune Resident"
 	special_role = "Aut'akh Commune Resident"
@@ -44,12 +44,12 @@
 	desc = "Lead your commune to prosper in secret, as a teacher of the Aut'akh faith."
 	welcome_message = "You are a shaman of the Aut'akh faith, trained in both theology and cybernetic surgery. Help lead your commune members to a greater understanding, protect them from religious persecution, and spread the beliefs of the Aut'akh."
 	max_count = 1
-	outfit = /obj/outfit/admin/autakh/shaman
+	outfit = /datum/outfit/admin/autakh/shaman
 	assigned_role = "Aut'akh Shaman"
 	special_role = "Aut'akh Shaman"
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/autakh
+/datum/outfit/admin/autakh
 	name = "Aut'akh"
 
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation, /obj/item/clothing/under/unathi/zozo)
@@ -57,20 +57,20 @@
 	l_ear = null
 	id = /obj/item/card/id
 
-/obj/outfit/admin/autakh/get_id_access()
+/datum/outfit/admin/autakh/get_id_access()
 	return list(ACCESS_AUTAKH)
 
-/obj/outfit/admin/autakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/autakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)
 	H.update_body()
 
-/obj/outfit/admin/autakh/shaman
+/datum/outfit/admin/autakh/shaman
 	suit = /obj/item/clothing/suit/unathi/wrapping
 	mask = /obj/item/clothing/mask/gas/unathi
 
-/obj/outfit/admin/autakh/shaman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/autakh/shaman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)

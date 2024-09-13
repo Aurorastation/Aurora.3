@@ -53,7 +53,7 @@
 	spawnpoints = list("burzsia_miner")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/burzsia_miner
+	outfit = /datum/outfit/admin/burzsia_miner
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -61,7 +61,7 @@
 	special_role = "Hephaestus Burzsia Miner"
 	respawn_flag = null
 
-/obj/outfit/admin/burzsia_miner
+/datum/outfit/admin/burzsia_miner
 	name = "Hephaestus Burzsia Miner"
 
 	id = /obj/item/card/id/hephaestus
@@ -75,10 +75,10 @@
 	r_pocket = /obj/item/storage/wallet/random
 	accessory = /obj/item/clothing/accessory/badge/passcard/burzsia
 
-/obj/outfit/admin/burzsia_miner/get_id_access()
+/datum/outfit/admin/burzsia_miner/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/burzsia_miner/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/burzsia_miner/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
@@ -93,13 +93,13 @@
 	spawnpoints = list("burzsia_foreman")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/burzsia_miner/foreman
+	outfit = /datum/outfit/admin/burzsia_miner/foreman
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
 
 	assigned_role = "Hephaestus Burzsia Foreman"
 	special_role = "Hephaestus Burzsia Foreman"
 
-/obj/outfit/admin/burzsia_miner/foreman
+/datum/outfit/admin/burzsia_miner/foreman
 	name = "Hephaestus Burzsia foreman"
 
 	head = /obj/item/clothing/head/beret/corporate/heph

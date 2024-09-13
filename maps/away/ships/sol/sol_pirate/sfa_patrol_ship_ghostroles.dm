@@ -7,7 +7,7 @@
 	spawnpoints = list("sfa_navy_crewman")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/sfa_navy_crewman
+	outfit = /datum/outfit/admin/sfa_navy_crewman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
-/obj/outfit/admin/sfa_navy_crewman
+/datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Remnant"
 
 	uniform = /obj/item/clothing/under/rank/sol/
@@ -34,7 +34,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/obj/outfit/admin/sfa_navy_crewman/get_id_access()
+/datum/outfit/admin/sfa_navy_crewman/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_navy_officer
@@ -46,7 +46,7 @@
 	spawnpoints = list("sfa_navy_officer")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/sfa_navy_officer
+	outfit = /datum/outfit/admin/sfa_navy_officer
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -57,7 +57,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
-/obj/outfit/admin/sfa_navy_officer
+/datum/outfit/admin/sfa_navy_officer
 	name = "SFA Remnant Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
@@ -72,7 +72,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/obj/outfit/admin/sfa_navy_officer/get_id_access()
+/datum/outfit/admin/sfa_navy_officer/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items

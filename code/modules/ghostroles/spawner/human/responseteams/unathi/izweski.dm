@@ -3,7 +3,7 @@
 	short_name = "ertizweski"
 	desc = "A soldier of the Izweski Hegemony response team."
 	max_count = 2
-	outfit = /obj/outfit/admin/ert/izweski
+	outfit = /datum/outfit/admin/ert/izweski
 	uses_species_whitelist = FALSE // Anyone should be able to play an ERT Unathi
 	possible_species = list(SPECIES_UNATHI)
 	extra_languages = list(LANGUAGE_UNATHI)
@@ -15,7 +15,7 @@
 	short_name = "ertizweskim"
 	desc = "The medical specialist of the Izweski Hegemony response team."
 	max_count = 1
-	outfit = /obj/outfit/admin/ert/izweski/medic
+	outfit = /datum/outfit/admin/ert/izweski/medic
 	assigned_role = "Izweski Navy Medic"
 
 /datum/ghostspawner/human/ert/izweski/klax
@@ -23,7 +23,7 @@
 	short_name = "ertizweskik"
 	desc = "A K'lax Vaurca Warrior, assigned to the Izweski Hegemony response team."
 	max_count = 1
-	outfit = /obj/outfit/admin/ert/izweski/klax
+	outfit = /datum/outfit/admin/ert/izweski/klax
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
@@ -32,6 +32,6 @@
 	short_name = "ertizweskil"
 	desc = "The commander of the Izweski Hegemony response team."
 	max_count = 1
-	outfit = /obj/outfit/admin/ert/izweski/leader
+	outfit = /datum/outfit/admin/ert/izweski/leader
 	welcome_message = "You are the leader of an Izweski Hegemony naval squad, investigating a distress signal. Act with honor, and uphold the interests of the Hegemon."
 	assigned_role = "Izweski Navy Officer"

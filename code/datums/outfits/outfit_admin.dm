@@ -1,19 +1,19 @@
-/obj/outfit/admin
+/datum/outfit/admin
 	var/id_icon
 
-/obj/outfit/admin/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		if(H.mind)
 			H.mind.assigned_role = name
 		H.job = name
 
-/obj/outfit/admin/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
+/datum/outfit/admin/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
 	..()
 	if(id_icon)
 		C.icon_state = id_icon
 
-/obj/outfit/admin/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(!visualsOnly)
 		if(H?.wear_suit && istype(H.wear_suit, /obj/item/clothing/suit/space/void))
@@ -32,10 +32,10 @@
 					head.refit_for_species(H.species.bodytype)
 
 
-/obj/outfit/admin/random_employee
+/datum/outfit/admin/random_employee
 	name = "Random Employee"
 
-/obj/outfit/admin/random_employee/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/random_employee/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		//Select a random job, set the assigned_role / job var and equip it
@@ -51,7 +51,7 @@
 		job.equip(H, FALSE, FALSE, alt_title)
 
 
-/obj/outfit/admin/random
+/datum/outfit/admin/random
 	name = "Random Civilian"
 
 	uniform = "suit selection"
@@ -68,7 +68,7 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-/obj/outfit/admin/random/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/random/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(!visualsOnly)
 		if(prob(10)) //Equip something smokable
@@ -99,19 +99,19 @@
 			var/datum/gear/G = gear_datums["gloves selection"]
 			H.equip_or_collect(G.spawn_random(), slot_gloves)
 
-/obj/outfit/admin/random/visitor
+/datum/outfit/admin/random/visitor
 	name = "Random Visitor"
 
 	id = /obj/item/card/id
 	pda = /obj/item/modular_computer/handheld/pda/civilian
 
-/obj/outfit/admin/random/visitor/get_id_assignment()
+/datum/outfit/admin/random/visitor/get_id_assignment()
 	return "Visitor"
 
-/obj/outfit/admin/random/visitor/get_id_rank()
+/datum/outfit/admin/random/visitor/get_id_rank()
 	return "Visitor"
 
-/obj/outfit/admin/virtual_reality
+/datum/outfit/admin/virtual_reality
 	name = "Virtual Reality Outfit"
 	uniform = /obj/item/clothing/under/chameleon
 	suit = /obj/item/clothing/suit/chameleon

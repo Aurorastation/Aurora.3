@@ -32,7 +32,7 @@
 	spawnpoints = list("ouerea_freewater")
 	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/freewater
+	outfit = /datum/outfit/admin/freewater
 
 	assigned_role = "Dagamuir Freewater Contractor"
 	special_role = "Dagamuir Freewater Contractor"
@@ -51,7 +51,7 @@
 	special_role = "Dagamuir Freewater Commander"
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/freewater
+/datum/outfit/admin/freewater
 	name = "Dagamuir Freewater Contractor"
 	uniform = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	shoes = /obj/item/clothing/shoes/sandals/caligae
@@ -63,7 +63,7 @@
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
 	)
 
-/obj/outfit/admin/freewater/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/freewater/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]

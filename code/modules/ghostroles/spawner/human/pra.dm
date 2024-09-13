@@ -10,7 +10,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/pra_cosmonaut
+	outfit = /datum/outfit/admin/pra_cosmonaut
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -30,10 +30,10 @@
 	assigned_role = "Party Commissar"
 	special_role = "Party Commissar"
 
-	outfit = /obj/outfit/admin/pra_cosmonaut/commissar
+	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/obj/outfit/admin/pra_cosmonaut
+/datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
@@ -52,7 +52,7 @@
 	r_hand = /obj/item/storage/field_ration
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/pra_cosmonaut/commissar
+/datum/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar

@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/pra_cosmonaut
+/datum/outfit/admin/ert/pra_cosmonaut
 	name = "Kosmostrelki Trooper"
 
 	id = /obj/item/card/id/ert
@@ -24,10 +24,10 @@
 	r_pocket = /obj/item/crowbar/red
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/ert/pra_cosmonaut/get_id_access()
+/datum/outfit/admin/ert/pra_cosmonaut/get_id_access()
 	return get_distress_access()
 
-/obj/outfit/admin/ert/pra_cosmonaut/commissar
+/datum/outfit/admin/ert/pra_cosmonaut/commissar
 	name = "Kosmostrelki Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
@@ -53,7 +53,7 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/ert/pra_cosmonaut/commander
+/datum/outfit/admin/ert/pra_cosmonaut/commander
 	name = "Kosmostrelki Commander"
 
 	back = /obj/item/storage/backpack/satchel/leather
@@ -76,7 +76,7 @@
 	l_pocket = /obj/item/device/megaphone
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/ert/pra_cosmonaut/tesla
+/datum/outfit/admin/ert/pra_cosmonaut/tesla
 	name = "Tesla Trooper"
 	r_hand = /obj/item/gun/energy/rifle/icelance
 	l_hand = /obj/item/rig/tesla
@@ -95,13 +95,13 @@
 						/obj/item/material/knife/trench = 1
 						)
 
-/obj/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/pra_cosmonaut/tesla/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/augment/tesla/advanced(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)
 	H.update_body()
 
-/obj/outfit/admin/ert/pra_cosmonaut/medic
+/datum/outfit/admin/ert/pra_cosmonaut/medic
 	name = "Kosmostrelki Combat Medic"
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile/tajara
@@ -134,7 +134,7 @@
 
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/ert/pra_cosmonaut/engineer
+/datum/outfit/admin/ert/pra_cosmonaut/engineer
 	name = "Kosmostrelki Sapper"
 
 	gloves = /obj/item/clothing/gloves/yellow/specialt

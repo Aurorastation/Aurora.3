@@ -33,7 +33,7 @@
 	spawnpoints = list("moghes_thakh")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_thakh
+	outfit = /datum/outfit/admin/moghes_thakh
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -50,7 +50,7 @@
 
 	max_count = 1
 	spawnpoints = list("moghes_thakh_shaman")
-	outfit = /obj/outfit/admin/moghes_thakh/shaman
+	outfit = /datum/outfit/admin/moghes_thakh/shaman
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Th'akh Shaman"
@@ -66,14 +66,14 @@
 
 	max_count = 3
 	spawnpoints = list("moghes_thakh_faithful")
-	outfit = /obj/outfit/admin/unathi_village
+	outfit = /datum/outfit/admin/unathi_village
 	uses_species_whitelist = FALSE
 
 	assigned_role = "Th'akh Pilgrim"
 	special_role = "Th'akh Pilgrim"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_thakh
+/datum/outfit/admin/moghes_thakh
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	shoes = list(
 		/obj/item/clothing/shoes/sandals,
@@ -89,7 +89,7 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/moghes_thakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_thakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.wear_suit)
@@ -97,7 +97,7 @@
 	if(H.shoes)
 		H.shoes.color = "#423509"
 
-/obj/outfit/admin/moghes_thakh/shaman
+/datum/outfit/admin/moghes_thakh/shaman
 	uniform = /obj/item/clothing/under/unathi/himation
 	suit = /obj/item/clothing/accessory/poncho/maxtlatl
 	head = /obj/item/clothing/head/unathi/maxtlatl

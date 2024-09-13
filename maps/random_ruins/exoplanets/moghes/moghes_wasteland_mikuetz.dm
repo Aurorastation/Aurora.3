@@ -33,7 +33,7 @@
 	uses_species_whitelist = TRUE
 
 	extra_languages = list(LANGUAGE_VAURCA)
-	outfit = /obj/outfit/admin/moghes_mikuetz
+	outfit = /datum/outfit/admin/moghes_mikuetz
 	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -41,7 +41,7 @@
 	special_role = "Mi'kuetz Wanderer"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_mikuetz
+/datum/outfit/admin/moghes_mikuetz
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/vaurca)
 	suit = /obj/item/clothing/suit/vaurca/brown
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -52,7 +52,7 @@
 	l_pocket = /obj/item/reagent_containers/food/snacks/koisbar_clean
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 
-/obj/outfit/admin/moghes_mikuetz/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_mikuetz/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve

@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/tcaf
+/datum/outfit/admin/ert/tcaf
 	name = "Republican Fleet Legionary"
 	uniform = /obj/item/clothing/under/legion/tcaf
 	suit = /obj/item/clothing/suit/space/void/tcaf
@@ -32,7 +32,7 @@
 	)
 	id_iff = IFF_TCFL
 
-/obj/outfit/admin/ert/tcaf/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/tcaf/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask)
@@ -50,10 +50,10 @@
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/obj/outfit/admin/ert/tcaf/get_id_access(mob/living/carbon/human/H)
+/datum/outfit/admin/ert/tcaf/get_id_access(mob/living/carbon/human/H)
 	return get_distress_access()
 
-/obj/outfit/admin/ert/tcaf/medic
+/datum/outfit/admin/ert/tcaf/medic
 	name = "Republican Fleet Medic"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -89,7 +89,7 @@
 		/obj/item/shield/energy/legion = 1
 	)
 
-/obj/outfit/admin/ert/tcaf/engi
+/datum/outfit/admin/ert/tcaf/engi
 	name = "Republican Fleet Engineer"
 	belt = /obj/item/storage/belt/utility/very_full
 	belt_contents = null
@@ -115,5 +115,5 @@
 		/obj/item/grenade/frag = 2
 	)
 
-/obj/outfit/admin/ert/tcaf/officer
+/datum/outfit/admin/ert/tcaf/officer
 	accessory = /obj/item/clothing/accessory/legion

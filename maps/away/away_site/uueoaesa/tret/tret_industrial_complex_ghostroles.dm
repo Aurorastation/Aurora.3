@@ -15,7 +15,7 @@
 	spawnpoints = list("tret_industrial")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/tret_industrial/vaurca
+	outfit = /datum/outfit/admin/tret_industrial/vaurca
 	possible_species = list(SPECIES_VAURCA_WORKER)
 	uses_species_whitelist = FALSE
 	assigned_role = "Tret Industrial Worker"
@@ -51,7 +51,7 @@
 	desc_ooc = null
 	max_count = 1
 
-	outfit = /obj/outfit/admin/tret_industrial/vaurca/bulwark
+	outfit = /datum/outfit/admin/tret_industrial/vaurca/bulwark
 	possible_species = list(SPECIES_VAURCA_BULWARK)
 	uses_species_whitelist = TRUE
 
@@ -80,7 +80,7 @@
 
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
+	outfit = /datum/outfit/admin/tret_industrial/vaurca/warrior
 
 	mob_name_prefix = "Za'Akaix'"
 	mob_name_suffix = " K'lax"
@@ -100,7 +100,7 @@
 /obj/effect/landmark/corpse/tret_industrial_sinta
 	name = "Cult Base Cultist Corpse"
 	species = list(SPECIES_UNATHI)
-	outfit = list(/obj/outfit/admin/tret_industrial/sinta)
+	outfit = list(/datum/outfit/admin/tret_industrial/sinta)
 
 /obj/effect/landmark/corpse/tret_industrial_sinta/do_extra_customization(var/mob/living/carbon/human/human)
 	human.dir = pick(NORTH, SOUTH, EAST, WEST)
@@ -108,7 +108,7 @@
 
 // ---------------------- outfits
 
-/obj/outfit/admin/tret_industrial/vaurca
+/datum/outfit/admin/tret_industrial/vaurca
 	name = "Tret Industrial Worker"
 	uniform = list(
 		/obj/item/clothing/under/vaurca,
@@ -148,16 +148,16 @@
 		/obj/item/device/radio/hailing = 1,
 	)
 
-/obj/outfit/admin/tret_industrial/get_id_access()
+/datum/outfit/admin/tret_industrial/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
 
-/obj/outfit/admin/tret_industrial/vaurca/bulwark
+/datum/outfit/admin/tret_industrial/vaurca/bulwark
 	name = "Tret Industrial Bulwark"
 	mask = list(/obj/item/clothing/mask/gas/vaurca/filter)
 	uniform = list(/obj/item/clothing/under/gearharness)
 	accessory = null
 
-/obj/outfit/admin/tret_industrial/vaurca/warrior
+/datum/outfit/admin/tret_industrial/vaurca/warrior
 	name = "Tret Industrial Warrior"
 	mask = list(
 		/obj/item/clothing/mask/gas/vaurca/filter,
@@ -175,7 +175,7 @@
 	)
 	l_hand = list(/obj/item/martial_manual/vaurca)
 
-/obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -191,7 +191,7 @@
 
 // ---------------------- dead sinta outfit and fluff
 
-/obj/outfit/admin/tret_industrial/sinta
+/datum/outfit/admin/tret_industrial/sinta
 	uniform = list(/obj/item/clothing/under/unathi/mogazali/blue, /obj/item/clothing/under/unathi/mogazali/orange)
 	wrist = /obj/item/clothing/wrists/unathi/jeweled
 	shoes = /obj/item/clothing/shoes/footwraps
@@ -199,7 +199,7 @@
 	suit = /obj/item/clothing/suit/space
 	accessory = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 
-/obj/outfit/admin/tret_industrial/sinta/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
+/datum/outfit/admin/tret_industrial/sinta/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
 
 	// add some items

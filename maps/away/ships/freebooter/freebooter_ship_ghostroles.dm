@@ -7,7 +7,7 @@
 	spawnpoints = list("freebooter_crew")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/freebooter_crew
+	outfit = /datum/outfit/admin/freebooter_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -16,7 +16,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/freebooter_crew
+/datum/outfit/admin/freebooter_crew
 	name = "Freebooter Crewman"
 
 	uniform = /obj/item/clothing/under/tactical
@@ -37,7 +37,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/obj/outfit/admin/freebooter_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/freebooter_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -53,7 +53,7 @@
 		if(istype(tag))
 			tag.modify_tag_data(TRUE) //Shady pirates might well have untagged IPCs aboard
 
-/obj/outfit/admin/freebooter_crew/get_id_access()
+/datum/outfit/admin/freebooter_crew/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/freebooter_crew/captain
@@ -64,7 +64,7 @@
 	spawnpoints = list("freebooter_crew_captain")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/freebooter_crew/captain
+	outfit = /datum/outfit/admin/freebooter_crew/captain
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -72,7 +72,7 @@
 	special_role = "Freebooter Captain"
 
 
-/obj/outfit/admin/freebooter_crew/captain
+/datum/outfit/admin/freebooter_crew/captain
 	name = "Freebooter Captain"
 
 	species_shoes = list(

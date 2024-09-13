@@ -9,7 +9,7 @@
 	max_count = 5
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/peoples_station_crew
+	outfit = /datum/outfit/admin/peoples_station_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	welcome_message = "As a crewmember of the People's Space Station, you must man your station and protect the People's Republic of Adhomai's and its allies' assets. \
@@ -20,7 +20,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	respawn_flag = null
 
-/obj/outfit/admin/peoples_station_crew
+/datum/outfit/admin/peoples_station_crew
 	name = "People's Space Station Crewmember"
 
 	id = /obj/item/card/id
@@ -36,7 +36,7 @@
 
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/peoples_station_crew/get_id_access()
+/datum/outfit/admin/peoples_station_crew/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/peoples_station_crew/captain
@@ -52,14 +52,14 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /obj/outfit/admin/peoples_station_crew/captain
+	outfit = /datum/outfit/admin/peoples_station_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "People's Space Station Captain"
 	special_role = "People's Space Station Captain"
 
-/obj/outfit/admin/peoples_station_crew/captain
+/datum/outfit/admin/peoples_station_crew/captain
 	name = "People's Space Station Captain"
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
@@ -89,10 +89,10 @@
 	special_role = "Party Commissar"
 	uses_species_whitelist = TRUE
 
-	outfit = /obj/outfit/admin/peoples_station_crew/commissar
+	outfit = /datum/outfit/admin/peoples_station_crew/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/obj/outfit/admin/peoples_station_crew/commissar
+/datum/outfit/admin/peoples_station_crew/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar

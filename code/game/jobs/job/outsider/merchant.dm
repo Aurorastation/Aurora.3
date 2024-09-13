@@ -21,7 +21,7 @@
 
 	latejoin_at_spawnpoints = TRUE
 
-	outfit = /obj/outfit/job/merchant
+	outfit = /datum/outfit/job/merchant
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/merchant/announce(mob/living/carbon/human/H)
@@ -33,7 +33,7 @@
 		spawn_positions = 1
 		total_positions = 1
 
-/obj/outfit/job/merchant
+/datum/outfit/job/merchant
 	name = "Merchant"
 	jobtype = /datum/job/merchant
 
@@ -46,7 +46,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/civilian
 	r_pocket = /obj/item/device/price_scanner
 
-/obj/outfit/merchant_assistant
+/datum/outfit/merchant_assistant
 	name = "Merchant's Assistant"
 	id = /obj/item/card/id/merchant
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/merchant
@@ -85,8 +85,8 @@
 		/obj/item/storage/wallet/random = 1
 		)
 
-/obj/outfit/merchant_assistant/get_id_rank(mob/living/carbon/human/H)
+/datum/outfit/merchant_assistant/get_id_rank(mob/living/carbon/human/H)
 	return "Merchant's Assistant"
 
-/obj/outfit/merchant_assistant/get_id_access()
+/datum/outfit/merchant_assistant/get_id_access()
 	return list(ACCESS_MERCHANT)

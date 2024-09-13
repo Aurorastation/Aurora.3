@@ -46,7 +46,7 @@
 	max_count = 4
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/unathi_village
+	outfit = /datum/outfit/admin/unathi_village
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -56,7 +56,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/unathi_village
+/datum/outfit/admin/unathi_village
 	name = "Unathi Villager"
 
 	uniform = list(
@@ -77,7 +77,7 @@
 	id = null
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
-/obj/outfit/admin/unathi_village/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/unathi_village/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.shoes)

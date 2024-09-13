@@ -20,11 +20,11 @@
 	access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
 	minimal_player_age = 7
-	outfit = /obj/outfit/job/officer/event
+	outfit = /datum/outfit/job/officer/event
 
 	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/officer/event
+/datum/outfit/job/officer/event
 	name = "Security Personnel"
 	suit = /obj/item/clothing/suit/armor/carrier/officer
 	head = /obj/item/clothing/head/helmet/security
@@ -60,11 +60,11 @@
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PSYCHIATRIST, ACCESS_PARAMEDIC)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
-	outfit = /obj/outfit/job/med_tech/event
+	outfit = /datum/outfit/job/med_tech/event
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/med_tech/event
+/datum/outfit/job/med_tech/event
 	name = "Medical Personnel"
 	belt = /obj/item/storage/belt/medical/paramedic
 	belt_contents = list(
@@ -103,11 +103,11 @@
 
 	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
 	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
-	outfit = /obj/outfit/job/engineer/event
+	outfit = /datum/outfit/job/engineer/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/engineer/event
+/datum/outfit/job/engineer/event
 	name = "Engineering Personnel"
 	glasses = /obj/item/clothing/glasses/welding
 	gloves = /obj/item/clothing/gloves/yellow
@@ -152,10 +152,10 @@
 	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /obj/outfit/job/scientist/event
+	outfit = /datum/outfit/job/scientist/event
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/scientist/event
+/datum/outfit/job/scientist/event
 	name = "Research Personnel"
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -184,11 +184,11 @@
 
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_ROBOTICS)
 	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
-	outfit = /obj/outfit/job/hangar_tech/event
+	outfit = /datum/outfit/job/hangar_tech/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/hangar_tech/event
+/datum/outfit/job/hangar_tech/event
 	name = "Operations Personnel"
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -214,4 +214,4 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
-	outfit = /obj/outfit/job/bartender
+	outfit = /datum/outfit/job/bartender

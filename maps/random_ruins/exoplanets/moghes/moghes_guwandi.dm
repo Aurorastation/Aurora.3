@@ -24,7 +24,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_guwandi
+	outfit = /datum/outfit/admin/moghes_guwandi
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -33,7 +33,7 @@
 	respawn_flag = null
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/moghes_guwandi
+/datum/outfit/admin/moghes_guwandi
 	name = "Guwandi Warrior"
 
 	uniform = /obj/item/clothing/under/unathi/zazali
@@ -46,7 +46,7 @@
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	l_hand = /obj/item/martial_manual/swordsmanship
 
-/obj/outfit/admin/moghes_guwandi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_guwandi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#181a19"
 	if(H?.wear_suit)

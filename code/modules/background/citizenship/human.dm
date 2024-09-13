@@ -4,8 +4,8 @@
 	It is one of the most populated systems in human space, a financial center, industrial powerhouse and one of the most prestigious systems in the galaxy. It is also very known for \
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
-	consular_outfit = /obj/outfit/job/representative/consular/ceti
-	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
+	consular_outfit = /datum/outfit/job/representative/consular/ceti
+	assistant_outfit = /datum/outfit/job/consular_assistant/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -51,7 +51,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/ceti
+/datum/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
@@ -63,11 +63,11 @@
 		/obj/item/stamp/biesel = 1,
 	)
 
-/obj/outfit/job/consular_assistant/ceti
+/datum/outfit/job/consular_assistant/ceti
 	name = "Tau Ceti Diplomatic Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
-/obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
@@ -90,8 +90,8 @@
 	However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
-	consular_outfit = /obj/outfit/job/representative/consular/sol
-	assistant_outfit = /obj/outfit/job/consular_assistant/sol
+	consular_outfit = /datum/outfit/job/representative/consular/sol
+	assistant_outfit = /datum/outfit/job/consular_assistant/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_HUMAN,
@@ -158,7 +158,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/sol
+/datum/outfit/job/representative/consular/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
@@ -169,7 +169,7 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
-/obj/outfit/job/consular_assistant/sol
+/datum/outfit/job/consular_assistant/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
@@ -192,7 +192,7 @@
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
-	consular_outfit = /obj/outfit/job/representative/consular/coalition
+	consular_outfit = /datum/outfit/job/representative/consular/coalition
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -217,7 +217,7 @@
 		)
 	)
 
-/obj/outfit/job/representative/consular/coalition
+/datum/outfit/job/representative/consular/coalition
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
@@ -232,9 +232,9 @@
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyran"
-	consular_outfit = /obj/outfit/job/representative/consular/elyra
+	consular_outfit = /datum/outfit/job/representative/consular/elyra
 
-/obj/outfit/job/representative/consular/elyra
+/datum/outfit/job/representative/consular/elyra
 	name = "Elyra Consular Officer"
 
 	backpack_contents = list(
@@ -284,7 +284,7 @@
 	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2385 by then-Emperor Godwin Keeser, unifying a colony which had been isolated for hundreds of years. \
 	Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the Mor'iz'al."
 
-	consular_outfit = /obj/outfit/job/representative/consular/dominia
+	consular_outfit = /datum/outfit/job/representative/consular/dominia
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -344,7 +344,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/dominia
+/datum/outfit/job/representative/consular/dominia
 	name = "Empire of Dominia Consular Officer"
 
 	backpack_contents = list(

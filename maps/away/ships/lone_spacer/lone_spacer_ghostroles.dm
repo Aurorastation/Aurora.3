@@ -7,7 +7,7 @@
 	spawnpoints = list("lone_spacer")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/lone_spacer
+	outfit = /datum/outfit/admin/lone_spacer
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -15,7 +15,7 @@
 	special_role = "Independent Spacer"
 	respawn_flag = null
 
-/obj/outfit/admin/lone_spacer
+/datum/outfit/admin/lone_spacer
 	name = "Lone Spacer"
 
 	uniform = /obj/item/clothing/under/color/black
@@ -37,7 +37,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/obj/outfit/admin/lone_spacer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/lone_spacer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -53,7 +53,7 @@
 		if(istype(tag))
 			tag.modify_tag_data(TRUE) // Allows for untagged synthetics.
 
-/obj/outfit/admin/lone_spacer/get_id_access()
+/datum/outfit/admin/lone_spacer/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_LONE_SPACER)
 
 /obj/item/card/id/lone_spacer_ship

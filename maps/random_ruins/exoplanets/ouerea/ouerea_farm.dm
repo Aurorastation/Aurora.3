@@ -30,7 +30,7 @@
 	max_count = 4
 	spawnpoints = list("ouerea_fisher")
 	extra_languages = list(LANGUAGE_UNATHI)
-	outfit = /obj/outfit/admin/unathi_fisher
+	outfit = /datum/outfit/admin/unathi_fisher
 	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,7 +40,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/unathi_fisher
+/datum/outfit/admin/unathi_fisher
 	uniform = list(
 		/obj/item/clothing/under/unathi,
 		/obj/item/clothing/under/unathi/huytai,
@@ -61,7 +61,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca
 	)
 
-/obj/outfit/admin/unathi_fisher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/unathi_fisher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/uniform_color = "[pick("#c4ae04", "#695948", "#dbd9d7")]"
 	if(H?.w_uniform)
 		H.w_uniform.color = uniform_color

@@ -16,9 +16,9 @@
 	extra_languages = list(LANGUAGE_UNATHI)
 	respawn_flag = null
 
-	outfit = /obj/outfit/admin/ihss_reclamation
+	outfit = /datum/outfit/admin/ihss_reclamation
 
-/obj/outfit/admin/ihss_reclamation
+/datum/outfit/admin/ihss_reclamation
 	name = "IHSS Reclamation Crew"
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
@@ -26,10 +26,10 @@
 	l_ear = /obj/item/device/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
-/obj/outfit/admin/ihss_reclamation/get_id_access()
+/datum/outfit/admin/ihss_reclamation/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/ihss_reclamation/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ihss_reclamation/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca(H), slot_shoes)
@@ -52,9 +52,9 @@
 	welcome_message = "You are security personnel aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Security"
 	special_role = "IHSS Reclamation Security"
-	outfit = /obj/outfit/admin/ihss_reclamation/security
+	outfit = /datum/outfit/admin/ihss_reclamation/security
 
-/obj/outfit/admin/ihss_reclamation/security
+/datum/outfit/admin/ihss_reclamation/security
 	name = "IHSS Reclamation Security"
 	belt = /obj/item/storage/belt/security/full
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -71,13 +71,13 @@
 	welcome_message = "You are the captain of the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Captain"
 	special_role = "IHSS Reclamation Captain"
-	outfit = /obj/outfit/admin/ihss_reclamation/captain
+	outfit = /datum/outfit/admin/ihss_reclamation/captain
 
-/obj/outfit/admin/ihss_reclamation/captain
+/datum/outfit/admin/ihss_reclamation/captain
 	name = "IHSS Reclamation Captain"
 	belt = /obj/item/melee/energy/sword/hegemony
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = /obj/item/gun/energy/pistol/hegemony
 
-/obj/outfit/admin/ihss_reclamation/captain/get_id_access()
+/datum/outfit/admin/ihss_reclamation/captain/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)

@@ -26,7 +26,7 @@
 	max_count = 4
 	enabled = FALSE
 
-	outfit = /obj/outfit/admin/pirate
+	outfit = /datum/outfit/admin/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -35,7 +35,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/pirate
+/datum/outfit/admin/pirate
 	name = "Pirate Gang Member"
 
 	uniform = /obj/item/clothing/under/syndicate/tracksuit
@@ -56,7 +56,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/obj/outfit/admin/pirate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/pirate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -68,7 +68,7 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/obj/outfit/admin/pirate/get_id_access()
+/datum/outfit/admin/pirate/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/pirate/boss
@@ -96,7 +96,7 @@
 	max_count = 1
 	enabled = FALSE
 
-	outfit = /obj/outfit/admin/pirate
+	outfit = /datum/outfit/admin/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -105,7 +105,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/pirate
+/datum/outfit/admin/pirate
 	name = "Pirate Gang Boss"
 
 	species_shoes = list(
@@ -135,7 +135,7 @@
 	max_count = 1
 	enabled = FALSE
 
-	outfit = /obj/outfit/admin/pirate_prisoner
+	outfit = /datum/outfit/admin/pirate_prisoner
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -144,7 +144,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/pirate_prisoner
+/datum/outfit/admin/pirate_prisoner
 	name = "Pirate Gang Captive"
 
 	uniform = /obj/item/clothing/under/color/brown

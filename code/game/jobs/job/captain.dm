@@ -22,11 +22,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		SPECIES_SKRELL_AXIORI = 100
 	)
 
-	outfit = /obj/outfit/job/captain
+	outfit = /datum/outfit/job/captain
 
 	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
-/obj/outfit/job/captain
+/datum/outfit/job/captain
 	name = "Captain"
 	jobtype = /datum/job/captain
 
@@ -59,7 +59,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
-/obj/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H && H.w_uniform)
 		var/obj/item/clothing/under/U = H.w_uniform
@@ -96,7 +96,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	outfit = /obj/outfit/job/xo
+	outfit = /datum/outfit/job/xo
 
 	access = list(ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS,
 					ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION,
@@ -110,7 +110,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/xo
+/datum/outfit/job/xo
 	name = "Executive Officer"
 	jobtype = /datum/job/xo
 
@@ -155,14 +155,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	outfit = /obj/outfit/job/bridge_crew
+	outfit = /datum/outfit/job/bridge_crew
 
 	access = list(ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS)
 	minimal_access = list(ACCESS_HEADS, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/bridge_crew
+/datum/outfit/job/bridge_crew
 	name = "Bridge Crew"
 	jobtype = /datum/job/bridge_crew
 

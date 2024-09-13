@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/zeng
+/datum/outfit/admin/ert/zeng
 	name = "Zeng-Hu ERT"
 	uniform = /obj/item/clothing/under/rank/security/zeng
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -26,10 +26,10 @@
 	)
 	id_iff = IFF_ZENGHU
 
-/obj/outfit/admin/ert/zeng/get_id_access()
+/datum/outfit/admin/ert/zeng/get_id_access()
 	return get_distress_access()
 
-/obj/outfit/admin/ert/zeng/medic
+/datum/outfit/admin/ert/zeng/medic
 	name = "Zeng-Hu Medic"
 	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
 	belt = /obj/item/storage/belt/medical/paramedic/combat
@@ -58,7 +58,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/zeng/engineer
+/datum/outfit/admin/ert/zeng/engineer
 	name = "Zeng-Hu Engineer"
 	back = /obj/item/storage/backpack/duffel/zeng
 	belt = /obj/item/storage/belt/utility/very_full
@@ -76,7 +76,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/zeng/leader
+/datum/outfit/admin/ert/zeng/leader
 	name = "Zeng-Hu Squad Leader"
 	accessory_contents = list(
 		/obj/item/gun/energy/decloner = 1

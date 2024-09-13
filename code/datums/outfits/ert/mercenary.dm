@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/mercenary
+/datum/outfit/admin/ert/mercenary
 	name = "Mercenary Freelancer"
 
 	uniform = /obj/item/clothing/under/syndicate
@@ -34,10 +34,10 @@
 
 	id_iff = IFF_FREELANCER
 
-/obj/outfit/admin/ert/mercenary/get_id_access()
+/datum/outfit/admin/ert/mercenary/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/mercenary/specialist
+/datum/outfit/admin/ert/mercenary/specialist
 	name = "Mercenary Freelancer Medic"
 
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
@@ -67,7 +67,7 @@
 		/obj/item/material/knife/trench = 1
 	)
 
-/obj/outfit/admin/ert/mercenary/engineer
+/datum/outfit/admin/ert/mercenary/engineer
 	name = "Mercenary Freelancer Combat Engineer"
 
 	belt = /obj/item/storage/belt/military
@@ -97,7 +97,7 @@
 		/obj/item/device/flashlight/flare = 1,
 	)
 
-/obj/outfit/admin/ert/mercenary/leader
+/datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
 	l_hand = /obj/item/gun/projectile/automatic/rifle/shorty
 	r_hand = null

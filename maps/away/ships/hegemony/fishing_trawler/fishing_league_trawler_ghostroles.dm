@@ -8,7 +8,7 @@
 	spawnpoints = list("fishing_trawler_crewman")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/fishing_trawler_crewman
+	outfit = /datum/outfit/admin/fishing_trawler_crewman
 	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	uses_species_whitelist = FALSE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -23,10 +23,10 @@
 	desc = "Serve as Captain of a Fishing League contracted Hegemony Freighter; seeking and collecting carp and other food for billions of sinta."
 	welcome_message = "You are Captain of a Hegemony Freighter bound by the Fishing League and therefore also Hephaestus Industries. You must strive to keep your crew working and ensure your perishable storage is full to the brim before returning home."
 	max_count = 1
-	outfit = /obj/outfit/admin/fishing_trawler_crewman/captain
+	outfit = /datum/outfit/admin/fishing_trawler_crewman/captain
 	spawnpoints = list("fishing_trawler_captain")
 
-/obj/outfit/admin/fishing_trawler_crewman
+/datum/outfit/admin/fishing_trawler_crewman
 	name = "Fishing Trawler Crewman"
 	uniform = /obj/item/clothing/under/unathi
 	shoes = /obj/item/clothing/shoes/workboots
@@ -44,7 +44,7 @@
 		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	)
 
-/obj/outfit/admin/fishing_trawler_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/fishing_trawler_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -59,9 +59,9 @@
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
 
-/obj/outfit/admin/fishing_trawler_crewman/get_id_access()
+/datum/outfit/admin/fishing_trawler_crewman/get_id_access()
 	return list(ACCESS_FISHING_LEAGUE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/fishing_trawler_crewman/captain
+/datum/outfit/admin/fishing_trawler_crewman/captain
 	name = "Fishing Trawler Captain"
 	uniform = /obj/item/clothing/under/unathi/mogazali/orange

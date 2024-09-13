@@ -11,7 +11,7 @@
 	mob_name_pick_message = "Pick an Unathi name."
 	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Defend the life and honor of Hegemony citizens, and ensure that enemies of the Izweski cannot threaten your vessel."
 
-	outfit = /obj/outfit/admin/izweski
+	outfit = /datum/outfit/admin/izweski
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Izweski Navy Crewman"
@@ -26,7 +26,7 @@
 	desc = "You are a Warrior of the Hive K'lax, assigned to serve with the Izweski Hegemony Navy. Follow the orders of your superiors, and act to ensure the Hegemony's victory over its enemies."
 	max_count = 1
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/izweski/klax
+	outfit = /datum/outfit/admin/izweski/klax
 	spawnpoints = list("hegemony_klax")
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
@@ -38,7 +38,7 @@
 	desc = "You are an officer in the Izweski Hegemony Navy, your life and honor pledged to Hegemon Not'zar. Abide by the Warrior's Code, and lead your crew with honor. Remember, you serve the Izweski Hegemony."
 	max_count = 1
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/izweski/captain
+	outfit = /datum/outfit/admin/izweski/captain
 	assigned_role = "Izweski Navy Captain"
 	special_role = "Izweski Navy Captain"
 	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Your duty is to protect the Hegemony, your ship, and the warriors under your command - and to lead them to triumph over whatever foes you may face."
@@ -61,12 +61,12 @@
 	uses_species_whitelist = TRUE
 	assigned_role = "Izweski Navy Warpriest"
 	special_role = "Izweski Navy Warpriest"
-	outfit = /obj/outfit/admin/izweski/priest
+	outfit = /datum/outfit/admin/izweski/priest
 	spawnpoints = list("hegemony_warpriest")
 	welcome_message = "As a Priest of the Aspect, you are sworn more than any others to embody the honor of the Warrior, and to live by the Warrior's Code - to act with righteousness, mercy, integrity, courage and loyalty. Ensure that your crew does the same, \
 	and guide their souls towards te glory befitting true warriors. However, you are still a soldier, and should follow your captain's orders."
 
-/obj/outfit/admin/izweski
+/datum/outfit/admin/izweski
 	name = "Izweski Crewman"
 
 	uniform = /obj/item/clothing/under/unathi/izweski
@@ -83,10 +83,10 @@
 		/obj/item/storage/box/donkpockets = 1
 	)
 
-/obj/outfit/admin/izweski/get_id_access()
+/datum/outfit/admin/izweski/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/izweski/klax
+/datum/outfit/admin/izweski/klax
 
 	uniform = /obj/item/clothing/under/unathi/izweski
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
@@ -102,23 +102,23 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
-/obj/outfit/admin/izweski/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/izweski/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.update_body()
 
-/obj/outfit/admin/izweski/captain
+/datum/outfit/admin/izweski/captain
 	name = "Hegemony Navy Captain"
 	uniform = /obj/item/clothing/under/unathi/izweski/officer
 
-/obj/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
-/obj/outfit/admin/izweski/captain/get_id_access()
+/datum/outfit/admin/izweski/captain/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/izweski/priest
+/datum/outfit/admin/izweski/priest
 	name = "Hegemony Warpriest"
 	uniform = /obj/item/clothing/under/unathi/skakh/warrior
 	backpack_contents = list(
@@ -128,4 +128,4 @@
 	)
 
 
-/obj/outfit/admin/izweski/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/izweski/priest/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

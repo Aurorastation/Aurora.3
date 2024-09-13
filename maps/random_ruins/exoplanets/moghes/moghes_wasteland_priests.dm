@@ -31,7 +31,7 @@
 	spawnpoints = list("moghes_wasteland_priest")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_wasteland_guard
+	outfit = /datum/outfit/admin/moghes_wasteland_guard
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -53,7 +53,7 @@
 	special_role = "Guard"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_wasteland_priest
+/datum/outfit/admin/moghes_wasteland_priest
 	name = "Sk'akh Priestess of the Healer"
 	uniform = /obj/item/clothing/under/unathi/skakh/healer
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
@@ -66,7 +66,7 @@
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	l_ear = null
 
-/obj/outfit/admin/moghes_wasteland_guard
+/datum/outfit/admin/moghes_wasteland_guard
 	uniform = list(
 		/obj/item/clothing/under/unathi,
 		/obj/item/clothing/under/unathi/himation,

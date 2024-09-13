@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/fsf
+/datum/outfit/admin/ert/fsf
 	name = "Free Solarian Fleets Marine"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
@@ -30,10 +30,10 @@
 
 	id_iff = IFF_FSF
 
-/obj/outfit/admin/ert/fsf/get_id_access()
+/datum/outfit/admin/ert/fsf/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/fsf/medic
+/datum/outfit/admin/ert/fsf/medic
 	name = "Free Solarian Fleets Medic"
 
 	belt = /obj/item/storage/belt/medical/paramedic/combat
@@ -65,7 +65,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/fsf/sapper
+/datum/outfit/admin/ert/fsf/sapper
 	name = "Free Solarian Fleets Sapper"
 
 	back = /obj/item/storage/backpack/duffel/eng
@@ -89,7 +89,7 @@
 
 	belt_contents = null
 
-/obj/outfit/admin/ert/fsf/leader
+/datum/outfit/admin/ert/fsf/leader
 	name = "Free Solarian Fleets Fireteam Leader"
 	l_hand = /obj/item/gun/projectile/automatic/rifle/sol
 	r_hand = null
@@ -107,7 +107,7 @@
 		/obj/item/handcuffs/ziptie = 2
 	)
 
-/obj/outfit/admin/ert/fsf/synth
+/datum/outfit/admin/ert/fsf/synth
 	name = "Free Solarian Fleets Synthetic Unit"
 
 	uniform = /obj/item/clothing/under/rank/sol

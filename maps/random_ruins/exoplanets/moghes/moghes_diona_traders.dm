@@ -31,7 +31,7 @@
 	spawnpoints = list("moghes_diona_trader")
 
 	extra_languages = list(LANGUAGE_UNATHI)
-	outfit = /obj/outfit/admin/moghes_diona_trader
+	outfit = /datum/outfit/admin/moghes_diona_trader
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -40,7 +40,7 @@
 	special_role = "Independent Merchant"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_diona_trader
+/datum/outfit/admin/moghes_diona_trader
 	name = "Unathi Diona Trader"
 	uniform = /obj/item/clothing/under/unathi/mogazali
 	suit = /obj/item/clothing/suit/unathi/robe/robe_coat/orange
@@ -60,7 +60,7 @@
 	tags = list("External")
 	spawnpoints = list("moghes_diona")
 	extra_languages = list(LANGUAGE_UNATHI)
-	outfit = /obj/outfit/admin/moghes_diona
+	outfit = /datum/outfit/admin/moghes_diona
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -70,7 +70,7 @@
 	special_role = "Diona Servant"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_diona
+/datum/outfit/admin/moghes_diona
 	name = "Diona Servant"
 	uniform = /obj/item/clothing/under/gearharness
 	belt = /obj/item/device/flashlight/lantern
@@ -83,14 +83,14 @@
 	short_name = "moghes_diona_assistant"
 	desc = "Assist the Unathi merchant who grew you in their work - or try and free your fellow gestalts."
 	spawnpoints = list("moghes_diona_assistant")
-	outfit = /obj/outfit/admin/moghes_diona/assistant
+	outfit = /datum/outfit/admin/moghes_diona/assistant
 	uses_species_whitelist = TRUE
 	max_count = 1
 	assigned_role = "Merchant's Assistant"
 	special_role = "Merchant's Assistant"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_diona/assistant
+/datum/outfit/admin/moghes_diona/assistant
 	name = "Diona Assistant"
 	uniform = /obj/item/clothing/under/unathi/himation
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/mountain
@@ -100,7 +100,7 @@
 	)
 	r_pocket = /obj/item/storage/wallet
 
-/obj/outfit/admin/moghes_diona/assistant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_diona/assistant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)

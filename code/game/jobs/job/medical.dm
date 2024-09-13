@@ -27,11 +27,11 @@
 			ACCESS_PARAMEDIC, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
 	minimal_player_age = 10
-	outfit = /obj/outfit/job/cmo
+	outfit = /datum/outfit/job/cmo
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/cmo
+/datum/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
 
@@ -77,7 +77,7 @@
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
-	outfit = /obj/outfit/job/doctor
+	outfit = /datum/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/surgeon
@@ -101,10 +101,10 @@
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
-	outfit = /obj/outfit/job/doctor/surgeon
+	outfit = /datum/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/doctor
+/datum/outfit/job/doctor
 	name = "Physician"
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
@@ -134,7 +134,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/obj/outfit/job/doctor/surgeon
+/datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
 	jobtype = /datum/job/surgeon
 
@@ -142,7 +142,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
-/obj/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
@@ -166,10 +166,10 @@
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
-	outfit = /obj/outfit/job/pharmacist
+	outfit = /datum/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/pharmacist
+/datum/outfit/job/pharmacist
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
 
@@ -218,11 +218,11 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_PSYCHIATRIST)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
 	alt_titles = list("Psychologist")
-	outfit = /obj/outfit/job/psychiatrist
-	alt_outfits = list("Psychologist" = /obj/outfit/job/psychiatrist/psycho)
+	outfit = /datum/outfit/job/psychiatrist
+	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/psychiatrist
+/datum/outfit/job/psychiatrist
 	name = "Psychiatrist"
 	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
@@ -251,7 +251,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/psych
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/obj/outfit/job/psychiatrist/psycho
+/datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
 
@@ -275,11 +275,11 @@
 
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PSYCHIATRIST, ACCESS_PARAMEDIC)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
-	outfit = /obj/outfit/job/med_tech
+	outfit = /datum/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/med_tech
+/datum/outfit/job/med_tech
 	name = "Paramedic"
 	base_name = "Paramedic"
 	jobtype = /datum/job/med_tech
@@ -320,7 +320,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("Paramedic Trainee", "Pharmacy Intern", "Resident Physician", "Resident Surgeon", "Resident Psychiatrist")
-	alt_outfits = list("Paramedic Trainee" = /obj/outfit/job/intern_med/medtech, "Pharmacy Intern" = /obj/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /obj/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /obj/outfit/job/intern_med/psychiatrist)
+	alt_outfits = list("Paramedic Trainee" = /datum/outfit/job/intern_med/medtech, "Pharmacy Intern" = /datum/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /datum/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /datum/outfit/job/intern_med/psychiatrist)
 	alt_ages = list("Pharmacy Intern" = list(
 		SPECIES_HUMAN = 25,
 		SPECIES_SKRELL = 58,
@@ -352,10 +352,10 @@
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	outfit = /obj/outfit/job/intern_med
+	outfit = /datum/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/intern_med
+/datum/outfit/job/intern_med
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
@@ -380,7 +380,7 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
-/obj/outfit/job/intern_med/medtech
+/datum/outfit/job/intern_med/medtech
 	name = "Paramedic Trainee"
 
 	head = /obj/item/clothing/head/softcap/nt
@@ -395,7 +395,7 @@
 		/obj/item/storage/firstaid = 1
 	)
 
-/obj/outfit/job/intern_med/pharmacist
+/datum/outfit/job/intern_med/pharmacist
 	name = "Pharmacy Intern"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
@@ -405,16 +405,16 @@
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
-/obj/outfit/job/intern_med/surgeon
+/datum/outfit/job/intern_med/surgeon
 	name = "Resident Surgeon"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
-/obj/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
-/obj/outfit/job/intern_med/psychiatrist
+/datum/outfit/job/intern_med/psychiatrist
 	name = "Resident Psychiatrist"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci

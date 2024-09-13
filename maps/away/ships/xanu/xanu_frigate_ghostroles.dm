@@ -11,7 +11,7 @@
 	max_count = 4
 	mob_name_prefix = "PO3. "
 
-	outfit = /obj/outfit/admin/xanufrigate_crewman
+	outfit = /datum/outfit/admin/xanufrigate_crewman
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -27,7 +27,7 @@
 	welcome_message = "You're an officer of an All-Xanu Spacefleet vessel, representing Xanu Prime and protecting the Coalition of Colonies. You are a military officer, and are trained extensively in combat, survival, and damage control, as well as \
 	leadership and tactical strategy."
 	max_count = 1
-	outfit = /obj/outfit/admin/xanufrigate_crewman/officer
+	outfit = /datum/outfit/admin/xanufrigate_crewman/officer
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_SHELL)
 	mob_name_prefix = "LT. "
 
@@ -38,11 +38,11 @@
 	welcome_message = "You're the captain of an All-Xanu Spacefleet vessel, representing Xanu Prime and protecting the Coalition of Colonies. You are a military officer, and are trained extensively in combat, survival, and damage control, as well as \
 	leadership and tactical strategy."
 	max_count = 1
-	outfit = /obj/outfit/admin/xanufrigate_crewman/officer/captain
+	outfit = /datum/outfit/admin/xanufrigate_crewman/officer/captain
 	spawnpoints = list("xanufrigate_captain")
 	mob_name_prefix = "CDR. "
 
-/obj/outfit/admin/xanufrigate_crewman
+/datum/outfit/admin/xanufrigate_crewman
 	name = "All-Xanu Armed Forces Crewman"
 	uniform = /obj/item/clothing/under/xanu
 	head = /obj/item/clothing/head/xanu
@@ -56,7 +56,7 @@
 		/obj/item/clothing/mask/gas/half = 1,
 		)
 
-/obj/outfit/admin/xanufrigate_crewman/officer
+/datum/outfit/admin/xanufrigate_crewman/officer
 	name = "All-Xanu Armed Forces Officer"
 	uniform = /obj/item/clothing/under/xanu/officer
 	head = /obj/item/clothing/head/xanu/officer
@@ -69,10 +69,10 @@
 		/obj/item/clothing/mask/gas/half = 1,
 		)
 
-/obj/outfit/admin/xanufrigate_crewman/officer/captain
+/datum/outfit/admin/xanufrigate_crewman/officer/captain
 	name = "All-Xanu Armed Forces Senior Officer"
 	uniform = /obj/item/clothing/under/xanu/officer/senior
 	head = /obj/item/clothing/head/xanu/senior
 
-/obj/outfit/admin/xanufrigate_crewman/get_id_access()
+/datum/outfit/admin/xanufrigate_crewman/get_id_access()
 	return list(ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_EXTERNAL_AIRLOCKS)

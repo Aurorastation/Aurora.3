@@ -68,7 +68,7 @@
 	spawnpoints = list("okon_crew")
 	max_count = 5
 
-	outfit = /obj/outfit/admin/okon_crew
+	outfit = /datum/outfit/admin/okon_crew
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -78,7 +78,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/okon_crew
+/datum/outfit/admin/okon_crew
 	name = "Okon Crewmember"
 
 	id = /obj/item/card/id
@@ -91,5 +91,5 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/obj/outfit/admin/okon_crew/get_id_access()
+/datum/outfit/admin/okon_crew/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)

@@ -34,7 +34,7 @@
 	uses_species_whitelist = FALSE
 	spawnpoints = list("moghes_wasteland_klax")
 
-	outfit = /obj/outfit/admin/moghes_wasteland_klax
+	outfit = /datum/outfit/admin/moghes_wasteland_klax
 	possible_species = list(SPECIES_VAURCA_WORKER)
 	extra_languages = list(LANGUAGE_VAURCA)
 	mob_name_pick_message = "Pick a Vaurca Worker name."
@@ -49,7 +49,7 @@
 	desc = "Defend the K'lax terraforming outpost in the Wasteland"
 	welcome_message = "You are a Warrior of the Hive K'lax, assigned to guard the Workers of the science team as they study the Wasteland."
 
-	outfit = /obj/outfit/admin/moghes_wasteland_klax/warrior
+	outfit = /datum/outfit/admin/moghes_wasteland_klax/warrior
 	max_count = 2
 	uses_species_whitelist = TRUE
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
@@ -59,7 +59,7 @@
 	special_role = "K'laxan Warrior"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_wasteland_klax
+/datum/outfit/admin/moghes_wasteland_klax
 	name = "K'laxan Outpost"
 
 	uniform = /obj/item/clothing/under/vaurca
@@ -69,13 +69,13 @@
 	l_ear = null
 	id = /obj/item/card/id
 
-/obj/outfit/admin/moghes_wasteland_klax/warrior
+/datum/outfit/admin/moghes_wasteland_klax/warrior
 	name = "K'laxan Outpost Warrior"
 	back = /obj/item/storage/backpack/cloak/sec
 	belt = /obj/item/melee/energy/vaurca
 	l_hand = /obj/item/martial_manual/vaurca
 
-/obj/outfit/admin/moghes_wasteland_klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_wasteland_klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve

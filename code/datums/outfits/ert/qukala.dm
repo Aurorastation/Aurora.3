@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/qukala
+/datum/outfit/admin/ert/qukala
 	name = "Qukala Emergency Responder"
 	uniform = /obj/item/clothing/under/skrell/qukala
 	shoes = /obj/item/clothing/shoes/jackboots/kala
@@ -37,7 +37,7 @@
 		/obj/item/crowbar/red = 1
 	)
 
-/obj/outfit/admin/ert/qukala/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/qukala/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/tactical(H), slot_wear_mask)
@@ -59,10 +59,10 @@
 	else
 		H.equip_or_collect(new /obj/item/gun/energy/fedpistol/nopsi(src), slot_in_backpack)
 
-/obj/outfit/admin/ert/qukala/get_id_access()
+/datum/outfit/admin/ert/qukala/get_id_access()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SKRELL)
 
-/obj/outfit/admin/ert/qukala/medic
+/datum/outfit/admin/ert/qukala/medic
 	name = "Qukala Medic"
 	suit = /obj/item/clothing/suit/space/void/kala/med
 	head = /obj/item/clothing/head/helmet/space/void/kala/med
@@ -99,7 +99,7 @@
 		/obj/item/roller/hover = 1
 	)
 
-/obj/outfit/admin/ert/qukala/engi
+/datum/outfit/admin/ert/qukala/engi
 	name = "Qukala Engineer"
 	suit = /obj/item/clothing/suit/space/void/kala/engineering
 	head = /obj/item/clothing/head/helmet/space/void/kala/engineering
@@ -125,7 +125,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/qukala/heavy
+/datum/outfit/admin/ert/qukala/heavy
 	name = "Qukala Heavy Trooper"
 	suit = null
 	head = null
@@ -139,9 +139,9 @@
 		/obj/item/gun/energy/fedpistol = 1
 	)
 
-/obj/outfit/admin/ert/qukala/heavy/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/qukala/heavy/post_equip(mob/living/carbon/human/H, visualsOnly)
 
-/obj/outfit/admin/ert/qukala/officer
+/datum/outfit/admin/ert/qukala/officer
 	suit = /obj/item/clothing/suit/space/void/kala/leader
 	head = /obj/item/clothing/head/helmet/space/void/kala/leader
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -149,7 +149,7 @@
 		/obj/item/gun/energy/fedpistol = 1
 	)
 
-/obj/outfit/admin/ert/qukala/officer/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/qukala/officer/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)

@@ -10,7 +10,7 @@
 	Golden Deep who find themselves in human space are known as 'affiliates', and find themselves ostracized and cut off from the \
 	Frontier collective. Due to their peerless skill in business and clerical duties, affiliates share warm relations with NanoTrasen and \
 	find themselves the target of job opportunities in exchange for citizenship."
-	consular_outfit = /obj/outfit/job/representative/consular/golden
+	consular_outfit = /datum/outfit/job/representative/consular/golden
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -47,7 +47,7 @@
 		)
 	)
 
-/obj/outfit/job/representative/consular/golden
+/datum/outfit/job/representative/consular/golden
 	name = "Golden Deep Consular Officer"
 
 	uniform = /obj/item/clothing/under/goldendeep/suit

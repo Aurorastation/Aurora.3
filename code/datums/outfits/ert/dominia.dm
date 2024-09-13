@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/dominia
+/datum/outfit/admin/ert/dominia
 	name = "Imperial Fleet Responder"
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
 	suit = /obj/item/clothing/suit/space/void/dominia/voidsman
@@ -28,16 +28,16 @@
 		/obj/item/handcuffs/ziptie = 1
 	)
 
-/obj/outfit/admin/ert/dominia/get_id_access()
+/datum/outfit/admin/ert/dominia/get_id_access()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
 
-/obj/outfit/admin/ert/dominia/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/dominia/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/obj/outfit/admin/ert/dominia/medic
+/datum/outfit/admin/ert/dominia/medic
 	name = "Imperial Fleet Medic"
 	uniform = /obj/item/clothing/under/dominia/fleet
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -68,7 +68,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/dominia/engi
+/datum/outfit/admin/ert/dominia/engi
 	name = "Imperial Fleet Sapper"
 	uniform = /obj/item/clothing/under/dominia/fleet
 	back = /obj/item/storage/backpack/duffel/eng
@@ -84,7 +84,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/dominia/officer
+/datum/outfit/admin/ert/dominia/officer
 	name = "Imperial Fleet Officer"
 	uniform = /obj/item/clothing/under/dominia/fleet/officer
 	belt_contents = list(

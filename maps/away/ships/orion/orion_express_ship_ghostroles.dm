@@ -9,7 +9,7 @@
 	spawnpoints = list("orion_express_courier")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/orion_express_courier
+	outfit = /datum/outfit/admin/orion_express_courier
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/orion_express_courier
+/datum/outfit/admin/orion_express_courier
 	name = "Orion Express Courier"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion/ship
@@ -39,7 +39,7 @@
 		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
 	)
 
-/obj/outfit/admin/orion_express_courier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/orion_express_courier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -55,7 +55,7 @@
 		if(istype(tag))
 			tag.modify_tag_data()
 
-/obj/outfit/admin/orion_express_courier/get_id_access()
+/datum/outfit/admin/orion_express_courier/get_id_access()
 	return list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/orion_express_courier/captain
@@ -67,7 +67,7 @@
 	spawnpoints = list("orion_express_captain")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/orion_express_courier/captain
+	outfit = /datum/outfit/admin/orion_express_courier/captain
 
 	assigned_role = "Orion Express Captain"
 	special_role = "Orion Express Captain"
@@ -75,7 +75,7 @@
 	idris_account_min = 1200
 	idris_account_max = 2500
 
-/obj/outfit/admin/orion_express_courier/captain
+/datum/outfit/admin/orion_express_courier/captain
 	name = "Orion Express Captain"
 
 	uniform = /obj/item/clothing/under/rank/operations_manager/orion_ship

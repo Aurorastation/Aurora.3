@@ -36,7 +36,7 @@
 	spawnpoints = list("moghes_vihnmes")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_vihnmes
+	outfit = /datum/outfit/admin/moghes_vihnmes
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -56,14 +56,14 @@
 	spawnpoints = list("moghes_vihnmes_patron")
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_vihnmes_patron
+	outfit = /datum/outfit/admin/moghes_vihnmes_patron
 
 	assigned_role = "Vihnmes Patron"
 	special_role = "Vihnmes Patron"
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/moghes_vihnmes
+/datum/outfit/admin/moghes_vihnmes
 	name = "Vihnmes Clan Member"
 	uniform = /obj/item/clothing/under/unathi
 	shoes = /obj/item/clothing/shoes/sandals/caligae
@@ -76,7 +76,7 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/vihnmes/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/vihnmes/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)
@@ -86,7 +86,7 @@
 	if(H.shoes)
 		H.shoes.color = "#423509"
 
-/obj/outfit/admin/moghes_vihnmes_patron
+/datum/outfit/admin/moghes_vihnmes_patron
 	name = "Moghes Bar Patron"
 	uniform = list(
 		/obj/item/clothing/under/unathi,
@@ -109,7 +109,7 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/moghes_vihnmes_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_vihnmes_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H?.w_uniform)

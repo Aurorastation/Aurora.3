@@ -30,11 +30,11 @@
 		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
 	)
 	minimal_player_age = 14
-	outfit = /obj/outfit/job/rd
+	outfit = /datum/outfit/job/rd
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
-/obj/outfit/job/rd
+/datum/outfit/job/rd
 	name = "Research Director"
 	jobtype = /datum/job/rd
 
@@ -81,10 +81,10 @@
 	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /obj/outfit/job/scientist
+	outfit = /datum/outfit/job/scientist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/scientist
+/datum/outfit/job/scientist
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
@@ -119,7 +119,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("Anomalist")
-	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
+	alt_outfits = list("Anomalist" = "/datum/outfit/job/scientist/anomalist")
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -136,10 +136,10 @@
 	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /obj/outfit/job/scientist/xenoarchaeologist
+	outfit = /datum/outfit/job/scientist/xenoarchaeologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/scientist/xenoarchaeologist
+/datum/outfit/job/scientist/xenoarchaeologist
 	name = "Xenoarchaeologist"
 	jobtype = /datum/job/xenoarchaeologist
 
@@ -151,7 +151,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
 
-/obj/outfit/job/scientist/anomalist
+/datum/outfit/job/scientist/anomalist
 	name = "Anomalist"
 	jobtype = /datum/job/xenoarchaeologist
 
@@ -186,10 +186,10 @@
 
 	minimal_player_age = 14
 
-	outfit = /obj/outfit/job/scientist/xenobiologist
+	outfit = /datum/outfit/job/scientist/xenobiologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/scientist/xenobiologist
+/datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 
@@ -218,11 +218,11 @@
 
 	minimal_player_age = 14
 
-	outfit = /obj/outfit/job/scientist/xenobotanist
+	outfit = /datum/outfit/job/scientist/xenobotanist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 
-/obj/outfit/job/scientist/xenobotanist
+/datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
 	jobtype = /datum/job/xenobotanist
 
@@ -240,10 +240,10 @@
 	selection_color = "#a44799"
 	access = list(ACCESS_RESEARCH, ACCESS_TOX)
 	minimal_access = list(ACCESS_RESEARCH, ACCESS_TOX)
-	outfit = /obj/outfit/job/intern_sci
+	outfit = /datum/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/intern_sci
+/datum/outfit/job/intern_sci
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 

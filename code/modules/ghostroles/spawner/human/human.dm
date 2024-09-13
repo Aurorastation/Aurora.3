@@ -13,7 +13,7 @@
 	//Vars related to human mobs
 
 	/// Outfit to equip
-	/// Should either be a subtype of `/obj/outfit`, and then it is that specific outfit
+	/// Should either be a subtype of `/datum/outfit`, and then it is that specific outfit
 	/// Or a list of subtypes, where it randomly picks one outfit from that list
 	var/outfit = null
 	/// Outfit overwrite for the species
@@ -161,7 +161,7 @@
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
-		var/obj/outfit/species_outfit = species_outfits[picked_species]
+		var/datum/outfit/species_outfit = species_outfits[picked_species]
 		M.preEquipOutfit(species_outfit, FALSE)
 		M.equipOutfit(species_outfit, FALSE)
 	else if(outfit)

@@ -8,7 +8,7 @@
 
 	max_count = 4
 	respawn_flag = null
-	outfit = /obj/outfit/admin/gadpathur_patrol
+	outfit = /datum/outfit/admin/gadpathur_patrol
 
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -19,7 +19,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/coalition)
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
-/obj/outfit/admin/gadpathur_patrol
+/datum/outfit/admin/gadpathur_patrol
 	name = "Gadpathurian Security Cadre Member"
 
 	head = list(/obj/item/clothing/head/beret/gadpathur, /obj/item/clothing/head/gadpathur)
@@ -36,7 +36,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 
-/obj/outfit/admin/gadpathur_patrol/get_id_access()
+/datum/outfit/admin/gadpathur_patrol/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY)
 
 /datum/ghostspawner/human/gadpathur_patrol/medical
@@ -48,11 +48,11 @@
 
 	max_count = 1
 
-	outfit = /obj/outfit/admin/gadpathur_patrol/medic
+	outfit = /datum/outfit/admin/gadpathur_patrol/medic
 
 	assigned_role = "Patrol Surgeon"
 
-/obj/outfit/admin/gadpathur_patrol/medic
+/datum/outfit/admin/gadpathur_patrol/medic
 	name = "Gadpathurian Medical Cadre Member"
 
 	head = /obj/item/clothing/head/beret/gadpathur/medical
@@ -67,7 +67,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival/engineer = 1)
 
-/obj/outfit/admin/gadpathur_patrol/medic/get_id_access()
+/datum/outfit/admin/gadpathur_patrol/medic/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY, ACCESS_GADPATHUR_NAVY_OFFICER)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/accent/alt/gadpathur
@@ -95,15 +95,15 @@
 
 	max_count = 1
 
-	outfit = /obj/outfit/admin/gadpathur_patrol/section_leader
+	outfit = /datum/outfit/admin/gadpathur_patrol/section_leader
 
 	assigned_role = "Section Leader"
 
-/obj/outfit/admin/gadpathur_patrol/section_leader
+/datum/outfit/admin/gadpathur_patrol/section_leader
 	name = "Gadpathurian Section Leader"
 
 	accessory = /obj/item/clothing/accessory/gadpathurian_leader
 	suit = /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 
-/obj/outfit/admin/gadpathur_patrol/section_leader/get_id_access()
+/datum/outfit/admin/gadpathur_patrol/section_leader/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_GADPATHUR_NAVY, ACCESS_GADPATHUR_NAVY_OFFICER)

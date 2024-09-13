@@ -8,7 +8,7 @@
 	max_count = 4
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/headmaster_kosmostrelki
+	outfit = /datum/outfit/admin/headmaster_kosmostrelki
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
@@ -17,7 +17,7 @@
 	special_role = "Headmaster Kosmostrelki"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/obj/outfit/admin/headmaster_kosmostrelki
+/datum/outfit/admin/headmaster_kosmostrelki
 	name = "Kosmostrelki"
 
 	id = /obj/item/card/id
@@ -32,7 +32,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_hand = /obj/item/martial_manual/tajara
 
-/obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
+/datum/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain
@@ -45,14 +45,14 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /obj/outfit/admin/headmaster_kosmostrelki/captain
+	outfit = /datum/outfit/admin/headmaster_kosmostrelki/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kosmostrelki Captain"
 	special_role = "Kosmostrelki Captain"
 
-/obj/outfit/admin/headmaster_kosmostrelki/captain
+/datum/outfit/admin/headmaster_kosmostrelki/captain
 	name = "Kosmostrelki Captain"
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
@@ -78,10 +78,10 @@
 	special_role = "Party Commissar"
 	uses_species_whitelist = TRUE
 
-	outfit = /obj/outfit/admin/headmaster_kosmostrelki/commissar
+	outfit = /datum/outfit/admin/headmaster_kosmostrelki/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/obj/outfit/admin/headmaster_kosmostrelki/commissar
+/datum/outfit/admin/headmaster_kosmostrelki/commissar
 
 	name = "Party Commissar"
 
