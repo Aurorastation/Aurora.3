@@ -542,6 +542,14 @@
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/messhall)
+"cx" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "cz" = (
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/morgue)
@@ -1418,7 +1426,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/head/tcaf_officer,
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "gv" = (
@@ -1957,6 +1964,16 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tcaf)
+"iW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/mob/living/heavy_vehicle/premade/combat/tcaf,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
+/area/tcaf_corvette/engineering)
 "iX" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -2579,6 +2596,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
+"mE" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "mF" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full,
 /obj/machinery/autolathe,
@@ -2883,12 +2907,6 @@
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/clothing/suit/armor/carrier/tcaf,
-/obj/item/clothing/suit/armor/carrier/tcaf,
-/obj/item/clothing/suit/armor/carrier/tcaf,
-/obj/item/clothing/suit/armor/carrier/tcaf,
-/obj/item/clothing/suit/armor/carrier/tcaf,
-/obj/item/clothing/accessory/holster/modular,
 /obj/item/clothing/accessory/holster/modular,
 /obj/item/clothing/accessory/holster/modular,
 /obj/item/clothing/accessory/holster/modular,
@@ -2899,12 +2917,16 @@
 /obj/item/clothing/head/helmet/tcaf/tcaf_visor,
 /obj/item/clothing/head/helmet/tcaf,
 /obj/item/clothing/head/helmet/tcaf,
-/obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
-/obj/item/storage/belt/military,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf,
+/obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
+/obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "nR" = (
@@ -3076,12 +3098,6 @@
 	name = "Pilot's Amenities";
 	req_access = list(204)
 	},
-/obj/item/clothing/head/helmet/pilot/legion{
-	name = "tau ceti flight helmet"
-	},
-/obj/item/clothing/head/helmet/pilot/legion{
-	name = "tau ceti flight helmet"
-	},
 /obj/item/gun/energy/blaster/pilot_special,
 /obj/item/gun/energy/blaster/pilot_special,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3103,6 +3119,8 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = -2
 	},
+/obj/item/clothing/head/helmet/pilot/tcaf,
+/obj/item/clothing/head/helmet/pilot/tcaf,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcaf)
 "pi" = (
@@ -3294,15 +3312,16 @@
 /obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/rifle,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/energy/blaster/revolver,
 /obj/item/storage/box/frags,
 /obj/item/storage/box/frags,
-/obj/item/recharger_backpack/high,
 /obj/item/recharger_backpack/high,
 /obj/item/recharger_backpack/high,
 /turf/simulated/floor/tiled/dark/full,
@@ -3592,6 +3611,7 @@
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/item/device/megaphone,
+/obj/item/material/twohanded/pike/flag,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
 "rM" = (
@@ -3739,13 +3759,10 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/hangar)
 "sC" = (
-/obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/mob/living/heavy_vehicle/premade/combat/tcaf{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/suit_cycler/offship/biesel,
+/turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
 "sE" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -3974,7 +3991,6 @@
 /area/tcaf_corvette/cargo_bay)
 "tZ" = (
 /obj/structure/table/standard,
-/obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "uc" = (
@@ -4133,6 +4149,7 @@
 	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/security,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/cic)
 "uQ" = (
@@ -4549,7 +4566,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -5095,7 +5111,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/under/legion/tcaf_officer,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 11
+	},
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "zY" = (
@@ -5302,22 +5320,24 @@
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
-/obj/item/storage/box/smokebombs,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/handcuffs,
 /obj/item/storage/box/flashbangs,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/smokebombs,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "Bn" = (
@@ -5622,6 +5642,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
+"Do" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - tcaf_crewman";
+	identifier = "tcaf_crewman"
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/tcaf_corvette/crew)
 "Dp" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 4
@@ -6046,6 +6078,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
 "Gc" = (
@@ -6210,8 +6243,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
 "Hm" = (
@@ -6537,7 +6572,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
 "IP" = (
@@ -6592,13 +6629,15 @@
 /area/tcaf_corvette/exterior)
 "Je" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/south,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -7164,8 +7203,14 @@
 /area/tcaf_corvette/central_ring)
 "Ml" = (
 /obj/structure/table/wood,
-/obj/item/clothing/head/tcaf_technician,
-/obj/item/clothing/under/legion/tcaf/technician,
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = -11;
+	pixel_y = 6
+	},
+/obj/item/flame/lighter/zippo/tcfl{
+	pixel_y = 3;
+	pixel_x = 4
+	},
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "Mm" = (
@@ -7336,9 +7381,6 @@
 "MZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/francisca)
 "Nc" = (
@@ -7862,6 +7904,9 @@
 	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/security,
+/mob/living/heavy_vehicle/premade/ripley/loader{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/cic)
 "Qe" = (
@@ -8477,7 +8522,6 @@
 	pixel_y = 16;
 	pixel_x = 10
 	},
-/obj/item/clothing/head/helmet/pilot/tcaf,
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "Th" = (
@@ -8852,15 +8896,15 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "Vl" = (
-/obj/effect/ghostspawpoint{
-	name = "igs - tcaf_crewman";
-	identifier = "tcaf_crewman"
-	},
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
 	pixel_y = 15
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - tcaf_crewman";
+	identifier = "tcaf_crewman"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
@@ -9120,7 +9164,18 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(204)
 	},
-/obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = 2
+	},
+/obj/item/pen/fountain/captain{
+	pixel_y = 5;
+	pixel_x = 1
+	},
+/obj/item/stamp/biesel{
+	pixel_x = 5;
+	pixel_y = -9
+	},
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "WX" = (
@@ -9236,12 +9291,14 @@
 /area/tcaf_corvette/messhall)
 "XD" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
@@ -106263,7 +106320,7 @@ Je
 Et
 zB
 gT
-zB
+cx
 Ne
 Uw
 Ne
@@ -106520,7 +106577,7 @@ Ff
 Et
 NQ
 ia
-zA
+ia
 ia
 WX
 ia
@@ -109604,7 +109661,7 @@ Ky
 sK
 FI
 Fy
-Lw
+Fy
 Fy
 CE
 Fy
@@ -109861,7 +109918,7 @@ RO
 sK
 zB
 Wi
-zB
+mE
 Ne
 CS
 Ne
@@ -109888,7 +109945,7 @@ zE
 uf
 SF
 du
-Vl
+Do
 FH
 fq
 wW
@@ -110111,7 +110168,7 @@ sK
 uA
 Np
 CI
-CI
+iW
 CI
 SI
 td

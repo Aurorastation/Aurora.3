@@ -10,7 +10,7 @@
 	item_state = "tcaf_armsman_uniform"
 	worn_state = "tcaf_armsman_uniform"
 
-// Generic gloves, for use by all ranks.
+// Generic gloves.
 /obj/item/clothing/gloves/tcaf
 	name = "\improper TCAF gloves"
 	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
