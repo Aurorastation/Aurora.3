@@ -142,7 +142,8 @@
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
 	body_parts_covered = FACE|EYES
-	action_button_name = "Toggle MIU"
+//	action_button_name = "Toggle MIU"
+	actions_types = list()
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
 
 /obj/item/clothing/mask/ai/Initialize()

@@ -8,7 +8,8 @@
 	slot_flags = SLOT_TIE|SLOT_HEAD|SLOT_EARS
 	flags_inv = BLOCKHAIR|BLOCKHEADHAIR
 	contained_sprite = TRUE
-	action_button_name = "Adjust Hood"
+//	action_button_name = "Adjust Hood"
+	actions_types = list()
 	var/up = TRUE
 	protects_against_weather = TRUE
 

@@ -14,7 +14,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	matter = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
-	action_button_name = "Toggle Paddles"
+//	action_button_name = "Toggle Paddles"
+	actions_types = list()
 
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell

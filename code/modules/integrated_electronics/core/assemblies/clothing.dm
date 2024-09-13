@@ -72,8 +72,7 @@
 	// Clothing assemblies can be triggered by clicking on the HUD. This allows that to occur.
 	action_circuit = new(src.IC)
 	IC.force_add_circuit(action_circuit)
-	default_action_type = /datum/action/item_action/integrated_circuit
-	action_button_name = "Activate [capitalize_first_letters(name)]"
+	actions_types = list(/datum/action/item_action/integrated_circuit)
 
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE

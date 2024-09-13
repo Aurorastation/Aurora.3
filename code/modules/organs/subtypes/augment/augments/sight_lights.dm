@@ -5,7 +5,8 @@
 	icon_state = "sightlights"
 	organ_tag = BP_AUG_SIGHTLIGHTS
 	parent_organ = BP_HEAD
-	action_button_name = "Activate Ocular Installed Sightlights "
+//	action_button_name = "Activate Ocular Installed Sightlights "
+	actions_types = list()
 	action_button_icon = "sightlights"
 	cooldown = 30
 	activable = TRUE

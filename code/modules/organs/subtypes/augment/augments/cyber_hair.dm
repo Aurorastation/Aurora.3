@@ -4,7 +4,8 @@
 	action_button_icon = "cyber_hair"
 	organ_tag = BP_AUG_HAIR
 	activable = TRUE
-	action_button_name = "Activate Synthetic Hair Extensions"
+//	action_button_name = "Activate Synthetic Hair Extensions"
+	actions_types = list()
 	species_restricted = list(
 		SPECIES_HUMAN_OFFWORLD,
 		SPECIES_HUMAN,

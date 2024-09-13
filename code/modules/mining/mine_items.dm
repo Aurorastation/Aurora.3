@@ -38,7 +38,8 @@
 	var/digspeed_wielded = 5
 	var/drilling = FALSE
 
-	action_button_name = "Wield pick/drill"
+//	action_button_name = "Wield pick/drill"
+	actions_types = list()
 
 /obj/item/pickaxe/can_swap_hands(mob/user)
 	if(wielded)
@@ -155,7 +156,7 @@
 	item_state = null
 	name = "offhand"
 	simulated = FALSE
-	action_button_name = null
+	actions_types = list()
 	drop_sound = null
 	pickup_sound = null
 	equip_sound = null
@@ -216,7 +217,7 @@
 	can_wield = FALSE
 	force = 22
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/drill/weak
 	name = "shaft drill"
@@ -247,7 +248,7 @@
 	can_wield = FALSE
 	force = 31
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/gold
 	name = "golden pickaxe"
@@ -292,7 +293,7 @@
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
@@ -311,7 +312,7 @@
 	force = 22
 	excavation_amount = 100
 
-	action_button_name = null
+	actions_types = list()
 
 /*****************************Shovel********************************/
 

@@ -188,7 +188,8 @@
 	parent_organ = BP_HEAD
 	icon_state = "augment-pda"
 	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access, and sabotage."
-	action_button_name = "Toggle Hivenet Defense Suite"
+//	action_button_name = "Toggle Hivenet Defense Suite"
+	actions_types = list()
 	action_button_icon = "augment-pda"
 	activable = TRUE
 	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
@@ -224,7 +225,8 @@
 	name = "advanced hivenet electronic defense suite"
 	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage. \
 	This one looks especially advanced, even by Vaurcaesian standards."
-	action_button_name = "Toggle Advanced Hivenet Defense Suite"
+//	action_button_name = "Toggle Advanced Hivenet Defense Suite"
+	actions_types = list()
 	fullshield = TRUE
 
 /obj/item/organ/internal/augment/hiveshield/warfare
@@ -262,7 +264,8 @@
 /obj/item/organ/internal/augment/tool/combitool/vaurca
 	name = "vaurca integrated toolset"
 	icon_state = "vaurcatool"
-	action_button_name = "Deploy Toolset"
+//	action_button_name = "Deploy Toolset"
+	actions_types = list()
 	action_button_icon = "vaurcatool"
 	augment_type = /obj/item/combitool/robotic/vaurca
 	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -288,7 +291,9 @@
 	desc = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
 	icon_state = "suspension"
 	item_state = "suspension"
-	action_button_name = "Activate Mag-Claws"
+//	action_button_name = "Activate Mag-Claws"
+
+	actions_types = list()
 	action_button_icon = "magclaws"
 	parent_organ = BP_GROIN
 	organ_tag = BP_AUG_MAGBOOT
@@ -615,17 +620,17 @@
 
 /obj/item/organ/external/hand/right/vaurca/security
 	name = "security grasper"
-	action_button_name = "Activate Integrated Electroshock Weapon"
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/vaurca/security/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "baton"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/vaurca/security/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "baton"
+//		if(action.button)
+//			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/vaurca/security/attack_self(var/mob/user)
 	. = ..()
@@ -674,17 +679,17 @@
 
 /obj/item/organ/external/hand/right/vaurca/medical
 	name = "medical grasper"
-	action_button_name = "Activate Integrated Biological Analyser"
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "health"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "health"
+//		if(action.button)
+//			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/vaurca/medical/attack_self(var/mob/user)
 	. = ..()

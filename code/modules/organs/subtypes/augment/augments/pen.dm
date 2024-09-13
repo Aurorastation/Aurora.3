@@ -1,7 +1,8 @@
 /obj/item/organ/internal/augment/tool/pen
 	name = "retractable pen"
 	icon_state = "combipen"
-	action_button_name = "Deploy Pen"
+//	action_button_name = "Deploy Pen"
+	actions_types = list()
 	action_button_icon = "combipen"
 	organ_tag = BP_AUG_PEN
 	parent_organ = BP_R_HAND

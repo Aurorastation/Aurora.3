@@ -27,7 +27,8 @@
 		)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
-	action_button_name = "Flip Welding Mask"
+//	action_button_name = "Flip Welding Mask"
+	actions_types = list()
 	siemens_coefficient = 0.75 // what? it's steel.
 	w_class = WEIGHT_CLASS_NORMAL
 	var/base_state

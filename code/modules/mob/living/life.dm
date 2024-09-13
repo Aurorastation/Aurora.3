@@ -34,8 +34,6 @@
 	for(var/obj/item/grab/G in src)
 		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
-	handle_actions()
-
 	update_canmove()
 
 	handle_regular_hud_updates()

@@ -4,7 +4,7 @@
 	icon_state = "implant_excel" //Temporary
 	implant_icon = "excel" //Ditto
 	implant_color = "#ffd079" //Ditto
-	default_action_type = null
+	actions_types = list()
 	known = TRUE
 
 /obj/item/implant/anti_augment/get_data()

@@ -74,7 +74,8 @@
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
 	)
 
-	action_button_name = "Toggle Helmet"
+//	action_button_name = "Toggle Helmet"
+	actions_types = list()
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
 	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'
 

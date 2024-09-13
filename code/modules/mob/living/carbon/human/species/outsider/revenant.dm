@@ -165,7 +165,8 @@
 	icon_state = "revenant_eyes"
 	eye_emote = null
 	vision_color = null
-	default_action_type = /datum/action/item_action/organ/night_eyes/rev
+//	default_action_type = /datum/action/item_action/organ/night_eyes/rev
+	actions_types = list()
 
 /obj/item/organ/internal/eyes/night/revenant/flash_act()
 	return

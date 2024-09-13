@@ -1,7 +1,8 @@
 /obj/item/organ/internal/augment/tool/cyborg_analyzer
 	name = "retractable cyborg analyzer"
 	icon_state = "robotanalyzer"
-	action_button_name = "Deploy Analyzer"
+//	action_button_name = "Deploy Analyzer"
+	actions_types = list()
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_CYBORG_ANALYZER
 	parent_organ = BP_R_HAND

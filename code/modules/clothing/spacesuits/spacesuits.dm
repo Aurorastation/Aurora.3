@@ -28,7 +28,8 @@
 
 	has_storage = FALSE
 
-	action_button_name = "Toggle Helmet Light"
+//	action_button_name = "Toggle Helmet Light"
+	actions_types = list()
 	light_overlay = "helmet_light"
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE

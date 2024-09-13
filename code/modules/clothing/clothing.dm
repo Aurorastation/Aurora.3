@@ -799,7 +799,7 @@
 /obj/item/clothing/mask/Initialize()
 	. = ..()
 	if(adjustable)
-		action_button_name = "Adjust Mask"
+		actions_types |= list(/datum/action/item_action/adjust)
 		verbs += /obj/item/clothing/mask/proc/adjust_mask
 
 /obj/item/clothing/mask/update_clothing_icon()

@@ -18,7 +18,8 @@
 
 	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
 
-	action_button_name = "Toggle Flashlight"
+//	action_button_name = "Toggle Flashlight"
+	actions_types = list(/datum/action/item_action/toggle_flashlight)
 	/// Is the light currently on or off?
 	var/on = FALSE
 	/// Luminosity when on
