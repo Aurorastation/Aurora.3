@@ -488,7 +488,7 @@
  * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
  * the loc inside here would point to the container, not the mob that had it in hand
  *
- * * user - The `/mob` that dropped the object
+ * * user - The `/mob` that dropped the object (was removed from, not necessarily who clicked the button)
  */
 /obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
@@ -507,6 +507,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user?.update_equipment_speed_mods()
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -615,6 +617,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user.update_equipment_speed_mods()
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE

@@ -57,6 +57,13 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
+	/**
+	 * In case you have multiple types, you automatically use the most useful one.
+	 * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs. -- this isn't in our codebase yet, however
+	 */
+	var/movement_type = GROUND
+
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
@@ -274,7 +281,7 @@
 
 	//They are moving! Wouldn't it be cool if we calculated their momentum and added it to the throw?
 	if (thrower && thrower.last_move && thrower.client && thrower.client.move_delay >= world.time + world.tick_lag*2)
-		var/user_momentum = world.tick_lag //Used to be thrower.cached_multiplicative_slowdown but we don't have this
+		var/user_momentum = thrower.cached_multiplicative_slowdown
 		if (!user_momentum) //no movement_delay, this means they move once per byond tick, lets calculate from that instead.
 			user_momentum = world.tick_lag
 

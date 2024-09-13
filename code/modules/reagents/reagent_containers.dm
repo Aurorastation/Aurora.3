@@ -262,7 +262,7 @@
 
 		if(isanimal(target))
 			var/mob/living/simple_animal/C = target
-			if(C.has_udder)
+			if(C.can_be_milked)
 				return
 
 		other_feed_message_start(user, target)

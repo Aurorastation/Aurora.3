@@ -26,7 +26,7 @@
 	maxHealth = 30
 	health = 30
 
-	has_udder = TRUE
+	can_be_milked = TRUE
 	milk_type = /singleton/reagent/drink/milk/schlorrgo
 
 	friendly = "bumped"
@@ -235,7 +235,7 @@
 	maxHealth = 80
 	health = 80
 
-	has_udder = FALSE
+	can_be_milked = FALSE
 
 	organ_names = list("head", "chest", "augmented core", "augmented torso", "robotic centre", "left leg", "right leg")
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 1)

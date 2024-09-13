@@ -2,7 +2,7 @@
 	name = "biogenerator"
 	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
-	icon_state = "biogen-empty"
+	icon_state = "biogen"
 	density = 1
 	anchored = 1
 	idle_power_usage = 40
@@ -319,7 +319,7 @@ SPECIAL
 
 /obj/machinery/biogenerator/update_icon()
 	if(!beaker)
-		icon_state = "[initial(icon_state)]-empty"
+		icon_state = "[initial(icon_state)]"
 	else if(!processing)
 		icon_state = "[initial(icon_state)]-stand"
 	else
@@ -573,7 +573,7 @@ SPECIAL
 	eat_eff = bin_rating
 
 /obj/machinery/biogenerator/small
-	icon_state = "biogen_small-empty"
+	icon_state = "biogen_small"
 	density = FALSE
 	capacity = 25
 

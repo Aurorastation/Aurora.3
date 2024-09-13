@@ -267,7 +267,13 @@
 			return M
 	return 0
 
+/**
+ * OLD PROC, DO NOT ADD SHIT TO IT ANYMORE
+ * USE `/datum/movespeed_modifier`s instead!
+ */
 /mob/proc/movement_delay()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(lying) //Crawling, it's slower
 		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
@@ -1511,10 +1517,36 @@
 
 	return WEATHER_EXPOSED
 
+///Apply a proper movespeed modifier based on items we have equipped
+/mob/proc/update_equipment_speed_mods()
+	var/speedies = 0
+	for(var/obj/item/thing in get_equipped_speed_mod_items())
+		speedies += (thing.slowdown + thing.slowdown_accessory)
+
+	if(speedies)
+		add_or_update_variable_movespeed_modifier(
+			/datum/movespeed_modifier/equipment_speedmod,
+			multiplicative_slowdown = speedies,
+		)
+	else
+		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
+
+///Get all items in our possession that should affect our movespeed
+/mob/proc/get_equipped_speed_mod_items()
+	. = list()
+	//Aurora BS
+	var/list/held_items = list()
+	held_items += l_hand
+	held_items += r_hand
+	//END AURORA BS
+	for(var/obj/item/thing in held_items)
+		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
+		. += thing
+
 /mob/proc/check_emissive_equipment()
 	var/old_zflags = z_flags
 	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(TRUE))
+	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
 		if(AM.z_flags & ZMM_MANGLE_PLANES)
 			z_flags |= ZMM_MANGLE_PLANES
 			break

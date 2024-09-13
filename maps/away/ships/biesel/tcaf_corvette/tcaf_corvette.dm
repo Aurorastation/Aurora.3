@@ -45,7 +45,9 @@
 		"tcaf_corvette_nav2",
 		"tcaf_corvette_nav3",
 		"tcaf_corvette_nav4",
-		"tcaf_corvette_dock"
+		"tcaf_corvette_starboard_dock",
+		"tcaf_corvette_port_dock",
+		"tcaf_corvette_aft_dock"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -76,18 +78,18 @@
 
 /obj/effect/shuttle_landmark/tcaf_corvette/dock
 	name = "Port Docking Port"
-	docking_controller = "airlock_tcaf_dock"
-	landmark_tag = "tcaf_corvette_dock"
+	docking_controller = "airlock_tcaf_port_dock"
+	landmark_tag = "tcaf_corvette_port_dock"
 
 /obj/effect/shuttle_landmark/tcaf_corvette/dock1
 	name = "Starboard Docking Port"
-	docking_controller = "airlock_tcaf_dock1"
-	landmark_tag = "tcaf_corvette_dock1"
+	docking_controller = "airlock_tcaf_starboard_dock"
+	landmark_tag = "tcaf_corvette_starboard_dock"
 
 /obj/effect/shuttle_landmark/tcaf_corvette/dock2
 	name = "Aft Docking Port"
-	docking_controller = "airlock_tcaf_dock2"
-	landmark_tag = "tcaf_corvette_dock2"
+	docking_controller = "airlock_tcaf_aft_dock"
+	landmark_tag = "tcaf_corvette_aft_dock"
 
 /obj/effect/overmap/visitable/ship/landable/tcaf_shuttle
 	name = "TCAF Gunship"
@@ -118,6 +120,7 @@
 	shuttle_area = list(/area/shuttle/tcaf)
 	current_location = "nav_hangar_tcaf"
 	landmark_transition = "nav_transit_tcaf_shuttle"
+	dock_target = "airlock_tcaf_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tcaf"
