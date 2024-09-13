@@ -138,12 +138,12 @@
 
 	data["currently_printing"] = null
 	if(currently_printing)
-		data["currently_printing"] = "\ref[currently_printing]"
+		data["currently_printing"] = "[REF(currently_printing)]"
 	data["queue"] = list()
 	for(var/datum/autolathe_queue_item/AR in print_queue)
 		data["queue"] += list(
 			list(
-				"ref" = "\ref[AR]",
+				"ref" = "[REF(AR)]",
 				"order" = AR.recipe.name,
 				"path" = AR.recipe.type,
 				"multiplier" = AR.multiplier,

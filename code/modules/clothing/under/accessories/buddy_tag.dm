@@ -25,10 +25,10 @@ var/list/active_buddy_tags = list()
 	if(use_check_and_message(user))
 		return
 
-	var/list/dat = "<A href='?src=\ref[src];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
-	dat += "<br>ID: <A href='?src=\ref[src];setcode=1;'>[id]</a>"
-	dat += "<br>Search Interval: <A href='?src=\ref[src];set_interval=1;'>[search_interval/10] seconds</a>"
-	dat += "<br>Search Distance: <A href='?src=\ref[src];set_distance=1;'>[distance]</a>"
+	var/list/dat = "<A href='?src=[REF(src)];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
+	dat += "<br>ID: <A href='?src=[REF(src)];setcode=1;'>[id]</a>"
+	dat += "<br>Search Interval: <A href='?src=[REF(src)];set_interval=1;'>[search_interval/10] seconds</a>"
+	dat += "<br>Search Distance: <A href='?src=[REF(src)];set_distance=1;'>[distance]</a>"
 
 	var/datum/browser/popup = new(user, "buddytag", "Buddy Tag", 290, 200)
 	popup.set_content(JOINTEXT(dat))
