@@ -1142,18 +1142,12 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
@@ -5138,8 +5132,8 @@
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "ranger";
-	name = "igs - ranger"
+	identifier = "ranger_synthetic";
+	name = "igs - ranger_synthetic"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -5153,6 +5147,10 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = 27;
 	req_access = null
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 16;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
