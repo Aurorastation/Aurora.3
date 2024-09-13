@@ -55,7 +55,8 @@
 		"tcaf_corvette_nav4",
 		"tcaf_corvette_starboard_dock",
 		"tcaf_corvette_port_dock",
-		"tcaf_corvette_aft_dock"
+		"tcaf_corvette_aft_dock",
+		"tcaf_corvette_fore_dock"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -65,7 +66,7 @@
 	..()
 
 /obj/effect/shuttle_landmark/tcaf_corvette
-	base_turf = /turf/space/dynamic
+	base_turf = /turf/space
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tcaf_corvette/nav1
@@ -84,20 +85,25 @@
 	name = "Starboard"
 	landmark_tag = "tcaf_corvette_nav4"
 
-/obj/effect/shuttle_landmark/tcaf_corvette/dock
+/obj/effect/shuttle_landmark/tcaf_corvette/dock_port
 	name = "Port Docking Port"
 	docking_controller = "airlock_tcaf_port_dock"
 	landmark_tag = "tcaf_corvette_port_dock"
 
-/obj/effect/shuttle_landmark/tcaf_corvette/dock1
+/obj/effect/shuttle_landmark/tcaf_corvette/dock_starboard
 	name = "Starboard Docking Port"
 	docking_controller = "airlock_tcaf_starboard_dock"
 	landmark_tag = "tcaf_corvette_starboard_dock"
 
-/obj/effect/shuttle_landmark/tcaf_corvette/dock2
+/obj/effect/shuttle_landmark/tcaf_corvette/dock_aft
 	name = "Aft Docking Port"
 	docking_controller = "airlock_tcaf_aft_dock"
 	landmark_tag = "tcaf_corvette_aft_dock"
+
+/obj/effect/shuttle_landmark/tcaf_corvette/dock_fore
+	name = "Fore Docking Port"
+	docking_controller = "airlock_tcaf_fore_dock"
+	landmark_tag = "tcaf_corvette_fore_dock"
 
 /obj/effect/overmap/visitable/ship/landable/tcaf_shuttle
 	name = "TCAF Gunship"

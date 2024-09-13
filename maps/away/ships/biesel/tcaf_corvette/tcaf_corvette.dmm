@@ -1377,12 +1377,10 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/sofa/left/red{
-	dir = 1
-	},
 /obj/machinery/alarm/south{
 	req_one_access = list(204)
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "gp" = (
@@ -1415,6 +1413,14 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcaf)
+"gt" = (
+/obj/structure/table/wood,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/clothing/head/tcaf_officer,
+/turf/simulated/floor/carpet/red,
+/area/tcaf_corvette/captain_quarters)
 "gv" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -1542,13 +1548,13 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
-/obj/structure/table/wood,
 /obj/machinery/power/apc/north{
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/structure/bed/stool/chair/sofa/right/beige,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "gT" = (
@@ -2220,6 +2226,15 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
+"kT" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/left/beige{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "kU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3661,10 +3676,10 @@
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
 	},
-/obj/structure/table/wood,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/sofa/corner/convex/beige,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "sl" = (
@@ -3849,6 +3864,17 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
+"tm" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/obj/structure/table/wood,
+/obj/item/toy/plushie/ipc{
+	pixel_y = 6;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "tp" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -3948,6 +3974,7 @@
 /area/tcaf_corvette/cargo_bay)
 "tZ" = (
 /obj/structure/table/standard,
+/obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "uc" = (
@@ -5068,6 +5095,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clothing/under/legion/tcaf_officer,
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "zY" = (
@@ -5602,9 +5630,9 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/toy/plushie/ipc{
-	pixel_y = 6;
-	pixel_x = 5
+/obj/item/device/synthesized_instrument/guitar{
+	pixel_y = 17;
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
@@ -6035,9 +6063,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/sofa/right/red{
-	dir = 1
-	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "Gk" = (
@@ -7091,6 +7117,7 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "LS" = (
@@ -7137,6 +7164,8 @@
 /area/tcaf_corvette/central_ring)
 "Ml" = (
 /obj/structure/table/wood,
+/obj/item/clothing/head/tcaf_technician,
+/obj/item/clothing/under/legion/tcaf/technician,
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "Mm" = (
@@ -7301,10 +7330,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
-/obj/structure/table/wood,
-/obj/structure/television{
-	pixel_y = 13
-	},
+/obj/structure/bed/stool/chair/sofa/beige,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "MZ" = (
@@ -7331,6 +7357,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcaf)
@@ -8045,6 +8074,11 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
+/obj/item/clothing/suit/storage/legion/tcaf,
+/obj/item/clothing/suit/storage/legion/tcaf,
+/obj/item/clothing/suit/storage/legion/tcaf,
+/obj/item/clothing/accessory/flagpatch/biesel,
 /obj/item/clothing/accessory/flagpatch/biesel,
 /obj/item/clothing/accessory/flagpatch/biesel,
 /turf/simulated/floor/tiled/techfloor,
@@ -8443,6 +8477,7 @@
 	pixel_y = 16;
 	pixel_x = 10
 	},
+/obj/item/clothing/head/helmet/pilot/tcaf,
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "Th" = (
@@ -9085,6 +9120,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(204)
 	},
+/obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat,
 /turf/simulated/floor/carpet/red,
 /area/tcaf_corvette/captain_quarters)
 "WX" = (
@@ -42238,7 +42274,7 @@ FX
 me
 Ng
 er
-er
+Ng
 Zi
 ig
 HA
@@ -109088,7 +109124,7 @@ wW
 Tf
 hQ
 Wc
-zW
+gt
 WT
 zW
 Wc
@@ -110101,8 +110137,8 @@ Kk
 YI
 pN
 si
-ll
-ll
+kT
+tm
 Dp
 gr
 gM
