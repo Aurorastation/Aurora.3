@@ -139,8 +139,16 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
-	var/has_udder = FALSE
+	/// Whether this animal can be milked or not.
+	var/can_be_milked = FALSE
+	/// The reagent storage for the animal's milking product.
 	var/datum/reagents/udder = null
+	/// The size of the udder's reagent storage.
+	var/udder_size = 50
+	/// The minimum and upper floor of the per-tick milk regeneration to feed into rand(). This list should always have both minimum and upper floor.
+	/// This is also how much milk is taken from the animal at once.
+	var/list/milk_regeneration = list(5, 10)
+	/// What the animal's milking product is.
 	var/milk_type = /singleton/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
@@ -181,8 +189,8 @@
 		reagents = new/datum/reagents(20, src)
 	nutrition = max_nutrition
 
-	if(has_udder)
-		udder = new(50)
+	if(can_be_milked)
+		udder = new(udder_size)
 		udder.my_atom = src
 
 	if(LAZYLEN(natural_armor))
@@ -311,10 +319,10 @@
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
-	if(has_udder)
+	if(can_be_milked)
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent(milk_type, rand(5, 10))
+				udder.add_reagent(milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 	return 1
 
@@ -577,21 +585,13 @@
 		qdel(attacking_item)
 		qdel(src)
 
-	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
-		attacked_with_item(attacking_item, user)
-		return
-	if(has_udder)
+	if(can_be_milked)
 		var/obj/item/reagent_containers/glass/G = attacking_item
-		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
-			if(udder.total_volume <= 0)
-				to_chat(user, SPAN_WARNING("The udder is dry."))
-				return
-			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
-				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
-			udder.trans_type_to(G, milk_type, rand(5, 10))
+		if(istype(G, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
+			attacked_with_item(attacking_item, user)
 			return
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			handle_milking(user, G)
 
 	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()
@@ -1017,6 +1017,16 @@
 
 /mob/living/simple_animal/InStasis()
 	return in_stasis
+
+/mob/living/simple_animal/proc/handle_milking(mob/user, obj/item/reagent_containers/container)
+	if(udder.total_volume <= 0)
+		to_chat(user, SPAN_WARNING("There is nothing left to collect."))
+		return
+	if(container.reagents.total_volume >= container.volume)
+		to_chat(user, SPAN_WARNING("The [container] is full."))
+		return
+	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
+	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
