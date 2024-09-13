@@ -7208,7 +7208,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/paper/fluff/idris_cruise/medal_of_valor
+/obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/structure/table/standard,
 /obj/machinery/light/small{
