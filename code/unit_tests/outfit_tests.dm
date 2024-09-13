@@ -2,8 +2,8 @@ ABSTRACT_TYPE(/datum/unit_test/outfits)
 	name = "OUTFITS: Template"
 	groups = list("generic")
 
-/datum/unit_test/outfits/no_abstracts
-	name = "OUTFITS: No Abstract Types in Outfits"
+/datum/unit_test/outfits/valid_paths
+	name = "OUTFITS: Valid Paths in Outfits"
 	var/errorcount = 0
 
 ///Macro to add a slot to the list of paths to test
@@ -17,7 +17,7 @@ ABSTRACT_TYPE(/datum/unit_test/outfits)
 		}\
 	}
 
-/datum/unit_test/outfits/no_abstracts/start_test()
+/datum/unit_test/outfits/valid_paths/start_test()
 
 	//For each of the outfit subtypes
 	for(var/outfit_path in subtypesof(/datum/outfit))
@@ -95,22 +95,22 @@ ABSTRACT_TYPE(/datum/unit_test/outfits)
 		for(var/itempath in paths_to_test)
 			//Need to be paths
 			if(!ispath(itempath))
-				TEST_FAIL("Outfit [outfit_path] has an invalid item in its slot, which isn't a path: [itempath]!")
+				TEST_FAIL("Outfit [outfit_path] has an invalid entry in its slot, which isn't a path: [itempath]!")
 				errorcount++
 				continue
 
 			//Need not to be abstract
 			if(is_abstract(itempath))
-				TEST_FAIL("Outfit [outfit_path] has an abstract item in its slot: [itempath]!")
+				TEST_FAIL("Outfit [outfit_path] has an abstract path in its slot: [itempath]!")
 				errorcount++
 				continue
 
-			TEST_DEBUG("Outfit [outfit_path] has a valid item in its slot: [itempath]!")
+			TEST_DEBUG("Outfit [outfit_path] has valid path(s) in its slot: [itempath]!")
 
-		TEST_NOTICE("Outfit [outfit_path] was tested with [length(paths_to_test)] item(s) in its slot(s)!")
+		TEST_NOTICE("Outfit [outfit_path] was tested with [length(paths_to_test)] path(s) in its slot(s)!")
 
 	if(errorcount)
-		return TEST_FAIL("Found [errorcount] abstract item(s) in outfit(s)!")
+		return TEST_FAIL("Found [errorcount] erroneous path(s) in outfit(s)!")
 	else
 		return TEST_PASS("All outfits are valid")
 

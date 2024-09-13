@@ -177,9 +177,6 @@
 /datum/outfit/admin/pod/smuggler
 	name = "RescuePod - Smuggler"
 
-	shoes = "shoe selection"
-	uniform = "pants selection"
-
 	backpack_contents = list(
 		/obj/item/reagent_containers/inhaler/space_drugs = 3,
 		/obj/item/reagent_containers/inhaler/hyperzine = 2,
@@ -204,7 +201,6 @@
 	l_hand = /obj/item/material/twohanded/spear/plasteel
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id
-	uniform = "pants selection"
 	back = /obj/item/rig/gunslinger
 
 /datum/outfit/admin/pod/hunter/get_id_assignment()
