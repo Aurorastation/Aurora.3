@@ -479,7 +479,7 @@
 /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
 	light_overlay = "helmet_light_dual"
 
-/obj/item/rig/combat/tcaf
+/obj/item/rig/combat/legionnaire
 	name = "\improper Legionnaire Hardsuit"
 	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
 	Its golden visor reflecting the shining liberty the TCAF stands for."
@@ -503,7 +503,7 @@
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/tcaf
+	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -524,11 +524,11 @@
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
-/obj/item/clothing/head/helmet/space/rig/tcaf
+/obj/item/clothing/head/helmet/space/rig/legionnaire
 	light_overlay = "helmet_light_tcaf_legionnaire"
 	camera = /obj/machinery/camera/network/tcfl
 
-/obj/item/rig/combat/tcaf/equipped
+/obj/item/rig/combat/legionnaire/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
