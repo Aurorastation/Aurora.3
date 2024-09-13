@@ -418,7 +418,7 @@
 
 /datum/language/machine/process_word_prescramble(var/original_word, var/new_word, var/word_index, var/new_sentence, var/understand_chance, var/list/music_notes)
 	// we drop every second word to make the resulting message shorter, to represent the effective compression of EAL
-	if(word_index % 2 != 0)
+	if(word_index % 2)
 		if(!prob(understand_chance) && !(original_word in music_notes))
 			new_word = trim(scramble_word(original_word))
 	else
