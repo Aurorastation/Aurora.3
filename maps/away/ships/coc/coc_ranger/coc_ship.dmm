@@ -2103,7 +2103,7 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (

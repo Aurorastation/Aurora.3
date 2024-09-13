@@ -1761,7 +1761,7 @@
 /area/hideout)
 "AM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "AQ" = (

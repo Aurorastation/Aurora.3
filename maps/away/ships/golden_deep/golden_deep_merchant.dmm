@@ -194,7 +194,7 @@
 /area/golden_deep/engineering)
 "cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
