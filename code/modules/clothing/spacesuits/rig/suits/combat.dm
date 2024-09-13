@@ -485,7 +485,7 @@
 	Its golden visor reflecting the shining liberty the TCAF stands for."
 	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
 	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
-	The blue armored plates layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
+	The blue armored plates are layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
 	icon = 'icons/clothing/rig/tcaf_legionnaire.dmi'
 	icon_state = "legionnaire_rig"
 	icon_supported_species_tags = null
