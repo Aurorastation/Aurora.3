@@ -480,12 +480,16 @@
 	light_overlay = "helmet_light_dual"
 
 /obj/item/rig/combat/tcaf
-	name = "\improper TCAF hardsuit control module"
-	desc = "I HATE SOLARIANS. SOL WILL BURN!"
+	name = "\improper Legionnaire Hardsuit"
+	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
+	Its golden visor reflecting the shining liberty the TCAF stands for."
+	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
+	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
+	The blue armored plates layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
 	icon = 'icons/clothing/rig/tcaf_legionnaire.dmi'
 	icon_state = "legionnaire_rig"
 	icon_supported_species_tags = null
-	suit_type = "\improper TCAF Legionnaire hardsuit"
+	suit_type = "\improper Legionnaire Hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
