@@ -4,7 +4,6 @@
 
 	prefix = "ships/elyra/elyra_corvette/"
 	suffix = "elyra_corvette.dmm"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ)
 	spawn_weight = 1
