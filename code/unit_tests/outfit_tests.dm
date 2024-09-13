@@ -97,11 +97,17 @@ ABSTRACT_TYPE(/datum/unit_test/outfits)
 			if(!ispath(itempath))
 				TEST_FAIL("Outfit [outfit_path] has an invalid item in its slot, which isn't a path: [itempath]!")
 				errorcount++
+				continue
 
 			//Need not to be abstract
 			if(is_abstract(itempath))
 				TEST_FAIL("Outfit [outfit_path] has an abstract item in its slot: [itempath]!")
 				errorcount++
+				continue
+
+			TEST_DEBUG("Outfit [outfit_path] has a valid item in its slot: [itempath]!")
+
+		TEST_NOTICE("Outfit [outfit_path] was tested with [length(paths_to_test)] item(s) in its slot(s)!")
 
 	if(errorcount)
 		return TEST_FAIL("Found [errorcount] abstract item(s) in outfit(s)!")

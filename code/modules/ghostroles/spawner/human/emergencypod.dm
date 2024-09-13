@@ -112,9 +112,6 @@
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
 
-	uniform = "suit selection"
-	shoes = "oxford shoe selection"
-
 	backpack_contents = list(
 		/obj/item/lipstick/random = 2,
 		/obj/item/haircomb/random = 1,
@@ -221,7 +218,6 @@
 	name = "RescuePod - Occultist"
 	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/laceup
-	uniform = "suit selection"
 	backpack_contents = list(
 		/obj/item/clothing/head/fake_culthood = 1,
 		/obj/item/clothing/suit/fake_cultrobes = 1,

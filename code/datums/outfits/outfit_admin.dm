@@ -53,9 +53,6 @@
 
 /datum/outfit/admin/random
 	name = "Random Civilian"
-
-	uniform = "suit selection"
-	shoes = "shoe selection"
 	l_ear = list(
 		/obj/item/device/radio/headset,
 		/obj/item/device/radio/headset/alt,
