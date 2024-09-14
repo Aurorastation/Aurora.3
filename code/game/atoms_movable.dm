@@ -366,7 +366,7 @@
 		if (EMISSIVE_BLOCK_UNIQUE)
 			if (!em_block && !QDELING(src))
 				appearance_flags |= KEEP_TOGETHER
-				render_target = ref(src)
+				render_target = REF(src)
 				em_block = emissive_blocker(
 					icon = icon,
 					icon_state = icon_state,

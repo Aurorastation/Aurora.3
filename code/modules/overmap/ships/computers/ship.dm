@@ -12,7 +12,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
-	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='?src=\ref[src];sync=1'>Reconnect</a></center>")
+	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='?src=[REF(src)];sync=1'>Reconnect</a></center>")
 	popup.open()
 
 /obj/machinery/computer/ship/attack_hand(mob/user)
@@ -58,7 +58,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
 	if(linked)
 		LAZYDISTINCTADD(linked.navigation_viewers, WEAKREF(user))
-	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
+	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, REF(src))
 
 /// Handles disabling the user's overmap view when a signal comes in, primarily used when the TGUI is closed, see helm.dm and sensors.dm
 /obj/machinery/computer/ship/proc/handle_unlook_signal(var/datum/source, var/mob/user)
@@ -94,7 +94,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		for(var/obj/machinery/computer/ship/sensors/sensor in linked.consoles)
 			sensor.hide_contacts(user)
 
-	REMOVE_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
+	REMOVE_TRAIT(user, TRAIT_COMPUTER_VIEW, REF(src))
 
 /obj/machinery/computer/ship/proc/viewing_overmap(mob/user)
 	return (WEAKREF(user) in viewers) || (linked && (WEAKREF(user) in linked.navigation_viewers))

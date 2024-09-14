@@ -267,7 +267,7 @@
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
-#define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
+#define DEBUG_REF(D) (D ? "[REF(D)]|[D]] ([D.type])" : "NULL")
 
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
@@ -282,10 +282,6 @@
 #define NL_NOT_DISABLED      0
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
-
-///Used for creating soft references to objects. A manner of storing an item reference
-///DO NOT USE, USE `WEAKREF()`
-#define SOFTREF(A) ref(A)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)

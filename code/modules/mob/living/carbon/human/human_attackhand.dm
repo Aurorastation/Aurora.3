@@ -665,7 +665,7 @@
 		dat += "<b>Primarily [u_attack.attack_name] </b><br/><br/><br/>"
 
 	if(default_attack)
-		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/><br/>"
+		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=[REF(src)];default_attk=reset_attk'>Reset</a><br/><br/>"
 
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		var/sparring_variant = ""
@@ -675,11 +675,11 @@
 			sparring_variant = " | Sparring Variant: [capitalize_first_letters(initial(spar_attack.attack_name))]"
 			sparring_variant_desc = "[initial(spar_attack.desc)]<br/>"
 		if(u_attack == default_attack)
-			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - default - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - default - <a href='byond://?src=[REF(src)];default_attk=reset_attk'>Reset</a><br/>"
 			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
 			dat += "<br/>"
 		else
-			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - <a href='byond://?src=\ref[src];default_attk=\ref[u_attack]'>Set Default</a><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - <a href='byond://?src=[REF(src)];default_attk=[REF(u_attack)]'>Set Default</a><br/>"
 			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
 			dat += "<br/>"
 

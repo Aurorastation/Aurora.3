@@ -38,7 +38,7 @@
 		<html>
 		<head>
 			<script src='view_variables.js'></script>
-			<title>[D] (\ref[D] - [D.type])</title>
+			<title>[D] ([REF(D)] - [D.type])</title>
 			<style>
 				body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-size: 10pt; }
 				.key, .type, .value { font-family: "Fira Code", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, sans-serif; font-size: 9pt; }
@@ -61,7 +61,7 @@
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=\ref[D];search=' href='?_src_=vars;datumrefresh=\ref[D];search=[search]'>Refresh</a>
+							<a id='refresh' data-initial-href='?_src_=vars;datumrefresh=[REF(D)];search=' href='?_src_=vars;datumrefresh=[REF(D)];search=[search]'>Refresh</a>
 							<form>
 								<select name='file'
 										size='1'
@@ -71,8 +71,8 @@
 										style='background-color:#ffffff'>
 									<option>Select option</option>
 									<option />
-									<option value='?_src_=vars;mark_object=\ref[D]'>Mark Object</option>
-									<option value='?_src_=vars;call_proc=\ref[D]'>Call Proc</option>
+									<option value='?_src_=vars;mark_object=[REF(D)]'>Mark Object</option>
+									<option value='?_src_=vars;call_proc=[REF(D)]'>Call Proc</option>
 									[D.get_view_variables_options()]
 								</select>
 							</form>
@@ -111,7 +111,7 @@
 		</html>
 		"}
 
-	usr << browse(html, "window=variables\ref[D];size=520x720")
+	usr << browse(html, "window=variables[REF(D)];size=520x720")
 
 
 /proc/make_view_variables_var_list(datum/D)
@@ -147,12 +147,12 @@
 	else if(istype(value, /datum))
 		var/datum/DA = value
 		if("[DA]" == "[DA.type]" || !"[DA]")
-			vtext = "<a href='?_src_=vars;Vars=\ref[DA]'>\ref[DA]</a> - [DA.type]"
+			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA.type]"
 		else
-			vtext = "<a href='?_src_=vars;Vars=\ref[DA]'>\ref[DA]</a> - [DA] ([DA.type])"
+			vtext = "<a href='?_src_=vars;Vars=[REF(DA)]'>[REF(DA)]</a> - [DA] ([DA.type])"
 	else if(istype(value, /client))
 		var/client/C = value
-		vtext = "<a href='?_src_=vars;Vars=\ref[C]'>\ref[C]</a> - [C] ([C.type])"
+		vtext = "<a href='?_src_=vars;Vars=[REF(C)]'>[REF(C)]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
 		vtext = "([L.len])"
@@ -178,9 +178,9 @@
 
 	if(D)
 		ecm = {"
-			(<a href='?_src_=vars;datumedit=\ref[D];varnameedit=[varname]'>E</a>)
-			(<a href='?_src_=vars;datumchange=\ref[D];varnamechange=[varname]'>C</a>)
-			(<a href='?_src_=vars;datummass=\ref[D];varnamemass=[varname]'>M</a>)
+			(<a href='?_src_=vars;datumedit=[REF(D)];varnameedit=[varname]'>E</a>)
+			(<a href='?_src_=vars;datumchange=[REF(D)];varnamechange=[varname]'>C</a>)
+			(<a href='?_src_=vars;datummass=[REF(D)];varnamemass=[varname]'>M</a>)
 			"}
 
 	var/valuestr = make_view_variables_value(D, value, varname)

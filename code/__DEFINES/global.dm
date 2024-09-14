@@ -51,7 +51,7 @@ GLOBAL_PROTECT(admin_log)
 GLOBAL_LIST_EMPTY(signal_log)
 GLOBAL_PROTECT(signal_log)
 
-GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
+GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used REF(src) @ location [src.loc]: [freq]/[code]"
 GLOBAL_PROTECT(lastsignalers)
 
 GLOBAL_LIST_EMPTY(lawchanges) // Stores who uploaded laws to which silicon-based lifeform, and what the law was.

@@ -53,7 +53,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf is not dynamically lit.")
 		return
 
-	log_and_message_admins("has triggered a lighting update for turf \ref[T] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has triggered a lighting update for turf [REF(T)] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.reconsider_lights()
 
@@ -68,7 +68,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf already has a lighting overlay.")
 		return
 
-	log_and_message_admins("has generated a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has generated a lighting overlay for turf [REF(T)] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.lighting_build_overlay()
 
@@ -83,7 +83,7 @@ var/list/admin_verbs_lighting = list(
 		to_chat(src, "That turf doesn't have a lighting overlay.")
 		return
 
-	log_and_message_admins("has cleared a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
+	log_and_message_admins("has cleared a lighting overlay for turf [REF(T)] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
 
 	T.lighting_clear_overlay()
 

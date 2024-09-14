@@ -435,3 +435,25 @@
 	icon_state = "forensic"
 	item_state = "forensicgloves"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
+
+/obj/item/clothing/gloves/single
+	name = "single glove"
+	desc = "A single glove. This one is for the right hand."
+	icon = 'icons/clothing/gloves/single.dmi'
+	contained_sprite = TRUE
+	icon_state = "single"
+	item_state = "single"
+
+/obj/item/clothing/gloves/single/left
+	desc = "A single glove. This one is for the left hand."
+	icon_state = "single_left"
+	item_state = "single_left"
+
+/obj/item/clothing/gloves/multi_color
+	name = "multi-color gloves"
+	desc = "A pair of gloves, each is a different color."
+	icon = 'icons/clothing/gloves/multi_color.dmi'
+	contained_sprite = TRUE
+	icon_state = "multi_color"
+	item_state = "multi_color"
+	has_accents = TRUE

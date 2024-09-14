@@ -93,7 +93,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=\ref[src];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,13 +104,13 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=\ref[src];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"
 	data += jointext(table,null)
 
-	var/datum/browser/popup = new(user, "slides\ref[src]", "Slide Projector")
+	var/datum/browser/popup = new(user, "slides[REF(src)]", "Slide Projector")
 	popup.set_content(jointext(data, "<br>"))
 	popup.open()
 
