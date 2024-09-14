@@ -8,8 +8,7 @@
 	flags = GEAR_NO_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/diona_sol)
 
-/datum/gear/suit/diona
-	abstract_type = /datum/gear/suit/diona
+ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/suit/diona/eternal
 	display_name = "mesh weave robes"
@@ -128,8 +127,7 @@
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
 
-/datum/gear/accessory/diona
-	abstract_type = /datum/gear/accessory/diona
+ABSTRACT_TYPE(/datum/gear/accessory/diona)
 
 /datum/gear/accessory/diona/skrell_passport
 	display_name = "dionae nralakk federation passport"

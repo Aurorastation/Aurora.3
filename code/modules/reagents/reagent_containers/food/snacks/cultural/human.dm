@@ -501,8 +501,7 @@
 
 // Eridani
 
-/obj/item/reagent_containers/food/snacks/bowl
-	abstract_type = /obj/item/reagent_containers/food/snacks/bowl
+ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	name = "a bowl of item"
 	desc = "If you're seeing this, something has gone wrong D:"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'

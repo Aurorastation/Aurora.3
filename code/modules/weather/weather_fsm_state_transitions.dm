@@ -1,5 +1,4 @@
-/singleton/state_transition/weather
-	abstract_type = /singleton/state_transition/weather
+ABSTRACT_TYPE(/singleton/state_transition/weather)
 	var/likelihood_weighting = 100
 
 /singleton/state_transition/weather/is_open(datum/holder)
