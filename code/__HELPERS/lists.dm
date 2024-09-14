@@ -46,6 +46,16 @@
 
 			return "[output][and_text][input[index]]"
 
+
+/// Takes an empty list OR associated list and adds the item to it if it doesn't exist, or increments the count if it does exist
+/proc/simple_counting_list(var/list/input, var/item)
+	var/name = "[item]" // index items by name; usually works fairly well for loose equality
+	if(name in input)
+		input[name]++
+	else
+		input[name] = 1
+	return input
+
 /**
  * Returns a newline-separated list that counts equal-ish items, outputting count and item names, optionally with icons and specific determiners.
  */

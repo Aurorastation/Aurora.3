@@ -1755,6 +1755,7 @@
 #include "code\modules\atmospherics\components\unary\vent_scrubber.dm"
 #include "code\modules\autowiki\autowiki.dm"
 #include "code\modules\autowiki\pages\_page.dm"
+#include "code\modules\autowiki\pages\food_recipes.dm"
 #include "code\modules\autowiki\pages\guns.dm"
 #include "code\modules\awaymissions\bluespaceartillery.dm"
 #include "code\modules\awaymissions\corpse.dm"
