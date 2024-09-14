@@ -116,6 +116,10 @@ GLOBAL_PROTECT(config)
 
 	Master.Initialize(10, FALSE, TRUE)
 
+#ifdef AUTOWIKI
+	setup_autowiki()
+#endif
+
 #undef RECOMMENDED_VERSION
 
 	return

@@ -34,6 +34,7 @@
 // #define TESTING // Creates debug feedback messages and enables many optional testing procs/checks
 // #define UNIT_TEST
 // #define MANUAL_UNIT_TEST
+// #define AUTOWIKI
 
 #if defined(MANUAL_UNIT_TEST) && !defined(SPACEMAN_DMM) && !defined(OPENDREAM)
 	#warn Manual unit test is defined, remember to recomment it before PRing!
