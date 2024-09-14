@@ -32,10 +32,10 @@ PROCESSING_SUBSYSTEM_DEF(psi)
 			if(PC.psionic_rank >= PSI_RANK_SENSITIVE)
 				to_chat(PC.owner, SPAN_NOTICE(FONT_HUGE("The Nlom field prompts you for your emotional state.")))
 				to_chat(PC.owner,
-						"<a href='?src=\ref[src];emotion=Calm;voter=[ref(PC)]'>Calm</a> | <a href='?src=\ref[src];emotion=Happy;voter=[ref(PC)]'>Happy</a> | \
-						<a href='?src=\ref[src];emotion=Sad;voter=[ref(PC)]'>Sad</a> | <a href='?src=\ref[src];emotion=Fearful;voter=[ref(PC)]'>Fearful</a> | \
-						<a href='?src=\ref[src];emotion=Angry;voter=[ref(PC)]'>Angry</a> | <a href='?src=\ref[src];emotion=Stressed;voter=[ref(PC)]'>Stressed</a> | \
-						<a href='?src=\ref[src];emotion=Confused;voter=[ref(PC)]'>Confused</a")
+						"<a href='?src=[REF(src)];emotion=Calm;voter=[REF(PC)]'>Calm</a> | <a href='?src=[REF(src)];emotion=Happy;voter=[REF(PC)]'>Happy</a> | \
+						<a href='?src=[REF(src)];emotion=Sad;voter=[REF(PC)]'>Sad</a> | <a href='?src=[REF(src)];emotion=Fearful;voter=[REF(PC)]'>Fearful</a> | \
+						<a href='?src=[REF(src)];emotion=Angry;voter=[REF(PC)]'>Angry</a> | <a href='?src=[REF(src)];emotion=Stressed;voter=[REF(PC)]'>Stressed</a> | \
+						<a href='?src=[REF(src)];emotion=Confused;voter=[REF(PC)]'>Confused</a")
 		complete_nlom_time = world.time + 2 MINUTES
 		completing_nlom = TRUE
 	if(completing_nlom && world.time >= complete_nlom_time)

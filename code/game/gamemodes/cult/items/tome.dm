@@ -100,7 +100,7 @@
 	. = ..()
 	if(iscultist(user) || isobserver(user))
 		. += "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
-		. += SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href=?src=\ref[src];read_tome=1>\[Read Tome\]</a>")
+		. += SPAN_WARNING("\[?\] This tome contains arcane knowledge of the Geometer's runes. <a href=?src=[REF(src)];read_tome=1>\[Read Tome\]</a>")
 	else
 		. += "An old, dusty tome with frayed edges and a sinister looking cover."
 

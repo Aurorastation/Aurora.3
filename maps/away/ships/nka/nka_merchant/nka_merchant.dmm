@@ -1437,7 +1437,7 @@
 /area/nka_merchant/hangar)
 "em" = (
 /obj/structure/table/standard,
-/obj/item/book/manual/nka_manifesto,
+/obj/item/device/versebook/nka,
 /obj/structure/sign/flag/nka/large/south{
 	pixel_y = -32
 	},

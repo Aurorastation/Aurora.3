@@ -160,7 +160,7 @@
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/item/book/manual/pra_manifesto{
+/obj/item/device/versebook/pra{
 	pixel_x = 10;
 	pixel_y = 6
 	},

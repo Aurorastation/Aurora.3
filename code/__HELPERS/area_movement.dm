@@ -53,7 +53,7 @@
 
 	if(!A || !src) return
 
-	var/list/turfs_src = get_area_turfs("\ref[src]")
+	var/list/turfs_src = get_area_turfs("[REF(src)]")
 
 	if(!turfs_src.len)
 		return

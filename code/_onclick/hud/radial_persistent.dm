@@ -53,7 +53,7 @@
 	if(!user || !anchor || !length(choices) || !select_proc)
 		return
 	if(!uniqueid)
-		uniqueid = "defmenu_\ref[user]_\ref[anchor]"
+		uniqueid = "defmenu_[REF(user)]_[REF(anchor)]"
 
 	if(GLOB.radial_menus[uniqueid])
 		return

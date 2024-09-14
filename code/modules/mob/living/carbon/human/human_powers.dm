@@ -1367,8 +1367,8 @@
 
 	say(",9!an enormous surge of encrypted data, surging out into the wider Hivenet.")
 
-	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
-	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[src]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
+	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
+	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=[REF(src)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(src)]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[REF(src)]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=[REF(src)]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
