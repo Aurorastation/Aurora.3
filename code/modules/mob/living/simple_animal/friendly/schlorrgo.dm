@@ -72,6 +72,8 @@
 		lay_egg()
 
 /mob/living/simple_animal/schlorrgo/proc/lay_egg()
+	if(!eggs_left)
+		return FALSE
 	// If colossal, high chance for egg to be crushed under weight.....
 	if(current_size >= COLOSSAL_SCHLORRGO && prob(75))
 		visible_message("[src] attempts to lift up high enough to lay an egg, but fails, crushing the egg!")
