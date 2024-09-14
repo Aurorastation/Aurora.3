@@ -92,6 +92,7 @@
 	icon_state = "schlorrgo_egg"
 	filling_color = "#e9ffd1"
 	volume = 20
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6) // Big egg
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
 /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
