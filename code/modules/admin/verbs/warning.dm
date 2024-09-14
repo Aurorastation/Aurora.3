@@ -49,7 +49,7 @@
 
 	feedback_add_details("admin_verb", "WARN-DB")
 	if (C)
-		to_chat(C, SPAN_WARNING("<BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!"))
+		to_chat(C, SPAN_WARNING("<BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=[REF(src)];warnview=1'>here</a> to review and acknowledge them!"))
 
 	message_admins("[key_name_admin(src)] has warned [warned_ckey] for: [warning_reason].")
 
@@ -144,7 +144,7 @@
 		dat += "<tr bgcolor='90ee90' align='center'>"
 		dat += "<td>[notification_query.item[3]]</td>"
 		dat += "<td>[notification_query.item[2]]</td>"
-		dat += "<td><b>(<a href='byond://?src=\ref[src];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
+		dat += "<td><b>(<a href='byond://?src=[REF(src)];notifacknowledge=[notification_query.item[1]]'>Acknowledge Notification</a>)</b></td>"
 		dat += "</tr>"
 
 	if(notification_header)
@@ -190,7 +190,7 @@
 		dat += "</tr>"
 
 		if (!ackn)
-			dat += "<tr><td align='center' colspan='3'><b>(<a href='byond://?src=\ref[src];warnacknowledge=[id]'>Acknowledge Warning</a>)</b></td></tr>"
+			dat += "<tr><td align='center' colspan='3'><b>(<a href='byond://?src=[REF(src)];warnacknowledge=[id]'>Acknowledge Warning</a>)</b></td></tr>"
 		else if (expired)
 			dat += "<tr><td align='center' colspan='3'><b>Warning expired and no longer active!</b></td></tr>"
 		else
@@ -327,8 +327,8 @@
 
 	//Totally not stealing code from the DB_ban_panel
 
-	dat += "<form method='GET' action='?src=\ref[src]'><b>Search:</b> "
-	dat += "<input type='hidden' name='src' value='\ref[src]'>"
+	dat += "<form method='GET' action='?src=[REF(src)]'><b>Search:</b> "
+	dat += "<input type='hidden' name='src' value='[REF(src)]'>"
 	dat += "<b>Ckey:</b> <input type='text' name='warnsearchckey' value='[playerckey]'>"
 	dat += "<b>Admin ckey:</b> <input type='text' name='warnsearchadmin' value='[adminckey]'>"
 	dat += "<input type='submit' value='search'>"
@@ -396,9 +396,9 @@
 			dat += "<tr>"
 			dat += "<td align='center' colspan='5'><b>Options:</b> "
 			if(check_rights(R_ADMIN) || a_ckey == sanitizeSQL(ckey))
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editReason;dbwarningid=[id]\">Edit Reason</a> "
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=editNotes;dbwarningid=[id]\">Edit Note</a> "
-				dat += "<a href=\"byond://?src=\ref[src];dbwarningedit=delete;dbwarningid=[id]\">Delete Warning</a>"
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=editReason;dbwarningid=[id]\">Edit Reason</a> "
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=editNotes;dbwarningid=[id]\">Edit Note</a> "
+				dat += "<a href=\"byond://?src=[REF(src)];dbwarningedit=delete;dbwarningid=[id]\">Delete Warning</a>"
 			else
 				dat += "You can only edit or delete notes that you have issued."
 			dat += "</td>"

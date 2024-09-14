@@ -43,3 +43,23 @@
   hazelmouse:
   - bugfix: Resolved a few bugs with the Kataphract offship, including reducing its
       spawn weight and making it properly targetable in ship combat.
+2024-09-10:
+  Ben10083:
+  - bugfix: Database Freighter shuttle fuel pump now faces the correct direction.
+  - bugfix: Database Freighter shuttle canister now holds more air, and other docking
+      fixes.
+  - bugfix: Fixes to TCAF Ship docking.
+  - rscadd: TCAF Ship missing items such as rechargers added.
+  FluffyGhost:
+  - balance: Personal shields can now remain active while put back in the belt, freeing
+      your hands.
+  - code_imp: Some code reordering and cleanup.
+  - bugfix: Fixed a runtime on inspection of the personal shield.
+  hazelmouse:
+  - bugfix: Prevents the Lone Spacer offship from spawning every round.
+  - rscadd: Adds the Lone Spacer ghostrole, a small ship crewed by only one person,
+      spawning in all sectors.
+2024-09-12:
+  SimpleMaroon:
+  - rscadd: 'Added two colorable hazard vests to the loadout: One with default-colored
+      stripes, and one that you can color the stripes on as well.'

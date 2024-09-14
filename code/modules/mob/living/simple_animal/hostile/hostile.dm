@@ -52,7 +52,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
+	target_type_validator_map = null
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)

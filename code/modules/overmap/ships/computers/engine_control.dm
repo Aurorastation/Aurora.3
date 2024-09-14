@@ -48,7 +48,7 @@
 		rdata["eng_thrust"] = E.get_thrust()
 		rdata["eng_thrust_limiter"] = round(E.get_thrust_limit()*100)
 		rdata["eng_status"] = E.get_status()
-		rdata["eng_reference"] = "\ref[E]"
+		rdata["eng_reference"] = "[REF(E)]"
 		total_thrust += E.get_thrust()
 		enginfo.Add(list(rdata))
 

@@ -1187,8 +1187,8 @@ var/global/known_proc = /proc/get_type_ref_bytes
 		return "appearance"
 	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
 
-/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from \ref which denote the object type (for objects that is)
-	return lowertext(copytext(ref(V), 4, 6))
+/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from a ref which denote the object type (for objects that is)
+	return lowertext(copytext(ref(V), 4, 6)) //Only allowed to remain the builtin ref proc because this shit depends on it and wasn't updated yet
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
@@ -1196,7 +1196,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour

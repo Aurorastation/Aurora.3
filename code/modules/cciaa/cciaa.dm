@@ -77,7 +77,7 @@
 
 	if (arrived_faxes && arrived_faxes.len)
 		for (var/obj/item/item in arrived_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
+			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been received.</center>"
 
@@ -85,7 +85,7 @@
 
 	if (sent_faxes && sent_faxes.len)
 		for (var/obj/item/item in sent_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
+			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been sent out.</center>"
 

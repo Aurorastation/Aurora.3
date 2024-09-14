@@ -160,3 +160,45 @@
 	icon_state = "luce_pocket"
 	w_class = WEIGHT_CLASS_TINY
 
+/// Tajaran Political Books
+
+/obj/item/device/versebook/pra
+	name = "\improper Hadiist Manifesto"
+	desc = "A compact red book that outlines the principles of Hadiism, required reading for PRA citizens."
+	desc_extended = "A political document supposedly written by Al’mari Hadii after the First Revolution. It is regarded as the foundation of the Hadiist Ideology. \
+	It presents an analysis of the Tajaran situation post-conflict and how they could secure their future in the galaxy. \
+	Its reading is mandatory in all Republican schools and copies can be found in most homes and public buildings."
+	icon_state = "prabook"
+	item_state = "pra"
+
+/obj/item/device/versebook/pra/Initialize()
+	. = ..()
+	randomquip = file2list("texts/ingame_manuals/hadiism.txt")
+
+/obj/item/device/versebook/dpra
+	name = "\improper In Defense of Al'mari's Legacy"
+	desc = "The manifesto of the Democratic People’s Republic of Adhomai’s founder, Supreme Commander Nated."
+	desc_extended = "the political manifesto that laid the foundations of the Al’mariist ideology, written by Supreme Commander Nated briefly after the coup attempt. \
+	The book denounces the rise of President Hadii as a betrayal of Al’mari’s vision for Adhomai. \
+	The text is infamous for its xenophobia; alien influence is blamed as the main source of the Tajara’s problems."
+	icon_state = "dprabook"
+	item_state = "dpra"
+
+/obj/item/device/versebook/dpra/Initialize()
+	. = ..()
+	randomquip = file2list("texts/ingame_manuals/almariism.txt")
+
+/obj/item/device/versebook/nka
+	name = "\improper The New Kingdom"
+	desc = "This is a political text written by the New Kingdom of Adhomai’s first King Vahzirthaamro Azunja."
+	desc_extended = "a political text written by King Vahzirthaamro Azunja during his time in hiding. \
+	The book calls for the toppling of the Hadiist regime and the restoration of a constitutional monarchy. \
+	The New Kingdom proposes the creation of a new political system to preserve the traditional Tajaran society while avoiding the pitfalls of the previous regime. \
+	Copies were illegally published and smuggled all across Northern Harr'masir before the uprising."
+	icon_state = "nkabook"
+	item_state = "nka"
+
+/obj/item/device/versebook/nka/Initialize()
+	. = ..()
+	randomquip = file2list("texts/ingame_manuals/royalism.txt")
+///

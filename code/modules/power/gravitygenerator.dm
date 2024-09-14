@@ -254,12 +254,12 @@
 	var/dat = "Gravity Generator Breaker: "
 	if(!eventon)
 		if(breaker)
-			dat += "<span class='linkOn'>ON</span> <A href='?src=\ref[src];gentoggle=1'>OFF</A>"
+			dat += "<span class='linkOn'>ON</span> <A href='?src=[REF(src)];gentoggle=1'>OFF</A>"
 		else
-			dat += "<A href='?src=\ref[src];gentoggle=1'>ON</A> <span class='linkOn'>OFF</span> "
+			dat += "<A href='?src=[REF(src)];gentoggle=1'>ON</A> <span class='linkOn'>OFF</span> "
 		if(backpanelopen)
 			dat += "<br>Emergency shutoff:<br>"
-			dat += "<A href='?src=\ref[src];eshutoff=1'>Red Button</A>"
+			dat += "<A href='?src=[REF(src)];eshutoff=1'>Red Button</A>"
 
 		dat += "<br>Generator Status:<br><div class='statusDisplay'>"
 		if(charging_state != POWER_IDLE)

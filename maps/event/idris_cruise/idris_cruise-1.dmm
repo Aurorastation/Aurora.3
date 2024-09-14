@@ -4429,7 +4429,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cruise/pool)
 "dsS" = (

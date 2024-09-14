@@ -641,7 +641,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	out += "</body>"
 
-	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-\ref[T]")
+	show_browser(usr, out.Join("<br>"), "size=980x580;window=openturfanalysis-[REF(T)]")
 
 	for (var/item in temp_objects)
 		qdel(item)

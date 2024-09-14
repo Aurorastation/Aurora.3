@@ -187,7 +187,7 @@ var/list/gear_datums = list()
 	. += "<table align = 'center' width = 100%>"
 	if (gear_reset)
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
-	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+	. += "<tr><td colspan=3><center><a href='?src=[REF(src)];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=[REF(src)];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='?src=[REF(src)];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -206,7 +206,7 @@ var/list/gear_datums = list()
 				if(thing in pref.gear)
 					style = "style='color: #FF8000;'"
 					break
-			. += " <a href='?src=\ref[src];select_category=[category]'><font [style]>[category]</font></a> "
+			. += " <a href='?src=[REF(src)];select_category=[category]'><font [style]>[category]</font></a> "
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
@@ -217,14 +217,14 @@ var/list/gear_datums = list()
 	. += "<span style='float:left;'>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
-		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').href='?src=[REF(src)];search_input_refresh=' + encodeURIComponent(val) + ''; \
 		document.getElementById('search_refresh_link').click(); \
 		}</script>"
 	. += "Search: "
 	. += "<input type='text' id='search_input' name='search_input' \
 			onchange='search_onchange()' value='[search_input_value]'> "
 	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
-	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a> "
+	. += "<a href='?src=[REF(src)];search_input_refresh=' id='search_refresh_link'>Clear</a> "
 	. += "</span>"
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
@@ -264,7 +264,7 @@ var/list/gear_datums = list()
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=\ref[src];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"?src=[REF(src)];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 
@@ -320,7 +320,7 @@ var/list/gear_datums = list()
 		if(ticked)
 			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+				temp_html += " <a href='?src=[REF(src)];gear=[G.display_name];tweak=[REF(tweak)]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
 
 		if(ticked)
