@@ -104,7 +104,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 /obj/item/technomancer_catalog/proc/show_categories(var/category)
 	if(category)
 		if(spell_tab != category)
-			return "<a href='byond://?src=\ref[src];spell_category=[category]'>[category]</a>"
+			return "<a href='byond://?src=[REF(src)];spell_category=[category]'>[category]</a>"
 		else
 			return "<b>[category]</b>"
 
@@ -125,13 +125,13 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			var/dat = ""
 			user.set_machine(src)
 			dat += "<align='center'><b>Functions</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
-			dat += "<a href='byond://?src=\ref[src];refund_functions=1'>Refund Functions</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];refund_functions=1'>Refund Functions</a><br><br>"
 
 			dat += "[show_categories(ALL_SPELLS)] | [show_categories(OFFENSIVE_SPELLS)] | [show_categories(DEFENSIVE_SPELLS)] | \
 			[show_categories(UTILITY_SPELLS)] | [show_categories(SUPPORT_SPELLS)]<br>"
@@ -149,7 +149,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(spell.has_additional_info)
 					dat += "<i><font color='green'>[spell.additional_info()]</font></i><br>"
 				if(spell.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];spell_choice=[spell.name]'>Purchase</a> ([spell.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -157,12 +157,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(1) //Equipment
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
 			dat += "<b>Equipment</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/equipment/E in equipment_instances)
 				dat += "<b>[E.name]</b><br>"
@@ -170,7 +170,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(E.has_additional_info)
 					dat += "<i><font color='green'>[E.additional_info()]</font></i><br>"
 				if(E.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[E.name]'>Purchase</a> ([E.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -178,12 +178,12 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(2) //Consumables
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
 			dat += "<b>Consumables</b> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/consumable/C in consumable_instances)
 				dat += "<b>[C.name]</b><br>"
@@ -191,7 +191,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(C.has_additional_info)
 					dat += "<i><font color='green'>[C.additional_info()]</font></i><br>"
 				if(C.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[C.name]'>Purchase</a> ([C.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -199,11 +199,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(3) //Assistance
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			dat += "<b>Assistance</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/assistance/A in assistance_instances)
 				dat += "<b>[A.name]</b><br>"
@@ -211,7 +211,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(A.has_additional_info)
 					dat += "<i><font color='green'>[A.additional_info()]</font></i><br>"
 				if(A.cost <= budget)
-					dat += "<a href='byond://?src=\ref[src];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
+					dat += "<a href='byond://?src=[REF(src)];item_choice=[A.name]'>Purchase</a> ([A.cost])<br><br>"
 				else
 					dat += "<font color='red'><b>Cannot afford!</b></font><br><br>"
 			user << browse(dat, "window=radio")
@@ -219,11 +219,11 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 		if(4) //Info
 			var/dat = ""
 			user.set_machine(src)
-			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
+			dat += "<align='center'><a href='byond://?src=[REF(src)];tab_choice=0'>Functions</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=1'>Equipment</a> | "
+			dat += "<a href='byond://?src=[REF(src)];tab_choice=2'>Consumables</a> | "
 			if(length(assistance_instances))
-				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+				dat += "<a href='byond://?src=[REF(src)];tab_choice=3'>Assistance</a> | "
 			dat += "<b>Info</b></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			dat += "<br>"

@@ -67,11 +67,11 @@
 	. = ..()
 
 	if(!cell)
-		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>.")
+		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=cell'>power cell</a>.")
 	if(!diagnostics)
-		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>.")
+		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
-		. += SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>.")
+		. += SPAN_WARNING("It is missing <a href='?src=[REF(src)];info=diagnostics'>armor plating</a>.")
 
 /obj/item/mech_component/chassis/Topic(href, href_list)
 	. = ..()

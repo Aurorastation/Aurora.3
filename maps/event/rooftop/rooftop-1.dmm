@@ -791,7 +791,7 @@
 	},
 /area/city/mendell/interior)
 "dV" = (
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "dZ" = (
