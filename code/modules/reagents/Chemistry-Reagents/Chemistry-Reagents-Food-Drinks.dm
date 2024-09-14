@@ -1470,9 +1470,9 @@
 	description = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 	taste_description = "sweet fatty yogurt"
 
-	glass_icon_state = "mutthir_glass"
 	glass_name = "glass of mutthir"
 	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
+	glass_icon_state = "mutthir_glass"
 
 /singleton/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
@@ -1487,7 +1487,7 @@
 /singleton/reagent/drink/milk/schlorrgo
 	name = "Schlorrgo Milk"
 	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
-	taste_description = "bitter fatty milk"
+	taste_description = "bitter and fatty milk"
 
 /singleton/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
