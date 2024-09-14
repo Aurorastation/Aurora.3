@@ -22,8 +22,6 @@
 /datum/tgui_say/proc/start_thinking()
 	if(!window_open || (client.prefs.toggles & HIDE_TYPING_INDICATOR))
 		return FALSE
-	if(!client.mob.typing_indicator)
-		client.mob.typing_indicator = new(null, client.mob)
 	client.mob.thinking_IC = TRUE
 	client.mob.create_thinking_indicator()
 
@@ -56,6 +54,8 @@
 /mob/living/create_thinking_indicator()
 	if(!thinking_IC || stat != CONSCIOUS || (client.prefs.toggles & HIDE_TYPING_INDICATOR))
 		return FALSE
+	if(!typing_indicator)
+		typing_indicator = new(null, src)
 	typing_indicator.show_typing_indicator(TRUE)
 
 /mob/living/remove_thinking_indicator()
@@ -66,6 +66,8 @@
 /mob/living/create_typing_indicator()
 	if(!thinking_IC || stat != CONSCIOUS || (client.prefs.toggles & HIDE_TYPING_INDICATOR))
 		return FALSE
+	if(!typing_indicator)
+		typing_indicator = new(null, src)
 	typing_indicator.show_typing_indicator(FALSE)
 
 /mob/living/remove_typing_indicator()

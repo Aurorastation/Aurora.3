@@ -173,8 +173,12 @@
 		to_chat(user, SPAN_WARNING("You cannot use \the [src]!"))
 		return
 
+	user.thinking_IC = TRUE
+	user.create_thinking_indicator()
 	var/chosen_message = tgui_input_list(user, "Select a message to transmit", "EBSL Processor", phrases)
 	if(!chosen_message)
+		user.remove_all_indicators()
 		return
 
 	user.say(chosen_message, GLOB.all_languages[LANGUAGE_EBSL])
+	user.remove_all_indicators()
