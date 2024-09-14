@@ -410,7 +410,7 @@
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	return pick(ai_names)
 
-/datum/language/machine/ebsl
+/datum/language/ebsl
 	name = LANGUAGE_EBSL
 	short = "EBSL"
 	desc = "Encoded Broad Spectrum Language (EBSL), colloquially known as Midband, is a audio-based communications protocol similar to Encoded Audio Language (EAL), designed by the Orion Express Robotics Division specifically to be compatible with receiver augments installed into organics. These augments allow organics to receive EBSL transmissions, while they allow synthetics to both receive and transmit."
@@ -427,7 +427,7 @@
 
 // synthetics can receive and transmit
 // organics can only receive
-/datum/language/machine/ebsl/check_speech_restrict(mob/speaker)
+/datum/language/ebsl/check_speech_restrict(mob/speaker)
 	if(issilicon(speaker))
 		return TRUE
 

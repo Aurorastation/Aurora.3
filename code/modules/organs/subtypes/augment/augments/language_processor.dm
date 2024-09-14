@@ -11,13 +11,18 @@
 	/// A list of language-related verbs granted by the augment.
 	var/list/granted_verbs = list()
 
+/// Determines whether the augment is compatible with the target human mob
+/obj/item/organ/internal/augment/language/proc/check_works_with_target(var/mob/living/carbon/human/target)
+	return TRUE
+
 /obj/item/organ/internal/augment/language/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
-	for(var/language in augment_languages)
-		if(!(language in target.languages))
-			target.add_language(language)
-			added_languages += language
-	add_verb(target, granted_verbs)
+	if(check_works_with_target(target))
+		for(var/language in augment_languages)
+			if(!(language in target.languages))
+				target.add_language(language)
+				added_languages += language
+		add_verb(target, granted_verbs)
 
 /obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
 	for(var/language in added_languages)
@@ -29,11 +34,12 @@
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
 
-	for(var/language in added_languages)
-		if(prob(25))
-			owner.remove_language(language)
+	if(check_works_with_target(owner))
+		for(var/language in added_languages)
+			if(prob(25))
+				owner.remove_language(language)
 
-	owner.set_default_language(pick(owner.languages))
+		owner.set_default_language(pick(owner.languages))
 
 /obj/item/organ/internal/augment/language/klax
 	name = "K'laxan language processor"
@@ -148,6 +154,13 @@
 	/// The list of phrases the user of this augment can say via the action button
 	var/static/list/phrases = list("Yes", "No", "Need help")
 
+/obj/item/organ/internal/augment/language/ebsl/check_works_with_target(var/mob/living/carbon/human/target)
+	if(!ishuman(target))
+		return FALSE
+	if(!target.isSynthetic() && target.b_type != "SBS")
+		return FALSE
+	return TRUE
+
 // The intention with this augment is that synthetics can speak EBSL freely, but organics are limited to a set number of phrases they can speak
 // This attack_self handles picking and saying the phrase
 // Note: The attack_self parent checks use_check_and_message already, so an incapacitated person can't use it to bypass stuns or whatever
@@ -155,6 +168,10 @@
 	. = ..()
 	if(!.)
 		return FALSE
+
+	if(!check_works_with_target(user))
+		to_chat(user, SPAN_WARNING("You cannot use \the [src]!"))
+		return
 
 	var/chosen_message = tgui_input_list(user, "Select a message to transmit", "EBSL Processor", phrases)
 	if(!chosen_message)

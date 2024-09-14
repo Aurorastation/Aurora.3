@@ -279,6 +279,12 @@
 
 /datum/gear/augment/ebsl_language
 	display_name = "Orion Express Encoded Broad Spectrum Language processor"
-	description = "An augment developed by Orion Express that lets synthetics transmit and receive their proprietary language, EBSL. Organics can receive, but not transmit this language."
+	description = "An augment developed by Orion Express that lets synthetics transmit and receive their proprietary language, EBSL. Organics can receive, but not transmit this language. Only organics with SBS blood can use this augment."
 	path = /obj/item/organ/internal/augment/language/ebsl
 	cost = 2
+
+/datum/gear/augment/ebsl_language/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+	. = ..()
+	if(!.)
+		if(!human.isSynthetic() && human.b_type != "SBS")
+			return "You cannot spawn with the Orion Express Encoded Broad Spectrum Language processor unless you have SBS blood!"
