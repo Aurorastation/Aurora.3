@@ -43,7 +43,7 @@
 	/// Tweak to change the amount of seconds a mob will bleed
 	var/blood_timer_mod = 0.25
 
-	/// What language a animal would speak by default. Try not to think about it too hard.
+	/// What language a animal would speak by default. Try not to think about it too hard
 	var/simple_default_language = LANGUAGE_TCB
 	universal_speak = TRUE // since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
 

@@ -1487,7 +1487,7 @@
 /singleton/reagent/drink/milk/schlorrgo
 	name = "Schlorrgo Milk"
 	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
-	taste_description = "fatty milk"
+	taste_description = "bitter fatty milk"
 
 /singleton/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
