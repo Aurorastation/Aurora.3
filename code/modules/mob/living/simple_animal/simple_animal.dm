@@ -123,7 +123,7 @@
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	/// Damage reduction
-	var/resistance		  = 0
+	var/resistance = 0
 	/// A multiplier for the chance the animal has to break out
 	var/resist_mod = 1
 

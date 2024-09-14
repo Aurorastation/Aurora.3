@@ -73,7 +73,7 @@
 
 /mob/living/simple_animal/schlorrgo/proc/lay_egg()
 	// If colossal, high chance for egg to be crushed under weight.....
-	if(current_size == COLOSSAL_SCHLORRGO && prob(75))
+	if(current_size >= COLOSSAL_SCHLORRGO && prob(75))
 		visible_message("[src] attempts to lift up high enough to lay an egg, but fails, crushing the egg!")
 		audible_emote("cries out in agony!",0)
 		make_noise()
@@ -82,7 +82,7 @@
 		return
 	visible_message("[src] lays an egg.")
 	eggs_left--
-	new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src))
+	new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src), TRUE)
 
 /mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
 	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)
@@ -91,12 +91,12 @@
 	if(left_leg?.is_usable() && right_leg?.is_usable())
 		user.do_attack_animation(src)
 		make_noise()
-		audible_emote("[pick(emote_hear)].",0)
+		audible_emote("[pick(emote_hear)].")
 		if(current_size >= WIDE_SCHLORRGO)
 			user.visible_message(SPAN_WARNING("[user] kicks \the [src], but it doesn't move an inch!"), SPAN_DANGER("Your kick is suddenly stopped by \the [src]'s sheer fat!"))
 			var/obj/item/organ/external/leg = pick(right_leg, left_leg)
 			if(leg)
-				if(current_size == COLOSSAL_SCHLORRGO) //break leg
+				if(current_size >= COLOSSAL_SCHLORRGO) //break leg
 					leg.fracture()
 					leg.take_damage(10)
 				leg.take_damage(5)

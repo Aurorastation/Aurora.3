@@ -58,4 +58,5 @@ changes:
   - qol: "Various tweaks to Schlorrgos to have better responses and increased density."
   - rscadd: "Schlorrgos now lay eggs."
   - bugfix: "Schlorrgos no longer overwrite their given name when grown."
+  - bugfix: "Eggs now should be able to hatch animals if fertilized."
   - code_imp: "DMdoc'd simple animals code."

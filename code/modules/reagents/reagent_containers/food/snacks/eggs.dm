@@ -9,6 +9,11 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3)
 	var/hatchling = /mob/living/simple_animal/chick
 
+/obj/item/reagent_containers/food/snacks/egg/Initialize(mapload, fertile = FALSE)
+	. = ..()
+	if(fertile) // If fertile, start processing so it can grow
+		START_PROCESSING(SSprocessing, src)
+
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
 		return ..()
@@ -43,6 +48,12 @@
 /obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0
 
+/// Call this proc to have the given egg start growing. Should only be called if hatching is set
+/obj/item/reagent_containers/food/snacks/egg/proc/start_growing()
+	if(hatchling)
+		START_PROCESSING(SSprocessing,src)
+
+/// Handles hatching. Eggs only grow when on a turf.
 /obj/item/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
