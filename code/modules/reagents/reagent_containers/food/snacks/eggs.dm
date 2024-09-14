@@ -51,8 +51,6 @@
 			new hatchling(get_turf(src))
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/reagent_containers/food/snacks/egg/blue
 	icon_state = "egg-blue"
