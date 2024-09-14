@@ -20,7 +20,6 @@
 
 	emote_sounds = list('sound/effects/creatures/ough.ogg')
 
-	meat_amount = 1
 	hunger_enabled = TRUE
 	canbrush = TRUE
 
@@ -33,6 +32,7 @@
 	friendly = "bumped"
 	response_help = "pets"
 
+	meat_amount = 1
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	organ_names = list("head", "chest", "fatty core", "blubberous torso", "thick centre", "left leg", "right leg")
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 2)
@@ -41,6 +41,7 @@
 
 	max_nutrition = 100
 	stomach_size_mult = 10
+	digest_factor = 0.6 // fast eater
 	metabolic_factor = 0.3
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg/schlorrgo)
 
