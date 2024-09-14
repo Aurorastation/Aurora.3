@@ -219,14 +219,14 @@
 
 /obj/item/melee/dinograbber/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	..()
-    if(!ishuman(target))
-          return
+	if(!ishuman(target))
+		return
 
-    if(prob(20))
-        if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-            if (target.l_hand && target.l_hand != src)
-                target.drop_l_hand()
-        else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-            if (target.r_hand && target.r_hand != src)
-                target.drop_r_hand()
-        user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
+	if(prob(20))
+		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
+			if (target.l_hand && target.l_hand != src)
+				target.drop_l_hand()
+		else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
+			if (target.r_hand && target.r_hand != src)
+				target.drop_r_hand()
+		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
