@@ -6,14 +6,32 @@ SUBSYSTEM_DEF(plants)
 	priority = SS_PRIORITY_PLANTS
 	runlevels = RUNLEVELS_PLAYING
 
-	var/list/product_descs = list()         // Stores generated fruit descs.
-	var/list/seeds = list()                 // All seed data stored here.
-	var/list/gene_tag_masks = list()        // Gene obfuscation for delicious trial and error goodness.
-	var/list/plant_icon_cache = list()      // Stores images of growth, fruits and seeds.
-	var/list/plant_sprites = list()         // List of all harvested product sprites.
-	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
-	var/list/gene_masked_list = list()      // Stores list of masked genes rather than recreating it later
-	var/list/plant_gene_datums = list()     // Stores gene masked list as datums
+	/// Stores generated fruit descs.
+	var/list/product_descs = list()
+
+	/// All seed data stored here.
+	var/list/seeds = list()
+
+	/// Stores seed data based on the kitchen tag
+	var/list/seeds_by_kitchen_tag = list()
+
+	/// Gene obfuscation for delicious trial and error goodness.
+	var/list/gene_tag_masks = list()
+
+	/// Stores images of growth, fruits and seeds.
+	var/list/plant_icon_cache = list()
+
+	/// List of all harvested product sprites.
+	var/list/plant_sprites = list()
+
+	/// List of all growth sprites plus number of growth stages.
+	var/list/plant_product_sprites = list()
+
+	/// Stores list of masked genes rather than recreating it later
+	var/list/gene_masked_list = list()
+
+	/// Stores gene masked list as datums
+	var/list/plant_gene_datums = list()
 
 
 	var/list/processing = list()
@@ -50,6 +68,8 @@ SUBSYSTEM_DEF(plants)
 	for(var/type in typesof(/datum/seed)-/datum/seed)
 		var/datum/seed/S = new type
 		seeds[S.name] = S
+		if(S.kitchen_tag)
+			seeds_by_kitchen_tag[S.kitchen_tag] = S
 		S.uid = "[seeds.len]"
 		S.roundstart = 1
 
