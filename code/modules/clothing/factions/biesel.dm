@@ -12,7 +12,7 @@
 
 // Generic gloves.
 /obj/item/clothing/gloves/tcaf
-	name = "\improper TCAF gloves"
+	name = "\improper TCAF uniform gloves"
 	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
 	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
 	contained_sprite = TRUE
@@ -115,3 +115,11 @@
 	icon = 'icons/clothing/head/pilot_helmets.dmi'
 	icon_state = "tcaf_pilot"
 	item_state = "tcaf_pilot"
+
+// Identical sprites to the TCFL variant, just reflavoured.
+/obj/item/clothing/head/softcap/tcaf_cap
+	name = "TCAF uniform cap"
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	desc = "A rugged blue softcap bearing the insignia of the Tau Ceti Armed Forces, the military of the Republic of Biesel."
+	icon_state = "tcaf_cap"
+	item_state = "tcaf_cap"

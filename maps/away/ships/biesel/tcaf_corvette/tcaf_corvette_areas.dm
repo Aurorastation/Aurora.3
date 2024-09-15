@@ -99,6 +99,14 @@
 	name = "Republican Fleet Corvette - Central Lift"
 	icon_state = "blue2"
 
+/area/tcaf_corvette/hydroponics
+	name = "Republican Fleet Corvette - Hydroponics Bay"
+	icon_state = "hydro"
+
+/area/tcaf_corvette/chapel
+	name = "Republican Fleet Corvette - Mutli-faith Chapel"
+	icon_state = "chapel"
+
 /area/tcaf_corvette/exterior
 	name = "Republican Fleet Corvette - Exterior"
 	requires_power = FALSE

@@ -67,7 +67,7 @@
 
 /obj/outfit/admin/tcaf_crewman/armsman
 	name = "TCAF Armsman"
-	head = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/legion/tcaf
 	gloves = /obj/item/clothing/gloves/tcaf
 
@@ -82,7 +82,7 @@
 	special_role = "Republican Fleet Prefect"
 
 /obj/outfit/admin/tcaf_crewman/nco
-	head = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/legion/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
