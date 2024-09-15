@@ -84,7 +84,10 @@
 		return
 	visible_message("[src] lays an egg.")
 	eggs_left--
-	new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src), TRUE)
+	var/obj/item/reagent_containers/food/snacks/egg/schlorrgo/egg = new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src))
+	egg.fertilize()
+	egg.pixel_x = rand(-6,6)
+	egg.pixel_y = rand(-6,6)
 
 /mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
 	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)

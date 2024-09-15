@@ -7,12 +7,16 @@
 	filling_color = "#FDFFD1"
 	volume = 10
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3)
+	/// What can be hatched from this egg
 	var/hatchling = /mob/living/simple_animal/chick
+	/// If set to TRUE, egg is currently growing and will eventually spawn a hatchling if left alone on a turf.
+	/// Set to TRUE for eggs mapped in, but meant to be able to hatch.
+	var/fertile = FALSE
 
-/obj/item/reagent_containers/food/snacks/egg/Initialize(mapload, fertile = FALSE)
+/obj/item/reagent_containers/food/snacks/egg/Initialize(mapload)
 	. = ..()
-	if(fertile) // If fertile, start processing so it can grow
-		START_PROCESSING(SSprocessing, src)
+	if(fertile)
+		egg.fertilize()
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
@@ -49,8 +53,9 @@
 	var/amount_grown = 0
 
 /// Call this proc to have the given egg start growing. Should only be called if hatching is set
-/obj/item/reagent_containers/food/snacks/egg/proc/start_growing()
+/obj/item/reagent_containers/food/snacks/egg/proc/fertilize()
 	if(hatchling)
+		fertile = TRUE
 		START_PROCESSING(SSprocessing,src)
 
 /// Handles hatching. Eggs only grow when on a turf.
@@ -103,9 +108,6 @@
 	volume = 20
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6) // Big egg
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
-
-/obj/item/reagent_containers/food/snacks/egg/schlorrgo/fertile/Initialize(mapload, fertile) // Snowflake subtype due to cargo code unable to insert values into an Initialize
-	return ..(mapload, TRUE)
 
 /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 	name = "ice tunneler egg"

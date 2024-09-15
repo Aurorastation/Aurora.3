@@ -35,5 +35,6 @@
 		var/mob/living/carbon/human/H = user
 		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src), TRUE)
 		H.put_in_hands(E)
+		E.fertilize()
 		eggs--
 		update_icon()
