@@ -104,6 +104,9 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6) // Big egg
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo/fertile/Initialize(mapload, fertile) // Snowflake subtype due to cargo code unable to insert values into an Initialize
+	return ..(mapload, TRUE)
+
 /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 	name = "ice tunneler egg"
 	desc = "An egg laid by an Adhomian animal."
