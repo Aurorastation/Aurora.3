@@ -299,10 +299,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
 "bm" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/machinery/telecomms/allinone/ship/coalition_navy,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engine)
 "bq" = (
@@ -698,7 +701,7 @@
 	dir = 9
 	},
 /obj/machinery/recharger{
-	pixel_x = -6;
+	pixel_x = 1;
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -1044,8 +1047,8 @@
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 1;
-	id = "tcaf_stall_2";
-	name = "Stall #2 Bolt Control";
+	id = "tcaf_stall_1";
+	name = "Stall #1 Bolt Control";
 	specialfunctions = 4;
 	pixel_y = 32
 	},
@@ -1793,7 +1796,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
@@ -2163,18 +2165,6 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/tcaf_corvette/francisca)
-"jf" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#5F78A0";
-	frame_color = "#5F78A0";
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "tcaf_window_lockdown"
-	},
-/turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
 "ji" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -3851,8 +3841,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/telecomms/allinone/ship/coalition_navy,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
 "rc" = (
@@ -4007,16 +3997,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/messhall)
-"rZ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tcaf_corvette/engine)
 "sb" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -4270,7 +4250,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4613,6 +4592,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
+"vk" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "tcaf_window_lockdown"
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/francisca)
 "vp" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4982,7 +4973,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
@@ -5578,23 +5568,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"Ac" = (
-/obj/structure/toilet{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
-/obj/machinery/button/remote/airlock{
-	dir = 1;
-	id = "tcaf_stall_1";
-	name = "Stall #1 Bolt Control";
-	specialfunctions = 4;
-	pixel_y = 32
-	},
-/turf/simulated/floor/marble,
-/area/tcaf_corvette/washroom)
 "Ak" = (
 /obj/effect/floor_decal/corner_wide/brown,
 /obj/structure/cable/green{
@@ -6114,18 +6087,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
-"Df" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#5F78A0";
-	frame_color = "#5F78A0";
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "tcaf_window_lockdown"
-	},
-/turf/simulated/floor,
-/area/tcaf_corvette/chapel)
 "Dg" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -6547,6 +6508,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
+"Fz" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5F78A0";
+	frame_color = "#5F78A0";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "tcaf_window_lockdown"
+	},
+/turf/simulated/floor,
+/area/tcaf_corvette/chapel)
 "FA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -6600,7 +6573,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/full,
@@ -6909,6 +6881,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
+"Hp" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "tcaf_stall_2";
+	name = "Stall #2 Bolt Control";
+	specialfunctions = 4;
+	pixel_y = 32
+	},
+/turf/simulated/floor/marble,
+/area/tcaf_corvette/washroom)
 "Hr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -7381,7 +7370,6 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
@@ -7733,15 +7721,15 @@
 	dir = 4
 	},
 /obj/item/clothing/accessory/armband/engine{
-	pixel_x = -6;
-	pixel_y = 6
+	pixel_x = -4;
+	pixel_y = 1
 	},
 /obj/random/powercell{
 	pixel_y = -1;
-	pixel_x = 7
+	pixel_x = 16
 	},
 /obj/machinery/cell_charger{
-	pixel_x = 9;
+	pixel_x = 17;
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -8520,7 +8508,6 @@
 	},
 /obj/structure/table/glass,
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
@@ -8837,6 +8824,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/tcaf)
+"QH" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engine)
 "QJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -9786,7 +9780,6 @@
 "UP" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc/north{
-	pixel_x = -1;
 	req_access = list(204)
 	},
 /obj/structure/cable/green{
@@ -107573,7 +107566,7 @@ Mv
 Mv
 cI
 ZZ
-bm
+QH
 XI
 Uu
 rB
@@ -109374,7 +109367,7 @@ oQ
 sW
 nx
 fk
-rZ
+bm
 GI
 Eo
 Yr
@@ -109679,9 +109672,9 @@ pN
 Uh
 nm
 KQ
-Ac
-KQ
 ed
+KQ
+Hp
 KQ
 Mv
 Mv
@@ -111979,9 +111972,9 @@ Mv
 Mv
 lL
 Ro
-Df
-Df
-Df
+Fz
+Fz
+Fz
 Ro
 pN
 pN
@@ -114283,8 +114276,8 @@ Mv
 LI
 LI
 tR
-jf
-jf
+vk
+vk
 nN
 Mv
 Mv
