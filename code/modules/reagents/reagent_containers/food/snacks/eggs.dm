@@ -9,6 +9,8 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3)
 	/// What can be hatched from this egg
 	var/hatchling = /mob/living/simple_animal/chick
+	/// Tracks how much the egg has grown. At 100, egg hatches
+	var/amount_grown = 0
 	/// If set to TRUE, egg is currently growing and will eventually spawn a hatchling if left alone on a turf.
 	/// Set to TRUE for eggs mapped in, but meant to be able to hatch.
 	var/fertile = FALSE
@@ -16,7 +18,7 @@
 /obj/item/reagent_containers/food/snacks/egg/Initialize(mapload)
 	. = ..()
 	if(fertile)
-		egg.fertilize()
+		fertilize()
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
@@ -48,9 +50,6 @@
 		item_state = icon_state
 		return TRUE
 	return ..()
-
-/obj/item/reagent_containers/food/snacks/egg
-	var/amount_grown = 0
 
 /// Call this proc to have the given egg start growing. Should only be called if hatching is set
 /obj/item/reagent_containers/food/snacks/egg/proc/fertilize()
