@@ -108,6 +108,10 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6) // Big egg
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
 
+/// Cursed subtype due to cargo code. A subtype like this will be needed for any cargo orders of eggs that we want to be fertilized.
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo/fertile
+	var/fertile = TRUE
+
 /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 	name = "ice tunneler egg"
 	desc = "An egg laid by an Adhomian animal."
