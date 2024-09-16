@@ -37,7 +37,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	scanimage = "tcfl_cetus.png" // Reusing the TCFL sprite, better than nothing.
+	scanimage = "tcfl_cetus.png" // Reusing the TCFL sprite.
 	designer = "Tau Ceti Republican Fleets, Zavodskoi Interstellar"
 	volume = "73 meters length, 41 meters beam/width, 20 meters vertical height"
 	drive = "Middle-range Warp Acceleration FTL Drive"
