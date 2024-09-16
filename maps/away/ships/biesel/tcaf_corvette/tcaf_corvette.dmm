@@ -648,6 +648,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/central_ring)
 "ck" = (
@@ -1219,6 +1220,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcaf)
+"eu" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engine)
 "ev" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/cobweb2,
@@ -1386,10 +1394,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
-"fp" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/carpet/magenta,
-/area/tcaf_corvette/captain)
 "fq" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -1597,10 +1601,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/cargo_bay)
-"fP" = (
-/obj/structure/bed/stool/chair,
-/turf/simulated/floor/carpet/magenta,
-/area/tcaf_corvette/captain)
+"fS" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "fU" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
@@ -1839,6 +1846,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/storage)
+"gC" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
 "gF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
@@ -2065,13 +2082,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
-"hr" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tcaf_corvette/engine)
 "ht" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2419,6 +2429,31 @@
 "iY" = (
 /turf/simulated/floor/carpet/brown,
 /area/tcaf_corvette/lounge)
+"iZ" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/structure/sign/poster{
+	icon_state = "tcflposter2";
+	poster_type = "/datum/poster/bay_68";
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
+"jc" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "jd" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -2698,6 +2733,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
+"kG" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/storage/bag/circuits/basic{
+	pixel_y = 7
+	},
+/obj/item/wrench{
+	pixel_y = -12;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engine)
 "kL" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -2778,11 +2828,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/structure/sign/poster{
-	icon_state = "bsposter51";
-	poster_type = "/datum/poster/bay_51";
-	pixel_x = 32
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "lm" = (
@@ -2828,7 +2874,7 @@
 /obj/structure/sign/kiddieplaque{
 	pixel_y = 32;
 	name = "\improper Republic of Biesel constitutional excerpt plaque";
-	desc = "This is a fancy plaque reading an except of the Republic of Biesel's constitution; "The primary object of the armed force is to defend and protect the Republic, its territorial integrity and its people in accordance with the Constitution and the principles of interstellar law regulating the use of force." The final few words, 'regulating the use of force', have been underlined thrice over."
+	desc = "This is a fancy plaque reading an excerpt of the Republic of Biesel's constitution; 'The primary objective of the armed force is to defend and protect the Republic, its territorial integrity and its people in accordance with the Constitution and the principles of interstellar law regulating the use of force.' The final few words, 'regulating the use of force', have been underlined thrice over."
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tcaf_corvette/cic)
@@ -2905,10 +2951,6 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/tcaf_corvette/engine)
-"lJ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "lK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -3052,6 +3094,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
+"mh" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "mj" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -3096,9 +3146,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
+	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = -23;
 	dir = 1;
@@ -3125,29 +3175,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
-"mz" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_y = -30;
-	pixel_x = -6;
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/central_ring)
-"mA" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/hangar)
 "mD" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -3253,6 +3280,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/custodial)
+"mN" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/carpet/magenta,
+/area/tcaf_corvette/captain)
 "mO" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -3491,6 +3522,27 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
+"nr" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -23;
+	dir = 1;
+	pixel_x = 5
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25;
+	pixel_x = -7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/tcaf_corvette/central_ring)
 "ns" = (
 /obj/structure/platform_stairs/full/east_west_cap,
 /obj/structure/platform/cutout{
@@ -3733,21 +3785,6 @@
 /obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood,
 /area/tcaf_corvette/chapel)
-"ol" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/structure/table/steel,
-/obj/item/storage/bag/circuits/basic{
-	pixel_y = 7
-	},
-/obj/item/wrench{
-	pixel_y = -12;
-	pixel_x = 3
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tcaf_corvette/engine)
 "or" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4427,6 +4464,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engine)
+"rs" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = -6;
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
 "rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
@@ -4743,6 +4795,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
+"sT" = (
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/carpet/magenta,
+/area/tcaf_corvette/captain)
 "sV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
@@ -4780,6 +4836,10 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/cargo_bay)
+"tb" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
 "td" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -5021,18 +5081,13 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "ug" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_y = -30;
-	pixel_x = 6;
-	dir = 4
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/central_ring)
 "uh" = (
@@ -5076,15 +5131,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
-"uo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/engine)
 "uq" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -5113,17 +5159,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/chapel)
-"ux" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/central_ring)
 "uA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -5900,6 +5935,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
+"xV" = (
+/obj/machinery/atmospherics/valve/open{
+	name = "Thruster Shutoff Valve"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engine)
 "xX" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6140,23 +6186,6 @@
 "yW" = (
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/hangar)
-"yZ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/table/glass,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
-	pixel_x = 10
-	},
-/obj/item/device/flashlight/lamp/green{
-	pixel_y = 6;
-	pixel_x = -3
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/magenta,
-/area/tcaf_corvette/captain)
 "zb" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
@@ -6184,19 +6213,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_lift)
-"zd" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/hangar)
 "zn" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -6432,23 +6448,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"Ac" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/lounge)
-"Af" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/light/small{
-	dir = 8
-	},
+"Ae" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/engine)
+/area/tcaf_corvette/central_ring)
 "Ak" = (
 /obj/effect/floor_decal/corner_wide/brown,
 /obj/structure/cable/green{
@@ -6594,20 +6598,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"AI" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/lounge)
 "AJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -6749,6 +6739,14 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/tcaf_corvette/engine)
+"By" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "Bz" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -6912,6 +6910,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/chapel)
+"Cr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
 "Cu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7168,17 +7175,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"Dy" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
+"DF" = (
+/obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
 /obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	poster_type = "/datum/poster/bay_68";
+	icon_state = "bsposter51";
+	poster_type = "/datum/poster/bay_51";
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
+/area/tcaf_corvette/lounge)
 "DM" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -7471,6 +7478,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
+"Fg" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/aft_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/hangar)
 "Fh" = (
 /obj/structure/platform,
 /obj/machinery/computer/ship/navigation/terminal,
@@ -8347,6 +8362,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
+"IN" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/sign/kiddieplaque{
+	pixel_x = -32;
+	name = "\improper uniform regulations plaque";
+	desc = "This is a plaque, marked with the imagery of the Tau Ceti Armed Forces, declaring in large bold letters: all active-service staff must be clearly recognizable as Tau Ceti Armed Forces personnel. A series of addendums in smaller print below this clarify that personal accessories and facial or head coverings may be worn if permitted by a present commanding officer."
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/lounge)
 "IP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
@@ -8397,6 +8428,18 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/tcaf_corvette/exterior)
+"Jc" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/computer/guestpass{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "Je" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -8626,22 +8669,6 @@
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
-"JX" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
 "Kc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
@@ -9413,22 +9440,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"MU" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/sign/kiddieplaque{
-	pixel_x = -32;
-	name = "\improper uniform regulations plaque";
-	desc = "This is a plaque, marked with the imagery of the Tau Ceti Armed Forces, declaring in large bold letters: all active-service staff must be clearly recognizable as Tau Ceti Armed Forces personnel. A series of addendums in smaller print below this clarify that personal accessories and facial or head coverings may be worn if permitted by a present commanding officer."
-	},
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/lounge)
 "MX" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9960,27 +9971,9 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engine)
-"PB" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/aft_dock,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/hangar)
 "PD" = (
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/freezer)
-"PM" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/hydroponics)
 "PR" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -10111,13 +10104,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
-"Qj" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
 "Qk" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -10161,27 +10147,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/francisca)
-"Qy" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = -23;
-	dir = 1;
-	pixel_x = 5
-	},
-/obj/machinery/airlock_sensor{
-	pixel_y = -25;
-	pixel_x = -7
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/tcaf_corvette/central_ring)
 "Qz" = (
 /obj/machinery/ship_weapon/francisca/compact{
 	pixel_x = -39;
@@ -10634,9 +10599,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
+	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "Sx" = (
@@ -10689,13 +10654,6 @@
 "Sy" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
-"SC" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -11016,11 +10974,15 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "TF" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/engine)
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/hydroponics)
 "TG" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -11140,18 +11102,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"TR" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/computer/guestpass{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
 "TS" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11261,6 +11211,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "Uw" = (
@@ -11299,6 +11250,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/central_ring)
+"UD" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
 "UG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11553,6 +11511,19 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
 /area/tcaf_corvette/grauwolf)
+"Wf" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/hangar)
 "Wh" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -11858,14 +11829,27 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
-"Xw" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+"Xt" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = 6;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/central_ring)
+"Xw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/engine)
 "XB" = (
 /obj/structure/table/stone/marble,
 /obj/item/trash/waffles{
@@ -11910,6 +11894,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "XK" = (
@@ -11976,16 +11961,27 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/tcaf)
+"XR" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/central_ring)
 "XU" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
-"Ya" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tcaf_corvette/central_ring)
 "Yd" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/cable/green{
@@ -12361,17 +12357,6 @@
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
-"Zr" = (
-/obj/machinery/atmospherics/valve/open{
-	name = "Thruster Shutoff Valve"
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/tcaf_corvette/engine)
 "Zs" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
@@ -12389,6 +12374,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
+"Zu" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/glass,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+	pixel_x = 10
+	},
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/magenta,
+/area/tcaf_corvette/captain)
 "ZA" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -44479,7 +44481,7 @@ TJ
 BM
 uH
 dW
-mA
+By
 cv
 cv
 ab
@@ -44732,7 +44734,7 @@ Mv
 Mv
 Mv
 Mv
-PB
+Fg
 sl
 Sr
 gf
@@ -46798,7 +46800,7 @@ zJ
 pF
 WI
 yW
-zd
+Wf
 jo
 jo
 yP
@@ -107982,7 +107984,7 @@ Mv
 Mv
 Mv
 Ne
-mz
+rs
 qQ
 qQ
 UT
@@ -108239,7 +108241,7 @@ Ne
 Ne
 Ne
 Ne
-Qy
+ms
 qQ
 db
 Vp
@@ -108976,7 +108978,7 @@ Mv
 pK
 pK
 in
-ol
+kG
 Ls
 UL
 Ik
@@ -109010,10 +109012,10 @@ Ne
 Ne
 Jf
 Ne
-ux
+ch
 qQ
 jN
-PM
+TF
 jN
 GT
 uR
@@ -109238,13 +109240,13 @@ Uu
 rB
 dT
 pK
-TF
-TF
-uo
+Xw
+Xw
+Cr
 ut
 ut
 pK
-Af
+Sw
 Bn
 Et
 Fb
@@ -109256,15 +109258,15 @@ pw
 Ff
 Et
 NQ
-Xw
-SC
+mh
+UD
 ia
 WX
 ia
 wg
 zA
 Aa
-SC
+UD
 VP
 ia
 wy
@@ -109495,8 +109497,8 @@ Hx
 YS
 bB
 pK
-TF
-TF
+Xw
+Xw
 ut
 ut
 ut
@@ -109770,7 +109772,7 @@ En
 En
 En
 wt
-JX
+XR
 eW
 WE
 xB
@@ -110554,9 +110556,9 @@ xB
 IF
 kt
 HW
-SC
+UD
 QK
-SC
+UD
 ia
 HW
 Cg
@@ -111071,13 +111073,13 @@ Lv
 Fy
 mO
 Fy
-Dy
+iZ
 Lv
 MS
 zP
 Fy
 Lv
-Qj
+fS
 Sy
 qZ
 KQ
@@ -111803,8 +111805,8 @@ Mv
 cI
 ZZ
 gj
-lJ
-lJ
+tb
+tb
 vD
 Py
 pK
@@ -111826,7 +111828,7 @@ En
 En
 En
 wt
-JX
+XR
 fW
 TT
 xB
@@ -111853,15 +111855,15 @@ Gv
 MB
 Oo
 gx
-MU
-AI
+IN
+jc
 mR
 EA
 YU
 qg
 YO
 Cb
-fP
+sT
 Tf
 hQ
 FH
@@ -112059,7 +112061,7 @@ Mv
 Mv
 LX
 Gn
-Zr
+xV
 ks
 TC
 eX
@@ -112110,8 +112112,8 @@ HT
 iY
 iY
 nL
-Ac
 ll
+DF
 hn
 wG
 MI
@@ -112316,7 +112318,7 @@ Mv
 Mv
 cI
 vt
-hr
+eu
 gQ
 mQ
 Hv
@@ -112328,7 +112330,7 @@ hc
 pK
 ev
 pK
-Sw
+gC
 Nq
 sK
 sN
@@ -112340,17 +112342,17 @@ Xm
 Ky
 sK
 FI
-Qj
-Qj
+fS
+fS
 Fy
 CE
 Fy
 OM
 Lw
-TR
+Jc
 CE
 Fy
-Qj
+fS
 wk
 Ro
 pI
@@ -112376,7 +112378,7 @@ gr
 gr
 oX
 lz
-yZ
+Zu
 Hy
 PV
 uI
@@ -112596,7 +112598,7 @@ oZ
 hA
 RO
 sK
-Ya
+Ae
 Wi
 mE
 Ne
@@ -112608,7 +112610,7 @@ ml
 LV
 ml
 ml
-ch
+ug
 Ro
 Jw
 iL
@@ -112633,7 +112635,7 @@ Do
 gr
 fq
 wW
-fp
+mN
 ln
 FH
 rJ
@@ -113379,7 +113381,7 @@ ml
 ml
 ml
 ml
-ms
+nr
 Ro
 mT
 rE
@@ -113636,7 +113638,7 @@ Mv
 Mv
 Mv
 ml
-ug
+Xt
 Ro
 Gq
 wj
