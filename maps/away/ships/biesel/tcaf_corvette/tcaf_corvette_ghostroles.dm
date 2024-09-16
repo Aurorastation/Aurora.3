@@ -95,7 +95,7 @@
 	spawnpoints = list("tcaf_officer")
 	outfit = /obj/outfit/admin/tcaf_crewman/officer
 	mob_name_prefix = "Dcn. "
-	desc = "You are a Decurion, an enlisted officer, serving with the Tau Ceti Armed Forces in command of a corvette. The Republican Fleets are stretched thin across too much territory, with too few ships and too few men, too divided by political and cultural division to function effectively. You may command only one small ship, but the fate of the Republic may lie in you and officers like you. You are the eyes and ears of the Republic of Biesel - police your assigned sector for piracy and smuggling, monitor neighbouring powers, and above all else, keep your crew alive. They're counting on you."
+	desc = "You are a Decurion, an enlisted officer, serving with the Tau Ceti Armed Forces in command of a corvette. The Republican Fleets are stretched thin across too much territory, with too few ships and too few men, too divided and too disparate to ensure the safety of its own citizens. You may command only one small ship, but the fate of the Republic may lie in you and officers like you. You are the eyes and ears of the Republic of Biesel - police your assigned sector for piracy and smuggling, monitor neighbouring powers, and above all else, keep your crew alive. They're counting on you."
 	assigned_role = "Republican Fleet Decurion"
 	special_role = "Republican Fleet Decurion"
 
