@@ -100,7 +100,7 @@
 
 /datum/shuttle/autodock/overmap/tcaf_shuttle
 	name = "TCAF Gunship"
-	move_time = 40
+	move_time = 20
 	shuttle_area = list(/area/shuttle/tcaf)
 	current_location = "nav_hangar_tcaf"
 	landmark_transition = "nav_transit_tcaf_shuttle"
