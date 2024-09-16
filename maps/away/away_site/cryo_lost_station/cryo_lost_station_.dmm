@@ -1989,6 +1989,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"byX" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/plating,
+/area/space)
 "byZ" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/effect/floor_decal/corner/brown/full{
@@ -4613,15 +4629,17 @@
 /turf/simulated/floor/plating,
 /area/space)
 "dmb" = (
-/obj/machinery/power/smes/buildable{
-	input_attempt = 1;
-	input_level = 200000;
-	is_critical = 1;
-	output_attempt = 1;
-	output_level = 200000
-	},
 /obj/structure/cable/orange,
 /obj/effect/floor_decal/industrial/hatch/engineering,
+/obj/machinery/power/smes/buildable{
+	input_attempt = 1;
+	input_level = 150000;
+	input_level_max = 350000;
+	is_critical = 1;
+	output_attempt = 1;
+	output_level = 150000;
+	output_level_max = 350000
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "dme" = (
@@ -7161,6 +7179,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"eYA" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "eYM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -8908,7 +8940,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/space)
 "giq" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -11069,6 +11101,17 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/space)
+"hKh" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/space)
 "hLc" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -11728,7 +11771,8 @@
 "ige" = (
 /obj/machinery/computer/fusion/core_control/terminal{
 	initial_id_tag = "horizon_fusion";
-	dir = 8
+	dir = 8;
+	name = "\improper fusion core control"
 	},
 /obj/structure/cable/orange{
 	icon_state = "4-8"
@@ -11941,6 +11985,28 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
+/area/space)
+"imv" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "imE" = (
 /obj/machinery/door/airlock/research{
@@ -15450,6 +15516,9 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
+/obj/machinery/light/floor/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "kBx" = (
@@ -16292,6 +16361,10 @@
 /obj/structure/railing/mapped,
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"lfD" = (
+/obj/effect/decal/cleanable/floor_damage/broken4,
+/turf/simulated/floor/airless,
 /area/space)
 "lgg" = (
 /obj/structure/table/wood,
@@ -17549,12 +17622,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"mdM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "lost_chapel_outer"
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "mdY" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/closet/crate/elec{
@@ -18699,7 +18766,7 @@
 "mRW" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	input_tag = "lost_fusion_injector_air";
-	name = "INDRA Chamber Monitor";
+	name = "Fusion Chamber Monitor";
 	sensors = list("lost_fusion_sensor"="INDRA  Chamber");
 	dir = 8
 	},
@@ -19071,6 +19138,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"ngA" = (
+/obj/structure/girder/displaced,
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/turf/simulated/floor/plating,
 /area/space)
 "nhv" = (
 /obj/effect/floor_decal/corner/brown{
@@ -19831,6 +19903,19 @@
 /obj/effect/decal/cleanable/floor_damage/broken5,
 /turf/simulated/floor/plating,
 /area/space)
+"nMm" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "nMx" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/carpet/purple,
@@ -20309,6 +20394,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"odZ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/turf/simulated/floor/plating,
+/area/space)
 "oei" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship,
@@ -20685,6 +20786,13 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"ots" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "otE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -20845,6 +20953,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/hydrogen,
+/area/space)
+"oyb" = (
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/turf/simulated/floor/plating,
 /area/space)
 "oyt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21642,6 +21754,23 @@
 "pao" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"paz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/junk,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/plating,
 /area/space)
 "paD" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -25468,6 +25597,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"rLq" = (
+/obj/structure/window_frame/empty,
+/obj/item/material/shard{
+	icon_state = "medium"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "rLr" = (
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -25945,6 +26081,9 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/item/material/shard{
+	icon_state = "medium"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "scW" = (
@@ -26434,6 +26573,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"ssY" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/floor_damage/broken0,
+/turf/simulated/floor/plating,
+/area/space)
 "stu" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -26469,7 +26613,9 @@
 "suE" = (
 /obj/machinery/power/fusion_core{
 	anchored = 1;
-	initial_id_tag = "lost_fusion"
+	initial_id_tag = "lost_fusion";
+	name = "\improper INDRA Mk. I Tokamak Experimental core";
+	desc = "An enormous solenoid for generating extremely high power electromagnetic fields. It includes a kinetic energy harvester. This one appears to be an older, Mk. I core - the predecessor of the modern Mk. II Tokamak."
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -30112,6 +30258,14 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"uSp" = (
+/obj/structure/window_frame/empty,
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	icon_state = "medium"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "uSO" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -30235,6 +30389,11 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"uWe" = (
+/obj/structure/window_frame/empty,
+/obj/item/material/shard,
+/turf/simulated/floor/plating,
 /area/space)
 "uWm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33717,6 +33876,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/space)
+"xjB" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/space)
 "xjY" = (
 /obj/structure/platform_deco,
 /obj/effect/floor_decal/industrial/hatch_door/security,
@@ -34552,6 +34715,9 @@
 	dir = 1
 	},
 /obj/machinery/disposal/small/north,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/space)
 "xKK" = (
@@ -34904,6 +35070,12 @@
 "yde" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"ydN" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "ydT" = (
 /obj/effect/floor_decal/corner/brown{
@@ -127046,7 +127218,7 @@ cuC
 cuC
 cuC
 cuC
-onw
+qTG
 cuC
 cuC
 cuC
@@ -127291,7 +127463,7 @@ cuC
 cuC
 oOM
 itJ
-tJP
+nMm
 tJP
 tJP
 tJP
@@ -131396,7 +131568,7 @@ jEL
 cAN
 nBd
 pFg
-mWI
+eYA
 pbI
 mWI
 mWI
@@ -134480,8 +134652,8 @@ onw
 onw
 cuC
 qio
-pbI
-mWI
+eYA
+hKh
 mWI
 mWI
 wYr
@@ -135251,7 +135423,7 @@ cuC
 xuJ
 cuC
 onw
-cuC
+xjB
 oOM
 onw
 onw
@@ -135512,7 +135684,7 @@ cuC
 cuC
 cuC
 onw
-cuC
+xjB
 jtd
 cuC
 bmn
@@ -136278,7 +136450,7 @@ qkb
 cuC
 cuC
 onw
-cuC
+xjB
 xuJ
 cuC
 cuC
@@ -136535,7 +136707,7 @@ xdG
 fJv
 cuC
 onw
-cuC
+xjB
 onw
 onw
 onw
@@ -136794,7 +136966,7 @@ cuC
 onw
 cuC
 onw
-cuC
+xjB
 cuC
 cuC
 cuC
@@ -137036,7 +137208,7 @@ rsw
 vnA
 grE
 wTs
-mdM
+gtm
 aJo
 dOj
 uwR
@@ -137293,7 +137465,7 @@ cuC
 cQw
 jrJ
 kaJ
-mdM
+gtm
 lcx
 diV
 lcx
@@ -137308,7 +137480,7 @@ cuC
 xuJ
 cuC
 onw
-cuC
+xjB
 xBQ
 xuJ
 cuC
@@ -137561,7 +137733,7 @@ aXR
 qLw
 cuC
 qkb
-cuC
+gtm
 onw
 cuC
 onw
@@ -137807,7 +137979,7 @@ ttS
 bwA
 xnK
 unh
-mdM
+gtm
 wjT
 hAH
 wjT
@@ -137818,7 +137990,7 @@ vlM
 krT
 cuC
 qkb
-cuC
+uSp
 onw
 cuC
 onw
@@ -137830,7 +138002,7 @@ onw
 onw
 onw
 cuC
-jtd
+imv
 cuC
 grF
 tWY
@@ -138064,7 +138236,7 @@ yht
 jnz
 xQK
 hdW
-mdM
+gtm
 oZa
 eOV
 kmq
@@ -138075,7 +138247,7 @@ iYn
 cCa
 cuC
 kMr
-cuC
+xjB
 onw
 cuC
 onw
@@ -138336,7 +138508,7 @@ cuC
 onw
 cuC
 sKY
-cuC
+xjB
 xuJ
 onw
 cuC
@@ -139628,7 +139800,7 @@ jLj
 jLj
 cuC
 oOM
-cuC
+xjB
 onw
 cuC
 cuC
@@ -139863,14 +140035,14 @@ sxd
 rGA
 lmn
 eQp
-gtm
+rfl
 xAb
 dNL
 nKQ
 sFc
 dNL
 xAb
-gtm
+rfl
 onw
 cuC
 jLj
@@ -140120,14 +140292,14 @@ sxd
 nwG
 nzu
 cFI
-gtm
+rfl
 xAb
 dNL
 vMN
 mDl
 dNL
-xAb
-gtm
+ydN
+rLq
 xuJ
 cuC
 jLj
@@ -140145,7 +140317,7 @@ nkA
 slc
 cuC
 onw
-cuC
+xjB
 onw
 onw
 xuJ
@@ -140153,8 +140325,8 @@ onw
 cuC
 onw
 tXm
-jtd
-nBd
+byX
+ssY
 iBA
 gim
 uYY
@@ -140377,7 +140549,7 @@ sxd
 avV
 pML
 eQp
-gtm
+uWe
 scT
 dNL
 dNL
@@ -140385,7 +140557,7 @@ dNL
 dNL
 xAb
 gtm
-onw
+ots
 cuC
 jLj
 jLj
@@ -140409,10 +140581,10 @@ cuC
 onw
 cuC
 onw
-cuC
-jtd
-nBd
-iBA
+xjB
+odZ
+oyb
+lfD
 gim
 pcS
 dkG
@@ -140667,8 +140839,8 @@ onw
 onw
 onw
 cuC
-pJS
-nBd
+paz
+ngA
 iBA
 mHb
 xMH
