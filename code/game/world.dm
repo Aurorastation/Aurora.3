@@ -268,52 +268,6 @@ var/list/world_api_rate_limit = list()
 	shutdown_logging()
 	..(reason)
 
-/world/Error(var/exception/e)
-	var/static/inerror = 0
-
-	//runtime while processing runtimes
-	if (inerror)
-		inerror = 0
-		return ..(e)
-
-	inerror = 1
-
-// A horrible hack for unit tests but fuck runtiming timers.
-// They don't provide any useful information, and as such, are being suppressed.
-#ifdef UNIT_TEST
-
-	if (findtextEx(e.name, "Invalid timer:") || findtextEx(e.desc, "Invalid timer:"))
-		inerror = 0
-		return
-
-#endif // UNIT_TEST
-
-	e.time_stamp()
-	log_exception(e)
-
-	inerror = 0
-	return ..(e)
-
-// We need this elsewhere!
-/exception/var/time_stamped = 0
-
-/exception/proc/time_stamp()
-	if (time_stamped)
-		return
-
-	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
-	name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][name]"
-
-	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
-	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
-	var/list/split = splittext(desc, "\n")
-	for (var/i in 1 to split.len)
-		if (split[i] != "")
-			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
-	desc = jointext(split, "\n")
-
-	time_stamped = 1
-
 /proc/load_configuration()
 	GLOB.config = new()
 	GLOB.config.load("config/config.txt")

@@ -123,7 +123,7 @@
 	if(user in target) //no wrapping closets that you are inside - it's not physically possible
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <span class='notice'>Has used [src.name] on \ref[target]</span>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='notice'>Has used [src.name] on [REF(target)]</span>")
 
 	if(istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target

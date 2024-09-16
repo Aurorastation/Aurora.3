@@ -377,7 +377,6 @@
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38/rubber,
-/obj/item/storage/box/goldstar,
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(20)
 	},
@@ -396,6 +395,7 @@
 	pixel_x = 5;
 	pixel_y = -1
 	},
+/obj/item/storage/stickersheet/goldstar,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)
 "bV" = (
@@ -1792,7 +1792,7 @@
 /area/ship/scc_scout_ship/eva)
 "kf" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/graphite/full{
 	pixel_y = 3;
 	pixel_x = 5
@@ -2592,7 +2592,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
@@ -3326,7 +3326,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "sN" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "sP" = (
@@ -3403,7 +3403,7 @@
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "tt" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/flashlight,
 /obj/item/device/radio,
 /obj/item/device/flashlight/heavy,
@@ -5414,7 +5414,7 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_ship_shuttle/medbay)
 "Ht" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/engineering/prepared{
 	req_access = null
 	},
@@ -7757,7 +7757,7 @@
 "WC" = (
 /obj/structure/ore_box,
 /obj/structure/extinguisher_cabinet/west,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
@@ -7862,7 +7862,7 @@
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
 /obj/structure/closet/crate/miningcart,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "Xd" = (

@@ -197,7 +197,7 @@
 
 			contacts.Add(list(list(
 				"name"=contact.name,
-				"ref"="\ref[contact]",
+				"ref"="[REF(contact)]",
 				"bearing"=bearing,
 				"can_datalink"=(!(contact in connected.datalinked)),
 				"distance"=distance,
@@ -212,13 +212,13 @@
 		if(length(connected.datalink_requests))
 			var/list/local_datalink_requests = list()
 			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
-				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="[REF(requestor)]")))
 			data["datalink_requests"]  = local_datalink_requests
 
 		if(length(connected.datalinked))
 			var/list/local_datalinked = list()
 			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
-				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="[REF(datalinked_ship)]")))
 			data["datalinked"]  = local_datalinked
 
 		data["last_scan"] = last_scan

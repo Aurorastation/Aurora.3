@@ -613,6 +613,12 @@
 	icon_state = "flagpatch_coalition"
 	item_state = "flagpatch_coalition"
 
+/obj/item/clothing/accessory/flagpatch/all_xanu
+	name = "all-xanu republic flagpatch"
+	desc = "A flagpatch representing the All-Xanu Republic. Despite it being a flag patch, this is not the flag of the republic, but rather than the banner."
+	icon_state = "flagpatch_allxanu"
+	item_state = "flagpatch_allxanu"
+
 /obj/item/clothing/accessory/flagpatch/elyra
 	name = "elyran flagpatch"
 	desc = "A flagpatch representing the Serene Republic of Elyra. Although uncommon out of their space, some Elyrans have adopted \

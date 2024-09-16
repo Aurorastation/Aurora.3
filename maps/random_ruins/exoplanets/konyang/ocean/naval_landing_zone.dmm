@@ -443,7 +443,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "eU" = (
@@ -837,7 +837,7 @@
 /obj/item/shovel/spade,
 /obj/item/shovel/spade,
 /obj/item/wrench,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "kc" = (
@@ -950,7 +950,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center)
 "lw" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "lA" = (
@@ -1014,7 +1014,7 @@
 /area/konyang_landing_zone)
 "mJ" = (
 /obj/effect/decal/road_marking/turn_right,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "mL" = (
@@ -1386,7 +1386,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "sp" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center)
@@ -2465,7 +2465,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "IK" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center)
@@ -3124,7 +3124,7 @@
 /area/konyang_landing_zone/command_center)
 "Ss" = (
 /obj/effect/decal/road_marking/turn_left,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "Sw" = (

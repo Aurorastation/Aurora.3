@@ -87,7 +87,12 @@
 			host.emote(pick(controlling_emotes))
 	..()
 	if(!QDELETED(ability_bar))
-		ability_bar.update(world.time - ability_start_time)
+		var/borer_progress = world.time - ability_start_time
+		borer_progress = clamp(borer_progress, 0, ability_bar.goal)
+		ability_bar.update(borer_progress)
+
+		if(borer_progress == ability_bar.goal)
+			ability_bar.end_progress()
 
 /mob/living/simple_animal/borer/proc/start_ability(var/atom/target, var/time)
 	if(!QDELETED(ability_bar))

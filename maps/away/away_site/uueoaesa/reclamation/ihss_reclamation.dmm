@@ -337,7 +337,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/closet/crate/rad,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "by" = (
@@ -386,7 +386,7 @@
 "bO" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "bQ" = (
@@ -692,7 +692,7 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
 "dm" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/radiation,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
@@ -1076,7 +1076,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/item/storage/belt/mining,
 /obj/item/stack/flag/red,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "fw" = (
@@ -2367,6 +2367,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
+"md" = (
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/hangar1)
 "mf" = (
 /obj/effect/floor_decal/corner/yellow/diagonal{
 	dir = 1;
@@ -2872,6 +2878,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
+"ow" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/tranqcabinet{
+	pixel_x = -64
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/medsci)
 "ox" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars,
@@ -3287,7 +3304,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/steel/full,
@@ -3303,7 +3320,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue
@@ -3952,9 +3969,6 @@
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/device/taperecorder,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -4669,7 +4683,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "wE" = (
@@ -5179,7 +5193,7 @@
 /area/ihss_reclamation/xenobot)
 "yM" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "yO" = (
@@ -6020,7 +6034,7 @@
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "CU" = (
-/obj/machinery/power/smes/buildable/power_shuttle,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -6325,7 +6339,7 @@
 /area/ihss_reclamation/crew)
 "EZ" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "Ff" = (
@@ -7043,7 +7057,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "Ip" = (
@@ -7759,21 +7773,21 @@
 /area/ihss_reclamation/atmos)
 "LN" = (
 /obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/window/reinforced,
 /obj/machinery/recharger,
 /obj/effect/floor_decal/corner/red{
 	color = "#941307";
 	dir = 10
 	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "LO" = (
 /obj/machinery/light,
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "LP" = (
@@ -9447,7 +9461,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/hangarhall)
 "TI" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/airless,
@@ -9965,6 +9978,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -10383,6 +10399,8 @@
 /obj/item/shield/energy/hegemony,
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/item/clothing/suit/unathi/robe/robe_coat,
 /turf/simulated/floor/carpet/lightblue,
 /area/ihss_reclamation/captain)
 "XQ" = (
@@ -38652,7 +38670,7 @@ FA
 FA
 FA
 FA
-FA
+md
 dO
 RX
 Qn
@@ -39680,7 +39698,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
@@ -41222,7 +41240,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
@@ -42250,7 +42268,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
@@ -50224,7 +50242,7 @@ wF
 gz
 vh
 oc
-Ch
+ow
 Xq
 Xq
 ch

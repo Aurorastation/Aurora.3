@@ -1,6 +1,4 @@
-/mob/living/simple_animal/hostile
-	abstract_type = /mob/living/simple_animal/hostile
-
+ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
@@ -54,7 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
+	target_type_validator_map = null
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)

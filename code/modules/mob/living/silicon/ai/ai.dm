@@ -219,7 +219,7 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/on_mob_init()
 	to_chat(src, "<h3>You are playing the station's AI.</h3>")
-	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
+	to_chat(src, "<strong><a href='?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
 		show_laws()
@@ -680,8 +680,11 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmobs.get_mannequin(usr.client.ckey)
-					holo_icon.appearance = H.appearance
+					var/client/client = usr.client
+					client.prefs.update_mannequin()
+
+					var/mob/living/carbon/human/loadout_mob = SSmobs.get_mannequin(usr.client.ckey)
+					holo_icon.appearance = loadout_mob.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 

@@ -6,7 +6,7 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -1106,7 +1106,7 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/structure/sign/flag/pra/large/south{
 	pixel_y = -32
@@ -1223,7 +1223,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},

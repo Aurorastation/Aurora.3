@@ -33,7 +33,7 @@
 	var/message = ""
 
 /datum/ntnet_message/message/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
-	. = "<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i>:</b> [sanitize(message)] (<a href='byond://?src=\ref[Cl]&Reply=\ref[Conv]'>Reply</a>)"
+	. = "<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i>:</b> [sanitize(message)] (<a href='byond://?src=[REF(Cl)]&Reply=[REF(Conv)]'>Reply</a>)"
 
 /datum/ntnet_message/message/format_chat_log(var/datum/ntnet_conversation/Conv)
 	var/conversation_message_length = length(Conv.messages)

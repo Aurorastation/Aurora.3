@@ -122,6 +122,16 @@ else
     echo "PASS: All sounds are referenced with static paths" >> code_error.log
 fi
 
+# Check that only the expected amount of raw ref proc calls are present
+echo "Verifying no raw ref proc calls are being added" >> code_error.log
+RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref[\(\[]' | wc -l`
+if [[ $RAW_REF_BUILTIN_PROCS -ne 3 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found new raw ref proc calls in code" >> code_error.log
+else
+    echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

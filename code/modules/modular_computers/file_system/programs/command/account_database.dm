@@ -85,7 +85,7 @@
 			var/account_number = "[M]"
 			var/list/transactions = list()
 			for(var/datum/transaction/T in D.transactions)
-				var/Tref = ref(T)
+				var/Tref = REF(T)
 				transactions += list(list(
 					"ref" = Tref,
 					"date" = T.date,

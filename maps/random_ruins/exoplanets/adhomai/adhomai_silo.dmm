@@ -47,7 +47,7 @@
 /obj/item/flame/lighter/adhomai,
 /obj/item/storage/field_ration/army,
 /obj/item/storage/firstaid/regular,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
