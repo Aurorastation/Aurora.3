@@ -377,7 +377,6 @@
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38/rubber,
-/obj/item/storage/box/goldstar,
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(20)
 	},
@@ -396,6 +395,7 @@
 	pixel_x = 5;
 	pixel_y = -1
 	},
+/obj/item/storage/stickersheet/goldstar,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)
 "bV" = (

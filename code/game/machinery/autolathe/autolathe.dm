@@ -78,6 +78,18 @@
 	SSmaterials.autolathe_categories |= "All"
 	SSmaterials.autolathe_categories = sort_list(SSmaterials.autolathe_categories, GLOBAL_PROC_REF(cmp_text_asc))
 
+/obj/machinery/autolathe/proc/can_print_item(var/singleton/autolathe_recipe/recipe)
+	var/ship_security_level = seclevel2num(get_security_level())
+	var/is_on_ship = is_station_level(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
+
+	if(!hacked)
+		if(recipe.hack_only)
+			return FALSE
+		else if(is_on_ship && ship_security_level < recipe.security_level)
+			return FALSE
+
+	return TRUE
+
 /obj/machinery/autolathe/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -86,6 +98,7 @@
 
 /obj/machinery/autolathe/ui_data(mob/user)
 	. = ..()
+
 	var/list/data = list()
 	data["disabled"] = disabled
 	data["material_efficiency"] = mat_efficiency
@@ -95,14 +108,21 @@
 	for(var/material in stored_material)
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
+
 	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		var/singleton/autolathe_recipe/R = recipe
-		if(R.hidden && !hacked)
+		if(is_abstract(R))
 			continue
+		if(R.hack_only && !hacked)
+			continue
+
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
-		recipe_data["hidden"] = R.hidden
+		recipe_data["security_level"] = R.security_level ? capitalize(num2seclevel(R.security_level)) : "None"
+		recipe_data["hack_only"] = R.hack_only
+		recipe_data["enabled"] = can_print_item(R)
+
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += "[R.resources[resource] * mat_efficiency] [resource]"
@@ -185,7 +205,10 @@
 		var/multiplier = text2num(params["multiplier"])
 		var/singleton/autolathe_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
 		if(!istype(R))
-			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
+			CRASH("([usr.ckey]) tried to print an unknown recipe! [R], param is [params["recipe"]].")
+
+		if(!can_print_item(R))
+			CRASH("([usr.ckey]) tried to print an un-enabled recipe! [R], param is [params["recipe"]].")
 
 		intent_message(MACHINE_SOUND)
 

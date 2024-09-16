@@ -794,6 +794,9 @@
 /datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
 	H.set_tail_style(H.species.tail)
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
@@ -850,6 +853,9 @@
 /datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
 	return FALSE
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
 	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))

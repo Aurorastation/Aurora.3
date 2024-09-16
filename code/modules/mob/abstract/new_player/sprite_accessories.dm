@@ -6315,6 +6315,41 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Bishop - Triangular Face Mask"
 	icon_state = "bishop_triangular_mask"
 
+
+/datum/sprite_accessory/marking/bishop_lights/selen
+	name = "Bishop - Selen Primary Colors"
+	icon_state = "selen_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SELEN)
+
+/datum/sprite_accessory/marking/bishop_lights/bishop_mask/selen/lights
+	name = "Bishop - Selen Lights"
+	icon_state = "selen_lights"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/bishop_lights/bishop_mask/sienna
+	name = "Bishop - Sienna Primary Colors"
+	icon_state = "sienna_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SIENNA)
+
+/datum/sprite_accessory/marking/bishop_lights/sienna/lights
+	name = "Bishop - Sienna Lights"
+	icon_state = "sienna_lights"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/bishop_lights/siseyo
+	name = "Bishop - Siseyo Primary Colors"
+	icon_state = "siseyo_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SISEYO)
+
+/datum/sprite_accessory/marking/bishop_lights/sienna/lights
+	name = "Bishop - Siseyo Lights"
+	icon_state = "siseyo_lights"
+	body_parts = list(BP_HEAD)
+
+
 /datum/sprite_accessory/marking/bishop_lights/bishop_panels
 	name = "Bishop - Full Body Panel Colors"
 	icon_state = "bishop_panels"
