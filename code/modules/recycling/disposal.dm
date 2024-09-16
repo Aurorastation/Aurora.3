@@ -366,21 +366,21 @@
 
 	if(!ai)  // AI can't pull flush handle
 		if(flush)
-			dat += "Disposal handle: <A href='?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
+			dat += "Disposal handle: <A href='?src=[REF(src)];handle=0'>Disengage</A> <B>Engaged</B>"
 		else
-			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
+			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=[REF(src)];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+		dat += "<BR><HR><A href='?src=[REF(src)];eject=1'>Eject contents</A><HR>"
 
 	if(uses_air)
 		if(mode <= 0)
-			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+			dat += "Pump: <B>Off</B> <A href='?src=[REF(src)];pump=1'>On</A><BR>"
 		else if(mode == 1)
-			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
 		else
-			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+		dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
 	if(!uses_air)
@@ -1562,29 +1562,29 @@
 	// expel the contents of the holder object, then delete it
 	// called when the holder exits the outlet
 /obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] expel(\ref[H])")
+	disposal_log("[src] [REF(src)] expel([REF(H)])")
 
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	disposal_log("[src] (\ref[src]) registering timers.")
+	disposal_log("[src] ([REF(src)]) registering timers.")
 	addtimer(CALLBACK(src, PROC_REF(post_expel, H)), 20, TIMER_UNIQUE|TIMER_CLIENT_TIME)			// Sound + gas.
 	addtimer(CALLBACK(src, PROC_REF(post_post_expel, H)), 20 + 5, TIMER_UNIQUE|TIMER_CLIENT_TIME)	// Actually throwing the items.
 
 /obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
-	disposal_log("[src] (\ref[src]) post_expel() timer fired.")
+	disposal_log("[src] ([REF(src)]) post_expel() timer fired.")
 	if(H)
 		H.vent_gas(src.loc)
 
 /obj/structure/disposaloutlet/proc/throw_object(atom/movable/thing)
-	disposal_log("[src] (\ref[src]) throw_object([thing] \ref[thing]) at [target] \ref[target] origin [loc] \ref[loc]")
+	disposal_log("[src] ([REF(src)]) throw_object([thing] [REF(thing)]) at [target] [REF(target)] origin [loc] [REF(loc)]")
 	thing.forceMove(loc)
 	thing.pipe_eject(dir)
 	if (!istype(thing, /mob/living/silicon/robot/drone))
 		thing.throw_at(target, 3, 1)
 
 /obj/structure/disposaloutlet/proc/post_post_expel(obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] post_post_expel(\ref[H]), [H.contents.len] movables")
+	disposal_log("[src] [REF(src)] post_post_expel([REF(H)]), [H.contents.len] movables")
 	for(var/atom/movable/AM in H)
 		AM.forceMove(src.loc)
 		AM.pipe_eject(dir)

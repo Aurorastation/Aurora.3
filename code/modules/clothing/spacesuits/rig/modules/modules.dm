@@ -268,7 +268,7 @@
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
-					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", ref(SRM)))
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", REF(SRM)))
 	return data
 
 /stat_rig_module

@@ -22,7 +22,7 @@
 
 /datum/data_pda_msg/proc/get_photo_ref()
 	if(photo)
-		return "<a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+		return "<a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
 	return ""
 
 /datum/data_pda_msg/Topic(href,href_list)
@@ -132,7 +132,7 @@
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'"),,5)
-					Console.message_log += "<B><span class='warning'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
+					Console.message_log += "<B><span class='warning'>High Priority message from <A href='?src=[REF(Console)];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
 					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
 						var/pda_message = "A high priority message has arrived!"
 						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
@@ -140,7 +140,7 @@
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Message from [sender]'"),,4)
-					Console.message_log += "<B>Message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></B><BR>[authmsg]"
+					Console.message_log += "<B>Message from <A href='?src=[REF(Console)];write=[sender]'>[sender]</A></B><BR>[authmsg]"
 					for(var/obj/item/modular_computer/pda in Console.alert_pdas)
 						var/pda_message = "A message has arrived!"
 						pda.get_notification(pda_message, 1, "[Console.department] Requests Console")
@@ -198,7 +198,7 @@
 
 /datum/signal/subspace/pda/proc/format_message()
 	if (data["photo"])
-		return "[data["message"]] <a href='byond://?src=["\ref[src]"];photo=1'>(Photo)</a>"
+		return "[data["message"]] <a href='byond://?src=["[REF(src)]"];photo=1'>(Photo)</a>"
 	return data["message"]
 
 /datum/signal/subspace/pda/broadcast()

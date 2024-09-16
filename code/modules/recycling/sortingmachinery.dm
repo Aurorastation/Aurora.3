@@ -263,13 +263,13 @@
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=[REF(src)];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
-	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
+	dat += "<br><a href='?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
 	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 

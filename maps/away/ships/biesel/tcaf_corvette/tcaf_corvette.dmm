@@ -21,6 +21,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
+"ay" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/tcaf_corvette/thrustport)
 "aB" = (
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -170,15 +175,15 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, docking port"
@@ -214,9 +219,9 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -631,10 +636,13 @@
 "eB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/steel,
-/obj/item/stamp/warden,
 /obj/machinery/door/window/desk/southright{
 	name = "Security";
 	req_access = list(204)
+	},
+/obj/machinery/recharger{
+	pixel_x = 4;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
@@ -675,6 +683,13 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/lino,
 /area/tcaf_corvette/messhall)
+"eN" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "eP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -1363,6 +1378,10 @@
 /obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/eva)
+"jK" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "jT" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, brig"
@@ -1435,6 +1454,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "kD" = (
@@ -1503,9 +1523,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -1516,9 +1536,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -1547,6 +1567,12 @@
 "lh" = (
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/dock)
+"li" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
+	req_one_access = list(204,111)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/bridge)
 "ll" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1648,6 +1674,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/thruststarb)
+"mB" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "mX" = (
 /obj/structure/bed/handrail{
 	dir = 1
@@ -1665,9 +1697,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -1751,9 +1783,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/dock)
@@ -2068,6 +2100,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "qe" = (
@@ -2098,9 +2131,16 @@
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/reinforced/steel,
-/obj/item/blueprints,
+/obj/item/blueprints{
+	pixel_x = 5;
+	pixel_y = 8
+	},
 /obj/item/pen/drafting/blue{
-	pixel_y = 5
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/obj/machinery/recharger{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -2403,6 +2443,11 @@
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron,
 /obj/item/shield/riot/tact/legion,
+/obj/item/clothing/accessory/flagpatch/biesel,
+/obj/item/clothing/accessory/flagpatch/biesel,
+/obj/item/clothing/accessory/flagpatch/biesel,
+/obj/item/clothing/accessory/flagpatch/biesel,
+/obj/item/clothing/accessory/flagpatch/biesel,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "sN" = (
@@ -2523,7 +2568,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "tcaf_dock";
-	name = "\improper shuttle docking port controller";
+	name = "\improper Gunship docking port controller";
 	req_one_access = list(204);
 	dir = 2;
 	pixel_x = -28
@@ -2621,13 +2666,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/recharger{
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/bridge)
 "ux" = (
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
@@ -2684,7 +2732,8 @@
 	id = "tcaf_cic";
 	name = "CIC Blast Doors";
 	req_access = list(204);
-	pixel_y = 26
+	pixel_y = 26;
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette)
@@ -2805,6 +2854,7 @@
 "vX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "vZ" = (
@@ -2812,9 +2862,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
@@ -3072,6 +3122,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/bridge)
+"yH" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "yI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -3162,6 +3223,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "zs" = (
@@ -3173,6 +3235,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
+"zy" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/engineering)
 "zz" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/industrial/outline/medical,
@@ -3456,9 +3524,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
-	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	landmark_tag = "tcaf_corvette_starboard_dock";
+	master_tag = "airlock_tcaf_starboard_dock";
+	name = "airlock_tcaf_starboard_dock"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -3633,6 +3701,11 @@
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/simulated/floor/lino,
 /area/tcaf_corvette/messhall)
+"Dr" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
 "Dv" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -3827,6 +3900,12 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/tcaf_corvette/engineering)
+"Fd" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/tcaf_corvette/security)
 "Fi" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3908,9 +3987,9 @@
 "FS" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -3937,9 +4016,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -3989,9 +4068,9 @@
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
@@ -4077,9 +4156,9 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -4131,6 +4210,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "HX" = (
@@ -4187,12 +4267,12 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -26;
-	pixel_y = 12
+	pixel_y = 26
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -4279,9 +4359,9 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -4462,9 +4542,9 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
@@ -4504,13 +4584,14 @@
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
 "Lb" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
 "Ld" = (
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
@@ -4965,9 +5046,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
@@ -4988,7 +5069,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "tcaf_cic";
 	name = "CIC Blast Doors";
-	req_access = list(204)
+	req_access = list(204);
+	dir = 1;
+	pixel_y = -1
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -5135,15 +5218,15 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/dock)
@@ -5251,9 +5334,9 @@
 	name = "starboard, thruster nacelle"
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock1";
+	landmark_tag = "tcaf_corvette_starboard_dock";
 	master_tag = "airlock_tcaf_dock1";
-	name = "airlock_tcaf_dock1"
+	name = "airlock_tcaf_starboard_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -5331,9 +5414,9 @@
 /area/tcaf_corvette/engineering)
 "Ry" = (
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock";
-	master_tag = "airlock_tcaf_dock";
-	name = "airlock_tcaf_dock"
+	landmark_tag = "tcaf_corvette_port_dock";
+	master_tag = "airlock_tcaf_port_dock";
+	name = "airlock_tcaf_port_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/dock)
@@ -5515,7 +5598,9 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette"
+	department = "Republican Fleet Corvette";
+	req_one_access = null;
+	req_access = list(204)
 	},
 /obj/machinery/light{
 	dir = 1
@@ -5790,9 +5875,9 @@
 "VD" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
@@ -5877,6 +5962,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
+"Wk" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Wm" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -5932,6 +6025,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
+"WA" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
 "WB" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -5990,8 +6090,14 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
+"WS" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/space)
 "WV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -6043,14 +6149,22 @@
 /area/tcaf_corvette/bridge)
 "XA" = (
 /obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen/black,
+/obj/item/paper_bin{
+	pixel_x = 3
+	},
+/obj/item/pen/black{
+	pixel_x = 3
+	},
 /obj/machinery/door/window/desk/southleft{
 	name = "Security";
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
+	},
+/obj/item/stamp/warden{
+	pixel_y = 8;
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
@@ -6222,9 +6336,9 @@
 "YE" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "tcaf_corvette_dock2";
-	master_tag = "airlock_tcaf_dock2";
-	name = "airlock_tcaf_dock2"
+	landmark_tag = "tcaf_corvette_aft_dock";
+	master_tag = "airlock_tcaf_aft_dock";
+	name = "airlock_tcaf_aft_dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -27300,6 +27414,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -27320,8 +27435,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -28071,6 +28185,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -28091,8 +28206,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -28842,6 +28956,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -28862,8 +28977,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -29613,6 +29727,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -29633,8 +29748,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -30384,6 +30498,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -30404,8 +30519,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -30900,24 +31014,24 @@ UI
 UI
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
-UI
-UI
-ul
+yH
 wq
 QT
 Gh
 wq
+zy
 RA
 RA
+zy
 RA
 RA
-RA
-RA
-RA
+zy
 uK
 RA
 RA
@@ -32476,7 +32590,7 @@ FO
 fi
 gD
 kD
-ul
+eN
 ul
 UI
 UI
@@ -32733,7 +32847,7 @@ Tg
 Tg
 Tg
 Tg
-ul
+WS
 ul
 UI
 UI
@@ -35259,19 +35373,19 @@ UI
 UI
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
-UI
-UI
-UI
-UI
-UI
+mB
 UI
 UI
 HP
@@ -35554,7 +35668,7 @@ MC
 vC
 uS
 kQ
-hh
+li
 yC
 Qm
 ob
@@ -35787,7 +35901,7 @@ UI
 UI
 UI
 UI
-UI
+jK
 Ya
 nO
 nO
@@ -36558,7 +36672,7 @@ UI
 UI
 UI
 UI
-UI
+jK
 HP
 nO
 iL
@@ -37329,7 +37443,7 @@ UI
 UI
 UI
 UI
-UI
+jK
 HP
 nO
 nO
@@ -38614,7 +38728,7 @@ UI
 UI
 UI
 UI
-Hk
+ay
 fW
 pW
 Lb
@@ -39385,7 +39499,7 @@ UI
 UI
 UI
 UI
-Hk
+ay
 FN
 PJ
 Ba
@@ -39899,7 +40013,7 @@ UI
 UI
 UI
 UI
-UI
+WS
 Db
 Db
 np
@@ -40156,8 +40270,8 @@ UI
 UI
 UI
 UI
-UI
-UI
+Dr
+eN
 Db
 Db
 Db
@@ -40414,7 +40528,7 @@ UI
 UI
 UI
 UI
-UI
+ul
 Db
 Db
 pv
@@ -40656,23 +40770,23 @@ UI
 UI
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
+mB
 UI
 UI
-UI
-UI
-UI
-UI
-UI
-UI
-UI
+ul
+ul
 jT
 DA
 KG
@@ -40929,7 +41043,7 @@ UI
 UI
 UI
 UI
-UI
+ul
 Db
 Db
 fJ
@@ -41186,24 +41300,24 @@ UI
 UI
 UI
 UI
-UI
-UI
+WA
+Wk
 Db
-Db
+Fd
 Db
 tP
-Db
+Fd
 NC
 Qr
 cg
 NC
+mB
 UI
 UI
+mB
 UI
 UI
-UI
-UI
-UI
+mB
 UI
 UI
 UI
@@ -41698,6 +41812,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -41718,8 +41833,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -42469,6 +42583,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -42489,8 +42604,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -43240,6 +43354,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -43260,8 +43375,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -44011,6 +44125,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -44031,8 +44146,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
@@ -44782,6 +44896,7 @@ UI
 UI
 UI
 UI
+jK
 UI
 UI
 UI
@@ -44802,8 +44917,7 @@ UI
 UI
 UI
 UI
-UI
-UI
+jK
 UI
 UI
 UI
