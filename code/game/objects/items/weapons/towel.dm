@@ -14,10 +14,12 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/towel/attack_self(mob/living/user as mob)
-	attack(user,user)
+/obj/item/towel/attack_self(mob/living/user)
+	attack(user, user)
 
-/obj/item/towel/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/towel/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
+
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)

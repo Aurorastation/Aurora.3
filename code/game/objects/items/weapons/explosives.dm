@@ -90,7 +90,7 @@
 
 	qdel(src)
 
-/obj/item/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/plastique/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/plastique/cyborg

@@ -108,8 +108,8 @@
 				return TRUE
 	return ..()
 
-/obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
-	if(can_operate(M) && do_surgery(M, user, src))
+/obj/item/reagent_containers/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(can_operate(target_mob) && do_surgery(target_mob, user, src))
 		return
 	if(!reagents.total_volume && user.a_intent == I_HURT)
 		return ..()

@@ -66,11 +66,11 @@
 	if(distance <= 1)
 		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
 
-/obj/item/stack/wrapping_paper/attack(mob/target, mob/user)
-	if(!ishuman(target))
+/obj/item/stack/wrapping_paper/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ishuman(target_mob))
 		return
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)
 		if(src.amount >= 2)
 			var/obj/effect/spresent/present = new /obj/effect/spresent (H.loc)

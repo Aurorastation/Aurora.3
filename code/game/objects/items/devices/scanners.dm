@@ -24,7 +24,7 @@ BREATH ANALYZER
 	var/mode = 1
 	var/sound_scan = FALSE
 
-/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
@@ -32,7 +32,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(M, user, mode, sound_scan = sound_scan)
+	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
@@ -533,11 +533,12 @@ BREATH ANALYZER
 	throw_range = 7
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
-/obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
-	if(!isslime(M))
+/obj/item/device/slime_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!isslime(target_mob))
 		to_chat(user, SPAN_WARNING("This device can only scan slimes!"))
 		return
-	var/mob/living/carbon/slime/T = M
+
+	var/mob/living/carbon/slime/T = target_mob
 	to_chat(user, SPAN_NOTICE("**************************"))
 	to_chat(user, SPAN_NOTICE("Slime scan results:"))
 	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
@@ -599,7 +600,9 @@ BREATH ANALYZER
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+
+	var/mob/living/carbon/human/H = target_mob
 
 	if (!istype(H))
 		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on [H]!"))
@@ -716,14 +719,14 @@ BREATH ANALYZER
 		QDEL_NULL(connected)
 	return ..()
 
-/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
-	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-	if(do_after(user, 7 SECONDS, M, DO_UNIQUE))
-		print_scan(M, user)
+	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
+		print_scan(target_mob, user)
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)

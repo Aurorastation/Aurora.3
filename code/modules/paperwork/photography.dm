@@ -169,7 +169,7 @@ var/global/photo_count = 0
 		size = nsize
 		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
-/obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/device/camera/attack_self(mob/user as mob)

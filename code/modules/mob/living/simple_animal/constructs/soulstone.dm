@@ -15,8 +15,11 @@
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
-/obj/item/device/soulstone/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/soulstone/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(20)
+
+	var/mob/living/carbon/human/M = target_mob
+
 	if(!istype(M, /mob/living/carbon/human))//If target is not a human.
 		return ..()
 	if(istype(M, /mob/living/carbon/human/apparition))

@@ -103,7 +103,9 @@
 	..()
 	update_icon()
 
-/obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/screwdriver/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
 	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -181,7 +183,11 @@
 	..()
 	update_icon()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
+/obj/item/wirecutters/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/C = target_mob
+	if(!istype(C))
+		return
+
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
@@ -390,9 +396,9 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weldingtool/attack(mob/living/M, mob/user, var/target_zone)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+/obj/item/weldingtool/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 
 		if(!S)

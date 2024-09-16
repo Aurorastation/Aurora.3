@@ -17,3 +17,9 @@
 #define COMSIG_ITEM_DROPPED "item_drop"
 ///from base of obj/item/pickup(): (mob/user)
 #define COMSIG_ITEM_PICKUP "item_pickup"
+
+///from base of /obj/item/attack(): (mob/living, mob/living, params)
+#define COMSIG_ITEM_ATTACK "item_attack"
+
+///from base of [obj/item/attack()]: (atom/target, mob/user, proximity_flag, click_parameters)
+#define COMSIG_ITEM_AFTERATTACK "item_afterattack"

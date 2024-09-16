@@ -25,13 +25,13 @@
 	. = ..()
 	src.add_blood()
 
-/obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/material/knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(active == 1)
-		if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
+		if((target_zone != BP_EYES && target_zone != BP_HEAD) || target_mob.eyes_protected(src, FALSE))
 			return ..()
 		if((user.is_clumsy()) && prob(50))
-			M = user
-		return eyestab(M,user)
+			target_mob = user
+		return eyestab(target_mob,user)
 
 /obj/item/material/knife/verb/extract_embedded(var/mob/living/carbon/human/H as mob in view(1))
 	set name = "Extract Embedded Item"

@@ -132,6 +132,30 @@ else
     echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
 fi
 
+##########################################################
+#	Proc signatures are respected, for general procs
+##########################################################
+echo "Verifying proc signatures are respected" >> code_error.log
+
+SIGNATURES_TO_LOOK_FOR='\/attackby\((?!\))(?!obj\/item\/attacking_item,\s*mob\/user(?!,(?!\s*params))).*\)'
+
+# Append the signatures like this after the first one: SIGNATURES_TO_LOOK_FOR+='|/proc/ref2'
+SIGNATURES_TO_LOOK_FOR+='|\/attack\((?!\))(?!mob\/living\/target_mob,\s*mob\/living\/user(?!,(?!\s*target_zone))).*\)'
+
+PROC_SIGNATURES_NOT_RESPECTED=`grep -r --include \*.dm -P --regexp=$SIGNATURES_TO_LOOK_FOR`
+PROC_SIGNATURES_NOT_RESPECTED_COUNT=`echo -n $PROC_SIGNATURES_NOT_RESPECTED | wc -l`
+if [[ $PROC_SIGNATURES_NOT_RESPECTED_COUNT -ne 0 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Proc signatures are not respected in code!" >> code_error.log
+	echo $PROC_SIGNATURES_NOT_RESPECTED >> code_error.log
+else
+    echo "PASS: All proc signatures are respected in code" >> code_error.log
+fi
+
+
+#######################################
+#	Output the result of the checks
+#######################################
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
