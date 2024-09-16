@@ -88,3 +88,6 @@
       augments.
   hazelmouse:
   - bugfix: Biogenerators are no longer invisible.
+2024-09-16:
+  Ben10083:
+  - bugfix: Fixes the unusable programs in the AI internal computer.
