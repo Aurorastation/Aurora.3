@@ -4332,6 +4332,7 @@
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556/ap,
 /obj/item/gun/energy/blaster/rifle,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "qk" = (
@@ -9968,6 +9969,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
+"NO" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tcaf_corvette/storage)
 "NQ" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
@@ -109270,7 +109278,7 @@ lI
 Jo
 Et
 qh
-Sv
+NO
 az
 Gc
 zr
