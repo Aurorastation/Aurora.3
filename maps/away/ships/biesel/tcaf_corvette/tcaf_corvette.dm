@@ -18,6 +18,7 @@
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
@@ -28,7 +29,7 @@
 /obj/effect/overmap/visitable/ship/tcaf_corvette
 	name = "Republican Fleet Corvette"
 	class = "BLV" // Biesel Military Vessel - I guess the 'L' is for 'Legion'?
-	desc = "Renowned in particular for its incredibly strong sensor array, the Antlion-class corvette is a recent innovation becoming quickly infamous throughout the CRZ and surrounding frontier as the bane of all those attempting to go undetected. Rather than having been made from scratch, these ships are a retrofitted variant of the Solarian-made Hainan-class corvette, a smaller relative of the Yingchen-class light cruiser recently refitted en-masse by Zavodskoi Interstellar to bolster the Republican Fleets. It is primarily built to monitor as large an area in a patrol run as is humanly possible - a necessity of late, given how few ships the Republican Fleets has to cover the great breadth of their new territories - for which it has strong sensors and a lightweight, maneuverable frame. While very capable of engaging other similarly sized ships, experts have noted the thin hull and exposed engine as particular vulnerabilities of the design."
+	desc = "Renowned in particular for its incredibly strong sensor array, the Antlion-class corvette is a recent innovation becoming quickly infamous throughout the CRZ and surrounding frontier as the bane of all those attempting to go undetected. Rather than having been made from scratch, these ships are a retrofitted variant of the Solarian-made Hainan-class corvette, a smaller relative of the Yingchen-class light cruiser recently refitted en-masse by Zavodskoi Interstellar to bolster the Republican Fleets. It is primarily built to monitor as large an area in a patrol run as is humanly possible - a necessity of late, given how few ships the Republican Fleets has to cover the great breadth of their new territories - for which it has strong sensors and a lightweight, maneuverable frame. While very capable of engaging other similarly sized ships, its thin hull discourages engagements with anything larger."
 	icon_state = "tcaf"
 	moving_state = "tcaf_moving"
 	colors = list("#5d68c8", "#70a2e7")
@@ -40,7 +41,7 @@
 	scanimage = "tcfl_cetus.png" // Reusing the TCFL sprite.
 	designer = "Tau Ceti Republican Fleets, Zavodskoi Interstellar"
 	volume = "73 meters length, 41 meters beam/width, 20 meters vertical height"
-	drive = "Middle-range Warp Acceleration FTL Drive"
+	drive = "Mid-range Warp Acceleration FTL Drive"
 	weapons = "Dual ballistic gunnery pods, underside flight craft hangar"
 	sizeclass = "Antlion-class corvette"
 	shiptype = "Military reconnaissance and extended-duration combat utility"

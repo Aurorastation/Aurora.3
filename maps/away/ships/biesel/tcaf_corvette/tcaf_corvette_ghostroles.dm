@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/tcaf_crewman
 	name = "Republican Fleet Technician"
 	short_name = "tcaf_crewman"
-	desc = "You are a Legionnaire serving with the Tau Ceti Armed Forces, assigned to a fleet corvette as a Ship Technician specialising in medical and engineering work. You load the guns, keep the engine going, keep the decks clean, and keep the crew alive. You are not expected to enter active combat under normal operations, but you must be prepared to fight if necessary. Follow your commanding officer's orders, clear the sector of any pirate activity, and keep the light of liberty shining!"
+	desc = "You are a Legionnaire serving with the Tau Ceti Armed Forces, assigned to a fleet corvette as a Ship Technician specialising in medical and engineering work. You load the guns, keep the engine going, keep the decks clean, and keep the crew alive. You are not expected to enter active combat under normal operations, but you must be prepared to fight under desperate circumstances. Follow your commanding officer's orders, clear the sector of any pirate activity, and keep the light of liberty shining!"
 	tags = list("External")
 	mob_name_prefix = "Lgn. "
 
@@ -9,6 +9,7 @@
 	max_count = 2
 
 	outfit = /obj/outfit/admin/tcaf_crewman
+	// Vaurca workers are only playable as technicians, as it's a primarily non-combatatant role. Think engineers and ammo loaders.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -27,13 +28,14 @@
 	accessory = /obj/item/clothing/accessory/holster/hip
 	l_ear = /obj/item/device/radio/headset/ship
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
-		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless, // Vaurca shoes look odd with the uniforms.
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 /obj/outfit/admin/tcaf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -60,6 +62,8 @@
 	short_name = "tcaf_armsman"
 	max_count = 2
 	outfit = /obj/outfit/admin/tcaf_crewman/armsman
+	// Excludes vaurca workers, as it's a combatant role.
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "Lgn. "
 	desc = "You are a Legionnaire serving with the Tau Ceti Armed Forces, assigned to a fleet corvette as an Armsman to protect the ship in the event of a boarding action and to board other ships if necessary. You are expected to put yourself on the front lines in the event of combat. Follow your commanding officer's orders, clear the sector of any pirate activity, and keep the light of liberty shining!"
 	assigned_role = "Republican Fleet Legionnaire (Armsman)"
@@ -76,6 +80,8 @@
 	short_name = "tcaf_nco"
 	max_count = 1
 	outfit = /obj/outfit/admin/tcaf_crewman/nco
+	// Excludes vaurca workers, as it's a combatant role.
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "Pfct. "
 	desc = "You are a Prefect serving with the Tau Ceti Armed Forces, functioning as the second-in-command of your assigned fleet corvette. It's your responsibility to keep the ship functioning smoothly in matters beneath the notice of the Decurion, your superior. You outrank the Legionnaires on-board, but you are not an officer. Follow your commanding officer's orders, clear the sector of any pirate activity, and keep the light of liberty shining!"
 	assigned_role = "Republican Fleet Prefect"
@@ -94,6 +100,8 @@
 	max_count = 1
 	spawnpoints = list("tcaf_officer")
 	outfit = /obj/outfit/admin/tcaf_crewman/officer
+	// More limited species selection than the non-officer roles - humans, skrell, IPCs, and vaurca warriors.
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR)
 	mob_name_prefix = "Dcn. "
 	desc = "You are a Decurion, an enlisted officer, serving with the Tau Ceti Armed Forces in command of a corvette. The Republican Fleets are stretched thin across too much territory, with too few ships and too few men, too divided and too disparate to ensure the safety of its own citizens. You may command only one small ship, but the fate of the Republic may lie in you and officers like you. You are the eyes and ears of the Republic of Biesel - police your assigned sector for piracy and smuggling, monitor neighbouring powers, and above all else, keep your crew alive. They're counting on you."
 	assigned_role = "Republican Fleet Decurion"
