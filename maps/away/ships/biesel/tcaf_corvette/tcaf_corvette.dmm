@@ -2073,7 +2073,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/green{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "gX" = (
@@ -2343,7 +2342,6 @@
 /area/tcaf_corvette/hydroponics)
 "ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "iu" = (
@@ -2591,7 +2589,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "jm" = (
@@ -3328,7 +3325,9 @@
 /area/tcaf_corvette/central_ring)
 "mF" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full,
-/obj/machinery/autolathe,
+/obj/machinery/autolathe{
+	hacked = 1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -3429,10 +3428,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"mP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/tcaf_corvette/engine)
 "mQ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
@@ -3795,12 +3790,6 @@
 /obj/item/clothing/suit/armor/carrier/tcaf,
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor,
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor,
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor,
@@ -4325,44 +4314,24 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/gun/projectile/automatic/rifle/jingya,
-/obj/item/gun/projectile/automatic/rifle/jingya,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/gun/projectile/automatic/wt550,
-/obj/item/gun/projectile/automatic/wt550,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
-/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/energy/blaster/tcaf,
+/obj/item/gun/projectile/automatic/rifle/z8,
+/obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556/ap,
+/obj/item/gun/energy/blaster/rifle,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "qk" = (
@@ -4857,7 +4826,6 @@
 /area/tcaf_corvette/hangar)
 "sm" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "so" = (
@@ -5690,7 +5658,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "vS" = (
@@ -6349,7 +6316,6 @@
 	dir = 8
 	},
 /obj/machinery/meter,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "yP" = (
@@ -6825,6 +6791,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/central_ring)
+"AA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
 "AF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5F78A0";
@@ -6941,20 +6911,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
@@ -6964,19 +6920,42 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/smokebombs,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
-/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	icon_state = "military_goggles"
+	},
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "Bn" = (
@@ -8035,6 +8014,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/gun/projectile/revolver/konyang,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
 "Gc" = (
@@ -9063,11 +9046,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/captain)
-"Kf" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/tcaf_corvette/engine)
 "Ki" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, hangar port"
@@ -10787,12 +10765,17 @@
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/tc_pin,
+/obj/item/clothing/accessory/badge/tcaf_papers/service,
+/obj/item/clothing/accessory/badge/tcaf_papers/service,
+/obj/item/clothing/accessory/badge/tcaf_papers/service,
+/obj/item/clothing/accessory/badge/tcaf_papers/service,
+/obj/item/clothing/accessory/badge/tcaf_papers/service,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "Ry" = (
@@ -10850,7 +10833,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/green{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "RQ" = (
@@ -10871,6 +10853,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
+"RS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
 "RU" = (
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -6;
@@ -11925,6 +11912,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
+"Vw" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
 "VD" = (
 /obj/machinery/air_sensor{
 	frequency = 1442;
@@ -12519,7 +12511,6 @@
 "XU" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "Yd" = (
@@ -12646,7 +12637,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "Ys" = (
@@ -110553,7 +110543,7 @@ zs
 Bf
 fE
 Zk
-mP
+RS
 by
 Ud
 ty
@@ -112095,8 +112085,8 @@ BT
 bE
 Uf
 Zk
-mP
-Kf
+AA
+Vw
 xX
 dt
 dt
