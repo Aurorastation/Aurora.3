@@ -103,9 +103,9 @@
 	name = "Republican Fleet Corvette - Hydroponics Bay"
 	icon_state = "hydro"
 
-/area/tcaf_corvette/chapel
-	name = "Republican Fleet Corvette - Mutli-faith Chapel"
-	icon_state = "chapel"
+/area/tcaf_corvette/workshop
+	name = "Republican Fleet Corvette - Workshop"
+	icon_state = "machinist_workshop"
 
 /area/tcaf_corvette/exterior
 	name = "Republican Fleet Corvette - Exterior"

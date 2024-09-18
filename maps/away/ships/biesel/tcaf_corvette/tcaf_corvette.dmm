@@ -1049,15 +1049,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
 "dB" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
+/obj/machinery/autolathe{
+	hacked = 1
 	},
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/flora/pottedplant/woodyshrubdying,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "dG" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/light/small{
@@ -2009,9 +2008,6 @@
 /area/tcaf_corvette/brig)
 "gM" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/alarm/north{
-	req_one_access = list(204)
-	},
 /obj/structure/undies_wardrobe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
@@ -2462,13 +2458,21 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "iM" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -3325,12 +3329,15 @@
 /area/tcaf_corvette/central_ring)
 "mF" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full,
-/obj/machinery/autolathe{
-	hacked = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "mH" = (
@@ -3456,16 +3463,17 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "mT" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/machinery/mecha_part_fabricator{
+	dir = 8;
+	req_access = list(204)
 	},
-/obj/item/flame/candle,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "mU" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -3653,15 +3661,22 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
 "ns" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform/cutout{
-	dir = 8
+/obj/item/storage/firstaid/surgery{
+	pixel_y = 10
 	},
-/obj/structure/platform{
-	dir = 1
+/obj/item/storage/box/sharps{
+	pixel_y = 2;
+	pixel_x = 6
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/tcaf_corvette/chapel)
+/obj/item/stack/nanopaste{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "nw" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -3908,19 +3923,6 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
-"oh" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/obj/structure/closet/walllocker{
-	pixel_y = -32;
-	name = "candles"
-	},
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/obj/item/storage/box/fancy/candle_box,
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
 "or" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4171,11 +4173,6 @@
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/poster{
-	icon_state = "bsposter33";
-	poster_type = "/datum/poster/bay_33";
-	pixel_y = 32
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
@@ -4194,12 +4191,12 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/hangar)
 "pI" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "pJ" = (
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/carpet/magenta,
@@ -4265,13 +4262,18 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "pV" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform/cutout{
+	dir = 8
 	},
-/obj/machinery/light,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/tcaf_corvette/workshop)
 "qa" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -4659,16 +4661,30 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/captain)
 "rE" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 3;
+	pixel_y = 12
 	},
-/obj/item/storage/box/fancy/matches{
-	pixel_y = 12;
-	pixel_x = 7
+/obj/item/storage/box/masks{
+	pixel_x = -5;
+	pixel_y = 2
 	},
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/obj/item/storage/box/gloves{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/head/welding{
+	pixel_y = 4;
+	pixel_x = 9
+	},
+/obj/item/stack/cable_coil/orange{
+	pixel_x = -5;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "rG" = (
 /obj/machinery/atmospherics/binary/pump{
 	target_pressure = 15000;
@@ -5313,16 +5329,28 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "uw" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light_switch{
-	dir = 10;
-	pixel_y = 28
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/plastic/full{
+	pixel_x = 7;
+	pixel_y = 2
 	},
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/flora/pottedplant/minitree,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/glass/full{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/obj/structure/closet/crate/drop,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "uA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -5740,7 +5768,7 @@
 	name = "port, chapel"
 	},
 /turf/simulated/floor,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "wk" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
@@ -5956,7 +5984,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/grauwolf)
@@ -6367,11 +6394,15 @@
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/hangar)
 "yX" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/ripley/loader/tcaf{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "zb" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
@@ -7149,16 +7180,13 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
 "Cm" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1;
-	name = "adjusted light fixture"
+/obj/effect/decal/fake_object{
+	desc = "Climb it to reach higher places!";
+	name = "ladder"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gridded,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "Cu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7383,6 +7411,9 @@
 "Do" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
+	},
+/obj/machinery/alarm/south{
+	req_one_access = list(204)
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
@@ -7786,47 +7817,14 @@
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/hangar)
 "Fm" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/sign/poster{
+	icon_state = "bsposter33";
+	poster_type = "/datum/poster/bay_33";
+	pixel_y = 32
 	},
-/obj/structure/closet/walllocker{
-	pixel_y = 32;
-	name = "sacred text storage locker";
-	desc = "A wall mounted storage locker. A sticky note is attached to the front politely informing the user that they will be reprimanded harshly for any vandalism of its contents, regardless of the degree of their religious emnity."
-	},
-/obj/item/device/versebook/trinary,
-/obj/item/device/versebook/thakh,
-/obj/item/device/versebook/templeist,
-/obj/item/device/versebook/skakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/tribunal,
-/obj/item/book{
-	name = "\improper Quran";
-	icon_state = "quran";
-	desc_antag = null;
-	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God. The proper text of this copy is written in Quranic Arabic, with a Tau Ceti Basic translation in slightly smaller print to the side."
-	},
-/obj/item/book{
-	name = "\improper Reim-Dich Translation Bible";
-	icon_state = "bible";
-	desc_antag = null;
-	desc = "This is a copy of the Bible, the holy text of Christianity, embossed at the front with a fancy golden image of a crucifix. On closer inspection, this one contains seventy-three books inside it, indicating that it is a Catholic variation of the book. There are several notes dispersed throughout clarifying the original words in Latin Vulgate where they may not translate perfectly to Tau Ceti Basic."
-	},
-/obj/item/book{
-	name = "\improper Nygaard Translation Bible";
-	icon_state = "bible";
-	desc_antag = null;
-	desc = "This is a copy of the Bible, the holy text of Christianity, with plain white-on-black text at the front declaring that it is the 2443 Ecumenical Tau Ceti Basic translation. On closer inspection, this one contains sixty-six books inside it, indicating that it is a Protestant variation of the book, written exclusively in Tau Ceti Basic."
-	},
-/obj/item/book{
-	name = "\improper Tanakh";
-	icon_state = "torah";
-	desc_antag = null;
-	desc = "This is a copy of the Tanakh, the canonical collection of Hebrew scriptures revered in Judaism. It is composed of the Torah, the Nevi'im, and the Ketuvim. The left of each page is written in Hebrew, and the right reads the Tau Ceti Basic translation."
-	},
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "Fn" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /obj/structure/table/steel,
@@ -8105,7 +8103,7 @@
 	id = "tcaf_window_lockdown"
 	},
 /turf/simulated/floor,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "Gt" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -8208,12 +8206,13 @@
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/messhall)
 "GR" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/central_ring)
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/combat/tcaf,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "GT" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5F78A0";
@@ -8478,14 +8477,9 @@
 /obj/item/clothing/mask/trinary_mask,
 /obj/item/clothing/accessory/badge/trinary,
 /obj/item/clothing/head/kippah,
-/obj/item/clothing/accessory/rosary,
-/obj/item/clothing/accessory/temperature/blizzard,
 /obj/item/clothing/accessory/temperature/blizzard,
 /obj/item/clothing/accessory/temperature/cold,
-/obj/item/clothing/accessory/temperature/cold,
 /obj/item/clothing/accessory/temperature/warm,
-/obj/item/clothing/accessory/temperature/warm,
-/obj/item/clothing/accessory/temperature/volcano,
 /obj/item/clothing/accessory/temperature/volcano,
 /obj/item/clothing/accessory/dominia,
 /obj/item/deck/tarot/nonnralakk,
@@ -8507,6 +8501,36 @@
 	color = "#c6aa8e"
 	},
 /obj/item/clothing/accessory/bandanna,
+/obj/item/book{
+	name = "\improper Tanakh";
+	icon_state = "torah";
+	desc_antag = null;
+	desc = "This is a copy of the Tanakh, the canonical collection of Hebrew scriptures revered in Judaism. It is composed of the Torah, the Nevi'im, and the Ketuvim. The left of each page is written in Hebrew, and the right reads the Tau Ceti Basic translation."
+	},
+/obj/item/book{
+	name = "\improper Nygaard Translation Bible";
+	icon_state = "bible";
+	desc_antag = null;
+	desc = "This is a copy of the Bible, the holy text of Christianity, with plain white-on-black text at the front declaring that it is the 2443 Ecumenical Tau Ceti Basic translation. On closer inspection, this one contains sixty-six books inside it, indicating that it is a Protestant variation of the book, written exclusively in Tau Ceti Basic."
+	},
+/obj/item/book{
+	name = "\improper Quran";
+	icon_state = "quran";
+	desc_antag = null;
+	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God. The proper text of this copy is written in Quranic Arabic, with a Tau Ceti Basic translation in slightly smaller print to the side."
+	},
+/obj/item/book{
+	name = "\improper Reim-Dich Translation Bible";
+	icon_state = "bible";
+	desc_antag = null;
+	desc = "This is a copy of the Bible, the holy text of Christianity, embossed at the front with a fancy golden image of a crucifix. On closer inspection, this one contains seventy-three books inside it, indicating that it is a Catholic variation of the book. There are several notes dispersed throughout clarifying the original words in Latin Vulgate where they may not translate perfectly to Tau Ceti Basic."
+	},
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/autakh,
+/obj/item/device/versebook/siakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/trinary,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "HU" = (
@@ -8790,7 +8814,6 @@
 /turf/simulated/floor/airless,
 /area/tcaf_corvette/exterior)
 "Je" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/south,
 /obj/item/tank/jetpack/carbondioxide,
@@ -8799,25 +8822,13 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "Jf" = (
@@ -8933,6 +8944,7 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "Jw" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/platform_deco{
 	icon_state = "ledge_deco"
 	},
@@ -8942,11 +8954,13 @@
 /obj/machinery/power/apc/north{
 	req_access = list(204)
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
+	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "JD" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -8985,6 +8999,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
@@ -9081,7 +9098,6 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/device/robotanalyzer,
-/obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "Kl" = (
@@ -9144,10 +9160,6 @@
 /obj/item/stack/material/glass/reinforced/full,
 /obj/item/stack/rods/full,
 /obj/item/stack/material/steel/full,
-/obj/item/stack/material/lead/full{
-	pixel_y = 3
-	},
-/obj/item/stack/material/plastic/full,
 /obj/item/stack/material/plasteel/full,
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -9522,14 +9534,13 @@
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/francisca)
 "LL" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/ripley/loader/tcaf,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "LN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9758,17 +9769,18 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "MF" = (
-/obj/structure/platform_deco{
-	dir = 8
-	},
-/obj/structure/platform_deco{
-	icon_state = "ledge_deco"
-	},
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/alarm/south{
 	req_one_access = list(204)
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "MG" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/dispenser/oxygen,
@@ -9843,9 +9855,6 @@
 "MZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/francisca)
@@ -9908,18 +9917,18 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "Nx" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "NA" = (
 /obj/effect/floor_decal/corner/brown,
 /obj/effect/decal/cleanable/dirt,
@@ -10435,6 +10444,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/captain)
+"PW" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -10713,7 +10726,7 @@
 /area/tcaf_corvette/central_ring)
 "Ro" = (
 /turf/simulated/wall/shuttle/legion,
-/area/tcaf_corvette/chapel)
+/area/tcaf_corvette/workshop)
 "Rq" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -10903,11 +10916,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "RZ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor,
+/area/tcaf_corvette/workshop)
 "Sd" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/alarm/south{
@@ -12018,11 +12038,6 @@
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/captain_quarters)
 "Wd" = (
-/obj/machinery/door/airlock/glass{
-	door_color = "#304b77";
-	name = "Multi-faith Chapel";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -12035,8 +12050,13 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/chapel)
+/obj/machinery/door/airlock/glass_mining{
+	dir = 8;
+	req_access = list(204);
+	name = "Workshop"
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "We" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk/indoor,
@@ -12086,14 +12106,12 @@
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/francisca)
 "Wq" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/obj/item/flame/candle,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small,
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "Wt" = (
 /obj/effect/floor_decal/corner_wide/blue/full,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -12179,15 +12197,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
 "WK" = (
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 8
-	},
-/obj/item/storage/box/fancy/candle_box{
-	pixel_y = 3
-	},
-/turf/simulated/floor/wood,
-/area/tcaf_corvette/chapel)
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/tcaf_corvette/workshop)
 "WL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12417,11 +12430,21 @@
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/messhall)
 "XD" = (
-/mob/living/heavy_vehicle/premade/combat/tcaf{
-	dir = 1
-	},
-/obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/table/rack,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
@@ -110325,7 +110348,7 @@ xB
 xB
 xB
 JJ
-GR
+uE
 qQ
 fU
 OJ
@@ -112380,10 +112403,10 @@ md
 xB
 xB
 xB
-JD
-GR
+Js
+uE
 Ro
-pI
+GR
 RZ
 pI
 Ro
@@ -112642,7 +112665,7 @@ Cy
 Ro
 Cm
 RZ
-pV
+Cm
 Ro
 Ue
 le
@@ -112897,7 +112920,7 @@ Fy
 TF
 wk
 Ro
-pI
+LL
 RZ
 yX
 Ro
@@ -113411,7 +113434,7 @@ Sd
 ml
 uY
 Ro
-ns
+pV
 WK
 ns
 Ro
@@ -113669,8 +113692,8 @@ ml
 iz
 Ro
 Fm
-LL
-oh
+PW
+PW
 Ro
 OI
 Sh
