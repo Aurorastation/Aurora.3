@@ -20,6 +20,56 @@
 	desc = "A police vehicle with all the bells and whistles you'd expect from a decently-funded agency."
 	icon_state = "copcar"
 
+/obj/structure/automobile/car1
+	name = "blue car"
+	desc = "A boxy blue car. Cars in this style are found everywhere in the spur."
+	icon_state = "car1"
+
+/obj/structure/automobile/car2
+	name = "green car"
+	desc = "A boxy green car. Cars in this style are found everywhere in the spur."
+	icon_state = "car2"
+
+/obj/structure/automobile/car3
+	name = "white compact"
+	desc = "A compact electric car with a light cream paint job."
+	icon_state = "car3"
+
+/obj/structure/automobile/car4
+	name = "teal compact"
+	desc = "A compact electric car with a teal paint job."
+	icon_state = "car4"
+
+/obj/structure/automobile/car5
+	name = "cyan compact"
+	desc = "A compact electric car with a cyan paint job."
+	icon_state = "car5"
+
+/obj/structure/automobile/car6
+	name = "yellow compact"
+	desc = "A compact electric car with a yellow paint job."
+	icon_state = "car6"
+
+/obj/structure/automobile/car7
+	name = "green hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has an olive green paint job."
+	icon_state = "car7"
+
+/obj/structure/automobile/car8
+	name = "red hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a darker red paint job."
+	icon_state = "car8"
+
+/obj/structure/automobile/car9
+	name = "purple hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a midnight purple paint job."
+	icon_state = "car9"
+
+/obj/structure/automobile/car10
+	name = "white hybrid"
+	desc = "A hybrid combustion-electric car. Popular anywhere where electricity is expensive. This one has a light cream paint job."
+	icon_state = "car10"
+
 /obj/structure/automobile_filler
 	name = "vehicle"
 	desc = "A piece of a larger vehicle."
