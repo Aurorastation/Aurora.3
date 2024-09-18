@@ -6,6 +6,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	ambience = AMBIENCE_ENGINEERING
 
 /area/tcaf_corvette/grauwolf
 	name = "Republican Fleet Corvette - Flak Battery"
@@ -20,6 +21,7 @@
 /area/tcaf_corvette/cic
 	name = "Republican Fleet Corvette - CIC"
 	icon_state = "bridge"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/tcaf_corvette/crew
 	name = "Republican Fleet Corvette - Crew Quarters"
@@ -40,7 +42,6 @@
 /area/tcaf_corvette/engineering
 	name = "Republican Fleet Corvette - Engineering"
 	icon_state = "engineering"
-	ambience = AMBIENCE_ENGINEERING
 
 /area/tcaf_corvette/hangar
 	name = "Republican Fleet Corvette - Hangar"

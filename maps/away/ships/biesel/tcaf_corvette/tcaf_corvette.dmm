@@ -3672,7 +3672,6 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -3923,6 +3922,10 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
+"oh" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tcaf_corvette/workshop)
 "or" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4330,10 +4333,11 @@
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/tcaf,
-/obj/item/gun/projectile/automatic/rifle/z8,
-/obj/item/ammo_magazine/a556,
-/obj/item/ammo_magazine/a556/ap,
 /obj/item/gun/energy/blaster/rifle,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine/ap,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
@@ -4666,22 +4670,14 @@
 	pixel_x = 3;
 	pixel_y = 12
 	},
-/obj/item/storage/box/masks{
-	pixel_x = -5;
-	pixel_y = 2
-	},
 /obj/item/storage/box/gloves{
-	pixel_x = -5;
+	pixel_x = 7;
 	pixel_y = 2
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/welding{
-	pixel_y = 4;
-	pixel_x = 9
-	},
-/obj/item/stack/cable_coil/orange{
+/obj/item/storage/box/masks{
 	pixel_x = -5;
-	pixel_y = 10
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/workshop)
@@ -5349,6 +5345,10 @@
 	},
 /obj/structure/closet/crate/drop,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil/orange,
+/obj/item/stack/cable_coil/orange,
+/obj/item/clothing/head/welding,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/workshop)
 "uA" = (
@@ -5877,6 +5877,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/storage)
 "wN" = (
@@ -6823,10 +6824,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/central_ring)
-"AA" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/tcaf_corvette/engine)
 "AF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5F78A0";
@@ -9097,7 +9094,6 @@
 /obj/item/auto_cpr,
 /obj/item/roller,
 /obj/item/roller,
-/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "Kl" = (
@@ -10444,10 +10440,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/captain)
-"PW" = (
-/obj/effect/floor_decal/corner/brown/diagonal,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tcaf_corvette/workshop)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -10706,7 +10698,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/portgen/basic,
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -11048,12 +11042,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/francisca)
-"Sv" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/tcaf_corvette/storage)
 "Sw" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11943,6 +11931,7 @@
 "Vw" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "VD" = (
@@ -12198,7 +12187,6 @@
 /area/tcaf_corvette/hangar)
 "WK" = (
 /obj/machinery/optable,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/workshop)
 "WL" = (
@@ -109815,7 +109803,7 @@ jJ
 Bn
 Et
 Fb
-Sv
+NO
 uZ
 Wa
 BX
@@ -112116,7 +112104,7 @@ BT
 bE
 Uf
 Zk
-AA
+RS
 Vw
 xX
 dt
@@ -113692,8 +113680,8 @@ ml
 iz
 Ro
 Fm
-PW
-PW
+oh
+oh
 Ro
 OI
 Sh
