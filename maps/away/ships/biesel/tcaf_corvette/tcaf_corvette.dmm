@@ -5765,7 +5765,7 @@
 	id = "tcaf_window_lockdown"
 	},
 /obj/effect/landmark/entry_point/port{
-	name = "port, chapel"
+	name = "port, workshop"
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/workshop)
