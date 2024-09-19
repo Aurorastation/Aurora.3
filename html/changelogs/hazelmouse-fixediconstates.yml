@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Resolves a problem in which several weapons and goggle variants had no icon state in map editing software."
-  - bugfix: "The slot sprite for wasteland goggles no longer disappears when toggled off your eyes."
+  - qol: "Several weapons and goggle variants now appear with proper icons in map editing software."
+  - bugfix: "The sprite for the wasteland goggles no longer disappears when toggled off your eyes."
