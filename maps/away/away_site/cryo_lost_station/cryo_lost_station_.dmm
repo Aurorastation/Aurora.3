@@ -305,6 +305,10 @@
 "alg" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/machinery/disposal/small/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "alk" = (
@@ -1192,6 +1196,9 @@
 	icon_state = "warning"
 	},
 /obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -3759,6 +3766,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"cIi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/turf/simulated/wall/r_wall,
+/area/space)
 "cJi" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -4312,21 +4325,13 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/obj/structure/table/reinforced/glass,
-/obj/machinery/button/remote/blast_door{
-	dir = 10;
-	id = "lost_telesci_lockdown";
-	name = "Telescience Lockdown";
-	pixel_x = -7;
-	pixel_y = 5
-	},
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "dcT" = (
@@ -5896,8 +5901,8 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/obj/machinery/computer/telescience/terminal{
-	dir = 8
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
@@ -6309,6 +6314,18 @@
 	reversed = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"eqf" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "eql" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -6744,10 +6761,8 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/redgrid,
 /area/space)
 "eEz" = (
 /obj/effect/floor_decal/corner/brown{
@@ -6833,6 +6848,15 @@
 	dir = 4;
 	pixel_x = -1;
 	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"eJA" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -8298,11 +8322,8 @@
 /area/space)
 "fJF" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -8648,10 +8669,8 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/glass_research{
 	dir = 1;
-	name = "Telescience"
+	name = "Xenoarchaeology Testing"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "fXw" = (
@@ -8738,11 +8757,17 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/office/light{
-	dir = 4
+/obj/structure/table/reinforced/glass,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	id = "lost_testchamber_lockdown";
+	name = "Testing Chamber Lockdown";
+	pixel_x = -7;
+	pixel_y = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -10749,6 +10774,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"hxv" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
+	},
+/obj/machinery/door/blast/regular/open{
+	fail_secure = 1;
+	id = "lost_testchamber_lockdown";
+	name = "Hazardous Containment Lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "hxW" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -11351,8 +11389,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/unary/heater,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "hUH" = (
@@ -12088,6 +12126,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -13498,6 +13539,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"jeq" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/space)
 "jeG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -13694,6 +13741,19 @@
 	name = "Phoron Pump"
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"jkW" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	fail_secure = 1;
+	id = "lost_testchamber_lockdown";
+	name = "Hazardous Containment Lockdown"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "jlg" = (
 /obj/item/trash/sosjerky,
@@ -14480,20 +14540,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "jOL" = (
-/obj/structure/railing/mapped{
-	dir = 1;
-	pixel_y = 8
-	},
 /obj/structure/platform/ledge{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/platform/ledge{
 	dir = 1
 	},
 /obj/structure/platform_deco{
 	dir = 10
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Testing Chamber to Mix"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -15800,19 +15857,16 @@
 	},
 /obj/machinery/door/airlock/glass_research{
 	dir = 4;
-	name = "Telescience"
+	name = "Testing Chamber"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	fail_secure = 1;
-	id = "lost_telesci_lockdown";
+	id = "lost_testchamber_lockdown";
 	name = "Hazardous Containment Lockdown"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -16239,10 +16293,11 @@
 /obj/structure/table/reinforced/glass,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "kZN" = (
@@ -18906,6 +18961,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "mYE" = (
@@ -19229,6 +19290,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"nla" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Mix to Scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "nms" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -22240,9 +22311,10 @@
 /area/space)
 "ppH" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /obj/machinery/door/blast/regular/open{
 	fail_secure = 1;
-	id = "lost_telesci_lockdown";
+	id = "lost_testchamber_lockdown";
 	name = "Hazardous Containment Lockdown";
 	dir = 4
 	},
@@ -22358,6 +22430,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"ptn" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/redgrid,
 /area/space)
 "pty" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22883,10 +22959,14 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "pJn" = (
-/obj/machinery/telepad,
-/obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -25198,8 +25278,11 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	fail_secure = 1;
-	id = "lost_telesci_lockdown";
+	id = "lost_testchamber_lockdown";
 	name = "Hazardous Containment Lockdown"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -26923,6 +27006,16 @@
 /area/space)
 "sIE" = (
 /turf/space/dynamic,
+/area/space)
+"sIJ" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	fail_secure = 1;
+	id = "lost_testchamber_lockdown";
+	name = "Hazardous Containment Lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "sJl" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -29696,8 +29789,12 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "uuB" = (
@@ -30044,8 +30141,7 @@
 /obj/structure/platform/ledge{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/obj/machinery/suit_cycler/science/prepared,
+/obj/machinery/atmospherics/unary/freezer,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -32295,6 +32391,9 @@
 /obj/structure/platform/ledge{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "wjL" = (
@@ -32670,30 +32769,10 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/obj/structure/table/rack,
-/obj/item/device/multitool{
-	pixel_x = -8;
-	pixel_y = 10
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Air Supply to Mix"
 	},
-/obj/item/screwdriver,
-/obj/item/device/gps/science{
-	pixel_x = 4;
-	pixel_y = 11
-	},
-/obj/item/device/gps/science{
-	pixel_x = 4;
-	pixel_y = 7
-	},
-/obj/item/device/gps/science{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/item/device/gps/science{
-	pixel_y = -1;
-	pixel_x = 4
-	},
-/obj/item/tank/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "wuK" = (
@@ -33384,12 +33463,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "wVp" = (
@@ -34437,10 +34512,10 @@
 /obj/structure/platform/ledge{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "Mix to Testing Chamber"
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "xBQ" = (
@@ -137499,8 +137574,8 @@ nBd
 kYV
 dcu
 alg
-uYY
-slp
+jeq
+eqf
 isb
 cJx
 nBd
@@ -137755,7 +137830,7 @@ cJx
 nBd
 gbF
 fJF
-rYG
+eJA
 fWQ
 utO
 fUf
@@ -137766,8 +137841,8 @@ uYY
 uYY
 nBd
 nBd
-jLj
-jLj
+xvi
+nBd
 jLj
 jLj
 jLj
@@ -138011,7 +138086,7 @@ tWY
 rJC
 nBd
 ear
-jIQ
+nla
 wuz
 uYY
 slp
@@ -138023,8 +138098,8 @@ egZ
 idt
 ioG
 xvi
-jLj
-jLj
+rfl
+xvi
 jLj
 jLj
 jLj
@@ -138267,10 +138342,10 @@ cuC
 cuC
 cuC
 nBd
-rsY
+jkW
 kKX
 rsY
-nBd
+cIi
 sLW
 pBw
 kbu
@@ -138279,9 +138354,9 @@ vAk
 kbu
 kkd
 byK
-xvi
-jLj
-jLj
+dQz
+rfl
+dQz
 jLj
 jLj
 jLj
@@ -138537,8 +138612,8 @@ kJt
 wfG
 xPw
 xvi
-jLj
-jLj
+rfl
+xvi
 jLj
 jLj
 jLj
@@ -138784,7 +138859,7 @@ nBd
 hUz
 wVm
 xBg
-ppH
+hxv
 slp
 iSY
 cJx
@@ -138795,7 +138870,7 @@ tip
 cJC
 nBd
 nBd
-jLj
+nBd
 jLj
 jLj
 jLj
@@ -139041,7 +139116,7 @@ nBd
 eEh
 mXY
 aJE
-ppH
+sIJ
 slp
 iSY
 cJx
@@ -139295,10 +139370,10 @@ onw
 cuC
 jtd
 nBd
-iBA
+ptn
 pJn
 wjE
-ppH
+sIJ
 bFe
 uQB
 hLj
