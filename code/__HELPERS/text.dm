@@ -773,6 +773,14 @@
 	if(rest)
 		. += .(rest)
 
+/proc/deep_string_equals(A, B)
+	if (length(A) != length(B))
+		return FALSE
+	for (var/i = 1 to length(A))
+		if (text2ascii(A, i) != text2ascii(B, i))
+			return FALSE
+	return TRUE
+
 /proc/replacemany(text, list/replacements)
 	if (!LAZYLEN(replacements))
 		return text

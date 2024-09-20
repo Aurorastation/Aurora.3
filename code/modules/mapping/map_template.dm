@@ -42,7 +42,7 @@
 /datum/map_template/proc/preload_size(path)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE)
+	var/datum/map_load_metadata/M = maploader.load_map_impl(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE, no_changeturf=TRUE)
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 	else

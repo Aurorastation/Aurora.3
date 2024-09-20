@@ -8,7 +8,6 @@ SUBSYSTEM_DEF(mapping)
 	var/list/exoplanet_ruins_templates = list()
 	var/list/away_sites_templates = list()
 	var/list/submaps = list()
-	var/list/submap_archetypes = list()
 
 	var/list/used_turfs = list() //list of turf = datum/turf_reservation -- Currently unused
 
@@ -32,8 +31,6 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	// Load templates and build away sites.
 	preloadTemplates()
-	for(var/atype in subtypesof(/singleton/submap_archetype))
-		submap_archetypes[atype] = new atype
 
 	SSatlas.current_map.build_away_sites()
 	SSatlas.current_map.build_exoplanets()
@@ -48,6 +45,8 @@ SUBSYSTEM_DEF(mapping)
 	away_sites_templates = SSmapping.away_sites_templates
 
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
+	set waitfor = FALSE
+
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
 		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
@@ -55,6 +54,8 @@ SUBSYSTEM_DEF(mapping)
 	preloadBlacklistableTemplates()
 
 /datum/controller/subsystem/mapping/proc/preloadBlacklistableTemplates()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	// Still supporting bans by filename
 	var/list/banned_exoplanet_dmms = generateMapList("config/exoplanet_ruin_blacklist.txt")
 	var/list/banned_space_dmms = generateMapList("config/space_ruin_blacklist.txt")

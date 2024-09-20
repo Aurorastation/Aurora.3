@@ -31,32 +31,6 @@
 #define N_SOUTHEAST	64
 #define N_SOUTHWEST	1024
 
-/* smoothing_flags */
-
-///Do not smooth
-#define SMOOTH_FALSE			BITFLAG(0)
-
-///Smooths with exact specified types or just itself
-#define SMOOTH_TRUE				BITFLAG(1)
-
-///Smooths with all subtypes of specified types or just itself (this value can replace SMOOTH_TRUE)
-#define SMOOTH_MORE				BITFLAG(2)
-
-///If atom should smooth diagonally, this should be present in 'smooth' var
-#define SMOOTH_DIAGONAL			BITFLAG(3)
-
-///Atom will smooth with the borders of the map
-#define SMOOTH_BORDER			BITFLAG(4)
-
-///Atom is currently queued to smooth.
-#define SMOOTH_QUEUED			BITFLAG(5)
-
-///Don't clear the atom's icon_state on smooth.
-#define SMOOTH_NO_CLEAR_ICON	BITFLAG(6)
-
-///Add underlays, detached from diagonal smoothing.
-#define SMOOTH_UNDERLAYS		BITFLAG(7)
-
 /* smoothing_hints */
 
 ///Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
@@ -174,23 +148,23 @@
 	return ..()
 
 ///Do not use, use SSicon_smooth.add_to_queue(atom)
-/proc/smooth_icon(atom/A)
+/atom/proc/smooth_icon()
 	SHOULD_NOT_SLEEP(TRUE)
-	if(!A || !A.smoothing_flags)
+	if(QDELETED(src))
 		return
-	A.smoothing_flags &= ~SMOOTH_QUEUED
-	if (!A.z)
+	if(!smoothing_flags)
 		return
-	if(QDELETED(A))
+	if (!z)
 		return
-	A.atom_flags |= ATOM_FLAG_HTML_USE_INITIAL_ICON
-	if((A.smoothing_flags & SMOOTH_TRUE) || (A.smoothing_flags & SMOOTH_MORE))
-		var/adjacencies = A.calculate_adjacencies()
+	smoothing_flags &= ~SMOOTH_QUEUED
+	atom_flags |= ATOM_FLAG_HTML_USE_INITIAL_ICON
+	if((smoothing_flags & (SMOOTH_TRUE|SMOOTH_MORE)))
+		var/adjacencies = calculate_adjacencies()
 
-		if(A.smoothing_flags & SMOOTH_DIAGONAL)
-			A.diagonal_smooth(adjacencies)
+		if(smoothing_flags & SMOOTH_DIAGONAL)
+			diagonal_smooth(adjacencies)
 		else
-			A.cardinal_smooth(adjacencies)
+			cardinal_smooth(adjacencies)
 
 /atom/proc/diagonal_smooth(adjacencies)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -528,22 +502,18 @@
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	for(var/V in Z_TURFS(zlevel))
-		var/turf/T = V
-
+	for(var/turf/T as anything in Z_TURFS(zlevel))
 		//There's no use in smoothing turfs that have been deleted
 		if(QDELETED(T))
 			continue
 
 		if(T.smoothing_flags)
 			if(now)
-				smooth_icon(T)
+				T.smooth_icon()
 			else
 				SSicon_smooth.add_to_queue(T)
 
-		for(var/R in T)
-			var/atom/A = R
-
+		for(var/atom/A as anything in T)
 			//There's no use in smoothing deleted things
 			if(QDELETED(A))
 				continue
@@ -551,7 +521,7 @@
 			if(A.smoothing_flags)
 
 				if(now)
-					smooth_icon(A)
+					A.smooth_icon()
 				else
 					SSicon_smooth.add_to_queue(A)
 

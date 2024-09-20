@@ -19,9 +19,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/static/regex/trimRegex = new/regex("^\[\\s\n]+|\[\\s\n]+$", "g")
 	var/static/list/modelCache = list()
 	var/static/space_key
-	#ifdef TESTING
-	var/static/turfsSkipped
-	#endif
 
 /**
  * Construct the model map and control the loading process
@@ -33,33 +30,41 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */
+// dmm_files: A list of .dmm files to load (Required).
+// z_offset: A number representing the z-level on which to start loading the map (Optional).
+// cropMap: When true, the map will be cropped to fit the existing world dimensions (Optional).
+// measureOnly: When true, no changes will be made to the world (Optional).
+// no_changeturf: When true, turf/AfterChange won't be called on loaded turfs
 /dmm_suite/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, lower_crop_x as num,  lower_crop_y as num, upper_crop_x as num, upper_crop_y as num)
 	//How I wish for RAII
 	Master.StartLoadingMap()
 	space_key = null
-	#ifdef TESTING
-	turfsSkipped = 0
-	#endif
 	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
-	#ifdef TESTING
-	if(turfsSkipped)
-		testing("Skipped loading [turfsSkipped] default turfs")
-	#endif
 	Master.StopLoadingMap()
 
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
 	var/tfile = dmm_file//the map file we're creating
+
+	/*#### WARNING AURORA SNOWFLAKE SECTION ####*/
+
 	if(isfile(tfile))
 		// name/path of dmm file, new var so as to not rename the `tfile` var
 		// to maybe maintain compatibility with other codebases
 		var/tfilepath = "[tfile]"
+		tfile = null
 		// use bapi to read, parse, process, mapmanip etc
 		// this will "crash"/stacktrace on fail
-		tfile = bapi_read_dmm_file(tfilepath)
-		// if bapi for whatever reason fails and returns null
+		// Except when measuring; i don't give a shit about bapi when measuring the map size,
+		// if you're changing the map size from bapi you're stupid and deserve it not to work,
+		// and i'm not slowing down the whole initialization by a third just for this possibility
+		if(!measureOnly)
+			tfile = bapi_read_dmm_file(tfilepath)
+		// if bapi for whatever reason fails and returns null, or we're measuring
 		// try to load it the old dm way instead
 		if(!tfile)
 			tfile = file2text(tfilepath)
+
+	/*#### END AURORA SNOWFLAKE SECTION ####*/
 
 	if(!x_offset)
 		x_offset = 1
@@ -73,32 +78,36 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/key_len = 0
 
 	var/stored_index = 1
+
 	var/list/atoms_to_initialise = list()
 	var/has_expanded_world_maxx = FALSE
 	var/has_expanded_world_maxy = FALSE
 
-	while(dmmRegex.Find(tfile, stored_index))
+	var/list/regexOutput
+	while(findtext_char(tfile, dmmRegex, stored_index))
 		stored_index = dmmRegex.next
+		// Datum var lookup is expensive, this isn't
+		regexOutput = dmmRegex.group
 
 		// "aa" = (/type{vars=blah})
-		if(dmmRegex.group[1]) // Model
-			var/key = dmmRegex.group[1]
+		if(regexOutput[1]) // Model
+			var/key = regexOutput[1]
 			if(grid_models[key]) // Duplicate model keys are ignored in DMMs
 				continue
 			if(key_len != length(key))
 				if(!key_len)
 					key_len = length(key)
 				else
-					throw EXCEPTION("Inconsistant key length in DMM")
+					CRASH("Inconsistent key length in DMM")
 			if(!measureOnly)
-				grid_models[key] = dmmRegex.group[2]
+				grid_models[key] = regexOutput[2]
 
 		// (1,1,1) = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
-		else if(dmmRegex.group[3]) // Coords
+		else if(regexOutput[3]) // Coords
 			if(!key_len)
-				throw EXCEPTION("Coords before model definition in DMM")
+				CRASH("Coords before model definition in DMM")
 
-			var/curr_x = text2num(dmmRegex.group[3])
+			var/curr_x = text2num(regexOutput[3])
 
 			if(curr_x < x_lower || curr_x > x_upper)
 				continue
@@ -106,11 +115,11 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			var/xcrdStart = curr_x + x_offset - 1
 			//position of the currently processed square
 			var/xcrd
-			var/ycrd = text2num(dmmRegex.group[4]) + y_offset - 1
-			var/zcrd = text2num(dmmRegex.group[5]) + z_offset - 1
+			var/ycrd = text2num(regexOutput[4]) + y_offset - 1
+			var/zcrd = text2num(regexOutput[5]) + z_offset - 1
 
 			var/zexpansion = zcrd > world.maxz
-			if(zexpansion  && !measureOnly) // don't actually expand the world if we're only measuring bounds
+			if(zexpansion && !measureOnly) // don't actually expand the world if we're only measuring bounds
 				if(cropMap)
 					continue
 				else
@@ -119,33 +128,33 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 				if(!no_changeturf)
 					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
-			bounds[MAP_MINX] = min(bounds[MAP_MINX], Clamp(xcrdStart, x_lower, x_upper))
+			bounds[MAP_MINX] = min(bounds[MAP_MINX], clamp(xcrdStart, x_lower, x_upper))
 			bounds[MAP_MINZ] = min(bounds[MAP_MINZ], zcrd)
 			bounds[MAP_MAXZ] = max(bounds[MAP_MAXZ], zcrd)
 
-			var/list/gridLines = splittext(dmmRegex.group[6], "\n")
+			var/list/gridLines = splittext(regexOutput[6], "\n")
 
 			var/leadingBlanks = 0
-			while(leadingBlanks < gridLines.len && gridLines[++leadingBlanks] == "")
+			while(leadingBlanks < length(gridLines) && gridLines[++leadingBlanks] == "")
 			if(leadingBlanks > 1)
 				gridLines.Cut(1, leadingBlanks) // Remove all leading blank lines.
 
-			if(!gridLines.len) // Skip it if only blank lines exist.
+			if(!length(gridLines)) // Skip it if only blank lines exist.
 				continue
 
-			if(gridLines.len && gridLines[gridLines.len] == "")
-				gridLines.Cut(gridLines.len) // Remove only one blank line at the end.
+			if(gridLines[length(gridLines)] == "")
+				gridLines.Cut(length(gridLines)) // Remove only one blank line at the end.
 
-			bounds[MAP_MINY] = min(bounds[MAP_MINY], Clamp(ycrd, y_lower, y_upper))
-			ycrd += gridLines.len - 1 // Start at the top and work down
+			bounds[MAP_MINY] = min(bounds[MAP_MINY], clamp(ycrd, y_lower, y_upper))
+			ycrd += length(gridLines) - 1 // Start at the top and work down
 
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
 					has_expanded_world_maxy = TRUE
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(ycrd, y_lower, y_upper))
 			else
-				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
+				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(min(ycrd, world.maxy), y_lower, y_upper))
 
 			var/maxx = xcrdStart
 			if(measureOnly)
@@ -178,16 +187,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
 									if (M)
 										atoms_to_initialise += M.atoms_to_initialise
-								#ifdef TESTING
-								else
-									++turfsSkipped
-								#endif
-								CHECK_TICK
+
+								// CHECK_TICK
 							maxx = max(maxx, xcrd)
 							++xcrd
 					--ycrd
 
-			bounds[MAP_MAXX] = Clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
+			bounds[MAP_MAXX] = clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
 
 		CHECK_TICK
 
@@ -208,11 +214,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		M.atoms_to_initialise = atoms_to_initialise
 		return M
 
-/datum/grid_load_metadata
-	var/list/atoms_to_initialise
-	var/list/atoms_to_delete
-
-
 /**
  * Fill a given tile with its area/turf/objects/mobs
  * Variable model is one full map line (e.g /turf/unsimulated/wall{icon_state = "rock"}, /area/mine/explored)
@@ -230,6 +231,10 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
  * 4) Instanciates the atom with its variables
  *
  */
+
+/datum/grid_load_metadata
+	var/list/atoms_to_initialise
+	var/list/atoms_to_delete
 /dmm_suite/proc/parse_grid(model as text, model_key as text, xcrd as num,ycrd as num,zcrd as num, no_changeturf as num)
 	/*Method parse_grid()
 	- Accepts a text string containing a comma separated list of type paths of the
@@ -263,13 +268,17 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			var/full_def = trim_text(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
 			var/variables_start = findtext(full_def, "{")
 
-			var/path_str = trim_text(copytext(full_def, 1, variables_start))
-			var/atom_def = text2path(path_str) //path definition, e.g /obj/foo/bar
+			var/atom_def = text2path(trim_text(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
-				crash_with("Invalid type in map. [path_str]")
-				continue
+	#ifdef UNIT_TEST
+				log_error("Couldn't find atom path specified in map: [full_def]")
+	#endif
+				if (dpos == 0)
+					break
+				else
+					continue
 
 			members += atom_def
 
@@ -279,8 +288,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			if(variables_start)//if there's any variable
 				full_def = copytext(full_def,variables_start+1,length(full_def))//removing the last '}'
 				fields = readlist(full_def, ";")
-				if(fields.len)
-					if(!trim(fields[fields.len]))
+				if(length(fields))
+					if(!trimtext(fields[length(fields)]))
 						--fields.len
 					for(var/I in fields)
 						var/value = fields[I]
@@ -303,7 +312,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		// 5. and the members are world.turf and world.area
 		// Basically, if we find an entry like this: "XXX" = (/turf/default, /area/default)
 		// We can skip calling this proc every time we see XXX
-		if(no_changeturf && !space_key && members.len == 2 && members_attributes.len == 2 && length(members_attributes[1]) == 0 && length(members_attributes[2]) == 0 && (world.area in members) && (world.turf in members))
+		if(no_changeturf && !space_key && length(members) == 2 && length(members_attributes) == 2 && length(members_attributes[1]) == 0 && length(members_attributes[2]) == 0 && (world.area in members) && (world.turf in members))
 			space_key = model_key
 			return
 
@@ -322,7 +331,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
 
 	//first instance the /area and remove it from the members list
-	index = members.len
+	index = length(members)
 	if(members[index] != /area/template_noop)
 		var/atype = members[index]
 		var/atom/instance = GLOB.areas_by_type[atype]
@@ -353,7 +362,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	if(T)
 		//if others /turf are presents, simulates the underlays piling effect
 		index = first_turf_index + 1
-		while(index <= members.len - 1) // Last item is an /area
+		while(index <= length(members) - 1) // Last item is an /area
 			var/underlay = T.appearance
 			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
 			T.underlays += underlay
@@ -400,12 +409,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
-/dmm_suite/proc/trim_text(what as text,trim_quotes=0)
-	if(trim_quotes)
-		return trimQuotesRegex.Replace(what, "")
-	else
-		return trimRegex.Replace(what, "")
-
+/dmm_suite/proc/trim_text(text, trim_quotes)
+	return replacetext_char(text, trim_quotes ? trimQuotesRegex : trimRegex, "")
 
 //find the position of the next delimiter,skipping whatever is comprised between opening_escape and closing_escape
 //returns 0 if reached the last delimiter
@@ -429,7 +434,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	//Check for number
 	// Keys cannot safely be numbers. This implementation will return null if
 	// an assoc key is a number.
-	else if(!is_key && isnum(text2num(text)))
+	else if(!is_key && isnum(text2num(text)) && text == "[text2num(text)]") //text2num will parse truthy false positives; this demands that the only numbers parsed as such are properly formatted ones.
 		. = text2num(text)
 
 	//Check for null
@@ -437,7 +442,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		. = null
 
 	//Check for list
-	else if(copytext(text,1,6) == "list(")
+	else if(copytext(text,1,5) == "list")
 		. = readlist(copytext(text,6,length(text)))
 
 	//Check for file
@@ -448,12 +453,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	else if(ispath(text2path(text)))
 		. = text2path(text)
 
-	// Associative keys are fed in without quotation marks.
-	// So if none of the other cases apply, return simply the string that was given.
-	// This case is also triggered for item values. So I guess we're also looking for text.
-	else if(is_key || istext(text))
-		. = text
-
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
 /dmm_suite/proc/readlist(text as text, delimiter=",")
@@ -461,7 +460,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 	var/position
 	var/old_position = 1
-	var/list_index = 1
 
 	do
 		//find next delimiter that is not within  "..."
@@ -470,17 +468,29 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		//check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
 
-		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)),1)//the name of the variable, must trim quotes to build a BYOND compliant associatives list
+		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)), 0)
 		old_position = position + 1
 
-		if(equal_position) //associative var, so do the association
+		if(!length(trim_left))
+			if(position == 0)
+				break // That terminal commas are ignored is real dm behavior.
+			LIST_INC(to_return)
+			continue
+
+		var/left = readlistitem(trim_left)
+		if(equal_position)
+			if(!left && trim_left != "null")
+				left = trim_left // This is dm behavior: unindentifiable keys in associative lists are parsed as literal strings.
+			if(left == 1.#INF || left == -1.#INF)
+				left = trim_left // This is not valid as a list index; we could let it runtime, but if associative it should be parsed as "inf" or "-inf" instead.
+		to_return += left
+
+		if(equal_position)//associative var, so do the association
+			if(isnum(left))
+				crash_with("Numerical key in associative list.")
+				break // This is invalid; apparently dm will runtime in this situation.
 			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
-			trim_left = readlistitem(trim_left, TRUE) // Assoc vars can be anything that isn't a num!
-			to_return[trim_left] = readlistitem(trim_right)
-			list_index++
-		else if (length(trim_left))	//simple var
-			to_return.len++
-			to_return[list_index++] = readlistitem(trim_left)
+			to_return[left] = readlistitem(trim_right)
 
 	while(position != 0)
 
@@ -511,7 +521,18 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 		var/value = attributes[attribute]
 		if(islist(value))
 			value = deepCopyList(value)
-		what.vars[attribute] = value
+		try
+			what.vars[attribute] = value
+		catch (var/ex)
+			var/found = FALSE
+			for (var/V in what.vars)
+				if (deep_string_equals(V, attribute))
+					what.vars[V] = value
+					log_debug("Successfully performed manual var detection for var [V] \ref[V] on provided attribute [attribute] \ref[attribute] for atom [what]")
+					found = TRUE
+					break
+			if (!found)
+				throw ex
 	GLOB.use_preloader = FALSE
 
 /area/template_noop
