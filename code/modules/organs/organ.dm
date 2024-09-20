@@ -419,7 +419,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!(status & ORGAN_ASSISTED))
 		return //We check earlier, but just to make sure.
 
-	surge_damage = Clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
+	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 	surge_time = world.time
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)

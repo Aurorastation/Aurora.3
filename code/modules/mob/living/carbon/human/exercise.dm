@@ -94,7 +94,7 @@ Exercise Verbs
 		stamina_loss += 2
 	if(get_shock() > 10)
 		stamina_loss += 3
-	var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
+	var/nut_factor = max_nutrition ? clamp(nutrition / max_nutrition, 0, 1) : 1
 	if(nut_factor <= CREW_NUTRITION_HUNGRY)
 		stamina_loss += 2
 	if(on_knees)

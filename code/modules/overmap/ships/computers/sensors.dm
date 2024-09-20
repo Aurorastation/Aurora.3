@@ -110,18 +110,22 @@
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
 
-	data["grid_x"] = linked.x
-	data["grid_y"] = linked.y
-	data["direction"] = dir2angle(linked.dir)
-	var/linked_x = linked.x
-	var/linked_y = linked.y
-	var/obj/effect/overmap/visitable/ship/linked_ship = linked
-	if(istype(linked_ship))
-		linked_x += linked_ship.position[1] / 2.0
-		linked_y += linked_ship.position[2] / 2.0
-		data["is_ship"] = TRUE
-	data["x"] = linked_x
-	data["y"] = linked_y
+
+	var/linked_x
+	var/linked_y
+	if(linked)
+		data["grid_x"] = linked.x
+		data["grid_y"] = linked.y
+		data["direction"] = dir2angle(linked.dir)
+		linked_x = linked.x
+		linked_y = linked.y
+		var/obj/effect/overmap/visitable/ship/linked_ship = linked
+		if(istype(linked_ship))
+			linked_x += linked_ship.position[1] / 2.0
+			linked_y += linked_ship.position[2] / 2.0
+			data["is_ship"] = TRUE
+		data["x"] = linked_x
+		data["y"] = linked_y
 
 	if(sensors)
 		data["on"] = sensors.use_power
@@ -268,14 +272,14 @@
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if (action == "toggle")
 			sensors.toggle()

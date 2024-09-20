@@ -260,7 +260,7 @@ var/bomb_set
 			if (href_list["time"])
 				var/time = text2num(href_list["time"])
 				timeleft += time
-				timeleft = Clamp(timeleft, 120, 600)
+				timeleft = clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
 					SSnanoui.update_uis(src)
@@ -323,7 +323,7 @@ var/bomb_set
 
 	bomb_set--
 	timing = 0
-	timeleft = Clamp(timeleft, 120, 600)
+	timeleft = clamp(timeleft, 120, 600)
 	update_icon()
 
 /obj/machinery/nuclearbomb/ex_act(severity)

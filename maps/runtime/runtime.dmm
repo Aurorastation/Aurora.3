@@ -1607,6 +1607,36 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"gL" = (
+/obj/structure/closet/crate,
+/obj/item/ore/aluminium,
+/obj/item/ore/aluminium,
+/obj/item/ore/coal,
+/obj/item/ore/coal,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/glass,
+/obj/item/ore/glass,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/hydrogen,
+/obj/item/ore/hydrogen,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
+/obj/item/ore/lead,
+/obj/item/ore/lead,
+/obj/item/ore/osmium,
+/obj/item/ore/osmium,
+/obj/item/ore/phoron,
+/obj/item/ore/phoron,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/slag,
+/obj/item/ore/slag,
+/obj/item/ore/uranium,
+/obj/item/ore/uranium,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "gU" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -1885,6 +1915,14 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"lE" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "lF" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
@@ -2093,6 +2131,7 @@
 /area/construction)
 "pe" = (
 /obj/machinery/chem_master,
+/obj/item/reagent_containers/glass/beaker/bluespace,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "pv" = (
@@ -2183,6 +2222,13 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qF" = (
+/obj/machinery/mineral/stacking_unit_console{
+	id = "stacking_1";
+	pixel_y = -21
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "qY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -2386,6 +2432,12 @@
 "uh" = (
 /turf/simulated/floor/airless,
 /area/template_noop)
+"ul" = (
+/obj/machinery/mineral/unloading_machine{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "uw" = (
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -2502,8 +2554,8 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "xz" = (
-/obj/item/stack/packageWrap,
 /obj/item/device/destTagger,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "xE" = (
@@ -2524,6 +2576,13 @@
 /obj/effect/landmark/latejoin,
 /turf/simulated/floor/plating,
 /area/construction)
+"xS" = (
+/obj/machinery/mineral/processing_unit{
+	id = "processing_1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "xV" = (
 /obj/effect/landmark/start{
 	name = "Cyborg"
@@ -2809,6 +2868,15 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
+"Eh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Es" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2991,6 +3059,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/construction)
+"Hj" = (
+/obj/machinery/mineral/stacking_machine{
+	id = "stacking_1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3063,6 +3138,12 @@
 /obj/item/paper/fluff/runtime/dontforgetuseovermap,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Jc" = (
+/obj/structure/reagent_dispensers/acid{
+	pixel_x = 28
+	},
+/turf/template_noop,
+/area/template_noop)
 "Jd" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -3136,6 +3217,13 @@
 	temperature = 278
 	},
 /area/tcommsat/chamber)
+"Ka" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "mining_1"
+	},
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Kj" = (
 /obj/structure/table/standard,
 /obj/item/gun/projectile/automatic/rifle/sol,
@@ -3200,6 +3288,13 @@
 /area/construction)
 "KY" = (
 /obj/machinery/r_n_d/circuit_imprinter,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
+"Ln" = (
+/obj/machinery/conveyor_switch/oneway{
+	pixel_y = 7;
+	id = "mining_1"
+	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "Ly" = (
@@ -3297,10 +3392,18 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"NO" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/storage/box/monkeycubes,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Oe" = (
 /obj/effect/landmark/start{
 	name = "Corporate Liaison"
 	},
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/plating,
 /area/construction)
 "Og" = (
@@ -3354,6 +3457,10 @@
 "Qe" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"Qh" = (
+/obj/structure/sink,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Qi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3519,6 +3626,7 @@
 /area/turret_protected/ai_upload_foyer)
 "TB" = (
 /mob/living/heavy_vehicle/premade/random,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "TD" = (
@@ -3644,6 +3752,9 @@
 /obj/item/stack/material/silver/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/titanium/full,
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "WH" = (
@@ -71862,7 +71973,7 @@ aa
 aa
 aa
 aa
-aa
+Jc
 aa
 aa
 aa
@@ -73161,10 +73272,10 @@ gk
 gk
 gk
 gk
-yY
+lE
 qq
 qq
-Pc
+Eh
 BQ
 uh
 uh
@@ -74441,13 +74552,13 @@ TR
 Wf
 gk
 KY
-gk
+Qh
 gk
 rU
 gk
 gk
 gk
-gk
+Hj
 gk
 oI
 BQ
@@ -74700,11 +74811,11 @@ Es
 Es
 Es
 Es
-Es
+NO
 Es
 Es
 gk
-gk
+Ka
 gk
 Ut
 BQ
@@ -74961,7 +75072,7 @@ RY
 RY
 RY
 Pc
-gk
+xS
 gk
 oI
 BQ
@@ -75218,9 +75329,9 @@ qq
 qq
 qq
 Pc
+Ka
 gk
-gk
-gk
+qF
 BQ
 uh
 uh
@@ -75475,8 +75586,8 @@ qq
 qq
 qq
 Pc
-gk
-gk
+ul
+Ln
 lJ
 BQ
 uh
@@ -75732,7 +75843,7 @@ og
 og
 og
 Gr
-gk
+gL
 mo
 Sm
 BQ

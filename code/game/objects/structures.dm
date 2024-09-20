@@ -25,15 +25,15 @@
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
 	if (smoothing_flags)
-		SSicon_smooth.add_to_queue(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
 		SSicon_smooth.remove_from_queues(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
 

@@ -114,7 +114,7 @@
 		if(zone_exposure >= 1)
 			return 1
 		pressure_adjustment_coefficient = max(pressure_adjustment_coefficient, zone_exposure)
-	pressure_adjustment_coefficient = Clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
+	pressure_adjustment_coefficient = clamp(pressure_adjustment_coefficient, 0, 1) // So it isn't less than 0 or larger than 1.
 
 	return pressure_adjustment_coefficient
 
@@ -212,7 +212,7 @@
 		if(gene.is_active(src))
 			gene.OnMobLife(src)
 
-	total_radiation = Clamp(total_radiation,0,100)
+	total_radiation = clamp(total_radiation,0,100)
 
 	if (total_radiation)
 		if(src.is_diona())
@@ -983,7 +983,7 @@
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
-				var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
+				var/nut_factor = max_nutrition ? clamp(nutrition / max_nutrition, 0, 1) : 1
 				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
 				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
 					nut_icon = 0
@@ -1000,7 +1000,7 @@
 					nutrition_icon.icon_state = new_val
 
 			if(hydration_icon)
-				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
+				var/hyd_factor = max_hydration ? clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
 				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
 					hyd_icon = 0
@@ -1019,7 +1019,7 @@
 			if(isSynthetic())
 				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
-					var/chargeNum = Clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
 				else
 					cells.icon_state = "charge-empty"

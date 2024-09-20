@@ -58,7 +58,7 @@
 	var/armor = 100 * affecting.get_blocked_ratio(target, DAMAGE_BRUTE, damage = 30)
 	if(armor < 70)
 		to_chat(target, SPAN_DANGER("You feel extreme pain!"))
-		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
+		affecting.adjustHalLoss(clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))

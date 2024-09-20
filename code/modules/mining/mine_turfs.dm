@@ -127,7 +127,7 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/simulated/mineral/bullet_act(var/obj/projectile/Proj)
 	if(istype(Proj, /obj/projectile/beam/plasmacutter))
@@ -987,5 +987,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 	. = ..()

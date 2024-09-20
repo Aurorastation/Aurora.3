@@ -450,7 +450,7 @@
 /obj/item/material/twohanded/chainsaw/proc/RemoveFuel(var/amount = 1)
 	if(reagents && istype(reagents))
 		amount *= fuel_cost
-		reagents.remove_reagent(fuel_type, Clamp(amount,0,REAGENT_VOLUME(reagents, fuel_type)))
+		reagents.remove_reagent(fuel_type, clamp(amount,0,REAGENT_VOLUME(reagents, fuel_type)))
 		if(REAGENT_VOLUME(reagents, fuel_type) <= 0)
 			PowerDown()
 	else

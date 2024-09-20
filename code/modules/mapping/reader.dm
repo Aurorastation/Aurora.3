@@ -235,6 +235,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 /datum/grid_load_metadata
 	var/list/atoms_to_initialise
 	var/list/atoms_to_delete
+
 /dmm_suite/proc/parse_grid(model as text, model_key as text, xcrd as num,ycrd as num,zcrd as num, no_changeturf as num)
 	/*Method parse_grid()
 	- Accepts a text string containing a comma separated list of type paths of the
@@ -267,7 +268,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 			var/full_def = trim_text(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
 			var/variables_start = findtext(full_def, "{")
-
 			var/atom_def = text2path(trim_text(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
 			old_position = dpos + 1
 
@@ -442,7 +442,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		. = null
 
 	//Check for list
-	else if(copytext(text,1,5) == "list")
+	else if(copytext(text,1,6) == "list(") //This is different because whoever called the intercom variable `LISTening` deserves the rope
 		. = readlist(copytext(text,6,length(text)))
 
 	//Check for file

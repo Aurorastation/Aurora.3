@@ -655,7 +655,7 @@
 		prescriptions += 7
 	if(H.equipment_prescription)
 		prescriptions -= H.equipment_prescription
-	return Clamp(prescriptions, 0, 7)
+	return clamp(prescriptions, 0, 7)
 
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained

@@ -306,7 +306,7 @@
 
 /obj/item/mecha_equipment/shield/proc/stop_damage(var/damage)
 	var/difference = damage - charge
-	charge = Clamp(charge - damage, 0, max_charge)
+	charge = clamp(charge - damage, 0, max_charge)
 
 	last_recharge = world.time
 
@@ -358,7 +358,7 @@
 	if((world.time - last_recharge) < cooldown)
 		return
 
-	var/actual_required_power = Clamp(max_charge - charge, 0, charging_rate)
+	var/actual_required_power = clamp(max_charge - charge, 0, charging_rate)
 	owner.use_cell_power(actual_required_power)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()

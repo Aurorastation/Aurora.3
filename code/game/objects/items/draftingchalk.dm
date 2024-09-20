@@ -10,7 +10,7 @@
 /obj/effect/decal/cleanable/draftingchalk/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		SSicon_smooth.add_to_queue(src)
+		QUEUE_SMOOTH(src)
 	else
 		smooth_icon()
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))

@@ -306,7 +306,7 @@
 			return
 
 		A.forceMove(get_turf(src))
-		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
+		A.throw_at(T, round(clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
 
 /obj/item/integrated_circuit/manipulation/shocker
 	name = "shocker circuit"
@@ -325,7 +325,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,20)*8
+	power_draw_per_use = clamp(s,0,20)*8
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -341,6 +341,6 @@
 	else
 		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
-		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
+		M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
 		return

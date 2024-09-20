@@ -121,7 +121,7 @@
 			var/account_name = params["name"]
 			var/starting_funds = max(params["funds"], 0)
 
-			starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
+			starting_funds = clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
 			starting_funds = min(starting_funds, FUND_CAP)								// Not authorized to give more than the fund cap.
 
 			SSeconomy.create_account(account_name, starting_funds, src)

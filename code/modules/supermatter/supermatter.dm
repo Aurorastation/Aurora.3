@@ -232,7 +232,7 @@
 		supermatter_pull()
 
 	if(power)
-		soundloop.volume = Clamp((50 + (power / 50)), 50, 100)
+		soundloop.volume = clamp((50 + (power / 50)), 50, 100)
 	if(damage >= 300)
 		soundloop.mid_sounds = list('sound/machines/sm/loops/delamming.ogg' = 1)
 	else

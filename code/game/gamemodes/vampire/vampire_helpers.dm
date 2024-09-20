@@ -262,7 +262,7 @@
 	if (vampire.blood_usable < 10)
 		vampire.frenzy += 2
 	else if (vampire.frenzy > 0)
-		vampire.frenzy = max(0, vampire.frenzy -= Clamp(vampire.blood_usable * 0.1, 1, 10))
+		vampire.frenzy = max(0, vampire.frenzy -= clamp(vampire.blood_usable * 0.1, 1, 10))
 
 	vampire.frenzy = round(min(vampire.frenzy, 450))
 

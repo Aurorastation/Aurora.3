@@ -95,7 +95,6 @@ var/list/global/random_stock_large = list()
 	var/list/obj/structure/closet/crate/containers = list()
 	var/list/obj/structure/table/tables = list()
 	var/list/full_containers = list()//Used to hold references to crates we filled up
-	var/area/warehouse
 
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
@@ -123,7 +122,7 @@ var/list/global/random_stock_large = list()
 					tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !length(warehouseturfs))
 		admin_notice(SPAN_DANGER("ERROR: Cargo spawner failed to locate warehouse. Terminating."), R_DEBUG)
 		qdel(src)
 		return
