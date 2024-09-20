@@ -370,7 +370,6 @@ BLIND     // can't see anything
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
 	var/brand_name
 	icon_state = "military_goggles"
-	item_state = "military_goggles"
 	var/sprite_state = "military_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
@@ -393,7 +392,6 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	icon_state = "security_goggles"
-	item_state = "security_goggles"
 	sprite_state = "security_goggles"
 
 //security hud
@@ -402,7 +400,6 @@ BLIND     // can't see anything
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
 	var/brand_name
 	icon_state = "security_goggles"
-	item_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
@@ -433,19 +430,16 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/goon/pmc
 	sprite_state = "pmc_goggles"
 	icon_state = "pmc_goggles"
-	item_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/goon/zavod
 	sprite_state = "zavod_goggles"
 	icon_state = "zavod_goggles"
-	item_state = "zavod_goggles"
 	brand_name = "Zavodskoi"
 
 /obj/item/clothing/glasses/safety/goggles/goon/idris
 	sprite_state = "idris_goggles"
 	icon_state = "idris_goggles"
-	item_state = "idris_goggles"
 	brand_name = "Idris"
 
 //medical hud
@@ -454,7 +448,6 @@ BLIND     // can't see anything
 	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
 	var/brand_name
 	icon_state = "security_goggles"
-	item_state = "security_goggles"
 	var/sprite_state = "security_goggles"
 	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
 	item_state_slots = list(
@@ -484,13 +477,11 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety/goggles/medical/pmc
 	sprite_state = "pmc_goggles"
 	icon_state = "pmc_goggles"
-	item_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/medical/zeng
 	sprite_state = "zeng_goggles"
 	icon_state = "zeng_goggles"
-	item_state = "zeng_goggles"
 	brand_name = "Zeng-Hu"
 
 /obj/item/clothing/glasses/eyepatch
