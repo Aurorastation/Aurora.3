@@ -369,10 +369,14 @@ BLIND     // can't see anything
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	icon_state = "military_goggles"
 	item_state = "military_goggles"
 	var/sprite_state = "military_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
 	change_item_state_on_flip = TRUE
 
@@ -399,8 +403,12 @@ BLIND     // can't see anything
 	var/brand_name
 	icon_state = "security_goggles"
 	item_state = "security_goggles"
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE
 	change_item_state_on_flip = TRUE
 
@@ -447,8 +455,12 @@ BLIND     // can't see anything
 	var/brand_name
 	icon_state = "security_goggles"
 	item_state = "security_goggles"
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)
