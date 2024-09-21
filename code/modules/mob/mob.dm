@@ -206,8 +206,10 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
+	animate_chat(message, /datum/language/noise, TRUE, messagemobs, 30)
+
 	if(intent_message)
-		intent_message(intent_message, intent_range, messagemobs)
+		intent_message(intent_message, intent_range, messagemobs + src)
 
 	//Multiz, have shadow do same
 	if(bound_overlay)
