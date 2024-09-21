@@ -1,0 +1,801 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/space)
+"c" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 22;
+	name = "Cargo Hold #1 Shutters";
+	id = "lone_spacer_cargo1";
+	pixel_y = -1;
+	req_access = list(243)
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"d" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -22;
+	name = "Cargo Hold #3 Shutters";
+	id = "lone_spacer_cargo4";
+	pixel_y = -1;
+	req_access = list(243)
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"e" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/largecrate/animal/shark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"g" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"h" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"i" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -4;
+	pixel_y = 13
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_x = -1;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"j" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -22;
+	name = "Cargo Hold #3 Shutters";
+	id = "lone_spacer_cargo4";
+	pixel_y = -1;
+	req_access = list(243)
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/masks{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"k" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"l" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"m" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"p" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/highvalue/no_weapon,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/structure/closet/crate/secure/large/rats,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"q" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"r" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/drop,
+/obj/item/device/mmi,
+/obj/item/stack/cable_coil/blue,
+/obj/item/stack/cable_coil,
+/obj/item/device/robotanalyzer,
+/obj/item/ipc_tag_scanner,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/device/assembly/prox_sensor,
+/obj/item/device/assembly/prox_sensor,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
+/obj/item/robot_parts/head,
+/obj/item/stock_parts/manipulator,
+/obj/item/device/mmi/digital/posibrain,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/robot_parts/r_arm,
+/obj/item/robot_parts/r_arm,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"t" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/closet/crate/secure/weapon,
+/obj/random/melee,
+/obj/random/melee,
+/obj/random/melee/highvalue,
+/obj/item/material/hatchet/unathiknife,
+/obj/item/material/knife/butterfly,
+/obj/item/material/knife/raskariim,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/civgun/rifle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"w" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/stasis_cage{
+	req_access = list()
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"x" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"y" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/reagentgrinder{
+	pixel_y = 17;
+	pixel_x = 6
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_y = 4;
+	pixel_x = -2
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"z" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"A" = (
+/obj/machinery/chem_heater,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"B" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"C" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/loot,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"D" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/drop/grey,
+/obj/item/organ/internal/augment/fuel_cell,
+/obj/item/organ/internal/augment/gustatorial/hand,
+/obj/item/organ/internal/augment/health_scanner,
+/obj/item/organ/internal/augment/psi,
+/obj/item/organ/internal/augment/suspension,
+/obj/item/organ/internal/augment/tool/combitool,
+/obj/item/organ/internal/augment/tool/correctivelens/glare_dampener,
+/obj/item/organ/internal/augment/eye_sensors/medical,
+/obj/item/organ/internal/augment/cyber_hair,
+/obj/item/organ/internal/augment/timepiece,
+/obj/item/organ/internal/augment/synthetic_cords,
+/obj/item/organ/internal/augment/taste_booster,
+/obj/item/organ/internal/augment/emotional_manipulator,
+/obj/item/organ/internal/augment/enhanced_vision,
+/obj/item/organ/internal/augment/memory_inhibitor,
+/obj/item/organ/internal/augment/sightlights,
+/obj/item/organ/external/leg/right/ipc,
+/obj/item/organ/external/leg/ipc,
+/obj/item/organ/external/arm/right/ipc,
+/obj/item/organ/external/arm/ipc,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"G" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/item/cargo_package/offship/to_horizon{
+	pixel_y = 10;
+	pixel_x = -1
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"H" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/largecrate/animal/babycarp,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"I" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -22;
+	name = "Cargo Hold #3 Shutters";
+	id = "lone_spacer_cargo4";
+	pixel_y = -1;
+	req_access = list(243)
+	},
+/obj/machinery/chem_master,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"J" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/drop,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/timer,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter,
+/obj/item/device/assembly/igniter,
+/obj/item/grenade/chem_grenade,
+/obj/item/grenade/chem_grenade,
+/obj/item/grenade/chem_grenade,
+/obj/item/grenade/chem_grenade,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/material/phoron{
+	amount = 15
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"K" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/secure/large/viscerator,
+/obj/random/highvalue/no_weapon,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"L" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"M" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"O" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/mecha_part_fabricator{
+	req_access = null;
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"P" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
+/obj/item/gun/projectile/heavysniper/tranq{
+	pixel_y = 5
+	},
+/obj/item/gun/energy/net,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"Q" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/loot,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"T" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/stasis_cage{
+	req_access = list()
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"W" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 19;
+	name = "surgical sink"
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"X" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/vending/cigarette/hacked,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"Y" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"Z" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+L
+l
+l
+h
+a
+a
+N
+l
+l
+M
+a
+a
+p
+l
+l
+e
+a
+a
+z
+Y
+l
+Q
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+G
+l
+l
+q
+a
+a
+C
+l
+l
+K
+a
+a
+R
+l
+l
+q
+a
+a
+t
+l
+l
+q
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+c
+l
+l
+q
+a
+a
+c
+l
+l
+G
+a
+a
+c
+l
+l
+q
+a
+a
+c
+l
+l
+X
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+I
+l
+l
+y
+a
+a
+j
+l
+l
+D
+a
+a
+d
+l
+l
+P
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+i
+x
+l
+J
+a
+a
+g
+l
+l
+O
+a
+a
+H
+l
+l
+w
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+m
+A
+l
+Z
+a
+a
+r
+W
+B
+k
+a
+a
+f
+B
+l
+T
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

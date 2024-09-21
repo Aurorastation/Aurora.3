@@ -8,6 +8,9 @@
 	organ_tag = BP_STOMACH
 	parent_organ = BP_GROIN
 	robotic_name = "digestive pump"
+
+	actions_types = list(/datum/action/item_action/organ_action/empty_stomach)
+
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
 	var/should_process_alcohol = TRUE

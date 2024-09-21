@@ -56,13 +56,13 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 /datum/category_item/player_setup_item/antagonism/basic/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Antag Setup:</b><br>",
-		"Uplink Type: <a href='?src=\ref[src];antagtask=1'>[pref.uplinklocation]</a><br>",
+		"Uplink Type: <a href='?src=[REF(src)];antagtask=1'>[pref.uplinklocation]</a><br>",
 		"Exploitable information:<br>"
 	)
 	if(jobban_isbanned(user, "Records"))
 		dat += "<b>You are banned from using character records.</b><br>"
 	else
-		dat +="<a href='?src=\ref[src];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
+		dat +="<a href='?src=[REF(src)];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
 
 	. = dat.Join()
 

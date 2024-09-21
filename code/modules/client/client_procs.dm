@@ -715,12 +715,12 @@ var/list/localhost_addresses = list(
 		var/linked_forum_name = null
 		if (GLOB.config.forumurl)
 			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
-			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+			linked_forum_name = "<a href='byond://?src=[REF(src)];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
 
 		dat += "<hr>"
 		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
 		dat += "The request is [request["request_age"]] days old.<br>"
-		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
+		dat += "OPTIONS: <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
 	src << browse(dat, "window=LinkingRequests")
 	return
@@ -944,4 +944,4 @@ var/list/localhost_addresses = list(
 /client/proc/check_panel_loaded()
 	if(stat_panel.is_ready())
 		return
-	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[ref(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))

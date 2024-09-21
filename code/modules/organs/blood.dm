@@ -227,7 +227,7 @@
 		data["blood_DNA"] = dna.unique_enzymes
 		data["blood_type"] = dna.b_type
 	else
-		data["blood_DNA"] = md5(ref(src))
+		data["blood_DNA"] = md5(REF(src))
 		data["blood_type"] = "O+"
 	if(species)
 		data["species"] = species.bodytype

@@ -282,7 +282,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	for (var/A in alert_pdas)
 		var/obj/item/modular_computer/pda = A
-		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
+		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "[REF(pda)]"))
 
 	data["lid"] = lid
 	data["paper"] = paperstock

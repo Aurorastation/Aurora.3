@@ -191,7 +191,6 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 				M.hallucination = max(M.hallucination, halluci)
 			if(caffeine)
 				M.add_chemical_effect(CE_PULSE, caffeine*2)
-				M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 			M.adjustNutritionLoss(-nutriment_factor * removed)
 			M.adjustHydrationLoss(-hydration_factor * removed)
 
@@ -263,7 +262,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 			M.hallucination = max(M.hallucination, halluci)
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+			M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol, TRUE, caffeine*2)
 
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
@@ -272,6 +271,10 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/singleton/reagent/alcohol/butanol/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol)
+	. = ..()
 
 
 /singleton/reagent/hydrazine

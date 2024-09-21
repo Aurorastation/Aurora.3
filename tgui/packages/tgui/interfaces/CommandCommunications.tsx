@@ -220,8 +220,16 @@ export const CommandCommunications = (props, context) => {
             </Section>
             <Section title="Alerts">
               <Button
+                content="Blue Alert"
+                icon="circle-exclamation"
+                color="blue"
+                onClick={() =>
+                  act('setstatus', { target: 'alert', alert: 'bluealert' })
+                }
+              />
+              <Button
                 content="Red Alert"
-                icon="traffic-light"
+                icon="triangle-exclamation"
                 color="red"
                 onClick={() =>
                   act('setstatus', { target: 'alert', alert: 'redalert' })
@@ -241,6 +249,14 @@ export const CommandCommunications = (props, context) => {
                 color="yellow"
                 onClick={() =>
                   act('setstatus', { target: 'alert', alert: 'biohazard' })
+                }
+              />
+              <Button
+                content="Radiation"
+                icon="radiation"
+                color="yellow"
+                onClick={() =>
+                  act('setstatus', { target: 'alert', alert: 'radiation' })
                 }
               />
             </Section>

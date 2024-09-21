@@ -33,7 +33,7 @@
 				continue
 			if(!AreConnectedZLevels(computer.loc.z, M.loc.z))
 				continue
-			var/list/mechData = list("location" = null, "name" = null, "pilot" = null, "ref" = "\ref[M]", "camera" = null, "lockdown" = null)
+			var/list/mechData = list("location" = null, "name" = null, "pilot" = null, "ref" = "[REF(M)]", "camera" = null, "lockdown" = null)
 
 			mechData["name"] = M.name
 			mechData["pilot"] = "[M.old_mob]"
@@ -51,7 +51,7 @@
 				continue
 			if(!AreConnectedZLevels(computer.loc.z, R.loc.z))
 				continue
-			var/list/robotData = list("location" = null, "name" = null, "pilot" = null, "ref" = "\ref[R]")
+			var/list/robotData = list("location" = null, "name" = null, "pilot" = null, "ref" = "[REF(R)]")
 
 			robotData["name"] = R.name
 			robotData["pilot"] = "[R.old_mob]"
@@ -63,7 +63,7 @@
 	data["mechs"] = sortByKey(mechs, "pilot")
 	data["robots"] = sortByKey(robots, "pilot")
 
-	data["current_cam_loc"] = current_camera ? "\ref[current_camera.loc]" : null
+	data["current_cam_loc"] = current_camera ? "[REF(current_camera.loc)]" : null
 
 	return data
 

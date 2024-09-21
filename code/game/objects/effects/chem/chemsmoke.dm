@@ -143,7 +143,7 @@
 			var/mob/M = get_mob_by_key(carry.my_atom.fingerprintslast)
 			var/more = ""
 			if(M)
-				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
+				more = "(<A HREF='?_src_=holder;adminmoreinfo=[REF(M)]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].")
 		else
@@ -155,7 +155,7 @@
 			mobnames += "Affected players: "
 			var/i = 1
 			do
-				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=\ref[touched_mobs[i]]'>?</a>"
+				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
 				if (touched_mobs[i+1])
 					mobnames += ", "
 				i++

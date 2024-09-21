@@ -267,7 +267,13 @@
 			return M
 	return 0
 
+/**
+ * OLD PROC, DO NOT ADD SHIT TO IT ANYMORE
+ * USE `/datum/movespeed_modifier`s instead!
+ */
 /mob/proc/movement_delay()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(lying) //Crawling, it's slower
 		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
@@ -357,14 +363,14 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
-	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
-	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
-	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
-	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
+	<BR><B>Head(Mask):</B> <A href='?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR>[(internal ? text("<A href='?src=[REF(src)];item=internal'>Remove Internal</A>") : "")]
+	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
+	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>
+	<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>
 	<BR>"}
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name))
@@ -485,7 +491,7 @@
 /mob/proc/warn_flavor_changed()
 	if(flavor_text && flavor_text != "") // don't spam people that don't use it!
 		to_chat(src, "<h2 class='alert'>OOC Warning:</h2>")
-		to_chat(src, SPAN_ALERT("Your flavor text is likely out of date! <a href='byond://?src=\ref[src];flavor_change=1'>Change</a>"))
+		to_chat(src, SPAN_ALERT("Your flavor text is likely out of date! <a href='byond://?src=[REF(src)];flavor_change=1'>Change</a>"))
 
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
@@ -493,7 +499,7 @@
 		if(length(msg) <= 40)
 			return "<span class='message linkify'>[msg]</span>"
 		else
-			return "<span class='message linkify'>[copytext_preserve_html(msg, 1, 37)]...</span> <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
+			return "<span class='message linkify'>[copytext_preserve_html(msg, 1, 37)]...</span> <a href='byond://?src=[REF(src)];flavor_more=1'>More...</a>"
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
@@ -1513,10 +1519,36 @@
 
 	return WEATHER_EXPOSED
 
+///Apply a proper movespeed modifier based on items we have equipped
+/mob/proc/update_equipment_speed_mods()
+	var/speedies = 0
+	for(var/obj/item/thing in get_equipped_speed_mod_items())
+		speedies += (thing.slowdown + thing.slowdown_accessory)
+
+	if(speedies)
+		add_or_update_variable_movespeed_modifier(
+			/datum/movespeed_modifier/equipment_speedmod,
+			multiplicative_slowdown = speedies,
+		)
+	else
+		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
+
+///Get all items in our possession that should affect our movespeed
+/mob/proc/get_equipped_speed_mod_items()
+	. = list()
+	//Aurora BS
+	var/list/held_items = list()
+	held_items += l_hand
+	held_items += r_hand
+	//END AURORA BS
+	for(var/obj/item/thing in held_items)
+		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
+		. += thing
+
 /mob/proc/check_emissive_equipment()
 	var/old_zflags = z_flags
 	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(TRUE))
+	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
 		if(AM.z_flags & ZMM_MANGLE_PLANES)
 			z_flags |= ZMM_MANGLE_PLANES
 			break
