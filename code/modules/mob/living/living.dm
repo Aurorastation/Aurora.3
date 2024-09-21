@@ -909,7 +909,7 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+	ability_master = new /atom/movable/screen/movable/ability_master(FALSE, src)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),

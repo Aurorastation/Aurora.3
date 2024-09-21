@@ -54,7 +54,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/hud_state = "" //name of the icon used in generating the spell hud object
 	var/override_base = ""
 
-	var/obj/screen/connected_button
+	var/atom/movable/screen/connected_button
 
 ///////////////////////
 ///SETUP AND PROCESS///
@@ -76,7 +76,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 			silenced = max(0,silenced-1)
 			sleep(1)
 		if(connected_button)
-			var/obj/screen/spell/S = connected_button
+			var/atom/movable/screen/spell/S = connected_button
 			if(!istype(S))
 				return
 			S.update_charge(1)

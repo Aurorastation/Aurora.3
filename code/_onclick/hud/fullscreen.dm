@@ -2,7 +2,7 @@
 	condition ? overlay_fullscreen(screen_name, screen_type, arg) : clear_fullscreen(screen_name)
 
 /mob/proc/overlay_fullscreen(category, type, severity, animated = 0)
-	var/obj/screen/fullscreen/screen = screens[category]
+	var/atom/movable/screen/fullscreen/screen = screens[category]
 
 	if(screen)
 		if(screen.type != type)
@@ -27,7 +27,7 @@
 	return screen
 
 /mob/proc/clear_fullscreen(category, animated = 10)
-	var/obj/screen/fullscreen/screen = screens[category]
+	var/atom/movable/screen/fullscreen/screen = screens[category]
 	if(!screen)
 		return
 
@@ -41,7 +41,7 @@
 			client.screen -= screen
 		qdel(screen)
 
-/mob/proc/clear_fullscreen_after_animate(obj/screen/fullscreen/screen)
+/mob/proc/clear_fullscreen_after_animate(atom/movable/screen/fullscreen/screen)
 	if(client)
 		client.screen -= screen
 	qdel(screen)
@@ -60,7 +60,7 @@
 		for(var/category in screens)
 			client.screen |= screens[category]
 
-/obj/screen/fullscreen
+/atom/movable/screen/fullscreen
 	icon = 'icons/mob/screen/full.dmi'
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
@@ -70,87 +70,87 @@
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too
 
-/obj/screen/fullscreen/Destroy()
+/atom/movable/screen/fullscreen/Destroy()
 	severity = 0
 	return ..()
 
-/obj/screen/fullscreen/brute
+/atom/movable/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
 	layer = DAMAGE_LAYER
 
-/obj/screen/fullscreen/oxy
+/atom/movable/screen/fullscreen/oxy
 	icon_state = "oxydamageoverlay"
 	layer = DAMAGE_LAYER
 
-/obj/screen/fullscreen/crit
+/atom/movable/screen/fullscreen/crit
 	icon_state = "passage"
 	layer = CRIT_LAYER
 
-/obj/screen/fullscreen/strong_pain
+/atom/movable/screen/fullscreen/strong_pain
 	icon_state = "strong_pain"
 	layer = CRIT_LAYER
 
-/obj/screen/fullscreen/blind
+/atom/movable/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
 	layer = BLIND_LAYER
 
-/obj/screen/fullscreen/blackout
+/atom/movable/screen/fullscreen/blackout
 	icon_state = "blackout"
 	layer = BLIND_LAYER
 
-/obj/screen/fullscreen/impaired
+/atom/movable/screen/fullscreen/impaired
 	icon_state = "impairedoverlay"
 
-/obj/screen/fullscreen/blurry
+/atom/movable/screen/fullscreen/blurry
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "blurry"
 	alpha = 100
 
-/obj/screen/fullscreen/pain
+/atom/movable/screen/fullscreen/pain
 	icon_state = "brutedamageoverlay6"
 	alpha = 0
 
-/obj/screen/fullscreen/flash
+/atom/movable/screen/fullscreen/flash
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 
-/obj/screen/fullscreen/flash/noise
+/atom/movable/screen/fullscreen/flash/noise
 	icon_state = "noise"
 	alpha = 127
 
-/obj/screen/fullscreen/noise
+/atom/movable/screen/fullscreen/noise
 	icon = 'icons/effects/static.dmi'
 	icon_state = "1 light"
 	screen_loc = ui_entire_screen
 	alpha = 127
 
-/obj/screen/fullscreen/fadeout
+/atom/movable/screen/fullscreen/fadeout
 	icon = 'icons/mob/screen/effects.dmi'
 	icon_state = "black"
 	screen_loc = ui_entire_screen
 	alpha = 0
 	allstate = 1
 
-/obj/screen/fullscreen/fadeout/Initialize()
+/atom/movable/screen/fullscreen/fadeout/Initialize()
 	. = ..()
 	animate(src, alpha = 255, time = 10)
 
-/obj/screen/fullscreen/scanline
+/atom/movable/screen/fullscreen/scanline
 	icon = 'icons/effects/static.dmi'
 	icon_state = "scanlines"
 	screen_loc = ui_entire_screen
 	alpha = 50
 
-/obj/screen/fullscreen/frenzy
+/atom/movable/screen/fullscreen/frenzy
 	icon_state = "frenzyoverlay"
 	layer = BLIND_LAYER
 
-/obj/screen/fullscreen/teleport
+/atom/movable/screen/fullscreen/teleport
 	icon_state = "teleport"
 
-/obj/screen/fullscreen/blueprints
+/atom/movable/screen/fullscreen/blueprints
 	icon = 'icons/effects/blueprints.dmi'
 	icon_state = "base"
 	screen_loc = ui_entire_screen

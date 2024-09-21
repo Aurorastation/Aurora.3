@@ -298,7 +298,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(LAZYLEN(spell_masters))
-		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
 
 	if(stat != DEAD)
@@ -1047,7 +1047,7 @@
 
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
-		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
+		overlay_fullscreen("strong_pain", /atom/movable/screen/fullscreen/strong_pain)
 		addtimer(CALLBACK(src, PROC_REF(clear_strong_pain)), 10, TIMER_UNIQUE)
 
 /mob/living/proc/clear_strong_pain()
@@ -1385,7 +1385,7 @@
 	return 1
 
 /client/proc/check_has_body_select()
-	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
+	return mob && mob.hud_used && istype(mob.zone_sel, /atom/movable/screen/zone_sel)
 
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
@@ -1430,7 +1430,7 @@
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return
-	var/obj/screen/zone_sel/selector = mob.zone_sel
+	var/atom/movable/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones), usr)
 
 /mob/proc/get_speech_bubble_state_modifier()

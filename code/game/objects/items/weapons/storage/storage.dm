@@ -40,15 +40,15 @@
 	///The number of columns the storage item will appear to have
 	var/force_column_number
 
-	var/obj/screen/storage/boxes
+	var/atom/movable/screen/storage/boxes
 
 	///storage UI
-	var/obj/screen/storage/storage_start
+	var/atom/movable/screen/storage/storage_start
 
-	var/obj/screen/storage/storage_continue
-	var/obj/screen/storage/storage_end
+	var/atom/movable/screen/storage/storage_continue
+	var/atom/movable/screen/storage/storage_end
 	var/list/storage_screens = list()
-	var/obj/screen/close/closer
+	var/atom/movable/screen/close/closer
 	var/care_about_storage_depth = TRUE
 
 	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -208,15 +208,15 @@
 		return
 	if(!over_object || over_object == src)
 		return
-	if(istype(over_object, /obj/screen/inventory))
-		var/obj/screen/inventory/S = over_object
+	if(istype(over_object, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over_object
 		if(S.slot_id == src.equip_slot)
 			return
 	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return
-		if(!(istype(over_object, /obj/screen)))
+		if(!(istype(over_object, /atom/movable/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
@@ -420,9 +420,9 @@
 		startpoint = endpoint + 1
 		endpoint += storage_width * O.get_storage_cost()/max_storage_space
 
-		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
-		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
-		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
+		var/atom/movable/screen/storage/background/stored_start = new /atom/movable/screen/storage/background(null, O, "stored_start")
+		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
+		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
@@ -847,22 +847,22 @@
 	if(!allow_quick_gather)
 		verbs -= /obj/item/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage{icon_state = "block"}
+	boxes = new /atom/movable/screen/storage{icon_state = "block"}
 	boxes.master = src
 
-	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
+	storage_start = new /atom/movable/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
 	storage_start.layer = HUD_BASE_LAYER
 
-	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
+	storage_continue = new /atom/movable/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
 	storage_continue.layer = HUD_BASE_LAYER
 
-	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
+	storage_end = new /atom/movable/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
 	storage_end.layer = HUD_BASE_LAYER
 
-	closer = new /obj/screen/close{
+	closer = new /atom/movable/screen/close{
 		icon_state = "x";
 	}
 	closer.master = src
