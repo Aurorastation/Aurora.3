@@ -351,12 +351,61 @@
 	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
+// START: PMCG MODSUIT
 /datum/gear/faction/pmc_modsuit
 	display_name = "PMCG modsuit"
 	description = "A modular PMCG fatigue jumpsuit."
 	path = /obj/item/clothing/under/pmc_modsuit
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/pmc_modsuit/New()
+	..()
+	gear_tweaks += list(gear_tweak_modsuit_configuration)
+
+
+var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+
+/datum/gear_tweak/modsuit_configuration
+	var/list/configuration_options = list()
+
+/datum/gear_tweak/modsuit_configuration/New()
+	..()
+
+	var/obj/item/clothing/under/pmc_modsuit/initial_uniform = new()
+
+	var/index = 0
+	for(var/name in initial_uniform.names)
+		configuration_options[name] = index
+		index++
+
+	qdel(initial_uniform)
+
+/datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
+	return "Modsuit Configuration: [metadata]"
+
+/datum/gear_tweak/modsuit_configuration/get_default()
+	return configuration_options[1]
+
+/datum/gear_tweak/modsuit_configuration/get_random()
+	return configuration_options[1]
+
+/datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	var/selected_configuration = tgui_input_list(user, "How do you want your modsuit to be set up?", title, configuration_options, metadata)
+	if(selected_configuration)
+		return selected_configuration
+
+/datum/gear_tweak/modsuit_configuration/tweak_item(var/obj/item/clothing/under/pmc_modsuit/modsuit, var/metadata, var/mob/living/carbon/human/H)
+	if(!metadata)
+		return
+	var/configuration_number = configuration_options[metadata]
+	if(!configuration_number)
+		return
+	modsuit.modsuit_mode = configuration_number
+	modsuit.selected_modsuit()
+
+// END: PMCG MODSUIT
+
 
 /datum/gear/faction/pmcg_sec_uniforms
 	display_name = "PMCG/EPMC security uniform selection"
