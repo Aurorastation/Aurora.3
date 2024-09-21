@@ -25,5 +25,5 @@
 
 	mob_size = 15
 
-	has_udder = TRUE
+	can_be_milked = TRUE
 	milk_type = /singleton/reagent/drink/milk/beetle

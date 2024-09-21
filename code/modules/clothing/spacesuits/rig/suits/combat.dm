@@ -65,7 +65,6 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
 
-
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/clothing/head/helmet/space/rig/military
@@ -479,3 +478,65 @@
 
 /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
 	light_overlay = "helmet_light_dual"
+
+/obj/item/rig/combat/legionnaire
+	name = "\improper Legionnaire Hardsuit"
+	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
+	Its golden visor reflecting the shining liberty the TCAF stands for."
+	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
+	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
+	The blue armored plates are layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
+	icon = 'icons/clothing/rig/tcaf_legionnaire.dmi'
+	icon_state = "legionnaire_rig"
+	icon_supported_species_tags = null
+	suit_type = "\improper Legionnaire Hardsuit"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+	siemens_coefficient = 0.1
+	offline_slowdown = 3
+	offline_vision_restriction = TINT_HEAVY
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire
+
+	allowed = list(
+		/obj/item/device/flashlight,
+		/obj/item/tank,
+		/obj/item/device/suit_cooling_unit,
+		/obj/item/gun,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword,
+		/obj/item/handcuffs,
+		/obj/item/material/twohanded/fireaxe,
+		/obj/item/rfd/construction,
+		/obj/item/material/twohanded/pike/flag
+	)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+/obj/item/clothing/head/helmet/space/rig/legionnaire
+	light_overlay = "helmet_light_tcaf_legionnaire"
+	camera = /obj/machinery/camera/network/tcfl
+
+/obj/item/rig/combat/legionnaire/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators,
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/storage,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/recharger
+		)

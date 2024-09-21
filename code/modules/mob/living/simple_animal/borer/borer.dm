@@ -30,7 +30,7 @@
 	var/used_dominate
 	var/datum/progressbar/ability_bar
 	var/ability_start_time = 0
-	var/obj/screen/borer/chemicals/chem_hud
+	var/atom/movable/screen/borer/chemicals/chem_hud
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
 	var/mob/living/carbon/human/host        // Human host for the brain worm.
 	var/truename                            // Name used for brainworm-speak.

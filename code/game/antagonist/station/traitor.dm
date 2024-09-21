@@ -16,7 +16,7 @@ var/datum/antagonist/traitor/traitors
 	traitors = src
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
+	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())

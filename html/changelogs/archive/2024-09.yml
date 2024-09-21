@@ -43,3 +43,51 @@
   hazelmouse:
   - bugfix: Resolved a few bugs with the Kataphract offship, including reducing its
       spawn weight and making it properly targetable in ship combat.
+2024-09-10:
+  Ben10083:
+  - bugfix: Database Freighter shuttle fuel pump now faces the correct direction.
+  - bugfix: Database Freighter shuttle canister now holds more air, and other docking
+      fixes.
+  - bugfix: Fixes to TCAF Ship docking.
+  - rscadd: TCAF Ship missing items such as rechargers added.
+  FluffyGhost:
+  - balance: Personal shields can now remain active while put back in the belt, freeing
+      your hands.
+  - code_imp: Some code reordering and cleanup.
+  - bugfix: Fixed a runtime on inspection of the personal shield.
+  hazelmouse:
+  - bugfix: Prevents the Lone Spacer offship from spawning every round.
+  - rscadd: Adds the Lone Spacer ghostrole, a small ship crewed by only one person,
+      spawning in all sectors.
+2024-09-12:
+  SimpleMaroon:
+  - rscadd: 'Added two colorable hazard vests to the loadout: One with default-colored
+      stripes, and one that you can color the stripes on as well.'
+2024-09-14:
+  ASmallCuteCat:
+  - rscadd: Added the ability to harmlessly harvest small quantities of carpotoxin
+      from space carps.
+  - qol: Non-hostile space carps are now identified as tame, to avoid confusion. Added
+      several new idle emotes to space carps.
+  Ben10083:
+  - bugfix: Adds missing firedoor to Hazardous Containment.
+  - rscadd: Outdated Tajaran politcal books replaced with versebook equivalent. Additional
+      lines added by lore.
+  - bugfix: Adds missing firelocks to Corporate Representative Offices.
+  FluffyGhost:
+  - code_imp: Updated the callback datum to the latest TG iteration.
+  - refactor: Refactored all the backslash ref and ref() calls to use REF() instead.
+  - server: Added a linting for raw ref proc calls.
+  Geeves:
+  - rscadd: Added single (one for each hand) and multi-color gloves to the loadout.
+  HanSolo1519:
+  - balance: Due to offsetting a medical cabinet, the medbay lobby vendor now has
+      free bandages, slave and inap pens
+  SimpleMaroon:
+  - qol: Bridge Crew associated with the Ve'katak Phalanx can now take the related
+      augments.
+  hazelmouse:
+  - bugfix: Biogenerators are no longer invisible.
+2024-09-16:
+  Ben10083:
+  - bugfix: Fixes the unusable programs in the AI internal computer.

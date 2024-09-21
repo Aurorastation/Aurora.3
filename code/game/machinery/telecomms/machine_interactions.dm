@@ -109,13 +109,13 @@
 		M = user.get_multitool()
 	var/dat
 	dat += "<br>[temp]<br><br>"
-	dat += "Power Status: <a href='?src=\ref[src];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
+	dat += "Power Status: <a href='?src=[REF(src)];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
 	if(operable() && use_power)
 		if(id != "" && id)
-			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
+			dat += "<br>Identification String: <a href='?src=[REF(src)];input=id'>[id]</a>"
 		else
-			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>NULL</a>"
-		dat += "<br>Network: <a href='?src=\ref[src];input=network'>[network]</a>"
+			dat += "<br>Identification String: <a href='?src=[REF(src)];input=id'>NULL</a>"
+		dat += "<br>Network: <a href='?src=[REF(src)];input=network'>[network]</a>"
 		dat += "<br>Prefabrication: [autolinkers.len ? "TRUE" : "FALSE"]"
 		if(hide) dat += "<br>Shadow Link: ACTIVE</a>"
 
@@ -129,7 +129,7 @@
 			i++
 			if(T.hide && !src.hide)
 				continue
-			dat += "<li>\ref[T] [T.name] ([T.id])  <a href='?src=\ref[src];unlink=[i]'>\[X\]</a></li>"
+			dat += "<li>[REF(T)] [T.name] ([T.id])  <a href='?src=[REF(src)];unlink=[i]'>\[X\]</a></li>"
 		dat += "</ol>"
 
 		dat += "Filtering Frequencies: "
@@ -139,21 +139,21 @@
 			for(var/x in freq_listening)
 				i++
 				if(i < length(freq_listening))
-					dat += "[format_frequency(x)] GHz<a href='?src=\ref[src];delete=[x]'>\[X\]</a>; "
+					dat += "[format_frequency(x)] GHz<a href='?src=[REF(src)];delete=[x]'>\[X\]</a>; "
 				else
-					dat += "[format_frequency(x)] GHz<a href='?src=\ref[src];delete=[x]'>\[X\]</a>"
+					dat += "[format_frequency(x)] GHz<a href='?src=[REF(src)];delete=[x]'>\[X\]</a>"
 		else
 			dat += "NONE"
 
-		dat += "<br>  <a href='?src=\ref[src];input=freq'>\[Add Filter\]</a>"
+		dat += "<br>  <a href='?src=[REF(src)];input=freq'>\[Add Filter\]</a>"
 		dat += "<hr>"
 
 		if(M)
 			var/obj/machinery/telecomms/device = M.get_buffer()
 			if(istype(device))
-				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=\ref[src];link=1'>\[Link\]</a> <a href='?src=\ref[src];flush=1'>\[Flush\]</a>"
+				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=[REF(src)];link=1'>\[Link\]</a> <a href='?src=[REF(src)];flush=1'>\[Flush\]</a>"
 			else
-				dat += "<br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
+				dat += "<br>MULTITOOL BUFFER: <a href='?src=[REF(src)];buffer=1'>\[Add Machine\]</a>"
 
 	temp = ""
 
@@ -171,7 +171,7 @@
 /*
 // Add an option to the processor to switch processing mode. (COMPRESS -> UNCOMPRESS or UNCOMPRESS -> COMPRESS)
 /obj/machinery/telecomms/processor/Options_Menu()
-	var/dat = "<br>Processing Mode: <A href='?src=\ref[src];process=1'>[process_mode ? "UNCOMPRESS" : "COMPRESS"]</a>"
+	var/dat = "<br>Processing Mode: <A href='?src=[REF(src)];process=1'>[process_mode ? "UNCOMPRESS" : "COMPRESS"]</a>"
 	return dat
 */
 // The topic for Additional Options. Use this for checking href links for your specific option.
@@ -189,7 +189,7 @@
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
-	var/dat = "<br>Change Signal Frequency: <A href='?src=\ref[src];change_freq=1'>[change_frequency ? "YES ([change_frequency])" : "NO"]</a>"
+	var/dat = "<br>Change Signal Frequency: <A href='?src=[REF(src)];change_freq=1'>[change_frequency ? "YES ([change_frequency])" : "NO"]</a>"
 	return dat
 
 /obj/machinery/telecomms/bus/Options_Topic(href, href_list)
@@ -277,7 +277,7 @@
 		if(text2num(href_list["unlink"]) <= length(links))
 			var/obj/machinery/telecomms/T = links[text2num(href_list["unlink"])]
 			if(T)
-				temp = "<font color = #666633>-% Removed \ref[T] [T.name] from linked entities. %-</font>"
+				temp = "<font color = #666633>-% Removed [REF(T)] [T.name] from linked entities. %-</font>"
 				remove_link(T)
 
 	if(href_list["link"])
@@ -286,7 +286,7 @@
 			var/obj/machinery/telecomms/device = P.get_buffer()
 			if(device)
 				add_new_link(device)
-				temp = "<font color = #666633>-% Successfully linked with \ref[device] [device.name] %-</font>"
+				temp = "<font color = #666633>-% Successfully linked with [REF(device)] [device.name] %-</font>"
 			else
 				temp = "<font color = #666633>-% Unable to acquire buffer %-</font>"
 
@@ -294,7 +294,7 @@
 
 		P.set_buffer(src)
 		var/atom/buffer = P.get_buffer()
-		temp = "<font color = #666633>-% Successfully stored \ref[buffer] [buffer.name] in buffer %-</font>"
+		temp = "<font color = #666633>-% Successfully stored [REF(buffer)] [buffer.name] in buffer %-</font>"
 
 
 	if(href_list["flush"])

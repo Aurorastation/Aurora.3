@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: FluffyGhost
+author: CometBlaze
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Personal shields can now remain active while put back in the belt, freeing your hands."
-  - code_imp: "Some code reordering and cleanup."
-  - bugfix: "Fixed a runtime on inspection of the personal shield."
+  - imageadd: "Resprites the solarian IPC fatigues to make them lore accurate"

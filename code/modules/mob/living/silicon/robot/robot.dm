@@ -60,11 +60,11 @@
 	var/overclock_available = FALSE // if the overclock is available for use
 
 	// HUD Stuff
-	var/obj/screen/inv1
-	var/obj/screen/inv2
-	var/obj/screen/inv3
+	var/atom/movable/screen/inv1
+	var/atom/movable/screen/inv2
+	var/atom/movable/screen/inv3
 	var/shown_robot_modules = FALSE //Used to determine whether they have the module menu shown or not
-	var/obj/screen/robot_modules_background
+	var/atom/movable/screen/robot_modules_background
 
 	// Modules and active items
 	var/mod_type = "Default"
@@ -869,30 +869,30 @@
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_1]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_2]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A HREF=?src=\ref[src];mod=\ref[module_state_3]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
 
 	for(var/obj in module.modules)
 		if(!obj)
-			dat += text("<B>Resource depleted</B><BR>")
+			dat += "<B>Resource depleted</B><BR>"
 		else if(activated(obj))
-			dat += text("[obj]: <B>Activated</B><BR>")
+			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += text("[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>")
+			dat += "[obj]: <A HREF=?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
 	if(emagged)
 		if(activated(module.emag))
-			dat += text("[module.emag]: <B>Activated</B><BR>")
+			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
+			dat += "[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
-			dat += text("[module.malf_AI_module]: <B>Activated</B><BR>")
+			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.malf_AI_module]: <A HREF=?src=\ref[src];act=\ref[module.malf_AI_module]>Activate</A><BR>")
+			dat += "[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
 	src << browse(dat, "window=robotmod")
 
 
@@ -1132,7 +1132,7 @@
 		return
 	switch(notifytype)
 		if(ROBOT_NOTIFICATION_NEW_UNIT) //New Robot
-			to_chat(connected_ai, "<br><br><span class='notice'>NOTICE - New [lowertext(braintype)] connection detected: <a href='byond://?src=\ref[connected_ai];track2=\ref[connected_ai];track=\ref[src]'>[name]</a></span><br>")
+			to_chat(connected_ai, "<br><br><span class='notice'>NOTICE - New [lowertext(braintype)] connection detected: <a href='byond://?src=[REF(connected_ai)];track2=[REF(connected_ai)];track=[REF(src)]'>[name]</a></span><br>")
 		if(ROBOT_NOTIFICATION_NEW_MODULE) //New Module
 			to_chat(connected_ai, "<br><br><span class='notice'>NOTICE - [braintype] module change detected: [name] has loaded the [first_arg].</span><br>")
 		if(ROBOT_NOTIFICATION_MODULE_RESET)

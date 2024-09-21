@@ -136,7 +136,7 @@
 
 	test_result["result"] = SUCCESS
 	test_result["msg"] = "Mob created"
-	test_result["mobref"] = "\ref[L]"
+	test_result["mobref"] = "[REF(L)]"
 
 	if(add_to_playerlist)
 		GLOB.player_list |= L
