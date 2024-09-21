@@ -12,47 +12,50 @@
 	name = "autocannon ammunition loader"
 
 /obj/item/ship_ammunition/autocannon
-	name = "60mm FMJ ammunition box"
-	name_override = "60mm FMJ burst"
-	desc = "A box of FMJ shells for use in a heavy autocannon emplacement"
-	icon = 'icons/obj/guns/ship/ship_ammo_rotary.dmi'
-	icon_state = "box_fmj"
+	name = "60mm AP shell bundle"
+	name_override = "60mm AP burst"
+	desc = "A bundle of armour-piercing shells for use in a heavy autocannon emplacement. These are non-explosive, designed to penetrate deep inside their targets without causing heavy structural damage. An impact from such a shell to an enemy crewman is likely to be fatal."
+	icon = 'icons/obj/guns/ship/ship_ammo_autocannon.dmi'
+	icon_state = "autocannon_ap"
 	overmap_icon_state = "cannon_salvo"
-	impact_type = SHIP_AMMO_IMPACT_FMJ
+	impact_type = SHIP_AMMO_IMPACT_AP
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	caliber = SHIP_CALIBER_60MM
-	burst = 11
+	burst = 5
 	cookoff_heavy = 0
 	projectile_type_override = /obj/projectile/ship_ammo/autocannon
 
 /obj/item/ship_ammunition/autocannon/he
-	name = "60mm HE ammunition box"
+	name = "60mm HE shell bundle"
 	name_override = "60mm HE burst"
-	desc = "A box of HE shells for use in a heavy autocannon emplacement"
-	icon = 'icons/obj/guns/ship/ship_ammo_rotary.dmi'
-	icon_state = "box_ap"
+	desc = "A bundle of high-explosive shells for use in a heavy autocannon emplacement. These explode on impact with the hull of their targets, making them effective at causing heavy structural damage while reducing their ability to impact deep inside enemy ships."
+	icon = 'icons/obj/guns/ship/ship_ammo_autocannon.dmi'
+	icon_state = "autocannon_he"
 	overmap_icon_state = "cannon_salvo"
 	impact_type = SHIP_AMMO_IMPACT_HE
-	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_VULNERABLE // More fragile than the FMJ.
+	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_VULNERABLE // More fragile than AP.
 	caliber = SHIP_CALIBER_60MM
-	burst = 11
-	cookoff_heavy = 0
+	burst = 5
+	cookoff_heavy = 1
 	projectile_type_override = /obj/projectile/ship_ammo/autocannon/he
 
 /obj/projectile/ship_ammo/autocannon
-	name = "60mm FMJ shell"
+	name = "60mm AP shell"
 	icon_state = "small"
-	damage = 120
+	damage = 100
 	armor_penetration = 60
 	penetrating = 2
 
 /obj/projectile/ship_ammo/autocannon/he
 	name = "60mm HE shell"
 	icon_state = "small"
-	damage = 100
+	damage = 80
 	armor_penetration = 30
 	penetrating = 0 // Explodes on the hull.
 
-/obj/projectile/ship_ammo/autocannon/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/autocannon/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 0, 1, 3)
+	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
+		explosion(target, 0, 2, 3)
+	else
+		explosion(target, 0, 1, 2)
