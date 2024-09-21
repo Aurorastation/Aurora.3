@@ -347,9 +347,6 @@
 				break
 			parent.update_damages()
 
-	for(var/datum/action/action as anything in actions)
-		action.Grant(owner)
-
 /****************************************************
 					DAMAGE PROCS
 ****************************************************/

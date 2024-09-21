@@ -237,11 +237,6 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
-/obj/item/New()
-	..()
-	for(var/path in actions_types)
-		new path(src)
-
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
@@ -252,6 +247,9 @@
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()
+
+	for(var/path in actions_types)
+		new path(src)
 
 /obj/item/Destroy()
 	if(ismob(loc))

@@ -14,9 +14,9 @@
 
 /obj/item/organ/internal/Initialize()
 	. = ..()
-//	if(owner)
-	for(var/datum/action/action as anything in actions)
-		action.Grant(owner)
+	if(owner)
+		for(var/datum/action/action as anything in actions)
+			action.Grant(owner)
 
 
 /obj/item/organ/internal/Destroy()
