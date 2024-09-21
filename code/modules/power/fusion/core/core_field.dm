@@ -370,9 +370,7 @@
 	energy += a_energy
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
-		percent_unstable -= a_energy/10000
-		if(percent_unstable < 0)
-			percent_unstable = 0
+		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
 	while(energy >= 100)
 		energy -= 100
 		plasma_temperature += 1

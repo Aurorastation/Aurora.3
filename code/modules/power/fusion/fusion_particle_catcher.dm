@@ -8,9 +8,10 @@
 	var/mysize = 0
 
 /obj/effect/fusion_particle_catcher/Destroy()
-	. =..()
 	parent.particle_catchers -= src
 	parent = null
+
+	. = ..()
 
 /obj/effect/fusion_particle_catcher/proc/SetSize(newsize)
 	name = "collector [newsize]"
