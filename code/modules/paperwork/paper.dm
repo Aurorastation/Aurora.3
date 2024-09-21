@@ -21,20 +21,34 @@
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
 
-	var/info		//What's actually written on the paper.
-	var/info_links	//A different version of the paper which includes html links at fields and EOF
-	var/stamps		//The (text for the) stamps on the paper.
-	var/fields		//Amount of user created fields
+	///What's actually written on the paper.
+	var/info
+	///A different version of the paper which includes html links at fields and EOF
+	var/info_links
+	///The (text for the) stamps on the paper.
+	var/stamps
+	///Amount of user created fields
+	var/fields
+
 	var/free_space = MAX_PAPER_MESSAGE_LEN
 	var/list/stamped
-	var/list/ico[0]      //Icons and
-	var/list/offset_x[0] //offsets stored for later
-	var/list/offset_y[0] //usage by the photocopier
+
+	///Icons and
+	var/list/ico[0]
+	///offsets stored for later
+	var/list/offset_x[0]
+	///usage by the photocopier
+	var/list/offset_y[0]
+
 	var/rigged = 0
 	var/last_honk = 0
-	var/old_name		// The name of the paper before it was folded into a plane.
-	var/can_fold = TRUE		// If it can be folded into a plane or swan
-	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
+
+	/// The name of the paper before it was folded into a plane.
+	var/old_name
+	/// If it can be folded into a plane or swan
+	var/can_fold = TRUE
+	/// Is it made of paper and/or burnable material?
+	var/paper_like = TRUE
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
