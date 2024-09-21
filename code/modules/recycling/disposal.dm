@@ -229,8 +229,8 @@
 				for (var/mob/C in viewers(src))
 					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
 				qdel(G)
-				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
-				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
+				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>"
+				GM.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>"
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return TRUE
 	if(!attacking_item.dropsafety())
@@ -287,8 +287,8 @@
 		msg = "[user.name] stuffs [target.name] into the [src]!"
 		to_chat(user, "You stuff [target.name] into the [src]!")
 
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>")
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>")
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>"
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>"
 		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 	else
 		return

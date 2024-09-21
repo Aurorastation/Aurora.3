@@ -141,9 +141,9 @@
 					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += text("<A href='?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
+					dat += "<A href='?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += text("<A href='?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> ")
+					dat += "<A href='?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> "
 			else
 				dat += "nothing."
 			dat += " \[<A href='?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
