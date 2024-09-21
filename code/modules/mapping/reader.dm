@@ -12,13 +12,16 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 /dmm_suite
 		// /"([a-zA-Z]+)" = \(((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}/g
-	var/static/regex/dmmRegex = new/regex({""(\[a-zA-Z]+)" = \\(((?:.|\n)*?)\\)\n(?!\t)|\\((\\d+),(\\d+),(\\d+)\\) = \\{"(\[a-zA-Z\n]*)"\\}"}, "g")
+	var/static/regex/dmmRegex = new(@'"([a-zA-Z]+)" = (?:\(\n|\()((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}', "g")
 		// /^[\s\n]+"?|"?[\s\n]+$|^"|"$/g
 	var/static/regex/trimQuotesRegex = new/regex({"^\[\\s\n]+"?|"?\[\\s\n]+$|^"|"$"}, "g")
 		// /^[\s\n]+|[\s\n]+$/
 	var/static/regex/trimRegex = new/regex("^\[\\s\n]+|\[\\s\n]+$", "g")
 	var/static/list/modelCache = list()
 	var/static/space_key
+
+//text trimming (both directions) helper macro
+#define TRIM_TEXT(text) (replacetext_char(text, trimRegex, ""))
 
 /**
  * Construct the model map and control the loading process
@@ -84,7 +87,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/has_expanded_world_maxy = FALSE
 
 	var/list/regexOutput
-	while(findtext_char(tfile, dmmRegex, stored_index))
+	while(findtext(tfile, dmmRegex, stored_index))
 		stored_index = dmmRegex.next
 		// Datum var lookup is expensive, this isn't
 		regexOutput = dmmRegex.group
@@ -266,9 +269,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			//finding next member (e.g /turf/unsimulated/wall{icon_state = "rock"} or /area/mine/explored)
 			dpos = find_next_delimiter_position(model, old_position, ",", "{", "}") //find next delimiter (comma here) that's not within {...}
 
-			var/full_def = trim_text(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
+			var/full_def = TRIM_TEXT(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
 			var/variables_start = findtext(full_def, "{")
-			var/atom_def = text2path(trim_text(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
+			var/atom_def = text2path(TRIM_TEXT(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
@@ -325,7 +328,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	//since we've switched off autoinitialisation, record atoms to initialise later
 	var/list/atoms_to_initialise = list()
 	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin(text_ref(src))
+	SSatoms.map_loader_begin(REF(src))
 
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
@@ -373,7 +376,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	for(index in 1 to first_turf_index-1)
 		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
 	//Restore initialization to the previous value
-	SSatoms.map_loader_stop(text_ref(src))
+	SSatoms.map_loader_stop(REF(src))
 
 	var/datum/grid_load_metadata/M = new
 	M.atoms_to_initialise = atoms_to_initialise
@@ -399,18 +402,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)
-		SSatoms.map_loader_stop(text_ref(src))
+		SSatoms.map_loader_stop(REF(src))
 		stoplag()
-		SSatoms.map_loader_begin(text_ref(src))
+		SSatoms.map_loader_begin(REF(src))
 
 /dmm_suite/proc/create_atom(path, crds)
 	// Doing this async is impossible, as we must return the ref.
 	return new path (crds)
-
-//text trimming (both directions) helper proc
-//optionally removes quotes before and after the text (for variable name)
-/dmm_suite/proc/trim_text(text, trim_quotes)
-	return replacetext_char(text, trim_quotes ? trimQuotesRegex : trimRegex, "")
 
 //find the position of the next delimiter,skipping whatever is comprised between opening_escape and closing_escape
 //returns 0 if reached the last delimiter
@@ -468,7 +466,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		//check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
 
-		var/trim_left = trim_text(copytext(text,old_position,(equal_position ? equal_position : position)), 0)
+		var/trim_left = TRIM_TEXT(copytext(text,old_position,(equal_position ? equal_position : position)))
 		old_position = position + 1
 
 		if(!length(trim_left))
@@ -489,7 +487,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			if(isnum(left))
 				crash_with("Numerical key in associative list.")
 				break // This is invalid; apparently dm will runtime in this situation.
-			var/trim_right = trim_text(copytext(text,equal_position+1,position))//the content of the variable
+			var/trim_right = TRIM_TEXT(copytext(text,equal_position+1,position))//the content of the variable
 			to_return[left] = readlistitem(trim_right)
 
 	while(position != 0)
@@ -542,3 +540,5 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 /turf/template_noop
 	name = "Turf Passthrough"
 	icon_state = "noop"
+
+#undef TRIM_TEXT
