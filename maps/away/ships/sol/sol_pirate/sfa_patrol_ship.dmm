@@ -36,7 +36,7 @@
 "aaI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "abx" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -449,6 +449,9 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/sfa_shuttle)
+"aSL" = (
+/turf/simulated/floor/airless,
+/area/ship/sfa_patrol_ship/Engineering)
 "aSZ" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, workshop"
@@ -477,7 +480,7 @@
 "aZz" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "aZM" = (
 /obj/structure/table/standard,
 /obj/item/storage/bag/inflatable,
@@ -583,7 +586,7 @@
 "bjS" = (
 /obj/structure/sign/flag/sol,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "bkT" = (
 /obj/structure/table/rack,
 /obj/structure/mopbucket,
@@ -810,7 +813,7 @@
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "ceI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -869,9 +872,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
 "ctr" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/sfa_patrol_ship/Engineering)
+/obj/item/stack/rods{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/turf/template_noop,
+/area/space)
 "cwy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -989,7 +995,7 @@
 /area/ship/sfa_patrol_ship)
 "cME" = (
 /turf/space,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "cQL" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
@@ -1257,13 +1263,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
-"dFT" = (
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 0;
-	pixel_y = 12
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship/Engineering)
 "dHE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
@@ -1694,7 +1693,7 @@
 	},
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "eVI" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -1966,15 +1965,11 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/ship/sfa_patrol_ship/Telecomms)
 "fzv" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
+/obj/effect/landmark{
+	name = "carpspawn"
 	},
-/obj/item/material/shard{
-	pixel_x = -10;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sfa_patrol_ship/docking)
+/turf/template_noop,
+/area/space)
 "fzB" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -1988,6 +1983,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
@@ -2134,7 +2132,7 @@
 /obj/structure/inflatable/wall,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "gka" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -2640,7 +2638,7 @@
 	name = "aft, port side"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "hFs" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/computer/operating{
@@ -2673,7 +2671,7 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/north{
-	req_access = list(113)
+	req_access = list(203)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2731,12 +2729,16 @@
 /turf/simulated/floor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "hYx" = (
-/obj/item/stack/rods{
-	pixel_x = -10;
-	pixel_y = -10
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 0;
+	pixel_y = 12
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/Engineering)
+"hYW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/sfa_patrol_ship/Engineering)
 "hZq" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2844,8 +2846,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "ios" = (
+/obj/item/circuitboard/unary_atmos/engine{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/material/shard{
+	pixel_x = -2;
+	pixel_y = -9
+	},
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "iqc" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3574,13 +3584,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/docking)
-"kfT" = (
-/obj/item/stack/rods{
-	pixel_x = -10;
-	pixel_y = -9
-	},
-/turf/template_noop,
-/area/space)
 "kgp" = (
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav3,
 /turf/template_noop,
@@ -3886,6 +3889,26 @@
 	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/red/full,
+/obj/item/grenade/smokebomb{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/grenade/smokebomb{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/grenade/smokebomb{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/obj/item/grenade/frag{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/grenade/frag{
+	pixel_x = 0;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "lrG" = (
@@ -3926,7 +3949,7 @@
 /area/ship/sfa_patrol_ship/head)
 "lwj" = (
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "lEx" = (
 /obj/machinery/vending/engivend{
 	req_access = list(203)
@@ -4473,10 +4496,10 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
 "nfo" = (
-/obj/item/material/shard,
 /obj/effect/decal/cleanable/blood/drip/oil,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "ngh" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -4499,6 +4522,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/item/clothing/head/cone,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "niu" = (
@@ -4970,12 +4994,12 @@
 "oZk" = (
 /obj/structure/girder,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "pcb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "pcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -5119,6 +5143,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
+"pzI" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/item/material/shard{
+	pixel_x = -10;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship/docking)
 "pAw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5251,6 +5285,13 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
 /turf/template_noop,
 /area/space)
+"pPU" = (
+/obj/item/stack/rods{
+	pixel_x = -10;
+	pixel_y = -10
+	},
+/turf/template_noop,
+/area/space)
 "pPW" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(24,11,203)
@@ -5333,6 +5374,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/item/clothing/head/cone,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/docking)
 "qcx" = (
@@ -5340,7 +5382,7 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "qcH" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -5349,10 +5391,8 @@
 /area/shuttle/sfa_shuttle)
 "qeD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood{
-	basecolor = "#0081CD"
-	},
 /obj/effect/landmark/corpse/sol_officer_husk,
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
 "qfB" = (
@@ -5401,13 +5441,12 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "qfX" = (
-/obj/structure/lattice,
-/obj/item/bodybag{
-	pixel_x = 4;
-	pixel_y = 8
+/obj/item/stack/rods{
+	pixel_x = -10;
+	pixel_y = -9
 	},
-/turf/space/dynamic,
-/area/ship/sfa_patrol_ship/destroyedmedbay)
+/turf/template_noop,
+/area/space)
 "qgP" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -6153,7 +6192,7 @@
 /obj/machinery/portable_atmospherics/canister,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "sAx" = (
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/structure/table/rack,
@@ -6518,12 +6557,15 @@
 /turf/template_noop,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "uhh" = (
-/obj/item/material/shard,
+/obj/item/material/shard{
+	pixel_x = 6;
+	pixel_y = -6
+	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "uii" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy{
@@ -6589,12 +6631,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
 "uCL" = (
-/obj/item/stack/rods{
-	pixel_x = -8;
-	pixel_y = 3
+/obj/structure/lattice,
+/obj/item/bodybag{
+	pixel_x = 4;
+	pixel_y = 8
 	},
-/turf/template_noop,
-/area/space)
+/turf/space/dynamic,
+/area/ship/sfa_patrol_ship/destroyedmedbay)
 "uDm" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -6915,7 +6958,7 @@
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "wbw" = (
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -7116,7 +7159,6 @@
 	},
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
-/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "wEB" = (
@@ -7517,7 +7559,7 @@
 "xXC" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/ship/sfa_patrol_ship)
+/area/ship/sfa_patrol_ship/Engineering)
 "xXJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -34133,7 +34175,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -35637,7 +35679,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -35968,7 +36010,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -42866,7 +42908,7 @@ xgf
 aej
 bJi
 oLM
-qfX
+uCL
 nTk
 tTG
 nKl
@@ -43910,7 +43952,7 @@ xRX
 xRX
 xRX
 xRX
-kfT
+qfX
 xRX
 xRX
 xRX
@@ -44165,7 +44207,7 @@ xRX
 xRX
 xRX
 xRX
-uCL
+ctr
 xRX
 xRX
 xRX
@@ -44905,9 +44947,9 @@ xRX
 xRX
 xRX
 lwj
-yjk
-yjk
-yjk
+iMp
+iMp
+iMp
 iMp
 mhO
 lEx
@@ -45164,7 +45206,7 @@ xRX
 pcb
 cME
 pcb
-yjk
+iMp
 iMp
 rdq
 avG
@@ -45487,7 +45529,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -45938,7 +45980,7 @@ szP
 qcx
 ciL
 mfK
-ctr
+hYW
 hyd
 hyd
 ihU
@@ -46156,7 +46198,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -46190,12 +46232,12 @@ xRX
 xRX
 xRX
 oZk
-ios
+aSL
 bjS
 oZk
 ciL
 qYI
-dFT
+hYx
 ard
 awE
 xEt
@@ -46446,10 +46488,10 @@ xRX
 xRX
 xRX
 xRX
-yjk
+iMp
 xXC
 oZk
-yjk
+iMp
 aCY
 iqc
 hyd
@@ -46706,7 +46748,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+iMp
 axK
 qKA
 dma
@@ -47503,7 +47545,7 @@ sAx
 fLg
 yci
 xSs
-fzv
+pzI
 gma
 gma
 sPe
@@ -49542,7 +49584,7 @@ xRX
 xRX
 xRX
 xRX
-hYx
+pPU
 gZD
 mfx
 foE
@@ -54208,7 +54250,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -56969,7 +57011,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
@@ -58549,7 +58591,7 @@ xRX
 xRX
 axB
 xRX
-xRX
+fzv
 xRX
 xRX
 xRX
