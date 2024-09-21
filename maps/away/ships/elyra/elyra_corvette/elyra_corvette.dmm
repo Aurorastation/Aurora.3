@@ -695,12 +695,22 @@
 /turf/simulated/floor/lino,
 /area/ship/elyran_corvette/messhall)
 "di" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/elyran_corvette/portwep)
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled/dark,
+/area/ship/elyran_corvette/briefing)
 "dE" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
@@ -1221,6 +1231,8 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/item/stack/nanopaste,
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "gc" = (
@@ -3635,9 +3647,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardwep)
 "uv" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
@@ -3645,6 +3654,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/porthallway)
 "uz" = (
@@ -6088,9 +6098,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/prayerhall)
 "IM" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -6098,6 +6105,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardhallway)
 "IO" = (
@@ -7269,12 +7277,6 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "OY" = (
@@ -46921,7 +46923,7 @@ gD
 ve
 Dn
 GZ
-pu
+di
 UP
 Dn
 ve
@@ -47195,7 +47197,7 @@ Fc
 cV
 fe
 fe
-di
+La
 La
 Cs
 bk

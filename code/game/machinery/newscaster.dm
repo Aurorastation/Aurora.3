@@ -295,7 +295,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	if(istype(user, /mob/living/carbon/human) || istype(user,/mob/living/silicon) )
 		var/mob/living/human_or_robot_user = user
 		var/dat
-		dat = text("<H3>Newscaster Unit #[src.unit_no]</H3>")
+		dat = "<H3>Newscaster Unit #[src.unit_no]</H3>"
 
 		src.scan_user(human_or_robot_user) //Newscaster scans you
 

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "EAL is now much shorter to people who can't understand it, to represent how effective it is at compressing communicated datapackets."
+  - bugfix: "Fixed scrambled languages causing double spaces and uncapitalized words."

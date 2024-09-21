@@ -875,7 +875,7 @@
 				if(-INFINITY to -95)	severity = 10
 			if(paralysis || InStasis())
 				severity = max(severity, 8)
-			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
+			overlay_fullscreen("crit", /atom/movable/screen/fullscreen/crit, severity)
 		else
 			clear_fullscreen("crit")
 			//Oxygen damage overlay
@@ -889,7 +889,7 @@
 					if(35 to 40)		severity = 5
 					if(40 to 45)		severity = 6
 					if(45 to INFINITY)	severity = 7
-				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
+				overlay_fullscreen("oxy", /atom/movable/screen/fullscreen/oxy, severity)
 			else
 				clear_fullscreen("oxy")
 
@@ -905,7 +905,7 @@
 				if(55 to 70)		severity = 4
 				if(70 to 85)		severity = 5
 				if(85 to INFINITY)	severity = 6
-			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 		else
 			clear_fullscreen("brute")
 
@@ -1147,7 +1147,7 @@
 #undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
-	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
+	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
 	new_status.alpha = client.prefs.UI_style_alpha
 	new_status.color = client.prefs.UI_style_color
 	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
