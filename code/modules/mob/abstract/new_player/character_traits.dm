@@ -79,3 +79,86 @@
 	name = "Major Hemophilia"
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
+
+ABSTRACT_TYPE(/datum/character_disabilities/bruising)
+	name = "Bruised Limb"
+	var/affected_limb
+
+/datum/character_disabilities/bruising/apply_self(var/mob/living/carbon/human/target)
+	target.apply_damage(10, DAMAGE_BRUTE, affected_limb, armor_pen = 100, silent = TRUE)
+
+#define BRUISING_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \
+/datum/character_disabilities/bruising/##LIMB_PATH { \
+	name = "Bruised Limb: " + ##LIMB_NAME; \
+	affected_limb = ##LIMB_TAG; \
+}
+
+BRUISING_DISABILITY(head, "Head", BP_HEAD)
+BRUISING_DISABILITY(torso, "Torso", BP_CHEST)
+BRUISING_DISABILITY(groin, "Groin", BP_GROIN)
+BRUISING_DISABILITY(left_arm, "Left Arm", BP_L_ARM)
+BRUISING_DISABILITY(right_arm, "Right Arm", BP_R_ARM)
+BRUISING_DISABILITY(left_hand, "Left Hand", BP_L_HAND)
+BRUISING_DISABILITY(right_hand, "Right Hand", BP_R_HAND)
+BRUISING_DISABILITY(left_leg, "Left Leg", BP_L_LEG)
+BRUISING_DISABILITY(right_leg, "Right Leg", BP_R_LEG)
+BRUISING_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
+BRUISING_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
+
+#undef BRUISING_DISABILITY
+
+ABSTRACT_TYPE(/datum/character_disabilities/burn)
+	name = "Bruised Limb"
+	var/affected_limb
+
+/datum/character_disabilities/burn/apply_self(var/mob/living/carbon/human/target)
+	target.apply_damage(10, DAMAGE_BURN, affected_limb, armor_pen = 100, silent = TRUE)
+
+#define BURN_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \
+/datum/character_disabilities/burn/##LIMB_PATH { \
+	name = "Burned Limb: " + ##LIMB_NAME; \
+	affected_limb = ##LIMB_TAG; \
+}
+
+BURN_DISABILITY(head, "Head", BP_HEAD)
+BURN_DISABILITY(torso, "Torso", BP_CHEST)
+BURN_DISABILITY(groin, "Groin", BP_GROIN)
+BURN_DISABILITY(left_arm, "Left Arm", BP_L_ARM)
+BURN_DISABILITY(right_arm, "Right Arm", BP_R_ARM)
+BURN_DISABILITY(left_hand, "Left Hand", BP_L_HAND)
+BURN_DISABILITY(right_hand, "Right Hand", BP_R_HAND)
+BURN_DISABILITY(left_leg, "Left Leg", BP_L_LEG)
+BURN_DISABILITY(right_leg, "Right Leg", BP_R_LEG)
+BURN_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
+BURN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
+
+#undef BURN_DISABILITY
+
+
+ABSTRACT_TYPE(/datum/character_disabilities/broken)
+	name = "Bruised Limb"
+	var/affected_limb
+
+/datum/character_disabilities/broken/apply_self(var/mob/living/carbon/human/target)
+	var/obj/item/organ/external/affecting = target.get_organ(affected_limb)
+	if(affecting)
+		affecting.fracture(silent = TRUE)
+		affecting.status |= ORGAN_SPLINTED
+
+
+#define BROKEN_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \
+/datum/character_disabilities/broken/##LIMB_PATH { \
+	name = "Broken Limb: " + ##LIMB_NAME; \
+	affected_limb = ##LIMB_TAG; \
+}
+
+BROKEN_DISABILITY(left_arm, "Left Arm", BP_L_ARM)
+BROKEN_DISABILITY(right_arm, "Right Arm", BP_R_ARM)
+BROKEN_DISABILITY(left_hand, "Left Hand", BP_L_HAND)
+BROKEN_DISABILITY(right_hand, "Right Hand", BP_R_HAND)
+BROKEN_DISABILITY(left_leg, "Left Leg", BP_L_LEG)
+BROKEN_DISABILITY(right_leg, "Right Leg", BP_R_LEG)
+BROKEN_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
+BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
+
+#undef BROKEN_DISABILITY
