@@ -650,6 +650,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "coalition_card"
 	overlay_state = "nothing"
 
+/obj/item/card/id/tcaf // For ghostroles, rather than ERTs.
+	name = "\improper Tau Ceti Armed Forces identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
+	icon_state = "legion"
+	overlay_state = "nothing"
+
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."

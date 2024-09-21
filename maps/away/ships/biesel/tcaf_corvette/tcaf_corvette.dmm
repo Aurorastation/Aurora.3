@@ -8011,9 +8011,21 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/ammo_magazine/a357,
-/obj/item/ammo_magazine/a357,
-/obj/item/gun/projectile/revolver/konyang,
+/obj/item/ammo_magazine/a357{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/item/ammo_magazine/a357{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/item/gun/projectile/revolver/konyang{
+	pixel_y = 5
+	},
+/obj/item/rig/combat/legionnaire{
+	pixel_x = 5;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
 "Gc" = (
@@ -10790,6 +10802,11 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)

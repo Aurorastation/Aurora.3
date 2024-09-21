@@ -24,7 +24,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/tcaf
 	head = /obj/item/clothing/head/tcaf_technician
-	id = /obj/item/card/id
+	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
 	l_ear = /obj/item/device/radio/headset/ship
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
