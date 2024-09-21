@@ -96,7 +96,12 @@
 	else
 		icon_state = "[base_state]"
 
-/obj/item/paper/proc/update_space(var/new_text)
+/**
+ * Updates the amount of free space in the paper
+ *
+ * * new_text - The new text the paper contains (supposedly), text
+ */
+/obj/item/paper/proc/update_space(new_text)
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
@@ -756,28 +761,42 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
-//
-// Fluff Papers
-// Fluff papers that you can map in, for lore or whatever.
-//
 
-/// Parent item for fluff papers. Used for lore or something I guess
-/obj/item/paper/fluff
-	name = "fluff paper"
-	desc = "You aren't supposed to see this."
-	/// The language to translate the paper into. Set to the name of the language.
+
+/*#############################################
+			FLUFF PAPERS SUBTYPE
+#############################################*/
+
+/**
+ * # Fluff papers
+ *
+ * Fluff papers that you can map in, used in mapping
+ *
+ * You **have** to create a subtype for the map you're using it in, and have the info/name variables set in code, **not in map** ie:
+ *
+ * ```
+ * /obj/item/paper/fluff/<mapname>/(<paper_name>(/)?)+
+ * ```
+ *
+ * This subtype will take care of updating the free space on the paper on initialization, and can be written in different languages
+ */
+ABSTRACT_TYPE(/obj/item/paper/fluff)
+	/// The language to translate the paper into, one of the `LANGUAGE_*` in `code\__DEFINES\species_languages.dm`
 	var/language
 
-/obj/item/paper/fluff/Initialize()
+/obj/item/paper/fluff/Initialize(mapload, text, title)
 	. = ..()
-	if(language)
-		var/datum/language/L = GLOB.all_languages[language]
+
+	if(src.language)
+		var/datum/language/L = GLOB.all_languages[src.language]
 		if(istype(L) && L.written_style) //Don't want to try and write in Hivenet or something
 			var/key = L.key
 			var/languagetext = "\[lang=[key]]"
 			languagetext += "[info]\[/lang]"
-			info = parsepencode(languagetext)
+			src.info = parsepencode(languagetext)
 			update_icon()
+
+	update_space(src.info)
 
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave
