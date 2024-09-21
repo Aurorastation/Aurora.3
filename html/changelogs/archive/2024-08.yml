@@ -206,3 +206,26 @@
   - spellcheck: Correctly lables the 5u Nicotine pill bottle
   - rscadd: Codes in new IPC heads, the Selen, Sienna and Siseyo series heads. (Thanks
       NobleRow for making them!)
+2024-08-26:
+  Ben10083:
+  - rscadd: 'Adds new Tajaran Charm: Twin Suns, used for s''rend''marr worshippers.'
+  - spellcheck: Fixed incorrect mentions of 'Okon 011' instead of 'Okon 001'.
+  - rscadd: Adds delivery point and holopad to Okon 001.
+  - bugfix: Adds missing airlock for Okon 001.
+  Furrycactus:
+  - qol: Depreciated the Port and Starboard Wing Substations, as they were a redundant
+      load on the powergrid that each only powered one APC.
+  Geeves:
+  - rscadd: Certain autolathe items can now be printed at Code Red without needing
+      to be hacked. (though hacking allows you to access them without the level)
+  - balance: Certain autolathe items have had their hacking restrictions removed,
+      such as the industrial welder. They are now printable by default.
+  - qol: Reorganized the autolathe, drastically reduced the size of the General tab,
+      and introduced new tabs, such as Dinnerware and Armaments.
+  - qol: Shotgun shells now print in piles, instead of one shell at a time. The resource
+      cost has been increased to compensate.
+2024-08-27:
+  hazelmouse:
+  - rscadd: Added a third smelting line to mining, and shortened the conveyor belts.
+      All three miners can now empty their boxes at once!
+  - qol: Spark airlock will no longer jam after forcing the airlock outwards once.

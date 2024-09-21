@@ -433,31 +433,51 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_wrists)		return wrists
 	return ..()
 
-/mob/living/carbon/human/get_equipped_items(var/include_carried = 0)
+/mob/living/carbon/human/get_equipped_items(include_flags = NONE)
 	var/list/items = new/list()
 
-	if(back) items += back
-	if(belt) items += belt
-	if(l_ear) items += l_ear
-	if(r_ear) items += r_ear
-	if(glasses) items += glasses
-	if(gloves) items += gloves
-	if(head) items += head
-	if(shoes) items += shoes
-	if(wear_id) items += wear_id
-	if(wear_mask) items += wear_mask
-	if(wear_suit) items += wear_suit
-	if(w_uniform) items += w_uniform
-	if(wrists) items += wrists
+	if(back)
+		items += back
+	if(belt)
+		items += belt
+	if(l_ear)
+		items += l_ear
+	if(r_ear)
+		items += r_ear
+	if(glasses)
+		items += glasses
+	if(gloves)
+		items += gloves
+	if(head)
+		items += head
+	if(shoes)
+		items += shoes
+	if(wear_id)
+		items += wear_id
+	if(wear_mask)
+		items += wear_mask
+	if(wear_suit)
+		items += wear_suit
+	if(w_uniform)
+		items += w_uniform
+	if(wrists)
+		items += wrists
+	if(legcuffed)
+		items += legcuffed
+	if(handcuffed)
+		items += handcuffed
 
-	if(include_carried)
-		if(l_hand)     items += l_hand
-		if(r_hand)     items += r_hand
+	if(include_flags & INCLUDE_HELD)
+		if(l_hand)
+			items += l_hand
+		if(r_hand)
+			items += r_hand
+		if(s_store)
+			items += s_store
+
+	if(include_flags & INCLUDE_POCKETS)
 		if(l_store)    items += l_store
 		if(r_store)    items += r_store
-		if(legcuffed)  items += legcuffed
-		if(handcuffed) items += handcuffed
-		if(s_store)    items += s_store
 
 	return items
 

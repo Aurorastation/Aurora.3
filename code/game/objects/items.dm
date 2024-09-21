@@ -349,7 +349,7 @@
 	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -480,7 +480,7 @@
  * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
  * the loc inside here would point to the container, not the mob that had it in hand
  *
- * * user - The `/mob` that dropped the object
+ * * user - The `/mob` that dropped the object (was removed from, not necessarily who clicked the button)
  */
 /obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
@@ -503,6 +503,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user?.update_equipment_speed_mods()
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -615,6 +617,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user.update_equipment_speed_mods()
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE
@@ -903,7 +907,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

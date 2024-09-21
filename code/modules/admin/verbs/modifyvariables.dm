@@ -573,7 +573,7 @@ var/list/VVdynamic_lock = list(
 	var/original_name
 
 	if (!istype(O, /atom))
-		original_name = "\ref[O] ([O])"
+		original_name = "[REF(O)] ([O])"
 	else
 		original_name = O:name
 
