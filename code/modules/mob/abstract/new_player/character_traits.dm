@@ -80,6 +80,7 @@
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
 
+
 ABSTRACT_TYPE(/datum/character_disabilities/bruising)
 	name = "Bruised Limb"
 	var/affected_limb
@@ -106,6 +107,7 @@ BRUISING_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
 BRUISING_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 
 #undef BRUISING_DISABILITY
+
 
 ABSTRACT_TYPE(/datum/character_disabilities/burn)
 	name = "Bruised Limb"
@@ -144,7 +146,6 @@ ABSTRACT_TYPE(/datum/character_disabilities/broken)
 	if(affecting)
 		affecting.fracture(silent = TRUE)
 		affecting.status |= ORGAN_SPLINTED
-
 
 #define BROKEN_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \
 /datum/character_disabilities/broken/##LIMB_PATH { \
