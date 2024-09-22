@@ -32,8 +32,8 @@
 	attack_admins(target_mob, user)
 
 /obj/item/book/tome/proc/attack_admins(var/mob/living/target_mob, var/mob/living/user)
-	target_mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [name] on [target_mob.name] ([target_mob.ckey])</span>")
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [name] on [target_mob.name] ([target_mob.ckey])</span>"
 	msg_admin_attack("[key_name_admin(user)] used [name] on [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 

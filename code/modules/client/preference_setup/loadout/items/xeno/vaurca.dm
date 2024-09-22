@@ -346,6 +346,16 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
+/datum/gear/accessory/vaurca_starcape
+	display_name = "cthur star cape"
+	description = "A decorated cape, fit for a C'thuric Ta."
+	path = /obj/item/clothing/accessory/vaurca_breeder/star_cape
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/cthur_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/accessory/vaurca_cthur_llc
 	display_name = "cthur, llc cape"
 	description = "A cape for C'thur, LLC Vaurca Gyne diplomats."

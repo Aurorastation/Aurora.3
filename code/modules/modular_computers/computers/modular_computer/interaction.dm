@@ -321,7 +321,7 @@
 		return
 	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
 		return over_object.attackby(src, M)
-	if(!istype(over_object, /obj/screen) && !(over_object == src))
+	if(!istype(over_object, /atom/movable/screen) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()

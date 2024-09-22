@@ -101,8 +101,8 @@
 
 	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), range = 3)
 
-	target_mob.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>")
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>"
 	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(target_mob)] with [name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])

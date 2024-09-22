@@ -264,7 +264,7 @@
 	update_name()
 	update_icon()
 
-/obj/item/reagent_containers/glass/rag/process()
+/obj/item/reagent_containers/glass/rag/process(seconds_per_tick)
 	if(!can_ignite())
 		visible_message(SPAN_WARNING("\The [src] burns out."))
 		extinguish()
@@ -289,11 +289,11 @@
 
 	for(var/fuel_type in reagents.reagent_volumes)
 		if(ispath(fuel_type, /singleton/reagent/fuel) || ispath(fuel_type, /singleton/reagent/alcohol))
-			reagents.remove_reagent(reagents.reagent_volumes[fuel_type], reagents.maximum_volume/25)
+			reagents.remove_reagent(fuel_type, ((reagents.maximum_volume/25) * seconds_per_tick))
 			break
 	update_name()
 	update_icon()
-	burn_time--
+	burn_time -= seconds_per_tick
 
 /obj/item/reagent_containers/glass/rag/advanced
 	name = "microfiber cloth"

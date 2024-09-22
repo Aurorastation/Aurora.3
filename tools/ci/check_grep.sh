@@ -132,6 +132,48 @@ else
     echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
 fi
 
+# Check that only the expected amount of raw ref proc calls are present
+echo "Verifying no raw ref proc calls are being added" >> code_error.log
+RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref[\(\[]' | wc -l`
+if [[ $RAW_REF_BUILTIN_PROCS -ne 3 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found new raw ref proc calls in code" >> code_error.log
+else
+    echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
+fi
+
+# Check that the text proc is not being used
+echo "Verifying no built in text proc calls are being added" >> code_error.log
+BUILTIN_TEXT_PROC_CALLS=`grep -r --include \*.dm -P --regexp='[^\w_\/\.]text\('`
+if [[ $BUILTIN_TEXT_PROC_CALLS != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found builtin calls to the text proc, use string interpolation instead:" >> code_error.log
+	echo $BUILTIN_TEXT_PROC_CALLS >> code_error.log
+else
+    echo "PASS: No builtin calls to the text proc were found" >> code_error.log
+fi
+
+# Check that only the expected amount of raw ref proc calls are present
+echo "Verifying no raw ref proc calls are being added" >> code_error.log
+RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref[\(\[]' | wc -l`
+if [[ $RAW_REF_BUILTIN_PROCS -ne 3 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found new raw ref proc calls in code" >> code_error.log
+else
+    echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
+fi
+
+# Check that the text proc is not being used
+echo "Verifying no built in text proc calls are being added" >> code_error.log
+BUILTIN_TEXT_PROC_CALLS=`grep -r --include \*.dm -P --regexp='[^\w_\/\.]text\('`
+if [[ $BUILTIN_TEXT_PROC_CALLS != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found builtin calls to the text proc, use string interpolation instead:" >> code_error.log
+	echo $BUILTIN_TEXT_PROC_CALLS >> code_error.log
+else
+    echo "PASS: No builtin calls to the text proc were found" >> code_error.log
+fi
+
 ##########################################################
 #	Proc signatures are respected, for general procs
 ##########################################################

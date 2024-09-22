@@ -133,8 +133,8 @@
 	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == MONKEYBLOCK) : GetState(MONKEYBLOCK)))
 		injected_with_monkey = SPAN_DANGER(" (MONKEY)")
 
-	target_mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [target_mob.name] ([target_mob.ckey])</span>")
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [target_mob.name] ([target_mob.ckey])</span>"
 	log_attack("[user.name] ([user.ckey]) used the [name] to inject [target_mob.name] ([target_mob.ckey])")
 	message_admins("[key_name_admin(user)] injected [key_name_admin(target_mob)] with \the [src][injected_with_monkey]")
 

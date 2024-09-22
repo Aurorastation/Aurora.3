@@ -187,8 +187,8 @@
 				var/trans = reagents.trans_to_mob(target_mob, 30, CHEM_BLOOD)
 				to_chat(user, SPAN_ALERT("You stab \the [target_mob] with \the [src], injecting all of its contents.")) // To the stabber.
 				to_chat(target_mob, SPAN_WARNING("You feel a small <b>pinch</b>!")) // To the stabbed.
-				target_mob.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>")
-				user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [target_mob.name] ([target_mob.ckey])</span>")
+				target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>"
+				user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [target_mob.name] ([target_mob.ckey])</span>"
 				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 				admin_inject_log(user, target_mob, src, contained_reagents, reagents.get_temperature(), trans) // Admin log.
 
