@@ -41,7 +41,7 @@
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return 0
 
-		var/choice = alert(user, text("Would you like to (un)authorize a shortened launch time? [] authorization\s are still needed. Use abort to cancel all authorizations.", src.auth_need - src.authorized.len), "Shuttle Launch", "Authorize", "Repeal", "Abort")
+		var/choice = alert(user, "Would you like to (un)authorize a shortened launch time? [(src.auth_need - src.authorized.len)] authorization\s are still needed. Use abort to cancel all authorizations.", "Shuttle Launch", "Authorize", "Repeal", "Abort")
 		if(evacuation_controller.is_prepared() && user.get_active_hand() != id)
 			return 0
 		switch(choice)
