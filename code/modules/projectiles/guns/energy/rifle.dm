@@ -186,7 +186,7 @@
 	can_switch_modes = 0
 	can_turret = 0
 	zoomdevicename = "rifle scope"
-	var/obj/screen/overlay = null
+	var/atom/movable/screen/overlay = null
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"

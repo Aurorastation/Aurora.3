@@ -453,7 +453,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = attacking_item
-			msgVerified = text("<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>")
+			msgVerified = "<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>"
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/ID = attacking_item

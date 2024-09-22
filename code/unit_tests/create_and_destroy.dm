@@ -48,7 +48,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/machinery/ai_powersupply,
 
 		// Requires a player
-		/obj/screen/new_player/selection/join_game,
+		/atom/movable/screen/new_player/selection/join_game,
 
 		// Requires to make a sound based on client pref in the announcement
 		/obj/effect/portal/revenant,
@@ -90,8 +90,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		/obj/spellbutton,
 
-		/obj/screen/click_catcher,
-		/obj/screen/new_player/selection/polls,
+		/atom/movable/screen/click_catcher,
+		/atom/movable/screen/new_player/selection/polls,
 
 		//Temporary exclusion while matt fixes it
 		/obj/projectile/beam/psi_lightning/wide,
@@ -138,7 +138,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/machinery/gravity_generator/main/station)
 
 	// Requires an owner's client
-	ignore += typesof(/obj/screen/psi)
+	ignore += typesof(/atom/movable/screen/psi)
 
 	// Requires material on creation
 	ignore += typesof(/obj/effect/overlay/burnt_wall)
@@ -161,7 +161,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/turf/simulated/floor/beach/water)
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
-	ignore += typesof(/obj/screen/ability)
+	ignore += typesof(/atom/movable/screen/ability)
 	ignore += typesof(/obj/effect/bmode)
 
 	// Requires something in icon update or runtimes

@@ -515,7 +515,7 @@
 
 /obj/structure/closet/MouseDrop_T(atom/dropping, mob/user)
 	var/atom/movable/O = dropping
-	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
+	if(istype(O, /atom/movable/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)
 		return
