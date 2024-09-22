@@ -57,7 +57,7 @@
 /obj/projectile/ship_ammo/autocannon
 	name = "60mm AP shell"
 	icon_state = "small"
-	damage = 120
+	damage = 100
 	armor_penetration = 60
 	penetrating = 3
 
