@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machinery/ship_guns/autocannon.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
 	icon_state = "weapon_base"
-	max_ammo = 2
+	max_ammo = 3
 	caliber = SHIP_CALIBER_60MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
@@ -21,7 +21,7 @@
 	impact_type = SHIP_AMMO_IMPACT_AP
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	caliber = SHIP_CALIBER_60MM
-	burst = 5
+	burst = 11
 	cookoff_heavy = 0
 	projectile_type_override = /obj/projectile/ship_ammo/autocannon
 
@@ -39,12 +39,27 @@
 	cookoff_heavy = 1
 	projectile_type_override = /obj/projectile/ship_ammo/autocannon/he
 
+
+/obj/item/ship_ammunition/autocannon/frag
+	name = "60mm fragmentation shell bundle"
+	name_override = "60mm fragmentation burst"
+	desc = "A bundle of fragmentation shells for use in a heavy autocannon emplacement. These are intented to penetrate a short distance into the target before exploding in a shower of shrapnel, effective at targeting the crews of vessels."
+	icon = 'icons/obj/guns/ship/ship_ammo_autocannon.dmi'
+	icon_state = "autocannon_frag"
+	overmap_icon_state = "cannon_salvo"
+	impact_type = SHIP_AMMO_IMPACT_HE
+	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
+	caliber = SHIP_CALIBER_60MM
+	burst = 8
+	cookoff_heavy = 1
+	projectile_type_override = /obj/projectile/ship_ammo/autocannon/frag
+
 /obj/projectile/ship_ammo/autocannon
 	name = "60mm AP shell"
 	icon_state = "small"
-	damage = 100
+	damage = 120
 	armor_penetration = 60
-	penetrating = 2
+	penetrating = 3
 
 /obj/projectile/ship_ammo/autocannon/he
 	name = "60mm HE shell"
@@ -53,9 +68,17 @@
 	armor_penetration = 30
 	penetrating = 0 // Explodes on the hull.
 
-/obj/projectile/ship_ammo/autocannon/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/autocannon/frag
+	name = "60mm fragmentation shell"
+	icon_state = "small"
+	damage = 60
+	armor_penetration = 30
+	penetrating = 2
+
+/obj/projectile/ship_ammo/autocannon/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	if(ammo && ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 0, 2, 3)
-	else
-		explosion(target, 0, 1, 2)
+	explosion(target, 0, 2, 3)
+
+/obj/projectile/ship_ammo/autocannon/frag/on_impact(var/atom/A)
+	fragem(src, 70, 70, 1, 2, 15, 5, TRUE)
+	..()
