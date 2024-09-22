@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "AIs can now dress up their preview mob."
-  - rscadd: "Cyborgs now have the cardboard outfit in the loadout again. You can toggle it by deselecting the job suit and hat options."
-  - bugfix: "Job suits are now hidden correctly when the job suit is deselected."

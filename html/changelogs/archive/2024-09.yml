@@ -91,3 +91,53 @@
 2024-09-16:
   Ben10083:
   - bugfix: Fixes the unusable programs in the AI internal computer.
+2024-09-22:
+  Ben10083:
+  - bugfix: Orion Express ship minor mapping fixes.
+  - rscadd: New TCAF Hardsuit 'Legionnaire' (currently only for humans/humanoid ipcs).
+      Thanks to NobleRow for the Sprites!
+  CometBlaze:
+  - imageadd: Resprites the solarian IPC fatigues to make them lore accurate
+  FluffyGhost:
+  - rscadd: Fluff papers now update the free space on the paper correctly on initialization.
+  - refactor: Moved all the fluff paper in code, from the maps.
+  - rscadd: Added maplinting for fluff papers.
+  - rscadd: Added DMDoc for fluff papers.
+  - refactor: Refactored all the builtin text procs to use string interpolation instead.
+  - server: Added a linting for the above.
+  - qol: Nano printers (computer component) will now refuse papers that are already
+      written onto.
+  - bugfix: Fixed a runtime on deletion of paper stacks due to erroneous conversion
+      of datum bracket access.
+  - code_imp: Some DMDocs.
+  Geeves:
+  - rscadd: AIs can now dress up their preview mob.
+  - rscadd: Cyborgs now have the cardboard outfit in the loadout again. You can toggle
+      it by deselecting the job suit and hat options.
+  - bugfix: Job suits are now hidden correctly when the job suit is deselected.
+  - rscadd: EAL is now much shorter to people who can't understand it, to represent
+      how effective it is at compressing communicated datapackets.
+  - bugfix: Fixed scrambled languages causing double spaces and uncapitalized words.
+  GeneralCamo:
+  - rscadd: Refactor /obj/screen to /atom/movable/screen.
+  ShimmerIsTaken:
+  - bugfix: Removes Sparta from Dominian origins, given it was removed from lore.
+  SimpleMaroon:
+  - rscadd: Using the Ve'katak Hivenet receiver now produces a visible emote and the
+      same sound as a Vaurca using the Hivenet.
+  - rscadd: Added the C'thur Ta star cape that was missing from the loadout.
+  Snowy1237:
+  - bugfix: Fixed the Hegemony Navy away ship being visible if no crew for it have
+      spawned.
+  hazelmouse:
+  - qol: Resolves a few odd quirks of the Horizon's map, like misaligned objects.
+      Patches a few holes in custodial access to maintenance, including to bar maintenance
+      and behind the main lift.
+  - rscadd: Added radio channels to the Badlands sector, accessible via an analog
+      radio.
+  - bugfix: Fixed a fault with the ore redemption consoles in mining that caused miners
+      not to receive points for their ore.
+  - bugfix: The Zavodskoi Shuttle offsite now correctly spawns onto the overmap.
+  - rscadd: Zeng-Hu Mobility Frames can now be played in the security department.
+  - rscadd: IPCs are now available to play in the Coalition Ranger, Orion Express,
+      and Elyran Navy ghostroles.
