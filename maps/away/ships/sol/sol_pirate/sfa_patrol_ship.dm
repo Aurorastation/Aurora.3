@@ -9,7 +9,6 @@
 	spawn_weight = 1
 	ship_cost = 1
 	id = "sfa_patrol_ship"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)
 
 	unit_test_groups = list(3)
