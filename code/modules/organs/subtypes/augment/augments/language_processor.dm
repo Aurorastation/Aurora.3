@@ -152,7 +152,24 @@
 	cooldown = 0
 
 	/// The list of phrases the user of this augment can say via the action button
-	var/static/list/phrases = list("Yes", "No", "Need help")
+	var/static/list/phrases = list(
+		"Affirmative.",
+		"Negative.",
+		"Acknowledged.",
+		"Parsing error, retransmit?",
+		"Greetings.",
+		"I authenticate.",
+		"Requesting status?",
+		"Task proceeding as expected.",
+		"Task failing to proceed as expected.",
+		"My status is favorable.",
+		"My status is not favorable.",
+		"I require help.",
+		"I do not require help",
+		"Threat detected.",
+		"Threat present.",
+		"Threat resolved."
+		)
 
 /obj/item/organ/internal/augment/language/ebsl/check_works_with_target(var/mob/living/carbon/human/target)
 	if(!ishuman(target))

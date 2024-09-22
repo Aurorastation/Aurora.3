@@ -278,8 +278,8 @@
 	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Officer", "Warden", "Security Cadet", "Investigator", "Security Personnel", "Corporate Liaison", "Assistant", "Off-Duty Crew Member", "Corporate Reporter")
 
 /datum/gear/augment/ebsl_language
-	display_name = "Orion Express Encoded Broad Spectrum Language processor"
-	description = "An augment developed by Orion Express that lets synthetics transmit and receive their proprietary language, EBSL. Organics can receive, but not transmit this language. Only organics with SBS blood can use this augment."
+	display_name = "Encoded Broad Spectrum Language processor"
+	description = "An augment developed by Orion Express that allows both synthetics and organics to parse their proprietary encoded language, EBSL, otherwise known as Midband. Synthetics can transmit freely with this augment, while organics can only transmit from a limited set of standard transmissions. Only organics with SBS blood can use this augment."
 	path = /obj/item/organ/internal/augment/language/ebsl
 	cost = 2
 
