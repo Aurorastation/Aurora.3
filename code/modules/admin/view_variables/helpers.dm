@@ -13,7 +13,7 @@
 	. = ..()
 	. += {"
 		<br><font size='1'>
-		<br><a href='?_src_=vars;datumedit=\ref[REF(src)];varnameedit=ckey'>[ckey ? ckey : "No ckey"]</a> / <a href='?_src_=vars;datumedit=\ref[src];varnameedit=real_name'>[real_name ? real_name : "No real name"]</a>
+		<br><a href='?_src_=vars;datumedit=[REF(src)];varnameedit=ckey'>[ckey ? ckey : "No ckey"]</a> / <a href='?_src_=vars;datumedit=[REF(src)];varnameedit=real_name'>[real_name ? real_name : "No real name"]</a>
 		<br>
 		BRUTE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=brute'>[getBruteLoss()]</a>
 		FIRE:<a href='?_src_=vars;mobToDamage=[REF(src)];adjustDamage=fire'>[getFireLoss()]</a>
