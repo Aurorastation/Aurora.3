@@ -2,7 +2,7 @@
 	name = "spell"
 	icon = 'icons/obj/projectiles.dmi'
 
-	nodamage = 1 //Most of the time, anyways
+	damage = 0
 
 	var/spell/targeted/projectile/carried
 
@@ -24,14 +24,14 @@
 /obj/projectile/spell_projectile/ex_act(var/severity = 2.0)
 	return
 
-/obj/projectile/spell_projectile/before_move()
-	if(proj_trail && src && src.loc) //pretty trails
-		var/obj/effect/overlay/trail = new /obj/effect/overlay(src.loc)
-		trails += trail
-		trail.icon = proj_trail_icon
-		trail.icon_state = proj_trail_icon_state
-		trail.density = 0
-		addtimer(CALLBACK(src, PROC_REF(post_trail), trail), proj_trail_lifespan)
+// /obj/projectile/spell_projectile/before_move()
+// 	if(proj_trail && src && src.loc) //pretty trails
+// 		var/obj/effect/overlay/trail = new /obj/effect/overlay(src.loc)
+// 		trails += trail
+// 		trail.icon = proj_trail_icon
+// 		trail.icon_state = proj_trail_icon_state
+// 		trail.density = 0
+// 		addtimer(CALLBACK(src, PROC_REF(post_trail), trail), proj_trail_lifespan)
 
 /obj/projectile/spell_projectile/proc/post_trail(obj/effect/overlay/trail)
 	trails -= trail
@@ -48,7 +48,8 @@
 		prox_cast(carried.choose_prox_targets(user = carried.holder, spell_holder = src))
 	return 1
 
-/obj/projectile/spell_projectile/on_impact()
+/obj/projectile/spell_projectile/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(loc && carried)
 		prox_cast(carried.choose_prox_targets(user = carried.holder, spell_holder = src))
 	return 1

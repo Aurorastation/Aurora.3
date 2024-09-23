@@ -208,13 +208,16 @@
 		else
 			desc = initial(desc)
 
-/obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/projectile/P)
-	if(P.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
-		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
-		log_and_message_admins("shot an improvised [name] explosive", P.firer)
-		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
-	detonate(TRUE)
+/obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
+		visible_message(SPAN_DANGER("\The [name] is hit by the [hitting_projectile]!"))
+		log_and_message_admins("shot an improvised [name] explosive", hitting_projectile.firer)
+		log_game("[key_name(hitting_projectile.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
+	detonate(TRUE)
 
 /obj/item/reagent_containers/food/drinks/cans/ex_act(severity)
 	detonate(TRUE)

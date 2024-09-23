@@ -151,6 +151,8 @@
 	impact_type = /obj/effect/projectile/impact/pulse
 
 /obj/projectile/ship_ammo/leviathan/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+	. = ..()
+
 	if(!is_landmark_hit)
 		if(ismob(target))
 			var/mob/M = target

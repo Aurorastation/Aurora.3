@@ -8,9 +8,10 @@
 	var/mysize = 0
 
 /obj/effect/fusion_particle_catcher/Destroy()
-	. =..()
 	parent.particle_catchers -= src
 	parent = null
+
+	. = ..()
 
 /obj/effect/fusion_particle_catcher/proc/SetSize(newsize)
 	name = "collector [newsize]"
@@ -31,10 +32,15 @@
 		density = FALSE
 		name = "collector [mysize] OFF"
 
-/obj/effect/fusion_particle_catcher/bullet_act(obj/projectile/Proj)
-	parent.AddEnergy(Proj.damage)
+/obj/effect/fusion_particle_catcher/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	parent.AddEnergy(hitting_projectile.damage)
 	update_icon()
-	return FALSE
 
 /obj/effect/fusion_particle_catcher/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	return ismob(mover)

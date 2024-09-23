@@ -141,3 +141,10 @@
   - rscadd: Zeng-Hu Mobility Frames can now be played in the security department.
   - rscadd: IPCs are now available to play in the Coalition Ranger, Orion Express,
       and Elyran Navy ghostroles.
+2024-09-23:
+  AlaunusLux:
+  - rscadd: Added a method for choosing friends that mirror shades won't attack.
+  FluffyGhost:
+  - bugfix: Fixed molotovs not breaking on impact.
+  - bugfix: Fixed burning rags runtiming.
+  - code_imp: Made burning rags processing time constant.

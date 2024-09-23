@@ -207,8 +207,11 @@
 
 
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) return !block_air_zones
+	if(air_group)
+		return !block_air_zones
 	if (istype(mover))
+		if(mover.movement_type & PHASING)
+			return TRUE
 		if(mover.pass_flags & PASSGLASS)
 			return !opacity
 		if(density && hashatch && mover.pass_flags & PASSDOORHATCH)
@@ -236,17 +239,19 @@
 		else				do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(var/obj/projectile/Proj)
-	..()
+/obj/machinery/door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	var/damage = Proj.get_structure_damage()
+	var/damage = hitting_projectile.get_structure_damage()
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
-			switch (Proj.damage_type)
+			switch (hitting_projectile.damage_type)
 				if(DAMAGE_BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
 					new /obj/item/stack/rods(src.loc, 3)
