@@ -285,6 +285,9 @@
 /obj/proc/can_hold_dropped_items()
 	return TRUE
 
+/obj/proc/damage_type()
+	return damtype
+
 /obj/proc/damage_flags()
 	. = 0
 	if(has_edge(src))

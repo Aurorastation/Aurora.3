@@ -75,7 +75,18 @@
 	throw_range = 0
 	throw_speed = 0
 	can_embed = FALSE
-	base_block_chance = 70
+
+	material_repair_type = null
+
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
+	/// The changeling that made us
 	var/mob/living/creator
 
 /obj/item/shield/riot/changeling/New()
@@ -85,6 +96,11 @@
 /obj/item/shield/riot/changeling/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/shield/riot/changeling/handle_damage(mob/user, damage)
+	. = ..()
+	if(shield_health == 0)
+		user.drop_from_inventory(src)
 
 /obj/item/shield/riot/changeling/dropped(mob/user)
 	. = ..()
@@ -107,13 +123,6 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
-
-/obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/projectile))
-		var/obj/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
-			return base_block_chance / 2 //lings still have a 35% chance of blocking these kinds of attacks
-	return base_block_chance
 
 /obj/item/bone_dart
 	name = "bone dart"

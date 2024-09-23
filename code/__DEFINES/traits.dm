@@ -167,6 +167,13 @@
 /// when mobs are viewing something via a computer, currently used for the helm computer
 #define TRAIT_COMPUTER_VIEW "computer_view"
 
+/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
+#define TRAIT_SHOE_GRIP "shoe_grip"
+
+
+/// This trait prevents the mob from being pushed if they aren't on help intent
+#define TRAIT_UNPUSHABLE "unpushable"
+
 // IPC OVERLOADER OVERDOSE STATES
 #define TRAIT_SOURCE_OVERLOADER "overloader"
 #define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"
@@ -178,9 +185,6 @@
 
 /// Traits given by augments
 #define TRAIT_SOURCE_AUGMENT "augment"
-
-/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
-#define TRAIT_SHOE_GRIP "shoe_grip"
 
 // DISABILITY TRAITS
 

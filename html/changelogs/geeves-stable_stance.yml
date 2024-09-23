@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - balance: "Shields held in your hand now guarantee that you cannot be pushed. Energy and tactical shields only prevent pushing when they're deployed / active."

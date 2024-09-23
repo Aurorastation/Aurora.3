@@ -430,6 +430,9 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/projectile/damage_type()
+	return damage_type
+
 /obj/projectile/damage_flags()
 	return damage_flags
 
