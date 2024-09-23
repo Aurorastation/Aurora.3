@@ -896,22 +896,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
-"aBj" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_fuel_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "aBr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1068,6 +1052,13 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/space)
+"aFC" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "aGp" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 8
@@ -1199,9 +1190,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+	dir = 1;
+	use_power = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "aJM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1994,6 +1986,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "byX" = (
@@ -3657,13 +3650,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_fuel_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -4415,6 +4401,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"dfG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/space)
 "dgz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4616,6 +4607,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -4952,7 +4946,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	id = "exploratory_chem_shutters";
+	id = "lost_science_chem_window";
 	name = "Exploratory Chemistry";
 	opacity = 0
 	},
@@ -6079,6 +6073,7 @@
 /obj/structure/platform_deco{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ehf" = (
@@ -6762,7 +6757,7 @@
 	dir = 8
 	},
 /obj/machinery/artifact_analyser,
-/turf/simulated/floor/redgrid,
+/turf/simulated/floor/redgrid/airless,
 /area/space)
 "eEz" = (
 /obj/effect/floor_decal/corner/brown{
@@ -6959,6 +6954,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "eOi" = (
@@ -7397,6 +7395,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"fcX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/full,
 /area/space)
 "fdw" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -8972,6 +8978,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/space)
+"gix" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/space)
 "giC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -9557,6 +9568,11 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/space)
+"gBv" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/power/radial_floodlight,
+/turf/template_noop,
+/area/space)
 "gCi" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -9952,7 +9968,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	id = "exploratory_chem_shutters";
+	id = "lost_science_chem_window";
 	name = "Exploratory Chemistry";
 	opacity = 0;
 	dir = 4
@@ -10055,6 +10071,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"gXi" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_SciShutters";
+	name = "Science";
+	opacity = 0;
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "gXC" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -10306,22 +10333,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
-"hfL" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_fuel_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "hfX" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -10785,6 +10796,12 @@
 	name = "Hazardous Containment Lockdown";
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_anomaly_shutters";
+	name = "Testing Chamber Safety Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "hxW" = (
@@ -10903,6 +10920,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -12214,10 +12234,11 @@
 /area/space)
 "ioG" = (
 /obj/effect/floor_decal/corner/purple/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ioW" = (
@@ -12266,6 +12287,9 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"iqW" = (
+/turf/simulated/open/airless,
 /area/space)
 "ire" = (
 /obj/machinery/atmospherics/unary/vent_scrubber,
@@ -13622,21 +13646,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"jhD" = (
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_fuel_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
 "jhW" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -13752,6 +13761,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_anomaly_shutters";
+	name = "Testing Chamber Safety Shutters";
+	opacity = 0;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -14416,19 +14432,6 @@
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/grass,
 /area/space)
-"jJI" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_fuel_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "jKs" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/atmospherics/portables_connector/fuel{
@@ -15056,6 +15059,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -15855,7 +15861,10 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_research{
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research{
 	dir = 4;
 	name = "Testing Chamber"
 	},
@@ -15864,9 +15873,6 @@
 	fail_secure = 1;
 	id = "lost_testchamber_lockdown";
 	name = "Hazardous Containment Lockdown"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -16325,6 +16331,16 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
+/area/space)
+"laI" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/westleft{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "lbv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -17315,18 +17331,30 @@
 	dir = 1;
 	name = "Science"
 	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	id = "lost_RnDShutters";
-	name = "Research and Development";
-	opacity = 0;
-	dir = 4
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 1
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_SciShutters";
+	name = "Science";
+	opacity = 0;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
+/area/space)
+"lNl" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "lNO" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -17847,6 +17875,7 @@
 /obj/structure/platform/ledge{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mkd" = (
@@ -18747,6 +18776,9 @@
 /obj/structure/platform_deco{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mQM" = (
@@ -18967,7 +18999,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "mYE" = (
 /obj/effect/floor_decal/corner/brown{
@@ -20302,6 +20334,16 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/space)
+"nYb" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/machinery/atmospherics/binary/pump/supply/on{
+	target_pressure = 200;
+	name = "Distro to Research Airlock"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "oaD" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external,
@@ -20691,17 +20733,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
-"ojt" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_north";
-	name = "airlock_lost_fuel_north";
-	frequency = 1501;
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
 /area/space)
 "ojK" = (
 /obj/structure/ladder/mining,
@@ -21464,6 +21495,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -22318,6 +22352,12 @@
 	name = "Hazardous Containment Lockdown";
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_anomaly_shutters";
+	name = "Testing Chamber Safety Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "pqa" = (
@@ -22433,7 +22473,14 @@
 /area/space)
 "ptn" = (
 /obj/machinery/artifact_scanpad,
-/turf/simulated/floor/redgrid,
+/obj/machinery/artifact,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	name = "Testing Chamber Isolation";
+	breach_detection = 0;
+	report_danger_level = 0
+	},
+/turf/simulated/floor/redgrid/airless,
 /area/space)
 "pty" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22557,6 +22604,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -22968,7 +23018,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "pJp" = (
 /obj/effect/floor_decal/corner/red{
@@ -24888,6 +24938,26 @@
 "rfl" = (
 /turf/simulated/floor/plating,
 /area/space)
+"rfo" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "rfq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -24952,6 +25022,9 @@
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"rgz" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "rgR" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -25284,6 +25357,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_anomaly_shutters";
+	name = "Testing Chamber Safety Shutters";
+	opacity = 0;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "rtW" = (
@@ -25486,6 +25566,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -27015,6 +27098,12 @@
 	name = "Hazardous Containment Lockdown";
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	id = "lost_anomaly_shutters";
+	name = "Testing Chamber Safety Shutters";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "sJl" = (
@@ -27375,6 +27464,10 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"sXD" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
 "sYh" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -27724,6 +27817,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -28861,13 +28957,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_fuel_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -30143,6 +30232,12 @@
 	},
 /obj/machinery/atmospherics/unary/freezer,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	name = "Testing Chamber Isolation";
+	breach_detection = 0;
+	report_danger_level = 0
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "uJx" = (
@@ -30486,6 +30581,9 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"uVX" = (
+/turf/simulated/mineral,
+/area/space)
 "uWe" = (
 /obj/structure/window_frame/empty,
 /obj/item/material/shard,
@@ -30803,6 +30901,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -31273,13 +31374,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_lost_atmos_south";
-	name = "airlock_lost_fuel_south";
-	frequency = 1500;
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -32120,8 +32214,8 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	id = "lost_RnDShutters";
-	name = "Research and Development";
+	id = "lost_SciShutters";
+	name = "Science";
 	opacity = 0;
 	dir = 4
 	},
@@ -32244,6 +32338,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -32392,9 +32489,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+	dir = 1;
+	use_power = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "wjL" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -32562,6 +32660,25 @@
 	output_level = 200000
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"wog" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "wor" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -125753,13 +125870,13 @@ jLj
 jLj
 cuC
 cuC
+xvi
+xvi
 cuC
 cuC
 cuC
-cuC
-cuC
-cuC
-cuC
+xvi
+xvi
 cuC
 cuC
 jLj
@@ -126258,9 +126375,9 @@ cuC
 cuC
 cuC
 cuC
-cuC
-cuC
-cuC
+xvi
+xvi
+xvi
 cuC
 cuC
 cuC
@@ -126764,9 +126881,9 @@ cuC
 cuC
 cuC
 cuC
-cuC
-cuC
-cuC
+xvi
+xvi
+xvi
 cuC
 cuC
 cuC
@@ -126789,7 +126906,7 @@ cuC
 onw
 cuC
 xuJ
-cuC
+xvi
 jLj
 jLj
 jLj
@@ -127271,7 +127388,7 @@ hmd
 hmd
 cuC
 cuC
-cuC
+xvi
 cuC
 cuC
 cuC
@@ -128020,7 +128137,7 @@ jLj
 jLj
 jLj
 nBd
-hfL
+mwL
 nBd
 hXr
 keC
@@ -128038,7 +128155,7 @@ tfv
 eUp
 cJi
 nBd
-aBj
+mwL
 nBd
 cuC
 onw
@@ -128277,7 +128394,7 @@ jLj
 jLj
 jLj
 xvi
-ojt
+lAi
 cDq
 kdn
 wwG
@@ -128295,7 +128412,7 @@ rKD
 wwG
 rNv
 vzn
-jJI
+ftn
 nBd
 bFb
 onw
@@ -128534,8 +128651,8 @@ jLj
 jLj
 jLj
 xvi
-ojt
-jhD
+lAi
+tRM
 qyr
 kob
 hMR
@@ -128552,7 +128669,7 @@ oTR
 bIz
 otU
 tRM
-jJI
+ftn
 nBd
 oOM
 onw
@@ -128791,7 +128908,7 @@ jLj
 jLj
 jLj
 nBd
-hfL
+mwL
 nBd
 fbV
 kxB
@@ -132705,6 +132822,9 @@ xvi
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -132714,6 +132834,9 @@ jLj
 jLj
 jLj
 jLj
+sXD
+gBv
+sXD
 jLj
 jLj
 jLj
@@ -132723,15 +132846,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -132959,36 +133076,36 @@ eQp
 qGS
 qGS
 xvi
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+sXD
+gBv
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+gBv
+sXD
 jLj
 jLj
 jLj
@@ -133219,33 +133336,33 @@ cuC
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
 jLj
 jLj
+xox
 jLj
 jLj
+xox
 jLj
 jLj
+xox
+uVX
+uVX
+uVX
+uVX
+uVX
+jLj
+xox
 jLj
 jLj
+xox
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -133477,31 +133594,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
+xox
+jLj
+jLj
+xox
+jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+jLj
+jLj
+xox
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -133734,31 +133851,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
+xox
+jLj
+jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+uVX
+uVX
+uVX
+uVX
+uVX
+jLj
+uVX
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -133991,31 +134108,31 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+xox
+xox
+xox
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+xox
+xox
+xox
+sXD
 jLj
 jLj
 jLj
@@ -134248,31 +134365,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
+jLj
+jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
+uVX
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -134505,31 +134622,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -134762,31 +134879,31 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+xox
+xox
+xox
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
+xox
+sXD
 jLj
 jLj
 jLj
@@ -135019,31 +135136,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -135252,10 +135369,10 @@ srD
 sbH
 tte
 cuC
-ndT
+gXi
 wcz
 lNi
-ndT
+gXi
 nBd
 pmp
 dXT
@@ -135276,31 +135393,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
+sXD
 jLj
 jLj
 jLj
@@ -135532,32 +135649,32 @@ jLj
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+uVX
+uVX
+uVX
+sXD
 jLj
 jLj
 jLj
@@ -135789,32 +135906,32 @@ jLj
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+uVX
+uVX
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -136046,33 +136163,33 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -136298,38 +136415,38 @@ nBd
 fzC
 nBd
 nBd
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+sXD
+sXD
+gBv
+sXD
+sXD
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+sXD
+sXD
+gBv
 jLj
 jLj
 jLj
@@ -136560,33 +136677,33 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -136817,32 +136934,32 @@ jLj
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -137074,32 +137191,32 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+xox
+xox
+sXD
 jLj
 jLj
 jLj
@@ -137332,31 +137449,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+rgz
+rgz
+rgz
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -137589,31 +137706,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -137846,31 +137963,31 @@ nBd
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+xox
+xox
+xox
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
+rgz
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
+xox
+xox
+xox
+sXD
 jLj
 jLj
 jLj
@@ -138095,39 +138212,39 @@ tLy
 mQK
 mjW
 egZ
-idt
+nYb
 ioG
+aFC
+jeG
 xvi
-rfl
-xvi
+sXD
+jLj
+jLj
+sXD
 jLj
 jLj
 jLj
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -138349,42 +138466,42 @@ cIi
 sLW
 pBw
 kbu
-kbu
+lNl
 vAk
 kbu
 kkd
 byK
-dQz
-rfl
-dQz
+fcX
+dfG
+bYY
+sXD
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+rgz
+uVX
+uVX
+uVX
+uVX
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -138612,36 +138729,36 @@ kJt
 wfG
 xPw
 xvi
-rfl
+urR
 xvi
+sXD
 jLj
 jLj
+sXD
+xox
+xox
+xox
+uVX
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+rgz
+rgz
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+xox
+xox
+sXD
 jLj
 jLj
 jLj
@@ -138874,31 +138991,31 @@ nBd
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
+xox
+jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+jLj
+xox
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -139131,31 +139248,31 @@ jLj
 jLj
 jLj
 jLj
+sXD
 jLj
 jLj
 jLj
+xox
+jLj
+jLj
+xox
+jLj
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+uVX
+xox
+jLj
+jLj
+xox
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
 jLj
 jLj
 jLj
@@ -139387,33 +139504,33 @@ vNU
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
 jLj
 jLj
+xox
 jLj
 jLj
+xox
 jLj
 jLj
+xox
+uVX
+uVX
+uVX
+xox
 jLj
 jLj
+xox
 jLj
 jLj
+xox
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -139641,36 +139758,36 @@ vfQ
 qmX
 ouy
 vNU
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
+sXD
+gBv
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+sXD
+gBv
+sXD
 jLj
 jLj
 jLj
@@ -139901,6 +140018,9 @@ vNU
 jLj
 jLj
 jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -139910,6 +140030,9 @@ jLj
 jLj
 jLj
 jLj
+sXD
+gBv
+sXD
 jLj
 jLj
 jLj
@@ -139919,15 +140042,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+sXD
+sXD
+sXD
 jLj
 jLj
 jLj
@@ -140665,7 +140782,7 @@ pcS
 dkG
 qmX
 qmX
-isb
+wog
 hUe
 cJx
 vNU
@@ -141692,10 +141809,10 @@ mWI
 mWI
 mWI
 mWI
-mWI
-oVk
-onw
-xuJ
+hKh
+rfo
+gix
+laI
 cuC
 jLj
 jLj
@@ -194073,7 +194190,7 @@ onw
 sNS
 onw
 djS
-nBd
+hUm
 bbN
 hPD
 dcT
@@ -198242,6 +198359,8 @@ ezj
 iZV
 iZV
 ofl
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -198251,6 +198370,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -198260,14 +198382,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -198499,32 +198616,32 @@ iZV
 iZV
 iZV
 ofl
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -198756,32 +198873,32 @@ wcD
 wcD
 wcD
 nxq
+iqW
+iqW
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
+iqW
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -199013,6 +199130,14 @@ jLj
 jLj
 jLj
 jLj
+iqW
+jLj
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
@@ -199025,19 +199150,11 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -199270,6 +199387,11 @@ jLj
 jLj
 jLj
 jLj
+iqW
+jLj
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
@@ -199289,12 +199411,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -199527,6 +199644,10 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -199544,14 +199665,10 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -199784,6 +199901,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -199807,8 +199925,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -200041,6 +200158,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -200064,8 +200182,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -200298,6 +200415,10 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -200317,12 +200438,8 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -200555,6 +200672,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -200578,8 +200696,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -200812,6 +200929,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -200835,8 +200953,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -201063,6 +201180,14 @@ smx
 smx
 smx
 xFj
+iqW
+jLj
+jLj
+jLj
+jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -201085,15 +201210,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -201325,6 +201442,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -201347,10 +201467,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -201582,6 +201699,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -201603,12 +201723,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -201834,6 +201951,14 @@ smx
 smx
 tee
 xFj
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -201855,17 +201980,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202096,6 +202213,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202117,12 +202237,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202353,6 +202470,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202375,10 +202495,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -202610,6 +202727,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202630,12 +202750,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -202868,6 +202985,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -202891,8 +203009,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -203125,6 +203242,7 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
@@ -203148,8 +203266,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -203376,10 +203493,16 @@ ekf
 vBD
 iZV
 bAX
+wnd
+wnd
 bPV
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -203397,16 +203520,10 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -203633,7 +203750,13 @@ gFD
 ezj
 ezj
 lDn
+smx
+smx
 xFj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
@@ -203657,13 +203780,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -203890,7 +204007,13 @@ vZy
 ipl
 tOk
 lDn
+smx
+smx
 xFj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -203914,13 +204037,7 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -204147,7 +204264,16 @@ oHT
 ezj
 ezj
 lDn
+smx
+smx
 xFj
+iqW
+jLj
+jLj
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -204166,18 +204292,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -204404,8 +204521,17 @@ xlu
 dXy
 qKl
 lDn
-uKQ
-bPV
+smx
+gDq
+vJK
+jLj
+jLj
+jLj
+iqW
+jLj
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
@@ -204421,20 +204547,11 @@ jLj
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -204667,6 +204784,14 @@ jLj
 jLj
 jLj
 jLj
+iqW
+jLj
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
@@ -204676,22 +204801,14 @@ jLj
 jLj
 jLj
 jLj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
 jLj
 jLj
 jLj
@@ -204923,33 +205040,33 @@ xFj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
+jLj
+jLj
+iqW
 jLj
 jLj
 jLj
+iqW
 jLj
 jLj
+iqW
 jLj
 jLj
+iqW
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -205177,36 +205294,36 @@ tOk
 lDn
 smx
 xFj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -205437,6 +205554,9 @@ xFj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -205446,6 +205566,9 @@ jLj
 jLj
 jLj
 jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
@@ -205455,15 +205578,9 @@ jLj
 jLj
 jLj
 jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
-jLj
+iqW
+iqW
+iqW
 jLj
 jLj
 jLj
