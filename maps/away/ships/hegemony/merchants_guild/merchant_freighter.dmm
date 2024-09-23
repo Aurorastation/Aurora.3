@@ -60,8 +60,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "merchant_guild_shuttle_in";
-	frequency = 1313;
-	layer = 2.8
+	frequency = 1313
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
@@ -217,7 +216,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -414,6 +412,14 @@
 /obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
+"fn" = (
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/turf/simulated/floor/plating,
+/area/merchants_guild/starboardengine)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -470,8 +476,7 @@
 "gh" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
@@ -569,8 +574,7 @@
 "gZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -918,8 +922,7 @@
 "mw" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -1100,7 +1103,6 @@
 /obj/machinery/conveyor{
 	dir = 2;
 	id = "merchants_guild";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1245,8 +1247,7 @@
 "qV" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1301,8 +1302,7 @@
 /area/merchants_guild/starboardengine)
 "rt" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
@@ -1442,7 +1442,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "merchants_guild";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1491,8 +1490,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "merchant_guild_shuttle_in";
-	frequency = 1313;
-	layer = 2.8
+	frequency = 1313
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
@@ -1716,8 +1714,7 @@
 "xI" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -1840,8 +1837,7 @@
 "yv" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1905,7 +1901,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -1976,8 +1971,7 @@
 "Au" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2020,8 +2014,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
@@ -2200,8 +2193,7 @@
 "Dt" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -2255,7 +2247,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "merchants_guild";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2296,8 +2287,7 @@
 "En" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2379,8 +2369,7 @@
 "Fq" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -2429,7 +2418,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2476,7 +2464,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2544,8 +2531,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1313;
-	id_tag = "merchant_guild_shuttle_out_external";
-	layer = 2.8
+	id_tag = "merchant_guild_shuttle_out_external"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchants_guild)
@@ -2598,8 +2584,7 @@
 "Il" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
@@ -2631,7 +2616,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1313;
 	id_tag = "merchant_guild_shuttle_airlock";
-	layer = 3.3;
 	master_tag = "merchant_guild_shuttle";
 	pixel_x = 24;
 	tag_airpump = "merchant_guild_shuttle_in";
@@ -2682,7 +2666,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/light{
@@ -2801,8 +2784,7 @@
 "KC" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3175,9 +3157,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "Qj" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light{
 	dir = 1
@@ -3223,7 +3203,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3416,9 +3395,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "Uk" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -3487,8 +3464,7 @@
 "UR" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3678,8 +3654,7 @@
 "Zz" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchants_guild";
-	layer = 2.9
+	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -15635,7 +15610,7 @@ Lk
 Bu
 gM
 HN
-Wd
+fn
 uz
 Wd
 Wd

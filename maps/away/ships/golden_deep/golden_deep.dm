@@ -4,7 +4,7 @@
 	description = "A mercantile transport vessel, registered to the Golden Deep."
 
 	prefix = "ships/golden_deep/"
-	suffixes = list("golden_deep_merchant.dmm")
+	suffix = "golden_deep_merchant.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1

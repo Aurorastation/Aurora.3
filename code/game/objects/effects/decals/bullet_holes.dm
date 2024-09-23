@@ -1,5 +1,5 @@
 /obj/effect/overlay/bmark
-	name = "bullet hole"
+	name = "bullet mark"
 	desc = "Somebody's been shooting."
 	icon = 'icons/effects/effects.dmi'
 	layer = ABOVE_OBJ_LAYER

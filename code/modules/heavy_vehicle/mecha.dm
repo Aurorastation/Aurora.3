@@ -2,7 +2,6 @@
 /mob/living/heavy_vehicle
 	name = "exosuit"
 	density = TRUE
-	opacity = TRUE
 	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
@@ -11,6 +10,7 @@
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
 	appearance_flags = KEEP_TOGETHER
+	pass_flags_self = PASSVEHICLE
 	var/decal
 
 	var/emp_damage = 0
@@ -79,10 +79,10 @@
 	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
-	var/obj/screen/mecha/health/hud_health
-	var/obj/screen/mecha/toggle/hatch_open/hud_open
-	var/obj/screen/mecha/power/hud_power
-	var/obj/screen/mecha/toggle/power_control/hud_power_control
+	var/atom/movable/screen/mecha/health/hud_health
+	var/atom/movable/screen/mecha/toggle/hatch_open/hud_open
+	var/atom/movable/screen/mecha/power/hud_power
+	var/atom/movable/screen/mecha/toggle/power_control/hud_power_control
 	//POWER
 	var/power = MECH_POWER_OFF
 
@@ -134,6 +134,8 @@
 	return 1
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
+
 	. = list()
 	if(!user || !user.client)
 		return TRUE
@@ -147,7 +149,7 @@
 			for(var/pilot in pilots)
 				if(ismob(pilot))
 					var/mob/M = pilot
-					. += "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>."
+					. += "It is being <b>piloted</b> by <a href=?src=[REF(src)];examine=[REF(M)]>[M.name]</a>."
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
@@ -207,6 +209,8 @@
 		if(source_frame.body)
 			source_frame.body.forceMove(src)
 			body = source_frame.body
+			if(body.cell)
+				RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 
 	updatehealth()
 

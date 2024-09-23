@@ -151,10 +151,9 @@
 /obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"
 	desc = "A makeshift bamboo stool with a rustic look."
-	icon_state = "bamboo_stool_item"
-	item_state = "bamboo_stool"
-	base_icon = "bamboo_stool"
 	icon_state = "bamboo_stool"
+	item_state = "bamboo_stool_item"
+	base_icon = "bamboo_stool"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/bamboo
 	can_pad = FALSE
@@ -177,7 +176,7 @@
 	throwforce = 10
 	throw_range = 5
 	force_divisor = 0.4
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
@@ -227,7 +226,7 @@
 		if(istype(A, /obj/structure/bed))
 			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
 			return
-		if(A.density)
+		if(A.density && !istype(A, /obj/structure/railing))
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 

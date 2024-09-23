@@ -230,25 +230,28 @@
 	else
 		to_chat(src, SPAN_NOTICE("You need to disable a module first!"))
 
-/mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
+/mob/living/silicon/robot/put_in_hands(obj/item/item_to_equip) // Maybe hands.
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
 	var/obj/item/gripper/G = get_active_hand()
 	if (istype(G))
-		if(!G.wrapped && G.grip_item(W, src, TRUE))
+		if(!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	if (istype(module_state_1, /obj/item/gripper))
 		G = module_state_1
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
-		if (!G.wrapped && G.grip_item(W, src, TRUE))
+		if (!G.wrapped && G.grip_item(item_to_equip, src, TRUE))
 			return TRUE
 
-	W.forceMove(get_turf(src))
+	item_to_equip.forceMove(get_turf(src))
 	return FALSE
 
 /mob/living/silicon/robot/remove_from_mob(var/obj/O) //Necessary to clear gripper when trying to place items in things (grinders, smartfridges, vendors, etc)

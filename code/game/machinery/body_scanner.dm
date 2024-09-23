@@ -78,7 +78,9 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (user.stat)
 		return
 	go_out()
@@ -247,7 +249,6 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking, /obj/item/implant/integrated_circuit)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	var/has_internal_injuries = FALSE
@@ -512,7 +513,7 @@
 /obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
 	var/organs = list()
-	for (var/obj/item/organ/external/O in H.organs)
+	for(var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
 		var/burn_damage = get_severity(O.burn_dam, TRUE)
@@ -522,47 +523,68 @@
 
 		var/list/wounds = list()
 
-		if (O.status & ORGAN_ROBOT)
+		if(O.status & ORGAN_ROBOT)
 			wounds += "inorganic"
-		if (O.status & ORGAN_ARTERY_CUT)
+		if(O.status & ORGAN_ARTERY_CUT)
 			wounds += "severed [O.artery_name]"
-		if (O.tendon_status() & TENDON_CUT)
+		if(O.tendon_status() & TENDON_CUT)
 			wounds += "severed [O.tendon.name]"
-		if (O.status & ORGAN_SPLINTED)
+		if(O.status & ORGAN_SPLINTED)
 			wounds += "splinted"
-		if (O.status & ORGAN_BLEEDING)
+		if(O.status & ORGAN_BLEEDING)
 			wounds += "bleeding"
 		if(ORGAN_IS_DISLOCATED(O))
 			wounds += "dislocated"
-		if (O.status & ORGAN_BROKEN)
+		if(O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]"
-		if (O.open)
-			wounds += "open"
+		if(O.open)
+			wounds += "open incision"
 
 		var/list/infection = list()
-		if (O.germ_level)
+		if(O.germ_level)
 			var/level = get_infection_level(O.germ_level)
 			if (level && level != "")
 				infection += "[level]"
-		if (O.rejecting)
+		if(O.rejecting)
 			infection += "rejection"
 
-		if (O.implants.len)
+		if(length(O.implants))
 			var/unk = 0
 			var/list/organic = list()
-			for (var/atom/movable/I in O.implants)
-				if(is_type_in_list(I, known_implants))
-					wounds += "[I.name] installed"
-				else if(istype(I, /obj/effect/spider))
-					organic += I
-				else
-					if(!istype(I, /obj/item/implant/uplink))
+
+			for(var/atom/movable/object_in_organ in O.implants)
+				//Handle actual implants
+				if(istype(object_in_organ, /obj/item/implant))
+					var/obj/item/implant/implant_in_organ = object_in_organ
+					//If the implant is hidden, skip it, no report in the scan
+					if(implant_in_organ.hidden)
+						continue
+
+					//If it's a known implant, report it with its full name
+					if(implant_in_organ.known)
+						wounds += "[implant_in_organ.name] installed"
+					//Otherwise, just let the player know there's something unknown there and call it a day
+					else
 						unk += 1
-			if (unk)
-				wounds += "unknown objects present"
-			var/friends = length(organic)
-			if(friends)
-				wounds += friends > 1 ? "multiple abnormal organic bodies" : "abnormal organic body"
+
+					//We did our job with implants, continue
+					continue
+
+				//Ok, implants fucked off above thanks to the continue, handle gremorian eggs now, they report as organics
+				//and whatever else is present, is unknown
+				if(istype(object_in_organ, /obj/effect/spider))
+					organic += object_in_organ
+				else
+					unk += 1
+
+			//If we found unknown objects, report them as such
+			if(unk)
+				wounds += "[unk] unknown object(s) present"
+
+			//If we found organic things present, report them as one or many
+			if(length(organic))
+				wounds += length(organic) > 1 ? "multiple abnormal organic bodies" : "abnormal organic body"
+
 
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
@@ -764,48 +786,48 @@
 	dat += "<font face=\"Verdana\">"
 	dat += "<b>Patient Status</b><br><HR>"
 	dat += "<font size=\"1\">"
-	dat += text("Name: 					[]<br>", occ["name"])
-	dat += text("Status: 				[]<br>", occ["stat"])
-	dat += text("Species: 				[]<br>", occ["species"])
-	dat += text("Pulse: 				[] BPM<br>", occ["pulse"])
-	dat += text("Brain Activity:		[]<br>", occ["brain_activity"])
-	dat += text("Body Temperature: 		[]&deg;C ", (occ["bodytemp"] - T0C))
-	dat += text("([]&deg;F)<br>",  (occ["bodytemp"]*1.8-459.67))
+	dat += "Name: 					[occ["name"]]<br>"
+	dat += "Status: 				[occ["stat"]]<br>"
+	dat += "Species: 				[occ["species"]]<br>"
+	dat += "Pulse: 				[occ["pulse"]] BPM<br>"
+	dat += "Brain Activity:		[occ["brain_activity"]]<br>"
+	dat += "Body Temperature: 		[(occ["bodytemp"] - T0C)]&deg;C "
+	dat += "([(occ["bodytemp"]*1.8-459.67)]&deg;F)<br>"
 
 	dat += "<b><br>Blood Status</b><br><HR>"
-	dat += text("Blood Pressure:		[]<br>", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: 	[]%<br>", occ["blood_oxygenation"])
-	dat += text("Blood Volume: 			[]%<br>", occ["blood_volume"])
-	dat += text("Blood Type: 			[]<br>", occ["blood_type"])
+	dat += "Blood Pressure:		[occ["blood_pressure"]]<br>"
+	dat += "Blood Oxygenation: 	[occ["blood_oxygenation"]]%<br>"
+	dat += "Blood Volume: 			[occ["blood_volume"]]%<br>"
+	dat += "Blood Type: 			[occ["blood_type"]]<br>"
 
 	if(occ["inaprovaline_amount"])
-		dat += text("Inaprovaline: 		[] units<BR>", occ["inaprovaline_amount"])
+		dat += "Inaprovaline: 		[occ["inaprovaline_amount"]] units<BR>"
 	if(occ["soporific_amount"])
-		dat += text("Soporific: 		[] units<BR>", occ["soporific_amount"])
+		dat += "Soporific: 		[occ["soporific_amount"]] units<BR>"
 	if(occ["dermaline_amount"])
-		dat += text("[]\tDermaline: 	[] units</font><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+		dat += "[("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>")]\tDermaline: 	[occ["dermaline_amount"]] units</font><BR>"
 	if(occ["bicaridine_amount"])
-		dat += text("[]\tBicaridine: 	[] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+		dat += "[("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>")]\tBicaridine: 	[occ["bicaridine_amount"]] units</font><BR>"
 	if(occ["dexalin_amount"])
-		dat += text("[]\tDexalin: 		[] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+		dat += "[("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>")]\tDexalin: 		[occ["dexalin_amount"]] units</font><BR>"
 	if(occ["thetamycin_amount"])
-		dat += text("[]\tThetamycin: 	[] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
+		dat += "[("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>")]\tThetamycin: 	[occ["thetamycin_amount"]] units</font><BR>"
 	if(occ["other_amount"])
-		dat += text("Other:				[] units<BR>", occ["other_amount"])
+		dat += "Other:				[occ["other_amount"]] units<BR>"
 
 	dat += "<b><br>Symptom Status</b><br><HR>"
-	dat += text("Radiation Level:  [] Gy<br>", round(occ["rads"]))
-	dat += text("Genetic Damage:   []<br>", occ["cloneloss"])
+	dat += "Radiation Level:  [round(occ["rads"])] Gy<br>"
+	dat += "Genetic Damage:   [occ["cloneloss"]]<br>"
 	if(occ["paralysis"])
-		dat += text("Est Paralysis Level:	[] Seconds Left<br>", round(occ["paralysis"] / 4))
+		dat += "Est Paralysis Level:	[round(occ["paralysis"] / 4)] Seconds Left<br>"
 	else
-		dat += text("Est Paralysis Level:	None<br>")
+		dat += "Est Paralysis Level:	None<br>"
 
 	dat += "<b><br>Damage Status</b><br><HR>"
-	dat += text("Brute Trauma:       []<br>", occ["bruteloss"])
-	dat += text("Burn Severity:      []<br>", occ["fireloss"])
-	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
-	dat += text("Toxin Exposure:     []<br>", occ["toxloss"])
+	dat += "Brute Trauma:       [occ["bruteloss"]]<br>"
+	dat += "Burn Severity:      [occ["fireloss"]]<br>"
+	dat += "Oxygen Deprivation: [occ["oxyloss"]]<br>"
+	dat += "Toxin Exposure:     [occ["toxloss"]]<br>"
 
 	dat += "<br><b>Body Status</b><HR>"
 

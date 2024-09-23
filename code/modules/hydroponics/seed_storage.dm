@@ -5,14 +5,19 @@
 	var/list/obj/item/seeds/seeds = list() // Tracks actual objects contained in the pile
 	var/ID
 
-/datum/seed_pile/New(var/obj/item/seeds/O, var/ID)
+/datum/seed_pile/New(obj/item/seeds/O, ID)
 	name = O.name
 	amount = 1
 	seed_type = O.seed
 	seeds += O
 	src.ID = ID
 
-/datum/seed_pile/proc/matches(var/obj/item/seeds/O)
+/datum/seed_pile/Destroy(force)
+	QDEL_LIST(seeds)
+
+	. = ..()
+
+/datum/seed_pile/proc/matches(obj/item/seeds/O)
 	if (O.seed == seed_type)
 		return TRUE
 	return FALSE
@@ -32,6 +37,230 @@
 	var/list/datum/seed_pile/piles = list()
 	var/list/starting_seeds = list()
 	var/list/scanner = list() // What properties we can view
+
+/obj/machinery/seed_storage/Initialize()
+	. = ..()
+	for(var/typepath in starting_seeds)
+		var/amount = starting_seeds[typepath]
+		if(isnull(amount)) amount = 1
+
+		for (var/i = 1 to amount)
+			var/O = new typepath
+			add(O)
+
+/obj/machinery/seed_storage/Destroy()
+	QDEL_LIST(piles)
+
+	. = ..()
+
+/obj/machinery/seed_storage/attack_hand(mob/user)
+	ui_interact(user)
+
+/obj/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "SeedStorage", "Seed Storage", screen_x, screen_y)
+		ui.open()
+
+/obj/machinery/seed_storage/ui_data(mob/user)
+	var/list/data = list()
+	data["seeds"] = list()
+	for(var/datum/seed_pile/S in piles)
+		var/datum/seed/seed = S.seed_type
+		if(!seed)
+			continue
+		var/list/seed_type = list("name" = seed.seed_name, "uid" = seed.uid, "pile_id" = S.ID)
+		var/list/traits = list()
+
+		if("stats" in scanner)
+			data["scan_stats"] = TRUE
+			seed_type["endurance"] = seed.get_trait(TRAIT_ENDURANCE)
+			seed_type["yield"] = seed.get_trait(TRAIT_YIELD)
+			seed_type["maturation"] = seed.get_trait(TRAIT_MATURATION)
+			seed_type["production"] = seed.get_trait(TRAIT_PRODUCTION)
+			seed_type["potency"] = seed.get_trait(TRAIT_POTENCY)
+			if(seed.get_trait(TRAIT_HARVEST_REPEAT))
+				seed_type["harvest"] = "multiple"
+			else
+				seed_type["harvest"] = "single"
+
+		if("temperature" in scanner)
+			data["scan_temperature"] = TRUE
+			seed_type["ideal_heat"] = "[seed.get_trait(TRAIT_IDEAL_HEAT)] K"
+
+		if("light" in scanner)
+			data["scan_light"] = TRUE
+			seed_type["ideal_light"] = "[seed.get_trait(TRAIT_IDEAL_LIGHT)] L"
+
+		if("soil" in scanner)
+			data["scan_soil"] = TRUE
+			if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS))
+				if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
+					seed_type["nutrient_consumption"] = "Low"
+				else if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
+					seed_type["nutrient_consumption"] = "High"
+				else
+					seed_type["nutrient_consumption"] = "Average"
+			else
+				seed_type["nutrient_consumption"] = "No"
+
+			if(seed.get_trait(TRAIT_REQUIRES_WATER))
+				if(seed.get_trait(TRAIT_WATER_CONSUMPTION) < 1)
+					seed_type["water_consumption"] = "Low"
+				else if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 5)
+					seed_type["water_consumption"] = "High"
+				else
+					seed_type["water_consumption"] =  "Average"
+			else
+				seed_type["water_consumption"] = "No"
+
+		switch(seed.get_trait(TRAIT_CARNIVOROUS))
+			if(1)
+				traits += "CARN"
+			if(2)
+				traits	+= "CARN (!)"
+
+		switch(seed.get_trait(TRAIT_SPREAD))
+			if(1)
+				traits += "VINE"
+			if(2)
+				traits	+= "VINE (!)"
+
+		if ("pressure" in scanner)
+			if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
+				traits += "LP"
+			if(seed.get_trait(TRAIT_HIGHKPA_TOLERANCE) > 220)
+				traits += "HP"
+
+		if ("temperature" in scanner)
+			if(seed.get_trait(TRAIT_HEAT_TOLERANCE) > 30)
+				traits += "TEMRES"
+			else if(seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
+				traits += "TEMSEN"
+
+		if ("light" in scanner)
+			if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
+				traits += "LIGRES"
+			else if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) < 3)
+				traits += "LIGSEN"
+
+		if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) < 3)
+			traits += "TOXSEN"
+		else if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) > 6)
+			traits += "TOXRES"
+
+		if(seed.get_trait(TRAIT_PEST_TOLERANCE) < 3)
+			traits += "PESTSEN"
+		else if(seed.get_trait(TRAIT_PEST_TOLERANCE) > 6)
+			traits += "PESTRES"
+
+		if(seed.get_trait(TRAIT_WEED_TOLERANCE) < 3)
+			traits += "WEEDSEN"
+		else if(seed.get_trait(TRAIT_WEED_TOLERANCE) > 6)
+			traits += "WEEDRES"
+
+		if(seed.get_trait(TRAIT_PARASITE))
+			traits += "PAR"
+
+		if("temperature" in scanner)
+			if(seed.get_trait(TRAIT_ALTER_TEMP) > 0)
+				traits += "TEMP+"
+			if(seed.get_trait(TRAIT_ALTER_TEMP) < 0)
+				traits += "TEMP-"
+
+		if(seed.get_trait(TRAIT_BIOLUM))
+			traits += "LUM"
+
+		seed_type["amount"] = S.amount
+		seed_type["traits"] = english_list(traits)
+		data["seeds"] += list(seed_type)
+	return data
+
+/obj/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if (.)
+		return
+
+	switch(action)
+		if("vend")
+			for(var/datum/seed_pile/N in piles)
+				if (N.ID == params["id"])
+					var/obj/O = pick(N.seeds)
+					if(O)
+						--N.amount
+						N.seeds -= O
+						if (N.amount <= 0 || N.seeds.len <= 0)
+							piles -= N
+							qdel(N)
+						O.forceMove(src.loc)
+					else
+						piles -= N
+						qdel(N)
+			. = TRUE
+		if ("purge")
+			for(var/datum/seed_pile/N in piles)
+				for(var/obj/O in N.seeds)
+					qdel(O)
+					piles -= N
+					qdel(N)
+			. = TRUE
+
+/obj/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/seeds))
+		add(attacking_item)
+		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
+
+	else if(istype(attacking_item, /obj/item/storage/bag/plants))
+		var/obj/item/storage/P = attacking_item
+		var/loaded = 0
+		for(var/obj/item/seeds/G in P.contents)
+			++loaded
+			add(G)
+		if(loaded)
+			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [attacking_item.name] into \the [src]."),
+								SPAN_NOTICE("You put the seeds from \the [attacking_item.name] into \the [src]."))
+		else
+			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
+
+	else if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		anchored = !anchored
+		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
+
+/obj/machinery/seed_storage/proc/add(obj/item/seeds/O)
+	if (istype(O.loc, /mob))
+		var/mob/user = O.loc
+		user.remove_from_mob(O)
+
+	else if(istype(O.loc,/obj/item/storage))
+		var/obj/item/storage/S = O.loc
+		S.remove_from_storage(O, src)
+
+	else if(istype(O.loc, /obj/item/gripper))
+		var/mob/user = O.loc.loc
+		if(!istype(user))
+			return
+
+		if(!user.unEquip(O))
+			return
+
+
+	O.forceMove(src)
+	var/newID = 0
+
+	for(var/datum/seed_pile/N in piles)
+		if (N.matches(O))
+			++N.amount
+			N.seeds += (O)
+			return
+		else if(N.ID >= newID)
+			newID = N.ID + 1
+
+	piles += new /datum/seed_pile(O, newID)
+
+/*################################
+			SUBTYPES
+################################*/
 
 /obj/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
 	name = "random seed storage"
@@ -210,207 +439,3 @@
 	)
 	screen_x = 1000
 	screen_y = 700
-
-/obj/machinery/seed_storage/Initialize()
-	. = ..()
-	for(var/typepath in starting_seeds)
-		var/amount = starting_seeds[typepath]
-		if(isnull(amount)) amount = 1
-
-		for (var/i = 1 to amount)
-			var/O = new typepath
-			add(O)
-
-/obj/machinery/seed_storage/attack_hand(mob/user)
-	ui_interact(user)
-
-/obj/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "SeedStorage", "Seed Storage", screen_x, screen_y)
-		ui.open()
-
-/obj/machinery/seed_storage/ui_data(mob/user)
-	var/list/data = list()
-	data["seeds"] = list()
-	for(var/datum/seed_pile/S in piles)
-		var/datum/seed/seed = S.seed_type
-		if(!seed)
-			continue
-		var/list/seed_type = list("name" = seed.seed_name, "uid" = seed.uid, "pile_id" = S.ID)
-		var/list/traits = list()
-
-		if("stats" in scanner)
-			data["scan_stats"] = TRUE
-			seed_type["endurance"] = seed.get_trait(TRAIT_ENDURANCE)
-			seed_type["yield"] = seed.get_trait(TRAIT_YIELD)
-			seed_type["maturation"] = seed.get_trait(TRAIT_MATURATION)
-			seed_type["production"] = seed.get_trait(TRAIT_PRODUCTION)
-			seed_type["potency"] = seed.get_trait(TRAIT_POTENCY)
-			if(seed.get_trait(TRAIT_HARVEST_REPEAT))
-				seed_type["harvest"] = "multiple"
-			else
-				seed_type["harvest"] = "single"
-
-		if("temperature" in scanner)
-			data["scan_temperature"] = TRUE
-			seed_type["ideal_heat"] = "[seed.get_trait(TRAIT_IDEAL_HEAT)] K"
-
-		if("light" in scanner)
-			data["scan_light"] = TRUE
-			seed_type["ideal_light"] = "[seed.get_trait(TRAIT_IDEAL_LIGHT)] L"
-
-		if("soil" in scanner)
-			data["scan_soil"] = TRUE
-			if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS))
-				if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
-					seed_type["nutrient_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
-					seed_type["nutrient_consumption"] = "High"
-				else
-					seed_type["nutrient_consumption"] = "Average"
-			else
-				seed_type["nutrient_consumption"] = "No"
-
-			if(seed.get_trait(TRAIT_REQUIRES_WATER))
-				if(seed.get_trait(TRAIT_WATER_CONSUMPTION) < 1)
-					seed_type["water_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 5)
-					seed_type["water_consumption"] = "High"
-				else
-					seed_type["water_consumption"] =  "Average"
-			else
-				seed_type["water_consumption"] = "No"
-
-		switch(seed.get_trait(TRAIT_CARNIVOROUS))
-			if(1)
-				traits += "CARN"
-			if(2)
-				traits	+= "CARN (!)"
-
-		switch(seed.get_trait(TRAIT_SPREAD))
-			if(1)
-				traits += "VINE"
-			if(2)
-				traits	+= "VINE (!)"
-
-		if ("pressure" in scanner)
-			if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
-				traits += "LP"
-			if(seed.get_trait(TRAIT_HIGHKPA_TOLERANCE) > 220)
-				traits += "HP"
-
-		if ("temperature" in scanner)
-			if(seed.get_trait(TRAIT_HEAT_TOLERANCE) > 30)
-				traits += "TEMRES"
-			else if(seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
-				traits += "TEMSEN"
-
-		if ("light" in scanner)
-			if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
-				traits += "LIGRES"
-			else if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) < 3)
-				traits += "LIGSEN"
-
-		if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) < 3)
-			traits += "TOXSEN"
-		else if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) > 6)
-			traits += "TOXRES"
-
-		if(seed.get_trait(TRAIT_PEST_TOLERANCE) < 3)
-			traits += "PESTSEN"
-		else if(seed.get_trait(TRAIT_PEST_TOLERANCE) > 6)
-			traits += "PESTRES"
-
-		if(seed.get_trait(TRAIT_WEED_TOLERANCE) < 3)
-			traits += "WEEDSEN"
-		else if(seed.get_trait(TRAIT_WEED_TOLERANCE) > 6)
-			traits += "WEEDRES"
-
-		if(seed.get_trait(TRAIT_PARASITE))
-			traits += "PAR"
-
-		if("temperature" in scanner)
-			if(seed.get_trait(TRAIT_ALTER_TEMP) > 0)
-				traits += "TEMP+"
-			if(seed.get_trait(TRAIT_ALTER_TEMP) < 0)
-				traits += "TEMP-"
-
-		if(seed.get_trait(TRAIT_BIOLUM))
-			traits += "LUM"
-
-		seed_type["amount"] = S.amount
-		seed_type["traits"] = english_list(traits)
-		data["seeds"] += list(seed_type)
-	return data
-
-/obj/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if (.)
-		return
-	switch(action)
-		if("vend")
-			for(var/datum/seed_pile/N in piles)
-				if (N.ID == params["id"])
-					var/obj/O = pick(N.seeds)
-					if(O)
-						--N.amount
-						N.seeds -= O
-						if (N.amount <= 0 || N.seeds.len <= 0)
-							piles -= N
-							qdel(N)
-						O.forceMove(src.loc)
-					else
-						piles -= N
-						qdel(N)
-			. = TRUE
-		if ("purge")
-			for(var/datum/seed_pile/N in piles)
-				for(var/obj/O in N.seeds)
-					qdel(O)
-					piles -= N
-					qdel(N)
-			. = TRUE
-
-/obj/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/seeds))
-		add(attacking_item)
-		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
-		return
-	else if (istype(attacking_item, /obj/item/storage/bag/plants))
-		var/obj/item/storage/P = attacking_item
-		var/loaded = 0
-		for(var/obj/item/seeds/G in P.contents)
-			++loaded
-			add(G)
-		if (loaded)
-			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [attacking_item.name] into \the [src]."),
-								SPAN_NOTICE("You put the seeds from \the [attacking_item.name] into \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
-		return
-	else if(attacking_item.iswrench())
-		attacking_item.play_tool_sound(get_turf(src), 50)
-		anchored = !anchored
-		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
-
-/obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O)
-	if (istype(O.loc, /mob))
-		var/mob/user = O.loc
-		user.remove_from_mob(O)
-	else if(istype(O.loc,/obj/item/storage))
-		var/obj/item/storage/S = O.loc
-		S.remove_from_storage(O, src)
-
-	O.forceMove(src)
-	var/newID = 0
-
-	for (var/datum/seed_pile/N in piles)
-		if (N.matches(O))
-			++N.amount
-			N.seeds += (O)
-			return
-		else if(N.ID >= newID)
-			newID = N.ID + 1
-
-	piles += new /datum/seed_pile(O, newID)

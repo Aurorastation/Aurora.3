@@ -5,7 +5,6 @@
 
 
 // Items that ask to be called every cycle.
-GLOBAL_LIST_EMPTY(processing_power_items)
 GLOBAL_LIST_EMPTY(med_hud_users) // List of all entities using a medical HUD.
 GLOBAL_LIST_EMPTY(sec_hud_users) // List of all entities using a security HUD.
 GLOBAL_LIST_EMPTY(hud_icon_reference)
@@ -52,7 +51,7 @@ GLOBAL_PROTECT(admin_log)
 GLOBAL_LIST_EMPTY(signal_log)
 GLOBAL_PROTECT(signal_log)
 
-GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
+GLOBAL_LIST_EMPTY(lastsignalers) // Keeps last 100 signals here in format: "[src] used REF(src) @ location [src.loc]: [freq]/[code]"
 GLOBAL_PROTECT(lastsignalers)
 
 GLOBAL_LIST_EMPTY(lawchanges) // Stores who uploaded laws to which silicon-based lifeform, and what the law was.

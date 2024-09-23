@@ -3,7 +3,7 @@
 	desc = "..."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	recyclable = TRUE
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
@@ -74,17 +74,17 @@
 
 	return last_increment
 
-/obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(ismob(loc))
 		return
-	if(fragile && (speed >= fragile))
+	if(fragile && (throwingdatum.speed >= fragile))
 		shatter()
 	if(atom_flags && ATOM_FLAG_NO_REACT)
 		return
 	if(!reagents)
 		return
-	reagents.apply_force(speed)
+	reagents.apply_force(throwingdatum.speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents?.total_volume)
@@ -190,8 +190,8 @@
 	var/contained = reagentlist()
 	var/temperature = reagents.get_temperature()
 	var/temperature_text = "Temperature: ([temperature]K/[temperature]C)"
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained] [temperature_text].</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</span>")
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been splashed with [name] by [user.name] ([user.ckey]). Reagents: [contained] [temperature_text].</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</span>"
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
@@ -262,7 +262,7 @@
 
 		if(isanimal(target))
 			var/mob/living/simple_animal/C = target
-			if(C.has_udder)
+			if(C.can_be_milked)
 				return
 
 		other_feed_message_start(user, target)
@@ -274,8 +274,8 @@
 		other_feed_message_finish(user, target)
 
 		var/contained = reagentlist()
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>")
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] by [target.name] ([target.ckey]). Reagents: [contained]</span>")
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [user.name] ([user.ckey]). Reagents: [contained]</font>"
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] by [target.name] ([target.ckey]). Reagents: [contained]</span>"
 		msg_admin_attack("[key_name(user)] fed [key_name(target)] with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 		reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INGEST)
@@ -327,7 +327,10 @@
 		return 0
 
 	// Ensure we don't splash beakers and similar containers.
-	if(!target.is_open_container() && istype(target, /obj/item/reagent_containers))
+	if(!target.is_open_container())
+		if(target.atom_flags & ATOM_FLAG_DISPENSER && istype(target, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/dispenser = target
+			return dispenser.standard_pour_into(user, src)
 		to_chat(user, SPAN_NOTICE("\The [target] is closed."))
 		return 1
 	// Otherwise don't care about splashing.

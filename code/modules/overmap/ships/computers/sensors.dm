@@ -197,7 +197,7 @@
 
 			contacts.Add(list(list(
 				"name"=contact.name,
-				"ref"="\ref[contact]",
+				"ref"="[REF(contact)]",
 				"bearing"=bearing,
 				"can_datalink"=(!(contact in connected.datalinked)),
 				"distance"=distance,
@@ -212,13 +212,13 @@
 		if(length(connected.datalink_requests))
 			var/list/local_datalink_requests = list()
 			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
-				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="[REF(requestor)]")))
 			data["datalink_requests"]  = local_datalink_requests
 
 		if(length(connected.datalinked))
 			var/list/local_datalinked = list()
 			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
-				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="[REF(datalinked_ship)]")))
 			data["datalinked"]  = local_datalinked
 
 		data["last_scan"] = last_scan
@@ -503,9 +503,12 @@
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
-/obj/machinery/shipsensors/bullet_act(var/obj/item/projectile/Proj)
-	take_damage(Proj.get_structure_damage())
-	..()
+/obj/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	take_damage(hitting_projectile.get_structure_damage())
 
 /obj/machinery/shipsensors/proc/toggle()
 	if(use_power) // reset desired range when turning off
@@ -654,7 +657,7 @@
 
 /obj/machinery/shipsensors/strong/relay
 	name = "\improper S-24 Beacon sensor array"
-	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity."
+	desc = "A vintage sensor array of Solarian design. While it lacks deep scanning capabilities, it does have a high heat capacity."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
 	density = 1
 	layer = ABOVE_HUMAN_LAYER
@@ -673,3 +676,9 @@
 	)
 	pixel_x = -32
 	pixel_y = -16
+
+/obj/machinery/shipsensors/strong/relay/sol
+	name = "\improper S-24M Beacon sensor array"
+	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance."
+	icon = 'icons/obj/machinery/sensors_relay_sol.dmi'
+	desc_extended = ""

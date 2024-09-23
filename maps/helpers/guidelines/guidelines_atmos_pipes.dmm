@@ -1,0 +1,1510 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/space)
+"b" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/space)
+"c" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
+"d" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"e" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"f" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+"g" = (
+/turf/simulated/floor,
+/area/space)
+"h" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"j" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"k" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
+"l" = (
+/obj/effect/map_effect/map_helper/mark_acceptable,
+/turf/template_noop,
+/area/space)
+"m" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"o" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"p" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor,
+/area/space)
+"q" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
+"r" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/space)
+"t" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"u" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/space)
+"w" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor,
+/area/space)
+"x" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/space)
+"y" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"z" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/space)
+"A" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor,
+/area/space)
+"B" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"C" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/space)
+"D" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor,
+/area/space)
+"E" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/space)
+"F" = (
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/template_noop,
+/area/space)
+"G" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor,
+/area/space)
+"I" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor,
+/area/space)
+"J" = (
+/obj/effect/map_effect/map_helper/mark_bad,
+/turf/template_noop,
+/area/space)
+"K" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"L" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
+"M" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/space)
+"N" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor,
+/area/space)
+"O" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"R" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/space)
+"T" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"U" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor,
+/area/space)
+"V" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor,
+/area/space)
+"W" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+"X" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/space)
+"Y" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/space)
+"Z" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+"}
+(3,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+"}
+(4,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+g
+e
+a
+f
+a
+"}
+(5,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+a
+a
+a
+a
+a
+a
+a
+a
+A
+r
+a
+f
+a
+"}
+(6,1,1) = {"
+a
+f
+a
+G
+p
+k
+a
+G
+R
+k
+a
+z
+a
+g
+e
+g
+a
+e
+g
+a
+a
+a
+a
+f
+a
+"}
+(7,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+O
+a
+A
+t
+A
+a
+q
+A
+a
+A
+M
+a
+f
+a
+"}
+(8,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+e
+g
+a
+g
+e
+a
+f
+a
+"}
+(9,1,1) = {"
+a
+f
+a
+a
+h
+a
+a
+a
+a
+a
+a
+h
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+"}
+(10,1,1) = {"
+a
+f
+a
+a
+Y
+a
+a
+G
+x
+k
+a
+X
+a
+A
+T
+A
+a
+g
+e
+a
+b
+A
+a
+f
+a
+"}
+(11,1,1) = {"
+a
+f
+a
+a
+O
+a
+a
+a
+a
+a
+a
+O
+a
+g
+e
+g
+a
+A
+I
+a
+e
+g
+a
+f
+a
+"}
+(12,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+g
+e
+a
+a
+a
+a
+f
+a
+"}
+(13,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+g
+a
+f
+a
+"}
+(14,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+E
+w
+a
+f
+a
+"}
+(15,1,1) = {"
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+"}
+(16,1,1) = {"
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+F
+a
+G
+p
+k
+a
+h
+a
+h
+a
+f
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+z
+a
+Y
+a
+f
+a
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+G
+x
+k
+a
+O
+a
+O
+a
+f
+a
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(26,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+l
+a
+D
+L
+c
+a
+y
+a
+y
+a
+f
+a
+a
+a
+a
+a
+"}
+(27,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+u
+a
+Z
+a
+f
+a
+a
+a
+a
+a
+"}
+(28,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+D
+C
+c
+a
+o
+a
+o
+a
+f
+a
+a
+a
+a
+a
+"}
+(29,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(30,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(31,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(32,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(33,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(34,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+F
+a
+a
+a
+g
+h
+g
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(35,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+N
+B
+B
+m
+j
+j
+j
+a
+f
+a
+a
+a
+a
+a
+"}
+(36,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+g
+O
+g
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(37,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(38,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(39,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(40,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+J
+a
+N
+B
+B
+V
+U
+U
+U
+a
+f
+a
+a
+a
+a
+a
+"}
+(41,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(42,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+N
+B
+B
+K
+d
+d
+d
+a
+f
+a
+a
+a
+a
+a
+"}
+(43,1,1) = {"
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+f
+a
+a
+a
+a
+a
+"}
+(44,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+f
+a
+a
+a
+a
+a
+"}
+(45,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

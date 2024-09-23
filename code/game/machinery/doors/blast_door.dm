@@ -15,8 +15,9 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_WINDOW_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
+	pass_flags_self = PASSDOORS
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -54,7 +55,7 @@
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
-/obj/machinery/door/blast/CollidedWith(atom/AM)
+/obj/machinery/door/blast/CollidedWith(atom/bumped_atom)
 	if(!density)
 		return ..()
 	else
@@ -151,8 +152,7 @@
 		return
 	force_open()
 	if(autoclose)
-		spawn(150)
-			close()
+		addtimer(CALLBACK(src, PROC_REF(close)), 15 SECONDS)
 	return 1
 
 // Proc: close()
@@ -221,6 +221,7 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
+	closed_layer = CLOSED_DOOR_LAYER
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"

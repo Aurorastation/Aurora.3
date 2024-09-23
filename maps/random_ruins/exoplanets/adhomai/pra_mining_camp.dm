@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("pra_mining_camp.dmm")
+	suffix = "pra_mining_camp.dmm"
 
 	unit_test_groups = list(2)
 
@@ -52,6 +52,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
+	l_pocket = /obj/item/device/radio/hailing
 
 	l_ear = null
 

@@ -35,9 +35,11 @@
 	if(old_engaged != engaged)
 		update_icon()
 
-/obj/machinery/teleport/pad/CollidedWith(M as mob|obj)
+/obj/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(engaged)
-		teleport(M)
+		teleport(bumped_atom)
 		use_power_oneoff(5000)
 
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)

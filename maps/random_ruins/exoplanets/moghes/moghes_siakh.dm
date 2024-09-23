@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_siakh.dmm")
+	suffix = "moghes_siakh.dmm"
 	unit_test_groups = list(3)
 
 /datum/ghostspawner/human/moghes_siakh
@@ -33,13 +33,13 @@
 
 /datum/ghostspawner/human/moghes_siakh/knight
 	name = "Si'akh Knight"
-	short_name = "siakh_knight"
+	short_name = "moghes_siakh_knight"
 	desc = "Wander the Wasteland as a holy warrior, commanded by the Prophet Si'akh to defend the innocent from the wickedness of the ruined world. Live by the words of the Prophet and lead your Knight-Hopefuls through the harsh wastes."
 	tags = list("External")
 	welcome_message = "You are a knight of the Order of the Flame, absolved of sin and called to a higher purpose by the Prophet Si'akh himself. Defend the innocent, escort your initiates through the harsh Wasteland, and fall upon those who would harm them with the fury of Sk'akh."
 
 	max_count = 2
-	spawnpoints = list("moghes_siakh")
+	spawnpoints = list("moghes_siakh_knight")
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Knight of the Flame"
@@ -49,13 +49,18 @@
 /obj/outfit/admin/moghes_siakh
 	name = "Si'akh Knight"
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/zazali)
-	suit = /obj/item/clothing/suit/armor/unathi
-	head = /obj/item/clothing/head/helmet/unathi
+	suit = /obj/item/clothing/accessory/poncho/unathimantle
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
-	backpack_contents = list(/obj/item/ammo_magazine/spitterpistol = 1, /obj/item/device/versebook/siakh = 1)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/spitterpistol = 1,
+		/obj/item/device/versebook/siakh = 1,
+		/obj/item/clothing/suit/armor/unathi = 1,
+		/obj/item/clothing/head/helmet/unathi = 1
+	)
 	belt = /obj/random/sword
 	id = null
 	l_ear = null
@@ -65,3 +70,5 @@
 		return
 	if(H.w_uniform)
 		H.w_uniform.color = pick("#42330f", "#DBC684")
+	if(H.wear_suit)
+		H.wear_suit.color = pick("#42330f", "#DBC684")

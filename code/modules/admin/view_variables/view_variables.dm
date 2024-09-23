@@ -135,7 +135,7 @@
 		. += x
 	return .
 
-/proc/make_view_variables_value(value, varname = "*")
+/proc/make_view_variables_value(datum/D, value, varname = "*")
 	var/vtext = ""
 	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
@@ -187,6 +187,6 @@
 			(<a href='?_src_=vars;datummass=[REF(D)];varnamemass=[varname]'>M</a>)
 			"}
 
-	var/valuestr = make_view_variables_value(value, varname)
+	var/valuestr = make_view_variables_value(D, value, varname)
 
 	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"

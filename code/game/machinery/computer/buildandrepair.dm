@@ -39,7 +39,7 @@
 				return TRUE
 			if(istype(attacking_item, /obj/item/circuitboard) && !circuit)
 				var/obj/item/circuitboard/B = attacking_item
-				if(B.board_type == "computer")
+				if(B.board_type == BOARD_COMPUTER)
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 					to_chat(user, SPAN_NOTICE("You place the circuit board inside the frame."))
 					src.icon_state = "1"

@@ -490,7 +490,7 @@
 /turf/simulated/floor/carpet/art,
 /area/golden_deep/captain)
 "fj" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
@@ -556,7 +556,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "fV" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
@@ -967,7 +967,7 @@
 /area/golden_deep/starboardprop)
 "js" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "jt" = (
@@ -1203,7 +1203,6 @@
 /area/golden_deep/engineering)
 "lu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1373,7 +1372,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "mI" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1506,7 +1505,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1549,7 +1547,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "oj" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1774,7 +1772,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep)
 "ql" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "qr" = (
@@ -1927,7 +1925,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "sg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
@@ -1962,8 +1960,7 @@
 "sA" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -2153,7 +2150,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "uZ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
@@ -2198,7 +2195,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2456,7 +2452,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/custodial)
 "xB" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
@@ -2999,8 +2995,7 @@
 "Da" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/machinery/merchant_pad,
 /obj/effect/floor_decal/industrial/warning{
@@ -3151,8 +3146,7 @@
 "Ez" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -3263,7 +3257,10 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/evaguide,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "Fy" = (
@@ -3320,7 +3317,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "golden_deep";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3355,7 +3351,6 @@
 /area/golden_deep/secure)
 "GA" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3705,7 +3700,6 @@
 "Ki" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -4005,8 +3999,7 @@
 "Nn" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -4204,8 +4197,7 @@
 "Qe" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -4486,7 +4478,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "SL" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -4524,7 +4516,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
@@ -4555,7 +4546,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "TK" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "TM" = (
@@ -4743,7 +4734,7 @@
 /area/golden_deep/captain)
 "We" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "Wg" = (
@@ -4941,7 +4932,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "Xk" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/machinery/light{
 	dir = 8
@@ -5107,14 +5098,13 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/office)
 "Zu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
@@ -5138,7 +5128,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "ZA" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "ZB" = (

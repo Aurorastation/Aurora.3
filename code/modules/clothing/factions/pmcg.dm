@@ -80,7 +80,7 @@
 	icon_state = "phalanx-sec-jumpsuit"
 	item_state = "phalanx-sec-jumpsuit"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
+/obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	name = "\improper Ve'katak Phalanx medical uniform"
 	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has dark blue shoulder stripes and ornamentation, identifying it as belonging to a Phalanx medic in the employ of the Private Military Contracting Group."
 	desc_extended = "These uniforms are designed to fit under the combat hardsuits favored by the Phalanx. They are utilitarian in design, and reportedly somewhat uncomfortable - though few of the non-Vaurcae bold enough to join Ve'katak seem to complain."
@@ -101,3 +101,12 @@
 	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has green shoulder stripes, identifying it as belonging to a Phalanx member that is not presently serving in an active combat role."
 	icon_state = "phalanx-res_jumpsuit"
 	item_state = "phalanx-res_jumpsuit"
+
+/obj/item/clothing/under/rank/security/pmc/grupo_amapola
+	name = "Grupo Amapola uniform"
+	desc = "A uniform used by the forces of the Grupo Amapola, a private military company originating out of Mictlan. It is based off the old uniforms of the Mictlan Defense Force, a once-Solarian planetary guard, with red poppy patches on the back and right arm."
+	desc_extended = "The Grupo Amapola's light green camo is taken from old uniforms of the Mictlan Defense Force, the same uniforms used by the insurgents known as the Samaritans. Many MDF service personnel defected to the Samaritans, and after the fighting between the Tau Ceti Armed Forces and Samaritans ended, the less scrupulous among their number now work for Grupo Amapola."
+	icon = 'icons/clothing/under/uniforms/pmcg.dmi'
+	icon_state = "amapola_ftg"
+	item_state = "amapola_ftg"
+	contained_sprite = TRUE

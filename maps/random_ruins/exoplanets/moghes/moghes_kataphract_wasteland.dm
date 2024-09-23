@@ -7,7 +7,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_kataphract_wasteland.dmm")
+	suffix = "moghes_kataphract_wasteland.dmm"
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_wasteland_izweski)
 	unit_test_groups = list(1)
 
@@ -19,6 +19,12 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
+
+/area/moghes/kataphract_wasteland/tent
+	name = "Kataphract Campsite Tent"
+	icon_state = "red"
+	is_outside = OUTSIDE_NO
+	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /datum/ghostspawner/human/moghes_kataphract_wasteland
 	name = "Wasteland Kataphract-Hopeful"
@@ -62,7 +68,9 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 
 /obj/outfit/admin/kataphract/wasteland
+	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null
 
 /obj/outfit/admin/kataphract/knight/wasteland
+	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null

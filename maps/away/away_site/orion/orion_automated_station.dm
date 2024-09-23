@@ -11,7 +11,7 @@
 	spawn_weight = 1
 
 	prefix = "away_site/orion/"
-	suffixes = list("orion_automated_station.dmm")
+	suffix = "orion_automated_station.dmm"
 
 	sectors = list(ALL_CORPORATE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
@@ -29,7 +29,6 @@
 		with Orion Express only delivering to the automated stations and other distribution points. \
 		This particular station is of the smaller variety, with very few facilities.\
 		"
-	icon_state = "ox_auto_station"
 
 	static_vessel = TRUE
 	generic_object = FALSE

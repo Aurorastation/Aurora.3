@@ -653,9 +653,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "FD" = (
-/obj/machinery/power/apc/high/inactive/north{
-	cell_type = null
-	},
+/obj/machinery/power/apc/high/inactive/north,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "Iu" = (

@@ -69,7 +69,7 @@
 	. = ..()
 
 // Called by /turf/examine() to show current weather status.
-/obj/abstract/weather_system/examine(mob/user, distance)
+/obj/abstract/weather_system/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	var/singleton/state/weather/weather_state = weather_system.current_state
 	if(istype(weather_state))

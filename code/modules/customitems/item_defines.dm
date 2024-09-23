@@ -33,6 +33,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	..()
 
+/obj/item/organ/internal/augment/fluff //used for custom item that are augments
 
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - catnippy
 	name = "dog tags"
@@ -83,18 +84,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/glasses/welding/fluff/ghoz_eyes //Prosthetic Vaurca Eyelids - Ka'Akaix'Ghoz Zo'ra - sleepywolf
-	name = "prosthetic vaurca eyelids"
-	desc = "A small contraption of micro-actuators with a button on the side."
-	icon = 'icons/obj/custom_items/ghoz_eyes.dmi'
-	icon_override = 'icons/obj/custom_items/ghoz_eyes.dmi'
-	icon_state = "ghoz_eyes"
-	item_state = "ghoz_eyes"
-	contained_sprite = TRUE
-	action_button_name = "Toggle Eyelids"
-	species_restricted = list(BODYTYPE_VAURCA) //i think this would make sense since those are some kind of vaurca build prothestic
-
-
 /obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
 	name = "tagged brown hat"
 	desc = "A worn mid 20th century brown hat. If you look closely at the back, you can see a an embedded tag from the \"Museum of Terran Culture and Technology\"."
@@ -114,14 +103,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/toy/plushie/fluff/oz_plushie //Mr. Monkey - Oz Auman - theiguanaman2
-	name = "\improper Mr.Monkey"
-	desc = "A calming toy monkey."
-	icon = 'icons/obj/custom_items/oz_plushie.dmi'
-	icon_override = 'icons/obj/custom_items/oz_plushie.dmi'
-	icon_state = "oz_plushie"
-
-
 /obj/item/reagent_containers/glass/beaker/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
@@ -138,7 +119,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "corvo_cigarette"
 	item_state = "corvo_cigarette"
 	body_parts_covered = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS | SLOT_MASK
 	contained_sprite = TRUE
 	var/active = FALSE
@@ -168,28 +149,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		. += "It is [active ? "on" : "off"]."
 
 
-/obj/item/clothing/suit/storage/fluff/sonorous_mantle //Maraziite Throw Over - Sonorous Zouzoror - sleepywolf
-	name = "maraziite throw over"
-	desc = "A grey poncho, exclusively warn by members of the Maraziite Order. This one has the flag of the Izweski Hegemony stitched on."
-	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/sonorous_clothing.dmi'
-	icon_state = "sonorous_mantle"
-	item_state = "sonorous_mantle"
-	contained_sprite = TRUE
-
-/obj/item/clothing/mask/fluff/sonorous_mask //Iron Mask - Sonorous Zouzoror - sleepywolf
-	name = "iron mask"
-	desc = "A mask made of iron worn by members of the Maraziite Order. This one looks like it's modeled after a fish."
-	icon = 'icons/obj/custom_items/sonorous_clothing.dmi'
-	icon_override = 'icons/obj/custom_items/sonorous_clothing.dmi'
-	icon_state = "sonorous_mask"
-	item_state = "sonorous_mask"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE
-	body_parts_covered = FACE
-	w_class = ITEMSIZE_NORMAL
-
-
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
@@ -211,32 +170,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/zilosnish_uniform //Exotic Purple Robe - Zilosnish Szu - sleepywolf
-	name = "exotic purple robe"
-	desc = "An extravagant display of wealth, hand-tailored with Unathi craftmanship. There are intricate designs of hammers, cactus flowers, and coins etched into the cloth."
-	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_state = "zilosnish_uniform"
-	item_state = "zilosnish_uniform"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/poncho/unathimantle/fluff/zilosnish_mantle //Exotic Mantle - Zilosnish Szu - sleepywolf
-	name = "exotic mantle"
-	desc = "A red hide with a gold and jade insignia pin to keep it on a wearers shoulders. The hide is thick, like rhino skin."
-	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_state = "zilosnish_mantle"
-	item_state = "zilosnish_mantle"
-	contained_sprite = TRUE
-
-/obj/item/pen/fluff/zilosnish_pen //Golden Pen - Zilosnish Szu - sleepywolf
-	name = "golden pen"
-	desc = "A pen plated in gold. It has black ink."
-	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
-	icon_state = "zilosnish_pen"
-
-
 /obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
 	name = "engraved wristwatch"
 	desc = "A fine gold watch. On the inside is an engraving that reads \"Happy birthday dad, thinking of you always\"."
@@ -253,17 +186,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "hadley_camera"
 	icon_on = "hadley_camera"
 	icon_off = "hadley_camera_off"
-
-
-/obj/item/clothing/head/beret/fluff/chunley_beret //Sol's Dog Handler Beret - Freya Chunley - thesmiley
-	name = "sol's dog handler beret"
-	desc = "A scarlet military beret worn by the Sol Alliance Military Police dog handling unit. The symbol on the cap is that of a grey wolf's head on white. It quivers menacingly. \
-	Upon flipping it you see a name tag with the word \"CHUNLEY\" written in on it with a very sloppy hand write."
-	icon = 'icons/obj/custom_items/chunley_beret.dmi'
-	icon_override = 'icons/obj/custom_items/chunley_beret.dmi'
-	icon_state = "chunley_beret"
-	item_state = "chunley_beret"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
@@ -296,7 +218,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 
 /obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - sampletex
@@ -349,7 +271,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A pair of jaws from what must have been a large and impressive shark."
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
@@ -372,7 +294,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/active = FALSE
 
 /obj/item/cane/fluff/qrqil_cane/attack_self(mob/user)
@@ -381,7 +303,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 		item_state = icon_state
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] is now de-energised.."))
@@ -471,7 +393,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "stand-spear"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/has_spear = TRUE
 
 /obj/item/fluff/tokash_spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -526,7 +448,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
@@ -567,7 +489,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_symphette"
 	item_state = "akinyi_symphette"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
 	var/deployed = FALSE
@@ -624,7 +546,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_override = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 
 /obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
@@ -659,9 +581,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "likho_labcoat"
 
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - sampletex
+/obj/item/clothing/suit/storage/toggle/para_jacket/fluff/ramit_jacket //Winter paramedic Jacket - Ra'mit Ma'zaira - sampletex
 	name = "winter paramedic jacket"
-	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
+	desc = "A custom made paramedic coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_override = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_state = "ramit_jacket"
@@ -825,7 +747,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "suul_staff"
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -853,7 +775,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_override = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
 							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
 							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
@@ -882,7 +804,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_mic"
 	item_state = "akinyi_mic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	activation_sound = null
 	needs_user_location = FALSE
@@ -894,7 +816,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_stand-collapsed"
 	item_state = "akinyi_stand-collapsed"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
 	var/collapsed = TRUE
@@ -931,10 +853,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(collapsed)
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		collapsed = FALSE
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		collapsed = TRUE
 
 	update_icon()
@@ -960,10 +882,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_case"
 	item_state = "akinyi_case"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	contained_sprite = TRUE
 	storage_slots = 3
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
@@ -996,8 +918,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/akila_jacket //Reflective First Responder Jacket - Akila Aksha'Shalwariran - shestrying
-	name = "reflective first responder jacket"
+/obj/item/clothing/suit/storage/toggle/para_jacket/fluff/akila_jacket //Reflective paramedic Jacket - Akila Aksha'Shalwariran - shestrying
+	name = "reflective paramedic jacket"
 	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
 	icon = 'icons/obj/custom_items/akila_jacket.dmi'
 	icon_override = 'icons/obj/custom_items/akila_jacket.dmi'
@@ -1272,47 +1194,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flag_item = /obj/item/flag/fluff/bian_flag
 	flag_size = TRUE
 
-/obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
-	name = "moneymaker cybernetic eye overlay"
-	desc = "An advanced golden holographic overlay chip installed into prosthetic eyes. Manufactured by Zeng-Hu for Idris Businessmen in the Eridani Corporate sector, \
-	this specific chip is engraved with a signature, and small note. \"For the man who sees my true value. With Love, Renae.\""
-	icon = 'icons/obj/custom_items/goldman_eye.dmi'
-	icon_override = 'icons/obj/custom_items/goldman_eye.dmi'
-	on_mob_icon = 'icons/obj/custom_items/goldman_eye.dmi'
-	icon_state = "goldman_eye"
-	item_state = "goldman_eye_onmob"
-	parent_organ = BP_HEAD
-
-	action_button_icon = "goldman_eye"
-	action_button_name = "Activate The Moneymaker Cybernetic Eye"
-	activable = TRUE
-	cooldown = 25
-
-/obj/item/organ/internal/augment/fluff/goldman_eye/attack_self(var/mob/user)
-	. = ..()
-	if(!.)
-		return FALSE
-	var/obj/item/W = user.get_active_hand()
-
-	if(W)
-		var/value = get_value(W)
-		user.visible_message("\The [user] scans \the [W] with \the [src]")
-		user.show_message("Price estimation of \the [W]: [value ? value : "N/A"] Credits")
-
-/obj/item/organ/internal/augment/fluff/goldman_chip //Platinum Membership Banking Chip - Kobi Goldman - sleepywolf
-	name = "platinum membership banking chip"
-	desc = "A Platinum Membership Chip with Lazarus Banking, a subsidiary of Idris Banking that focuses completely on private and anonymous banking. Membership with Lazarus is exclusive, \
-	and Membership Chips are the only way to authenticate. The chip is usually implanted near the heart in an EMP proof slot for security purposes. There is a small button on the chip."
-	icon = 'icons/obj/custom_items/goldman_eye.dmi'
-	icon_override = 'icons/obj/custom_items/goldman_eye.dmi'
-	icon_state = "goldman_chip"
-	parent_organ = BP_CHEST
-
-/obj/item/organ/internal/augment/fluff/goldman_chip/attack_self(var/mob/user)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if (user)
-		visible_message("<b>Platinum Chip</b> states eloquently, \"Welcome, Platinum Member and Esteemed Colleague. Please retrieve your funds at the nearest Trade Hub. Please ensure you keep \
-		this Platinum Membership Chip in you at all times, unless for emergency anonymous withdraws. Have a nice day, and stay with Lazarus Banking for all your private and personal purchases.\"")
 
 /obj/item/clothing/under/fluff/rajjurl_uniform //Tajaran Noble's Suit - Rajjurl Al-Thaalzir - abigbear
 	name = "tajaran noble's suit"
@@ -1813,7 +1694,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card
@@ -2038,9 +1919,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 
 /obj/item/rig/light/offworlder/fluff/aayun
-	name = "prototype exo-stellar skeleton module"
-	suit_type = "exoskeleton voidsuit"
-	desc = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
+	name = "command exo-stellar skeleton module"
+	suit_type = "exo-stellar skeleton"
+	desc = "A prototype, exo-stellar skeleton suit finished in SCC blue and gold, evidently built for someone in authority. Made of extremely expensive and custom-made parts, and bears an integrated golden metal scarf as a fashion statement."
+	desc_extended = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
 	Features microdoses of medicine in the air supply to aid in lung pain, electrostimulants to assist in muscle rehabilitation, and innumerable other features. Unfortunately, due to design limitations, \
 	it is only capable of maintaining a lower internal pressure when exposed to normal environments, and is not spaceworthy nor immune to environmental conditions. This particular model bears a small mark \
 	of Zeng-Hu Pharmaceuticals on the main back piece, and was largely designed by a collaborative effort of experts in their fields on the Horizon. A new future for off-worlders, or a money pit?"
@@ -2051,8 +1933,41 @@ All custom items with worn sprites must follow the contained sprite system: http
 	glove_type = /obj/item/clothing/gloves/lightrig
 	boot_type = /obj/item/clothing/shoes/lightrig
 
+/obj/item/clothing/accessory/poncho/fluff/devorask_coat //Daunting trenchcoat - Osisra Devorask - nkomaeda
+	name = "daunting trenchcoat"
+	desc = "A long and broad trenchcoat, made of sturdy fabrics. A logo is tailored on the back, showing a silver Unathi knight's helmet with red horns."
+	icon = 'icons/obj/custom_items/devorask_items.dmi'
+	icon_override = 'icons/obj/custom_items/devorask_items.dmi'
+	icon_state = "devorask_coat"
+	item_state = "devorask_coat"
+	contained_sprite = TRUE
 
+/obj/item/flag/fluff/devorask_flag //Devorask clan flag - Osisra Devorask - nkomaeda
+	name = "devorask clan flag"
+	desc = "A brightly coloured flag, displaying a silver Unathi knight's helmet with red horns on a typical Ouerean backdrop. Five golden rings are shown on the flag, representing the tenets of the Devorask clan."
+	flag_path = "devorask_flag"
+	flag_structure = /obj/structure/sign/flag/devorask_flag
 
+/obj/structure/sign/flag/devorask_flag
+	name = "devorask clan flag"
+	desc = "A brightly coloured flag, displaying a silver Unathi knight's helmet with red horns on a typical Ouerean backdrop. Five golden rings are shown on the flag, representing the tenets of the Devorask clan."
+	icon = 'icons/obj/custom_items/devorask_items.dmi'
+	icon_state = "devorask_flag"
+	flag_path = "devorask_flag"
+	flag_item = /obj/item/flag/fluff/devorask_flag
+	desc_extended = "The Devorask clan is a Ouerean group running anti-piracy operations in Uueoa-Esa space. Though not too well-known, their title of 'The Daunting' has \
+	come up in news and communication during the Months of Blood, where members of the clan and group as a whole ran peacekeeping operations at public services, \
+	such as hospitals, power plants and spaceports. The Devorask clan, and the general crew of The Daunting, is currently working together with the Dagamuir \
+	Freewater Private Forces. Neatly and precisely tailored in Sinta'Unathi on the five rings, in order from left to right, are 'Overwhelming force to \
+	minimize risk', 'Clarity of Intent', 'Defend the Defenceless', 'Fear is Power' and 'Master your Tools'."
 
+/obj/item/flag/fluff/devorask_flag/l
+	name = "devorask clan flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/devorask_flag/large
 
-
+/obj/structure/sign/flag/devorask_flag/large
+	icon_state = "devorask_flag_l"
+	flag_path = "devorask_flag"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/fluff/devorask_flag/l

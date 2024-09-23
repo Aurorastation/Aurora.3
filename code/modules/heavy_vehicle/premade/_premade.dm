@@ -41,6 +41,8 @@
 			head.color = e_color
 	if(!body && e_body)
 		body = new e_body(src)
+		if(body.cell)
+			RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 		if(e_color)
 			body.color = e_color
 	if(!arms && e_arms)

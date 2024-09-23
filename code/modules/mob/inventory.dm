@@ -178,33 +178,63 @@ var/list/slot_equipment_priority = list( \
 			return l_hand
 		return
 
-//Puts the item into our active hand if possible. returns 1 on success.
-/mob/proc/put_in_active_hand(var/obj/item/W)
-	return 0 // Moved to human procs because only they need to use hands.
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_active_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
 
-//Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/proc/put_in_inactive_hand(var/obj/item/W)
-	return 0 // As above.
+	return FALSE
 
-//Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
-//If both fail it drops it on the floor and returns 0.
-//This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
-	if(!W || !istype(W))
-		return 0
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_inactive_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return FALSE
+
+/**
+ * Puts the item in an active hand if possible, failing that it tries an inactive hand
+ *
+ * If both fails, it drops the item on the floor and returns `FALSE`
+ *
+ * * item_to_equip - An `obj/item` to try to equip
+ * * check_adjacency - A boolean, if `TRUE` it checks if the mob is adjacent to the target
+ *
+ * Returns `TRUE` on successful equip on an hand, `FALSE` otherwise
+ */
+/mob/proc/put_in_hands(obj/item/item_to_equip, check_adjacency = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(item_to_equip))
+		return FALSE
+
+	if(!istype(item_to_equip))
+		return FALSE
+
 	var/move_to_src = TRUE
 	if(check_adjacency)
 		move_to_src = FALSE
-		var/turf/origin = get_turf(W)
+		var/turf/origin = get_turf(item_to_equip)
 		if(Adjacent(origin))
 			move_to_src = TRUE
 	if(move_to_src)
-		W.forceMove(get_turf(src))
+		item_to_equip.forceMove(get_turf(src))
 	else
-		W.forceMove(get_turf(W))
-	W.reset_plane_and_layer()
-	W.dropped(src)
-	return 0
+		item_to_equip.forceMove(get_turf(item_to_equip))
+	item_to_equip.reset_plane_and_layer()
+	item_to_equip.dropped(src)
+
+	return FALSE
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
@@ -347,15 +377,24 @@ var/list/slot_equipment_priority = list( \
 		if(slot_wear_mask) return wear_mask
 	return null
 
-//Outdated but still in use apparently. This should at least be a human proc.
-/mob/proc/get_equipped_items(var/include_carried = 0)
+/**
+ * Used to return a list of equipped items on a human mob; does not by default include held items, see include_flags
+ *
+ * Argument(s):
+ * * Optional - include_flags, (see `code\__DEFINES\obj_flags.dm`) describes which optional things to include or not (pockets, accessories, held items)
+ */
+/mob/proc/get_equipped_items(include_flags = NONE)
 	. = list()
-	if(back) . += back
-	if(wear_mask) . += wear_mask
+	if(back)
+		. += back
+	if(wear_mask)
+		. += wear_mask
 
-	if(include_carried)
-		if(l_hand) . += l_hand
-		if(r_hand) . += r_hand
+	if(include_flags & INCLUDE_HELD)
+		if(l_hand)
+			. += l_hand
+		if(r_hand)
+			. += r_hand
 
 
 
@@ -364,7 +403,7 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/living/carbon/throw_item(atom/target)
-	if(stat || !target || istype(target, /obj/screen))
+	if(stat || !target || istype(target, /atom/movable/screen))
 		return FALSE
 
 	var/atom/movable/item = src.get_active_hand()
@@ -392,8 +431,8 @@ var/list/slot_equipment_priority = list( \
 				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 
-				M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
-				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>")
+				M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>"
+				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>"
 				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
@@ -480,7 +519,7 @@ var/list/slot_equipment_priority = list( \
 	return FALSE
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
-	for(var/obj/item/I as anything in get_equipped_items(include_carried))
+	for(var/obj/item/I as anything in get_equipped_items(include_carried ? INCLUDE_POCKETS|INCLUDE_HELD : 0))
 		drop_from_inventory(I)
 		qdel(I)
 

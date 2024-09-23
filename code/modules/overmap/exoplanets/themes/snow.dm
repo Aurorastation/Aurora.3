@@ -50,6 +50,19 @@
 		)
 	)
 
+/// Special biome when Raskara blocks the Suns. We will have hostile animals spawn more often
+/datum/exoplanet_theme/snow/adhomai/darkest_eclipse
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai/eclipse
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/adhomai/eclipse,
+			BIOME_SEMIARID = /singleton/biome/snow/forest/adhomai/eclipse
+		)
+	)
+
 /datum/exoplanet_theme/snow/tundra/adhomai
 	name = "Adhomai North Pole"
 	mountain_biome = /singleton/biome/mountain/adhomai
@@ -61,5 +74,18 @@
 		BIOME_COOL = list(
 			BIOME_ARID = /singleton/biome/snow/adhomai/polar,
 			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar
+		)
+	)
+
+/// Special biome when Raskara blocks the Suns. We will have hostile animals spawn more often
+/datum/exoplanet_theme/snow/tundra/adhomai/darkest_eclipse
+	possible_biomes = list(
+		BIOME_POLAR = list(
+			BIOME_ARID = /singleton/biome/water/ice/polar,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar/eclipse
+		),
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/snow/adhomai/polar/eclipse,
+			BIOME_SEMIARID = /singleton/biome/snow/adhomai/polar/eclipse
 		)
 	)

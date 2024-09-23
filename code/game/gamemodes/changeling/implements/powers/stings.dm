@@ -13,7 +13,9 @@
 	required_chems = set_required_chems
 	stealthy = set_stealthy
 
-/datum/changeling_sting/proc/can_sting(var/mob/living/target)
+/datum/changeling_sting/proc/can_sting(mob/living/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!target || !owner.mind)
 		return FALSE
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
@@ -32,7 +34,9 @@
 		return FALSE
 	return TRUE
 
-/datum/changeling_sting/proc/do_sting(var/mob/living/target)
+/datum/changeling_sting/proc/do_sting(mob/living/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 	changeling.use_charges(required_chems)
 	changeling.sting_range = 1

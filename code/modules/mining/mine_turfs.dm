@@ -31,6 +31,7 @@ var/list/mineral_can_smooth_with = list(
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	initial_gas = null
 	opacity = TRUE
@@ -70,7 +71,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -128,39 +129,55 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 	SSicon_smooth.add_to_queue_neighbors(src)
 
-/turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
-		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+/turf/simulated/mineral/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //Fucking snowflake stack of procs
+
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_ATOM_PRE_BULLET_ACT, hitting_projectile, def_zone)
+	if(sigreturn & COMPONENT_BULLET_PIERCED)
+		return BULLET_ACT_FORCE_PIERCE
+	if(sigreturn & COMPONENT_BULLET_BLOCKED)
+		return BULLET_ACT_BLOCK
+	if(sigreturn & COMPONENT_BULLET_ACTED)
+		return BULLET_ACT_HIT
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, hitting_projectile, def_zone)
+	if(QDELETED(hitting_projectile)) // Signal deleted it?
+		return BULLET_ACT_BLOCK
+
+	if(istype(hitting_projectile, /obj/projectile/beam/plasmacutter))
+		var/obj/projectile/beam/plasmacutter/PC_beam = hitting_projectile
 		var/list/cutter_results = PC_beam.pass_check(src)
 		. = cutter_results[1]
 		if(cutter_results[2]) // the cutter mined the turf, just pass on
-			return
+			return BULLET_ACT_HIT
 
 	// Emitter blasts
-	if(istype(Proj, /obj/item/projectile/beam/emitter))
+	if(istype(hitting_projectile, /obj/projectile/beam/emitter))
 		emitter_blasts_taken++
 
 	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
-/turf/simulated/mineral/CollidedWith(AM)
+	hitting_projectile.on_hit(src, 0, def_zone)
+
+/turf/simulated/mineral/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if(istype(AM,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(bumped_atom, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = bumped_atom
 		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
 			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)
-				attackby(H.l_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.l_hand, H)
 
-		else if((istype(H.r_hand,/obj/item/pickaxe)) && H.hand)
+		else if((istype(H.r_hand, /obj/item/pickaxe)) && H.hand)
 			var/obj/item/pickaxe/P = H.r_hand
 			if(P.autodrill)
-				attackby(H.r_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.r_hand, H)
 
-	else if(istype(AM,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = AM
+	else if(istype(bumped_atom, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = bumped_atom
 		if(istype(R.module_active,/obj/item/pickaxe))
-			attackby(R.module_active,R)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), R.module_active, R)
 
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
@@ -186,7 +203,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -406,7 +423,7 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
-/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+/turf/simulated/mineral/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
 	var/old_has_resources = has_resources
 	var/list/old_resources = resources
 	var/image/old_resource_indicator = resource_indicator
@@ -599,7 +616,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/destination = GetAbove(H)
+		var/turf/T = get_turf(H)
+		var/turf/destination = GET_TURF_ABOVE(T)
 		if(destination)
 			var/turf/start = get_turf(H)
 			if(start.CanZPass(H, UP))
@@ -676,7 +694,12 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /turf/simulated/mineral/lava
+	color = "#444444"
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava/tret
+	color = "#444455"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /**********************Asteroid**************************/
 
@@ -722,7 +745,7 @@ var/list/asteroid_floor_smooth = list(
 	base_desc = desc
 	base_name = name
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -810,7 +833,7 @@ var/list/asteroid_floor_smooth = list(
 		if(digging)
 			return
 		if(dug)
-			if(!GetBelow(src))
+			if(!GET_TURF_BELOW(src))
 				return
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
@@ -954,7 +977,7 @@ var/list/asteroid_floor_smooth = list(
 		dug += 1
 		AddOverlays("asteroid_dug", TRUE)
 	else
-		var/turf/below = GetBelow(src)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			var/area/below_area = get_area(below)	// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)

@@ -11,7 +11,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
@@ -44,7 +44,7 @@
 	name = "legion magnetic door lock"
 	req_access = null
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	. = ..()
@@ -107,9 +107,12 @@
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(var/obj/item/projectile/Proj)
-	takedamage(Proj.damage)
-	..()
+/obj/item/device/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	takedamage(hitting_projectile.damage)
 
 /obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)

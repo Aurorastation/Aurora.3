@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
-	projectile_type = /obj/item/projectile/energy/declone
+	projectile_type = /obj/projectile/energy/declone
 
 /obj/item/gun/energy/floragun
 	name = "floral somatoray"
@@ -20,16 +20,16 @@
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	charge_cost = 100
 	max_shots = 10
-	projectile_type = /obj/item/projectile/energy/floramut
+	projectile_type = /obj/projectile/energy/floramut
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
 	self_recharge = 1
 	var/singleton/plantgene/gene = null
 
 	firemodes = list(
-		list(mode_name="induce mutations", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut"),
-		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield"),
-		list(mode_name="induce specific mutations", projectile_type=/obj/item/projectile/energy/floramut/gene, modifystate="floramut"),
+		list(mode_name="induce mutations", projectile_type=/obj/projectile/energy/floramut, modifystate="floramut"),
+		list(mode_name="increase yield", projectile_type=/obj/projectile/energy/florayield, modifystate="florayield"),
+		list(mode_name="induce specific mutations", projectile_type=/obj/projectile/energy/floramut/gene, modifystate="floramut"),
 		)
 
 	needspin = FALSE
@@ -56,8 +56,8 @@
 
 /obj/item/gun/energy/floragun/consume_next_projectile()
 	. = ..()
-	if(istype(., /obj/item/projectile/energy/floramut/gene))
-		var/obj/item/projectile/energy/floramut/gene/projectile = .
+	if(istype(., /obj/projectile/energy/floramut/gene))
+		var/obj/projectile/energy/floramut/gene/projectile = .
 		projectile.gene = gene
 
 /obj/item/gun/energy/meteorgun
@@ -68,9 +68,9 @@
 	item_state = "meteor_gun"
 	has_item_ratio = FALSE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_shots = 10
-	projectile_type = /obj/item/projectile/meteor
+	projectile_type = /obj/projectile/meteor
 	self_recharge = 1
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
@@ -84,7 +84,7 @@
 	contained_sprite = FALSE
 	icon_state = "pen"
 	item_state = "pen"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_BELT
 	can_turret = 0
 
@@ -96,7 +96,7 @@
 	icon_state = "xray"
 	item_state = "xray"
 	has_item_ratio = FALSE
-	projectile_type = /obj/item/projectile/beam/mindflayer
+	projectile_type = /obj/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/laser1.ogg'
 	can_turret = 1
 	turret_sprite_set = "xray"
@@ -109,9 +109,9 @@
 	item_state = "toxgun"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
-	projectile_type = /obj/item/projectile/energy/phoron
+	projectile_type = /obj/projectile/energy/phoron
 	can_turret = 1
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
@@ -124,10 +124,10 @@
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/taser2.ogg'
 	force = 11
-	projectile_type = /obj/item/projectile/beam/mousegun
+	projectile_type = /obj/projectile/beam/mousegun
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
 	max_shots = 6
 	sel_mode = 1
@@ -143,7 +143,7 @@
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("You overload \the [src]'s shock modulator."))
 		max_shots = initial(max_shots) + 4
-		projectile_type = /obj/item/projectile/beam/mousegun/emag
+		projectile_type = /obj/projectile/beam/mousegun/emag
 		emagged = TRUE
 		QDEL_NULL(power_supply)
 		power_supply = new /obj/item/cell/device/variable(src, max_shots * charge_cost)
@@ -155,7 +155,7 @@
 	icon = 'icons/obj/guns/xenogun.dmi'
 	icon_state = "xenogun"
 	item_state = "xenogun"
-	projectile_type = /obj/item/projectile/beam/mousegun/xenofauna
+	projectile_type = /obj/projectile/beam/mousegun/xenofauna
 	max_shots = 12
 
 /obj/item/gun/energy/net
@@ -165,10 +165,10 @@
 	icon_state = "netgun"
 	item_state = "netgun"
 	has_item_ratio = FALSE
-	projectile_type = /obj/item/projectile/beam/energy_net
+	projectile_type = /obj/projectile/beam/energy_net
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 4
 	fire_delay = 25
 	can_turret = 1
@@ -198,10 +198,10 @@
 	item_state = "bfg"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 33
-	projectile_type = /obj/item/projectile/energy/bfg
+	projectile_type = /obj/projectile/energy/bfg
 	slot_flags = SLOT_BACK
 	max_shots = 3
 	sel_mode = 1
@@ -223,9 +223,9 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
-	projectile_type = /obj/item/projectile/beam/gatlinglaser
+	projectile_type = /obj/projectile/beam/gatlinglaser
 	max_shots = 350
 	sel_mode = 1
 	burst = 10
@@ -280,11 +280,11 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	recoil = 1
 	force = 15
-	projectile_type = /obj/item/projectile/energy/blaster/incendiary
+	projectile_type = /obj/projectile/energy/blaster/incendiary
 	max_shots = 7
 	burst = 1
 	burst_delay = 1
@@ -307,10 +307,10 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	accuracy = 3 // It's a massive beam, okay.
 	force = 60
-	projectile_type = /obj/item/projectile/beam/megaglaive
+	projectile_type = /obj/projectile/beam/megaglaive
 	max_shots = 36
 	sel_mode = 1
 	burst = 10
@@ -394,9 +394,9 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 22
-	projectile_type = /obj/item/projectile/beam/thermaldrill
+	projectile_type = /obj/projectile/beam/thermaldrill
 	max_shots = 90
 	burst = 10
 	burst_delay = 1
@@ -422,7 +422,7 @@
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	var/turf/current_turf = get_turf(user)
-	if(isStationLevel(current_turf.z))
+	if(is_station_level(current_turf.z))
 		to_chat(user, SPAN_DANGER("\The [src] cannot be used on the ship!"))
 		return FALSE
 	if(is_charging)
@@ -458,7 +458,7 @@
 	item_state = "tachyoncarbine"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
-	projectile_type = /obj/item/projectile/beam/tachyon
+	projectile_type = /obj/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
 	accuracy = 1
@@ -473,10 +473,10 @@
 	item_state = "tesla"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 33
-	projectile_type = /obj/item/projectile/beam/tesla
+	projectile_type = /obj/projectile/beam/tesla
 	slot_flags = SLOT_BACK
 	max_shots = 3
 	sel_mode = 1
@@ -499,10 +499,10 @@
 	item_state = "gravity_gun"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/Repulse.ogg'
 	force = 33
-	projectile_type = /obj/item/projectile/energy/gravitydisabler
+	projectile_type = /obj/projectile/energy/gravitydisabler
 	slot_flags = SLOT_BACK
 	max_shots = 2
 	sel_mode = 1
@@ -517,7 +517,7 @@
 	icon_state = "laserpack_holstered"
 	item_state = "laserpack_holstered"
 	contained_sprite = 1
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
 	action_button_name = "Deploy the Laser Rifle"
@@ -631,7 +631,7 @@
 	needspin = FALSE
 	origin_tech = null
 	charge_meter = FALSE
-	projectile_type = /obj/item/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
+	projectile_type = /obj/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
 	charge_cost = 100
 	max_shots = 20
 	self_recharge = 1 // bioreactor in the backpack; not entirely defenseless against EMPs

@@ -27,7 +27,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return -1
 	if(!current_camera)
 		return 0
@@ -37,7 +37,7 @@
 	return viewflag
 
 /obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
-	if(user.stat || user.blinded || inoperable())
+	if(user.stat || user.blinded || !operable())
 		return FALSE
 	if(!current_camera)
 		return FALSE
@@ -109,8 +109,8 @@
 		return 1
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
-	if (src.z > 6)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
+	if (!(src.z in GetConnectedZlevels(starting_z_level)))
+		to_chat(user, "Unable to establish a connection.")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
@@ -131,11 +131,11 @@
 		A.client.eye = A.eyeobj
 		return 1
 
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return 0
 	set_current(C)
 
-	if(!is_contact_area(get_area(C)))
+	if (!(C.z in GetConnectedZlevels(starting_z_level)))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
@@ -275,7 +275,6 @@
 	light_color = LIGHT_COLOR_PURPLE
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
-	light_color = LIGHT_COLOR_PURPLE
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
@@ -315,3 +314,14 @@
 /obj/machinery/computer/security/nuclear/Initialize()
 	. = ..()
 	req_access = list(150)
+
+/obj/machinery/computer/security/terminal
+	name = "camera monitor terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "cameras"
+	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

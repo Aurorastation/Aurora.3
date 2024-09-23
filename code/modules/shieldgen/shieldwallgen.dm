@@ -195,11 +195,14 @@
 	alldir_cleanup()
 	return ..()
 
-/obj/machinery/shieldwallgen/bullet_act(var/obj/item/projectile/Proj)
-	storedpower -= 400 * Proj.get_structure_damage()
+/obj/machinery/shieldwallgen/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	storedpower -= 400 * hitting_projectile.get_structure_damage()
 	if(power_state >= POWER_STARTING)
-		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [Proj] hits it!"))
-	return ..()
+		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [hitting_projectile] hits it!"))
 
 /obj/shieldwall
 	name = "energy shield"
@@ -255,16 +258,19 @@
 		gen_primary.storedpower -= power_usage / 2
 		gen_secondary.storedpower -= power_usage / 2
 
-/obj/shieldwall/bullet_act(var/obj/item/projectile/Proj)
+/obj/shieldwall/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
 		if(prob(50))
 			G = gen_primary
 		else
 			G = gen_secondary
-		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [Proj] impacts it!"))
-		G.storedpower -= 400 * Proj.get_structure_damage()
-	return ..()
+		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [hitting_projectile] impacts it!"))
+		G.storedpower -= 400 * hitting_projectile.get_structure_damage()
 
 /obj/shieldwall/ex_act(severity)
 	if(needs_power)
@@ -294,10 +300,12 @@
 /obj/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(20)
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(10)
 		else
 			return !density

@@ -73,10 +73,10 @@ SUBSYSTEM_DEF(explosives)
 
 	// Handles recursive propagation of explosions.
 	if(devastation_range > 2 || heavy_impact_range > 2)
-		if(HasAbove(epicenter.z) && z_transfer & UP)
-			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
-		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			global.explosion(GetBelow(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
+		if(GET_TURF_ABOVE(epicenter) && z_transfer & UP)
+			global.explosion(GET_TURF_ABOVE(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
+		if(GET_TURF_BELOW(epicenter) && z_transfer & DOWN)
+			global.explosion(GET_TURF_BELOW(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
@@ -258,17 +258,17 @@ SUBSYSTEM_DEF(explosives)
 			power -= O.explosion_resistance
 
 	if (power >= GLOB.config.iterative_explosives_z_threshold)
-		if ((z_transfer & UP) && HasAbove(epicenter.z))
+		if ((z_transfer & UP) && GET_TURF_ABOVE(epicenter))
 			var/datum/explosiondata/data = new
-			data.epicenter = GetAbove(epicenter)
+			data.epicenter = GET_TURF_ABOVE(epicenter)
 			data.rec_pow = (power * GLOB.config.iterative_explosives_z_multiplier) - GLOB.config.iterative_explosives_z_subtraction
 			data.z_transfer = UP
 			data.spreading = TRUE
 			queue(data)
 
-		if ((z_transfer & DOWN) && HasBelow(epicenter.z))
+		if ((z_transfer & DOWN) && GET_TURF_BELOW(epicenter))
 			var/datum/explosiondata/data = new
-			data.epicenter = GetBelow(epicenter)
+			data.epicenter = GET_TURF_BELOW(epicenter)
 			data.rec_pow = (power * GLOB.config.iterative_explosives_z_multiplier) - GLOB.config.iterative_explosives_z_subtraction
 			data.z_transfer = DOWN
 			data.spreading = TRUE

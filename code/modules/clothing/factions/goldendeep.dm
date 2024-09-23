@@ -130,6 +130,7 @@
 	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
 	contained_sprite = TRUE
 	icon_override = null
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
 	name = "flowing cloak"

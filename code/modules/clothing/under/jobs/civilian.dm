@@ -230,7 +230,6 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
 	item_state = "bridge_crew"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/bridge_crew/alt
 	name = "bridge crew's skirt"

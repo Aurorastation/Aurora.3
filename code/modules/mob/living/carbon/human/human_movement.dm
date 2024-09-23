@@ -1,3 +1,5 @@
+//I would have rewritten this whole thing, but it requires to change half a million systems for it to be proper, therefore
+//i declare this shit legacy code, to be slowly phased out as things get updated
 /mob/living/carbon/human/movement_delay()
 
 	var/tally = 0
@@ -24,8 +26,6 @@
 	if(shock >= 10)
 		tally += (shock / 30) //get_shock checks if we can feel pain
 
-	tally += ClothesSlowdown()
-
 	if(species)
 		tally += species.get_species_tally(src)
 
@@ -34,7 +34,7 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at)
+	if(aiming?.aiming_at)
 		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
 	if (is_drowsy())
@@ -50,22 +50,9 @@
 	if((mutations & mRun))
 		tally = 0
 
-	tally = max(-2, tally + move_delay_mod)
-
-	var/obj/item/AH = get_active_hand()
-	if(istype(AH))
-		tally += AH.slowdown
-
-	var/obj/item/IH = get_inactive_hand()
-	if(istype(IH))
-		tally += IH.slowdown
-
 	if(isitem(pulling))
 		var/obj/item/P = pulling
 		tally += P.slowdown
-
-	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(-2, tally - 3)
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -77,6 +64,9 @@
 		if(species && istype(T, /turf/simulated/floor/exoplanet/water))
 			if(species.can_breathe_water())
 				tally -= T.movement_cost
+
+	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+		tally += 1
 
 	tally += GLOB.config.human_delay
 
@@ -119,6 +109,8 @@
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
 	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
 		return TRUE
+	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
@@ -145,7 +137,7 @@
 			footsound = T.footstep_sound
 
 	if (client)
-		var/turf/B = GetAbove(T)
+		var/turf/B = GET_TURF_ABOVE(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
@@ -188,11 +180,6 @@
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
 
-/mob/living/carbon/human/proc/ClothesSlowdown()
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
-		. += I.slowdown
-		. += I.slowdown_accessory
-
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()
 
@@ -200,4 +187,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
-		. += H.ClothesSlowdown()
+		// . += H.ClothesSlowdown()

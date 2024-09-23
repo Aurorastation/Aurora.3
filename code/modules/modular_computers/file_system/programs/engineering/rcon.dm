@@ -21,17 +21,18 @@
 
 	var/list/smeslist = list()
 	for(var/obj/machinery/power/smes/buildable/SMES in SSmachinery.rcon_smes_units)
-		smeslist.Add(list(list(
-		"charge" = round(SMES.Percentage()),
-		"input_set" = SMES.input_attempt,
-		"input_val" = round(SMES.input_level),
-		"output_set" = SMES.output_attempt,
-		"output_val" = round(SMES.output_level),
-		"input_level_max" = SMES.input_level_max,
-		"output_level_max" = SMES.output_level_max,
-		"output_load" = round(SMES.output_used),
-		"RCON_tag" = SMES.RCon_tag
-		)))
+		if(SMES.RCon)
+			smeslist.Add(list(list(
+			"charge" = round(SMES.Percentage()),
+			"input_set" = SMES.input_attempt,
+			"input_val" = round(SMES.input_level),
+			"output_set" = SMES.output_attempt,
+			"output_val" = round(SMES.output_level),
+			"input_level_max" = SMES.input_level_max,
+			"output_level_max" = SMES.output_level_max,
+			"output_load" = round(SMES.output_used),
+			"RCON_tag" = SMES.RCon_tag
+			)))
 
 	data["smes_info"] = smeslist
 	// BREAKER DATA (simplified view)

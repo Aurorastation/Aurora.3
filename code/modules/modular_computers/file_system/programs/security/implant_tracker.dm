@@ -8,7 +8,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 6
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_ORANGE
 	tgui_id = "ImplantTracker"
 
@@ -26,12 +26,12 @@
 		if(!C.implanted)
 			continue
 		var/turf/Tr = get_turf(C)
-		if(!Tr || !isStationLevel(Tr.z))
+		if(!Tr || !is_station_level(Tr.z))
 			continue
 		var/list/chem_info = list(
 			"implanted_name" = C.imp_in.real_name,
 			"remaining_units" = round(C.reagents.total_volume, 0.1),
-			"ref" = "\ref[C]"
+			"ref" = "[REF(C)]"
 			)
 		chem_implants += list(chem_info)
 	data["chem_implants"] = chem_implants
@@ -40,11 +40,11 @@
 		if(!T.implanted)
 			continue
 		var/turf/Tr = get_turf(T)
-		if(!Tr || !isStationLevel(Tr.z))
+		if(!Tr || !is_station_level(Tr.z))
 			continue
 		var/loc_display = "Unknown"
 		var/mob/living/carbon/M = T.imp_in
-		if(isStationLevel(M.z) && !istype(M.loc, /turf/space))
+		if(is_station_level(M.z) && !istype(M.loc, /turf/space))
 			var/area/A = get_area(M)
 			loc_display = A.name
 		if(T.malfunction)
@@ -53,7 +53,7 @@
 		var/list/tracker_info = list(
 			"id" = T.id,
 			"loc_display" = loc_display,
-			"ref" = "\ref[T]"
+			"ref" = "[REF(T)]"
 			)
 		tracking_implants += list(tracker_info)
 	data["tracking_implants"] = tracking_implants

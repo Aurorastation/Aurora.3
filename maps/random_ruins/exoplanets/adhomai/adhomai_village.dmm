@@ -109,6 +109,12 @@
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
+"hR" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
+	},
+/area/adhomai_village)
 "if" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -118,6 +124,11 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/adhomai_village)
+"iu" = (
+/obj/structure/railing/fence,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "iK" = (
 /obj/structure/table/rack,
@@ -275,6 +286,11 @@
 /area/adhomai_village)
 "rf" = (
 /obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_village)
+"rk" = (
+/obj/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "rM" = (
@@ -440,6 +456,13 @@
 	temperature = 268.15
 	},
 /area/adhomai_village)
+"BR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/adhomai_village)
 "BZ" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
@@ -463,12 +486,36 @@
 	temperature = 278.15
 	},
 /area/adhomai_village)
+"Cz" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_village)
 "CX" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/adhomai_village)
+"DJ" = (
+/obj/structure/table/wood,
+/obj/random/medical{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "DP" = (
 /obj/machinery/light/small,
@@ -476,6 +523,7 @@
 /area/adhomai_village)
 "Em" = (
 /obj/machinery/appliance/cooker/stove/adhomai,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Fz" = (
@@ -691,6 +739,11 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
+"OV" = (
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/mop,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_village)
 "Pa" = (
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa,
@@ -753,7 +806,9 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothbrush/red,
-/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste{
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
@@ -975,7 +1030,7 @@ TQ
 Ic
 zh
 IM
-ew
+iu
 xc
 Jb
 xc
@@ -1004,7 +1059,7 @@ Gu
 xc
 Gu
 ev
-TQ
+Wa
 Mv
 Kq
 Gu
@@ -1049,7 +1104,7 @@ Jb
 xc
 Gu
 Oa
-TQ
+Wa
 TQ
 fq
 Gu
@@ -1108,7 +1163,7 @@ Gu
 Oc
 TQ
 TQ
-TQ
+Wa
 Gu
 eU
 gz
@@ -1154,7 +1209,7 @@ wx
 TQ
 DP
 Gu
-TQ
+Wa
 ef
 Gu
 xc
@@ -1254,7 +1309,7 @@ xc
 Gu
 Oc
 RA
-TQ
+Wa
 Gu
 Ht
 TQ
@@ -1309,7 +1364,7 @@ xc
 (13,1,1) = {"
 xc
 Gu
-TQ
+Wa
 TQ
 TQ
 TQ
@@ -1590,11 +1645,11 @@ Gu
 Gu
 Gu
 Gu
-TD
+Cz
 Gu
 Gu
 wj
-Aq
+hR
 Aq
 Gu
 xc
@@ -1622,9 +1677,9 @@ Gu
 Gu
 Ic
 Jr
-TQ
+DJ
 WK
-DP
+rk
 Gu
 wY
 Aq
@@ -1660,7 +1715,7 @@ TQ
 TQ
 TQ
 rf
-Aq
+hR
 Aq
 Aq
 uc
@@ -1763,7 +1818,7 @@ Gk
 Gu
 GR
 TQ
-TQ
+Wa
 Gu
 xc
 xc
@@ -1789,7 +1844,7 @@ sS
 TQ
 TQ
 TQ
-TQ
+Wa
 TQ
 TQ
 Gu
@@ -1830,7 +1885,7 @@ Gu
 Pa
 TQ
 TQ
-TQ
+Wa
 TQ
 zh
 xc
@@ -1855,13 +1910,13 @@ xc
 Gu
 Cw
 Cw
-Cw
+BR
 Cw
 Cw
 Cw
 TQ
 rf
-TQ
+Wa
 TQ
 cw
 cw
@@ -1895,7 +1950,7 @@ Sg
 Yn
 TQ
 Gu
-TQ
+OV
 aF
 qm
 qm

@@ -11,7 +11,7 @@
 	density = 1
 	var/health = 100.0
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -167,6 +167,7 @@
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
@@ -277,7 +278,7 @@ update_flag
 	if (src.destroyed)
 		ClearOverlays()
 		set_light(FALSE)
-		src.icon_state = text("[]-1", src.canister_color)
+		src.icon_state = "[src.canister_color]-1"
 		return
 
 	if(icon_state != "[canister_color]")
@@ -392,14 +393,17 @@ update_flag
 		return GM.return_pressure()
 	return 0
 
-/obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+/obj/machinery/portable_atmospherics/canister/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	if(Proj.damage)
-		src.health -= round(Proj.damage / 2)
+	if(!(hitting_projectile.damage_type == DAMAGE_BRUTE || hitting_projectile.damage_type == DAMAGE_BURN))
+		return BULLET_ACT_BLOCK
+
+	if(hitting_projectile.damage)
+		src.health -= round(hitting_projectile.damage / 2)
 		healthcheck()
-	..()
 
 /obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))
@@ -560,13 +564,15 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
-	spawn(10)
-		var/turf/simulated/location = src.loc
-		if (istype(src.loc))
-			while (!location.air)
-				sleep(10)
-			location.assume_air(air_contents)
-			air_contents = new
+	addtimer(CALLBACK(src, PROC_REF(fill_room)), 1 SECONDS)
+
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/proc/fill_room()
+	var/turf/simulated/location = src.loc
+	if (istype(src.loc))
+		while (!location.air)
+			sleep(10)
+		location.assume_air(air_contents)
+		air_contents = new
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
@@ -588,6 +594,10 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
+
+/obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
+	. = ..()
+	src.air_contents.temperature = 303.15
 
 /obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"

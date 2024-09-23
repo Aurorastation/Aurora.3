@@ -11,7 +11,7 @@
 INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/Initialize(mapload)
 	. = ..()
-	tag = text("landmark*[]", name)
+	tag = "landmark*[name]"
 	GLOB.landmarks_list += src
 
 /obj/effect/landmark/Destroy()
@@ -155,7 +155,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 
 /obj/effect/landmark/skrell_srom/Initialize()
 	..()
-	dream_entries += get_turf(src)
+	GLOB.dream_entries |= get_turf(src)
 	return INITIALIZE_HINT_QDEL
 
 /**

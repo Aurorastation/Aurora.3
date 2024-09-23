@@ -221,15 +221,17 @@
 
 	return 1
 
-/*
-	Ranged unarmed attack:
+/**
+ * Ranged unarmed attack:
+ *
+ * This currently is just a default for all mobs, involving
+ * laser eyes and telekinesis.  You could easily add exceptions
+ * for things like ranged glove touches, spitting alien acid/neurotoxin,
+ * animals lunging, etc.
+ */
+/mob/proc/RangedAttack(atom/A, params)
+	SHOULD_NOT_SLEEP(TRUE)
 
-	This currently is just a default for all mobs, involving
-	laser eyes and telekinesis.  You could easily add exceptions
-	for things like ranged glove touches, spitting alien acid/neurotoxin,
-	animals lunging, etc.
-*/
-/mob/proc/RangedAttack(var/atom/A, var/params)
 	if((mutations & LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
@@ -339,12 +341,7 @@
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
 	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
-	var/obj/item/projectile/beam/LE = new (T)
-	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
-	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
-	LE.impact_type = /obj/effect/projectile/impact/eyelaser
-	playsound(usr.loc, 'sound/weapons/wave.ogg', 75, 1)
-	LE.launch_projectile(A, zone_sel? zone_sel.selecting : null, src, params)
+	fire_projectile(/obj/projectile/beam, T, 'sound/weapons/wave.ogg', firer = src)
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
@@ -381,14 +378,14 @@
 
 var/global/list/click_catchers
 
-/obj/screen/click_catcher
+/atom/movable/screen/click_catcher
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
 
-/obj/screen/click_catcher/Destroy()
+/atom/movable/screen/click_catcher/Destroy()
 	SHOULD_CALL_PARENT(FALSE)
 	return QDEL_HINT_LETMELIVE
 
@@ -396,11 +393,11 @@ var/global/list/click_catchers
 	. = list()
 	for(var/i = 0, i<15, i++)
 		for(var/j = 0, j<15, j++)
-			var/obj/screen/click_catcher/CC = new()
+			var/atom/movable/screen/click_catcher/CC = new()
 			CC.screen_loc = "NORTH-[i],EAST-[j]"
 			. += CC
 
-/obj/screen/click_catcher/Click(location, control, params)
+/atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
 	if(modifiers["middle"] && istype(usr, /mob/living/carbon))
 		var/mob/living/carbon/C = usr

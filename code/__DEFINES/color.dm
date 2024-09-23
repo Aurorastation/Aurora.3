@@ -114,8 +114,11 @@
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
-#define COLOR_DIONA_BLOOD      "#97DD7C"
+/// for robots with black oil "blood"
 #define COLOR_IPC_BLOOD        "#1F181F"
+/// for organics with synthetic blood substitute
+#define COLOR_SYNTH_BLOOD      "#D9F9FF"
+#define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_SKRELL_BLOOD     "#0081CD"
 #define COLOR_VAURCA_BLOOD     "#E6E600"
 
@@ -154,6 +157,15 @@
 #define COLOR_ASSEMBLY_BLUE     "#38559E"
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
+
+/// Colors for status/incident displays
+#define COLOR_DISPLAY_RED "#BE3455"
+#define COLOR_DISPLAY_ORANGE "#FF9900"
+#define COLOR_DISPLAY_YELLOW "#FFF743"
+#define COLOR_DISPLAY_GREEN "#3CF046"
+#define COLOR_DISPLAY_CYAN "#22FFCC"
+#define COLOR_DISPLAY_BLUE "#22CCFF"
+#define COLOR_DISPLAY_PURPLE "#5D5DFC"
 
 #define COLOR_DARKMODE_BACKGROUND "#202020"
 #define COLOR_DARKMODE_DARKBACKGROUND "#171717"

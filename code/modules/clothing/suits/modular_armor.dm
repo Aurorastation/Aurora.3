@@ -6,7 +6,7 @@
 	icon_state = "plate_carrier"
 	item_state = "plate_carrier"
 	blood_overlay_type = "armor"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
@@ -17,7 +17,6 @@
 	desc_extended = "While not offering the protection of an entire armor set, the Empire's flak vests protect the wearer from shrapnel, some ballistics, \
 	and weak lasers. It is significantly more comfortable to wear than a full steel plate, and many soldiers on Sun Reach only wear their flak vests — \
 	much to the dismay of officers."
-	icon_state = "dom_carrier"
 	icon_state = "dom_carrier"
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
@@ -133,7 +132,7 @@
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -613,6 +612,12 @@
 	to represent the Xanu Free League, the capital of the Coalition, in particular."
 	icon_state = "flagpatch_coalition"
 	item_state = "flagpatch_coalition"
+
+/obj/item/clothing/accessory/flagpatch/all_xanu
+	name = "all-xanu republic flagpatch"
+	desc = "A flagpatch representing the All-Xanu Republic. Despite it being a flag patch, this is not the flag of the republic, but rather than the banner."
+	icon_state = "flagpatch_allxanu"
+	item_state = "flagpatch_allxanu"
 
 /obj/item/clothing/accessory/flagpatch/elyra
 	name = "elyran flagpatch"

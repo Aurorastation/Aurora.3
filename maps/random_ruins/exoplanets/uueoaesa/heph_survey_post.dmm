@@ -517,6 +517,16 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/heph_survey_post)
+"wy" = (
+/obj/random/dirt_75,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/table/standard,
+/obj/item/blueprints/outpost,
+/turf/simulated/floor/tiled/dark,
+/area/heph_survey_post)
 "wC" = (
 /obj/structure/table/standard,
 /obj/structure/sign/flag/heph/large/north{
@@ -1387,7 +1397,7 @@ bN
 Ze
 ea
 Ir
-PV
+wy
 bN
 ds
 YI

@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_skakh.dmm")
+	suffix = "moghes_skakh.dmm"
 
 	unit_test_groups = list(3)
 
@@ -65,6 +65,7 @@
 	welcome_message = "You are a faithful Unathi follower of the Sk'akh faith, visiting a nearby temple to hear the priest's words."
 
 	max_count = 3
+	possible_species = list(SPECIES_UNATHI)
 	spawnpoints = list("moghes_skakh_faithful")
 	outfit = /obj/outfit/admin/moghes_bar_patron
 	uses_species_whitelist = FALSE

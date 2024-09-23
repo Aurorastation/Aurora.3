@@ -8,7 +8,7 @@
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_LEG_GUARDS
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -17,7 +17,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	body_parts_covered = LEGS|FEET
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -157,8 +156,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	w_class = ITEMSIZE_NORMAL
-	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 

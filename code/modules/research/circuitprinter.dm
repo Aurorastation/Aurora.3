@@ -10,15 +10,6 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	icon_state = "circuit_imprinter"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
-	var/list/datum/design/queue = list()
-	var/progress = 0
-
-	var/max_material_storage = 75000
-	var/mat_efficiency = 1
-	var/speed = 1
-	var/product_offset = FALSE //Set to make the printer spawn its product in a neighboring turf dictated by dir.
-
 	idle_power_usage = 30
 	active_power_usage = 2500
 
@@ -29,31 +20,29 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/circuit_imprinter/process()
-	..()
-	if(stat)
-		update_icon()
-		return
-	if(queue.len == 0)
-		busy = 0
-		update_icon()
-		return
-	var/datum/design/D = queue[1]
-	if(canBuild(D))
-		busy = 1
-		progress += speed
-		if(progress >= D.time)
-			build(D)
-			progress = 0
-			removeFromQueue(1)
-			if(linked_console)
-				linked_console.updateUsrDialog()
-		update_icon()
-	else
-		if(busy)
-			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] flashes: insufficient materials: [getLackingMaterials(D)]."))
-			busy = 0
-			update_icon()
+	var/max_material_storage = 75000
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
+
+	/**
+	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
+	 */
+	var/list/datum/design/queue = list()
+
+	/**
+	 * How much efficient (or inefficient) the circuit imprinter is at manufacturing circuit boards
+	 */
+	var/mat_efficiency = 1
+
+	/**
+	 * The production speed of this specific circuit imprinter, a factor
+	 */
+	var/production_speed = 1
+
+	///Boolean, if to make the printer spawn its product in a neighboring turf dictated by dir
+	var/product_offset = FALSE
+
+	///The timer id for the build callback, if we're building something
+	var/build_callback_timer
 
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
@@ -75,12 +64,12 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		T += M.rating
 	mat_efficiency = 1 - (T - 1) / 4
-	speed = T
+	production_speed = T
 
 /obj/machinery/r_n_d/circuit_imprinter/update_icon()
 	if(panel_open)
 		icon_state = "circuit_imprinter_t"
-	else if(busy)
+	else if(build_callback_timer)
 		icon_state = "circuit_imprinter_ani"
 	else
 		icon_state = "circuit_imprinter"
@@ -105,31 +94,41 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	..()
 
 /obj/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
-	if(busy)
+	//No touch the machine while it's working!
+	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return 1
+
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
 			linked_console.linked_imprinter = null
 			linked_console = null
 		return
+
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return
+
 	if(default_part_replacement(user, attacking_item))
 		return
+
 	if(panel_open)
 		to_chat(user, SPAN_NOTICE("You can't load \the [src] while it's opened."))
 		return 1
+
 	if(!linked_console)
 		to_chat(user, "\The [src] must be linked to an R&D console first.")
 		return 1
+
 	if(attacking_item.is_open_container())
 		return 0
+
 	if(!istype(attacking_item, /obj/item/stack/material))
 		to_chat(user, SPAN_NOTICE("You cannot insert this item into \the [src]!"))
 		return 1
+
 	if(stat)
 		return 1
+
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
 		to_chat(user, SPAN_NOTICE("\The [src]'s material bin is full. Please remove material before adding more."))
@@ -139,7 +138,11 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(!stack.default_type)
 		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
 		return
-	var/amount = round(input("How many sheets do you want to add?") as num)
+
+	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", 10,
+								max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT)),
+								min_value = 1, round_value = TRUE)
+
 	if(!attacking_item)
 		return
 	if(!Adjacent(user))
@@ -147,65 +150,134 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		return
 	if(amount <= 0)//No negative numbers
 		return
-	if(amount > stack.get_amount())
-		amount = stack.get_amount()
-	if(max_material_storage - TotalMaterials() < (amount * SHEET_MATERIAL_AMOUNT)) //Can't overfill
-		amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
-	busy = 1
 	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
 	if(do_after(user, 16))
 		if(stack.use(amount))
 			to_chat(user, SPAN_NOTICE("You add [amount] sheets to \the [src]."))
 			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
-	busy = 0
+
+			//In case there's things queued up, we run the queue handler
+			handle_queue()
+
 	updateUsrDialog()
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/addToQueue(var/datum/design/D)
-	queue += D
-	return
+/**
+ * Adds a design to the queue
+ *
+ * * design_to_add: The design to add
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/addToQueue(datum/design/design_to_add)
+	queue += design_to_add
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/removeFromQueue(var/index)
+	//Wake up, we have things to do
+	handle_queue()
+
+
+/**
+ * Removes a design from the queue
+ *
+ * * index: The index of the design to remove
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/removeFromQueue(index)
 	queue.Cut(index, index + 1)
-	return
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/canBuild(var/datum/design/D)
-	for(var/M in D.materials)
-		if(materials[M] < D.materials[M])
-			return 0
-	for(var/C in D.chemicals)
-		if(!reagents.has_reagent(C, D.chemicals[C]))
-			return 0
-	return 1
+	//Wake up, we have things to do
+	handle_queue()
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/getLackingMaterials(var/datum/design/D)
+
+/**
+ * Handle the construction queue
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/handle_queue()
+	//No work to do or already busy, stop
+	if(!length(queue) || build_callback_timer)
+		update_icon()
+		return
+
+	//If there's no power, there's no building
+	if(stat & NOPOWER)
+		queue = list()
+		return
+
+	//Get the first design in the queue
+	var/datum/design/D = queue[1]
+
+	//If we can build it, process the request
+	if(canBuild(D))
+		build_callback_timer = addtimer(CALLBACK(src, PROC_REF(build), D), (D.time / production_speed), TIMER_UNIQUE)
+		removeFromQueue(1)
+
+	else
+		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: insufficient materials: [getLackingMaterials(D)]."))
+
+	update_icon()
+
+/**
+ * Checks if the protolathe can build the given design
+ *
+ * * design_to_check: The design to check
+ *
+ * Returns `TRUE` if the design can be built, `FALSE` otherwise
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/canBuild(datum/design/design_to_check)
+	for(var/M in design_to_check.materials)
+		if(materials[M] < design_to_check.materials[M])
+			return FALSE
+
+	for(var/C in design_to_check.chemicals)
+		if(!reagents.has_reagent(C, design_to_check.chemicals[C]))
+			return FALSE
+
+	return TRUE
+
+/**
+ * Get what materials (chemicals included) are lacking from being able to build the given design
+ *
+ * * design_to_check: The design to check
+ *
+ * Returns a string of the materials that are missing
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/getLackingMaterials(datum/design/design_to_check)
 	var/ret = ""
-	for(var/M in D.materials)
-		if(materials[M] < D.materials[M])
+
+	for(var/M in design_to_check.materials)
+		if(materials[M] < design_to_check.materials[M])
 			if(ret != "")
 				ret += ", "
-			ret += "[D.materials[M] - materials[M]] [M]"
-	for(var/C in D.chemicals)
-		if(!reagents.has_reagent(C, D.chemicals[C]))
+			ret += "[design_to_check.materials[M] - materials[M]] [M]"
+
+	for(var/C in design_to_check.chemicals)
+		if(!reagents.has_reagent(C, design_to_check.chemicals[C]))
 			var/singleton/reagent/R = GET_SINGLETON(C)
 			if(ret != "")
 				ret += ", "
 			ret += "[R.name]"
+
 	return ret
 
-/obj/machinery/r_n_d/circuit_imprinter/proc/build(var/datum/design/D)
+/**
+ * Builds the given design, assuming all the necessary conditions are met
+ *
+ * * design_to_build: The design to build
+ */
+/obj/machinery/r_n_d/circuit_imprinter/proc/build(datum/design/design_to_build)
+	//Consume some power
 	var/power = active_power_usage
-	for(var/M in D.materials)
-		power += round(D.materials[M] / 5)
+	for(var/M in design_to_build.materials)
+		power += round(design_to_build.materials[M] / 5)
 	power = max(active_power_usage, power)
 	use_power_oneoff(power)
-	for(var/M in D.materials)
-		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
-	for(var/C in D.chemicals)
-		reagents.remove_reagent(C, D.chemicals[C] * mat_efficiency)
 
-	if(D.build_path)
-		var/obj/new_item = D.Fabricate(src, src)
+	//Consume the materials
+	for(var/M in design_to_build.materials)
+		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
+
+	for(var/C in design_to_build.chemicals)
+		reagents.remove_reagent(C, design_to_build.chemicals[C] * mat_efficiency)
+
+	if(design_to_build.build_path)
+		var/obj/new_item = design_to_build.Fabricate(src, src)
 		if(product_offset)
 			new_item.forceMove(get_step(src, dir))
 		else
@@ -214,3 +286,18 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
+
+	//We finished building, clear the timer
+	build_callback_timer = null
+
+	//Do the queue handling for the next item, or to stop
+	handle_queue()
+
+
+/obj/machinery/r_n_d/circuit_imprinter/is_open_container()
+	. = ..()
+
+	//This is to recheck the queue when acid is added to the reagent container that we have
+	//yes this should be done with signals, we don't have those signals yet
+	//cope
+	addtimer(CALLBACK(src, PROC_REF(handle_queue)), 1 SECOND, TIMER_UNIQUE)

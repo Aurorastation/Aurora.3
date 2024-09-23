@@ -37,9 +37,12 @@
 	health -= damage
 	healthcheck()
 
-/obj/effect/spider/bullet_act(var/obj/item/projectile/Proj)
-	..()
-	health -= Proj.get_structure_damage()
+/obj/effect/spider/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	healthcheck()
 
 /obj/effect/spider/proc/healthcheck()
@@ -69,13 +72,15 @@
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)
 		return TRUE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
 			to_chat(mover, SPAN_WARNING("You get stuck in \the [src] for a moment."))
 			return FALSE
-	else if(istype(mover, /obj/item/projectile))
+	else if(istype(mover, /obj/projectile))
 		return prob(30)
 	return TRUE
 
@@ -230,7 +235,7 @@
 		var/list/nearby = oview(5, src)
 		if(nearby.len)
 			var/target_atom = pick(nearby)
-			SSmove_manager.move_to(src, target_atom, 0, 5)
+			GLOB.move_manager.move_to(src, target_atom, 0, 5)
 			if(prob(25))
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
@@ -238,7 +243,7 @@
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
-				SSmove_manager.move_to(src, entry_vent, 0, 5)
+				GLOB.move_manager.move_to(src, entry_vent, 0, 5)
 				break
 
 	if(isturf(loc) && amount_grown >= 100)
@@ -275,7 +280,7 @@
 		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
-			SSmove_manager.move_to(src, pick(nearby), 0, 2)
+			GLOB.move_manager.move_to(src, pick(nearby), 0, 2)
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()

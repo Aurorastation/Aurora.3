@@ -197,7 +197,7 @@
 	//don't send it back to the station -- most of the time
 	if(prob(99))
 		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
-		for(var/zlevel in SSatlas.current_map.station_levels)
+		for(var/zlevel in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -340,15 +340,19 @@
 	return 1
 
 
-/obj/machinery/power/supermatter/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/power/supermatter/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/turf/L = loc
 	if(!istype(L))		// We don't run process() when we are in space
 		return 0	// This stops people from being able to really power up the supermatter
 				// Then bring it inside to explode instantly upon landing on a valid turf.
 
 
-	var/proj_damage = Proj.get_structure_damage()
-	if(istype(Proj, /obj/item/projectile/beam))
+	var/proj_damage = hitting_projectile.get_structure_damage()
+	if(istype(hitting_projectile, /obj/projectile/beam))
 		power += proj_damage * config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
 	else
 		damage += proj_damage * config_bullet_energy
@@ -405,22 +409,24 @@
 
 	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-/obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
-	if(!AM.simulated)
+/obj/machinery/power/supermatter/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!bumped_atom.simulated)
 		return
-	if(istype(AM, /obj/effect))
+	if(istype(bumped_atom, /obj/effect))
 		return
-	if(isprojectile(AM))
+	if(isprojectile(bumped_atom))
 		return
-	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
+	if(istype(bumped_atom, /mob/living))
+		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] slams into \the [src] inducing a resonance... [bumped_atom.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
 	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
-		AM.visible_message("<span class=\"warning\">\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>",\
+		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash.</span>",\
 		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
 
-	Consume(AM)
+	Consume(bumped_atom)
 
 /obj/machinery/power/supermatter/proc/Consume(var/mob/living/user)
 	if(istype(user))

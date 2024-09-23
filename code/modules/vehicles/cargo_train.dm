@@ -6,7 +6,8 @@
 		- ALT-click the truck to remove the key from the ignition.<br>\
 		- Click the truck to open a UI menu.<br>\
 		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck.<br>\
-		- If latched, you can use a wrench to unlatch."
+		- If latched, you can use a wrench to unlatch.<br>\
+		- Click-drag on a trolley to latch and tow it."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -29,11 +30,11 @@
 	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "train_keys"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
-	desc_info = "You can use a wrench to unlatch this."
+	desc_info = "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
@@ -148,11 +149,11 @@
 
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
-/obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
-	if (buckled && Proj.original == buckled)
-		buckled.bullet_act(Proj)
+/obj/vehicle/train/cargo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if (buckled && hitting_projectile.original == buckled)
+		buckled.bullet_act(arglist(args))
 	else
-		..()
+		. = ..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
@@ -215,7 +216,7 @@
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
-	attack_log += text("\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>")
+	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
 	..()
@@ -224,10 +225,10 @@
 		var/mob/living/carbon/human/D = load
 		to_chat(D, SPAN_DANGER("You ran over [H]!"))
 		visible_message(SPAN_DANGER("\The [src] ran over [H]!"))
-		attack_log += text("\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</span>")
+		attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</span>"
 		msg_admin_attack("[D.name] ([D.ckey]) ran over [H.name] ([H.ckey]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(H))
 	else
-		attack_log += text("\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>")
+		attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 
 //-------------------------------------------
@@ -242,6 +243,10 @@
 
 	if(is_train_head())
 		if(direction == reverse_direction(dir) && tow)
+			//Allow the engine to rotate, but only if there's not another piece in the new direction
+			//Basically, to allow the first rotation at spawn to align with the rest of the convoy, without it being a CBT
+			if(!(locate(/obj/vehicle/train) in get_step(src, direction)))
+				set_dir(direction)
 			return 0
 		if(Move(get_step(src, direction)))
 			return 1
@@ -277,6 +282,10 @@
 		if("Toggle Latching")
 			if(tow)
 				tow.unattach(user)
+			else
+				var/obj/vehicle/train/cargo/trolley/nearby_trolley = locate() in orange(src, 1)
+				if(nearby_trolley)
+					src.latch(nearby_trolley)
 
 /obj/vehicle/train/cargo/engine/AltClick(var/mob/user)
 	if(Adjacent(user))

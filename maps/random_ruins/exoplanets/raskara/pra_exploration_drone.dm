@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/pra_exploration_drone
-	name = "PRA Explorion Drone"
+	name = "PRA Exploration Drone"
 	id = "pra_exploration_drone"
 	description = "A exploration drone sent by the People's Republic to explore the surface of this planet."
 
@@ -7,6 +7,6 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "raskara/"
-	suffixes = list("pra_exploration_drone.dmm")
+	suffix = "pra_exploration_drone.dmm"
 
 	unit_test_groups = list(3)

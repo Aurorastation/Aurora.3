@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_reclaimers.dmm")
+	suffix = "moghes_wasteland_reclaimers.dmm"
 	unit_test_groups = list(1)
 
 /area/moghes_reclaimer
@@ -46,6 +46,11 @@
 	uniform = /obj/item/clothing/under/unathi
 	accessory = /obj/item/clothing/accessory/storage/overalls/engineer
 	belt = /obj/item/storage/belt/utility
+	suit = list(
+		/obj/item/clothing/accessory/poncho,
+		/obj/item/clothing/suit/unathi/robe/beige,
+		/obj/item/clothing/suit/unathi/robe/kilt
+	)
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	gloves = /obj/item/clothing/gloves/yellow/specialu
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/workboots/toeless)

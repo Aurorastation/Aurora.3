@@ -58,7 +58,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags &= ~SLOT_BACK
@@ -78,7 +78,7 @@
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	recoil = 2
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -328,8 +328,8 @@
 /obj/item/gun/projectile/gauss
 	name = "gauss thumper"
 	desc = "An outdated gauss weapon which sees sparing use in modern times."
-	w_class = ITEMSIZE_NORMAL
-	slot_flags = 0
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
@@ -342,7 +342,6 @@
 	handle_casings = DELETE_CASINGS
 
 	force = 15
-	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -369,7 +368,7 @@
 	charge_meter = 0
 	max_shots = 3
 	charge_cost = 500
-	projectile_type = /obj/item/projectile/bullet/gauss/highex
+	projectile_type = /obj/projectile/bullet/gauss/highex
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 12
@@ -381,7 +380,7 @@
 	icon = 'icons/obj/guns/gauss_carbine.dmi'
 	icon_state = "gauss_carbine"
 	item_state = "gauss_carbine"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/gauss/carbine
 	load_method = SINGLE_CASING

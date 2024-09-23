@@ -18,6 +18,7 @@
 	var/damage_type = DAMAGE_BRUTE
 
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
+	var/in_stasis = FALSE
 
 	var/icon_living = ""
 	var/icon_dead = ""
@@ -138,8 +139,16 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
-	var/has_udder = FALSE
+	/// Whether this animal can be milked or not.
+	var/can_be_milked = FALSE
+	/// The reagent storage for the animal's milking product.
 	var/datum/reagents/udder = null
+	/// The size of the udder's reagent storage.
+	var/udder_size = 50
+	/// The minimum and upper floor of the per-tick milk regeneration to feed into rand(). This list should always have both minimum and upper floor.
+	/// This is also how much milk is taken from the animal at once.
+	var/list/milk_regeneration = list(5, 10)
+	/// What the animal's milking product is.
 	var/milk_type = /singleton/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
@@ -155,6 +164,11 @@
 
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
 	var/vehicle_version = null
+
+	/**
+	 * List of fluff characteristics to be found on cellular analysis
+	 */
+	var/list/sample_data = list("Cellular biochemistry indicitive of typical metabolc activity", "Tissue sample contains average muscle content", "No distinctive genetic markers identified")
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -175,8 +189,8 @@
 		reagents = new/datum/reagents(20, src)
 	nutrition = max_nutrition
 
-	if(has_udder)
-		udder = new(50)
+	if(can_be_milked)
+		udder = new(udder_size)
 		udder.my_atom = src
 
 	if(LAZYLEN(natural_armor))
@@ -237,7 +251,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/simple_animal/Life()
+/mob/living/simple_animal/Life(seconds_per_tick, times_fired)
 	..()
 	life_tick++
 	if (stat == DEAD)
@@ -305,10 +319,10 @@
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
-	if(has_udder)
+	if(can_be_milked)
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent(milk_type, rand(5, 10))
+				udder.add_reagent(milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 	return 1
 
@@ -494,6 +508,7 @@
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	var/datum/martial_art/attacker_style = M.primary_martial_art
 	switch(M.a_intent)
 
 		if(I_HELP)
@@ -502,6 +517,8 @@
 				poke()
 
 		if(I_DISARM)
+			if(attacker_style && attacker_style.disarm_act(M, src))
+				return TRUE
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
@@ -568,21 +585,13 @@
 		qdel(attacking_item)
 		qdel(src)
 
-	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
-		attacked_with_item(attacking_item, user)
-		return
-	if(has_udder)
+	if(can_be_milked)
 		var/obj/item/reagent_containers/glass/G = attacking_item
-		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
-			if(udder.total_volume <= 0)
-				to_chat(user, SPAN_WARNING("The udder is dry."))
-				return
-			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
-				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
-			udder.trans_type_to(G, milk_type, rand(5, 10))
+		if(istype(G, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
+			attacked_with_item(attacking_item, user)
 			return
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			handle_milking(user, G)
 
 	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()
@@ -640,15 +649,18 @@
 	handle_attack_by(user)
 	return TRUE
 
-/mob/living/simple_animal/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(ismob(AM.thrower))
-		handle_attack_by(AM.thrower)
+	if(ismob(throwingdatum.thrower?.resolve()))
+		handle_attack_by(throwingdatum.thrower.resolve())
 
-/mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
+/mob/living/simple_animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(ismob(P.firer))
-		handle_attack_by(P.firer)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(ismob(hitting_projectile.firer))
+		handle_attack_by(hitting_projectile.firer)
 
 /mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
@@ -700,7 +712,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
+		GLOB.move_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -715,7 +727,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -741,21 +753,22 @@
 	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
-	if (isliving(target_mob))
+	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		if(!L.stat)
-			return (0)
-	if (istype(target_mob, /obj/machinery/bot))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/machinery/porta_turret/))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		if(T.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/effect/energy_field))
-		return (0)
-	return 1
+			return FALSE
+	else if(istype(target_mob, /obj/effect/energy_field))
+		return FALSE
+
+	return TRUE
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
 	set name = "Make Sound"
@@ -807,7 +820,7 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -823,9 +836,12 @@
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
+/mob/living/simple_animal/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)
@@ -877,7 +893,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 
@@ -952,12 +968,12 @@
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
-	..()
+/mob/living/simple_animal/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	. = ..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == DAMAGE_BRUTE)
-				var/hit_dir = get_dir(P.starting, src)
+			if(impacting_projectile.damage_type == DAMAGE_BRUTE)
+				var/hit_dir = get_dir(impacting_projectile.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = blood_type
@@ -1002,6 +1018,18 @@
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "machine" : "rough"
 
+/mob/living/simple_animal/InStasis()
+	return in_stasis
+
+/mob/living/simple_animal/proc/handle_milking(mob/user, obj/item/reagent_containers/container)
+	if(udder.total_volume <= 0)
+		to_chat(user, SPAN_WARNING("There is nothing left to collect."))
+		return
+	if(container.reagents.total_volume >= container.volume)
+		to_chat(user, SPAN_WARNING("The [container] is full."))
+		return
+	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
+	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

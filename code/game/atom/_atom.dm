@@ -6,12 +6,25 @@
  */
 
 /atom
+
+	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
+	var/pass_flags_self = NONE
+
 	///First atom flags var
 	var/flags_1 = NONE
+
+	var/flags_ricochet = NONE
+
+	///When a projectile tries to ricochet off this atom, the projectile ricochet chance is multiplied by this
+	var/receive_ricochet_chance_mod = 1
+	///When a projectile ricochets off this atom, it deals the normal damage * this modifier to this atom
+	var/receive_ricochet_damage_coeff = 0.33
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
+
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0
@@ -100,6 +113,50 @@
 	orbiters = null
 
 	. = ..()
+
+/atom/proc/handle_ricochet(obj/projectile/ricocheting_projectile)
+	var/turf/p_turf = get_turf(ricocheting_projectile)
+	var/face_direction = get_dir(src, p_turf) || get_dir(src, ricocheting_projectile)
+	var/face_angle = dir2angle(face_direction)
+	var/incidence_s = GET_ANGLE_OF_INCIDENCE(face_angle, (ricocheting_projectile.Angle + 180))
+	var/a_incidence_s = abs(incidence_s)
+	if(a_incidence_s > 90 && a_incidence_s < 270)
+		return FALSE
+	// if((ricocheting_projectile.armor_flag in list(BULLET, BOMB)) && ricocheting_projectile.ricochet_incidence_leeway)
+	// 	if((a_incidence_s < 90 && a_incidence_s < 90 - ricocheting_projectile.ricochet_incidence_leeway) || (a_incidence_s > 270 && a_incidence_s -270 > ricocheting_projectile.ricochet_incidence_leeway))
+	// 		return FALSE
+	var/new_angle_s = SIMPLIFY_DEGREES(face_angle + incidence_s)
+	ricocheting_projectile.set_angle(new_angle_s)
+	return TRUE
+
+///Purpose: Determines if the object (or airflow) can pass this atom.
+///Called by: Movement, airflow.
+///Inputs: The moving atom (optional), target turf, "height" and air group
+///Outputs: Boolean if can pass.
+///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
+	//I have condensed TG's `CanAllowThrough()` into this proc
+	if(mover) //Because some procs send null as a mover
+		if(mover.movement_type & PHASING)
+			return TRUE
+		if(mover.pass_flags & pass_flags_self)
+			return TRUE
+		if(mover.throwing && (pass_flags_self & LETPASSTHROW))
+			return TRUE
+
+	return (!density || !height || air_group)
+
+/**
+ * An atom we are buckled or is contained within us has tried to move
+ */
+/atom/proc/relaymove(mob/living/user, direction)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
+		return
+	return
+
 
 /**
  * An atom has entered this atom's contents
@@ -191,6 +248,6 @@
  * If this is NOT you, ensure you edit your can_astar_pass variable. Check __DEFINES/path.dm
  **/
 /atom/proc/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	if(pass_info.pass_flags & pass_flags)
+	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density

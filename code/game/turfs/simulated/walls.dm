@@ -80,41 +80,45 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!opacity && istype(mover) && mover.checkpass(PASSGLASS))
+	if(!opacity && istype(mover) && mover.pass_flags & PASSGLASS)
 		return TRUE
 	return ..()
 
-/turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj,/obj/item/projectile/beam))
+/turf/simulated/wall/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(istype(hitting_projectile,/obj/projectile/beam))
 		burn(2500)
-	else if(istype(Proj,/obj/item/projectile/ion))
+	else if(istype(hitting_projectile,/obj/projectile/ion))
 		burn(500)
 
-	bullet_ping(Proj)
-	create_bullethole(Proj)
+	bullet_ping(hitting_projectile)
+	create_bullethole(hitting_projectile)
 
-	var/proj_damage = Proj.get_structure_damage()
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(Proj.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential > 1)
 		damage = min(proj_damage, 100)
-
-	Proj.on_hit(src)
 
 	take_damage(damage)
 
-/turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if(isliving(AM))
-		var/mob/living/M = AM
-		M.turf_collision(src, speed)
+	if(isliving(hitting_atom))
+		var/mob/living/M = hitting_atom
+		M.turf_collision(src, throwingdatum.speed)
 		return
 
-	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)
-	playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
-	if(tforce >= 15)
-		take_damage(tforce)
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
+		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
+		if(tforce >= 15)
+			take_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
@@ -127,7 +131,7 @@
 			plant.pixel_y = 0
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
-/turf/simulated/wall/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+/turf/simulated/wall/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	clear_plants()
 	clear_bulletholes()
 	..()

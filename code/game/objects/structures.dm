@@ -1,6 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
@@ -78,9 +78,12 @@
 		dismantle_material.place_sheet(loc)
 	qdel(src)
 
-/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	bullet_ping(P)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
 
 /obj/structure/proc/climb_on()
 
@@ -107,7 +110,11 @@
 		return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
-	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
+	if (!climbable)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
+		return FALSE
+
+	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))
@@ -228,8 +235,7 @@
 		return 0
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
 	user.do_attack_animation(src)
-	spawn(1)
-		qdel(src)
+	qdel(src)
 	return 1
 
 /obj/structure/get_material()

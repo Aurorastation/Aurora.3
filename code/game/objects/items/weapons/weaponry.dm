@@ -12,7 +12,7 @@
 	if(!QDELETED(src))
 		QDEL_IN(src, 1)
 
-/obj/item/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -74,10 +74,13 @@
 		qdel(src)
 		return
 
-/obj/effect/energy_net/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
+/obj/effect/energy_net/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	health_check()
-	return FALSE
 
 /obj/effect/energy_net/ex_act(var/severity = 2.0)
 	health = 0
@@ -120,7 +123,7 @@
 	item_state = "canesword"
 	force = 25
 	throwforce = 5
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -137,7 +140,7 @@
 	icon_state = "toyhammer"
 	slot_flags = SLOT_BELT
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")

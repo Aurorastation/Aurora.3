@@ -11,18 +11,20 @@
 /obj/structure/coatrack/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
 		return
+	add_fingerprint(user)
 	if(coat && hat)
 		var/response = ""
 		response = alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", "Coat", "Hat", "Cancel")
 		if(response == "Coat")
 			remove_coat(user)
+			return
 		if(response == "Hat")
 			remove_hat(user)
+			return
 	if(coat)
 		remove_coat(user)
-	if(hat)
+	else if(hat)
 		remove_hat(user)
-	add_fingerprint(user)
 	return
 
 /obj/structure/coatrack/proc/remove_coat(mob/user as mob)

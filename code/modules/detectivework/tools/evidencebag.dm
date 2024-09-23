@@ -7,7 +7,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
 
@@ -95,10 +95,10 @@
 		icon_state = "evidenceobj"
 	return
 
-/obj/item/evidencebag/examine(mob/user)
+/obj/item/evidencebag/examine(mob/user, show_extended)
 	. = ..()
 	if (stored_item)
-		examinate(user, stored_item)
+		examinate(user, stored_item, show_extended)
 
 /obj/item/evidencebag/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))

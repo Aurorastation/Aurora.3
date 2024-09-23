@@ -10,7 +10,10 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	/// This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	var/lightlevel = 0
+	/// Change this to have the light be a different color. Useful for planets with special suns
+	var/lightcolor = COLOR_WHITE
 	var/night = TRUE
 
 // Fluff, specifically for celestial objects.
@@ -20,6 +23,10 @@
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
 	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
+	var/magnet_strength = "No magnetic field detected"
+	var/magnet_difference = "N/A"
+	var/day_length = "~1 BCY (Biesel Cycles)"
+	var/magnet_particles = "N/A"
 
 	var/maxx
 	var/maxy
@@ -142,9 +149,8 @@
 		planet_name = generate_planet_name()
 		name = "[planet_name], \a [name]"
 
-	world.maxz++
-	forceMove(locate(1,1,world.maxz))
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
+	forceMove(locate(1, 1, exoplanet_level.z_value))
 
 	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))
@@ -282,14 +288,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
+
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
+	// Generate the exoplanet surface using the exoplanet theme.
+	// Here `/turf/space` is used, as this is what new zlevels are created with.
 	theme.before_map_generation(src)
-	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+	theme.generate_map(map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE), /turf/space)
 
 	for (var/zlevel in map_z)
 		var/list/edges
@@ -475,6 +484,7 @@
 	. += "<br><large><b>[name]</b></large></center>"
 	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
 	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Governing Body: </b><small>[alignment]</small>"
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"

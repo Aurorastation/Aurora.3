@@ -1,6 +1,13 @@
 /datum/design/item/mining
 	p_category = "Mining Equipment Designs"
 
+
+/datum/design/item/mining/mining_rfd
+	name = "Rapid Fabrication Device, Mining Class"
+	desc = "A Rapid Fabrication Device, modified to construct rails and mining carts, for an efficient mining operation."
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 3000)
+	build_path = /obj/item/rfd/mining
+
 /datum/design/item/mining/jackhammer
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 500)

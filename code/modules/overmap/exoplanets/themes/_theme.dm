@@ -27,6 +27,8 @@
 	/// Biome force-picked if height is over [mountain_threshold]. Set to null to disable.
 	var/mountain_biome = /singleton/biome/mountain
 	/// Height threshold for mountain generation; all turfs with a calculated height above this value will generate inside [mountain_biome]
+	/// Value calculated from noise is in range of 0.0 to 1.0.
+	/// Higher threshold means less mountains, lower means more.
 	var/mountain_threshold = 0.85
 
 	/* Assoc list of heat level defines to heat thresholds. Heat is taken as the inverse of height modified by distance from the equator (see get_heat)
@@ -62,6 +64,8 @@
 		ORE_SILVER 		= 0.7,
 		ORE_COAL 		= 0.9,
 		ORE_IRON 		= 0.92,
+		ORE_BAUXITE     = 0.8,
+		ORE_GALENA      = 0.75,
 	)
 
 	/// This is more straight forward. We use three noise maps and assign drillables based on that
@@ -77,7 +81,8 @@
 			ORE_GOLD = list(1, 3),
 			ORE_SILVER = list(1, 3),
 			ORE_URANIUM = list(1, 3),
-			ORE_PLATINUM = list(1, 3)
+			ORE_PLATINUM = list(1, 3),
+			ORE_GALENA = list(1, 3)
 		),
 		DEEP_ORES = list(
 			ORE_URANIUM = list(0, 2),
@@ -148,13 +153,19 @@
 				N.maptext = "[distance[N]]"
 
 // In the name of not having 65,025 proc calls (and their overhead) for every turf, we instead get to have a massive monolith of a proc. Enjoy. I didn't.
-/datum/exoplanet_theme/proc/generate_map(obj/effect/overmap/visitable/sector/exoplanet/E, z_to_gen, min_x, min_y, max_x, max_y)
+/// Generates exoplanet on `z_to_gen` zlevel, in the specified min/max x/y bounds, and on turfs of type `target_turf_type`.
+/// Does nothing to turfs outside of the zlevel, outside of the bounds, or not of the target turf type.
+/datum/exoplanet_theme/proc/generate_map(z_to_gen, min_x, min_y, max_x, max_y, target_turf_type)
 	var/list/height_seeds = list()
 	for (var/i = 1 to height_iterations)
 		height_seeds += rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
 
 	for(var/turf/gen_turf in block(locate(min_x, min_y, z_to_gen), locate(max_x, max_y, z_to_gen)))
+
+		if(gen_turf.type != target_turf_type)
+			continue
+
 		// Drift here gives us a bit of extra noise on the edges of biomes, to make it transition slightly more naturally
 		var/drift_x = (gen_turf.x + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
 		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom

@@ -3,6 +3,8 @@
 	/// The weather type we want. This needs to be a weather singleton type, such as /singleton/state/weather/rain/storm.
 	/// These should be used for forcing weather in an away site or an event map.
 	var/weather_type
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "weather_marker"
 
 /obj/abstract/weather_marker/Initialize()
 	..()

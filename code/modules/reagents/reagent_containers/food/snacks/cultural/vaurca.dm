@@ -204,6 +204,10 @@
 	filling_color = "#E6E600"
 	bitesize = 5
 
+/obj/item/reagent_containers/food/snacks/koisrouladeslice/filled
+	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 4)
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 5, "party" = 2))
+
 /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 	name = "meat v'krexi wrap"
 	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."

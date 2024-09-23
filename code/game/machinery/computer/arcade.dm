@@ -92,11 +92,11 @@
 
 	dat += "<center><b>"
 	if (src.gameover)
-		dat += "<a href='byond://?src=\ref[src];newgame=1'>New Game</a>"
+		dat += "<a href='byond://?src=[REF(src)];newgame=1'>New Game</a>"
 	else
-		dat += "<a href='byond://?src=\ref[src];attack=1'>Attack</a> | "
-		dat += "<a href='byond://?src=\ref[src];heal=1'>Heal</a> | "
-		dat += "<a href='byond://?src=\ref[src];charge=1'>Recharge Power</a>"
+		dat += "<a href='byond://?src=[REF(src)];attack=1'>Attack</a> | "
+		dat += "<a href='byond://?src=[REF(src)];heal=1'>Heal</a> | "
+		dat += "<a href='byond://?src=[REF(src)];charge=1'>Recharge Power</a>"
 
 	dat += "</b></center>"
 
@@ -185,7 +185,7 @@
 				new /obj/effect/spawner/newbomb/timer/syndicate(src.loc)
 				new /obj/item/clothing/head/collectable/petehat(src.loc)
 				message_admins("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded a bomb.")
-				log_game("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded a bomb.",ckey=key_name(usr))
+				log_game("[key_name_admin(usr)] has outbombed Cuban Pete and been awarded a bomb.")
 				src.New()
 				emagged = 0
 			else

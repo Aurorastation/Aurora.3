@@ -4667,6 +4667,15 @@
 "ns" = (
 /turf/simulated/floor/reinforced/airless,
 /area/casino/casino_bow)
+"nt" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
+/area/casino/casino_crew_atmos)
 "ob" = (
 /obj/structure/casino/roulette_chart,
 /obj/random/coin,
@@ -4838,7 +4847,7 @@
 "td" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)
@@ -10013,7 +10022,7 @@ kv
 kv
 jN
 le
-jN
+nt
 kg
 mm
 mH

@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_raskariim_hideout.dmm")
+	suffix = "adhomai_raskariim_hideout.dmm"
 
 	unit_test_groups = list(2)
 
@@ -60,7 +60,6 @@
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/summer,
 				/obj/item/clothing/under/pants/tajaran,
-				/obj/item/clothing/under/pants,
 				/obj/item/clothing/under/pants/track
 	)
 

@@ -68,10 +68,18 @@
 /atom/proc/on_reagent_change()
 	return
 
-// This is called when AM collides with us.
-/atom/proc/CollidedWith(atom/movable/AM)
-	set waitfor = FALSE
-	return
+/**
+ * Called when an `/atom` collides with this atom
+ *
+ * It's roughly equivalent to `Bumped()` in TG, but it's not sleepable and you have to call parent
+ *
+ * * bumped_atom - The `/atom` that collided with this atom
+ */
+/atom/proc/CollidedWith(atom/bumped_atom)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
 
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
@@ -107,12 +115,8 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
 	return protection // Pass the protection value collected here upwards
 
-/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
-
-/atom/proc/bullet_act(obj/item/projectile/P, def_zone)
-	P.on_hit(src, 0, def_zone)
-	. = 0
 
 /atom/proc/in_contents_of(container) // Can take class or object instance as argument.
 	if(ispath(container))
@@ -174,7 +178,9 @@
 
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ *
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ *
  * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
@@ -228,118 +234,6 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Examination code for all atoms.
-// Returns TRUE, the caller always expects TRUE
-// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent.
-// You should usually be overriding get_examine_text(), unless you need special examine behaviour.
-/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/list/examine_strings = get_examine_text(user, distance, is_adjacent, infix, suffix)
-	if(!length(examine_strings))
-		crash_with("Examine called with no examine strings on [src].")
-	to_chat(user, EXAMINE_BLOCK(examine_strings.Join("\n")))
-	return TRUE
-
-// This proc is what you should usually override to get things to show up inside the examine box.
-/atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	. = list()
-	var/f_name = "\a [src]. [infix]"
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	. += "[icon2html(src, user)] That's [f_name] [suffix]" // Object name. I.e. "This is an Object. It is a normal-sized item."
-
-	if(src.desc)
-		. += src.desc	// Object description.
-
-	// Extra object descriptions examination code.
-	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
-		if(desc_extended) // If the item has a extended description, show that it is available.
-			. +=  FONT_SMALL("- This object has an extended description.")
-		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
-			. += FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics."))
-		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
-			. += FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists."))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-// Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src][infix]."
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object."
-	to_chat(user, desc) // Object description.
-	if(desc_extended) // If the item has a extended description, show it.
-		to_chat(user, desc_extended)
-	if(desc_info) // If the item has a description regarding game mechanics, show it.
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
-	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
-		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
-
-// Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
-/atom/Topic(href, href_list)
-	. = ..()
-	if (.)
-		return
-
-	if(href_list["examine_fluff"])
-		examinate(usr, src, show_extended = TRUE)
-
-	var/client/usr_client = usr.client
-	var/list/paramslist = list()
-	if(href_list["statpanel_item_click"])
-		switch(href_list["statpanel_item_click"])
-			if("left")
-				paramslist[LEFT_CLICK] = "1"
-			if("right")
-				paramslist[RIGHT_CLICK] = "1"
-			if("middle")
-				paramslist[MIDDLE_CLICK] = "1"
-			else
-				return
-
-		if(href_list["statpanel_item_shiftclick"])
-			paramslist[SHIFT_CLICK] = "1"
-		if(href_list["statpanel_item_ctrlclick"])
-			paramslist[CTRL_CLICK] = "1"
-		if(href_list["statpanel_item_altclick"])
-			paramslist[ALT_CLICK] = "1"
-
-		var/mouseparams = list2params(paramslist)
-		usr_client.Click(src, loc, null, mouseparams)
-		return TRUE
-
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
-
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
@@ -358,11 +252,6 @@
 /atom/proc/melt()
 	return
 
-/atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
-	return
-
 /atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
 	if(!istype(M, /mob)) return
@@ -373,17 +262,17 @@
 			return 0
 		if (H.gloves)
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 0
 		if (!( src.fingerprints ))
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 1
 	else
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",M.real_name, M.key)
+			src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 			src.fingerprintslast = M.key
 	return
 
@@ -417,7 +306,7 @@
 		// Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
 			if(fingerprintslast != H.key)
-				fingerprintshidden += text("\[[]\](Wearing gloves). Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+				fingerprintshidden += "\[[time_stamp()]\](Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
@@ -430,7 +319,7 @@
 
 		// Admin related.
 		if(fingerprintslast != H.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [H.real_name], Key: [H.key]"
 			fingerprintslast = H.key
 
 		// Make the list if it does not exist.
@@ -482,7 +371,7 @@
 	else
 		// Smudge up the prints a bit.
 		if(fingerprintslast != M.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), M.real_name, M.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [M.real_name], Key: [M.key]"
 			fingerprintslast = M.key
 
 	// Cleaning up.
@@ -525,7 +414,7 @@
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.get_blood_color()
 	. = 1
 	return 1
 
@@ -591,9 +480,6 @@
 		return list("x"=cur_x,"y"=cur_y)
 	else
 		return 0
-
-/atom/proc/checkpass(passflag)
-	return pass_flags&passflag
 
 /atom/proc/isinspace()
 	if(istype(get_turf(src), /turf/space))
@@ -733,27 +619,30 @@
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
 
-/atom/proc/create_bullethole(obj/item/projectile/Proj)
+/atom/proc/create_bullethole(obj/projectile/Proj)
 	var/p_x = Proj.p_x + rand(-6, 6)
 	var/p_y = Proj.p_y + rand(-6, 6)
-	var/obj/effect/overlay/bmark/bullet_mark = new(src)
 
-	bullet_mark.pixel_x = p_x
-	bullet_mark.pixel_y = p_y
-
-	//Offset correction
-	bullet_mark.pixel_x--
-	bullet_mark.pixel_y--
-
-	if(Proj.damage_flags & DAMAGE_FLAG_BULLET)
-		bullet_mark.icon_state = "dent"
-	else if(Proj.damage_flags & DAMAGE_FLAG_LASER)
-		bullet_mark.name = "scorch mark"
+	var/bullet_mark_icon_state = "dent"
+	var/bullet_mark_dir = SOUTH
+	if(Proj.damage_flags & DAMAGE_FLAG_LASER)
 		if(Proj.damage >= 20)
-			bullet_mark.icon_state = "scorch"
-			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
+			bullet_mark_icon_state = "scorch"
+			bullet_mark_dir = pick(GLOB.cardinal) // Pick random scorch design
 		else
-			bullet_mark.icon_state = "light_scorch"
+			bullet_mark_icon_state = "light_scorch"
+
+	var/obj/effect/overlay/bmark/bullet_mark = locate() in src
+	if(!bullet_mark)
+		bullet_mark = new(src)
+		bullet_mark.icon_state = bullet_mark_icon_state
+		bullet_mark.set_dir(bullet_mark_dir)
+		bullet_mark.pixel_x = p_x
+		bullet_mark.pixel_y = p_y
+	// we limit to to 2 overlays, so 3 holes, to prevent decals from lagging the game
+	else if(length(bullet_mark.overlays) < 2)
+		var/image/bullet_overlay = image(bullet_mark.icon, icon_state = bullet_mark_icon_state, dir = bullet_mark_dir, pixel_x = p_x - bullet_mark.pixel_x, pixel_y = p_y - bullet_mark.pixel_y)
+		bullet_mark.AddOverlays(bullet_overlay)
 
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)

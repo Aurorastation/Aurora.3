@@ -8,7 +8,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/closed = FALSE
 
 /obj/item/pocketwatch/AltClick(mob/user)
@@ -22,7 +22,7 @@
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
 
-/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent)
+/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent, show_extended)
 	. = ..()
 	if (distance <= 1)
 		checktime()
@@ -56,7 +56,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0

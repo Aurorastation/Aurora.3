@@ -321,7 +321,7 @@
 		return
 	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
 		return over_object.attackby(src, M)
-	if(!istype(over_object, /obj/screen) && !(over_object == src))
+	if(!istype(over_object, /atom/movable/screen) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()
@@ -337,7 +337,7 @@
 			P.focused_conv.cl_send(P, html_decode(text), M)
 	registered_message = text
 
-/obj/item/modular_computer/examine(mob/user, distance, is_adjacent)
+/obj/item/modular_computer/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	var/obj/item/card/id/id = GetID()
 	if(istype(id) && is_adjacent)

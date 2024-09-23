@@ -405,7 +405,7 @@
 			if(spillover > 0)
 				burn = max(burn - spillover, 0)
 
-	handle_limb_gibbing(used_weapon, brute, burn)
+	handle_limb_gibbing(used_weapon, brute_dam, burn_dam)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
@@ -499,7 +499,7 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if((limb_flags & ORGAN_CAN_AMPUTATE) && GLOB.config.limbs_can_break)
+		if((limb_flags & ORGAN_CAN_AMPUTATE))
 
 			if((brute_dam + burn_dam) >= (max_damage * GLOB.config.organ_health_multiplier))
 
@@ -513,7 +513,7 @@
 					var/obj/item/W = used_weapon
 					dam_flags = W.damage_flags()
 					if(isprojectile(W))
-						var/obj/item/projectile/P = W
+						var/obj/projectile/P = W
 						if(dam_flags & DAMAGE_FLAG_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus_to_add += P.maim_rate
@@ -1075,8 +1075,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 			var/obj/effect/decal/cleanable/blood/gibs/gore = new victim.species.single_gib_type(get_turf(victim))
 			if(victim.species.flesh_color)
 				gore.fleshcolor = victim.species.flesh_color
-			if(victim.species.blood_color)
-				gore.basecolor = victim.species.blood_color
+			if(victim.get_blood_color())
+				gore.basecolor = victim.get_blood_color()
 			gore.update_icon()
 			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 

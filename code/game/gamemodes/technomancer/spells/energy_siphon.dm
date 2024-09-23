@@ -163,26 +163,25 @@
 
 /obj/item/spell/energy_siphon/proc/create_lightning(mob/user, atom/source)
 	if(user && source && user != source)
-		spawn(0)
-			var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
-			while(i)
-				var/obj/item/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
-				lightning.firer = user
-				lightning.old_style_target(user)
-				lightning.fire()
-				i--
-				sleep(3)
+		var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
+		while(i)
+			var/obj/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
+			lightning.firer = user
+			lightning.old_style_target(user)
+			lightning.fire()
+			i--
+			sleep(3)
 
-/obj/item/projectile/beam/lightning/energy_siphon
+/obj/projectile/beam/lightning/energy_siphon
 	name = "energy stream"
 	icon_state = "lightning"
 	range = 6 // Backup plan in-case the effect somehow misses the Technomancer.
 	power = 5 // This fires really fast, so this may add up if someone keeps standing in the beam.
 	penetrating = 5
 
-/obj/item/projectile/beam/lightning/energy_siphon/Bump(atom/A as mob|obj|turf|area, forced=0)
+/obj/projectile/beam/lightning/energy_siphon/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(A == firer) // For this, you CAN shoot yourself.
-		on_impact(A)
+		on_hit(A)
 
 		density = 0
 		set_invisibility(101)
@@ -191,7 +190,12 @@
 		return 1
 	..()
 
-/obj/item/projectile/beam/lightning/energy_siphon/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/projectile/beam/lightning/energy_siphon/on_hit(atom/target, blocked, def_zone)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/target_mob = target
+
 	if(target_mob == firer) // This shouldn't actually occur due to Bump(), but just in-case.
 		return 1
 	if(ishuman(target_mob)) // Otherwise someone else stood in the beam and is going to pay for it.

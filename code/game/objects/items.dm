@@ -1,7 +1,7 @@
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items.dmi'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	///This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
@@ -338,26 +338,26 @@
 
 	I.forceMove(T)
 
-/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	var/size
 	switch(src.w_class)
-		if (ITEMSIZE_HUGE to INFINITY)
+		if (WEIGHT_CLASS_HUGE to INFINITY)
 			size = "huge"
-		if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
+		if (WEIGHT_CLASS_BULKY to WEIGHT_CLASS_HUGE)
 			size = "bulky"
-		if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
+		if (WEIGHT_CLASS_NORMAL to WEIGHT_CLASS_BULKY)
 			size = "normal-sized"
-		if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
+		if (WEIGHT_CLASS_SMALL to WEIGHT_CLASS_NORMAL)
 			size = "small"
-		if (0 to ITEMSIZE_SMALL)
+		if (0 to WEIGHT_CLASS_SMALL)
 			size = "tiny"
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-	. = ..(user, distance, "", "It is a [size] item.")
+	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -400,7 +400,7 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-	src.throwing = 0
+	QDEL_NULL(throwing)
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
@@ -449,7 +449,14 @@
 		else
 				return 0
 
-/obj/item/throw_impact(atom/hit_atom)
+/obj/item/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(QDELETED(hit_atom))
+		return
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum) & COMPONENT_MOVABLE_IMPACT_NEVERMIND)
+		return
+	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
+		return
+
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
@@ -467,7 +474,12 @@
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
 		playsound(src, drop_sound, YEET_SOUND_VOLUME)
-	return ..()
+
+	var/itempush = TRUE
+	if(w_class < WEIGHT_CLASS_NORMAL)
+		itempush = FALSE //too light to push anything
+
+	return hit_atom.hitby(src, 0, itempush, throwingdatum=throwingdatum)
 
 /**
  * Called when an item is removed from a `/mob` inventory (including hands and whatnot),
@@ -476,7 +488,7 @@
  * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
  * the loc inside here would point to the container, not the mob that had it in hand
  *
- * * user - The `/mob` that dropped the object
+ * * user - The `/mob` that dropped the object (was removed from, not necessarily who clicked the button)
  */
 /obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
@@ -495,6 +507,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user?.update_equipment_speed_mods()
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -544,24 +558,53 @@
 /obj/item/proc/on_found(mob/finder as mob)
 	return
 
-// called after an item is placed in an equipment slot
-// user is mob that equipped it
-// slot uses the slot_X defines found in setup.dm
-// for items that can be placed in multiple slots
-/obj/item/proc/equipped(var/mob/user, var/slot)
+/**
+ * Called after an item is placed in an equipment slot. Runs equipped(), then sends a signal.
+ * This should be called last or near-to-last, after all other inventory code stuff is handled.
+ *
+ * Arguments:
+ * * user is mob that equipped it
+ * * slot uses the slot_X defines found in setup.dm for items that can be placed in multiple slots
+ * * initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
+ */
+/obj/item/proc/on_equipped(mob/user, slot, initial = FALSE)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	equipped(user, slot, initial)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
+		return FALSE
+	return TRUE
+
+
+/**
+ * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
+ *
+ * Note that hands count as slots.
+ *
+ * Arguments:
+ * * user is mob that equipped it
+ * * slot uses the slot_X defines found in setup.dm for items that can be placed in multiple slots
+ * * initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
+ */
+/obj/item/proc/equipped(mob/user, slot, initial = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+	PROTECTED_PROC(TRUE)
+	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
 	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	in_inventory = TRUE
-	if(slot == slot_l_hand || slot == slot_r_hand)
-		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
-	else if(slot_flags && slot)
-		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
-		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+
+	if(!initial)
+		if(slot == slot_l_hand || slot == slot_r_hand)
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+		else if(slot_flags && slot)
+			if(equip_sound)
+				playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
+			else
+				playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -570,12 +613,15 @@
 		remove_item_verbs(user)
 
 	//Ěent for observable
-	GLOB.mob_equipped_event.raise_event(user, src, slot)
-	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user.update_equipment_speed_mods()
+
+/obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
+	return TRUE
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
@@ -730,12 +776,17 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/ui_action_click()
 	attack_self(usr)
 
-//RETURN VALUES
-//handle_shield
-//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
-//Otherwise should return 0 to indicate that the attack is not affected in any way.
+/**
+ * Called when a mob is hit by a projectile, item or by an attack
+ *
+ * Return one of the `BULLET_ACT_*` defines
+ *
+ * BULLET_ACT_HIT will let the attack continue, BULLET_ACT_BLOCK will block the attack
+ */
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return FALSE
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return BULLET_ACT_HIT
 
 /obj/item/proc/can_shield_back()
 	return
@@ -861,7 +912,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -948,10 +999,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.handle_vision()
-
-/obj/item/proc/pwr_drain()
-	return 0 // Process Kill
-
 
 //a proc that any worn thing can call to update its itemstate
 //Should be cheaper than calling regenerate icons on the mob

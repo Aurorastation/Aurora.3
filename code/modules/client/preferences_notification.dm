@@ -31,8 +31,8 @@
 	note_wrapper = new_wrapper
 	note_text = new_text
 
-	note_text = replacetextEx(note_text, ":src_ref", SOFTREF(src))
-	note_wrapper[1] = replacetextEx(note_wrapper[1], ":src_ref", SOFTREF(src))
+	note_text = replacetextEx(note_text, ":src_ref", REF(src))
+	note_wrapper[1] = replacetextEx(note_wrapper[1], ":src_ref", REF(src))
 
 	if (new_persistence)
 		persistent = new_persistence

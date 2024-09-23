@@ -68,6 +68,7 @@ var/const/EVENTENG			=(1<<1)
 var/const/EVENTMED			=(1<<2)
 var/const/EVENTSCI			=(1<<3)
 var/const/EVENTOPS			=(1<<4)
+var/const/EVENTSRV			=(1<<5)
 
 
 // Positions Lists
@@ -103,7 +104,7 @@ var/list/medical_positions = list(
 	"Surgeon",
 	"Psychiatrist",
 	"Pharmacist",
-	"First Responder",
+	"Paramedic",
 	"Medical Intern",
 	"Medical Personnel"
 )
@@ -133,7 +134,8 @@ var/list/service_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Chaplain"
+	"Chaplain",
+	"Service Personnel"
 )
 
 var/list/civilian_positions = list(

@@ -33,13 +33,13 @@
 	return ..()
 
 //when thrown on impact, bottles smash and spill their contents
-/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = thrower
+	var/mob/M = throwingdatum?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throw_source, loc)
-		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
+		var/throw_dist = get_dist(get_turf(M), get_turf(src))
+		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
@@ -187,7 +187,11 @@
 
 	return blocked
 
-/obj/item/reagent_containers/food/drinks/bottle/bullet_act()
+/obj/item/reagent_containers/food/drinks/bottle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	smash(loc)
 
 /*
@@ -242,7 +246,7 @@
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -353,7 +357,8 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+		if(!is_open_container())
+			return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -371,6 +376,12 @@
 	playsound(user, 'sound/weapons/holster/sheathout.ogg', 25, TRUE)
 	balloon_alert(user, "preparing to swing...")
 	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	if(is_open_container())
+		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		if(reagents.total_volume)
+			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
 	///The bonus to success chance that the user gets for being a command role
@@ -427,25 +438,24 @@
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
-	var/obj/item/projectile/bullet/cork_to_fire = sabraged ? /obj/item/projectile/bullet/champagne_cork/sabrage : /obj/item/projectile/bullet/champagne_cork
+	var/obj/projectile/bullet/cork_to_fire = sabraged ? /obj/projectile/bullet/champagne_cork/sabrage : /obj/projectile/bullet/champagne_cork
 	///Our resulting cork projectile
-	var/obj/item/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
+	var/obj/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
 	popped_cork.firer =  user
 	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
 
-/obj/item/projectile/bullet/champagne_cork
+/obj/projectile/bullet/champagne_cork
 	name = "champagne cork"
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
-	hitsound = 'sound/weapons/genhit.ogg'
 	damage = 5
 	embed = FALSE
 	sharp = FALSE
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/item/projectile/bullet/champagne_cork/on_impact(var/atom/A)
-	..()
+/obj/projectile/bullet/champagne_cork/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
 /obj/item/trash/champagne_cork
@@ -453,7 +463,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
 
-/obj/item/projectile/bullet/champagne_cork/sabrage
+/obj/projectile/bullet/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
 	drop_type = /obj/item/trash/champagne_cork/sabrage
 
@@ -782,8 +792,8 @@
 	name = "Boryeong '45 soju"
 	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
 	desc_extended = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
-	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
-	name refers to its alcohol by volume content, and not a calendar year."
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's name \
+	refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
@@ -999,6 +1009,26 @@
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
 
+
+/obj/item/reagent_containers/food/drinks/bottle/ogogoro
+	name = "ogogoro jar"
+	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
+	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
+	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia."
+	icon_state = "ogogoro"
+	empty_icon_state = "ogogoro_empty"
+	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/burukutu
+	name = "burukutu bottle"
+	desc = "A traditional Eridani millet beer, distributed by Idris."
+	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
+	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
+	Eridani I."
+	icon_state = "burukutu"
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -1061,3 +1091,18 @@
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
 	empty_icon_state = "vrozka_empty"
+
+// Vaurca alcoholic drinks
+//=====================================
+
+/obj/item/reagent_containers/food/drinks/bottle/skyemok
+	name = "bottle of Skye'mok"
+	desc = "Traditional Sedantian drink. Looks like it's inside a pulsating stomach."
+	desc_extended = "A traditional Sedantian brew crafted from a special fungus fed to V'krexi, this unique beverage ferments in the swollen stomachs of these creatures. It is served traditionally on the head of the V'krexi it was prepared in."
+	icon_state = "skyemok"
+	empty_icon_state = "skyemok_empty"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/skyemok= 80)
+

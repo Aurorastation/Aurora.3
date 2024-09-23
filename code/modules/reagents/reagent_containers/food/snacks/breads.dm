@@ -289,7 +289,6 @@
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("poppy seeds" = 2, "pretzel" = 3))
-	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/bagel
 	name = "bagel"

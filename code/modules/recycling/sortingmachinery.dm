@@ -251,42 +251,45 @@
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
 	icon_state = "dest_tagger"
+	item_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
-	w_class = ITEMSIZE_SMALL
-	item_state = "electronic"
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/destTagger/proc/openwindow(mob/user as mob)
+/obj/item/device/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[SSdisposals.tagger_locations[i]]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=[REF(src)];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
-	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
+	dat += "<br><a href='?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
 	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
-/obj/item/device/destTagger/attack_self(mob/user as mob)
+/obj/item/device/destTagger/attack_self(mob/user)
 	openwindow(user)
 	return
 
 /obj/item/device/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
-	if(href_list["nextTag"] && (href_list["nextTag"] in SSdisposals.tagger_locations))
-		src.currTag = href_list["nextTag"]
+
+	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
+		src.currTag = html_decode(href_list["nextTag"])
+
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(dest != "None")
 			src.currTag = dest
 		else
 			src.currTag = 0
+
 	openwindow(usr)
 
 /obj/machinery/disposal/deliveryChute
@@ -309,25 +312,29 @@
 /obj/machinery/disposal/deliveryChute/update()
 	return
 
-/obj/machinery/disposal/deliveryChute/CollidedWith(var/atom/movable/AM) //Go straight into the chute
-	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	return
+/obj/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
+	. = ..()
+
+	if(istype(bumped_atom, /obj/projectile) || istype(bumped_atom, /obj/effect))
+		return
+
 	switch(dir)
 		if(NORTH)
-			if(AM.loc.y != src.loc.y+1) return
+			if(bumped_atom.loc.y != src.loc.y+1) return
 		if(EAST)
-			if(AM.loc.x != src.loc.x+1) return
+			if(bumped_atom.loc.x != src.loc.x+1) return
 		if(SOUTH)
-			if(AM.loc.y != src.loc.y-1) return
+			if(bumped_atom.loc.y != src.loc.y-1) return
 		if(WEST)
-			if(AM.loc.x != src.loc.x-1) return
+			if(bumped_atom.loc.x != src.loc.x-1) return
 
-	if(istype(AM, /obj))
-		var/obj/O = AM
+	if(istype(bumped_atom, /obj))
+		var/obj/O = bumped_atom
 		O.forceMove(src)
-	else if(istype(AM, /mob))
-		var/mob/M = AM
+	else if(istype(bumped_atom, /mob))
+		var/mob/M = bumped_atom
 		M.forceMove(src)
-	src.flush()
+	INVOKE_ASYNC(src, PROC_REF(flush))
 
 /obj/machinery/disposal/deliveryChute/flush()
 	flushing = 1

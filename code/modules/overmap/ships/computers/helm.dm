@@ -109,7 +109,9 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1
@@ -169,7 +171,7 @@
 			rdata["name"] = R.fields["name"]
 			rdata["x"] = R.fields["x"]
 			rdata["y"] = R.fields["y"]
-			rdata["reference"] = "\ref[R]"
+			rdata["reference"] = "[REF(R)]"
 			locations.Add(list(rdata))
 
 		data["locations"] = locations

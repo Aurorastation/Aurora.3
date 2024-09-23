@@ -69,5 +69,4 @@
 	access = list()
 	minimal_access = list()
 	outfit = /obj/outfit/job/visitor/passenger
-	blacklisted_species = null
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

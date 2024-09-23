@@ -49,4 +49,4 @@
 
 /datum/event/apc_damage/proc/is_valid_apc(var/obj/machinery/power/apc/apc)
 	var/turf/T = get_turf(apc)
-	return !apc.is_critical && !apc.emagged && T && isStationLevel(T.z)
+	return !apc.is_critical && !apc.emagged && T && is_station_level(T.z)

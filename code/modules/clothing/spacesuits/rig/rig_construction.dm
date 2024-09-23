@@ -3,7 +3,7 @@
 	desc = "The assembly frame of a back-mounted hardsuit deployment and control mechanism."
 	icon = 'icons/obj/rig_modules.dmi'
 	var/icon_base = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	///The type of board, a path of `/obj/item/circuitboard`
 	var/board_type = null
@@ -201,13 +201,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.isscrewdriver())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iswirecutter())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

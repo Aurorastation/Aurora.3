@@ -25,10 +25,12 @@
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
-	new /obj/item/storage/box/goldstar(src)
+	new /obj/item/storage/stickersheet/goldstar(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/device/memorywiper(src)
+	new /obj/item/device/price_scanner(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
@@ -102,6 +104,7 @@
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
 	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/sleeping_bag/mining(src)
 
 // Merchant
 /obj/structure/closet/secure_closet/merchant

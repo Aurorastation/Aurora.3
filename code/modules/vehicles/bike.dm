@@ -189,7 +189,9 @@
 			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
 	..()
 
-/obj/vehicle/bike/relaymove(mob/user, direction)
+/obj/vehicle/bike/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
@@ -249,10 +251,10 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if(buckled && prob(protection_percent))
-		buckled.bullet_act(Proj)
-		return
+		return buckled.bullet_act(arglist(args))
+
 	..()
 
 /obj/vehicle/bike/update_icon()
@@ -301,7 +303,7 @@
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
+				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
@@ -377,7 +379,7 @@
 		M = buckled
 	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
+		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(30, DAMAGE_BRUTE)
@@ -393,7 +395,7 @@
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 50
 	care_about_storage_depth = FALSE
 
@@ -409,7 +411,6 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 2
 	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE

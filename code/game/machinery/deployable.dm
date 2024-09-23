@@ -41,16 +41,20 @@ Deployable Kits
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/damage_modifier = 0.4
-	switch(P.damage_type)
+	switch(hitting_projectile.damage_type)
 		if(DAMAGE_BURN)
 			damage_modifier = 1
 		if(DAMAGE_BRUTE)
 			damage_modifier = 0.75
-	health -= P.damage * damage_modifier
+	health -= hitting_projectile.damage * damage_modifier
 	if(!check_dismantle())
-		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
+		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ishammer() && user.a_intent != I_HURT)
@@ -105,8 +109,10 @@ Deployable Kits
 /obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
-		var/obj/item/projectile/P = mover
+	if(mover.movement_type & PHASING)
+		return TRUE
+	if(istype(mover, /obj/projectile))
+		var/obj/projectile/P = mover
 		if(P.original == src)
 			return FALSE
 		if(P.firer && Adjacent(P.firer))
@@ -114,7 +120,7 @@ Deployable Kits
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -217,9 +223,11 @@ Deployable Kits
 		icon_state = "[initial(icon_state)][src.locked]"
 
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	else
 		return 0
@@ -288,7 +296,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -297,7 +305,7 @@ Deployable Kits
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -322,7 +330,7 @@ Deployable Kits
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -332,7 +340,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -342,7 +350,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 

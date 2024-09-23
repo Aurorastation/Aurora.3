@@ -33,8 +33,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	layer = 3.1
+	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -200,7 +199,6 @@
 	frequency = 1380
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -409,7 +407,6 @@
 "dD" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_3";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange/full{
@@ -532,7 +529,6 @@
 "ee" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_1";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -848,8 +844,7 @@
 /area/hephmining_ship/cyclops/cyclops_vault)
 "gL" = (
 /obj/machinery/conveyor{
-	id = "heph_1";
-	layer = 2.9
+	id = "heph_1"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1329,6 +1324,9 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "nb" = (
@@ -1524,8 +1522,7 @@
 /area/hephmining_ship/cyclops)
 "pf" = (
 /obj/machinery/conveyor{
-	id = "heph_3";
-	layer = 2.9
+	id = "heph_3"
 	},
 /obj/structure/plasticflaps/mining,
 /obj/effect/floor_decal/corner/orange{
@@ -1599,8 +1596,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	layer = 3.1
+	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -1793,8 +1789,7 @@
 /area/shuttle/cyclops_shuttle)
 "rv" = (
 /obj/machinery/conveyor{
-	id = "heph_3";
-	layer = 2.9
+	id = "heph_3"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -2172,8 +2167,7 @@
 /area/hephmining_ship/cyclops)
 "vj" = (
 /obj/machinery/conveyor{
-	id = "heph_2";
-	layer = 2.9
+	id = "heph_2"
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
@@ -2525,8 +2519,7 @@
 "yC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 28;
-	layer = 3.1
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1004;
@@ -3161,8 +3154,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
-	pixel_y = -20;
-	layer = 3.1
+	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -3765,8 +3757,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Jk" = (
 /obj/machinery/conveyor{
-	id = "heph_3";
-	layer = 2.9
+	id = "heph_3"
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -4258,7 +4249,6 @@
 "NX" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_2";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4278,8 +4268,7 @@
 	name = "waste canister"
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -4639,8 +4628,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list(216)
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -4839,8 +4833,7 @@
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Us" = (
 /obj/machinery/conveyor{
-	id = "heph_2";
-	layer = 2.9
+	id = "heph_2"
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -4915,8 +4908,7 @@
 /area/hephmining_ship/cyclops)
 "VE" = (
 /obj/machinery/conveyor{
-	id = "heph_1";
-	layer = 2.9
+	id = "heph_1"
 	},
 /obj/structure/plasticflaps/mining,
 /obj/structure/window/reinforced{

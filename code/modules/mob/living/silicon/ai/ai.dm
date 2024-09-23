@@ -158,15 +158,16 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, TRUE)
+	add_language(LANGUAGE_TRADEBAND, TRUE)
+	add_language(LANGUAGE_EAL, TRUE)
+	add_language(LANGUAGE_DRONE, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
 	add_language(LANGUAGE_SKRELLIAN, FALSE)
-	add_language(LANGUAGE_TRADEBAND, TRUE)
 	add_language(LANGUAGE_GUTTER, FALSE)
 	add_language(LANGUAGE_VAURCA, FALSE)
 	add_language(LANGUAGE_ROOTSONG, FALSE)
-	add_language(LANGUAGE_EAL, TRUE)
 	add_language(LANGUAGE_YA_SSA, FALSE)
 	add_language(LANGUAGE_DELVAHII, FALSE)
 
@@ -186,15 +187,15 @@ var/list/ai_verbs_default = list(
 
 	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
 
 	ai_list += src
 
@@ -218,7 +219,7 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/on_mob_init()
 	to_chat(src, "<h3>You are playing the station's AI.</h3>")
-	to_chat(src, "<strong><a href='?src=\ref[src];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
+	to_chat(src, "<strong><a href='?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
 		show_laws()
@@ -484,7 +485,7 @@ var/list/ai_verbs_default = list(
 		return
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
-	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
@@ -516,7 +517,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			view_alerts = 0
-		var/t1 = text("window=[]", href_list["mach_close"])
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
@@ -545,7 +546,7 @@ var/list/ai_verbs_default = list(
 			to_chat(src, SPAN_NOTICE("Unable to locate visual entry."))
 			return
 		var/info = cameraRecords[entry]
-		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", info[1], info[2]), text("window=[]", html_encode(info[1])))
+		src << browse("<HTML><HEAD><TITLE>[info[1]]</TITLE></HEAD><BODY><TT>[info[2]]</TT></BODY></HTML>", "window=[html_encode(info[1])]")
 		return
 
 	return
@@ -679,8 +680,11 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmobs.get_mannequin(usr.client.ckey)
-					holo_icon.appearance = H.appearance
+					var/client/client = usr.client
+					client.prefs.update_mannequin()
+
+					var/mob/living/carbon/human/loadout_mob = SSmobs.get_mannequin(usr.client.ckey)
+					holo_icon.appearance = loadout_mob.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 

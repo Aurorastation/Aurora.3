@@ -1,14 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/kitchen)
 "aj" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/effect/overmap/visitable/ship/heph_security,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -19,9 +21,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/hologram/holopad/long_range{
-	pixel_x = 16
-	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "ao" = (
@@ -83,6 +84,10 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/south{
+	req_access = list(216)
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
 	req_access = list(216)
 	},
 /turf/simulated/floor,
@@ -199,6 +204,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "bz" = (
@@ -223,6 +231,7 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/kitchen)
 "bC" = (
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/crew)
 "bF" = (
@@ -238,22 +247,11 @@
 /area/heph_security_ship/engineering)
 "bG" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/door/window,
-/obj/structure/table/rack{
-	pixel_x = 32
-	},
-/obj/random/soap{
-	pixel_x = 32
-	},
-/obj/item/towel/random{
-	pixel_x = 32
-	},
-/obj/random/soap{
-	pixel_x = 32
-	},
-/obj/item/towel/random{
-	pixel_x = 32
-	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
 "bH" = (
@@ -340,6 +338,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/grauwolf)
 "cq" = (
@@ -350,7 +349,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "cz" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -390,6 +389,10 @@
 	},
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/grauwolf)
@@ -442,6 +445,9 @@
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/structure/closet/cabinet,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "dv" = (
@@ -466,13 +472,14 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "dA" = (
@@ -497,6 +504,10 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/francisca)
 "dK" = (
@@ -513,6 +524,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -540,6 +554,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "eb" = (
@@ -569,17 +584,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "ef" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/navigation{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(216)
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "ej" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -599,9 +619,7 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterport)
 "eu" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
 "ew" = (
@@ -667,7 +685,6 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "eQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
@@ -675,6 +692,10 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, medical"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/medbay)
 "eR" = (
@@ -687,10 +708,13 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "eS" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/bed/handrail,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "eV" = (
@@ -715,9 +739,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/grauwolf)
 "fd" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
 /area/heph_security_ship/thrusterstarb)
 "ff" = (
 /obj/effect/floor_decal/corner_wide/orange{
@@ -756,7 +779,6 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "fo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
@@ -764,6 +786,10 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, captain's quarters"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/captain)
 "fx" = (
@@ -785,10 +811,10 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "fD" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/ship/targeting{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "fF" = (
@@ -894,6 +920,13 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
+"gE" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/heph_security_ship/bridge)
 "gG" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -1036,6 +1069,9 @@
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "hY" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/heph_security_ship/atmos)
 "ia" = (
@@ -1065,6 +1101,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1132,9 +1171,6 @@
 	pixel_y = 16
 	},
 /obj/item/bedsheet/orange,
-/obj/structure/sign/poster{
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1159,17 +1195,17 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/dock)
 "ix" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/shower{
 	pixel_y = 20
 	},
+/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
 "iD" = (
@@ -1237,6 +1273,9 @@
 /area/heph_security_ship/atmos)
 "jc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "jq" = (
@@ -1304,7 +1343,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "jR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1314,11 +1353,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/grauwolf)
 "jT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship)
 "jU" = (
@@ -1486,7 +1528,7 @@
 /obj/item/gun/projectile/automatic/wt550/lethal,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(216);
-	name = "ballistics"
+	name = "firearms"
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal,
 /obj/item/gun/projectile/sec/lethal,
@@ -1501,6 +1543,10 @@
 	magazine_type = /obj/item/ammo_magazine/a556/carbine
 	},
 /obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "kO" = (
@@ -1512,6 +1558,13 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/heph_security_ship/francisca)
+"kP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/structure/table/reinforced/steel,
@@ -1596,8 +1649,20 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
+"lu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/papershredder{
+	pixel_x = 6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "lv" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/brflowers,
@@ -1634,14 +1699,16 @@
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
 "lN" = (
-/obj/machinery/light{
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/computer/ship/helm{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/heph_security_ship/crew)
+/turf/simulated/floor/tiled,
+/area/heph_security_ship/bridge)
 "lW" = (
 /obj/structure/railing/mapped,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -1751,6 +1818,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "mE" = (
@@ -1789,6 +1859,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/crew)
 "nb" = (
@@ -1799,7 +1873,6 @@
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "nc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
@@ -1807,6 +1880,10 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew bunks"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/crew)
 "np" = (
@@ -1817,7 +1894,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/suit_cycler/offship/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "nt" = (
@@ -1857,6 +1933,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship/medbay)
 "nP" = (
@@ -1895,12 +1972,12 @@
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
 "ob" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Fuel To Thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1973,6 +2050,9 @@
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/structure/closet/cabinet,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "oA" = (
@@ -1994,7 +2074,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/bed/handrail{
@@ -2034,8 +2115,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/spline/plain{
-	dir = 4;
-	layer = 2.41
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2139,6 +2219,7 @@
 	dir = 1;
 	req_access = list(216)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/shuttle/heph_security)
 "pv" = (
@@ -2163,6 +2244,10 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "py" = (
@@ -2176,7 +2261,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "pE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2199,6 +2284,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
@@ -2235,17 +2323,15 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
 "qf" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green,
-/obj/machinery/power/apc/south{
-	req_access = list(216)
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
-/obj/machinery/light,
-/turf/simulated/floor,
-/area/heph_security_ship/bridge)
+/turf/simulated/floor/tiled,
+/area/heph_security_ship)
 "qg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2259,7 +2345,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -2272,6 +2359,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/crew)
 "ql" = (
@@ -2299,8 +2387,7 @@
 /area/heph_security_ship/captain)
 "qt" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
@@ -2411,6 +2498,7 @@
 	name = "Freezer"
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2451,6 +2539,19 @@
 /obj/structure/sign/flag/heph{
 	pixel_y = 32;
 	stand_icon = null
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/pen/black{
+	pixel_y = 4;
+	pixel_x = 3
+	},
+/obj/item/stamp/hephaestus{
+	pixel_x = -7;
+	pixel_y = 4
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
@@ -2507,9 +2608,6 @@
 /obj/item/bedsheet/orange,
 /obj/item/bedsheet/orange{
 	pixel_y = 16
-	},
-/obj/structure/sign/poster{
-	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2626,6 +2724,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "sh" = (
@@ -2642,6 +2741,10 @@
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/under/rank/captain/hephaestus,
 /obj/structure/closet/cabinet,
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "sw" = (
@@ -2663,9 +2766,14 @@
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "sx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -2713,6 +2821,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "tC" = (
@@ -2729,15 +2841,16 @@
 "tH" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/landmark/entry_point/fore{
-	name = "aft"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -2768,6 +2881,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "tT" = (
@@ -2778,7 +2894,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "tU" = (
 /obj/structure/sign/securearea{
@@ -2902,7 +3018,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "uJ" = (
 /obj/machinery/computer/shuttle_control/explore/hephsec_shuttle,
@@ -2915,19 +3031,23 @@
 /turf/simulated/floor,
 /area/heph_security_ship/grauwolf)
 "uN" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port thruster"
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
 	},
-/turf/simulated/floor,
-/area/heph_security_ship/thrusterport)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled,
+/area/heph_security_ship)
 "vi" = (
-/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/photocopier/faxmachine{
-	department = "Hephaestus Asset Protection Vessel"
-	},
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "vj" = (
@@ -2961,7 +3081,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/heph_security)
 "vq" = (
 /obj/effect/floor_decal/corner/black{
@@ -3005,6 +3125,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "vy" = (
@@ -3079,10 +3200,14 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "vU" = (
-/obj/machinery/pipedispenser,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -3131,6 +3256,10 @@
 "wD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/dispenser/oxygen,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/armory)
 "wG" = (
@@ -3155,7 +3284,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3211,8 +3341,7 @@
 /area/heph_security_ship/grauwolf)
 "xE" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3268,12 +3397,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
-"xU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
-/area/shuttle/heph_security)
 "xW" = (
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
@@ -3308,15 +3437,34 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "yy" = (
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(216);
-	name = "energy weapons"
+	name = "armor"
 	},
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/rifle,
-/obj/item/gun/energy/rifle,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	brand_name = "Hephaestus Industries"
+	},
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "yF" = (
@@ -3344,6 +3492,10 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
 "yM" = (
@@ -3370,7 +3522,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "zK" = (
 /obj/machinery/door/airlock/hatch{
@@ -3384,6 +3536,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship)
 "zL" = (
@@ -3395,16 +3548,12 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "zP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/obj/structure/closet/crate{
-	name = "Emergency Fuel"
-	},
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "zQ" = (
@@ -3416,6 +3565,10 @@
 /obj/structure/toilet{
 	dir = 8
 	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
 "zW" = (
@@ -3424,6 +3577,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterport)
@@ -3482,8 +3639,17 @@
 /area/heph_security_ship)
 "Ag" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
+"Aj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/photocopier/faxmachine{
+	department = "Hephaestus Asset Protection Vessel"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "Au" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light{
@@ -3508,6 +3674,10 @@
 "AT" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
@@ -3570,6 +3740,10 @@
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,
+/obj/machinery/alarm/freezer/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -3591,8 +3765,9 @@
 /turf/space/transit/north,
 /area/space)
 "BA" = (
-/turf/simulated/floor/foamedmetal,
-/area/heph_security_ship/bridge)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterstarb)
 "BF" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/table/reinforced/steel,
@@ -3634,11 +3809,14 @@
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "BR" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/orange,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "BU" = (
@@ -3657,13 +3835,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Cg" = (
@@ -3726,7 +3905,7 @@
 "CQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "CT" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
@@ -3738,16 +3917,10 @@
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/heph_security)
 "CV" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: HAZARD sign";
-	pixel_y = -32
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "Dc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/tank{
@@ -3844,9 +4017,6 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/obj/structure/window/borosilicate/reinforced{
-	dir = 1
-	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Ee" = (
@@ -3911,10 +4081,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "EJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters";
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3972,10 +4147,8 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/heph_security)
 "Fh" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/bed/handrail,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "Fm" = (
@@ -3990,6 +4163,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
+"FB" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thruster"
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterstarb)
 "FF" = (
 /obj/machinery/computer/ship/targeting,
 /obj/structure/railing/mapped,
@@ -4003,7 +4183,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
 "FK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
@@ -4011,6 +4190,10 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, kitchen"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/kitchen)
 "FQ" = (
@@ -4020,6 +4203,7 @@
 	req_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "FU" = (
@@ -4089,13 +4273,9 @@
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "Gf" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard thruster"
-	},
-/turf/simulated/floor,
-/area/heph_security_ship/thrusterstarb)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/wood,
+/area/heph_security_ship/kitchen)
 "Gj" = (
 /obj/structure/table/glass,
 /obj/machinery/chemical_dispenser/coffee/full,
@@ -4107,9 +4287,6 @@
 "Gl" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
-	},
-/obj/structure/sign/poster{
-	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4128,14 +4305,11 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "GD" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
 	},
-/obj/machinery/computer/ship/helm{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "GG" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4145,6 +4319,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
+"GN" = (
+/obj/structure/closet/crate{
+	name = "Emergency Fuel"
+	},
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle,
+/turf/simulated/floor,
+/area/shuttle/heph_security)
 "Ha" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/wood,
@@ -4160,25 +4344,33 @@
 /obj/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Hf" = (
 /obj/structure/closet/radiation,
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "Hn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/crew)
 "Ho" = (
@@ -4205,6 +4397,7 @@
 	dir = 1;
 	req_access = list(216)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "Hx" = (
@@ -4303,6 +4496,9 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "HV" = (
@@ -4310,23 +4506,16 @@
 /turf/simulated/floor/airless,
 /area/heph_security_ship/francisca)
 "HY" = (
-/obj/structure/table/rack{
-	pixel_x = 32
-	},
-/obj/item/towel/random{
-	pixel_x = 32
-	},
-/obj/item/towel/random{
-	pixel_x = 32
-	},
-/obj/random/soap{
-	pixel_x = 32
-	},
-/obj/random/soap{
-	pixel_x = 32
-	},
 /obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/obj/machinery/shower{
+	pixel_y = 16
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/heph_security_ship/brig)
 "Ib" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4352,16 +4541,12 @@
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "If" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thruster"
 	},
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: HAZARD sign";
-	pixel_y = -32
-	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterport)
 "Ig" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -4453,7 +4638,9 @@
 	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "2-4"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
@@ -4529,6 +4716,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/captain)
@@ -4610,6 +4800,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "JO" = (
@@ -4632,6 +4823,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
@@ -4673,11 +4868,14 @@
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/crew)
 "Kt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/captain)
 "Kv" = (
@@ -4699,9 +4897,6 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = list(216)
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
@@ -4784,13 +4979,11 @@
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "KO" = (
-/obj/structure/closet/secure_closet/refrigerator/standard{
-	name = "k'ois freezer"
-	},
 /obj/item/reagent_containers/food/snacks/koiswaffles,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koismuffin,
+/obj/structure/closet/secure_closet/freezer/kois,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -4898,7 +5091,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "LJ" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4927,6 +5120,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
+"LN" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled,
+/area/heph_security_ship)
 "LY" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/head/helmet/pilot{
@@ -4937,6 +5140,10 @@
 /obj/item/clothing/head/helmet/pilot{
 	pixel_x = -6;
 	pixel_y = 7
+	},
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
@@ -4983,13 +5190,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "MK" = (
@@ -4999,7 +5207,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -5047,6 +5254,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
@@ -5099,17 +5309,9 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "Ns" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/button/alternate{
-	id = "heph_lockdown";
-	name = "Ship Lockdown"
-	},
-/obj/machinery/button/distress{
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled,
-/area/heph_security_ship/bridge)
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/heph_security_ship/thrusterport)
 "Nv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5154,6 +5356,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "NP" = (
@@ -5280,12 +5483,13 @@
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "OO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/francisca)
 "OR" = (
@@ -5388,6 +5592,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
+"PM" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: HAZARD sign";
+	pixel_y = -32
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/space)
 "PN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5411,7 +5626,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "PW" = (
 /obj/effect/floor_decal/corner/red,
@@ -5430,8 +5645,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
@@ -5450,7 +5664,8 @@
 	name = "Carbon Dioxide Supply Monitor";
 	output_tag = "hephsec_fuel";
 	sensors = list("hephsec_sensor"="Tank");
-	dir = 4
+	dir = 4;
+	input_tag = "hephsec_fuel_in"
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
@@ -5467,41 +5682,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "QJ" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	layer = 2.71
-	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(216);
-	name = "armor"
-	},
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical{
-	brand_name = "Hephaestus Industries"
-	},
-/obj/item/clothing/head/helmet/ablative,
-/obj/item/clothing/head/helmet/ablative,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/head/helmet/ballistic,
-/obj/item/clothing/suit/armor/carrier/ballistic,
-/obj/item/clothing/suit/armor/carrier/ballistic,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "QR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5546,6 +5731,12 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 0451;
+	icon_state = "map_injector";
+	id = "hephsec_fuel_in"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/heph_security_ship/atmos)
 "Rw" = (
@@ -5582,9 +5773,9 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "RZ" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor,
-/area/heph_security_ship/atmos)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/white,
+/area/heph_security_ship/medbay)
 "Sb" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -5596,11 +5787,14 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "Sh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/medbay)
 "Si" = (
@@ -5627,6 +5821,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/heph_security_ship/bathroom)
@@ -5655,11 +5852,20 @@
 	pixel_y = 1
 	},
 /obj/machinery/light,
+/obj/machinery/alarm/west{
+	req_one_access = null;
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
 "SD" = (
-/obj/machinery/computer/ship/engines,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "SM" = (
@@ -5683,12 +5889,13 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterport)
 "SQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/grauwolf)
 "SV" = (
@@ -5756,15 +5963,13 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "TC" = (
-/obj/structure/closet/crate/bin{
-	dense_when_open = 0;
-	density = 0;
-	name = "trashbin";
-	pixel_y = 18
-	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
 "TD" = (
@@ -5786,18 +5991,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/heph_security)
 "TQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/dock)
 "Uc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/brig)
 "Uh" = (
@@ -5855,12 +6066,17 @@
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "Uy" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters"
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -5898,8 +6114,7 @@
 /area/heph_security_ship/atmos)
 "UF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/heph_security_ship/francisca)
@@ -5937,6 +6152,13 @@
 "Vt" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/heph_security_ship/crew)
+"Vu" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/heph_security_ship/bridge)
 "Vy" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -5952,22 +6174,13 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/heph_security)
 "Vz" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = 4
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/button/remote/blast_door{
+	name = "Ship Lockdown";
+	id = "heph_lockdown";
+	pixel_y = -32
 	},
-/obj/item/pen/black{
-	pixel_y = 4;
-	pixel_x = 3
-	},
-/obj/item/stamp/hephaestus{
-	pixel_x = -7;
-	pixel_y = 4
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "VA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6021,9 +6234,8 @@
 /turf/simulated/floor,
 /area/heph_security_ship)
 "VK" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
 /area/heph_security_ship/thrusterport)
 "VM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6053,19 +6265,39 @@
 	},
 /turf/simulated/floor,
 /area/heph_security_ship)
+"VR" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: HAZARD sign";
+	pixel_y = -32
+	},
+/turf/space/dynamic,
+/area/space)
 "VW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/heph_security_ship/kitchen)
 "VZ" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
+"Wg" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/photocopier,
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "Wi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "Wj" = (
@@ -6174,8 +6406,16 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "WR" = (
-/obj/item/modular_computer/console/preset/civilian,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 21;
+	pixel_x = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 31;
+	pixel_x = 3
+	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "WT" = (
@@ -6216,15 +6456,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
+/obj/machinery/pipedispenser,
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "Xe" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship/dock)
 "Xi" = (
@@ -6239,6 +6481,7 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "Xr" = (
@@ -6375,18 +6618,21 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "YC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "heph_lockdown";
 	name = "blast door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/heph_security_ship)
 "YJ" = (
-/obj/machinery/computer/ship/targeting,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "YO" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -6442,6 +6688,15 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/heph_security_ship/francisca)
+"Zq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
+/turf/simulated/floor,
+/area/heph_security_ship/bridge)
 "Zs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
@@ -6471,8 +6726,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -6519,7 +6773,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/grauwolf)
 "ZM" = (
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/structure/closet/secure_closet/medical3{
 	req_access = null
@@ -6554,13 +6808,14 @@
 	pixel_x = 20;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "ZZ" = (
@@ -34938,9 +35193,9 @@ CE
 CE
 CE
 CE
-CE
 cq
 jQ
+Ag
 mp
 JH
 Ro
@@ -35195,8 +35450,8 @@ CE
 CE
 CE
 CE
-CE
-If
+VR
+vZ
 vZ
 vZ
 vZ
@@ -35452,12 +35707,12 @@ CE
 CE
 CE
 CE
-CE
 Ag
+BA
 fd
 aG
 mv
-RZ
+pw
 pw
 ed
 Kf
@@ -35709,9 +35964,9 @@ CE
 CE
 CE
 CE
-CE
 Ag
-Gf
+FB
+fd
 kd
 mv
 AT
@@ -35723,14 +35978,14 @@ vS
 ia
 iY
 mR
-lN
+Vt
 it
 xh
 bC
 Yk
 PC
 KC
-KH
+Gf
 yR
 Lc
 Rd
@@ -35966,8 +36221,8 @@ CE
 CE
 CE
 CE
-CE
 Ag
+BA
 fd
 ru
 sc
@@ -36223,8 +36478,8 @@ CE
 CE
 CE
 CE
-CE
 Ag
+BA
 fd
 Nv
 mv
@@ -36480,8 +36735,8 @@ CE
 CE
 CE
 CE
-CE
-CV
+PM
+vZ
 vZ
 vZ
 vZ
@@ -36737,9 +36992,9 @@ CE
 CE
 CE
 CE
-CE
 PR
 pD
+Ag
 qP
 pD
 Ag
@@ -37271,7 +37526,7 @@ iU
 Ij
 hc
 hc
-hc
+uN
 RX
 gC
 oX
@@ -38023,7 +38278,7 @@ Zb
 cV
 TG
 xz
-xU
+zP
 Fb
 fF
 Zb
@@ -38048,15 +38303,15 @@ Nh
 Iz
 xN
 VE
-lz
+qf
 mz
 tn
 Wi
 ef
 jc
+CV
 tn
-BA
-BA
+tn
 tn
 le
 CQ
@@ -38311,8 +38566,8 @@ tn
 SD
 eS
 YJ
+Wg
 tn
-BA
 tn
 tn
 Ag
@@ -38538,8 +38793,8 @@ oR
 Ac
 rW
 Zb
-xU
-xU
+zP
+zP
 Zb
 MB
 dQ
@@ -38567,9 +38822,9 @@ yw
 tn
 Xn
 IC
-qf
+VZ
+Aj
 tn
-BA
 tn
 Ag
 Lv
@@ -38819,14 +39074,14 @@ CL
 Ws
 kN
 VE
-nI
+Rk
 Af
 dU
 Wr
 aj
-Ns
+vi
+lN
 tn
-BA
 Wj
 CQ
 CE
@@ -39080,10 +39335,10 @@ Kw
 LK
 Hw
 VZ
-hr
+gE
 vi
+Vu
 tn
-BA
 tn
 CQ
 CE
@@ -39337,10 +39592,10 @@ cO
 po
 tn
 rg
-VZ
+hr
 Vz
+Zq
 tn
-BA
 tn
 Ag
 uF
@@ -39571,8 +39826,8 @@ Zb
 Zb
 Kq
 Do
-Xy
-zP
+GN
+TK
 DW
 CE
 CE
@@ -39596,8 +39851,8 @@ tn
 WR
 Fh
 GD
+lu
 tn
-BA
 tn
 tn
 mp
@@ -39852,10 +40107,10 @@ gG
 tn
 Wi
 fD
-jc
+kP
+CV
 tn
-BA
-BA
+tn
 tn
 fT
 Ag
@@ -40357,11 +40612,11 @@ qo
 dA
 dA
 dA
-Uc
+dA
 ih
 Uc
 dA
-nI
+LN
 yw
 Sq
 dJ
@@ -40592,8 +40847,8 @@ CE
 CE
 CE
 CE
-CE
 cq
+jQ
 jQ
 KK
 jQ
@@ -40849,8 +41104,8 @@ CE
 CE
 CE
 CE
-CE
-If
+VR
+Nm
 Nm
 Nm
 Nm
@@ -41106,8 +41361,8 @@ CE
 CE
 CE
 CE
-CE
 Ag
+Ns
 VK
 zW
 pI
@@ -41363,8 +41618,8 @@ CE
 CE
 CE
 CE
-CE
 Ag
+Ns
 VK
 xP
 Wl
@@ -41389,7 +41644,7 @@ dA
 dA
 dA
 dA
-lz
+qf
 mz
 Sq
 fK
@@ -41620,9 +41875,9 @@ CE
 CE
 CE
 CE
-CE
 Ag
-uN
+If
+VK
 SO
 Nm
 dE
@@ -41877,8 +42132,8 @@ CE
 CE
 CE
 CE
-CE
 Ag
+Ns
 VK
 eo
 Nm
@@ -41897,7 +42152,7 @@ xW
 DU
 jZ
 WP
-xW
+RZ
 Bt
 jX
 nE
@@ -42134,8 +42389,8 @@ CE
 CE
 CE
 CE
-CE
-If
+VR
+Nm
 Nm
 Nm
 Nm
@@ -42391,8 +42646,8 @@ CE
 CE
 CE
 CE
-CE
 tT
+pD
 pD
 qP
 pD

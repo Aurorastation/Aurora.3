@@ -13,7 +13,7 @@
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = ABOVE_OBJ_LAYER
@@ -21,20 +21,34 @@
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
 
-	var/info		//What's actually written on the paper.
-	var/info_links	//A different version of the paper which includes html links at fields and EOF
-	var/stamps		//The (text for the) stamps on the paper.
-	var/fields		//Amount of user created fields
+	///What's actually written on the paper.
+	var/info
+	///A different version of the paper which includes html links at fields and EOF
+	var/info_links
+	///The (text for the) stamps on the paper.
+	var/stamps
+	///Amount of user created fields
+	var/fields
+
 	var/free_space = MAX_PAPER_MESSAGE_LEN
 	var/list/stamped
-	var/list/ico[0]      //Icons and
-	var/list/offset_x[0] //offsets stored for later
-	var/list/offset_y[0] //usage by the photocopier
+
+	///Icons and
+	var/list/ico[0]
+	///offsets stored for later
+	var/list/offset_x[0]
+	///usage by the photocopier
+	var/list/offset_y[0]
+
 	var/rigged = 0
 	var/last_honk = 0
-	var/old_name		// The name of the paper before it was folded into a plane.
-	var/can_fold = TRUE		// If it can be folded into a plane or swan
-	var/paper_like = TRUE		// Is it made of paper and/or burnable material?
+
+	/// The name of the paper before it was folded into a plane.
+	var/old_name
+	/// If it can be folded into a plane or swan
+	var/can_fold = TRUE
+	/// Is it made of paper and/or burnable material?
+	var/paper_like = TRUE
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
@@ -96,7 +110,12 @@
 	else
 		icon_state = "[base_state]"
 
-/obj/item/paper/proc/update_space(var/new_text)
+/**
+ * Updates the amount of free space in the paper
+ *
+ * * new_text - The new text the paper contains (supposedly), text
+ */
+/obj/item/paper/proc/update_space(new_text)
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
@@ -122,7 +141,7 @@
 /obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
 	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
-		var/mob/living/silicon/ai/AI
+		var/mob/living/silicon/ai/AI = user
 		can_read = get_dist(src, AI.camera) < 2
 	return can_read
 
@@ -276,8 +295,8 @@
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
 	for (var/i = 1, i <= min(fields, 35), i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", 1)
-	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
+		addtofield(i, "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=[i]'>write</A></font>", 1)
+	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=end'>write</A></font>"
 
 
 /obj/item/paper/proc/clearpaper()
@@ -756,28 +775,42 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
-//
-// Fluff Papers
-// Fluff papers that you can map in, for lore or whatever.
-//
 
-// Parent item.
-/obj/item/paper/fluff
-	name = "fluff paper"
-	desc = "You aren't supposed to see this."
-	///The language to translate the paper into. Set to the name of the language.
+
+/*#############################################
+			FLUFF PAPERS SUBTYPE
+#############################################*/
+
+/**
+ * # Fluff papers
+ *
+ * Fluff papers that you can map in, used in mapping
+ *
+ * You **have** to create a subtype for the map you're using it in, and have the info/name variables set in code, **not in map** ie:
+ *
+ * ```
+ * /obj/item/paper/fluff/<mapname>/(<paper_name>(/)?)+
+ * ```
+ *
+ * This subtype will take care of updating the free space on the paper on initialization, and can be written in different languages
+ */
+ABSTRACT_TYPE(/obj/item/paper/fluff)
+	/// The language to translate the paper into, one of the `LANGUAGE_*` in `code\__DEFINES\species_languages.dm`
 	var/language
 
-/obj/item/paper/fluff/Initialize()
+/obj/item/paper/fluff/Initialize(mapload, text, title)
 	. = ..()
-	if(language)
-		var/datum/language/L = GLOB.all_languages[language]
+
+	if(src.language)
+		var/datum/language/L = GLOB.all_languages[src.language]
 		if(istype(L) && L.written_style) //Don't want to try and write in Hivenet or something
 			var/key = L.key
 			var/languagetext = "\[lang=[key]]"
 			languagetext += "[info]\[/lang]"
-			info = parsepencode(languagetext)
+			src.info = parsepencode(languagetext)
 			update_icon()
+
+	update_space(src.info)
 
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave
@@ -789,7 +822,7 @@
 		<BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal \
 		Affairs</i></font></font>"
 
-// Used in the bunker on the SCCV Horizon.
+/// Used in the bunker on the SCCV Horizon.
 /obj/item/paper/fluff/bunker
 	name = "bunker evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
@@ -798,7 +831,7 @@
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
 
-// Used in the bridge on the SCCV Horizon
+/// Used in the bridge on the SCCV Horizon
 /obj/item/paper/fluff/bridge
 	name = "bridge evacuation route instructions"
 	desc = "A paper. It has evacuation route instructions printed on it."
@@ -807,7 +840,7 @@
 		the newly created hole to cool.<li>Use the emergency crowbar to pry away the metal.</li><li>Deploy the emergency ladder.</li><li>Dispose of the used \
 		equipment, if necessary.</li></ol></font></font>"
 
-// Used on the IAC ship, meant for distribution.
+/// Used on the IAC ship, meant for distribution.
 /obj/item/paper/fluff/iac
 	name = "interstellar aid corps info pamphlet"
 	desc = "A paper. It has an IAC logo stamped right on front of it."

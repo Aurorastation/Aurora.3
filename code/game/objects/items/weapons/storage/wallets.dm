@@ -4,8 +4,8 @@
 	storage_slots = 10
 	icon = 'icons/obj/storage/wallet.dmi'
 	icon_state = "wallet_leather"
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(
 		/obj/item/spacecash,
 		/obj/item/card,
@@ -121,7 +121,7 @@
 
 	return ..()
 
-/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent)
+/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	var/obj/item/card/id/id = GetID()
 	if(istype(id) && is_adjacent)
@@ -179,8 +179,8 @@
 	item_state = "lanyard"
 	overlay_state = "lanyard"
 	attack_verb = list("whipped", "lashed", "lightly garroted")
-	w_class = ITEMSIZE_TINY
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
+	max_w_class = WEIGHT_CLASS_TINY
 	can_hold = list(
 		/obj/item/card,
 		/obj/item/clothing/accessory/badge,

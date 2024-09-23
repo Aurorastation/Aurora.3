@@ -389,6 +389,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "rH" = (
@@ -449,6 +450,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/konyang_pirate_outpost)
+"wk" = (
+/obj/item/blueprints/shuttle,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_pirate_outpost)
 "wK" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1464,7 +1469,7 @@ xe
 tZ
 tZ
 xe
-wK
+wk
 wK
 wK
 wK

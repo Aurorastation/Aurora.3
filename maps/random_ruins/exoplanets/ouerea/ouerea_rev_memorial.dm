@@ -5,7 +5,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
-	suffixes = list("ouerea_rev_memorial.dmm")
+	suffix = "ouerea_rev_memorial.dmm"
 	unit_test_groups = list(2)
 
 /obj/structure/sign/ouerea_memorial
@@ -18,7 +18,7 @@
 	pixel_x = -16
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/sign/ouerea_memorial/examine(mob/user)
+/obj/structure/sign/ouerea_memorial/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The inscription on the monolith reads as follows. \"Let this monument stand, to honor those of us who fought for a world free from the grasping claws of foreign masters. \

@@ -14,7 +14,7 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/uniform.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
@@ -121,7 +121,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS

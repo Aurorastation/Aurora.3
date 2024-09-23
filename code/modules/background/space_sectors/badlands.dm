@@ -18,6 +18,13 @@
 	starlight_power = 2
 	starlight_range = 4
 
+	lore_radio_stations = list(
+		"72.9 Nowa Bratislava Independent Radio" = 'texts/lore_radio/badlands/72.9_Nowa_Bratislava_Independent_Radio.txt',
+		"83.6 Shipping Radio Traffic" = 'texts/lore_radio/badlands/83.6_Shipping_Radio_Traffic.txt',
+		"86.2 Shipping Advisory Channel" = 'texts/lore_radio/badlands/86.2_Shipping_Advisory_Channel.txt',
+		"91.1 Morozian Classics" = 'texts/lore_radio/badlands/91.1_Morozian_Classics.txt'
+	)
+
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
 	description = "Nestled in the narrow Frontier space between the Republic of Elyra and the former borders of the Solarian Alliance is Valley Hale, a large region filled with a large \
@@ -38,8 +45,8 @@
 	starlight_range = 4
 
 /datum/space_sector/new_ankara
-	name = SECTOR_NEW_ANKARA
-	description = "New Ankara is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
+	name = SECTOR_TABITI
+	description = "Tabiti is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
 	native ecosystems already present. Original Alliance-funded terraforming efforts transformed the planet into an Earthlike planet within a decade, allowing the population to flourish \
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."

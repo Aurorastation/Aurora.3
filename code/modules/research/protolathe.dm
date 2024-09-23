@@ -164,7 +164,7 @@
  *
  * * index: The index of the design to remove
  */
-/obj/machinery/r_n_d/protolathe/proc/removeFromQueue(var/index)
+/obj/machinery/r_n_d/protolathe/proc/removeFromQueue(index)
 	queue.Cut(index, index + 1)
 
 	//Wake up, we have things to do

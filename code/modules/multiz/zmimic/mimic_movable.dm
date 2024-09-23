@@ -152,7 +152,7 @@
 /atom/movable/openspace/mimic/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/mimic/examine(...)
+/atom/movable/openspace/mimic/examine(..., show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
@@ -187,9 +187,9 @@
 /atom/movable/openspace/turf_proxy/attack_generic(mob/user as mob)
 	loc.attack_generic(user)
 
-/atom/movable/openspace/turf_proxy/examine(mob/examiner)
+/atom/movable/openspace/turf_proxy/examine(mob/examiner, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = loc.examine(examiner)
+	. = loc.examine(examiner, show_extended = show_extended)
 
 
 // -- TURF MIMIC --
@@ -214,6 +214,6 @@
 /atom/movable/openspace/turf_mimic/attack_generic(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/turf_mimic/examine(mob/examiner)
+/atom/movable/openspace/turf_mimic/examine(mob/examiner, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = delegate.examine(examiner)
+	. = delegate.examine(examiner, show_extended = show_extended)

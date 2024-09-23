@@ -83,9 +83,10 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
 	var/stat = 0
 	var/emagged = 0
@@ -226,19 +227,26 @@ Class Procs:
 				return
 	return
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
-	return istype(M) && M.operable()
+/**
+ * Check to see if the machine is operable
+ *
+ * * `additional_flags` - Additional flags to check for, that could have been added to the `stat` variable
+ *
+ * Returns `TRUE` if the machine is operable, `FALSE` otherwise
+ */
+/obj/machinery/proc/operable(additional_flags = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
-	return !inoperable(additional_flags)
-
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
-	return (stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN|additional_flags))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
-	else if (use_power || inoperable(additional_flags))
+	else if (use_power || !operable(additional_flags))
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(initial(use_power))
@@ -277,7 +285,7 @@ Class Procs:
 		return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user as mob)
-	if(inoperable(MAINT))
+	if(!operable(MAINT))
 		return 1
 	if(user.lying || user.stat)
 		return 1
@@ -373,7 +381,7 @@ Class Procs:
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
-	if(inoperable())
+	if(!operable())
 		return 0
 	if(!prob(prb))
 		return 0
@@ -496,10 +504,13 @@ Class Procs:
 		paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+/obj/machinery/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(P.get_structure_damage() > 5)
-		bullet_ping(P)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
@@ -560,14 +571,14 @@ Class Procs:
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
 
-/obj/machinery/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(isliving(AM))
-		var/mob/living/M = AM
-		M.turf_collision(src, speed)
+	if(isliving(hitting_atom))
+		var/mob/living/M = hitting_atom
+		M.turf_collision(src, throwingdatum.speed)
 		return
 	else
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 
 /obj/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()

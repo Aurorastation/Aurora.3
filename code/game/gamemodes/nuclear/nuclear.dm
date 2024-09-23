@@ -16,8 +16,8 @@ var/list/nuke_disks = list()
 
 /datum/game_mode/nuclear/pre_setup()
 	round_description = "A mercenary strike force is approaching the [SSatlas.current_map.station_type]!"
-	extended_round_description = "[SSatlas.current_map.company_short]'s wealth and success caught the attention of several enemies old and new, \
-		and many seek to undermine them using illegal ways. Their crown jewel research [SSatlas.current_map.station_type] are not safe from those \
+	extended_round_description = "[SSatlas.current_map.company_short]'s wealth and success caught the attention of several enemies old and new,  \
+		and many seek to undermine them using illegal ways. The SCC and their crown jewel research [SSatlas.current_map.station_type] is not safe from those \
 		malicious activities."
 	. = ..()
 
@@ -25,7 +25,7 @@ var/list/nuke_disks = list()
 /datum/game_mode/nuclear/proc/check_nuke_disks()
 	for(var/obj/item/disk/nuclear/N in nuke_disks)
 		var/turf/T = get_turf(N)
-		if(isNotStationLevel(T.z)) qdel(N)
+		if(!is_station_level(T.z)) qdel(N)
 
 //checks if L has a nuke disk on their person
 /datum/game_mode/nuclear/proc/check_mob(mob/living/L)

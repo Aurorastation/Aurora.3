@@ -45,7 +45,7 @@
 
 /obj/outfit/admin/ert/hephaestus/medic
 	name = "Hephaestus Medic"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
 	species_gloves = list(

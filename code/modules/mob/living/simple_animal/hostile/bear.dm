@@ -247,7 +247,7 @@
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
-	SSmove_manager.stop_looping(src) //This stops the bear's walking
+	GLOB.move_manager.stop_looping(src) //This stops the bear's walking
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
@@ -273,13 +273,16 @@
 			anger++
 			instant_aggro(1)
 
-
-/mob/living/simple_animal/hostile/bear/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/healthbefore = health
-	..()
-	spawn(1)
-		if (health < healthbefore)
-			instant_aggro()
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (health < healthbefore)
+		instant_aggro()
 
 /mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
@@ -320,7 +323,7 @@
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
 		target_mob = null
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
 	var/targetname = target_mob.name
@@ -508,9 +511,13 @@
 	forceMove(target)
 	spark_system.queue()
 
-/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/item/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
-	..(P, def_zone)
-	if (prob(P.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (prob(hitting_projectile.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
 		teleport_tactical()
 
 /mob/living/simple_animal/hostile/bear/spatial/FoundTarget()

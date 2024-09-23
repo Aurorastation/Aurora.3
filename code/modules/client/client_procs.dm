@@ -465,7 +465,7 @@ var/list/localhost_addresses = list(
 	// New player, and we don't want any.
 	if (!holder)
 		if (GLOB.config.access_deny_new_players && player_age == -1)
-			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
@@ -473,7 +473,7 @@ var/list/localhost_addresses = list(
 
 		// Check if the account is too young.
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
-			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)
@@ -715,12 +715,12 @@ var/list/localhost_addresses = list(
 		var/linked_forum_name = null
 		if (GLOB.config.forumurl)
 			var/route_attributes = list2params(list("mode" = "viewprofile", "u" = request["forum_id"]))
-			linked_forum_name = "<a href='byond://?src=\ref[src];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
+			linked_forum_name = "<a href='byond://?src=[REF(src)];routeWebInt=forums/members;routeAttributes=[route_attributes]'>[request["forum_username"]]</a>"
 
 		dat += "<hr>"
 		dat += "#[i] - Request to link your current key ([key]) to a forum account with the username of: <b>[linked_forum_name ? linked_forum_name : request["forum_username"]]</b>.<br>"
 		dat += "The request is [request["request_age"]] days old.<br>"
-		dat += "OPTIONS: <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=\ref[src];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
+		dat += "OPTIONS: <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=accept'>Accept Request</a> | <a href='byond://?src=[REF(src)];linkingrequest=[request["id"]];linkingaction=deny'>Deny Request</a>"
 
 	src << browse(dat, "window=LinkingRequests")
 	return
@@ -836,16 +836,61 @@ var/list/localhost_addresses = list(
 	var/obj/O = object
 	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
 		var/obj/item/gun/G = I
-		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
-			autofire_aiming_at[1] = O
-			autofire_aiming_at[2] = params
-			var/accuracy_dec = 0
-			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
-				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
-				accuracy_dec = min(accuracy_dec + 0.25, 2)
-				sleep(G.fire_delay)
-			CHECK_TICK
+
+		// check if our gun can even autofire
+		var/can_autofire = G.can_autofire(O, location, params)
+		if(!can_autofire)
+			return
+
+		// check if the object we're clicking is auto clickable
+		var/can_autoclick_object = O.is_auto_clickable()
+		if(!can_autoclick_object)
+			return
+
+		// check if safety should block the shot
+		var/not_on_safety = mob.a_intent == I_HURT || (!G.safety())
+		if(!not_on_safety)
+			return
+
+		// check that we're not shooting anything on our person
+		var/object_not_on_us = O.loc != mob
+		if(!object_not_on_us)
+			return
+
+		// check whether we're putting it in a storage item / table / locker
+		var/object_not_storage_item = TRUE
+
+		var/is_adjacent_to_object = get_last_atom_before_turf(G) == mob
+		if(!is_adjacent_to_object)
+			var/distance_to_object = get_dist(mob, location)
+			is_adjacent_to_object = distance_to_object <= 1
+
+		if(is_adjacent_to_object) // if we're not next to it, blast it
+			var/list/storage_types = list(
+				/obj/item/storage,
+				/obj/structure/table,
+				/obj/structure/closet
+			)
+			var/is_storage_item = is_type_in_list(O, storage_types)
+			if(!is_storage_item)
+				is_storage_item = locate(/obj/item/storage) in O // some items will have storage within themselves
+			object_not_storage_item = !is_storage_item
+
+		if(!object_not_storage_item)
+			return
+
+		autofire_aiming_at[1] = O
+		autofire_aiming_at[2] = params
+
+		var/accuracy_dec = 0
+		while(autofire_aiming_at[1])
+			// stop shooting if we drop our gun
+			if(G.loc != mob)
+				break
+			G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
+			mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+			accuracy_dec = min(accuracy_dec + 0.25, 2)
+			sleep(G.fire_delay)
 
 /client/MouseUp(object, location, control, params)
 	autofire_aiming_at[1] = null
@@ -853,10 +898,10 @@ var/list/localhost_addresses = list(
 /atom/proc/is_auto_clickable()
 	return TRUE
 
-/obj/screen/is_auto_clickable()
+/atom/movable/screen/is_auto_clickable()
 	return FALSE
 
-/obj/screen/click_catcher/is_auto_clickable()
+/atom/movable/screen/click_catcher/is_auto_clickable()
 	return TRUE
 
 /**
@@ -899,4 +944,4 @@ var/list/localhost_addresses = list(
 /client/proc/check_panel_loaded()
 	if(stat_panel.is_ready())
 		return
-	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[ref(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))

@@ -19,7 +19,7 @@ effective or pretty fucking useless.
 	desc = "A strange device with twin antennas."
 	icon_state = "batterer"
 	throwforce = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -35,19 +35,16 @@ effective or pretty fucking useless.
 		to_chat(user, SPAN_WARNING("The mind batterer has been burnt out!"))
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>")
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>"
 
 	for(var/mob/living/carbon/human/M in orange(10, user))
-		spawn()
-			if(prob(50))
-
-				M.Weaken(rand(10,20))
-				if(prob(25))
-					M.Stun(rand(5,10))
-				to_chat(M, SPAN_DANGER("You feel a tremendous, paralyzing wave flood your mind."))
-
-			else
-				to_chat(M, SPAN_DANGER("You feel a sudden, electric jolt travel through your head."))
+		if(prob(50))
+			M.Weaken(rand(10,20))
+			if(prob(25))
+				M.Stun(rand(5,10))
+			to_chat(M, SPAN_DANGER("You feel a tremendous, paralyzing wave flood your mind."))
+		else
+			to_chat(M, SPAN_DANGER("You feel a sudden, electric jolt travel through your head."))
 
 	playsound(src.loc, 'sound/misc/interference.ogg', 50, 1)
 	to_chat(user, SPAN_NOTICE("You trigger [src]."))

@@ -11,7 +11,7 @@
 	secured = FALSE
 
 	var/timing = FALSE
-	var/time = 10
+	var/time = 3
 
 /obj/item/device/assembly/timer/activate()
 	. = ..()

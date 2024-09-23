@@ -38,6 +38,14 @@
 
 	ui_interact(user)
 
+/obj/machinery/suspension_gen/operable(additional_flags)
+	if(stat & (BROKEN|additional_flags))
+		return FALSE
+	if(!cell.charge)
+		return FALSE
+
+	return TRUE
+
 /obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(!open)

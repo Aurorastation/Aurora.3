@@ -245,7 +245,7 @@
 	desc = "A small bottle dispenser."
 	icon_state = "syrup"
 	filling_states = "20;40;60;80;100"
-	atom_flags = ATOM_FLAG_POUR_CONTAINER
+	atom_flags = ATOM_FLAG_POUR_CONTAINER | ATOM_FLAG_DISPENSER
 	volume = 50
 
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate

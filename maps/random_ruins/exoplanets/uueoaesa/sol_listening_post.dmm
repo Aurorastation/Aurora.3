@@ -889,9 +889,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "YO" = (
-/obj/machinery/power/apc/empty{
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/empty,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 

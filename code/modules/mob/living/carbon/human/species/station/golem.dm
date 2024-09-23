@@ -392,8 +392,8 @@ var/global/list/golem_types = list(
 
 	golem_designation = "Glass"
 
-/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/glass/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
@@ -408,7 +408,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
 	for(var/i in 1 to 5)
@@ -598,8 +598,8 @@ var/global/list/golem_types = list(
 	H.update_dna()
 	..()
 
-/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/diamond/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
@@ -614,7 +614,7 @@ var/global/list/golem_types = list(
 				P.firer = H
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-			return -1 // complete projectile permutation
+			return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
 /datum/species/golem/marble
 	name = SPECIES_GOLEM_MARBLE

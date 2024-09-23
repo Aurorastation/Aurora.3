@@ -23,7 +23,7 @@
 		while(select_query.NextRow())
 			pollid = select_query.item[1]
 			pollquestion = select_query.item[2]
-			output += "<tr><td><a href=\"byond://?src=\ref[src];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
+			output += "<tr><td><a href=\"byond://?src=[REF(src)];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
 
 		output += "</table>"
 
@@ -101,12 +101,12 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='OPTION'>"
 
@@ -149,12 +149,12 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='TEXT'>"
 
@@ -164,8 +164,8 @@
 					output += "<p><input type='submit' value='Submit'>"
 					output += "</form>"
 
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='TEXT'>"
 					output += "<input type='hidden' name='replytext' value='ABSTAIN'>"
@@ -187,7 +187,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				var/voted = 0
@@ -200,8 +200,8 @@
 					output += "<br><b>[optiontext] - [rating]</b>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='NUMVAL'>"
 
@@ -287,12 +287,12 @@
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=\ref[src];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
-					output += "<form name='cardcomp' action='?src=\ref[src]' method='get'>"
-					output += "<input type='hidden' name='src' value='\ref[src]'>"
+					output += "<form name='cardcomp' action='?src=[REF(src)]' method='get'>"
+					output += "<input type='hidden' name='src' value='[REF(src)]'>"
 					output += "<input type='hidden' name='votepollid' value='[pollid]'>"
 					output += "<input type='hidden' name='votetype' value='MULTICHOICE'>"
 					output += "<input type='hidden' name='maxoptionid' value='[maxoptionid]'>"

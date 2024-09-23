@@ -100,15 +100,6 @@
 	random_count = 5
 	wanted_types = list(/obj/item/trash)
 
-/datum/bounty/item/assistant/monkey_hide
-	name = "Monkey Hide"
-	description = "One of the scientists at %BOSSSHORT is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
-	reward_low = 1500
-	reward_high = 2500
-	required_count = 5
-	random_count = 1
-	wanted_types = list(/obj/item/stack/material/animalhide/monkey)
-
 /datum/bounty/item/assistant/heart
 	name = "Heart"
 	description = "%PERSONNAME is in critical condition after suffering a heart attack. Doctors say they need a new heart, fast. Ship one, pronto! Organic or mechanical, just hurry up!"

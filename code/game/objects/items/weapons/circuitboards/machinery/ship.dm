@@ -16,7 +16,7 @@
 
 /obj/item/circuitboard/engine/ion
 	name = T_BOARD("ion propulsion device")
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/ion_engine
 	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 3)
@@ -27,7 +27,7 @@
 
 /obj/item/circuitboard/engine/maneuvering
 	name = T_BOARD("pulse-maneuvering device")
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/maneuvering_engine
 	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 3)
@@ -40,7 +40,7 @@
 //IFF Beacon
 /obj/item/circuitboard/iff_beacon
 	name = T_BOARD("IFF transponder")
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/iff_beacon
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
@@ -53,7 +53,7 @@
 //Sensors
 /obj/item/circuitboard/shipsensors
 	name = T_BOARD("sensor suite")
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/shipsensors
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 5, TECH_BLUESPACE = 3)
@@ -68,7 +68,7 @@
 
 /obj/item/circuitboard/shipsensors/weak
 	name = T_BOARD("low-power sensor suite")
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/shipsensors/weak
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_BLUESPACE = 1)

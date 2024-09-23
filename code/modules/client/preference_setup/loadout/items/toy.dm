@@ -99,6 +99,8 @@
 	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
 	plushies["plushie, jeweler cockatoo"] = /obj/item/toy/plushie/cockatoo
 	plushies["plushie, Norinori"] = /obj/item/toy/plushie/norinori
+	plushies["plushie, space carp"] = /obj/item/toy/plushie/carp
+	plushies["plushie, Domadice"] = /obj/item/toy/plushie/domadice
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
 /datum/gear/toy/mecha
@@ -112,3 +114,33 @@
 	for(var/obj/item/toy/mech/mecha as anything in subtypesof(/obj/item/toy/mech))
 		mechas[initial(mecha.name)] = mecha
 	gear_tweaks += new /datum/gear_tweak/path(mechas)
+
+/datum/gear/toy/stressball
+	display_name = "stress ball"
+	description = "A small, squishy stress ball. This one has a squeaker inside."
+	path = /obj/item/toy/stressball
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/toy/stickersheet
+	display_name = "sticker sheet selection"
+	description = "A selection of various sticker sheets."
+	cost = 1
+	path = /obj/item/storage/stickersheet
+
+/datum/gear/toy/stickersheet/New()
+	..()
+	var/list/stickersheet = list()
+	stickersheet["Generic sticker sheet"] = /obj/item/storage/stickersheet/generic
+	stickersheet["Religious sticker sheet"] = /obj/item/storage/stickersheet/religion
+	stickersheet["Domadice sticker sheet"] = /obj/item/storage/stickersheet/domadice
+	stickersheet["Republic of Biesel sticker sheet"] = /obj/item/storage/stickersheet/biesel
+	stickersheet["Republic of Elyra sticker sheet"] = /obj/item/storage/stickersheet/elyra
+	stickersheet["Solarian Alliance sticker sheet"] = /obj/item/storage/stickersheet/sol
+	stickersheet["Coalition of Colonies sticker sheet"] = /obj/item/storage/stickersheet/coc
+	stickersheet["Empire of Dominia sticker sheet"] = /obj/item/storage/stickersheet/dominia
+	stickersheet["Nralakk Federation sticker sheet"] = /obj/item/storage/stickersheet/nralakk
+	stickersheet["Tajaran Governments sticker sheet"] = /obj/item/storage/stickersheet/adhomai
+	stickersheet["Hieroaetheria sticker sheet"] = /obj/item/storage/stickersheet/hieroaetheria
+	stickersheet["Uueoa-Esa sticker sheet"] = /obj/item/storage/stickersheet/hegemony
+	stickersheet["Anti-Establishment sticker sheet"] = /obj/item/storage/stickersheet/resistance
+	gear_tweaks += new /datum/gear_tweak/path(stickersheet)

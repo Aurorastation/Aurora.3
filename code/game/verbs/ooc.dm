@@ -38,11 +38,11 @@
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("[mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("[mob.name]/[key] : [msg]")
 
 	var/ooc_style = "everyone"
 	if(holder && !holder.fakekey)
@@ -109,11 +109,11 @@
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("(LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
 	var/list/messageturfs = list() //List of turfs we broadcast to.
@@ -159,7 +159,7 @@
 				prefix = "(R)"
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
-					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+					admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)

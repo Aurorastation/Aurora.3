@@ -31,6 +31,9 @@
 	src.slowdown = 15
 	src.icon_state = "orange1"
 	src.item_state = "orange1"
+	if(ismob(src.loc))
+		var/mob/holder_user = src.loc
+		holder_user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/sneakers/orange/proc/remove_cuffs(mob/user as mob)
 	if (!src.chained) return
@@ -42,6 +45,9 @@
 	src.icon_state = "orange"
 	src.item_state = "orange"
 	src.chained = null
+	if(ismob(src.loc))
+		var/mob/holder_user = src.loc
+		holder_user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/sneakers/orange/attack_self(mob/user as mob)
 	..()
@@ -166,6 +172,12 @@
 	icon_state = "whitedf"
 	item_state = "whitedf"
 
+/obj/item/clothing/shoes/flats/color
+	desc = "A pair of low-heeled women's dress flats, in a variety of colors."
+	name = "dress flats"
+	icon_state = "colordf"
+	item_state = "colordf"
+
 //hi-tops
 
 /obj/item/clothing/shoes/sneakers/hitops
@@ -173,6 +185,12 @@
 	desc = "A pair of shoes that extends past the ankle. Based on a centuries-old, timeless design."
 	icon_state = "whitehi"
 	item_state = "whitehi"
+
+/obj/item/clothing/shoes/sneakers/hitops/thightops
+	name = "white thigh-tops"
+	desc = "A pair of shoes that extends to the thigh. Based on a centuries-old, timeless design."
+	icon_state = "whiteth"
+	item_state = "whiteth"
 
 /obj/item/clothing/shoes/sneakers/hitops/red
 	name = "red high-tops"
@@ -221,4 +239,8 @@
 
 /obj/item/clothing/shoes/sneakers/hitops/tip
 	worn_overlay = "over"
+	build_from_parts = TRUE
+
+/obj/item/clothing/shoes/sneakers/hitops/thightops/tip
+	worn_overlay = "overth"
 	build_from_parts = TRUE

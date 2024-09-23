@@ -16,6 +16,12 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/item/blueprints/outpost,
+/obj/structure/table/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "dh" = (

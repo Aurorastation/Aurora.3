@@ -12,7 +12,7 @@
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
@@ -49,8 +49,8 @@
 		user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
 
 		var/contained = reagentlist()
-		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(M)] Reagents: [contained]</span>")
+		M.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(M)] Reagents: [contained]</span>"
 		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 		if(reagents.total_volume)
@@ -68,7 +68,7 @@
 			return
 		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>")
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>"
 		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 		reagents.trans_to(target, reagents.total_volume)
@@ -293,7 +293,7 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/singleton/reagent/thetamycin = 15)
 
-/obj/item/reagent_containers/pill/bio_vitamin
+/obj/item/reagent_containers/pill/bio_vitamin //Biogenerator Version
 	name = "Vitamin Pill"
 	desc = "Contains a meal's worth of nutrients."
 	icon_state = "pill11"
@@ -302,7 +302,12 @@
 /obj/item/reagent_containers/pill/bio_vitamin/Initialize()
 	. = ..()
 	var/juice = pick(/singleton/reagent/drink/banana, /singleton/reagent/drink/berryjuice, /singleton/reagent/drink/grapejuice, /singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/watermelonjuice)
-	reagents.add_reagent(juice, 1)
+	reagents.add_reagent(juice, 5)
+
+/obj/item/reagent_containers/pill/bio_vitamin/cheap //Vending machine version
+	name = "Vitamin Pill"
+	desc = "Has all the vitamins a person needs."
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
 
 /obj/item/reagent_containers/pill/rmt
 	name = "15u Regenerative-Muscular Tissue Supplement Pill"
@@ -375,3 +380,15 @@
 	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
 	icon_state = "pill11"
 	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)
+
+/obj/item/reagent_containers/pill/caffeine
+	name = "5u Caffeine Pill"
+	desc = "A stimulant used to help with alertness and fatigue."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/caffeine = 5)
+
+/obj/item/reagent_containers/pill/nicotine
+	name = "5u Nicotine Pill"
+	desc = "A pill used to treat nicotine addiction."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)

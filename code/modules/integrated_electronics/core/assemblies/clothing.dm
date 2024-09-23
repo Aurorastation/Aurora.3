@@ -7,7 +7,7 @@
 	name = "electronic clothing"
 	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "It's a case, for building machines attached to clothing."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
 	var/obj/item/clothing/clothing = null
@@ -33,13 +33,13 @@
 /obj/item/device/electronic_assembly/clothing/small
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 // Ditto.
 /obj/item/device/electronic_assembly/clothing/large
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/device/electronic_assembly/clothing/rename()
 	var/input_name = ..()
@@ -51,7 +51,7 @@
 	var/obj/item/device/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
-/obj/item/clothing/examine(mob/user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(IC)
 		examinate(user, IC)
 	. = ..()

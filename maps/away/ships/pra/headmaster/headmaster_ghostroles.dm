@@ -30,6 +30,7 @@
 
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
+	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
@@ -61,6 +62,8 @@
 						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1
 						)
+
+	l_hand = /obj/item/martial_manual/tajara
 
 
 /datum/ghostspawner/human/headmaster_kosmostrelki/commissar
@@ -96,3 +99,4 @@
 						/obj/item/storage/box/hadii_card = 1
 						)
 	l_hand = /obj/item/device/megaphone
+	r_hand = /obj/item/martial_manual/tajara

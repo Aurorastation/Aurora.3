@@ -7,6 +7,7 @@
 	desc = "A spike for collecting meat from animals."
 	density = 1
 	anchored = 1
+	pass_flags_self = PASSTABLE
 	var/meat = 0
 	var/occupied
 	var/meat_type
@@ -66,13 +67,13 @@
 	if (!mover)
 		return 1
 
-	if(istype(mover,/obj/item/projectile) && density)
+	if(mover.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover,/obj/projectile) && density)
 		if (!occupied && prob(80))
 		//Wiry frame, usually wont be cover
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE))
-//Animals can run under them, lots of empty space
-		return 1
 	return ..()
