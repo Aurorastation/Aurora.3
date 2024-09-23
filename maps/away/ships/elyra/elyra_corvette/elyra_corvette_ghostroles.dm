@@ -37,7 +37,7 @@
 /datum/outfit/admin/elyran_navy_crewman/get_id_access()
 	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isipc(H)) // All Elyran Navy synthetics are tagged, self-owned, and have Elyran citizenship.
 		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
