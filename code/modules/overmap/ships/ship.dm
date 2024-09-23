@@ -31,7 +31,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
 	var/base_sensor_visibility
 
-	// Tonnes, arbitrary number, affects acceleration provided by engines. Will help determine the speed of the ship.
+	/// Tonnes, arbitrary number, affects acceleration provided by engines. Will help determine the speed of the ship.
 	vessel_mass = 10000
 	/// Arbitrary number, affects how likely the ship is to evade meteors.
 	var/vessel_size = SHIP_SIZE_LARGE
@@ -55,8 +55,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/last_combat_turn = 0
 
 	var/list/engines = list()
-	/// Global on/off toggle for all engines
-	var/engines_state = 0
+	var/engines_state = 0 // Global on/off toggle for all engines.
 	var/thrust_limit = 1  // Global thrust limit for all engines, 0..1
 	var/halted = 0        // Admin halt or other stop.
 
