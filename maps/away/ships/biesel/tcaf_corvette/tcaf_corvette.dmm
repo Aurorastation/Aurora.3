@@ -431,6 +431,7 @@
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
 "bA" = (
@@ -747,6 +748,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
 "co" = (
@@ -3332,12 +3334,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/rack,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/machinery/power/emitter{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "mH" = (
@@ -4390,6 +4389,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engine)
 "qx" = (
@@ -5928,11 +5928,18 @@
 /turf/simulated/floor/carpet/magenta,
 /area/tcaf_corvette/captain)
 "wX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/gridded,
+/area/tcaf_corvette/engine)
 "xa" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -7222,13 +7229,9 @@
 /turf/simulated/wall/r_wall,
 /area/tcaf_corvette/engine)
 "CC" = (
-/obj/machinery/access_button{
-	pixel_x = -29;
-	pixel_y = 9;
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/tcaf_corvette/engine)
 "CE" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -61323,7 +61326,7 @@ Mv
 Mv
 Mv
 Mv
-CC
+Mv
 Mv
 Mv
 Mv
@@ -110836,7 +110839,7 @@ Ej
 CA
 Ih
 rn
-Ud
+CC
 Ud
 Ud
 Zm
@@ -111873,7 +111876,7 @@ rG
 Mu
 Lt
 QJ
-qL
+wX
 En
 Vg
 Xc
@@ -122443,7 +122446,7 @@ Mv
 Mv
 Mv
 Mv
-wX
+Mv
 Mv
 Mv
 Mv
