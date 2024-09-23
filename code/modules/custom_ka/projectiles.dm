@@ -18,8 +18,10 @@
 /obj/projectile/kinetic/mech/burst
 	damage = 25
 
-/obj/projectile/kinetic/on_impact(var/atom/A)
-	var/turf/target_turf = get_turf(A)
+/obj/projectile/kinetic/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
 		target_turf = get_turf(src)
 	if(istype(target_turf))

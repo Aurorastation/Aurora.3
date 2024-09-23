@@ -232,6 +232,8 @@
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!mover)
 		return TRUE
+	if(mover.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile) && density)
 		if(prob(50))
 			return TRUE

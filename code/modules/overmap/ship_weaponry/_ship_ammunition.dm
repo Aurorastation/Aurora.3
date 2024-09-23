@@ -255,4 +255,5 @@
 			pellet.ammo.impact_type = ammo.impact_type
 			pellet.dir = dir
 			var/turf/front_turf = get_step(pellet, pellet.dir)
-			pellet.launch_projectile(front_turf)
+			pellet.preparePixelProjectile(target_turf, front_turf)
+			pellet.fire()

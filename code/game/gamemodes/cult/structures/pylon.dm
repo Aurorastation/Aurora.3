@@ -328,20 +328,19 @@
 	last_target_loc = get_turf(target.loc)
 
 	process_interval = 1 //Instantly wake up if we found a target
-	var/obj/projectile/beam/cult/A
+
+	var/projectile_type
 	if(empowered > 0)
-		A = new /obj/projectile/beam/cult/heavy(loc)
+		projectile_type = /obj/projectile/beam/cult/heavy
 		empowered = max(0, empowered-1)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 100, 1)
 		if(empowered <= 0)
 			update_icon()
 	else
-		A = new /obj/projectile/beam/cult(loc)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
-	A.ignore = sacrificer
-	A.launch_projectile(target)
+		projectile_type = new /obj/projectile/beam/cult(loc)
+
+	src.fire_projectile(projectile_type, target, 'sound/weapons/laserdeep.ogg', src, list(sacrificer))
+
 	next_shot = world.time + shot_delay
-	A = null //So projectiles can GC
 	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/living/user)
@@ -398,8 +397,12 @@
 		return
 	return ..()
 
-/obj/structure/cult/pylon/bullet_act(var/obj/projectile/Proj)
-	attackpylon(Proj.firer, Proj.damage, Proj)
+/obj/structure/cult/pylon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	attackpylon(hitting_projectile.firer, hitting_projectile.damage, hitting_projectile)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter

@@ -184,11 +184,17 @@ steam.start() -- spawns the effect
 			M.coughedtime = 0
 
 /obj/effect/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover, /obj/projectile/beam))
 		var/obj/projectile/beam/B = mover
 		B.damage = (B.damage/2)
-	return 1
+
+	return TRUE
 /////////////////////////////////////////////
 // Sleep smoke
 /////////////////////////////////////////////

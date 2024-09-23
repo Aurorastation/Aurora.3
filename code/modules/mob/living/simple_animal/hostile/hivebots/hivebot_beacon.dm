@@ -208,11 +208,11 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		..(Proj)
+		. = ..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act(severity)
 	. = ..()
