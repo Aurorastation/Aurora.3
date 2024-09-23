@@ -39,6 +39,11 @@
 	// /// Material to use for the properties of snow and hail.
 	// var/ice_material = null
 
+	/// Whether this weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether this weather system supports having icy weather
+	var/has_icy_weather = FALSE
 
 	/// What z-levels are we affecting?
 	var/list/affecting_zs
@@ -105,6 +110,10 @@
 		// 	return !!water_material
 		// if(next_state.is_ice)
 		// 	return !!ice_material
+		if(next_state.is_liquid)
+			return has_water_weather
+		if(next_state.is_ice)
+			return has_icy_weather
 		return TRUE
 	return FALSE
 

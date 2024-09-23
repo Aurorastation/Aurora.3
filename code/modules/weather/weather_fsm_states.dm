@@ -40,7 +40,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 	if(is_liquid)
 		weather.color = "#689dd4"
 	else if(is_ice)
-		weather.color = "#689dd4"
+		weather.color = "#a9c8e8"
 	else
 		weather.color = COLOR_WHITE
 
