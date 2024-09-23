@@ -74,11 +74,15 @@ var/global/list/bluespace_inhibitors
 
 	do_break()
 
-/obj/machinery/anti_bluespace/bullet_act(var/obj/projectile/Proj)
-	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
-	if(!Proj.damage)
-		return
+/obj/machinery/anti_bluespace/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(!(hitting_projectile.damage_type == DAMAGE_BRUTE || hitting_projectile.damage_type == DAMAGE_BURN))
+		return BULLET_ACT_BLOCK
+	if(!hitting_projectile.damage)
+		return BULLET_ACT_BLOCK
 
 	do_break()
 

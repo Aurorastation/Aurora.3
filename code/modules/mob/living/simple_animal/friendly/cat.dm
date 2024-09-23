@@ -185,9 +185,12 @@
 	. = ..()
 	set_flee_target(src.loc)
 
-/mob/living/simple_animal/cat/bullet_act(var/obj/projectile/proj)
+/mob/living/simple_animal/cat/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	set_flee_target(proj.firer? proj.firer : src.loc)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	set_flee_target(hitting_projectile.firer? hitting_projectile.firer : src.loc)
 
 /mob/living/simple_animal/cat/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()

@@ -138,12 +138,15 @@
 	qdel(src)
 	return
 
-/obj/structure/window/bullet_act(var/obj/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+/obj/structure/window/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	if(!proj_damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	..()
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	take_damage(proj_damage)
 	return
 
@@ -167,6 +170,8 @@
 	return (dir == SOUTHWEST || dir == SOUTHEAST || dir == NORTHWEST || dir == NORTHEAST)
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(is_full_window())

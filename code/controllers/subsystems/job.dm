@@ -655,10 +655,13 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EC/([H]): Abort: invalid arguments.")
 		return FALSE
 
-	switch (job.title)
-		if ("AI", "Cyborg")
-			log_loadout("EC/([H]): Abort: synthetic.")
-			return FALSE
+	// if it's for their preview mob, let them wear it
+	// so they can customize their loadout for their hologram
+	if(!istype(H, /mob/living/carbon/human/dummy/mannequin))
+		switch (job.title)
+			if ("AI", "Cyborg")
+				log_loadout("EC/([H]): Abort: synthetic.")
+				return FALSE
 
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]

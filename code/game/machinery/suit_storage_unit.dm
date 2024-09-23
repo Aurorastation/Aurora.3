@@ -139,13 +139,13 @@
 			dat+= ""
 			dat+= "<span class='notice'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></span><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
-			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
+			dat+= "<font color='black'>Helmet storage compartment: <B>[(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.")]</B></font><BR>"
 			if(HELMET && src.isopen)
 				dat += "<A href='?src=[REF(src)];dispense_helmet=1'>Dispense helmet</A><BR>"
-			dat+= text("<font color='black'>Suit storage compartment: <B>[]</B></font><BR>",(src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected.") )
+			dat+= "<font color='black'>Suit storage compartment: <B>[(src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected.")]</B></font><BR>"
 			if(SUIT && src.isopen)
 				dat += "<A href='?src=[REF(src)];dispense_suit=1'>Dispense suit</A><BR>"
-			dat+= text("<font color='black'>Breathmask storage compartment: <B>[]</B></font><BR>",(src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected.") )
+			dat+= "<font color='black'>Breathmask storage compartment: <B>[(src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected.")]</B></font><BR>"
 			if(MASK && src.isopen)
 				dat += "<A href='?src=[REF(src)];dispense_mask=1'>Dispense mask</A><BR>"
 			if(src.OCCUPANT)

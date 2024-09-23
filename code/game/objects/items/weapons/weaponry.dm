@@ -12,7 +12,7 @@
 	if(!QDELETED(src))
 		QDEL_IN(src, 1)
 
-/obj/item/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -74,10 +74,13 @@
 		qdel(src)
 		return
 
-/obj/effect/energy_net/bullet_act(var/obj/projectile/Proj)
-	health -= Proj.get_structure_damage()
+/obj/effect/energy_net/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	health_check()
-	return FALSE
 
 /obj/effect/energy_net/ex_act(var/severity = 2.0)
 	health = 0
