@@ -61,8 +61,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	comms_support = TRUE
 
-	///Pick a color from this list on init
-	var/list/colors = list()
+	var/list/colors = list() 	// Pick a color from this list on init.
 
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()
