@@ -11,6 +11,7 @@
 	ship_cost = 1
 	id = "gadpathur_patroller"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/gadpathur_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
@@ -143,3 +144,15 @@
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur/shotgun
 	name = "shotgun cabinet"
+
+//docks
+/obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore
+	name = "Dock, Fore"
+	landmark_tag = "nav_gadpathur_dock"
+	master_tag = "nav_gadpathur_dock"
+
+/obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle
+	name = "Gadpathurian Corvette Shuttle"
+	shuttle_tag = "Gadpathurian Corvette Shuttle"
+	master_tag = "airlock_gadpathurian_corvette_shuttle"
+	cycle_to_external_air = TRUE
