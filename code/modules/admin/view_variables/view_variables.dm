@@ -74,7 +74,6 @@
 										onmouseclick='this.focus()'
 										style='background-color:#ffffff'>
 									<option>Select option</option>
-									<option />
 									[dropdownoptions.Join()]
 								</select>
 							</form>
