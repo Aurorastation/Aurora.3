@@ -40,6 +40,10 @@
 		data["focus"] = null // Force view to main menu
 	return data
 
+/datum/computer_file/program/power_monitor/kill_program(forced)
+	..()
+	active_sensor = null // Reset UI navigation state
+
 /datum/computer_file/program/power_monitor/proc/has_alarm()
 	for(var/obj/machinery/power/sensor/S in grid_sensors)
 		if(S.check_grid_warning())
