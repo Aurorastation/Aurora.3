@@ -79,6 +79,6 @@
 	. = ..()
 	explosion(target, 0, 2, 3)
 
-/obj/projectile/ship_ammo/autocannon/frag/on_impact(var/atom/A)
-	fragem(src, 70, 70, 1, 2, 15, 5, TRUE)
+/obj/projectile/ship_ammo/autocannon/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+	fragem(target, 70, 70, 1, 2, 15, 5, TRUE)
 	..()
