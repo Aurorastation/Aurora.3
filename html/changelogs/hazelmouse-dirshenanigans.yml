@@ -56,3 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixed the fore directions of a few ships and shuttles so they can be correctly targeted in ship combat."
+  - qol: "Adds some DMDocs for ship variables"
