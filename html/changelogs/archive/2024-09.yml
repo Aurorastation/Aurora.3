@@ -180,3 +180,7 @@
   hazelmouse:
   - bugfix: The dominian assault rifle, dominian light machine gun, xanan combat shotgun,
       and xanan assault rifle now all have functional sprites when wielded.
+2024-09-25:
+  FluffyGhost:
+  - server: Updated tracy to our v25092024.
+  - server: Removed tracy client 0.10 and added 0.11.1.
