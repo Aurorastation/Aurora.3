@@ -220,8 +220,8 @@
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/obj/machinery/suit_cycler/offship/sol/ssmd,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
@@ -461,8 +461,8 @@
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/obj/machinery/suit_cycler/offship/sol/ssmd,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "bdq" = (
@@ -2586,8 +2586,8 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/suit_cycler/offship/sol/ssmd,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gKp" = (
@@ -2856,8 +2856,8 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
-/obj/machinery/suit_cycler/offship/sol/ssmd,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBs" = (
