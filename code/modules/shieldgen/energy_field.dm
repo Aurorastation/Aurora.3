@@ -54,8 +54,12 @@
 /obj/effect/energy_field/ex_act(var/severity)
 	Stress(0.5 + severity)
 
-/obj/effect/energy_field/bullet_act(var/obj/projectile/Proj)
-	Stress(Proj.get_structure_damage() / 10)
+/obj/effect/energy_field/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	Stress(hitting_projectile.get_structure_damage() / 10)
 
 /obj/effect/energy_field/proc/Stress(var/severity)
 	strength -= severity
@@ -115,10 +119,7 @@
 	diffuse_check()
 
 /obj/effect/energy_field/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
-	//Purpose: Determines if the object (or airflow) can pass this atom.
-	//Called by: Movement, airflow.
-	//Inputs: The moving atom (optional), target turf, "height" and air group
-	//Outputs: Boolean if can pass.
+	if(mover?.movement_type & PHASING)
+		return TRUE
 
-	//return (!density || !height || air_group)
 	return (!density || air_group)

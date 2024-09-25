@@ -86,7 +86,7 @@
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
 		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
+		wasblocked = (targethuman.check_shields(force, src, user, target_zone, null) in list(BULLET_ACT_BLOCK, BULLET_ACT_FORCE_PIERCE))
 
 	var/damageamount = force
 

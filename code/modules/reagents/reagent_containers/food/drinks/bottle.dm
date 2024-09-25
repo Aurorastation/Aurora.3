@@ -36,9 +36,9 @@
 /obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = throwing?.thrower?.resolve()
+	var/mob/M = throwingdatum?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throwing?.thrower?.resolve(), loc)
+		var/throw_dist = get_dist(get_turf(M), get_turf(src))
 		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
@@ -187,7 +187,11 @@
 
 	return blocked
 
-/obj/item/reagent_containers/food/drinks/bottle/bullet_act()
+/obj/item/reagent_containers/food/drinks/bottle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	smash(loc)
 
 /*
@@ -450,8 +454,8 @@
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/projectile/bullet/champagne_cork/on_impact(var/atom/A)
-	..()
+/obj/projectile/bullet/champagne_cork/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
 /obj/item/trash/champagne_cork

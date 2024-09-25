@@ -63,13 +63,18 @@
 	if(health <= 0)
 		topple()
 
-/obj/structure/hadii_statue/bullet_act(var/obj/projectile/Proj)
+/obj/structure/hadii_statue/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if(toppled)
-		return
-	if(!Proj)
-		return
-	if(!Proj.damage)
-		visible_message(SPAN_WARNING("\The [Proj] bounces off \the [src]!"))
-		return
-	visible_message(SPAN_WARNING("\The [Proj] hits \the [src]!"))
-	do_integrity_check(Proj.damage)
+		return BULLET_ACT_BLOCK
+	if(!hitting_projectile)
+		return BULLET_ACT_BLOCK
+	if(!hitting_projectile.damage)
+		visible_message(SPAN_WARNING("\The [hitting_projectile] bounces off \the [src]!"))
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	visible_message(SPAN_WARNING("\The [hitting_projectile] hits \the [src]!"))
+	do_integrity_check(hitting_projectile.damage)

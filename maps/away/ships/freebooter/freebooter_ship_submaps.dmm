@@ -77,10 +77,7 @@
 /area/ship/freebooter_ship/pod2)
 "avE" = (
 /obj/structure/closet/cabinet,
-/obj/item/paper{
-	name = "old captain's note";
-	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
-	},
+/obj/item/paper/fluff/freeboter_ship/captain_note,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "awG" = (
@@ -440,10 +437,7 @@
 	name = "lattice"
 	},
 /obj/structure/closet/cabinet,
-/obj/item/paper{
-	name = "old captain's note";
-	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
-	},
+/obj/item/paper/fluff/freeboter_ship/captain_note,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod6)
 "bxM" = (
@@ -3021,10 +3015,7 @@
 	name = "lattice"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/item/paper{
-	name = "old captain's note";
-	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"
-	},
+/obj/item/paper/fluff/freeboter_ship/captain_note,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod1)
 "qEc" = (

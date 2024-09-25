@@ -30,12 +30,12 @@
 		return
 	if(!over_object || over_object == src)
 		return
-	if(istype(over_object, /obj/screen/inventory))
-		var/obj/screen/inventory/S = over_object
+	if(istype(over_object, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over_object
 		if(S.slot_id == equip_slot)
 			return
 	if(ishuman(usr))
-		if(!(istype(over_object, /obj/screen)))
+		if(!(istype(over_object, /atom/movable/screen)))
 			return ..()
 
 		if(!(loc == usr) || (loc && loc.loc == usr))

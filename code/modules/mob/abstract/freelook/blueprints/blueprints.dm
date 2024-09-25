@@ -265,7 +265,7 @@
 	return SEE_TURFS|BLIND
 
 /mob/abstract/eye/blueprints/apply_visual(mob/living/M)
-	M.overlay_fullscreen("blueprints", /obj/screen/fullscreen/blueprints)
+	M.overlay_fullscreen("blueprints", /atom/movable/screen/fullscreen/blueprints)
 	M.client.screen += area_name_effect
 	M.add_client_color(/datum/client_color/monochrome)
 

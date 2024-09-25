@@ -91,3 +91,92 @@
 2024-09-16:
   Ben10083:
   - bugfix: Fixes the unusable programs in the AI internal computer.
+2024-09-22:
+  Ben10083:
+  - bugfix: Orion Express ship minor mapping fixes.
+  - rscadd: New TCAF Hardsuit 'Legionnaire' (currently only for humans/humanoid ipcs).
+      Thanks to NobleRow for the Sprites!
+  CometBlaze:
+  - imageadd: Resprites the solarian IPC fatigues to make them lore accurate
+  FluffyGhost:
+  - rscadd: Fluff papers now update the free space on the paper correctly on initialization.
+  - refactor: Moved all the fluff paper in code, from the maps.
+  - rscadd: Added maplinting for fluff papers.
+  - rscadd: Added DMDoc for fluff papers.
+  - refactor: Refactored all the builtin text procs to use string interpolation instead.
+  - server: Added a linting for the above.
+  - qol: Nano printers (computer component) will now refuse papers that are already
+      written onto.
+  - bugfix: Fixed a runtime on deletion of paper stacks due to erroneous conversion
+      of datum bracket access.
+  - code_imp: Some DMDocs.
+  Geeves:
+  - rscadd: AIs can now dress up their preview mob.
+  - rscadd: Cyborgs now have the cardboard outfit in the loadout again. You can toggle
+      it by deselecting the job suit and hat options.
+  - bugfix: Job suits are now hidden correctly when the job suit is deselected.
+  - rscadd: EAL is now much shorter to people who can't understand it, to represent
+      how effective it is at compressing communicated datapackets.
+  - bugfix: Fixed scrambled languages causing double spaces and uncapitalized words.
+  GeneralCamo:
+  - rscadd: Refactor /obj/screen to /atom/movable/screen.
+  ShimmerIsTaken:
+  - bugfix: Removes Sparta from Dominian origins, given it was removed from lore.
+  SimpleMaroon:
+  - rscadd: Using the Ve'katak Hivenet receiver now produces a visible emote and the
+      same sound as a Vaurca using the Hivenet.
+  - rscadd: Added the C'thur Ta star cape that was missing from the loadout.
+  Snowy1237:
+  - bugfix: Fixed the Hegemony Navy away ship being visible if no crew for it have
+      spawned.
+  hazelmouse:
+  - qol: Resolves a few odd quirks of the Horizon's map, like misaligned objects.
+      Patches a few holes in custodial access to maintenance, including to bar maintenance
+      and behind the main lift.
+  - rscadd: Added radio channels to the Badlands sector, accessible via an analog
+      radio.
+  - bugfix: Fixed a fault with the ore redemption consoles in mining that caused miners
+      not to receive points for their ore.
+  - bugfix: The Zavodskoi Shuttle offsite now correctly spawns onto the overmap.
+  - rscadd: Zeng-Hu Mobility Frames can now be played in the security department.
+  - rscadd: IPCs are now available to play in the Coalition Ranger, Orion Express,
+      and Elyran Navy ghostroles.
+2024-09-23:
+  AlaunusLux:
+  - rscadd: Added a method for choosing friends that mirror shades won't attack.
+  FluffyGhost:
+  - bugfix: Fixed molotovs not breaking on impact.
+  - bugfix: Fixed burning rags runtiming.
+  - code_imp: Made burning rags processing time constant.
+2024-09-24:
+  FluffyGhost:
+  - refactor: 'Refactored various procs used by VV: Header generation, dropdown menu
+      generation, moved various things around, some defines.'
+  - bugfix: Fixed VV to be able to edit associative lists.
+  - bugfix: Fixed VV to be able to make a list ex nihilo on a var.
+  - code_imp: Removed various dropdown menus that didn't exist anymore and were doing
+      nothing.
+  - bugfix: Fixed add verb option to not wipe the already existing verbs of the mob.
+  - bugfix: Fixed a runtime error on some lists view building that were not handled
+      correctly.
+  - bugfix: Fixed an issue with build mode not having the correct permissions for
+      devs.
+  - bugfix: Fixed an issue with editing a list referenced by a key in another list
+      via the edit referenced object option.
+  - code_imp: Added DF_VAR_EDITED flag.
+  - refactor: Refactored the projectile code, mostly in line with TG's now.
+  - refactor: Refactored various procs that are used or depends on it.
+  - rscadd: Projectiles can now ricochet if enabled to.
+  - rscadd: Damage falloffs with distance.
+  - rscadd: Homing projectiles can now have accuracy falloff with distance.
+  - rscadd: Projectiles have a maximum range.
+  - rscadd: Muzzle flash is configurable per projectile.
+  - rscadd: Impact effect of the projectile is configurable per projectile.
+  - rscadd: Accuracy decreases with distance.
+  - rscadd: Projectiles work with signals and emits them, for easy hooking up from
+      other parts of the code.
+  - balance: Meatshielding is now less effective .
+  - rscadd: Impact sound is now configurable per projectile.
+  hazelmouse:
+  - bugfix: The dominian assault rifle, dominian light machine gun, xanan combat shotgun,
+      and xanan assault rifle now all have functional sprites when wielded.

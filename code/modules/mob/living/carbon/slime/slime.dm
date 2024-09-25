@@ -246,10 +246,9 @@
 	..(-abs(amount)) // Heals them
 	return
 
-/mob/living/carbon/slime/bullet_act(var/obj/projectile/Proj)
+/mob/living/carbon/slime/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	attacked += 10
-	..(Proj)
-	return FALSE
+	. = ..()
 
 /mob/living/carbon/slime/emp_act(severity)
 	. = ..()

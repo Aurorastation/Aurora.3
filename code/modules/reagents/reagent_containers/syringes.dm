@@ -314,7 +314,7 @@
 
 		var/hit_area = affecting.name
 
-		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
+		if((user != target) && (H.check_shields(7, src, user, "\the [src]") != BULLET_ACT_HIT))
 			return
 
 		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100

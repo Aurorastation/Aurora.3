@@ -83,6 +83,8 @@
 	return prob(max(30,(100.0*health)/maxhealth))
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || (height==0))
 		return TRUE
 	if(istype(mover, /obj/projectile))
@@ -197,11 +199,14 @@
 			playsound(src, barricade_hitsound, 25, 1)
 		hit_barricade(attacking_item, user)
 
-/obj/structure/barricade/bullet_act(obj/projectile/P)
-	bullet_ping(P)
-	var/damage_to_take = P.damage * P.anti_materiel_potential
+/obj/structure/barricade/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
+	var/damage_to_take = hitting_projectile.damage * hitting_projectile.anti_materiel_potential
 	take_damage(damage_to_take)
-	return TRUE
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
 	if(deconstruct && is_wired)

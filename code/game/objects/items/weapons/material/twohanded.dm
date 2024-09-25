@@ -97,8 +97,8 @@
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/material/twohanded/update_icon()
 	icon_state = "[base_icon][wielded]"
@@ -215,6 +215,7 @@
 	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+	worth_multiplier = 31
 
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -257,6 +258,7 @@
 	default_material = "glass"
 	var/obj/item/grenade/explosive = null
 	use_material_sound = FALSE
+	worth_multiplier = 7 //blade + stuff
 
 /obj/item/material/twohanded/spear/Destroy()
 	if(explosive)
@@ -552,6 +554,7 @@
 	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
+	worth_multiplier = 20
 
 /obj/item/material/twohanded/pike/halberd
 	icon_state = "halberd0"
@@ -563,6 +566,7 @@
 	force_divisor = 0.6
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
+	worth_multiplier = 30
 
 /obj/item/material/twohanded/pike/halberd/can_woodcut()
 	if(wielded)
@@ -575,6 +579,7 @@
 	base_icon = "pitchfork"
 	name = "pitchfork"
 	desc = "An old farming tool, not something you would find at hydroponics."
+	worth_multiplier = 10
 
 /obj/item/material/twohanded/pike/flag
 	name = "republic of biesel flag"
@@ -651,6 +656,7 @@
 	default_material = "steel"
 	parry_chance = 60
 	can_embed = 0
+	worth_multiplier = 35
 	var/wielded_ap = 40
 	var/unwielded_ap = 0
 

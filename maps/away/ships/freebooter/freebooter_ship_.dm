@@ -107,3 +107,7 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_freebooter"
 	defer_initialisation = TRUE
+
+/obj/item/paper/fluff/freeboter_ship/captain_note
+	name = "old captain's note"
+	info = "Don't forget - all of the crew's clothing is now in the cargo pod!"

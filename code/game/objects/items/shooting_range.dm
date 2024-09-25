@@ -48,15 +48,17 @@
 	desc = "A shooting target with a threatening silhouette."
 	hp = 2350 // alium onest too kinda
 
-/obj/item/target/bullet_act(var/obj/projectile/Proj)
-	var/p_x = Proj.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset Proj.p_x!"
-	var/p_y = Proj.p_y + pick(0,0,0,0,0,-1,1)
-	var/decaltype = (Proj.damage_flags & DAMAGE_FLAG_BULLET) ? DECAL_BULLET : DECAL_SCORCH
+/obj/item/target/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //Ancient coders deserve the rope
+
+	var/p_x = hitting_projectile.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset Proj.p_x!"
+	var/p_y = hitting_projectile.p_y + pick(0,0,0,0,0,-1,1)
+	var/decaltype = (hitting_projectile.damage_flags & DAMAGE_FLAG_BULLET) ? DECAL_BULLET : DECAL_SCORCH
 
 	virtual_icon = new(icon, icon_state)
 
 	if(virtual_icon.GetPixel(p_x, p_y)) // if the located pixel isn't blank (null)
-		hp -= Proj.damage
+		hp -= hitting_projectile.damage
 		if(hp <= 0)
 			visible_message(SPAN_WARNING("\The [src] breaks into tiny pieces and collapses!"))
 			qdel(src)
@@ -75,7 +77,7 @@
 			bmark.pixel_x--
 			bmark.pixel_y--
 
-			if(Proj.damage >= 20 || istype(Proj, /obj/projectile/beam/practice))
+			if(hitting_projectile.damage >= 20 || istype(hitting_projectile, /obj/projectile/beam/practice))
 				bmark.icon_state = "scorch"
 				bmark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // random scorch design
 			else
@@ -83,12 +85,12 @@
 		else // Bullets are hard. They make dents!
 			bmark.icon_state = "dent"
 
-		if(Proj.damage >= 10 && length(bullet_holes) <= 35) // maximum of 35 bullet holes
+		if(hitting_projectile.damage >= 10 && length(bullet_holes) <= 35) // maximum of 35 bullet holes
 			if(decaltype == DECAL_BULLET)
-				if(prob(Proj.damage+30)) // bullets make holes more commonly!
+				if(prob(hitting_projectile.damage+30)) // bullets make holes more commonly!
 					new /datum/bullethole(src, bmark.pixel_x, bmark.pixel_y) // create new bullet hole
 			else // Lasers!
-				if(prob(Proj.damage-10)) // lasers make holes less commonly
+				if(prob(hitting_projectile.damage-10)) // lasers make holes less commonly
 					new /datum/bullethole(src, bmark.pixel_x, bmark.pixel_y) // create new bullet hole
 
 		// draw bullet holes
@@ -101,7 +103,7 @@
 		icon = virtual_icon // apply bullet_holes over decals
 		return
 
-	return PROJECTILE_CONTINUE // the bullet/projectile goes through the target!
+	return BULLET_ACT_HIT // the bullet/projectile goes through the target!
 
 
 // Small memory holder entity for transparent bullet holes
