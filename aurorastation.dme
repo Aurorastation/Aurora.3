@@ -3148,6 +3148,7 @@
 #include "code\modules\power\fractal_reactor.dm"
 #include "code\modules\power\generator.dm"
 #include "code\modules\power\gravitygenerator.dm"
+#include "code\modules\power\outlet.dm"
 #include "code\modules\power\portgen.dm"
 #include "code\modules\power\power.dm"
 #include "code\modules\power\power_usage.dm"
