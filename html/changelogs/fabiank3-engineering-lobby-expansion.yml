@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Revamped the engineering lobby."
+  - qol: "Moved the engineering first aid locker closer to the lobby to provide more visibility for it."
