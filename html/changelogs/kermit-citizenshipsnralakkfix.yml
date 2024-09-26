@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed the rogue Hieroaetherian citizenship option for Federation skrell."
