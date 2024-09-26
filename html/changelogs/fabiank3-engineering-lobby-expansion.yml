@@ -3,5 +3,6 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - rscadd: "Revamped the engineering lobby."
+  - rscadd: "Revamped the engineering lobby. Featuring a new layout, much more space and fluff."
   - qol: "Moved the engineering first aid locker closer to the lobby to provide more visibility for it."
+  - bugfix: "Fixed wrong tile type in engineering hard-storage and missing floor decal in shield-gen room."
