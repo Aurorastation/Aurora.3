@@ -57,4 +57,4 @@ delete-after: True
 changes:
   - bugfix: "Greimorian queens now have functional rest and dead sprites."
   - bugfix: "Greimorian queens no longer continue to regenerate after being killed."
-  - bugfix: "Greimorian queens now appear closer to the centre of the occupied tile while facing west or east."
+  - bugfix: "Greimorian queens now appear closer to the centre of the occupied tile while facing east or west."
