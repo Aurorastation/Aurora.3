@@ -23,12 +23,12 @@
 	textg = num2hex(255 - g, 0)
 	textb = num2hex(255 - b, 0)
 	if (length(textr) < 2)
-		textr = text("0[]", textr)
+		textr = "0[textr]"
 	if (length(textg) < 2)
-		textr = text("0[]", textg)
+		textr = "0[textg]"
 	if (length(textb) < 2)
-		textr = text("0[]", textb)
-	return text("#[][][]", textr, textg, textb)
+		textr = "0[textb]"
+	return "#[textr][textg][textb]"
 
 //Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
@@ -1118,7 +1118,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 	if(ispath(V))
 		return details && path_names ? "path([V])" : "path"
 	if(istext(V))
-		return details && text_lengths ? "text([length(V) ])" : "text"
+		return details && text_lengths ? "text ([length(V) ])" : "text"
 	if(isnum(V)) // Byond doesn't really differentiate between floats and ints, but we can sort of guess here
 		// also technically we could also say that 0 and 1 are boolean but that'd be quite silly
 		if(IsInteger(V) && V < 16777216 && V > -16777216)
@@ -1189,8 +1189,8 @@ var/global/known_proc = /proc/get_type_ref_bytes
 		return "appearance"
 	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
 
-/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from \ref which denote the object type (for objects that is)
-	return lowertext(copytext(ref(V), 4, 6))
+/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from a ref which denote the object type (for objects that is)
+	return lowertext(copytext(ref(V), 4, 6)) //Only allowed to remain the builtin ref proc because this shit depends on it and wasn't updated yet
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
@@ -1198,7 +1198,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour

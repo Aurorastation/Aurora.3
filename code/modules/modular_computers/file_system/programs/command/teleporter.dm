@@ -43,14 +43,14 @@
 		for(var/obj/machinery/teleport/pad/S in range(3, T))
 			var/list/pad_info = list(
 				"name" = "[S.name] ([S.x]-[S.y][S.z])",
-				"ref" = "\ref[S]"
+				"ref" = "[REF(S)]"
 				)
 			near_pads_info += list(pad_info)
 		data["nearby_pads"] = near_pads_info
 	else
 		var/atom/selected_atom = linked_pad.locked_obj ? linked_pad.locked_obj.resolve() : null
 		if(selected_atom)
-			data["selected_target"] = "\ref[selected_atom]"
+			data["selected_target"] = "[REF(selected_atom)]"
 			data["selected_target_name"] = linked_pad.locked_obj_name
 		data["calibration"] = 100 - linked_pad.calibration
 		var/list/area_index = list()
@@ -71,7 +71,7 @@
 				area_index[tmpname] = 1
 			var/list/teleporter_info = list(
 				"name" = tmpname,
-				"ref" = "\ref[R]"
+				"ref" = "[REF(R)]"
 				)
 			teleport_beacon_info += list(teleporter_info)
 		data["teleport_beacons"] = teleport_beacon_info
@@ -99,7 +99,7 @@
 					area_index[tmpname] = 1
 				var/list/implant_info = list(
 					"name" = tmpname,
-					"ref" = "\ref[I]"
+					"ref" = "[REF(I)]"
 				)
 				teleport_implant_info += list(implant_info)
 		data["teleport_implants"] = teleport_implant_info

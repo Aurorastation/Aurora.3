@@ -160,11 +160,14 @@ field_generator power level display
 
 	return 0
 
-/obj/machinery/field_generator/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/beam))
-		power += Proj.damage * 1.25 * EMITTER_DAMAGE_POWER_TRANSFER
+/obj/machinery/field_generator/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(istype(hitting_projectile, /obj/projectile/beam))
+		power += hitting_projectile.damage * 1.25 * EMITTER_DAMAGE_POWER_TRANSFER
 		update_icon()
-	return 0
 
 
 /obj/machinery/field_generator/Destroy()

@@ -62,7 +62,7 @@
 		if(!name)
 			continue
 
-		ghosts += list(list("name" = name, "ref" = ref(M), "category" = category, "special_character" = special_char))
+		ghosts += list(list("name" = name, "ref" = REF(M), "category" = category, "special_character" = special_char))
 		categories |= category
 
 	data["categories"] = categories

@@ -19,28 +19,28 @@
 
 //RECURSION
 /obj/machinery/vending/vendors
-	name = "Omni-Vendor"
+	name = "Omni-Restocker"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	vend_id = "admin"
 	req_access = list(ACCESS_JANITOR)
 	products = list(
-		/obj/item/device/vending_refill/booze = 1,
-		/obj/item/device/vending_refill/tools = 1,
-		/obj/item/device/vending_refill/coffee = 1,
-		/obj/item/device/vending_refill/snack = 1,
-		/obj/item/device/vending_refill/cola = 1,
-		/obj/item/device/vending_refill/zora = 1,
-		/obj/item/device/vending_refill/frontiervend = 1,
-		/obj/item/device/vending_refill/smokes = 1,
-		/obj/item/device/vending_refill/meds = 1,
-		/obj/item/device/vending_refill/robust = 1,
-		/obj/item/device/vending_refill/hydro = 1,
-		/obj/item/device/vending_refill/cutlery = 1,
-		/obj/item/device/vending_refill/robo = 1,
-		/obj/item/device/vending_refill/battlemonsters = 1,
-		/obj/item/device/vending_refill/encryption = 1
+		/obj/item/device/vending_refill/booze = 2,
+		/obj/item/device/vending_refill/tools = 2,
+		/obj/item/device/vending_refill/coffee = 2,
+		/obj/item/device/vending_refill/snack = 2,
+		/obj/item/device/vending_refill/cola = 2,
+		/obj/item/device/vending_refill/zora = 2,
+		/obj/item/device/vending_refill/frontiervend = 2,
+		/obj/item/device/vending_refill/smokes = 2,
+		/obj/item/device/vending_refill/meds = 2,
+		/obj/item/device/vending_refill/robust = 2,
+		/obj/item/device/vending_refill/hydro = 2,
+		/obj/item/device/vending_refill/cutlery = 2,
+		/obj/item/device/vending_refill/robo = 2,
+		/obj/item/device/vending_refill/battlemonsters = 2,
+		/obj/item/device/vending_refill/encryption = 2
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -779,12 +779,12 @@
 	icon_state = "wallpharm"
 	density = FALSE
 	products = list(
-		/obj/item/storage/pill_bottle/antidexafen = 4,
-		/obj/item/storage/pill_bottle/dexalin = 4,
-		/obj/item/storage/pill_bottle/dylovene = 4,
 		/obj/item/stack/medical/bruise_pack = 5,
 		/obj/item/stack/medical/ointment = 5,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/antidexafen = 4,
+		/obj/item/storage/pill_bottle/dexalin = 4,
+		/obj/item/storage/pill_bottle/dylovene = 4,
 		/obj/item/storage/pill_bottle/vitamin = 5,
 		/obj/item/storage/pill_bottle/cetahydramine  = 4,
 		/obj/item/storage/pill_bottle/caffeine = 3,
@@ -795,9 +795,6 @@
 		/obj/item/storage/pill_bottle/antidexafen = 70,
 		/obj/item/storage/pill_bottle/dexalin = 60,
 		/obj/item/storage/pill_bottle/dylovene = 75,
-		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 8,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 14,
 		/obj/item/storage/pill_bottle/vitamin = 55,
 		/obj/item/storage/pill_bottle/cetahydramine  = 60,
 		/obj/item/storage/pill_bottle/caffeine = 90,

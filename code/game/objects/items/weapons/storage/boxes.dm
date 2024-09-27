@@ -1015,21 +1015,21 @@
 
 /obj/item/storage/box/hadii_manifesto
 	name = "hadiist manifesto box"
-	desc = "A box full of hadiist manifesto books."
+	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
-	desc = "A box full of al'mariist manifesto books."
+	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
-	desc = "A box full of royalist manifesto books."
+	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/nka = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
@@ -1095,18 +1095,6 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
-
-/obj/item/storage/box/googly
-	name = "googly eye box"
-	desc = "A box containing googly eyes."
-	illustration = "googlyeyes"
-	starts_with = list(/obj/item/sticker/googly_eye = 8)
-
-/obj/item/storage/box/goldstar
-	name = "gold star box"
-	desc = "A box containing gold star stickers."
-	illustration = "goldstar"
-	starts_with = list(/obj/item/sticker/goldstar = 8)
 
 /obj/item/storage/box/folders
 	name = "box of folders"

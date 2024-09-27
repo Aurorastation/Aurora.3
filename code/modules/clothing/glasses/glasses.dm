@@ -28,7 +28,7 @@ BLIND     // can't see anything
 	var/off_state = "degoggles"
 	var/active = 1
 	var/activation_sound = 'sound/items/goggles_charge.ogg'
-	var/obj/screen/overlay = null
+	var/atom/movable/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	var/normal_layer = GLASSES_LAYER
@@ -369,8 +369,13 @@ BLIND     // can't see anything
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "military_goggles"
 	var/sprite_state = "military_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
 	change_item_state_on_flip = TRUE
 
@@ -386,6 +391,7 @@ BLIND     // can't see anything
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
 
 /obj/item/clothing/glasses/safety/goggles/tactical/generic
+	icon_state = "security_goggles"
 	sprite_state = "security_goggles"
 
 //security hud
@@ -393,8 +399,13 @@ BLIND     // can't see anything
 	name = "tactical goggles"
 	desc = "A stylish pair of tactical goggles that protect the eyes from aerosolized chemicals, debris and bright flashes. Comes with a security HUD."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	flash_protection = FLASH_PROTECTION_MODERATE
 	change_item_state_on_flip = TRUE
 
@@ -418,14 +429,17 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/goon/pmc
 	sprite_state = "pmc_goggles"
+	icon_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/goon/zavod
 	sprite_state = "zavod_goggles"
+	icon_state = "zavod_goggles"
 	brand_name = "Zavodskoi"
 
 /obj/item/clothing/glasses/safety/goggles/goon/idris
 	sprite_state = "idris_goggles"
+	icon_state = "idris_goggles"
 	brand_name = "Idris"
 
 //medical hud
@@ -433,8 +447,13 @@ BLIND     // can't see anything
 	name = "medical goggles"
 	desc = "A stylish pair of medical goggles that protect the eyes from aerosolized chemicals and debris. Comes with a medical HUD."
 	var/brand_name
-	icon = 'icons/clothing/eyes/goon_goggles.dmi'
+	icon_state = "security_goggles"
 	var/sprite_state = "security_goggles"
+	// Implementing this temporarily to use the generic goggle inhands until unique sprites are made.
+	item_state_slots = list(
+		slot_l_hand_str = "plaingoggles",
+		slot_r_hand_str = "plaingoggles"
+	)
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)
@@ -457,10 +476,12 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/medical/pmc
 	sprite_state = "pmc_goggles"
+	icon_state = "pmc_goggles"
 	brand_name = "PMCG"
 
 /obj/item/clothing/glasses/safety/goggles/medical/zeng
 	sprite_state = "zeng_goggles"
+	icon_state = "zeng_goggles"
 	brand_name = "Zeng-Hu"
 
 /obj/item/clothing/glasses/eyepatch

@@ -106,6 +106,8 @@
 
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/star
 
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/energy/pistol = 1)
 	head = /obj/item/clothing/head/skrell/skrell_bandana/tirakqi/captain
 	suit = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 
@@ -137,6 +139,7 @@
 		/obj/item/clothing/under/skrell/wetsuit/tirakqi/blue
 		)
 
+	accessory = /obj/item/clothing/accessory/storage/pouches/white
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/hud/health
 
@@ -164,6 +167,7 @@
 	name = "Ti'Rakqi Engineer"
 
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/engineer
+
+	accessory = /obj/item/clothing/accessory/storage/pouches/brown
 	suit = /obj/item/clothing/suit/storage/toggle/highvis_alt
-	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/yellow

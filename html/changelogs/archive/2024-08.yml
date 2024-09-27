@@ -161,3 +161,71 @@
   N8_Toe:
   - rscadd: Added a marketable Domadice Plushie to the game and loadout. sprite by
       NobleRow.
+2024-08-24:
+  Ben10083:
+  - qol: Small tweaks to IHSS Reclamation to improve experience.
+  CourierBravo:
+  - balance: Removed the tranquilizer rifle from the HoS's office, placing it in the
+      RD's office instead. Removed the tranquilizer ammo box from the HoS locker,
+      and into the RD's locker.
+  - rscadd: Reflavored the tranquilizer rifle's description away from being a modified
+      anti material rifle. Also, reflavored its ammo to be Plastic-Gas Shells instead
+      of .50 cal shells.
+  - rscadd: Expanded the RD's office slightly and shuffled a few things around to
+      allow for the space for the tranquilizer cabinet.
+  - rscadd: Added the memory wiper to the Operations Manager's locker.
+  - rscdel: Removed the memory wiper from the Research Director's locker.
+  - bugfix: Fixes the pharmacists age being set to 26, when it should be 25 according
+      to the wiki.
+  FluffyGhost:
+  - refactor: Refactored the abstract meta propriety into defines.
+  - refactor: It's now more easy to spot/see abstract types thanks to the macro that
+      defines them.
+  - rscadd: Added a check on initialization of atoms to avoid spawning abstract types.
+  - rscadd: Made the spawn_atom proc check for abstractness.
+  - rscadd: Made the spawn_atom proc use tgui_list for types list shorter than 1000
+      elements, which enables to search in them. It's too laggy on larger lists so
+      above 1000 it uses the builtin input.
+  - refactor: Made the spawn_atom use a list subtraction instead of a double list,
+      it's lighter on memory and processing.
+  MattAtlas:
+  - bugfix: Gender will not explode the server on the newest BYOND version.
+  not-a-gonk:
+  - rscadd: Adds the Tirakqi Smuggler ship to Uueoa-esa.
+2024-08-25:
+  CourierBravo:
+  - bugfix: Fixed the broken icon states for the biogenerator and minibiogenerator.
+      Now they look right in a map editor.
+  - balance: Doubled the refill canisters in the janitorial omni-vender
+  - qol: Renamed the omni-vender to omni-restocker, which should make it more clear
+      as to what its for.
+  FurryCactus:
+  - rscadd: Added singular turbine to Atmos maintenance. Try your hand at combustion,
+      but make sure not to blow anything up!
+  HanSolo1519:
+  - spellcheck: Correctly lables the 5u Nicotine pill bottle
+  - rscadd: Codes in new IPC heads, the Selen, Sienna and Siseyo series heads. (Thanks
+      NobleRow for making them!)
+2024-08-26:
+  Ben10083:
+  - rscadd: 'Adds new Tajaran Charm: Twin Suns, used for s''rend''marr worshippers.'
+  - spellcheck: Fixed incorrect mentions of 'Okon 011' instead of 'Okon 001'.
+  - rscadd: Adds delivery point and holopad to Okon 001.
+  - bugfix: Adds missing airlock for Okon 001.
+  Furrycactus:
+  - qol: Depreciated the Port and Starboard Wing Substations, as they were a redundant
+      load on the powergrid that each only powered one APC.
+  Geeves:
+  - rscadd: Certain autolathe items can now be printed at Code Red without needing
+      to be hacked. (though hacking allows you to access them without the level)
+  - balance: Certain autolathe items have had their hacking restrictions removed,
+      such as the industrial welder. They are now printable by default.
+  - qol: Reorganized the autolathe, drastically reduced the size of the General tab,
+      and introduced new tabs, such as Dinnerware and Armaments.
+  - qol: Shotgun shells now print in piles, instead of one shell at a time. The resource
+      cost has been increased to compensate.
+2024-08-27:
+  hazelmouse:
+  - rscadd: Added a third smelting line to mining, and shortened the conveyor belts.
+      All three miners can now empty their boxes at once!
+  - qol: Spark airlock will no longer jam after forcing the airlock outwards once.

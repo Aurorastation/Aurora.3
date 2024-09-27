@@ -234,17 +234,17 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 			ticket_dat += "<li style='padding-bottom:10px;color:[color]'>"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "<i>"
-			ticket_dat += "Ticket #[id] - [ticket.owner] [owner_client ? "" : "(DC)"] - [status]<br /><a href='byond://?src=\ref[src];action=view;ticket=\ref[ticket]'>VIEW</a>"
+			ticket_dat += "Ticket #[id] - [ticket.owner] [owner_client ? "" : "(DC)"] - [status]<br /><a href='byond://?src=[REF(src)];action=view;ticket=[REF(ticket)]'>VIEW</a>"
 			if(ticket.status)
-				ticket_dat += " - <a href='byond://?src=\ref[src];action=pm;ticket=\ref[ticket]'>PM</a>"
+				ticket_dat += " - <a href='byond://?src=[REF(src)];action=pm;ticket=[REF(ticket)]'>PM</a>"
 				if(valid_holder)
-					ticket_dat += " - <a href='byond://?src=\ref[src];action=take;ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>"
+					ticket_dat += " - <a href='byond://?src=[REF(src)];action=take;ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>"
 				if(ticket.status != TICKET_CLOSED && (valid_holder || ticket.status == TICKET_OPEN))
-					ticket_dat += " - <a href='byond://?src=\ref[src];action=close;ticket=\ref[ticket]'>CLOSE</a>"
+					ticket_dat += " - <a href='byond://?src=[REF(src)];action=close;ticket=[REF(ticket)]'>CLOSE</a>"
 			if(valid_holder)
 				var/ref_mob = ""
 				if(owner_client)
-					ref_mob = "\ref[owner_client.mob]"
+					ref_mob = "[REF(owner_client.mob)]"
 				ticket_dat += " - <A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='?_src_=holder;subtlemessage=[ref_mob]'>SM</A>[owner_client ? "- [admin_jump_link(owner_client.mob, src)]" : ""]"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "</i>"
@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		dat += "<br /><div style='width:50%;float:left;'><p><b>Available tickets:</b></p><ul>[jointext(ticket_dat, null)]</ul></div>"
 
 		if(open_ticket)
-			dat += "<div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=\ref[src];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
+			dat += "<div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=[REF(src)];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
 
 			var/list/msg_dat = list()
 			for(var/datum/ticket_msg/msg in open_ticket.msgs)

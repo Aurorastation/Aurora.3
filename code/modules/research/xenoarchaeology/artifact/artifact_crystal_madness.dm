@@ -117,39 +117,43 @@
 				A large crystal, seemingly floating in the air, and giving off a light blue glow.\
 				"
 
-/obj/structure/crystal_madness/bullet_act(var/obj/projectile/projectile)
-	if(istype(projectile, /obj/projectile/bullet))
+/obj/structure/crystal_madness/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(istype(hitting_projectile, /obj/projectile/bullet))
 		src.visible_message(
 			pick(
-				SPAN_WARNING("\The [src] appears to deflect \the [projectile], shattering it into dust."),
-				SPAN_WARNING("\The [src] appears to deflect \the [projectile], sending it up in the air."),
-				SPAN_WARNING("\The [src] appears to bounce off \the [projectile], sending it into the floor."),
-				SPAN_WARNING("\The [src] appears to deflect \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to deflect \the [projectile]. It has little effect."),
-				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to deflect \the [hitting_projectile], shattering it into dust."),
+				SPAN_WARNING("\The [src] appears to deflect \the [hitting_projectile], sending it up in the air."),
+				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile], sending it into the floor."),
+				SPAN_WARNING("\The [src] appears to deflect \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to deflect \the [hitting_projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]. It has little effect."),
 			),
 		)
-	else if(istype(projectile, /obj/projectile/energy))
+	else if(istype(hitting_projectile, /obj/projectile/energy))
 		src.visible_message(
 			pick(
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to consume \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It has little effect."),
-				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile] entirely."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 			),
 		)
-	else if(istype(projectile, /obj/projectile/beam))
-		var/damage = projectile.get_structure_damage()
+	else if(istype(hitting_projectile, /obj/projectile/beam))
+		var/damage = hitting_projectile.get_structure_damage()
 		if(damage < 20)
 			src.visible_message(
 				pick(
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to consume \the [projectile]."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
-				SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It has little effect."),
-				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile] entirely."),
+				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
+				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 				),
 			)
 		else
@@ -158,15 +162,15 @@
 				advance_stage()
 			src.visible_message(
 				pick(
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile] entirely."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile] completely."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and vibrates slightly."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile], and hums."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows stronger momentarily."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. It glows brighter for a few seconds."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it resonate."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can hear it vibrate."),
-					SPAN_WARNING("\The [src] appears to absorb \the [projectile]. You can see it glow stronger for a few seconds."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile] entirely."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile] completely."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile], and vibrates slightly."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile], and hums."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It glows stronger momentarily."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It glows brighter for a few seconds."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can hear it resonate."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can hear it vibrate."),
+					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can see it glow stronger for a few seconds."),
 				),
 			)
 

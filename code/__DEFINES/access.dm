@@ -810,7 +810,12 @@
 	id = ACCESS_TRAMP_FREIGHTER
 	desc = "Independent Freighter Access"
 
-#define ACCESS_CRYO_OUTPOST 243
+#define ACCESS_LONE_SPACER 243
+/datum/access/lone_spacer_access
+	id = ACCESS_LONE_SPACER
+	desc = "Independent Skiff Access"
+
+#define ACCESS_CRYO_OUTPOST 244
 /datum/access/cryo_outpost_access
 	id = ACCESS_CRYO_OUTPOST
 	desc = "Outpost #187-D Access"

@@ -146,6 +146,7 @@
 	attack_verb = list("patted", "tapped")
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
+	worth_multiplier = 8
 
 /obj/item/material/knife/butterfly/update_force()
 	if(active)

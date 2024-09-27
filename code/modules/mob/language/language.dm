@@ -5,29 +5,77 @@
 */
 
 /datum/language
-	var/name = "an unknown language"  // Fluff name of language if any.
-	var/short                         // a shortened name, for use when languages need to be identified
-	var/desc = "A language."          // Short description for 'Check Languages'.
-	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
-	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
-	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
-	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!
-	var/list/whisper_verb = null  // Optional. When not specified speech_verb + quietly/softly is used instead.
-	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	/// Fluff name of language if any.
+	var/name = "an unknown language"
+
+	/// a shortened name, for use when languages need to be identified
+	var/short
+
+	/// Short description for 'Check Languages'.
+	var/desc = "A language."
+
+	/// 'says', 'hisses', 'farts'.
+	var/list/speech_verb = list("says")
+
+	/// Used when sentence ends in a ?
+	var/list/ask_verb = list("asks")
+
+	/// Used when sentence ends in a !
+	var/list/exclaim_verb = list("exclaims")
+
+	/// Used when a sentence ends in !!
+	var/list/shout_verb = list("shouts", "yells", "screams")
+
+	/// Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/list/whisper_verb = null
+
+	/// list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/list/signlang_verb = list("signs")
+
+	/// The verb displayed when a user sings their message
 	var/list/sing_verb = list("sings")
-	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message") // 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown
-	var/colour = "body"               // CSS style to use for strings in this language.
-	var/written_style                 // CSS style used when writing language down, can't be written if null
-	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
-	var/flags = 0                     // Various language flags.
-	var/native                        // If set, non-native speakers will have trouble speaking.
-	var/list/syllables                // Used when scrambling text for a non-speaker.
-	var/list/space_chance = 55        // Likelihood of getting a space in the random scramble string
-	var/list/partial_understanding				  // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
-	var/machine_understands = TRUE	// Whether machines can parse and understand this language
+
+	/// 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown
+	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
+
+	/// CSS style to use for strings in this language.
+	var/colour = "body"
+
+	/// CSS style used when writing language down, can't be written if null
+	var/written_style
+
+	/// Character used to speak in language eg. :o for Unathi.
+	var/key = "x"
+
+	/// Various language flags.
+	var/flags = 0
+
+	/// If set, non-native speakers will have trouble speaking.
+	var/native
+
+	/// Used when scrambling text for a non-speaker.
+	var/list/syllables
+
+	/// Likelihood of getting a period and a space in the random scramble string
+	var/period_chance = 5
+
+	/// Likelihood of getting a space in the random scramble string
+	var/space_chance = 55
+
+	/// List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
+	var/list/partial_understanding
+
+	/// Whether machines can parse and understand this language
+	var/machine_understands = TRUE
+
+	/// Whether the accent tag will display when this language is used
 	var/allow_accents = FALSE
-	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
-	var/list/scramble_cache = list()  // A map of unscrambled words -> scrambled words, for scrambling.
+
+	/// forces the language to parse for language keys even when a default is set
+	var/always_parse_language = FALSE
+
+	/// A map of unscrambled words -> scrambled words, for scrambling.
+	var/list/scramble_cache = list()
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -47,42 +95,61 @@
 
 	return "[trim(full_name)]"
 
+/// Scrambles the spoken line by looping through every word in the line, calling scramble_word, and then returning the final result
 /datum/language/proc/scramble(var/input, var/list/known_languages)
 
+	// the chance that someone will recognize one of the words
 	var/understand_chance = 0
 	for(var/datum/language/L in known_languages)
 		if(LAZYACCESS(partial_understanding, L.name))
 			understand_chance += partial_understanding[L.name]
 
+	// singing automatically adds musical notes to the line, we don't want to scramble those
 	var/static/list/music_notes = list("\u2669", "\u266A", "\u266B")
 
-	var/list/words = splittext(input, " ")
+	// splits the line into a list of words
+	var/list/words_in_line = splittext(input, " ")
+
+	// this list will be populated by the word created below
 	var/list/scrambled_text = list()
-	var/new_sentence = 0
-	for(var/w in words)
-		var/nword = "[w] "
-		var/input_ending = copytext(w, length(w))
-		var/ends_sentence = findtext(".?!",input_ending)
-		if(!prob(understand_chance) && !(w in music_notes))
-			nword = scramble_word(w)
-			if(new_sentence)
-				nword = capitalize(nword)
-				new_sentence = FALSE
-			if(ends_sentence)
-				nword = trim(nword)
-				nword = "[nword][input_ending] "
 
-		if(ends_sentence)
-			new_sentence = TRUE
+	// marks the start of a new sentence in the for loop
+	var/new_sentence = FALSE
 
-		scrambled_text += nword
+	// loop through the list of words, scrambling it if the listener doesn't understand it, just putting it in if they can partially understand it
+	var/word_index = 1
+	for(var/word in words_in_line)
+		var/list/scramble_results = process_word_prescramble(word, "[word] ", word_index, new_sentence, understand_chance, music_notes)
+		var/new_word = scramble_results[1]
+		new_sentence = scramble_results[2]
+		scrambled_text += new_word
+		word_index++
 
 	. = jointext(scrambled_text, null)
 	. = capitalize(.)
 	. = trim(.)
 
+/// Handles the word before it's scrambled, and then scrambles it if necessary. Returns the new word as the first result, and whether it's a new sentence or not as the second
+/datum/language/proc/process_word_prescramble(var/original_word, var/new_word, var/word_index, var/new_sentence, var/understand_chance, var/list/music_notes)
+	var/input_ending = copytext(original_word, length(original_word))
+	var/ends_sentence = findtext(".?!", input_ending)
+	if(!prob(understand_chance) && !(original_word in music_notes))
+		new_word = scramble_word(original_word)
+		if(new_sentence)
+			new_word = capitalize(new_word)
+			new_sentence = FALSE
+		if(ends_sentence)
+			new_word = trim(new_word)
+			new_word = "[new_word][input_ending] "
+
+	if(ends_sentence)
+		new_sentence = TRUE
+
+	return list(new_word, new_sentence)
+
+/// Scrambles one single word by using the syllables within the syllable list to construct a new word of approximately the same length
 /datum/language/proc/scramble_word(var/input)
-	if(!syllables || !syllables.len)
+	if(!length(syllables))
 		return stars(input)
 
 	// If the input is cached already, move it to the end of the cache and return it
@@ -93,28 +160,46 @@
 		return n
 
 	var/input_size = length(input)
+	var/input_size_required = scrambled_word_size_requirement(input_size)
 	var/scrambled_text = ""
-	var/capitalize = 0
+	var/capitalize = FALSE
 
-	while(length(scrambled_text) < input_size)
+	// loops until the size of the text we've constructed is bigger than the word we're scrambling
+	while(length(scrambled_text) < input_size_required)
+		// selects one of the syllables out of the syllable list
 		var/next = pick(syllables)
+
+		// if we're starting a new sentence, capitalize the first word
 		if(capitalize)
 			next = capitalize(next)
-			capitalize = 0
+			capitalize = FALSE
+
+		// adds the picked syllable to the scramble list
 		scrambled_text += next
-		var/chance = rand(100)
-		if(chance <= 5)
-			scrambled_text += ". "
-			capitalize = 1
-		else if(chance > 5 && chance <= space_chance)
-			scrambled_text += " "
+
+		// we don't want to add any additional text if it pushes us over the size of the word itself,
+		// otherwise the next word won't be capitalized, or will have a double space in front of itself
+		if(length(scrambled_text) < input_size_required - 2)
+			// returns a value between 1 and 100, which will be used to determine if we should add a period and start a new word
+			var/chance = rand(100)
+
+			// adds a period and starts a new sentence
+			if(chance <= period_chance)
+				scrambled_text += ". "
+				capitalize = TRUE
+			// just adds a space
+			else if(chance <= space_chance)
+				scrambled_text += " "
 
 	// Add it to cache, cutting old entries if the list is too long
 	scramble_cache[input] = scrambled_text
-	if(scramble_cache.len > SCRAMBLE_CACHE_LEN)
-		scramble_cache.Cut(1, scramble_cache.len-SCRAMBLE_CACHE_LEN-1)
+	if(length(scramble_cache) > SCRAMBLE_CACHE_LEN)
+		scramble_cache.Cut(1, length(scramble_cache) - (SCRAMBLE_CACHE_LEN - 1))
 
 	return scrambled_text
+
+/datum/language/proc/scrambled_word_size_requirement(var/input_size)
+	return input_size
 
 /datum/language/proc/format_message(message, verb)
 	return "[verb], <span class='message'><span class='[colour]'>\"[capitalize(message)]\"</span></span>"
@@ -312,14 +397,14 @@
 	var/dat = "<b><font size = 5>Known Languages</font></b><br/><br/>"
 
 	if(default_language)
-		dat += "Current default language: [default_language] - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/><br/>"
+		dat += "Current default language: [default_language] - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a><br/><br/>"
 
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
 			if(L == default_language)
-				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=[REF(src)];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
 			else if(can_speak(L))
-				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - <a href='byond://?src=\ref[src];default_lang=\ref[L]'>set default</a><br/>[L.desc]<br/><br/>"
+				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - <a href='byond://?src=[REF(src)];default_lang=[REF(L)]'>set default</a><br/>[L.desc]<br/><br/>"
 			else
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.desc]<br/><br/>"
 			if(L.written_style)

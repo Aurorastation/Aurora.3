@@ -100,23 +100,23 @@
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	var/list/dat = list()
 	dat += "<b>UI Settings</b><br>"
-	dat += "<b>UI Style:</b> <a href='?src=\ref[src];select_style=1'><b>[pref.UI_style]</b></a><br>"
+	dat += "<b>UI Style:</b> <a href='?src=[REF(src)];select_style=1'><b>[pref.UI_style]</b></a><br>"
 	dat += "<b>Custom UI</b> (recommended for White UI):<br>"
-	dat += "-Color: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='?src=\ref[src];reset=ui'>reset</a><br>"
-	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
-	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
-	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Inputs:</b> <a href='?src=\ref[src];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Input Large Buttons:</b> <a href='?src=\ref[src];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='?src=\ref[src];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
+	dat += "-Color: <a href='?src=[REF(src)];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='?src=[REF(src)];reset=ui'>reset</a><br>"
+	dat += "-Alpha(transparency): <a href='?src=[REF(src)];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=[REF(src)];reset=alpha'>reset</a><br>"
+	dat += "<b>Tooltip Style:</b> <a href='?src=[REF(src)];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
+	dat += "<b>TGUI Fancy:</b> <a href='?src=[REF(src)];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Lock:</b> <a href='?src=[REF(src)];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Inputs:</b> <a href='?src=[REF(src)];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Large Buttons:</b> <a href='?src=[REF(src)];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='?src=[REF(src)];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>FPS:</b> <a href='?src=[REF(src)];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=[REF(src)];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
 		if(pref.ooccolor == initial(pref.ooccolor))
-			dat += "<a href='?src=\ref[src];select_ooc_color=1'><b>Using Default</b></a><br>"
+			dat += "<a href='?src=[REF(src)];select_ooc_color=1'><b>Using Default</b></a><br>"
 		else
-			dat += "<a href='?src=\ref[src];select_ooc_color=1'><b>[pref.ooccolor]</b></a> [HTML_RECT(pref.ooccolor)] - <a href='?src=\ref[src];reset=ooc'>reset</a><br>"
+			dat += "<a href='?src=[REF(src)];select_ooc_color=1'><b>[pref.ooccolor]</b></a> [HTML_RECT(pref.ooccolor)] - <a href='?src=[REF(src)];reset=ooc'>reset</a><br>"
 
 	. = dat.Join()
 

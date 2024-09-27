@@ -7,6 +7,8 @@
 	taste_description = "acid"
 	fallback_specific_heat = 0.567
 
+	value = 0.27
+
 /singleton/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
@@ -35,6 +37,7 @@
 	taste_description = "metal"
 	taste_mult = 1.1
 	fallback_specific_heat = 0.811
+	value = 0.02
 
 /singleton/reagent/ammonia
 	name = "Ammonia"
@@ -47,6 +50,7 @@
 	breathe_mul = 2
 	breathe_met = REM * 0.25
 	fallback_specific_heat = 1.048
+	value = 0.01
 
 /singleton/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
@@ -83,6 +87,7 @@
 	taste_description = "sour chalk"
 	taste_mult = 1.5
 	fallback_specific_heat = 0.018
+	value = 0.2
 	scannable = TRUE
 
 /singleton/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -109,6 +114,7 @@
 	color = "#6E3B08"
 	taste_description = "copper"
 	fallback_specific_heat = 1.148
+	value = 0.02
 	scannable = TRUE
 
 /singleton/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -191,7 +197,6 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 				M.hallucination = max(M.hallucination, halluci)
 			if(caffeine)
 				M.add_chemical_effect(CE_PULSE, caffeine*2)
-				M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 			M.adjustNutritionLoss(-nutriment_factor * removed)
 			M.adjustHydrationLoss(-hydration_factor * removed)
 
@@ -230,6 +235,8 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 
 	distillation_point = T0C + 78.37
 
+	value = 0.01
+
 /**
  * # Butanol
  *
@@ -251,6 +258,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
 	fallback_specific_heat = 0.549
+	value = 0.02
 
 	distillation_point = T0C + 117.7
 
@@ -263,7 +271,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 			M.hallucination = max(M.hallucination, halluci)
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+			M.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol, TRUE, caffeine*2)
 
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
@@ -272,6 +280,10 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/singleton/reagent/alcohol/butanol/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	M.remove_movespeed_modifier(/datum/movespeed_modifier/alcohol/butanol)
+	. = ..()
 
 
 /singleton/reagent/hydrazine
@@ -284,6 +296,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	taste_description = "sweet tasting metal"
 
 	fallback_specific_heat = 0.549 //Unknown
+	value = 0.017
 
 /singleton/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
@@ -314,6 +327,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	scannable = TRUE
 
 	fallback_specific_heat = 1.181
+	value = 0.01
 
 /singleton/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
@@ -327,6 +341,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	taste_description = "metal"
 
 	fallback_specific_heat = 0.633
+	value = 6
 
 /singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -348,6 +363,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	scannable = TRUE
 
 	fallback_specific_heat = 0.631
+	value = 0.02
 
 /singleton/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 1*removed)
@@ -376,6 +392,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	taste_description = "vinegar"
 
 	fallback_specific_heat = 0.569
+	value = 0.4
 
 /singleton/reagent/potassium
 	name = "Potassium"
@@ -385,6 +402,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
 
 	fallback_specific_heat = 0.214
+	value = 1
 
 /singleton/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 3)
@@ -401,6 +419,8 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	unaffected_species = IS_MACHINE
 
 	fallback_specific_heat = 0.220
+	value = 50 // Radium is crazy expensive, like 100k+ per gram. So probably a bit less expensive in the future.
+
 	var/message_shown = FALSE
 
 /singleton/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -426,6 +446,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	taste_description = "acid"
 
 	fallback_specific_heat = 0.815
+	value = 0.2
 
 /singleton/reagent/acid/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.take_organ_damage(0, removed * power)
@@ -522,12 +543,14 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	power = 6
 	meltdose = 4
 	taste_description = "acid"
+	value = 2
 
 /singleton/reagent/acid/stomach
 	name = "Stomach Acid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"
+	value = 0
 
 /singleton/reagent/silicon
 	name = "Silicon"
@@ -544,6 +567,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	color = COLOR_GRAY
 	taste_description = "salty metal"
 	fallback_specific_heat = 0.483
+	value = 0.1
 
 /singleton/reagent/sugar
 	name = "Sugar"
@@ -558,6 +582,8 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	glass_desc = "You can feel your blood sugar rising just looking at this."
 
 	fallback_specific_heat = 0.332
+	value = 0.1
+
 	condiment_name = "sugar sack"
 	condiment_desc = "Tasty space sugar!"
 	condiment_icon_state = "sugar"
@@ -574,6 +600,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	scannable = TRUE
 
 	fallback_specific_heat = 0.503
+	value = 2
 
 /singleton/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien & IS_VAURCA)
