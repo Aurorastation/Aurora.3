@@ -131,5 +131,6 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
-	if(stat != DEAD)
-		adjustBruteLoss(-3)
+	if (stat == DEAD)
+		return 0
+	adjustBruteLoss(-3)
