@@ -8,7 +8,7 @@
 	name = "glass pane"
 	desc = "A glass pane."
 	icon = 'icons/obj/structure/window/window_panes.dmi'
-	icon_state = "pane"
+	icon_state = "window"
 	alpha = 196
 	density = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
