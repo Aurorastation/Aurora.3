@@ -12,6 +12,7 @@
 	is_hole = TRUE
 	roof_type = null
 	footstep_sound = null
+	explosion_resistance = 3
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
 	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case

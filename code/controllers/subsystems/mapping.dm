@@ -29,11 +29,15 @@ SUBSYSTEM_DEF(mapping)
 	var/adding_new_zlevel = FALSE
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
-	// Load templates and build away sites.
-	preloadTemplates()
+	//If we're in fastboot and not spawning exoplanets or awaysites
+	//this is different from TG and Bay, which always preload, but it saves a lot of time for us
+	//so we'll do it this way and hope for the best
+	if(!GLOB.config.fastboot || GLOB.config.exoplanets["enable_loading"] || GLOB.config.awaysites["enable_loading"])
+		// Load templates and build away sites.
+		preloadTemplates()
 
-	SSatlas.current_map.build_away_sites()
-	SSatlas.current_map.build_exoplanets()
+		SSatlas.current_map.build_away_sites()
+		SSatlas.current_map.build_exoplanets()
 
 	return SS_INIT_SUCCESS
 
@@ -45,8 +49,6 @@ SUBSYSTEM_DEF(mapping)
 	away_sites_templates = SSmapping.away_sites_templates
 
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
-	set waitfor = FALSE
-
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
 		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
@@ -54,8 +56,6 @@ SUBSYSTEM_DEF(mapping)
 	preloadBlacklistableTemplates()
 
 /datum/controller/subsystem/mapping/proc/preloadBlacklistableTemplates()
-	SHOULD_NOT_SLEEP(TRUE)
-
 	// Still supporting bans by filename
 	var/list/banned_exoplanet_dmms = generateMapList("config/exoplanet_ruin_blacklist.txt")
 	var/list/banned_space_dmms = generateMapList("config/space_ruin_blacklist.txt")

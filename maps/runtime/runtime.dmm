@@ -358,6 +358,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/landmark/start{
+	name = "Chief Engineer"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aS" = (
@@ -1423,7 +1426,7 @@
 /area/construction/storage)
 "dK" = (
 /obj/machinery/mineral/stacking_unit_console{
-	id = "stacking_1";
+	id = "runtime_stacking_1";
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled,
@@ -1552,9 +1555,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "fH" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1
-	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "fM" = (
@@ -1600,14 +1601,8 @@
 /turf/simulated/floor/plating,
 /area/construction)
 "gC" = (
-/obj/effect/landmark/start{
-	name = "Atmospheric Technician"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/wall/r_wall,
+/area/outpost/mining_main/eva)
 "gF" = (
 /obj/machinery/light{
 	dir = 4
@@ -1634,10 +1629,10 @@
 /area/shuttle/runtime)
 "hz" = (
 /obj/effect/landmark/start{
-	name = "Bridge Crew"
+	name = "Operations Manager"
 	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "hI" = (
 /obj/effect/landmark/start{
 	name = "Surgeon"
@@ -1773,6 +1768,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"iQ" = (
+/obj/effect/landmark/start{
+	name = "Shaft Miner"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "iR" = (
 /obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/tiled,
@@ -1907,6 +1908,10 @@
 /obj/machinery/door/window/holowindoor{
 	dir = 4
 	},
+/obj/machinery/mineral/processing_unit_console{
+	id = "runtime_processing_1";
+	pixel_y = -21
+	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "md" = (
@@ -1945,6 +1950,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"mr" = (
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
+/obj/machinery/power/apc/north,
+/obj/machinery/alarm/north{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "my" = (
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -1980,14 +1995,12 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "mT" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/mecha_part_fabricator{
+	dir = 1
 	},
-/obj/effect/landmark/start{
-	name = "Operations Manager"
-	},
+/obj/item/storage/belt/utility/very_full,
 /turf/simulated/floor/tiled,
-/area/construction)
+/area/construction/storage)
 "ne" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -2023,10 +2036,10 @@
 /area/turret_protected/ai_upload_foyer)
 "nv" = (
 /obj/effect/landmark/start{
-	name = "Research Director"
+	name = "Machinist"
 	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "nB" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
@@ -2082,6 +2095,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/construction/storage)
+"oN" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "oP" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/light{
@@ -2109,10 +2126,10 @@
 /area/tcommsat/chamber)
 "pd" = (
 /obj/effect/landmark/start{
-	name = "Executive Officer"
+	name = "Atmospheric Technician"
 	},
 /turf/simulated/floor/plating,
-/area/construction)
+/area/engineering/atmos)
 "pe" = (
 /obj/machinery/chem_master,
 /obj/item/reagent_containers/glass/beaker/bluespace,
@@ -2427,10 +2444,10 @@
 /area/storage/primary)
 "uC" = (
 /obj/effect/landmark/start{
-	name = "Machinist"
+	name = "Research Director"
 	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "uF" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
@@ -2595,6 +2612,9 @@
 /area/template_noop)
 "yE" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/landmark/start{
+	name = "Executive Officer"
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "yY" = (
@@ -2982,13 +3002,10 @@
 /area/turret_protected/ai_upload_foyer)
 "FU" = (
 /obj/effect/landmark/start{
-	name = "Chief Engineer"
+	name = "Bridge Crew"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -3032,11 +3049,8 @@
 /obj/effect/landmark/start{
 	name = "Pharmacist"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "GH" = (
 /obj/effect/landmark/start{
 	name = "Scientist"
@@ -3231,7 +3245,7 @@
 /area/construction)
 "Ks" = (
 /obj/machinery/mineral/processing_unit{
-	id = "processing_1";
+	id = "runtime_processing_1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3573,11 +3587,20 @@
 /area/construction)
 "Te" = (
 /obj/machinery/mineral/stacking_machine{
-	id = "stacking_1";
+	id = "runtime_stacking_1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"Th" = (
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
+"Ti" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -3826,11 +3849,8 @@
 /obj/effect/landmark/start{
 	name = "Chief Medical Officer"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/construction)
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "Yr" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
@@ -3870,6 +3890,10 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"Zp" = (
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "ZA" = (
 /obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/bluegrid{
@@ -3901,10 +3925,18 @@
 /obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"ZJ" = (
+/obj/structure/closet/secure_closet/miner,
+/turf/simulated/floor/plating,
+/area/outpost/mining_main/eva)
 "ZU" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"ZZ" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 
 (1,1,1) = {"
 fX
@@ -7723,7 +7755,7 @@ ae
 af
 ak
 av
-au
+pd
 aW
 bh
 bq
@@ -8251,9 +8283,9 @@ bB
 cN
 cV
 de
-hz
 de
-gC
+de
+yk
 dq
 dq
 de
@@ -8508,14 +8540,14 @@ eI
 cK
 cV
 de
-pd
 de
-FU
+de
+yk
 dq
 dq
 xP
 de
-nv
+de
 de
 du
 cK
@@ -9281,7 +9313,7 @@ cV
 de
 KR
 de
-GF
+yk
 dq
 dq
 de
@@ -9538,7 +9570,7 @@ WH
 de
 iq
 de
-Yi
+yk
 dq
 dq
 de
@@ -10058,7 +10090,7 @@ de
 de
 TW
 pD
-uC
+de
 dk
 cK
 ae
@@ -10314,7 +10346,7 @@ jD
 dj
 dj
 iA
-mT
+dj
 df
 dy
 cK
@@ -11597,7 +11629,7 @@ cZ
 da
 cZ
 LF
-da
+FU
 ZU
 da
 da
@@ -13112,10 +13144,10 @@ aa
 aa
 aa
 aa
-ac
-ae
-ae
-ac
+gC
+ZJ
+Th
+gC
 wI
 ai
 at
@@ -13369,11 +13401,11 @@ aa
 aa
 aa
 aa
-ac
-ae
-ae
-ac
-Ft
+gC
+Zp
+iQ
+oN
+wI
 fH
 at
 at
@@ -13626,10 +13658,10 @@ aa
 aa
 aa
 aa
-ac
-ae
-ae
-ac
+gC
+mr
+Ti
+gC
 wI
 ai
 at
@@ -13883,10 +13915,10 @@ aa
 aa
 aa
 aa
-ac
-ac
-ac
-ac
+gC
+gC
+gC
+gC
 wI
 ai
 at
@@ -73795,7 +73827,7 @@ gk
 gk
 gk
 TB
-gk
+nv
 dM
 BQ
 uh
@@ -74043,7 +74075,7 @@ uF
 OX
 TR
 pe
-gk
+GF
 qi
 gk
 gk
@@ -74053,7 +74085,7 @@ gk
 gk
 gk
 gk
-dM
+mT
 BQ
 uh
 uh
@@ -74300,7 +74332,7 @@ GD
 WM
 TR
 dI
-gk
+uC
 pA
 eH
 fr
@@ -74308,7 +74340,7 @@ Ng
 gk
 gk
 gk
-gk
+ZZ
 gk
 dM
 BQ
@@ -74560,7 +74592,7 @@ Wf
 gk
 KY
 uQ
-gk
+Yi
 rU
 gk
 gk
@@ -75337,7 +75369,7 @@ qq
 qq
 Pc
 Rl
-gk
+hz
 dK
 BQ
 uh

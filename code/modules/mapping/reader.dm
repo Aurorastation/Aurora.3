@@ -164,6 +164,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 				for(var/line in gridLines)
 					maxx = max(maxx, xcrdStart + length(line) / key_len - 1)
 			else
+				//turn off base new Initialization until the whole thing is loaded
+				SSatoms.map_loader_begin(REF(src))
+
 				for(var/line in gridLines)
 					if((ycrd - y_offset + 1) < y_lower || (ycrd - y_offset + 1) > y_upper)				//Reverse operation and check if it is out of bounds of cropping.
 						--ycrd
@@ -186,7 +189,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 								var/no_afterchange = no_changeturf || zexpansion
 								if(!no_afterchange || (model_key != space_key))
 									if(!grid_models[model_key])
-										throw EXCEPTION("Undefined model key in DMM.")
+										CRASH("Undefined model key in DMM.")
 									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
 									if (M)
 										atoms_to_initialise += M.atoms_to_initialise
@@ -195,6 +198,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 							maxx = max(maxx, xcrd)
 							++xcrd
 					--ycrd
+
+				//Restore initialization to the previous value
+				SSatoms.map_loader_stop(REF(src))
 
 			bounds[MAP_MAXX] = clamp(max(bounds[MAP_MAXX], cropMap ? min(maxx, world.maxx) : maxx), x_lower, x_upper)
 
@@ -240,6 +246,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/list/atoms_to_delete
 
 /dmm_suite/proc/parse_grid(model as text, model_key as text, xcrd as num,ycrd as num,zcrd as num, no_changeturf as num)
+	//This should only ever be called by load_map_impl() after announcing the map is being loaded to SSatoms
+	PRIVATE_PROC(TRUE)
+
 	/*Method parse_grid()
 	- Accepts a text string containing a comma separated list of type paths of the
 		same construction as those contained in a .dmm file, and instantiates them.
@@ -327,8 +336,6 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 	//since we've switched off autoinitialisation, record atoms to initialise later
 	var/list/atoms_to_initialise = list()
-	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin(REF(src))
 
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
@@ -366,17 +373,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		//if others /turf are presents, simulates the underlays piling effect
 		index = first_turf_index + 1
 		while(index <= length(members) - 1) // Last item is an /area
-			var/underlay = T.appearance
 			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
-			T.underlays += underlay
 			index++
 			atoms_to_initialise += T
 
 	//finally instance all remainings objects/mobs
 	for(index in 1 to first_turf_index-1)
 		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
-	//Restore initialization to the previous value
-	SSatoms.map_loader_stop(REF(src))
 
 	var/datum/grid_load_metadata/M = new
 	M.atoms_to_initialise = atoms_to_initialise
@@ -407,8 +410,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		SSatoms.map_loader_begin(REF(src))
 
 /dmm_suite/proc/create_atom(path, crds)
-	// Doing this async is impossible, as we must return the ref.
-	return new path (crds)
+	set waitfor = FALSE
+	. = new path (crds)
 
 //find the position of the next delimiter,skipping whatever is comprised between opening_escape and closing_escape
 //returns 0 if reached the last delimiter
@@ -424,75 +427,73 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
 	return next_delimiter
 
-/dmm_suite/proc/readlistitem(text as text, is_key = FALSE)
-	//Check for string
-	if(findtext(text,"\"",1,2))
-		. = copytext(text,2,findtext(text,"\"",3,0))
-
-	//Check for number
-	// Keys cannot safely be numbers. This implementation will return null if
-	// an assoc key is a number.
-	else if(!is_key && isnum(text2num(text)) && text == "[text2num(text)]") //text2num will parse truthy false positives; this demands that the only numbers parsed as such are properly formatted ones.
-		. = text2num(text)
-
-	//Check for null
-	else if(text == "null")
-		. = null
-
-	//Check for list
-	else if(copytext(text,1,6) == "list(") //This is different because whoever called the intercom variable `LISTening` deserves the rope
-		. = readlist(copytext(text,6,length(text)))
-
-	//Check for file
-	else if(copytext(text,1,2) == "'")
-		. = file(copytext(text,2,length(text)))
-
-	//Check for path
-	else if(ispath(text2path(text)))
-		. = text2path(text)
-
 //build a list from variables in text form (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 //return the filled list
 /dmm_suite/proc/readlist(text as text, delimiter=",")
-	var/list/to_return = list()
+	. = list()
+	if (!text)
+		return
 
 	var/position
 	var/old_position = 1
-
-	do
-		//find next delimiter that is not within  "..."
+	while(position != 0)
+		// find next delimiter that is not within  "..."
 		position = find_next_delimiter_position(text,old_position,delimiter)
 
-		//check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
+		// check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
-
 		var/trim_left = TRIM_TEXT(copytext(text,old_position,(equal_position ? equal_position : position)))
-		old_position = position + 1
-
-		if(!length(trim_left))
-			if(position == 0)
-				break // That terminal commas are ignored is real dm behavior.
-			LIST_INC(to_return)
+		var/left_constant = parse_constant(trim_left)
+		if(position)
+			old_position = position + length(text[position])
+		if(!left_constant) // damn newlines man. Exists to provide behavior consistency with the above loop. not a major cost becuase this path is cold
 			continue
 
-		var/left = readlistitem(trim_left)
-		if(equal_position)
-			if(!left && trim_left != "null")
-				left = trim_left // This is dm behavior: unindentifiable keys in associative lists are parsed as literal strings.
-			if(left == 1.#INF || left == -1.#INF)
-				left = trim_left // This is not valid as a list index; we could let it runtime, but if associative it should be parsed as "inf" or "-inf" instead.
-		to_return += left
+		if(equal_position && !isnum(left_constant))
+			// Associative var, so do the association.
+			// Note that numbers cannot be keys - the RHS is dropped if so.
+			var/trim_right = TRIM_TEXT(copytext(text, equal_position + length(text[equal_position]), position))
+			var/right_constant = parse_constant(trim_right)
+			.[left_constant] = right_constant
+		else  // simple var
+			. += list(left_constant)
 
-		if(equal_position)//associative var, so do the association
-			if(isnum(left))
-				crash_with("Numerical key in associative list.")
-				break // This is invalid; apparently dm will runtime in this situation.
-			var/trim_right = TRIM_TEXT(copytext(text,equal_position+1,position))//the content of the variable
-			to_return[left] = readlistitem(trim_right)
+/dmm_suite/proc/parse_constant(text)
+	// number
+	var/num = text2num(text)
+	if(isnum(num))
+		return num
 
-	while(position != 0)
+	// string
+	if(text[1] == "\"")
+		// insert implied locate \" and length("\"") here
+		// It's a minimal timesave but it is a timesave
+		// Safe becuase we're guarenteed trimmed constants
+		return copytext(text, 2, -1)
 
-	return to_return
+	// list
+	if(copytext(text, 1, 6) == "list(")//6 == length("list(") + 1
+		return readlist(copytext(text, 6, -1))
+
+	// typepath
+	var/path = text2path(text)
+	if(ispath(path))
+		return path
+
+	// file
+	if(text[1] == "'")
+		return file(copytext_char(text, 2, -1))
+
+	// null
+	if(text == "null")
+		return null
+
+	// not parsed:
+	// - pops: /obj{name="foo"}
+	// - new(), newlist(), icon(), matrix(), sound()
+
+	// fallback: string
+	return text
 
 /dmm_suite/Destroy()
 	..()
@@ -515,23 +516,19 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 		GLOB._preloader_path = path
 
 /dmm_suite/preloader/proc/load(atom/what)
+	GLOB.use_preloader = FALSE
+	var/list/attributes = src.attributes
 	for(var/attribute in attributes)
 		var/value = attributes[attribute]
 		if(islist(value))
-			value = deepCopyList(value)
-		try
-			what.vars[attribute] = value
-		catch (var/ex)
-			var/found = FALSE
-			for (var/V in what.vars)
-				if (deep_string_equals(V, attribute))
-					what.vars[V] = value
-					log_debug("Successfully performed manual var detection for var [V] \ref[V] on provided attribute [attribute] \ref[attribute] for atom [what]")
-					found = TRUE
-					break
-			if (!found)
-				throw ex
-	GLOB.use_preloader = FALSE
+			value = deep_copy_list(value)
+		#ifdef TESTING
+		if(what.vars[attribute] == value)
+			var/message = "<font color=green>[what.type]</font> at [AREACOORD(what)] - <b>VAR:</b> <font color=red>[attribute] = [isnull(value) ? "null" : (isnum(value) ? value : "\"[value]\"")]</font>"
+			log_mapping("DIRTY VAR: [message]")
+			GLOB.dirty_vars += message
+		#endif
+		what.vars[attribute] = value
 
 /area/template_noop
 	name = "Area Passthrough"
