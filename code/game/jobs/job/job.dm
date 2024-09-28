@@ -1,5 +1,5 @@
 /datum/job
-  	/// The name of the job.
+	/// The name of the job.
 	var/title = "NOPE"
 
 	/// Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
@@ -32,7 +32,7 @@
 	var/list/departments = list()
 	/// List of alternate titles, if any.
 	var/list/alt_titles
-	 /// An assoc list of title -> list of accesses to add if the person has this title.
+	/// An assoc list of title -> list of accesses to add if the person has this title.
 	var/list/title_accesses
 	/// If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
 	var/minimal_player_age = 0
