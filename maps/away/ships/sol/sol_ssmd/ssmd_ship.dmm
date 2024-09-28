@@ -4404,7 +4404,8 @@
 	},
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
-	pixel_x = 32
+	pixel_x = 32;
+	req_access = list(203)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
