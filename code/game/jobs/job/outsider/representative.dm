@@ -97,7 +97,7 @@
 	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-	aide_job = "Diplomatic Aide"
+	aide_job = "Corporate Aide"
 
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)

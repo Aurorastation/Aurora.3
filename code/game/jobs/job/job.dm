@@ -250,7 +250,8 @@
 		log_debug("Generic Open Aide Slot called without a mob.")
 		return FALSE
 
-	if(tgui_alert(representative, "Are you sure you want to open an assistant slot? This can only be used once.", "Open Aide Slot", list("Yes", "No")) != "Yes")
+	var/confirm = tgui_alert(representative, "Are you sure you want to open an assistant slot? This can only be used once.", "Open Aide Slot", list("Yes", "No"))
+	if(confirm != "Yes")
 		return FALSE
 	var/datum/job/J = SSjobs.GetJob(aide_job)
 
@@ -259,7 +260,7 @@
 
 	// Now that the blacklists are applied, open the job.
 	J.total_positions++
-	to_chat(src, SPAN_NOTICE("A slot for a [aide_job] has been opened."))
+	to_chat(representative, SPAN_NOTICE("A slot for a [aide_job] has been opened."))
 
 /**
  * This proc is called when a job opens an aide slot. It MUST be called manually.
