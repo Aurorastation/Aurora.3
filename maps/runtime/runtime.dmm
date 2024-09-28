@@ -3599,6 +3599,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "Tj" = (
