@@ -2727,9 +2727,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/ssmd_shuttle)
 "hhf" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
@@ -2801,9 +2798,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "hoJ" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -7276,10 +7270,6 @@
 	dir = 8;
 	req_access = list(203)
 	},
-/obj/machinery/door/window/northleft{
-	dir = 8;
-	req_access = list(203)
-	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/hangar)
 "vTv" = (
@@ -7308,10 +7298,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft{
-	dir = 8;
-	req_access = list(203)
-	},
 /obj/machinery/door/window/northleft{
 	dir = 8;
 	req_access = list(203)
