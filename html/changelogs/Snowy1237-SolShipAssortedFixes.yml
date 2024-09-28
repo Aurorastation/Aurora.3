@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Fixes the Sol recon ship exterior airlocks not closing (and the doubled windoor)."
-    - bugfix: "Fixes the Sol recon ship stabilization locker being locked."
+  - bugfix: "Fixes the Sol recon ship stabilization locker being locked."
