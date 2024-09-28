@@ -105,7 +105,7 @@
 	selectable_tails = list("Gaster")
 
 /datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
-	if(I.w_class <= ITEMSIZE_NORMAL)
+	if(I.w_class <= WEIGHT_CLASS_NORMAL)
 		return TRUE
 	return FALSE
 
