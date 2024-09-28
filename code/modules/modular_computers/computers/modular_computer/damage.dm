@@ -52,11 +52,15 @@
 // "Stun" weapons can cause minor damage to components (short-circuits?)
 // "Burn" damage is equally strong against internal components and exterior casing
 // "Brute" damage mostly damages the casing.
-/obj/item/modular_computer/bullet_act(var/obj/projectile/Proj)
-	switch(Proj.damage_type)
+/obj/item/modular_computer/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	switch(hitting_projectile.damage_type)
 		if(DAMAGE_BRUTE)
-			take_damage(Proj.damage, Proj.damage / 2)
+			take_damage(hitting_projectile.damage, hitting_projectile.damage / 2)
 		if(DAMAGE_PAIN)
-			take_damage(Proj.damage, Proj.damage / 3, 0)
+			take_damage(hitting_projectile.damage, hitting_projectile.damage / 3, 0)
 		if(DAMAGE_BURN)
-			take_damage(Proj.damage, Proj.damage / 1.5)
+			take_damage(hitting_projectile.damage, hitting_projectile.damage / 1.5)

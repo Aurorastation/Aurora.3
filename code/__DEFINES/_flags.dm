@@ -5,10 +5,16 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 
 // for /datum/var/datum_flags
 #define DF_USE_TAG (1<<0)
+#define DF_VAR_EDITED (1<<1)
 #define DF_ISPROCESSING (1<<2)
 
 ///Whether /atom/Initialize() has already run for the object
 #define INITIALIZED_1 (1<<5)
+
+/// If the thing can reflect light (lasers/energy)
+#define RICOCHET_SHINY (1<<0)
+/// If the thing can reflect matter (bullets/bomb shrapnel)
+#define RICOCHET_HARD (1<<1)
 
 /*
 	These defines are used specifically with the atom/pass_flags bitmask

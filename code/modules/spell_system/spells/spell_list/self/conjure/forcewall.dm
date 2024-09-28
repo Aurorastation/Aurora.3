@@ -21,12 +21,15 @@
 	density = 1
 	unacidable = 1
 
-/obj/effect/forcefield/bullet_act(var/obj/projectile/Proj, var/def_zone)
+/obj/effect/forcefield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/turf/T = get_turf(src.loc)
 	if(T)
 		for(var/mob/M in T)
-			Proj.on_hit(M,M.bullet_act(Proj, def_zone))
-	return
+			hitting_projectile.on_hit(M,M.bullet_act(hitting_projectile, def_zone))
 
 /obj/effect/forcefield/attackby(obj/item/attacking_item, mob/user)
 	..()

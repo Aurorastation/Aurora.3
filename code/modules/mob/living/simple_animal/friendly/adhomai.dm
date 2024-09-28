@@ -239,10 +239,13 @@
 		unburrow()
 	..()
 
-/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/P, def_zone)
+/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(burrowed && (stat != DEAD))
 		unburrow()
-	..()
 
 /mob/living/simple_animal/ice_catcher/death(gibbed)
 	..()

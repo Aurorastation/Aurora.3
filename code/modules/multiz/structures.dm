@@ -179,6 +179,8 @@
 	return M.forceMove(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
@@ -296,6 +298,9 @@
 	if(airflow)
 		return TRUE
 
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	// Disallow stepping onto the elevated part of the stairs.
 	if(isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
 		return FALSE
@@ -347,6 +352,9 @@
 	density = TRUE
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
@@ -420,6 +428,9 @@
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)

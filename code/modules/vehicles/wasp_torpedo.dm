@@ -88,11 +88,14 @@
 		return
 	..()
 
-/obj/vehicle/bike/wasp_torpedo/bullet_act(var/obj/projectile/Proj)
-	if(Proj.get_structure_damage())
+/obj/vehicle/bike/wasp_torpedo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage())
 		if(prob(10))
 			torpedo_explosion()
-	..()
 
 /obj/vehicle/bike/wasp_torpedo/ex_act(severity)
 	switch(severity)
