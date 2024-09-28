@@ -22,7 +22,6 @@
 	desc = "Nothing to see here."
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
-	opacity = TRUE
 
 	///If a big flag, the other half of the flag is referenced here
 	var/obj/structure/sign/flag/linked_flag
@@ -52,6 +51,17 @@
 		else
 			flag_path = icon_state
 
+	if(deploy)
+		switch(dir)
+			if(NORTH)
+				pixel_y = 32
+			if(SOUTH)
+				pixel_y = -32
+			if(EAST)
+				pixel_x = 32
+			if(WEST)
+				pixel_x = -32
+
 	if(linked_flag_path)
 		icon_state = "[linked_flag_path]_r"
 		ripped_outline_state = "flag_ripped_r"
@@ -64,21 +74,23 @@
 	//Handles the creation of the large flags and single flags
 	if(flag_size)
 		create_other_half(loc, dir, flag_path, icon, pixel_x, pixel_y)
-
 	else
 		icon_state = "[flag_path]"
 		flag_icon = new(icon, icon_state)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-
-		//If on a wall or window, just use the icon, otherwise also add the stand the flag is hanged on
-		if(iswall(loc) || (locate(/obj/structure/window) in loc))
+		var/turf/T = get_step(loc, dir)
+		if(iswall(T))
 			icon = flag_icon
-		else
-			banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
-			flag_icon.Blend(banner_icon, ICON_UNDERLAY)
-			verbs += /obj/structure/sign/flag/proc/toggle
-			icon = flag_icon
+			return
+		for(var/obj/A in T)
+			if(istype(A, /obj/structure/window))
+				icon = flag_icon
+				return
+		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
+		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
+		verbs += /obj/structure/sign/flag/proc/toggle
+		icon = flag_icon
 
 /**
  * If the flag is a big flag, handles the creation and alignment of the other half of it
@@ -172,7 +184,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(get_turf(A), placement_dir, deploy = TRUE, item_flag_path = flag_path)
+	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
 	qdel(src)
 
 
@@ -244,8 +256,6 @@
 	name = "ripped flag"
 	desc = "You can't make out anything from the flag's original print. It's ruined."
 	ripped = TRUE
-	opacity = FALSE
-
 	if(rip_linked)
 		var/obj/item/stack/material/cloth/C = new(src.loc, flag_size ? 2 : 1)
 		if(user)
