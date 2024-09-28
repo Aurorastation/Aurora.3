@@ -25,10 +25,11 @@
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
-	new /obj/item/storage/box/goldstar(src)
+	new /obj/item/storage/stickersheet/goldstar(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/device/memorywiper(src)
 	new /obj/item/device/price_scanner(src)
 
 // Hangar Technician

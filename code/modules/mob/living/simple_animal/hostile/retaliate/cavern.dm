@@ -67,7 +67,9 @@
 	else
 		..()
 
-/obj/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/cavern/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
 		var/shock_damage = rand(10,20)

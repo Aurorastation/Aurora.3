@@ -88,7 +88,7 @@
 	mob_size = 15
 
 	canbrush = TRUE
-	has_udder = TRUE
+	can_be_milked = TRUE
 	milk_type = /singleton/reagent/drink/milk/adhomai
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
@@ -102,7 +102,7 @@
 	icon_living = "fatshouter_m"
 	icon_dead = "fatshouter_m_dead"
 	gender = MALE
-	has_udder = FALSE
+	can_be_milked = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
@@ -239,10 +239,13 @@
 		unburrow()
 	..()
 
-/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/P, def_zone)
+/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(burrowed && (stat != DEAD))
 		unburrow()
-	..()
 
 /mob/living/simple_animal/ice_catcher/death(gibbed)
 	..()

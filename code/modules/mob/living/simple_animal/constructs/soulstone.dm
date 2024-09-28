@@ -7,7 +7,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	appearance_flags = NO_CLIENT_COLOR
@@ -26,8 +26,8 @@
 		to_chat(user, SPAN_WARNING("This being is corrupted by an alien intelligence and cannot be soul trapped."))
 		return..()
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</span>")
+	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to capture the soul of [M.name] ([M.ckey])</span>"
 	msg_admin_attack("[user.name] ([user.ckey]) used the [src.name] to capture the soul of [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 
 	transfer_soul("VICTIM", M, user)
@@ -44,9 +44,9 @@
 	var/dat = ""
 	for(var/mob/living/simple_animal/shade/A in src)
 		dat += "Captured Soul: [A.name]<hr>"
-		dat += "<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A><br>"
+		dat += "<A href='byond://?src=[REF(src)];choice=Summon'>Summon Shade</A><br>"
 		dat += "<i>This will summon the spirit of [A.name] in a pure energy form. Be cautious, for they will be weak without a protective construct to house them.</i><hr>"
-	dat += "<a href='byond://?src=\ref[src];choice=Close'>Close</a>"
+	dat += "<a href='byond://?src=[REF(src)];choice=Close'>Close</a>"
 
 	var/datum/browser/soulstone_win = new(user, "soulstone", capitalize_first_letters(name))
 	soulstone_win.set_content(dat)

@@ -273,13 +273,16 @@
 			anger++
 			instant_aggro(1)
 
-
-/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/healthbefore = health
-	..()
-	spawn(1)
-		if (health < healthbefore)
-			instant_aggro()
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (health < healthbefore)
+		instant_aggro()
 
 /mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
@@ -508,9 +511,13 @@
 	forceMove(target)
 	spark_system.queue()
 
-/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
-	..(P, def_zone)
-	if (prob(P.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (prob(hitting_projectile.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
 		teleport_tactical()
 
 /mob/living/simple_animal/hostile/bear/spatial/FoundTarget()

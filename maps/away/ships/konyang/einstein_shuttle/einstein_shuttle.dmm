@@ -811,7 +811,7 @@
 /obj/structure/closet/crate/rad{
 	name = "fuel storage"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,

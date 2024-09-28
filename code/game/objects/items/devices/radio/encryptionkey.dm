@@ -4,7 +4,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "cypherkey"
 	item_state = ""
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	var/translate_binary = FALSE
 	var/translate_hivenet = FALSE
@@ -87,7 +87,7 @@
 
 /obj/item/device/encryptionkey/bluespace
 	name = "bluespace encryption key"
-	desc = "A non-sensical mimickry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
+	desc = "A nonsensical mimicry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
 	icon_state = "bs_cyperkey"
 	additional_channels = list(CHANNEL_BLUESPACE = TRUE)
 	origin_tech = list(TECH_BLUESPACE = 3)
@@ -197,7 +197,7 @@
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_operations_manager
-	name = "operations managaer radio encryption key"
+	name = "operations manager radio encryption key"
 	icon_state = "cargo_cypherkey"
 	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 

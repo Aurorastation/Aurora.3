@@ -9,7 +9,7 @@
 	item_state = "bloodpike"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	max_shots = 5
 	fire_delay = 25

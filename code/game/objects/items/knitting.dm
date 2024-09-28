@@ -4,7 +4,7 @@
 	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	var/working = FALSE
 	var/obj/item/yarn/ball
@@ -121,7 +121,7 @@
 	desc = "A ball of yarn, this one is white."
 	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "white_ball"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/yarn/red
 	desc = "A ball of yarn, this one is red."

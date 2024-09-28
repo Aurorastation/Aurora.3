@@ -1,5 +1,10 @@
 /obj/structure/table/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover,/obj/projectile))
 		return (check_cover(mover,target))
 	if (flipped == 1)
@@ -58,16 +63,17 @@
 			return 1
 	return 1
 
-/obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
-	..()
-	if(ishuman(am))
-		var/mob/living/carbon/human/H = am
+/obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
-			throw_things(H)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
-			throw_things(H)
-	else if((isliving(am) && !issmall(am)) || isslime(am))
-		throw_things(am)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
+	else if((isliving(arrived) && !issmall(arrived)) || isslime(arrived))
+		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
@@ -179,7 +185,7 @@
 									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
 							else
 								for(var/obj/item/O in get_turf(src))
-									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
+									if(!O.anchored && O.w_class < WEIGHT_CLASS_HUGE)
 										animate(O, pixel_y = 3, time = 2, loop = 1, easing = BOUNCE_EASING)
 										addtimer(CALLBACK(O, TYPE_PROC_REF(/obj/item, reset_table_position), 2))
 

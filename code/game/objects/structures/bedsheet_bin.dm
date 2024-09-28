@@ -20,7 +20,7 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
@@ -29,6 +29,14 @@ LINEN BINS
 	var/fold = FALSE
 	var/inuse = FALSE
 	var/inside_storage_item = FALSE
+
+/obj/item/bedsheet/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/bedsheet/afterattack(atom/A, mob/user)
 	if(istype(A, /obj/structure/bed))
@@ -89,9 +97,11 @@ LINEN BINS
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/bedsheet/Crossed(H as mob) //Basically, stepping on it resets it to below people.
-	if(isliving(H))
-		var/mob/living/M = H
+/obj/item/bedsheet/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		var/mob/living/M = arrived
 		if(M.loc == src.loc)
 			return
 	else
@@ -124,12 +134,12 @@ LINEN BINS
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_SMALL
+			w_class = WEIGHT_CLASS_SMALL
 			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 		update_icon()
 		inuse = FALSE
 		return TRUE
@@ -158,14 +168,14 @@ LINEN BINS
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_NORMAL
+			w_class = WEIGHT_CLASS_NORMAL
 			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
 			roll = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			if(layer == initial(layer))
 				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up

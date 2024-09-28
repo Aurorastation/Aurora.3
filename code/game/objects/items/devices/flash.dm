@@ -5,7 +5,7 @@
 	icon_state = "flash"
 	item_state = "flash"
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -97,8 +97,8 @@
 			attack_self(user)
 		return
 
-	L.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [L.name] ([L.ckey])</span>")
+	L.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [L.name] ([L.ckey])</span>"
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [L.name] ([L.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

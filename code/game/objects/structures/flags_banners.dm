@@ -240,7 +240,7 @@
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
 				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
-				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You \the [src] in a single, decisive motion!"))
+				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You rip \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 				add_fingerprint(user)
 				rip(user)
@@ -1558,14 +1558,14 @@
 /obj/item/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
 	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "biesel_antique"
+	flag_path = "antique_biesel"
 	flag_structure = /obj/structure/sign/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
 	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
-	flag_path = "biesel_antique"
-	icon_state = "biesel_antique"
+	flag_path = "antique_biesel"
+	icon_state = "antique_biesel"
 	flag_item = /obj/item/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique/unmovable

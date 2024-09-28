@@ -24,10 +24,11 @@
 	src.shoes = null
 	src.wearer = null
 
-/obj/item/clothing/shoes/magboots/proc/set_slowdown()
+/obj/item/clothing/shoes/magboots/proc/set_slowdown(mob/user)
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if(magpulse)
 		slowdown += slowdown_active
+	user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/magboots/proc/update_wearer()
 	if(QDELETED(wearer))
@@ -45,7 +46,7 @@
 	if(magpulse)
 		item_flags &= ~ITEM_FLAG_NO_SLIP
 		magpulse = 0
-		set_slowdown()
+		set_slowdown(user)
 		force = 3
 		if(icon_base)
 			icon_state = "[icon_base]0"
@@ -54,7 +55,7 @@
 	else
 		item_flags |= ITEM_FLAG_NO_SLIP
 		magpulse = 1
-		set_slowdown()
+		set_slowdown(user)
 		force = 11
 		if(icon_base)
 			icon_state = "[icon_base]1"
@@ -92,7 +93,7 @@
 
 	if (shoes)
 		to_chat(user, "You slip \the [src] on over \the [shoes].")
-	set_slowdown()
+	set_slowdown(user)
 	wearer = H
 	return 1
 

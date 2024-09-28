@@ -451,12 +451,21 @@
 	var/datum/vampire/owner_vampire = null
 	var/warning_level = 0
 
+/obj/effect/dummy/veil_walk/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(handle_bullet_act))
+
 /obj/effect/dummy/veil_walk/Destroy()
 	eject_all()
 
 	STOP_PROCESSING(SSprocessing, src)
 
 	return ..()
+
+/obj/effect/dummy/veil_walk/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
+	SIGNAL_HANDLER
+
+	return COMPONENT_BULLET_BLOCKED
 
 /obj/effect/dummy/veil_walk/proc/eject_all()
 	for(var/atom/movable/A in src)
@@ -571,9 +580,6 @@
 	desc = "[initial(desc)] + Its features look faintly alike [owner_mob.name]'s."
 
 /obj/effect/dummy/veil_walk/ex_act(vars)
-	return
-
-/obj/effect/dummy/veil_walk/bullet_act(vars)
 	return
 
 // Heals the vampire at the cost of blood.

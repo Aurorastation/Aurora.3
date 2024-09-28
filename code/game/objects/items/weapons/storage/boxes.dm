@@ -799,7 +799,7 @@
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 21
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
@@ -809,9 +809,9 @@
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
 	item_state = "redbox"
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	foldable = FALSE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/organ,
 		/obj/item/reagent_containers/food,
@@ -1015,21 +1015,21 @@
 
 /obj/item/storage/box/hadii_manifesto
 	name = "hadiist manifesto box"
-	desc = "A box full of hadiist manifesto books."
+	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
-	desc = "A box full of al'mariist manifesto books."
+	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
-	desc = "A box full of royalist manifesto books."
+	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/nka = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
@@ -1079,7 +1079,7 @@
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	chewable = FALSE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	starts_with = list(/obj/item/grenade/dynamite = 6)
 
 /obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
@@ -1095,18 +1095,6 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
-
-/obj/item/storage/box/googly
-	name = "googly eye box"
-	desc = "A box containing googly eyes."
-	illustration = "googlyeyes"
-	starts_with = list(/obj/item/sticker/googly_eye = 8)
-
-/obj/item/storage/box/goldstar
-	name = "gold star box"
-	desc = "A box containing gold star stickers."
-	illustration = "goldstar"
-	starts_with = list(/obj/item/sticker/goldstar = 8)
 
 /obj/item/storage/box/folders
 	name = "box of folders"
@@ -1131,7 +1119,7 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/storage/wrapper.ogg'
 	foldable = null
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 8
 	use_to_pickup = TRUE
 	chewable = TRUE
@@ -1211,8 +1199,8 @@
 /obj/item/storage/box/magnetic_locks
 	name = "magnetic lock box"
 	desc = "A box full of magnetic locks."
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
 	foldable = FALSE
 	max_storage_space = 16
 	can_hold = list(

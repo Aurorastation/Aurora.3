@@ -18,9 +18,9 @@
 	remove_verb(client, typesof(/client/verb))
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
 	if(GLOB.config.guests_allowed)
-		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
+		uihtml += "<a href='?src=[REF(src)];authaction=guest'>Login as guest</a>"
 	if(GLOB.config.webint_url && GLOB.config.external_auth)
-		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
+		uihtml += "<a href='?src=[REF(src)];authaction=forums'>Login via forums</a>"
 	if(!GLOB.config.guests_allowed && GLOB.config.webint_url && GLOB.config.external_auth)
 		src.OpenForumAuthWindow()
 	show_browser(src, uihtml, "window=externalauth;size=300x300;border=0;can_close=1;can_resize=0;can_minimize=0;titlebar=1")

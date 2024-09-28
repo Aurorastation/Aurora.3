@@ -1369,7 +1369,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
@@ -1923,7 +1923,7 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
 /obj/item/pipewrench,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/east{
 	req_one_access = list(211)
 	},
@@ -2818,7 +2818,7 @@
 /area/ship/iac_rescue_ship/afthallway)
 "fEe" = (
 /obj/machinery/space_heater,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
 "fEr" = (
@@ -8148,7 +8148,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(211)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)
@@ -8624,7 +8624,7 @@
 /area/ship/iac_rescue_ship/starboardengine)
 "tOS" = (
 /obj/machinery/pipedispenser,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
 "tPk" = (

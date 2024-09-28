@@ -194,13 +194,17 @@
 			src.defuse = 0
 			message_admins("[key_name_admin(user)] <font color=#FF0000>reset</font> fuse on fueltank at ([loc.x],[loc.y],[loc.z]).")
 
-/obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/projectile/Proj)
-	if(Proj.get_structure_damage())
-		if(istype(Proj.firer))
-			log_and_message_admins("shot a welding tank", Proj.firer)
-			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
+/obj/structure/reagent_dispensers/fueltank/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-		if(!istype(Proj ,/obj/projectile/beam/laser_tag) && !istype(Proj ,/obj/projectile/beam/practice) && !istype(Proj ,/obj/projectile/kinetic))
+	if(hitting_projectile.get_structure_damage())
+		if(istype(hitting_projectile.firer))
+			log_and_message_admins("shot a welding tank", hitting_projectile.firer)
+			log_game("[key_name(hitting_projectile.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
+
+		if(!istype(hitting_projectile ,/obj/projectile/beam/laser_tag) && !istype(hitting_projectile ,/obj/projectile/beam/practice) && !istype(hitting_projectile ,/obj/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -396,8 +400,12 @@
 	capacity = 5000
 	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 5000)
 
-/obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/projectile/Proj)
-	if(Proj.get_structure_damage())
+/obj/structure/reagent_dispensers/cookingoil/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage())
 		ex_act(2.0)
 
 //Coolant tank
@@ -409,9 +417,13 @@
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/coolant = 1000)
 
-/obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/projectile/Proj)
-	if(Proj.get_structure_damage())
-		if (Proj.damage_type != DAMAGE_PAIN)
+/obj/structure/reagent_dispensers/coolanttank/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage())
+		if (hitting_projectile.damage_type != DAMAGE_PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)

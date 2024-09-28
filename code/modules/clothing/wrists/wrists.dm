@@ -1,7 +1,7 @@
 
 /obj/item/clothing/wrists
 	name = "wrists"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'

@@ -179,6 +179,8 @@
 	return M.forceMove(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	return airflow || !density
 
 /obj/structure/ladder/update_icon()
@@ -237,6 +239,7 @@
 
 /obj/structure/stairs/Initialize()
 	. = ..()
+
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GET_TURF_ABOVE(turf)
 		if(!above)
@@ -246,6 +249,10 @@
 			above.ChangeToOpenturf()
 
 /obj/structure/stairs/CheckExit(atom/movable/mover, turf/target)
+	//This means the mob is moving, don't bump
+	if(mover.z != target.z)
+		return TRUE
+
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
 
@@ -271,7 +278,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(AM, src) && AM.dir == dir)
+	if(target.Enter(AM) && AM.dir == dir)
 		AM.forceMove(target)
 		if(isliving(AM))
 			var/mob/living/living_mob = AM
@@ -289,6 +296,9 @@
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
 	if(airflow)
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
 		return TRUE
 
 	// Disallow stepping onto the elevated part of the stairs.
@@ -342,6 +352,9 @@
 	density = TRUE
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
@@ -415,6 +428,9 @@
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)

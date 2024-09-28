@@ -93,11 +93,11 @@
 	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
 
 	if(sublist)
-		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
+		t1 += "<a href='?src=[REF(src)];go_back=1'>Back</a><br>"
 	if(locate(/datum/stack_recipe_list) in recipes_sublist)
 		t1 += "<h2>Recipe Categories</h2>"
 	for(var/datum/stack_recipe_list/srl in recipes_sublist)
-		t1 += "<a href='?src=\ref[src];sublist=\ref[srl]'>[capitalize_first_letters(srl.title)]</a><br>"
+		t1 += "<a href='?src=[REF(src)];sublist=[REF(srl)]'>[capitalize_first_letters(srl.title)]</a><br>"
 
 	if(locate(/datum/stack_recipe) in recipes_sublist)
 		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
@@ -116,8 +116,8 @@
 		title += " ([R.req_amount] [src.singular_name]\s)"
 
 		if(can_build)
-			var/sublist_var = sublist ? "\ref[sublist]" : ""
-			t1 += "<a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=1'>[title]</a>"
+			var/sublist_var = sublist ? "[REF(sublist)]" : ""
+			t1 += "<a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
 		else
 			t1 += "<div class='no-build inline'>[title]</div><br>"
 			continue
@@ -128,11 +128,11 @@
 			var/list/multipliers = list(5, 10, 25)
 			for(var/n in multipliers)
 				if(max_multiplier >= n)
-					var/sublist_var = sublist ? "\ref[sublist]" : ""
-					t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
+					var/sublist_var = sublist ? "[REF(sublist)]" : ""
+					t1 += " <a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
 			if(!(max_multiplier in multipliers))
-				var/sublist_var = sublist ? "\ref[sublist]" : ""
-				t1 += " <a href='?src=\ref[src];make=\ref[R];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
+				var/sublist_var = sublist ? "[REF(sublist)]" : ""
+				t1 += " <a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
 		t1 += "<br>"
 
 	t1 += "</tt></body></html>"

@@ -163,8 +163,7 @@ var/global/repository/singletons/Singletons = new
 	return result
 
 
-/singleton
-	abstract_type = /singleton
+ABSTRACT_TYPE(/singleton)
 
 
 /singleton/proc/Initialize()

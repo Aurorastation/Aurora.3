@@ -7,7 +7,7 @@
 	item_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	max_shots = 20
 	fire_delay = 6
@@ -186,7 +186,7 @@
 	can_switch_modes = 0
 	can_turret = 0
 	zoomdevicename = "rifle scope"
-	var/obj/screen/overlay = null
+	var/atom/movable/screen/overlay = null
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
@@ -209,7 +209,7 @@
 	projectile_type = /obj/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 1
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE

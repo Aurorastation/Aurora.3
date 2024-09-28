@@ -4,7 +4,7 @@
 	desc = "A rustic doll with a vague humanoid shape."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
 	var/cooldown_time = 120
@@ -140,10 +140,14 @@
 	if(H)
 		H.electrocute_act(power, src)
 
-/obj/item/poppet/bullet_act(var/obj/projectile/Proj)
+/obj/item/poppet/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, DAMAGE_PAIN)
+		H.apply_damage(hitting_projectile.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

@@ -17,7 +17,7 @@
 	icon_state = "express_package"
 	item_state = "express_package"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 
 	slowdown = 1
@@ -83,6 +83,9 @@
 			slowdown = 2
 		else
 			slowdown = 0
+
+		user.update_equipment_speed_mods()
+
 		return TRUE
 	return FALSE
 

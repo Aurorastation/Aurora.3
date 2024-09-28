@@ -30,7 +30,7 @@
 	var/used_dominate
 	var/datum/progressbar/ability_bar
 	var/ability_start_time = 0
-	var/obj/screen/borer/chemicals/chem_hud
+	var/atom/movable/screen/borer/chemicals/chem_hud
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
 	var/mob/living/carbon/human/host        // Human host for the brain worm.
 	var/truename                            // Name used for brainworm-speak.
@@ -87,7 +87,12 @@
 			host.emote(pick(controlling_emotes))
 	..()
 	if(!QDELETED(ability_bar))
-		ability_bar.update(world.time - ability_start_time)
+		var/borer_progress = world.time - ability_start_time
+		borer_progress = clamp(borer_progress, 0, ability_bar.goal)
+		ability_bar.update(borer_progress)
+
+		if(borer_progress == ability_bar.goal)
+			ability_bar.end_progress()
 
 /mob/living/simple_animal/borer/proc/start_ability(var/atom/target, var/time)
 	if(!QDELETED(ability_bar))

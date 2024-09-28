@@ -50,10 +50,17 @@
 	economic_modifier = 0
 
 /datum/job/cyborg/equip(var/mob/living/carbon/human/H, var/alt_title)
-		if(!H)	return 0
-		return 1
+	if(!H)
+		return FALSE
+	return TRUE
 
-/datum/job/cyborg/equip_preview(mob/living/carbon/human/H)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit)
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head)
-	return 1
+/datum/job/cyborg/equip_preview(mob/living/carbon/human/H, datum/preferences/prefs, var/alt_title, var/faction_override)
+	var/equip_preview_mob = prefs.equip_preview_mob
+
+	if(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head)
+
+	if(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT)
+		H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit)
+
+	return TRUE

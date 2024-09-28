@@ -399,7 +399,7 @@
 	activate_pin(3)
 
 	for(var/mob/O in hearers(1, get_turf(src)))
-		O.show_message(text("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*"), 3, "*beep* *beep*", 2)
+		O.show_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", 3, "*beep* *beep*", 2)
 
 //This circuit gives information on where the machine is.
 /obj/item/integrated_circuit/input/gps
@@ -546,7 +546,7 @@
 	desc = "This monitors the charge level of an internal battery."
 	icon_state = "internalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of the internal battery on demand."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 1
 	inputs = list()
 	outputs = list(
@@ -579,7 +579,7 @@
 	desc = "This can help watch the battery level of any device in range."
 	icon_state = "externalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of any device or battery in view"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 2
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(

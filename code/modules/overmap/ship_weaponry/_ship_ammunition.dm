@@ -3,7 +3,7 @@
 	desc = "A shell of some sort."
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slowdown = 2
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
@@ -255,4 +255,5 @@
 			pellet.ammo.impact_type = ammo.impact_type
 			pellet.dir = dir
 			var/turf/front_turf = get_step(pellet, pellet.dir)
-			pellet.launch_projectile(front_turf)
+			pellet.preparePixelProjectile(target_turf, front_turf)
+			pellet.fire()

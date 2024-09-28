@@ -324,7 +324,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/geiger,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
@@ -359,7 +359,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "ie" = (
@@ -681,7 +681,7 @@
 	dir = 4;
 	start_pressure = 4000
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "sq" = (
@@ -727,7 +727,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(210)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -1126,7 +1126,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "CJ" = (
@@ -1617,7 +1617,7 @@
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Ni" = (
@@ -1643,7 +1643,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Ol" = (
@@ -1720,7 +1720,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Qv" = (
@@ -1854,7 +1854,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor,
@@ -2263,7 +2263,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/telecomms/allinone/ship,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "ZO" = (

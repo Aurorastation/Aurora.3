@@ -35,10 +35,18 @@
 		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
 		make_dizzy(target_dizziness - dizziness)
 
+	//To handle the speed modifier, because this system was made stupidly
+	//If there's enough alcohol and the modifier wasn't applied yet, apply it
+	//if there's not enough alcohol and the modifier was applied, remove it
+	var/datum/movespeed_modifier/has_alcohol_modifier = src.has_movespeed_modifier(/datum/movespeed_modifier/alcohol/intoxication)
+	if((bac > INTOX_MUSCLEIMP*SR) && !has_alcohol_modifier)
+		src.add_movespeed_modifier(/datum/movespeed_modifier/alcohol/intoxication)
+	else if(has_alcohol_modifier)
+		src.remove_movespeed_modifier(/datum/movespeed_modifier/alcohol/intoxication)
+
 	if(bac > INTOX_MUSCLEIMP*SR && bac < INTOX_REACTION*SR)
 		if (prob(3))
 			to_chat(src, SPAN_GOOD(pick("You feel drunk!", "You feel great!", "Your inhibitions fall away...", "All your anxieties melt away.")))
-		move_delay_mod += 2
 		sprint_cost_factor += 0.2
 
 	if(bac > INTOX_REACTION*SR)
@@ -50,7 +58,9 @@
 		slurring = max(slurring, target_slurring)
 		confused = max(confused, 10)
 		eye_blurry = max(eye_blurry, 10)
-		move_delay_mod += 2
+		//Change the speed modifier, but only if it's not already what we want
+		if(has_alcohol_modifier.multiplicative_slowdown < 4)
+			src.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/alcohol/intoxication, TRUE, 4)
 		sprint_cost_factor += 0.2
 
 	if(bac > INTOX_VOMIT*SR)//Vomiting starts here. 1% chance every 10 ticks, escalating with increased intoxication (1% per 0.01 BAC)

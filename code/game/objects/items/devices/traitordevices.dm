@@ -19,7 +19,7 @@ effective or pretty fucking useless.
 	desc = "A strange device with twin antennas."
 	icon_state = "batterer"
 	throwforce = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -35,7 +35,7 @@ effective or pretty fucking useless.
 		to_chat(user, SPAN_WARNING("The mind batterer has been burnt out!"))
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>")
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>"
 
 	for(var/mob/living/carbon/human/M in orange(10, user))
 		if(prob(50))

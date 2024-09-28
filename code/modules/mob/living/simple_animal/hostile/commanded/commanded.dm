@@ -1,6 +1,4 @@
-/mob/living/simple_animal/hostile/commanded
-	abstract_type = /mob/living/simple_animal/hostile/commanded
-
+ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	name = "commanded"
 	var/short_name = null
 	stance = COMMANDED_STOP
@@ -310,11 +308,13 @@
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/projectile/P, var/def_zone)
-	..()
+/mob/living/simple_animal/hostile/commanded/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	// We forgive our master
-	if (ismob(P.firer) && P.firer == master)
+	if (ismob(hitting_projectile.firer) && hitting_projectile.firer == master)
 		target_mob = null
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
@@ -328,13 +328,12 @@
 		if(!istype(O, brush)) //we don't get sad if we're brushed!
 			audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-		if(ismob(O.throwing?.thrower?.resolve()))
-			if(O.throwing?.thrower?.resolve() == master)
+	if(isobj(hitting_atom))
+		if(ismob(throwingdatum?.thrower?.resolve()))
+			if(throwingdatum.thrower.resolve() == master)
 				target_mob = null
 				change_stance(HOSTILE_STANCE_IDLE)
 				audible_emote("[pick(sad_emote)].",0)

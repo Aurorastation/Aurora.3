@@ -230,7 +230,6 @@
 	projectile.desc = SA.desc
 	projectile.ammo = SA
 	projectile.dir = barrel.dir
-	projectile.shot_from = name
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
@@ -243,7 +242,9 @@
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
 	var/turf/target = get_step(projectile, barrel.dir)
-	projectile.launch_projectile(target)
+	projectile.preparePixelProjectile(target, firing_turf)
+	projectile.fired_from = barrel
+	projectile.fire()
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()
@@ -291,17 +292,21 @@
 	if(connected)
 		connected.attackby(attacking_item, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
-		connected.hitby(AM)
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed)
+		connected.hitby(arglist(args))
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)
-	connected.bullet_act(P)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	connected.bullet_act(hitting_projectile)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)
 	connected.ex_act(severity)

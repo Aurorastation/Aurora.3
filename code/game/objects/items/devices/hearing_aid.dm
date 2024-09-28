@@ -6,7 +6,7 @@
 	item_state = "hearing_aid"
 	contained_sprite = TRUE
 	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/hearing_aid/black
 	icon_state = "hearing_aid-b"

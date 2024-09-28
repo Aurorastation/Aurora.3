@@ -19,7 +19,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0
 	var/list/files = list(  )
 	var/last_flash = 0 //Spam limiter.
@@ -42,7 +42,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.name = "data disk- '[t]'"
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -185,16 +185,16 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []<br>", registered_name)
-	dat += text("Age: []<br>\n", age)
-	dat += text("Sex: []<br>\n", sex)
-	dat += text("Citizenship: []<br>\n", citizenship)
-	dat += text("Assignment and Employer: []<br>\n", assignment)
-	dat += text("Blood Type: []<br>\n", blood_type)
-	dat += text("Fingerprint Hash: []<br>\n", fingerprint_hash)
-	dat += text("DNA Hash: []\n", dna_hash)
+	dat += "Name: [registered_name]<br>"
+	dat += "Age: [age]<br>\n"
+	dat += "Sex: [sex]<br>\n"
+	dat += "Citizenship: [citizenship]<br>\n"
+	dat += "Assignment and Employer: [assignment]<br>\n"
+	dat += "Blood Type: [blood_type]<br>\n"
+	dat += "Fingerprint Hash: [fingerprint_hash]<br>\n"
+	dat += "DNA Hash: [dna_hash]\n"
 	if(mining_points)
-		dat += text("<br>Ore Redemption Points: []\n", mining_points)
+		dat += "<br>Ore Redemption Points: [mining_points]\n"
 	if(front && side)
 		dat +="<td align = center valign = top>Front and Side Photograph<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"

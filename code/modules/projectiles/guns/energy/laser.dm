@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
+	desc = "A NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -32,7 +32,7 @@
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser carbine"
-	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
+	desc = "A modified version of the NT G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/retro
@@ -46,7 +46,7 @@
 	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/beam
 	fire_delay = 5
@@ -68,7 +68,7 @@
 	force = 11
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 2
 	projectile_type = /obj/projectile/beam
 	origin_tech = null
@@ -80,7 +80,7 @@
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
-	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
+	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
 	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
@@ -138,7 +138,7 @@
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
-	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
 	To use the scope, use the appropriate verb in the object tab."
@@ -154,7 +154,7 @@
 	max_shots = 4
 	fire_delay = 45
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
 	can_turret = 1
@@ -187,7 +187,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 0
 	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)

@@ -59,6 +59,11 @@
 	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new /datum/gear_tweak/path(flats)
 
+/datum/gear/shoes/colorable_flats
+	display_name = "flats (colorable)"
+	path = /obj/item/clothing/shoes/flats/color
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/heels
 	display_name = "high heels"
 	path = /obj/item/clothing/shoes/heels
@@ -162,7 +167,28 @@
 	recolourable_shoes["high-tops"] = /obj/item/clothing/shoes/sneakers/hitops
 	recolourable_shoes["high-tops (tipped)"] = /obj/item/clothing/shoes/sneakers/hitops/tip
 	recolourable_shoes["oxfords"] = /obj/item/clothing/shoes/laceup/colourable
+	recolourable_shoes["thigh-high sneakers"] = /obj/item/clothing/shoes/sneakers/hitops/thightops
+	recolourable_shoes["thigh-high sneakers (tipped)"] = /obj/item/clothing/shoes/sneakers/hitops/thightops/tip
 	gear_tweaks += new /datum/gear_tweak/path(recolourable_shoes)
+
+/datum/gear/shoes/recolourable_boots
+	display_name = "boot selection (colourable)"
+	description = "Boots, in a selection of colours."
+	path = /obj/item/clothing/shoes/heeledboots
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/recolourable_boots/New()
+	..()
+	var/list/recolourable_boots = list()
+	recolourable_boots["thigh-high boots"] = /obj/item/clothing/shoes/thighboots
+	recolourable_boots["full-length boots"] = /obj/item/clothing/shoes/fullboots
+	recolourable_boots["mudboots"] = /obj/item/clothing/shoes/mudboots
+	recolourable_boots["thigh-high mudboots"] = /obj/item/clothing/shoes/mudboots/thigh
+	recolourable_boots["combat boots"] = /obj/item/clothing/shoes/colorcombat
+	recolourable_boots["jackboots"] = /obj/item/clothing/shoes/jackboots/color
+	recolourable_boots["workboots"] = /obj/item/clothing/shoes/workboots/color
+	recolourable_boots["ankle boots"] = /obj/item/clothing/shoes/ankleboots
+	gear_tweaks += new /datum/gear_tweak/path(recolourable_boots)
 
 /*
 	Shoe Layer Adjustment

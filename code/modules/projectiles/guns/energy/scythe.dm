@@ -5,7 +5,7 @@
 	icon = 'icons/obj/guns/scythe.dmi'
 	icon_state = "hunterkiller_scythe"
 	item_state = "hunterkiller_scythe"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force = 31
 	armor_penetration = 30
 	slot_flags = SLOT_BACK
