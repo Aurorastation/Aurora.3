@@ -121,10 +121,10 @@
 		var/datum/species/species = GLOB.all_species[species_name]
 		if(species.type in rep_faction.allowed_species_types)
 			continue
-		aide.blacklisted_species |= species.name
+		LAZYDISTINCTADD(aide.blacklisted_species, species.name)
 
 /datum/job/representative/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
-	aide.blacklisted_species = list()
+	aide.blacklisted_species = null
 	if(aide.total_positions > 0)
 		aide.total_positions--
 
