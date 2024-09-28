@@ -176,7 +176,11 @@
 	else if(attacking_item.force > 10 && deployed)
 		trigger(user)
 
-/obj/item/landmine/bullet_act()
+/obj/item/landmine/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(deployed)
 		trigger()
 
