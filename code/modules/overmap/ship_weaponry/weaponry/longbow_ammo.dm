@@ -140,9 +140,12 @@
 	if(prob(10))
 		cookoff(FALSE)
 
-/obj/item/warhead/longbow/bullet_act(obj/projectile/P, def_zone)
+/obj/item/warhead/longbow/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(P.damage > 5)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.damage > 5)
 		cookoff(TRUE)
 
 /obj/item/warhead/longbow/attackby(obj/item/attacking_item, mob/user)

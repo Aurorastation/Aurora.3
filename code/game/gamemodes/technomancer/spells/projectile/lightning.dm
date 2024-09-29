@@ -42,7 +42,6 @@
 	power = 1000
 
 
-/obj/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
-	..()
-	tesla_zap(target_mob, 3, power)
-	return 1
+/obj/projectile/beam/lightning/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	tesla_zap(target, 3, power)

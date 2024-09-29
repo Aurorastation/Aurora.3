@@ -83,11 +83,10 @@
 			to_chat(user, "You unbuckle [load] from \the [src]")
 			to_chat(load, "You were unbuckled from \the [src] by [user]")
 
-/obj/vehicle/animal/bullet_act(var/obj/projectile/Proj)
+/obj/vehicle/animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(buckled && prob((1 - armor_component.get_blocked(Proj.damage_type, Proj.damage_flags, Proj.armor_penetration))*100))
-		buckled.bullet_act(Proj)
-		return
+	if(buckled && prob((1 - armor_component.get_blocked(hitting_projectile.damage_type, hitting_projectile.damage_flags, hitting_projectile.armor_penetration))*100))
+		return buckled.bullet_act(arglist(args))
 	..()
 
 /obj/vehicle/animal/relaymove(mob/living/user, direction)

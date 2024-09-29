@@ -278,9 +278,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//so that it's similar to DAMAGE_PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
-	var/bones_can_break = 0
-	var/limbs_can_break = 0
-
 	var/revival_pod_plants = 1
 	var/revival_cloning = 1
 	var/revival_brain_life = -1
@@ -1117,10 +1114,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					GLOB.config.default_brain_health = text2num(value)
 					if(!GLOB.config.default_brain_health || GLOB.config.default_brain_health < 1)
 						GLOB.config.default_brain_health = initial(GLOB.config.default_brain_health)
-				if("bones_can_break")
-					GLOB.config.bones_can_break = value
-				if("limbs_can_break")
-					GLOB.config.limbs_can_break = value
 
 				if("walk_speed")
 					GLOB.config.walk_speed = value
