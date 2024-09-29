@@ -703,7 +703,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /obj/machinery/door/window/southleft,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "fP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -727,7 +727,7 @@
 /turf/simulated/floor/bluegrid/airless,
 /area/ship/gadpathur_patrol/exterior)
 "fX" = (
-/turf/simulated/open/airless,
+/turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "gh" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -803,7 +803,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor,
 /area/ship/gadpathur_patrol/fuel)
 "hf" = (
 /obj/structure/platform_deco{
@@ -1735,7 +1735,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 4
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "op" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -1915,7 +1915,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "py" = (
 /obj/machinery/door/firedoor,
@@ -1956,7 +1956,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "pP" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
@@ -2464,11 +2464,11 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "sW" = (
-/obj/structure/closet/crate{
-	name = "!!! TRITIUM CONTAINER !!!"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/structure/closet/crate/rad{
+	name = "!!! TRITIUM CONTAINER !!!"
 	},
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
@@ -2613,7 +2613,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "ud" = (
 /obj/structure/railing/mapped{
@@ -2971,7 +2971,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 8
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "xz" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
@@ -3003,7 +3003,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "xR" = (
 /turf/simulated/floor/tiled/dark,
@@ -3272,7 +3272,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "zW" = (
 /obj/machinery/power/apc/east{
@@ -3390,7 +3390,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "AZ" = (
 /obj/structure/closet/secure_closet{
@@ -3804,7 +3804,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "Dz" = (
 /obj/structure/platform_stairs/south_north_solo,
@@ -4485,7 +4485,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "IU" = (
 /obj/structure/table/steel,
@@ -4733,7 +4733,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "Ld" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -5246,7 +5246,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "Pw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5574,15 +5574,15 @@
 /area/ship/gadpathur_patrol/cic)
 "RJ" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/open/airless,
+/turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "RL" = (
 /obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/open/airless,
+/turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "RP" = (
 /obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "RR" = (
 /turf/simulated/floor/tiled/white,
@@ -6146,7 +6146,7 @@
 "VZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "Wl" = (
 /turf/simulated/floor,
@@ -6200,7 +6200,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 8
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "WF" = (
 /obj/machinery/atmospherics/unary/vent_pump/aux{
@@ -6318,7 +6318,7 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southright,
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "Xv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6446,7 +6446,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/open/airless,
+/turf/space/dynamic,
 /area/ship/gadpathur_patrol/exterior)
 "YJ" = (
 /obj/item/stack/material/plasteel,
