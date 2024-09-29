@@ -385,6 +385,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
 /area/ship/lonerbig/center)
+"fL" = (
+/obj/machinery/ship_weapon/autocannon,
+/turf/template_noop,
+/area/space)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -443,6 +447,12 @@
 "gr" = (
 /turf/simulated/floor/tiled,
 /area/space)
+"gt" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "gA" = (
 /obj/item/solar_assembly{
 	pixel_x = -4;
@@ -472,7 +482,6 @@
 "hc" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/random/civgun/rifle,
 /obj/item/gun/projectile/pistol,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/utility/machete,
@@ -974,6 +983,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"oS" = (
+/obj/machinery/ammunition_loader/autocannon,
+/turf/simulated/floor,
+/area/space)
 "pb" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1468,9 +1481,11 @@
 /turf/simulated/floor/airless,
 /area/ship/lonerbig/port)
 "wa" = (
-/obj/machinery/ship_weapon/francisca,
-/turf/template_noop,
-/area/space)
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/lonerbig/bridge)
 "wb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1817,18 +1832,15 @@
 /area/ship/lonerbig/port)
 "AD" = (
 /obj/structure/closet/crate/drop,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon/frag,
+/obj/item/ship_ammunition/autocannon/frag,
+/obj/item/ship_ammunition/autocannon/he,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
 "AP" = (
@@ -1924,9 +1936,9 @@
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/starboard)
 "CS" = (
-/obj/machinery/ammunition_loader/francisca,
-/turf/simulated/floor/tiled,
-/area/ship/lonerbig/bridge)
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor,
+/area/space)
 "CW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2021,6 +2033,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
+"Fi" = (
+/turf/simulated/floor,
+/area/ship/lonerbig/bridge)
 "FB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -2095,23 +2110,23 @@
 /obj/structure/table/standard,
 /obj/item/trash/tray{
 	pixel_y = 5;
-	pixel_x = 3
+	pixel_x = 1
 	},
 /obj/item/trash/bowl_small{
-	pixel_x = 6;
+	pixel_x = 7;
 	pixel_y = 10
 	},
 /obj/item/material/ashtray/glass{
-	pixel_y = -3;
-	pixel_x = -8
+	pixel_y = -4;
+	pixel_x = -9
 	},
 /obj/item/trash/match{
-	pixel_y = 6;
+	pixel_y = 7;
 	pixel_x = -11
 	},
 /obj/item/trash/cigbutt{
 	pixel_x = -8;
-	pixel_y = -4
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/starboard)
@@ -2137,6 +2152,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/port)
+"Hi" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/space)
 "Hn" = (
 /obj/item/tracker_electronics{
 	pixel_y = 8;
@@ -2677,6 +2696,12 @@
 	},
 /turf/simulated/wall/shuttle,
 /area/ship/lonerbig/port)
+"RI" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "RN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2861,6 +2886,12 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
 /area/ship/lonerbig/engineering)
+"VB" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "VG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -35075,7 +35106,7 @@ gr
 uc
 gr
 gr
-gr
+gt
 Gq
 uv
 qK
@@ -35332,7 +35363,7 @@ gr
 bM
 gr
 gr
-gr
+RI
 Vd
 uv
 qK
@@ -35589,7 +35620,7 @@ vA
 Gq
 gr
 gr
-gr
+VB
 Gq
 uv
 qK
@@ -36612,7 +36643,7 @@ qK
 qK
 qK
 qK
-wa
+qK
 qK
 qK
 qK
@@ -36865,10 +36896,10 @@ FD
 YO
 qK
 qK
-ix
-ix
-ix
-ix
+qK
+qK
+qK
+qK
 qK
 qK
 qK
@@ -37121,7 +37152,7 @@ oh
 tA
 hn
 qK
-ix
+qK
 qK
 qK
 qK
@@ -37378,7 +37409,7 @@ oh
 Au
 py
 py
-CS
+py
 Sz
 Sz
 Sz
@@ -37639,9 +37670,9 @@ BV
 Pq
 vx
 Sz
-qK
-qK
-qK
+Gq
+Gq
+Gq
 qK
 qK
 qK
@@ -37895,12 +37926,12 @@ lg
 vs
 BV
 sh
-Sz
+wa
+CS
+CS
+ix
 qK
-qK
-qK
-qK
-qK
+fL
 qK
 qK
 qK
@@ -38152,11 +38183,11 @@ Ym
 KB
 Pq
 cL
-Sz
-qK
-qK
-qK
-qK
+wa
+CS
+CS
+ix
+Hi
 qK
 qK
 qK
@@ -38409,10 +38440,10 @@ OM
 WC
 BV
 yx
-Sz
-qK
-qK
-qK
+wa
+CS
+CS
+ix
 qK
 qK
 qK
@@ -38666,10 +38697,10 @@ PY
 cF
 BV
 BV
-Sz
-qK
-qK
-qK
+Fi
+oS
+Gq
+Gq
 qK
 qK
 qK
@@ -38923,9 +38954,9 @@ BV
 HV
 BV
 BV
-Sz
-qK
-qK
+Fi
+Zf
+Gq
 qK
 qK
 qK
@@ -39181,8 +39212,8 @@ py
 py
 Sz
 Sz
-qK
-qK
+Gq
+Gq
 qK
 qK
 qK
