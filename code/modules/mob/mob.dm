@@ -1519,6 +1519,8 @@
 
 ///Apply a proper movespeed modifier based on items we have equipped
 /mob/proc/update_equipment_speed_mods()
+	if(species && (species.flags & NO_EQUIP_SLOWDOWN))
+		return
 	var/speedies = 0
 	for(var/obj/item/thing in get_equipped_speed_mod_items())
 		speedies += (thing.slowdown + thing.slowdown_accessory)
