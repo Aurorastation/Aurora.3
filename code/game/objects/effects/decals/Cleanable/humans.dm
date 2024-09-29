@@ -181,6 +181,7 @@
 	var/list/drips
 
 /obj/effect/decal/cleanable/blood/drip/New()
+	..()
 	drips = list(icon_state)
 
 /obj/effect/decal/cleanable/blood/drip/Destroy()
