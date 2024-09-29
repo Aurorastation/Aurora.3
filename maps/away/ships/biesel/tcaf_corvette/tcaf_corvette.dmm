@@ -7342,9 +7342,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/machinery/biogenerator,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hydroponics)
