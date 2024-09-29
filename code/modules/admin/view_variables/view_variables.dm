@@ -163,9 +163,9 @@
 				var/entry = L[index]
 				if(IS_NORMAL_LIST(L) && IS_VALID_ASSOC_KEY(entry))
 					if(!isnull(L[entry]))
-						extra += "<li>[index]: [make_view_variables_value(entry)] -> [make_view_variables_value(L[entry])]</li>"
+						extra += "<li>[index]: [make_view_variables_value(D, entry)] -> [make_view_variables_value(D, L[entry])]</li>"
 					else
-						extra += "<li>[index]: [make_view_variables_value(entry)]</li>"
+						extra += "<li>[index]: [make_view_variables_value(D, entry)]</li>"
 			extra += "</ul>"
 		else if(length(L) >= 100)
 			vtext = "([length(L)]): <ul><li><a href='?_src_=vars;datumview=[REF(L)];varnameview=[varname]'>List too large to display, click to view.</a></ul>"
