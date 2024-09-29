@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
+			. += "<a href='?priv_msg=[REF(C)];ticket=[REF(ticket)]'>"
 
 		if(C && C.holder && C.holder.fakekey && !include_name)
 			. += "Administrator"
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 // Helper procs for building detailed log lines
 /datum/proc/get_log_info_line()
-	return "[src] ([type]) (\ref[src])"
+	return "[src] ([type]) ([REF(src)])"
 
 /area/get_log_info_line()
 	return "[..()] ([isnum(z) ? "[x],[y],[z]" : "0,0,0"])"

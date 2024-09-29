@@ -4,7 +4,7 @@
 /datum/hud/proc/borer_hud()
 	src.adding = list()
 
-	var/obj/screen/borer/chemicals/C = new /obj/screen/borer/chemicals()
+	var/atom/movable/screen/borer/chemicals/C = new /atom/movable/screen/borer/chemicals()
 	adding += C
 
 	var/mob/living/simple_animal/borer/B = mymob

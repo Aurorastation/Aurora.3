@@ -8,6 +8,7 @@
 	force_divisor = 0.3 // 18 with hardness 60 (steel)
 	thrown_force_divisor = 0.85
 	attack_verb = list("jabbed","stabbed","ripped")
+	worth_multiplier = 15
 
 /obj/item/material/harpoon/proc/prime()
 	return
@@ -45,6 +46,7 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	surgerysound = 'sound/items/surgery/hatchet.ogg'
+	worth_multiplier = 6
 
 /obj/item/material/hatchet/can_woodcut()
 	return TRUE
@@ -150,6 +152,7 @@
 	thrown_force_divisor = 0.25 // as above
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
+	worth_multiplier = 6
 
 /obj/item/material/scythe
 	name = "scythe"
@@ -169,6 +172,7 @@
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
+	worth_multiplier = 20
 
 /obj/item/material/scythe/sickle
 	name = "sickle"

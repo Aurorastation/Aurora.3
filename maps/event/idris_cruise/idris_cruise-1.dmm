@@ -4429,7 +4429,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cruise/pool)
 "dsS" = (
@@ -5681,38 +5681,14 @@
 /area/cruise/main_bar/aft)
 "ezH" = (
 /obj/structure/table/wood,
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
 	name = "\improper ONE WAY DOOR";
@@ -7232,14 +7208,8 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
+/obj/item/paper/fluff/idris_cruise/medal_of_valor,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/structure/table/standard,
 /obj/machinery/light/small{
 	dir = 4
@@ -9396,14 +9366,8 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
+/obj/item/paper/fluff/idris_cruise/medal_of_valor,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -17663,38 +17627,14 @@
 /area/cruise/e_supplies)
 "obv" = (
 /obj/structure/table/wood,
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
-/obj/item/paper{
-	info = "Welcome to your very own VR preparation room! You can customize your virtual reality avatar here. Once ready, head out to the Game Selection Hall, where you can head out on your customized adventure! Have fun!";
-	name = "vr introduction slip"
-	},
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
+/obj/item/paper/fluff/idris_cruise/vr_prep,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -25559,66 +25499,21 @@
 /area/cruise/aft_p)
 "uAi" = (
 /obj/structure/table/reinforced,
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
-/obj/item/paper{
-	info = "Welcome to MEDAL OF VALOR 2 gameplay demo. You've entered your teams respective base. Proceed to the fighting! Do not push into the enemy's base under any circumstances! Remember, have fun!";
-	name = "Medal of Valor 2 Introduction Slip"
-	},
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
+/obj/item/paper/fluff/idris_cruise/medal_of_valor_nopush,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

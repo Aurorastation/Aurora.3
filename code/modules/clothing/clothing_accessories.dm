@@ -54,8 +54,8 @@
 		if(!over_object || over_object == src)
 			return
 
-		if(istype(over_object, /obj/screen/inventory))
-			var/obj/screen/inventory/S = over_object
+		if(istype(over_object, /atom/movable/screen/inventory))
+			var/atom/movable/screen/inventory/S = over_object
 			if(S.slot_id == src.equip_slot)
 				return
 
@@ -101,7 +101,7 @@
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a HREF=?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0

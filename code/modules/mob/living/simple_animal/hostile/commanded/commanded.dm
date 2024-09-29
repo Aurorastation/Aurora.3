@@ -308,11 +308,13 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/projectile/P, var/def_zone)
-	..()
+/mob/living/simple_animal/hostile/commanded/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	// We forgive our master
-	if (ismob(P.firer) && P.firer == master)
+	if (ismob(hitting_projectile.firer) && hitting_projectile.firer == master)
 		target_mob = null
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)

@@ -3,7 +3,6 @@
 	icon_state = "ice_1"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	nodamage = 1
 	check_armor = "energy"
 
 /obj/projectile/animate/Collide(atom/change)

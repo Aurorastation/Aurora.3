@@ -744,7 +744,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Toggle Build Mode Self"
 	set category = "Special Verbs"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_ADMIN|R_SPAWN))
 		return
 	var/datum/click_handler/handler = mob.GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
@@ -1343,7 +1343,7 @@ var/list/admin_verbs_cciaa = list(
 			prefix = "(R)"
 			admin_stuff += "/([source.key])"
 			if(target != source.client)
-				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+				admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)

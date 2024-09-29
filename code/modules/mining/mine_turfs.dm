@@ -129,20 +129,36 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 	SSicon_smooth.add_to_queue_neighbors(src)
 
-/turf/simulated/mineral/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/beam/plasmacutter))
-		var/obj/projectile/beam/plasmacutter/PC_beam = Proj
+/turf/simulated/mineral/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	SHOULD_CALL_PARENT(FALSE) //Fucking snowflake stack of procs
+
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_ATOM_PRE_BULLET_ACT, hitting_projectile, def_zone)
+	if(sigreturn & COMPONENT_BULLET_PIERCED)
+		return BULLET_ACT_FORCE_PIERCE
+	if(sigreturn & COMPONENT_BULLET_BLOCKED)
+		return BULLET_ACT_BLOCK
+	if(sigreturn & COMPONENT_BULLET_ACTED)
+		return BULLET_ACT_HIT
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, hitting_projectile, def_zone)
+	if(QDELETED(hitting_projectile)) // Signal deleted it?
+		return BULLET_ACT_BLOCK
+
+	if(istype(hitting_projectile, /obj/projectile/beam/plasmacutter))
+		var/obj/projectile/beam/plasmacutter/PC_beam = hitting_projectile
 		var/list/cutter_results = PC_beam.pass_check(src)
 		. = cutter_results[1]
 		if(cutter_results[2]) // the cutter mined the turf, just pass on
-			return
+			return BULLET_ACT_HIT
 
 	// Emitter blasts
-	if(istype(Proj, /obj/projectile/beam/emitter))
+	if(istype(hitting_projectile, /obj/projectile/beam/emitter))
 		emitter_blasts_taken++
 
 	if(emitter_blasts_taken >= 3)
 		GetDrilled()
+
+	hitting_projectile.on_hit(src, 0, def_zone)
 
 /turf/simulated/mineral/CollidedWith(atom/bumped_atom)
 	. = ..()

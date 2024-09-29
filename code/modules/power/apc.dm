@@ -797,9 +797,9 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				for(var/obj/item/implant/mindshield/ipc/I in H)
 					if(I.implanted)
 						return
-				if(SOFTREF(H) in hacked_ipcs)
+				if(REF(H) in hacked_ipcs)
 					return
-				LAZYADD(hacked_ipcs, SOFTREF(H))
+				LAZYADD(hacked_ipcs, REF(H))
 				infected = FALSE
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))

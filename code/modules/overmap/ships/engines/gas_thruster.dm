@@ -113,7 +113,9 @@
 	return 0
 
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	return 0
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	return FALSE
 
 /obj/machinery/atmospherics/unary/engine/atmos_init()
 	..()

@@ -165,7 +165,13 @@ var/list/VVdynamic_lock = list(
 
 /client/proc/mod_list(var/list/L, atom/O, original_name, objectvar)
 	if(!check_rights(R_VAREDIT|R_DEV))	return
-	if(!istype(L,/list)) to_chat(src, "Not a List.")
+	if(!islist(L))
+		//May the omnissiah forgive me for this
+		if(tgui_alert(usr, "Not a list, make it a list?", "Make list", list("Yes", "No")) == "Yes")
+			O.vars[objectvar] = list()
+			L = O.vars[objectvar]
+		else
+			return
 
 	if(L.len > 1000)
 		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
@@ -314,7 +320,10 @@ var/list/VVdynamic_lock = list(
 				L[L.Find(variable)] = variable
 
 		if("edit referenced object")
-			modify_variables(variable)
+			if(islist(L?[variable]))
+				mod_list(L[variable], O, original_name, objectvar)
+			else
+				modify_variables(variable)
 
 		if("DELETE FROM LIST")
 			world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
@@ -573,7 +582,7 @@ var/list/VVdynamic_lock = list(
 	var/original_name
 
 	if (!istype(O, /atom))
-		original_name = "\ref[O] ([O])"
+		original_name = "[REF(O)] ([O])"
 	else
 		original_name = O:name
 

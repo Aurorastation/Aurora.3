@@ -28,7 +28,6 @@
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
-#define SS_PRIORITY_PROJECTILES 5	// Projectile processing!
 
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.

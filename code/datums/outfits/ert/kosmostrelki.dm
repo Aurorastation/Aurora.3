@@ -41,7 +41,7 @@
 
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-						/obj/item/book/manual/pra_manifesto = 1,
+						/obj/item/device/versebook/pra = 1,
 						/obj/item/storage/box/hadii_card = 1,
 						/obj/item/gun/projectile/deagle/adhomai = 1,
 						/obj/item/clothing/accessory/holster/hip/brown = 1,

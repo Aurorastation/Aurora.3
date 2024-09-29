@@ -168,8 +168,8 @@
 		playsound(user.loc, /singleton/sound_category/spark_sound, 50, 1)
 
 		user.forceMove(picked)
-		return PROJECTILE_FORCE_MISS
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )

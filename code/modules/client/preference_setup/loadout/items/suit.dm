@@ -582,3 +582,15 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)

@@ -924,11 +924,11 @@
 /area/peoples_station/hangar)
 "dA" = (
 /obj/structure/closet/cabinet,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/pra,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
 /turf/simulated/floor/wood,
@@ -5585,7 +5585,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/obj/item/book/manual/pra_manifesto,
+/obj/item/device/versebook/pra,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "uq" = (
