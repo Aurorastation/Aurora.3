@@ -258,9 +258,9 @@
 				welding = FALSE
 				break
 			if (cuts_needed)
+				welding = FALSE
 				to_chat(user, SPAN_NOTICE("You successfully cut a support struct! Now dislodged from its fitting, it clatters down to the floor."))
 				new /obj/item/stack/rods(src.loc)
-				welding = FALSE
 			else
 				welding = FALSE
 				qdel(src)
