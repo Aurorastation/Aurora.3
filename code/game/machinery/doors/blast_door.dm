@@ -222,11 +222,24 @@
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
+	var/cuts_needed = 6
+	var/cut_time = 20 SECONDS
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
 	density = FALSE
 	opacity = FALSE
+
+/obj/machinery/door/blast/shutters/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
+		to_chat(user, SPAN_NOTICE("You begin slicing the shutters apart. This might take a while..."))
+		if(attacking_item.use_tool(src, user, 2000, volume = 50))
+			qdel(src)
+			playsound(src, 'sound/items/Welder.ogg', 10, 1)
+			user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice through the shutters!"))
+
+	return ..()
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
