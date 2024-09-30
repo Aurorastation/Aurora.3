@@ -265,7 +265,7 @@
 				welding = FALSE
 				qdel(src)
 				playsound(src, 'sound/items/Welder.ogg', 10, 1)
-				user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through the shutters, opening the way!"))
+				user.visible_message(SPAN_WARNING("\The [src] were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through \the [src], opening the way!"))
 				new /obj/item/stack/rods(src.loc)
 				break
 
