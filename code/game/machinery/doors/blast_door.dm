@@ -212,9 +212,10 @@
 	opacity = FALSE
 
 // SUBTYPE: Shutters
-// Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
+// Nicer looking, and also weaker, shutters. Found in kitchen and similar areas. Unlike blast doors, can be destroyed with a welder.
 /obj/machinery/door/blast/shutters
 	name = "shutter"
+	desc_extended = "This can be disassembled by cutting all six support structs off with a welding tool, and this process can be reversed by reinstalling support structs with use of steel rods."
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
@@ -223,7 +224,7 @@
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
 	var/cuts_needed = 6
-	var/cut_time = 20 SECONDS
+	var/cut_time = 15 SECONDS
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
@@ -231,15 +232,46 @@
 	opacity = FALSE
 
 /obj/machinery/door/blast/shutters/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswelder())
+	// For replacing welded-off structs.
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
+		if(cuts_needed == 6)
+			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support structs."))
+		else
+			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support struct."))
+			if (do_after(user, 30 SECONDS))
+				to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support struct."))
+				R.use(1)
+				cuts_needed++
+
+	// For welding off structs.
+	else if (attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
-		to_chat(user, SPAN_NOTICE("You begin slicing the shutters apart. This might take a while..."))
-		if(attacking_item.use_tool(src, user, 2000, volume = 50))
-			qdel(src)
-			playsound(src, 'sound/items/Welder.ogg', 10, 1)
-			user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice through the shutters!"))
+		while (cuts_needed)
+			to_chat(user, SPAN_NOTICE("You begin slicing through a support struct in the shutters. You see [cuts_needed] remaining."))
+			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
+				cuts_needed--
+			else
+				break
+			if (cuts_needed)
+				to_chat(user, SPAN_NOTICE("You successfully cut a support struct! Now dislodged from its fitting, it clatters down to the floor."))
+				new /obj/item/stack/rods(src.loc)
+			else
+				qdel(src)
+				playsound(src, 'sound/items/Welder.ogg', 10, 1)
+				user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice through the shutters!"))
+				new /obj/item/stack/rods(src.loc)
+				break
 
 	return ..()
+
+// I feel there must be a better way to do this ~ hazelmouse
+/obj/machinery/door/blast/shutters/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if (cuts_needed > 1)
+		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support structs.")
+	else
+		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support struct.")
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
