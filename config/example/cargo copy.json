@@ -1,0 +1,161 @@
+{
+	"categories": {
+		"security": {
+			"name": "security",
+			"display_name": "Security",
+			"description": "Security Items",
+			"icon": "shield",
+			"price_modifier": 1
+		},
+		"engineering": {
+			"name": "engineering",
+			"display_name": "Engineering",
+			"description": "Engineering Items",
+			"icon": "wrench",
+			"price_modifier": 1
+		},
+		"hospitality": {
+			"name": "hospitality",
+			"display_name": "Hospitality",
+			"description": "Hospitality Items",
+			"icon": "wine",
+			"price_modifier": 1
+		},
+		"medical": {
+			"name": "medical",
+			"display_name": "Medical",
+			"description": "Medical Items",
+			"icon": "heart",
+			"price_modifier": 1
+		},
+		"hydroponics": {
+			"name": "hydroponics",
+			"display_name": "Hydroponics",
+			"description": "Hydroponic Equipment",
+			"icon": "leaf",
+			"price_modifier": 1
+		},
+		"operations": {
+			"name": "operations",
+			"display_name": "Operations",
+			"description": "Operations Equipment",
+			"icon": "clipboard",
+			"price_modifier": 1
+		},
+		"science": {
+			"name": "science",
+			"display_name": "Science",
+			"description": "Scientific Equipment",
+			"icon": "flask",
+			"price_modifier": 1
+		},
+		"supply": {
+			"name": "supply",
+			"display_name": "Supply",
+			"description": "Supply Items",
+			"icon": "box",
+			"price_modifier": 1
+		}
+	},
+	"suppliers": {
+		"nt": {
+			"name": "NanoTrasen",
+			"description": "Your default supplier.",
+			"tag_line": "For all your station supplies.",
+			"shuttle_time": 100,
+			"shuttle_price": 500,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"zsc": {
+			"name": "Zeta Supply Co.",
+			"description": "Supplying advanced security and hospitality items.",
+			"tag_line": "Always at the frontier.",
+			"shuttle_time": 150,
+			"shuttle_price": 600,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"blm": {
+			"name": "Bluemoon Logistics",
+			"description": "Specialized in resupplying operations and miscellaneous items.",
+			"tag_line": "The logistics partner you need.",
+			"shuttle_time": 200,
+			"shuttle_price": 700,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"get": {
+			"name": "GreenEarth Technologies",
+			"description": "Supplier of eco-friendly and hydroponics equipment.",
+			"tag_line": "For a greener tomorrow.",
+			"shuttle_time": 120,
+			"shuttle_price": 400,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"een": {
+			"name": "Einstein Engines",
+			"description": "High-tech engineering supplier.",
+			"tag_line": "Engineering the future.",
+			"shuttle_time": 200,
+			"shuttle_price": 800,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"vfc": {
+			"name": "Venus Food Co.",
+			"description": "Suppliers of beverages and hospitality items.",
+			"tag_line": "Taste from the stars.",
+			"shuttle_time": 130,
+			"shuttle_price": 450,
+			"available": 1,
+			"price_modifier": 1
+		},
+		"zhu": {
+			"name": "Zeng-Hu Pharmaceuticals",
+			"description": "Premium supplier of medical and scientific equipment.",
+			"tag_line": "Innovating healthcare.",
+			"shuttle_time": 180,
+			"shuttle_price": 750,
+			"available": 1,
+			"price_modifier": 1
+		}
+	},
+	"items": {
+		".45 Pistol": {
+			"name": ".45 Pistol",
+			"supplier": "weaponsco",
+			"description": "A standard sidearm, found pretty much everywhere humans are. Uses .45 rounds.",
+            "categories": ["medical", "security", "engineering", "civilian"],
+            "price": 100,
+			"items": {
+				".45 Pistol": {
+                    "path": "/obj/item/gun/projectile/sec",
+					"vars": []
+				}
+			},
+			"access": 3,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 1
+		},
+		"/obj/item/clothing/gloves/yellow": {
+            "name": "Insulated Gloves",
+            "supplier": "einsteinengines",
+			"description": "Rubber Insulated Gloves",
+            "categories": ["engineering"],
+            "price": 20,
+			"items": {
+				"Insulated Gloves": {
+                    "path": "/obj/item/clothing/gloves/yellow",
+					"vars": []
+				}
+			},
+			"access": 10,
+			"container_type": "crate",
+            "groupable": 1,
+            "item_mul": 2
+		}
+	}
+}

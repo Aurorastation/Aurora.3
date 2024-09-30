@@ -1762,6 +1762,7 @@
 #include "code\modules\battlemonsters\items\furniture\dueling_area.dm"
 #include "code\modules\blob\blob.dm"
 #include "code\modules\cargo\bounty.dm"
+#include "code\modules\cargo\cargo_items.dm"
 #include "code\modules\cargo\export_scanner.dm"
 #include "code\modules\cargo\exports.dm"
 #include "code\modules\cargo\randomstock.dm"
