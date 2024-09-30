@@ -4503,7 +4503,7 @@
 			"gravitational singularity toy": {
 				"name": "gravitational singularity toy",
 				"supplier": "nt",
-				"description": "Singulo\" brand spinning toy.",
+				"description": "'Singulo' brand spinning toy.",
 				"categories": [
 					"supply"
 				],
@@ -7279,7 +7279,12 @@
 					"hydroponics"
 				],
 				"price": 700,
-				"items": "{\"schlorrgo egg\":{\"path:\"/obj/item/reagent_containers/food/snacks/egg/schlorrgo\",\"vars\":[]}}",
+				"items": {
+					"schlorrgo egg":{
+						"path": "/obj/item/reagent_containers/food/snacks/egg/schlorrgo",
+						"vars":[]
+						}
+					},
 				"access": 0,
 				"container_type": "freezer",
 				"groupable": 1,
@@ -7289,7 +7294,7 @@
 				"name": "sculpting block",
 				"supplier": "nt",
 				"description": "A finely chiselled sculpting block, it is ready to be your canvas.",
-				"categories": "[\"operations]",
+				"categories": "[operations]",
 				"price": 200,
 				"items": {
 					"auto-chisel": {

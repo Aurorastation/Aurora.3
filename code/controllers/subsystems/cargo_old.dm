@@ -1,6 +1,6 @@
 //Config stuff
-#define SUPPLY_DOCKZ 1		  //Z-level of the Dock.
-#define SUPPLY_STATIONZ 6	   //Z-level of the Station.
+#define SUPPLY_DOCKZ 1          //Z-level of the Dock.
+#define SUPPLY_STATIONZ 6       //Z-level of the Station.
 #define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
 #define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
 
@@ -70,7 +70,14 @@ SUBSYSTEM_DEF(cargo)
 	supply_account = SSeconomy.get_department_account("Operations")
 
 	//Load in the cargo items config
-	load_cargo_files()
+	if(GLOB.config.cargo_load_items_from == "sql")
+		log_subsystem_cargo("SScargo: Attempting to Load from SQL")
+		load_from_sql()
+	else if(GLOB.config.cargo_load_items_from == "json")
+		log_subsystem_cargo("SScargo: Attempting to Load from JSON")
+		load_from_json()
+	else
+		log_game("SScargo: invalid load option specified in config")
 
 	setupExports()
 	setupBounties()
@@ -95,128 +102,141 @@ SUBSYSTEM_DEF(cargo)
 	all_orders = list() //All orders
 	last_item_id = 0
 
-/datum/controller/subsystem/cargo/proc/load_cargo_categories()
-	log_subsystem_cargo("Loading cargo categories.")
+//Load the cargo data from SQL
+/datum/controller/subsystem/cargo/proc/load_from_sql()
+	if(!establish_db_connection(GLOB.dbcon))
+		log_subsystem_cargo("SQL ERROR - Failed to connect. - Falling back to JSON")
+		return load_from_json()
+	else
+		//Reset the currently loaded data
+		reset_cargo()
 
-	var/list/category_list = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)
+		//Load the categories
+		var/DBQuery/category_query = GLOB.dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
+		category_query.Execute()
+		while(category_query.NextRow())
+			CHECK_TICK
+			add_category(
+				category_query.item[2],
+				category_query.item[3],
+				category_query.item[4],
+				category_query.item[5],
+				text2num(category_query.item[6]))
+		//Load the suppliers
+		var/DBQuery/supplier_query = GLOB.dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
+		supplier_query.Execute()
+		while(supplier_query.NextRow())
+			CHECK_TICK
+			add_supplier(
+				supplier_query.item[2],
+				supplier_query.item[3],
+				supplier_query.item[4],
+				supplier_query.item[5],
+				supplier_query.item[6],
+				supplier_query.item[7],
+				supplier_query.item[8],
+				supplier_query.item[9])
+		//Load the items
+		var/DBQuery/item_query = GLOB.dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		item_query.Execute()
+		while(item_query.NextRow())
+			CHECK_TICK
+			var/item_id = item_query.item[1]
+			var/error_message = add_item(
+				item_query.item[1],
+				item_query.item[2],
+				item_query.item[3],
+				item_query.item[4],
+				item_query.item[5],
+				item_query.item[6],
+				item_query.item[7],
+				item_query.item[8],
+				item_query.item[9],
+				item_query.item[10],
+				item_query.item[11])
+			if(error_message && istext(error_message))
+				log_subsystem_cargo("SScargo: Error when loading item [item_id] from sql: [error_message]")
+				var/DBQuery/item_error_query = GLOB.dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
+				item_error_query.Execute(list("id"=item_id,"error_message"=error_message))
 
-	if (!islist(category_list) || !category_list.len)
-		log_subsystem_cargo("No cargo categories found in /singleton/cargo_category.")
-		return
-
-	for (var/category in category_list)
-		CHECK_TICK
-
-		var/singleton/cargo_category/C = category
-
-		if (!C)
-			log_subsystem_cargo("Failed to load a valid cargo category.")
-			continue
-
-		log_subsystem_cargo("Loading category [C.name].")
-		add_category(
-			C.name,
-			C.display_name,
-			C.description,
-			C.icon,
-			C.price_modifier
-		)
-
-	log_subsystem_cargo("Finished loading cargo categories.")
-
-	// Call get_category_list to log all loaded categories
-	get_category_list()
-
-/datum/controller/subsystem/cargo/proc/load_cargo_items()
-	log_subsystem_cargo("Loading cargo items).")
-
-	reset_cargo()
-
-	// Get the list of all valid singleton cargo items
-	var/list/item_list = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)
-
-	// Check if item_list is valid and contains entries
-	if (!islist(item_list) || !item_list.len)
-		log_subsystem_cargo("No cargo items found in /singleton/cargo_item.")
-		return
-
-	for (var/item in item_list)
-		CHECK_TICK
-		// Cast item to the appropriate type
-		var/singleton/cargo_item/I = item
-
-		if (!I)
-			log_subsystem_cargo("Failed to load a valid cargo item.")
-			continue
-
-		log_subsystem_cargo("Loading item [I.name] with category [I.category].")
-		// Use the category defined inside the item singleton
-		var/error_message = add_item(
-			null,
-			I.name,
-			I.supplier,
-			I.description,
-			I.category,
-			I.price,
-			I.items,
-			I.access,
-			I.container_type,
-			I.groupable,
-			I.item_mul
-		)
-
-		if (error_message && istext(error_message))
-			log_subsystem_cargo("Error when loading item: [error_message]")
-
-	log_subsystem_cargo("Finished loading cargo items.")
-
-//Load cargo data from cargo_items.dm
-/datum/controller/subsystem/cargo/proc/load_cargo_files()
-	log_subsystem_cargo("Starting to load cargo data from files.")
-
-	// Reset the loaded cargo data
-	reset_cargo()
-
-	// Load cargo categories
-	load_cargo_categories()
-
-	// Load cargo items
-	load_cargo_items()
-
-	log_subsystem_cargo("Finished loading cargo data from files.")
 
 //Loads the cargo data from JSON
+/datum/controller/subsystem/cargo/proc/load_from_json()
+	var/list/cargoconfig = list()
+
+	if(!(rustg_file_exists("config/cargo.json") == "true"))
+		log_config("The file config/cargo.json was not found, cargo items will not be loaded.")
+		return
+
+	try
+		cargoconfig = json_decode(return_file_text("config/cargo.json"))
+	catch(var/exception/ej)
+		log_subsystem_cargo("Warning: Could not load config, as cargo.json is missing - [ej]")
+		return
+
+	//Reset the currently loaded data
+	reset_cargo()
+
+	//Load the cargo categories
+	for (var/category in cargoconfig["categories"])
+		CHECK_TICK
+		add_category(
+			cargoconfig["categories"][category]["name"],
+			cargoconfig["categories"][category]["display_name"],
+			cargoconfig["categories"][category]["description"],
+			cargoconfig["categories"][category]["icon"],
+			cargoconfig["categories"][category]["price_modifier"])
+	//Load the suppliers
+	for (var/supplier in cargoconfig["suppliers"])
+		CHECK_TICK
+		add_supplier(
+			supplier,
+			cargoconfig["suppliers"][supplier]["name"],
+			cargoconfig["suppliers"][supplier]["description"],
+			cargoconfig["suppliers"][supplier]["tag_line"],
+			cargoconfig["suppliers"][supplier]["shuttle_time"],
+			cargoconfig["suppliers"][supplier]["shuttle_price"],
+			cargoconfig["suppliers"][supplier]["available"],
+			cargoconfig["suppliers"][supplier]["price_modifier"])
+	//Load the cargoitems
+	for (var/item in cargoconfig["items"])
+		CHECK_TICK
+		var/error_message = add_item(
+			null,
+			cargoconfig["items"][item]["name"],
+			cargoconfig["items"][item]["supplier"],
+			cargoconfig["items"][item]["description"],
+			cargoconfig["items"][item]["categories"],
+			cargoconfig["items"][item]["price"],
+			cargoconfig["items"][item]["items"],
+			cargoconfig["items"][item]["access"],
+			cargoconfig["items"][item]["container_type"],
+			cargoconfig["items"][item]["groupable"],
+			cargoconfig["items"][item]["item_mul"])
+		if(error_message && istext(error_message))
+			log_subsystem_cargo("Error when loading item: [error_message]")
+	return 1
 
 //Add a new Category to the Cargo Subsystem
 //Returns the /datum/cargo_category on success or a error message
-/datum/controller/subsystem/cargo/proc/add_category(var/name, var/display_name, var/description, var/icon, var/price_modifier)
-	log_subsystem_cargo("Attempting to add category: [name]")
-
+/datum/controller/subsystem/cargo/proc/add_category(var/name,var/display_name,var/description,var/icon,var/price_modifier)
 	var/datum/cargo_category/cc = new()
 	cc.name = name
 	cc.display_name = display_name
 	cc.description = description
 	cc.icon = icon
-	cc.price_modifier = price_modifier
+	cc.price_modifier = text2num(price_modifier)
 
-	// Log before adding to cargo_categories
-	log_subsystem_cargo("Adding category [name] to cargo_categories.")
-
-	cargo_categories[name] = cc
-
-	log_subsystem_cargo("Category [name] successfully added to cargo_categories.")
+	//Add the category to the cargo_categories list
+	cargo_categories[cc.name] = cc
 	return cc
-
 
 //Add a new Supplier to the Cargo Subsystem
 //Returns the /datum/cargo_supplier/ on success or a error message
-/datum/controller/subsystem/cargo/proc/add_supplier(var/short_name, var/name, var/description, var/tag_line, var/shuttle_time, var/shuttle_price, var/available, var/price_modifier)
-	// Create a new supplier object
+/datum/controller/subsystem/cargo/proc/add_supplier(var/short_name,var/name,var/description,var/tag_line,var/shuttle_time,var/shuttle_price,var/available,var/price_modifier)
 	var/datum/cargo_supplier/cs = new()
-
-	// Assign the passed values to the supplier
-	cs.short_name = short_name   // This could be a short identifier, but could also be the full name depending on your needs
-	cs.name = name			   // Full name of the supplier
+	cs.short_name = short_name
+	cs.name = name
 	cs.description = description
 	cs.tag_line = tag_line
 	cs.shuttle_time = text2num(shuttle_time)
@@ -224,33 +244,32 @@ SUBSYSTEM_DEF(cargo)
 	cs.available = text2num(available)
 	cs.price_modifier = text2num(price_modifier)
 
-	// Add the supplier to the cargo_suppliers list
 	cargo_suppliers[cs.short_name] = cs
-
 	return cs
-
 
 //Add a new item to the cargo subsystem, the categories and the items need to be a list or a JSON String
 //Decoding of the string MUST take place before
 //Returns the /datum/cargo_item on success or a error message
-/datum/controller/subsystem/cargo/proc/add_item(var/id = null, var/name, var/supplier, var/description, var/categories, var/price, var/items, var/access = 0, var/container_type = CARGO_CONTAINER_CRATE, var/groupable = 1, var/item_mul = 1)
-	// Generate a new ID if not provided
-	if (!id)
-		id = get_next_item_id()
+/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/categories,var/price,var/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)
+	//TODO-CARGO: Maybe add the option to specify access as string instead of number
+
+	//If no item ID is supplied generate one ourselfs (use the next free id)
+	//If one is supplied, update the item id if the one supplied is higher
+	if(!id)
+		id=get_next_item_id()
 	else
 		id = text2num(id)
-		if (id > last_item_id)
+		if(id > last_item_id)
 			last_item_id = id
 
-	// Create a new cargo item
 	var/datum/cargo_item/ci = new()
 	try
-		// Ensure categories and items are lists
-		if (!islist(categories))
-			categories = list(categories)
+		//Check if categories and items are a list and try decode them (from json) if they are not.
+		if(!islist(categories))
+			categories = json_decode(categories)
 
-		if (!islist(items))
-			items = list(items)
+		if(!islist(items))
+			items = json_decode(items)
 
 		ci.id = id
 		ci.name = name
@@ -263,23 +282,59 @@ SUBSYSTEM_DEF(cargo)
 		ci.container_type = container_type
 		ci.groupable = text2num(groupable)
 		ci.item_mul = text2num(item_mul)
-		ci.amount = length(ci.items) * ci.item_mul
-
-	catch (var/exception/e)
+		ci.amount = length(ci.items)*ci.item_mul
+	catch(var/exception/e)
 		log_subsystem_cargo("Error when loading item [name] - [id]: [e]")
 		qdel(ci)
 		return "Error when loading item [name] - [id]: [e]"
 
-	// Add the item to the cargo_items list
+	var/path_error = null
+	for(var/item in ci.items)
+		var/itempath = text2path(ci.items[item]["path"])
+		if(!ispath(itempath))
+			log_subsystem_cargo("Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]]")
+			path_error += "Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]].\n"
+
+	if(path_error)
+		return path_error
+
+	//Check if a valid container is specified
+	if(!(ci.container_type in list(CARGO_CONTAINER_CRATE, CARGO_CONTAINER_FREEZER, CARGO_CONTAINER_BOX, CARGO_CONTAINER_BODYBAG)))
+		log_subsystem_cargo("Invalid container type specified for item [name] - [id]: Aborting")
+		qdel(ci)
+		return "Invalid container type specified for item [name] - [id]"
+
+	//Verify the suppliers exist
+	var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
+	if(!cs)
+		log_subsystem_cargo("[supplier] is not a valid supplier for item [name] - [id]")
+		qdel(ci)
+		return "[supplier] is not a valid supplier for item [name] - [id]"
+
+	//Setting the supplier
+	ci.supplier_datum = cs
+
+	//Add the item to the cargo_items list
 	cargo_items["[ci.id]"] = ci
 
-	// Add the item to the appropriate categories
-	for (var/category_name in ci.categories)
-		var/datum/cargo_category/cc = cargo_categories[category_name]
-		if (cc)
+	//Add the item to the suppliers items list
+	ci.supplier_datum.items.Add(ci)
+
+	//Log a message if no categories are specified
+	if(ci.categories.len == 0)
+		log_subsystem_cargo("No categories specified for item [ci.name]")
+		ci.supplier_datum = null
+		qdel(ci)
+		return "No categories specified for item [name] - [id]"
+
+
+	//Add the item to the categories
+	for(var/category in ci.categories)
+		var/datum/cargo_category/cc = cargo_categories[category]
+		if(cc) //Check if the category exists
 			cc.items.Add(ci)
 		else
-			log_subsystem_cargo("Warning - Category [category_name] for item [ci.name] does not exist")
+			log_subsystem_cargo("Warning - Attempted to add [ci.name] item to category [category] that does not exist.")
 
 	return ci
 
@@ -310,25 +365,11 @@ SUBSYSTEM_DEF(cargo)
 	var/list/category_list = list()
 	for (var/cat_name in cargo_categories)
 		var/datum/cargo_category/cc = cargo_categories[cat_name]
-		if (!cc)
-			log_subsystem_cargo("Error: Category [cat_name] is invalid.")
-			continue
 		category_list.Add(list(cc.get_list()))
-
-		log_subsystem_cargo("Loaded category: [cc.name] with display name: [cc.display_name]")
-
 	return category_list
-
-//Get category names
+//Get a category by name
 /datum/controller/subsystem/cargo/proc/get_category_by_name(var/name)
-	// Check if the category exists in cargo_categories
-	if (!cargo_categories[name])
-		log_subsystem_cargo("Error: Requested category [name] does not exist.")
-		return null
-
-	// Return the category if it exists
 	return cargo_categories[name]
-
 
 //Gets a order by order id
 /datum/controller/subsystem/cargo/proc/get_order_by_id(var/id)
