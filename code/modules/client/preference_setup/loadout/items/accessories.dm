@@ -708,3 +708,25 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/skirt
+	display_name = "wearover skirt selection"
+	path = /obj/item/clothing/accessory/skirt
+	description = "A selection of skirts. Can be worn as an accessory or as a uniform."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/skirt/New()
+	..()
+	var/list/skirt = list()
+	skirt["casual skirt"] = /obj/item/clothing/accessory/skirt
+	skirt["puffy skirt"] = /obj/item/clothing/accessory/skirt/puffy
+	skirt["long skirt"] = /obj/item/clothing/accessory/skirt/long
+	skirt["pencil skirt"] = /obj/item/clothing/accessory/skirt/pencil
+	skirt["swept skirt"] = /obj/item/clothing/accessory/skirt/swept
+	skirt["plaid skirt"] = /obj/item/clothing/accessory/skirt/plaid
+	skirt["pleated skirt"] = /obj/item/clothing/accessory/skirt/pleated
+	skirt["high skirt"] = /obj/item/clothing/accessory/skirt/high
+	skirt["skater skirt"] = /obj/item/clothing/accessory/skirt/skater
+	skirt["tube skirt"] = /obj/item/clothing/accessory/skirt/tube
+	skirt["long straight skirt"] = /obj/item/clothing/accessory/skirt/straightlong
+	gear_tweaks += new /datum/gear_tweak/path(skirt)
