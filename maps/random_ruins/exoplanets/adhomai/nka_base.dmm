@@ -658,7 +658,7 @@
 /area/nka_base)
 "Vy" = (
 /obj/structure/table/wood,
-/obj/item/book/manual/nka_manifesto,
+/obj/item/device/versebook/nka,
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "VN" = (

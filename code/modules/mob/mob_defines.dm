@@ -8,6 +8,13 @@
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
+	/// List of movement speed modifiers applying to this mob
+	var/list/movespeed_modification //Lazy list, see mob_movespeed.dm
+	/// List of movement speed modifiers ignored by this mob. List -> List (id) -> List (sources)
+	var/list/movespeed_mod_immunities //Lazy list, see mob_movespeed.dm
+	/// The calculated mob speed slowdown based on the modifiers list
+	var/cached_multiplicative_slowdown
+
 	// we never want to hide a turf because it's not lit
 	// We can rely on the lighting plane to handle that for us
 	see_in_dark = 1e6
@@ -15,40 +22,40 @@
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	can_be_buckled = TRUE
 
-	var/obj/screen/cells = null
-	var/obj/screen/flash = null
-	var/obj/screen/blind = null
-	var/obj/screen/hands = null
-	var/obj/screen/pullin = null
-	var/obj/screen/purged = null
-	var/obj/screen/internals/internals = null
-	var/obj/screen/oxygen = null
-	var/obj/screen/paralysis_indicator = null
-	var/obj/screen/i_select = null
-	var/obj/screen/m_select = null
-	var/obj/screen/toxin = null
-	var/obj/screen/fire = null
-	var/obj/screen/bodytemp = null
-	var/obj/screen/healths = null
-	var/obj/screen/throw_icon = null
-	var/obj/screen/nutrition_icon = null
-	var/obj/screen/hydration_icon = null
-	var/obj/screen/pressure = null
-	var/obj/screen/damageoverlay = null
-	var/obj/screen/pain = null
-	var/obj/screen/gun/item/item_use_icon = null
-	var/obj/screen/gun/radio/radio_use_icon = null
-	var/obj/screen/gun/move/gun_move_icon = null
-	var/obj/screen/gun/mode/gun_setting_icon = null
-	var/obj/screen/gun/unique_action_icon = null
-	var/obj/screen/gun/toggle_firing_mode = null
-	var/obj/screen/energy/energy_display = null
-	var/obj/screen/instability/instability_display = null
-	var/obj/screen/up_hint = null
+	var/atom/movable/screen/cells = null
+	var/atom/movable/screen/flash = null
+	var/atom/movable/screen/blind = null
+	var/atom/movable/screen/hands = null
+	var/atom/movable/screen/pullin = null
+	var/atom/movable/screen/purged = null
+	var/atom/movable/screen/internals/internals = null
+	var/atom/movable/screen/oxygen = null
+	var/atom/movable/screen/paralysis_indicator = null
+	var/atom/movable/screen/i_select = null
+	var/atom/movable/screen/m_select = null
+	var/atom/movable/screen/toxin = null
+	var/atom/movable/screen/fire = null
+	var/atom/movable/screen/bodytemp = null
+	var/atom/movable/screen/healths = null
+	var/atom/movable/screen/throw_icon = null
+	var/atom/movable/screen/nutrition_icon = null
+	var/atom/movable/screen/hydration_icon = null
+	var/atom/movable/screen/pressure = null
+	var/atom/movable/screen/damageoverlay = null
+	var/atom/movable/screen/pain = null
+	var/atom/movable/screen/gun/item/item_use_icon = null
+	var/atom/movable/screen/gun/radio/radio_use_icon = null
+	var/atom/movable/screen/gun/move/gun_move_icon = null
+	var/atom/movable/screen/gun/mode/gun_setting_icon = null
+	var/atom/movable/screen/gun/unique_action_icon = null
+	var/atom/movable/screen/gun/toggle_firing_mode = null
+	var/atom/movable/screen/energy/energy_display = null
+	var/atom/movable/screen/instability/instability_display = null
+	var/atom/movable/screen/up_hint = null
 
 	//spells hud icons - this interacts with add_spell and remove_spell
-	var/list/obj/screen/movable/spell_master/spell_masters = null
-	var/obj/screen/movable/ability_master/ability_master = null
+	var/list/atom/movable/screen/movable/spell_master/spell_masters = null
+	var/atom/movable/screen/movable/ability_master/ability_master = null
 
 	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
 	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
@@ -56,7 +63,7 @@
 	I'll make some notes on where certain variable defines should probably go.
 	Changing this around would probably require a good look-over the pre-existing code.
 	*/
-	var/obj/screen/zone_sel/zone_sel = null
+	var/atom/movable/screen/zone_sel/zone_sel = null
 
 	var/use_me = 1 //Allows all mobs to use the me verb by default, will have to manually specify they cannot
 	var/damageoverlaytemp = 0

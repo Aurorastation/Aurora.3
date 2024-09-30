@@ -50,7 +50,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	//station_explosion used to be a variable for every mob's hud. Which was a waste!
 	//Now we have a general cinematic centrally held within the gameticker....far more efficient!
-	var/obj/screen/cinematic = null
+	var/atom/movable/screen/cinematic = null
 
 	var/list/default_lobby_tracks = list(
 		'sound/music/lobby/space.ogg',
@@ -483,7 +483,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
 		<span> \
-			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
+			<a href='?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
 			to see every possible site/ship that can potentially spawn here.\
 		</span>\
 	"}
@@ -609,7 +609,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/mob/abstract/new_player/NP in GLOB.player_list)
 		if(!NP.client)
 			continue
-		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
+		var/atom/movable/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
 		JG.update_icon(NP)
 	to_world(SPAN_NOTICE("<b>Enjoy the round!</b>"))
 	if(SSatlas.current_sector.sector_welcome_message)
@@ -639,7 +639,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		return	//already a cinematic in progress!
 
 	//initialise our cinematic screen object
-	cinematic = new /obj/screen{
+	cinematic = new /atom/movable/screen{
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
 		layer = HUD_ABOVE_ITEM_LAYER;

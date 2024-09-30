@@ -37,17 +37,17 @@
 	return offset_x
 
 /mob/living/heavy_vehicle/proc/toggle_maintenance_protocols()
-	var/obj/screen/mecha/toggle/maint/M = locate() in hud_elements
+	var/atom/movable/screen/mecha/toggle/maint/M = locate() in hud_elements
 	M.toggled()
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_hatch()
-	var/obj/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
+	var/atom/movable/screen/mecha/toggle/hatch_open/H = locate() in hud_elements
 	H.toggled()
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/toggle_lock()
-	var/obj/screen/mecha/toggle/hatch/L = locate() in hud_elements
+	var/atom/movable/screen/mecha/toggle/hatch/L = locate() in hud_elements
 	L.toggled()
 	return TRUE
 

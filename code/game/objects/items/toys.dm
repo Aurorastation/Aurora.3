@@ -168,7 +168,11 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/item/toy/balloon/bullet_act()
+/obj/item/toy/balloon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	burst()
 
 /obj/item/toy/balloon/fire_act(temperature, volume)

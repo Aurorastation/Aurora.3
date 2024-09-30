@@ -1142,13 +1142,13 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -1453,7 +1453,9 @@
 /area/ship/ranger_corvette/engine1)
 "fJE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /obj/item/disk/tech_disk{
 	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450.";
 	name = "\improper Greatest Hits of The 2450's disk"
@@ -1472,6 +1474,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "fVq" = (
@@ -5128,8 +5132,8 @@
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "ranger";
-	name = "igs - ranger"
+	identifier = "ranger_synthetic";
+	name = "igs - ranger_synthetic"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -5141,7 +5145,12 @@
 	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = null
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 16;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)

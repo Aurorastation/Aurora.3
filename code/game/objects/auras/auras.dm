@@ -6,6 +6,15 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 /obj/aura
 	var/mob/living/user
 
+/obj/aura/Initialize(mapload, ...)
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(handle_bullet_act))
+
+/obj/aura/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
+	SIGNAL_HANDLER
+
+	return COMPONENT_BULLET_BLOCKED
+
 /obj/aura/Destroy()
 	if(user)
 		user.remove_aura(src)
@@ -22,9 +31,6 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 	return FALSE
 
 /obj/aura/attackby(obj/item/attacking_item, mob/user)
-	return FALSE
-
-/obj/aura/bullet_act(obj/projectile/P, def_zone)
 	return FALSE
 
 /obj/aura/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
