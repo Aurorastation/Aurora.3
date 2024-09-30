@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed power-monitoring sensors for D1 engineering and the command subgrid."
-  - bugfix: "Updated command substation camera name."
