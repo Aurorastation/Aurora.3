@@ -225,6 +225,7 @@
 	closed_layer = CLOSED_DOOR_LAYER
 	var/cuts_needed = 6
 	var/cut_time = 15 SECONDS
+	var/welding = FALSE // Whether the shutter is currently being welded.
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
@@ -238,28 +239,33 @@
 		if(cuts_needed == 6)
 			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support structs."))
 		else
-			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support struct."))
+			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support struct..."))
 			if (do_after(user, 30 SECONDS))
 				to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support struct."))
 				R.use(1)
 				cuts_needed++
 
 	// For welding off structs.
-	else if (attacking_item.iswelder())
+	else if (attacking_item.iswelder() && welding == FALSE)
 		var/obj/item/weldingtool/WT = attacking_item
 		while (cuts_needed)
+			welding = TRUE
 			to_chat(user, SPAN_NOTICE("You begin slicing through a support struct in the shutters. You see [cuts_needed] remaining."))
 			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
+				welding = FALSE
 				cuts_needed--
 			else
+				welding = FALSE
 				break
 			if (cuts_needed)
 				to_chat(user, SPAN_NOTICE("You successfully cut a support struct! Now dislodged from its fitting, it clatters down to the floor."))
 				new /obj/item/stack/rods(src.loc)
+				welding = FALSE
 			else
+				welding = FALSE
 				qdel(src)
 				playsound(src, 'sound/items/Welder.ogg', 10, 1)
-				user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice through the shutters!"))
+				user.visible_message(SPAN_WARNING("The shutters were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through the shutters, opening the way!"))
 				new /obj/item/stack/rods(src.loc)
 				break
 
@@ -271,7 +277,7 @@
 	if (cuts_needed > 1)
 		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support structs.")
 	else
-		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support struct.")
+		. += SPAN_NOTICE("\The [src] seems to only have [cuts_needed] intact support struct! It's close to collapse!")
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
