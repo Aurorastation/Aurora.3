@@ -1,8 +1,7 @@
 /obj/random/loot
 	name = "random maintenance loot"
 	desc = "Stuff for the maint-dwellers."
-	icon = 'icons/holidays/christmas/presents.dmi'
-	icon_state = "gift1"
+	icon_state = "gasmask"
 	problist = list(
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
@@ -169,8 +168,7 @@
 /obj/random/highvalue
 	name = "random high value item"
 	desc = "This is a random high value item."
-	icon = 'icons/obj/coins.dmi'
-	icon_state = "coin_diamond_heads"
+	icon_state = "coin"
 	problist = list(
 		/obj/random/telecrystals = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
@@ -229,8 +227,7 @@
 /obj/random/highvalue/safe
 	name = "random corporate safe high value item"
 	desc = "This is a random corporate safe high value item."
-	icon = 'icons/obj/coins.dmi'
-	icon_state = "coin_diamond_heads"
+	icon_state = "coin"
 	problist = list(
 		/obj/item/device/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
@@ -247,8 +244,7 @@
 /obj/random/custom_ka
 	name = "random custom kinetic accelerator"
 	desc = "Contains random assemblies. The parts may not always be compatible with eachother."
-	icon = 'icons/obj/kinetic_accelerators.dmi'
-	icon_state = "frame01"
+	icon_state = "kinetic"
 	spawnlist = list(
 		/obj/item/toy/mech/honk
 	)
@@ -298,8 +294,7 @@
 /obj/random/prebuilt_ka
 	name = "random prebuilt kinetic accelerator"
 	desc = "Contains working kinetic accelerators that were prebuilt in code."
-	icon = 'icons/obj/kinetic_accelerators.dmi'
-	icon_state = "frameA"
+	icon_state = "kinetic"
 	spawnlist = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt = 2.5,
 		/obj/item/gun/custom_ka/frame02/prebuilt = 5,
