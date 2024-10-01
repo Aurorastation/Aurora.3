@@ -58,3 +58,4 @@ changes:
   - rscadd: "Redid random object sprites, assigning unique sprites to each random object. With the expectation that in the future, random objects have unique icons."
   - rscadd: "Created a new sprite for the cooking oil tank, a modified reagent tank sprite."
   - imageadd: "Added rainbow sprites for random objects, and replaced the oil tank sprite."
+  - balance: "Reduced the amount of cooking oil in oil tanks to be in line with other reagent tanks."
