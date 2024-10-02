@@ -36,12 +36,6 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 
 /*
- * Integrated Retractor
- */
-/obj/item/surgery/retractor/integrated
-	name = "integrated retractor"
-	desc = "A pair of retractor forceps portruding from the palm of the hand, allowing for careful opening of incisions."
-/*
  * Hemostat
  */
 /obj/item/surgery/hemostat
@@ -54,12 +48,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
-/*
- * Integrated Hemostat
- */
-/obj/item/surgery/hemostat/integrated
-	name = "integrated hemostat"
-	desc = "Two prongs of adjustable length portruding from the index and middle fingers, able to clamp bloodvessels shut during surgery or remove things from the surgical site as needed."
 
 /*
  * Cautery
@@ -75,12 +63,6 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
 
-/*
- * Integrated Cautery
- */
-/obj/item/surgery/cautery/integrated
-	name = "integrated cautery"
-	desc = "A small cautery pen. Used for sealing incisions with electrical current."
 /*
  * Surgical Drill
  */
@@ -123,15 +105,6 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
-
-
-/*
- * Integrated Scalpel
- */
-/obj/item/surgery/scalpel/integrated
-	name = "integrated scalpel"
-	desc = "An integrated scalpel, effectively just a small blade portruding from the index finger. Useful for surgery and little else."
-	force = 0
 
 /*
  * Researchable Scalpels
