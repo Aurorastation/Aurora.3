@@ -34,7 +34,7 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	outfit = /obj/outfit/admin/moghes_mikuetz
-	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Mi'kuetz Wanderer"
