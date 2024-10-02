@@ -188,20 +188,6 @@
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
 
-/*/obj/item/surgery/combitool
-	name = "surgical combitool"
-	desc = "An integrated surgical combitool module."
-	icon_state = "digitool"
-	item_state = "digitool"
-	w_class = WEIGHT_CLASS_BULKY
-	var/list/tools = list(
-		"scalpel",
-		"hemostat",
-		"retractor",
-		"cautery"
-		)
-	var/current_tool = 1 */
-
 /obj/item/storage/box/fancy/tray
 	name = "surgery tray"
 	desc = "A tray of surgical tools."
