@@ -106,6 +106,10 @@
 				if(isbreeder)
 					return FALSE
 				return TRUE
+			if(SPECIES_VAURCA_ATTENDANT)
+				if(isbreeder)
+					return FALSE
+				return TRUE
 			if(SPECIES_VAURCA_BREEDER)
 				return TRUE
 			if(SPECIES_VAURCA_BULWARK)
