@@ -56,3 +56,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds the new Vaurca Attendant subspecies to a number of ghostroles."
+  - bugfix: "Vaurca Attendants can now take species-specific items from the loadout, including clothing and augments."
+  - bugfix: "Vaurca Attendants can no longer join as consulars."
+  - bugfix: "Vaurca Attendants now work smoothly with a number of event outfits."
+
