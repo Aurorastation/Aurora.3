@@ -1,8 +1,7 @@
 /obj/random/smokable
 	name = "random smokable"
 	desc = "This is a random smoking item."
-	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "cigpacket"
+	icon_state = "cigarettes"
 	problist = list(
 		/obj/item/storage/box/fancy/cigarettes = 30,
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
@@ -21,8 +20,7 @@
 /obj/random/action_figure
 	name = "random action figure"
 	desc = "This is a random action figure."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "assistant"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/toy/figure/cmo,
 		/obj/item/toy/figure/assistant,
@@ -67,8 +65,7 @@
 /obj/random/plushie
 	name = "random plushie"
 	desc = "This is a random plushie."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "nymphplushie"
+	icon_state = "plushie"
 	spawnlist = list(
 		/obj/item/toy/plushie/ian,
 		/obj/item/toy/plushie/drone,
@@ -91,8 +88,7 @@
 /obj/random/balloon
 	name = "random balloon"
 	desc = "This is a random balloon."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "balloon"
+	icon_state = "bloon"
 	spawnlist = list(
 		/obj/item/toy/balloon/color = 7,
 		/obj/item/toy/balloon/latex = 1,
@@ -112,8 +108,7 @@
 /obj/random/desktoy
 	name = "random desk toy"
 	desc = "This is a random desk toy."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "dippybird"
+	icon_state = "desktoy"
 	spawnlist = list(
 		/obj/item/toy/desk/newtoncradle,
 		/obj/item/toy/desk/fan,
@@ -124,7 +119,6 @@
 /obj/random/lavalamp
 	name = "random lava lamp"
 	desc = "This is a random lava lamp."
-	icon = 'icons/obj/lighting.dmi'
 	icon_state = "lavalamp"
 	spawnlist = list(
 		/obj/item/device/flashlight/lamp/lava,
@@ -141,7 +135,6 @@
 /obj/random/glowstick
 	name = "random glowstick"
 	desc = "This is a random glowstick."
-	icon = 'icons/obj/lighting.dmi'
 	icon_state = "glowstick"
 	spawnlist = list(
 		/obj/item/device/flashlight/flare/glowstick,
@@ -154,8 +147,7 @@
 /obj/random/arcade
 	name = "random arcade loot"
 	desc = "Arcade loot!"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/storage/box/snappops = 11,
 		/obj/item/clothing/under/syndicate/tacticool = 5,
@@ -204,8 +196,7 @@
 /obj/random/arcade/orion
 	name = "random arcade loot for orion trails"
 	desc = "Arcade loot for orion trails aracde machine!"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "gift3"
+	icon_state = "toy"
 	spawnlist = list(
 		/obj/item/clothing/under/syndicate/tacticool = 7,
 		/obj/item/toy/sword = 22,
@@ -232,8 +223,7 @@
 /obj/random/animal_crate
 	name = "random animal"
 	desc = "Contains a random crate with an animal."
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "densecrate"
+	icon_state = "woodcrate"
 	spawnlist = list(
 		/obj/structure/largecrate/animal/corgi = 3,
 		/obj/structure/largecrate/animal/cow = 4,
@@ -254,8 +244,7 @@
 /obj/random/random_flag
 	name = "random flag"
 	desc = "Contains a random boxed flag or banner."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "flag_boxed"
+	icon_state = "flagbox"
 	spawnlist = list(
 		/obj/item/flag/biesel,
 		/obj/item/flag/biesel/l,
@@ -292,8 +281,7 @@
 /obj/random/gift
 	name = "random gift"
 	desc = "Contains a randomly sized gift."
-	icon = 'icons/holidays/christmas/presents.dmi'
-	icon_state = "gift1"
+	icon_state = "present"
 	spawnlist = list(
 		/obj/item/xmasgift = 0.5,
 		/obj/item/xmasgift/medium =  0.3,
@@ -303,7 +291,6 @@
 /obj/random/junk
 	name = "random trash"
 	desc = "This is toss."
-	icon = 'icons/obj/random.dmi'
 	icon_state = "junk"
 	spawn_nothing_percentage = 5
 	problist = list(
@@ -375,6 +362,7 @@
 
 /obj/random/vendor
 	name = "random vendor"
+	icon_state = "vendor"
 	var/depleted = FALSE
 	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
@@ -427,6 +415,7 @@
 
 /obj/random/smalltank
 	name = "random small tank"
+	icon_state = "airtank"
 
 /obj/random/smalltank/item_to_spawn()
 	if (prob(40))
@@ -439,8 +428,7 @@
 /obj/random/pottedplant
 	name = "random potted plant, big"
 	desc = "Spawns a random potted plant."
-	icon = 'icons/obj/pottedplants_big.dmi'
-	icon_state = "plant-26"
+	icon_state = "potted_plant_big"
 	spawn_nothing_percentage = 1
 
 /obj/random/pottedplant/spawn_item()
@@ -463,8 +451,7 @@
 /obj/random/pottedplant_small
 	name = "random potted plant, small"
 	desc = "Spawns a random potted plant."
-	icon = 'icons/obj/pottedplants_small.dmi'
-	icon_state = "plant-01"
+	icon_state = "potted_plant_small"
 	spawn_nothing_percentage = 1
 
 /obj/random/pottedplant_small/spawn_item()
@@ -485,6 +472,7 @@
 /obj/random/syrup
 	name = "random syrup"
 	desc = "Contains random bottles of flavored syrup."
+	icon_state = "syrup"
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/syrup_chocolate = 2,
 		/obj/item/reagent_containers/food/condiment/syrup_strawberry = 1,
@@ -502,6 +490,7 @@
 /obj/random/condiment
 	name = "random condiments and sauces"
 	desc = "Contains random condiments for use in the kitchen."
+	icon_state = "condiment"
 	spawn_nothing_percentage = 10
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/ketchup = 2,
@@ -521,6 +510,7 @@
 /obj/random/kitchen_staples
 	name = "random kitchen staples"
 	desc = "Contains random ingredients that are handy in the kitchen"
+	icon_state = "ingredient_bag"
 	spawn_nothing_percentage = 20
 	problist = list(
 		/obj/item/reagent_containers/food/condiment/gelatin = 1,

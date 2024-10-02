@@ -312,8 +312,7 @@
 /obj/random/telecrystals
 	name = "random telecrystals"
 	desc = "Contains a random amount of telecrystals."
-	icon = 'icons/obj/telescience.dmi'
-	icon_state = "telecrystal"
+	icon_state = "crystal"
 	spawnlist = list(
 		/obj/item/stack/telecrystal{amount = 10} = 0.5,
 		/obj/item/stack/telecrystal{amount = 15} = 0.4,
@@ -324,8 +323,7 @@
 /obj/random/contraband
 	name = "random contraband"
 	desc = "This is some random contraband."
-	icon = 'icons/obj/cosmetics.dmi'
-	icon_state = "purplecomb"
+	icon_state = "knife"
 	problist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
@@ -364,8 +362,7 @@
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
-	icon = 'icons/obj/coins.dmi'
-	icon_state = "coin__heads"
+	icon_state = "coin"
 	problist = list(
 		/obj/item/coin/iron = 5,
 		/obj/item/coin/silver = 3,
@@ -379,8 +376,7 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit chip."
-	icon = 'icons/obj/cash.dmi'
-	icon_state = "spacecash1"
+	icon_state = "cash"
 	problist = list(
 		/obj/item/spacecash/c1 = 6,
 		/obj/item/spacecash/c10 = 3,
@@ -394,6 +390,7 @@
 /obj/random/finances
 	name = "random valued item"
 	desc = "Contains raw valued items like phoron, gold, and money."
+	icon_state = "valuable"
 	spawnlist = list(
 		/obj/item/spacecash/bundle{worth = 5000} = 0.25,
 		/obj/item/spacecash/bundle{worth = 10000} = 0.5,
@@ -409,6 +406,7 @@
 
 /obj/random/barricade_materials
 	name = "random barricade materials"
+	icon_state = "barricade"
 	spawnlist = list(
 		/obj/item/stack/material/steel = 0.75,
 		/obj/item/stack/material/plasteel = 0.25,
@@ -423,6 +421,7 @@
 
 /obj/random/barbed_wire
 	name = "barbed wire"
+	icon_state = "barbed_wire"
 	spawnlist = list(
 		/obj/item/stack/barbed_wire = 1
 	)
@@ -435,6 +434,7 @@
 
 /obj/random/tool_konyang
 	name = "tool"
+	icon_state = "tool"
 	spawnlist = list(
 		/obj/item/screwdriver = 1,
 		/obj/item/crowbar = 1,
@@ -446,6 +446,7 @@
 
 /obj/random/survival_weapon
 	name = "survival weapon"
+	icon_state = "melee"
 	problist = list(
 		/obj/item/crowbar = 1,
 		/obj/item/shovel = 1,
@@ -467,6 +468,7 @@
 
 /obj/random/high_grade_weapon
 	name = "high grade weapon"
+	icon_state = "melee"
 	problist = list(
 		/obj/item/material/sword/axe = 0.5,
 		/obj/item/material/sword/longsword = 0.25,
@@ -479,6 +481,7 @@
 
 /obj/random/light
 	name = "random light"
+	icon_state = "flashlight"
 	problist = list(
 		/obj/item/device/flashlight = 1,
 		/obj/item/device/flashlight/flare = 2,
@@ -492,6 +495,7 @@
 
 /obj/random/med_stack
 	name = "medical supplies"
+	icon_state = "med"
 	problist = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
@@ -507,6 +511,7 @@
 
 /obj/random/splints
 	name = "splints"
+	icon_state = "med"
 	problist = list(
 		/obj/item/stack/medical/splint = 1
 	)
@@ -518,6 +523,7 @@
 	M.update_icon()
 
 /obj/random/gun_with_ammo
+	icon_state = "blast_carbine"
 	has_postspawn = TRUE
 
 /obj/random/gun_with_ammo/post_spawn(obj/thing)
@@ -570,6 +576,7 @@
 
 /obj/random/shotgun
 	name = "shotgun"
+	icon_state = "shotgun"
 	problist = list(
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/doublebarrel = 1,
@@ -591,6 +598,7 @@
 
 /obj/random/semiautos
 	name = "semiautos"
+	icon_state = "shotgun"
 	problist = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle/scope = 0.05,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
@@ -607,6 +615,7 @@
 
 /obj/random/barricade_kit
 	name = "barricade kits"
+	icon_state = "barricade"
 	problist = list(
 		/obj/item/stack/barricade/random = 1,
 		/obj/item/stack/barricade/wood/random = 0.5,
