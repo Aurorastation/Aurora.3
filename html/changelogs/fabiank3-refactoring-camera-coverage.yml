@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - qol: "Added cameras to missing angles or completely uncovered areas: Central ring (locker room entrance), bridge conference room, XO office, gym, telescience, secure artifact storage, deck two tool storage."
+  - qol: "Added lights and lightswitch to research secure artifact storage."

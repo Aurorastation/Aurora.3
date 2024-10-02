@@ -24,7 +24,7 @@
 	desc = "A K'lax Vaurca Warrior, assigned to the Izweski Hegemony response team."
 	max_count = 1
 	outfit = /obj/outfit/admin/ert/izweski/klax
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	extra_languages = list(LANGUAGE_VAURCA)
 
 /datum/ghostspawner/human/ert/izweski/leader
