@@ -1231,9 +1231,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engineering)
 "eQS" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/machinery/alarm/north{
 	req_one_access = list(221,222)
 	},
@@ -6041,13 +6038,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
-"wdq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/molten_item{
-	desc = "It looks like a puddle of... something."
-	},
-/turf/simulated/floor/wood,
-/area/ship/ranger_corvette/foyer)
 "wjI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -37849,7 +37839,7 @@ vyC
 iXs
 tLA
 eQS
-wdq
+cZV
 bVs
 niD
 cZV
