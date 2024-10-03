@@ -84,20 +84,20 @@
 // Docking airlock markers, for deck one.
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/aft_dock
 	name = "Aft"
-	master_tag = "tcaf_aft_dock"
-	landmark_tag = "airlock_tcaf_aft_dock"
+	master_tag = "airlock_tcaf_aft_dock"
+	landmark_tag = "tcaf_corvette_aft_dock"
 
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/fore_dock
 	name = "Fore"
-	master_tag = "tcaf_fore_dock"
-	landmark_tag = "airlock_tcaf_fore_dock"
+	master_tag = "airlock_tcaf_fore_dock"
+	landmark_tag = "tcaf_corvette_fore_dock"
 
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/port_dock
 	name = "Port"
-	master_tag = "tcaf_port_dock"
-	landmark_tag = "airlock_tcaf_port_dock"
+	master_tag = "airlock_tcaf_port_dock"
+	landmark_tag = "tcaf_corvette_port_dock"
 
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/starboard_dock
 	name = "Starboard"
-	master_tag = "tcaf_starboard_dock"
-	landmark_tag = "airlock_tcaf_starboard_dock"
+	master_tag = "airlock_tcaf_starboard_dock"
+	landmark_tag = "tcaf_corvette_starboard_dock"
