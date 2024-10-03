@@ -108,14 +108,6 @@
 	item_state = "tcaf_officer_uniform"
 	worn_state = "tcaf_officer_uniform"
 
-// Not to be confused with the TCFL variant. Redeclaring icon for clarity's sake, this isn't in the tcaf_uniform file.
-/obj/item/clothing/head/helmet/pilot/tcaf
-	name = "\improper TCAF flight helmet"
-	desc = "A pilot's helmet marked all over with the imagery of the Republic of Biesel, worn by the pilots of the Tau Ceti Armed Forces. It looks a little scuffed."
-	icon = 'icons/clothing/head/pilot_helmets.dmi'
-	icon_state = "tcaf_pilot"
-	item_state = "tcaf_pilot"
-
 // Identical sprites to the TCFL variant, just reflavoured.
 /obj/item/clothing/head/softcap/tcaf_cap
 	name = "TCAF uniform cap"
