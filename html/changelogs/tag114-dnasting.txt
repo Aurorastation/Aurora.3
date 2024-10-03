@@ -1,6 +1,0 @@
-author: Tag114
-
-delete-after: True
-
-changes:
-  - rscadd: "Re-enables the ability for changelings to stealthily extract DNA from targets by stinging them."
