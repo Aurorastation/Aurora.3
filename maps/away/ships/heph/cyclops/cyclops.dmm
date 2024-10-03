@@ -1411,12 +1411,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
-"nr" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "nJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
@@ -32664,7 +32658,7 @@ CE
 CE
 CE
 CE
-nr
+CE
 tj
 tj
 tj
