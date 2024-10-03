@@ -161,6 +161,11 @@
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
 	build_path = /obj/item/circuitboard/portgen/super
 
+/datum/design/circuit/machine/fusionportgen
+	name = "miniature fusion reactor"
+	req_tech = list(TECH_DATA = 3, TECH_POWER = 6, TECH_ENGINEERING = 6)
+	build_path = /obj/item/circuitboard/portgen/fusion
+
 /datum/design/circuit/machine/batteryrack
 	name = "Cell Rack PSU"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
