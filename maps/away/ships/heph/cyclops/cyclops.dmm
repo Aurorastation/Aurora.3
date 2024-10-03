@@ -4489,6 +4489,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"QY" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "Rg" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -32922,7 +32926,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -32954,7 +32958,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33179,7 +33183,7 @@ Wb
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33211,7 +33215,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 Wb
 CE
@@ -33436,7 +33440,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33468,7 +33472,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33693,7 +33697,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33725,7 +33729,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33950,7 +33954,7 @@ Wb
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -33982,7 +33986,7 @@ Gx
 CE
 CE
 CE
-CE
+QY
 CE
 Wb
 CE
@@ -34239,7 +34243,7 @@ Ag
 Gx
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -34496,7 +34500,7 @@ AY
 eZ
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -34753,7 +34757,7 @@ AY
 eZ
 CE
 CE
-CE
+QY
 CE
 Wb
 CE
@@ -40150,7 +40154,7 @@ tj
 sM
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40375,7 +40379,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40407,7 +40411,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40632,7 +40636,7 @@ Wb
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40664,7 +40668,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 Wb
 CE
@@ -40889,7 +40893,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
@@ -40921,7 +40925,7 @@ CE
 CE
 CE
 CE
-CE
+QY
 CE
 CE
 CE
