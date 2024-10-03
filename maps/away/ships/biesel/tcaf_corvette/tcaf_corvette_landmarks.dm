@@ -85,7 +85,7 @@
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/aft_dock
 	name = "Aft"
 	master_tag = "tcaf_aft_dock"
-	landmark_tag = "airlock_tcaf_fore_dock"
+	landmark_tag = "airlock_tcaf_aft_dock"
 
 /obj/effect/map_effect/marker/airlock/docking/tcaf_corvette/fore_dock
 	name = "Fore"
