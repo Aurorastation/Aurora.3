@@ -123,7 +123,7 @@
 	landmark_tag = "nav_transit_tcaf_shuttle"
 	base_turf = /turf/space/transit/north
 
-// So people know how to use the engine. There's also a pre-wired spare PACMAN.
+/// So people know how to use the engine. There's also a pre-wired spare PACMAN.
 /obj/item/paper/fluff/tcaf_corvette_engine_guide
 	name = "Antlion-class engine operational notes"
 	desc = "This is a handwritten list of steps to operating the combustion engine of an Antlion-class scout corvette."
