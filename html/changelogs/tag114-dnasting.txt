@@ -1,0 +1,6 @@
+author: Tag114
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes changelings being unable to use the 'Extract DNA Sting' ability."
