@@ -17,3 +17,23 @@
   - rscadd: Adds a variety of Tau Ceti Armed Forces uniform assets to the codebase,
       including assets for officers and non-combatants, sprited by NobleRow.
   - bugfix: The TCAF jacket is no longer invisible when worn.
+2024-10-03:
+  Crozarius:
+  - qol: Ethanol no longer automatically makes Unathi vomit.
+  FabianK3:
+  - qol: 'Added cameras to missing angles or completely uncovered areas: Central ring
+      (locker room entrance), bridge conference room, XO office, gym, telescience,
+      secure artifact storage, deck two tool storage.'
+  - qol: Added lights and lightswitch to research secure artifact storage.
+  - bugfix: Fixed unrealistic power readings throughout the combustion turbine power
+      grid.
+  - rscadd: Added a powernet sensor to the combustion turbine power grid.
+  hazelmouse:
+  - rscadd: Added a paintgun to the Jockey Workshop, so you can paint your exosuits
+      as a Jockey. Bonus points if they're an eye-sore.
+  - rscadd: Adds the new Vaurca Attendant subspecies to a number of ghostroles.
+  - bugfix: Vaurca Attendants can now take species-specific items from the loadout,
+      including clothing and augments.
+  - bugfix: Vaurca Attendants can no longer join as consulars.
+  - bugfix: Vaurca Attendants now work smoothly with a number of event outfits.
+  - balance: Overloaders now cost fewer credits and last substantially longer.
