@@ -230,6 +230,7 @@
 		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 5)]% power remaining.")
 	else
 		. += SPAN_NOTICE("There's no power cell connected.")
+
 	if(active)
 		. += SPAN_NOTICE("It is currently turned on.")
 	else
