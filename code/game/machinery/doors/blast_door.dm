@@ -225,7 +225,8 @@
 	closed_layer = CLOSED_DOOR_LAYER
 	var/cuts_needed = 6
 	var/cut_time = 15 SECONDS
-	var/welding = FALSE // Whether the shutter is currently being welded.
+	//	/ Whether the shutter is currently being welded.
+	var/welding = FALSE
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
