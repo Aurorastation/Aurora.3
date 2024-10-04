@@ -297,7 +297,7 @@
 
 /obj/item/clothing/accessory/storage/chest_gear
 	name = "standard vest equipment"
-	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	desc = "The standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
@@ -865,23 +865,3 @@
 	Szalai and MacPherson sought to undo."
 	icon_state = "flagpatch_ssmd"
 	item_state = "flagpatch_ssmd"
-
-/obj/item/clothing/accessory/tcaf_prefect_pauldron
-	name = "\improper TCAF prefect pauldron"
-	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_prefect_pauldron"
-	item_state = "tcaf_prefect_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
-
-/obj/item/clothing/accessory/tcaf_senior_legion_pauldron
-	name = "\improper TCAF senior legionnaire pauldron"
-	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_senior_legion_pauldron"
-	item_state = "tcaf_senior_legion_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE

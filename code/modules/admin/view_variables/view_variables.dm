@@ -157,18 +157,35 @@
 	else if(islist(value))
 		var/list/L = value
 		vtext = "/list ([length(L)])"
+
+		//Let's just compute it once instead of for every element
+		var/is_normal_list = IS_NORMAL_LIST(L)
+
 		if(!(varname in view_variables_dont_expand) && length(L) > 0 && length(L) < 100)
 			extra += "<ul>"
-			for(var/index = 1 to length(L))
+
+			//Loop through the list and make the elements into html
+			for(var/index in 1 to length(L))
 				var/entry = L[index]
-				if(IS_NORMAL_LIST(L) && IS_VALID_ASSOC_KEY(entry))
+
+				//If the key is a valid associative key (not a number)
+				if(is_normal_list && IS_VALID_ASSOC_KEY(entry))
+
+					//The possibly associative key is actually referencing something, now we know the list is associative
 					if(!isnull(L[entry]))
 						extra += "<li>[index]: [make_view_variables_value(D, entry)] -> [make_view_variables_value(D, L[entry])]</li>"
+					//The possibly associative key is not referencing anything, so it's just a normal element in the list
 					else
 						extra += "<li>[index]: [make_view_variables_value(D, entry)]</li>"
+
+				//The list is a list with numbers as keys
+				else
+					extra += "<li>[index]: [make_view_variables_value(D, entry)]</li>"
+
 			extra += "</ul>"
+
 		else if(length(L) >= 100)
-			vtext = "([length(L)]): <ul><li><a href='?_src_=vars;datumview=[REF(L)];varnameview=[varname]'>List too large to display, click to view.</a></ul>"
+			vtext = "([length(L)]): <ul><li><a href='?_src_=vars;datumview=[REF(L)];varnameview=[varname];original_datum=[REF(D)]'>List too large to display, click to view.</a></ul>"
 
 	else
 		vtext = "[value]"
