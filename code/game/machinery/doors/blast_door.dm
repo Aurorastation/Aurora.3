@@ -223,7 +223,9 @@
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
+	/// How many cutting periods shutters require before they're deconstructed.
 	var/cuts_needed = 6
+	/// How long each cutting period takes.
 	var/cut_time = 15 SECONDS
 	/// Whether the shutter is currently being welded.
 	var/welding = FALSE
