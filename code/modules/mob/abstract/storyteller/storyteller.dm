@@ -121,6 +121,11 @@
 /mob/abstract/storyteller/singuloCanEat()
 	return FALSE
 
+/mob/abstract/storyteller/can_hear_radio(list/speaker_coverage)
+	return TRUE
+
+/mob/abstract/storyteller/get_speech_bubble_state_modifier()
+	return "ghost"
 
 /mob/abstract/storyteller/verb/toggle_darkness()
 	set name = "Toggle Darkness"

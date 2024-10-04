@@ -307,3 +307,17 @@
 	set category = "Storyteller"
 
 	do_dressing(H)
+
+/mob/abstract/storyteller/proc/show_traitor_panel(var/mob/M)
+	set name = "Edit Antagonist"
+	set category = "Storyteller"
+
+	if(!istype(M))
+		to_chat(usr, SPAN_WARNING("This can only be used on mobs!"))
+		return
+
+	if(!M.mind)
+		to_chat(usr, SPAN_WARNING("This mob has no mind!"))
+		return
+
+	M.mind.edit_memory()
