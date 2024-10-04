@@ -126,7 +126,8 @@
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy/hoplan,
 		/obj/item/clothing/accessory/leg_guard/hoplan,
-		/obj/item/clothing/accessory/arm_guard/hoplan
+		/obj/item/clothing/accessory/arm_guard/hoplan,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
 /obj/item/clothing/accessory/armor_plate
