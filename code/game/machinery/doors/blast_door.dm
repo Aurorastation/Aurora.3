@@ -251,6 +251,7 @@
 		while (cuts_needed)
 			welding = TRUE
 			to_chat(user, SPAN_NOTICE("You begin slicing through a support struct in the shutters. You see [cuts_needed] remaining."))
+
 			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
 				welding = FALSE
 				cuts_needed--
