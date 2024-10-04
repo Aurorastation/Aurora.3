@@ -122,6 +122,13 @@
 		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
+/obj/item/clothing/suit/armor/carrier/hoplan
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/hoplan,
+		/obj/item/clothing/accessory/leg_guard/hoplan,
+		/obj/item/clothing/accessory/arm_guard/hoplan
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -244,6 +251,15 @@
 	icon_state = "dom_plate"
 	item_state = "dom_plate"
 
+/obj/item/clothing/accessory/armor_plate/heavy/hoplan
+	name = "hoplan breastplate"
+	desc = "desc"
+	desc_extended = "Extended"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_breastplate"
+	item_state = "hoplan_breastplate"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/armor_plate/tcaf
 	name = "\improper TCAF legionnaire carapace"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
@@ -284,6 +300,8 @@
 	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
 	icon_state = "plate_navy"
 	item_state = "plate_navy"
+
+
 
 /obj/item/clothing/accessory/storage/chestpouch
 	name = "chestpouch rig"
@@ -445,6 +463,21 @@
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"
+
+/obj/item/clothing/head/helmet/hoplan
+	name = "\improper Hoplan helmet"
+	desc = "desc."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
 
 //Cosmetic Accessories
 

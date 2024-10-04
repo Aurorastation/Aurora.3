@@ -139,6 +139,29 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/hoplan
+	name = "\improper Hoplan thigh protector"
+	desc = "desc."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_thigh_protector"
+	item_state = "hoplan_thigh_protector"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/leg_guard/hoplan/skirt
+	name = "\improper Hoplan ballistic skirt"
+	desc = "desc."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_ballistic_skirt"
+	item_state = "hoplan_ballistic_skirt"
+	contained_sprite = TRUE
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -284,3 +307,18 @@
 	name = "striped TCAF carapace arm guards"
 	icon_state = "tcaf_armguards_stripe"
 	item_state = "tcaf_armguards_stripe"
+
+/obj/item/clothing/accessory/arm_guard/hoplan
+	name = "\improper Hoplan sleeves"
+	desc = "Desc."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_sleeves"
+	item_state = "hoplan_sleeves"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
