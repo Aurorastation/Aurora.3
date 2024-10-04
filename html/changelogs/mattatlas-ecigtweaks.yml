@@ -55,6 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - backend: "Cleaned up electronic cigarette code slightly."
-  - tweak: "Electronic cigarette cartridges are now removed with alt-click."
-  - tweak: "Electronic cigarette cartridges now last far longer."
+  - code_imp: "Cleaned up electronic cigarette code slightly."
+  - qol: "Electronic cigarette cartridges are now removed with alt-click."
+  - qol: "Electronic cigarette cartridges now last far longer."
