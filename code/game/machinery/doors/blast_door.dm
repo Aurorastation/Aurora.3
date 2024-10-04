@@ -256,18 +256,14 @@
 			to_chat(user, SPAN_NOTICE("You begin slicing through a support beam in \the [src]. You see [cuts_needed] remaining."))
 
 			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
-				welding = FALSE
 				cuts_needed--
 			else
-				welding = FALSE
 				break
 
 			if (cuts_needed)
-				welding = FALSE
 				to_chat(user, SPAN_NOTICE("You successfully cut a support beam! Now dislodged from its fitting, it clatters down to the floor."))
 				new /obj/item/stack/rods(src.loc)
 			else
-				welding = FALSE
 				qdel(src)
 				playsound(src, 'sound/items/Welder.ogg', 10, TRUE)
 				user.visible_message(SPAN_WARNING("\The [src] were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through \the [src], opening the way!"))
