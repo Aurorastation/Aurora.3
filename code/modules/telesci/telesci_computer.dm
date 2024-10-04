@@ -199,15 +199,15 @@
 		t += "<div class='statusDisplay'>No telepad located. <BR>Please add telepad data via use of Multitool.</div><BR>"
 	else
 		if(inserted_gps)
-			t += "<A href='?src=\ref[src];ejectGPS=1'>Eject GPS</A>"
-			t += "<A href='?src=\ref[src];setMemory=1'>Set GPS memory</A>"
+			t += "<A href='?src=[REF(src)];ejectGPS=1'>Eject GPS</A>"
+			t += "<A href='?src=[REF(src)];setMemory=1'>Set GPS memory</A>"
 		else
 			t += "<span class='linkOff'>Eject GPS</span>"
 			t += "<span class='linkOff'>Set GPS memory</span>"
 		t += "<div class='statusDisplay'>[temp_msg]</div><BR>"
-		t += "<A href='?src=\ref[src];setrotation=1'>Set Bearing</A>"
+		t += "<A href='?src=[REF(src)];setrotation=1'>Set Bearing</A>"
 		t += "<div class='statusDisplay'>[rotation]&deg;</div>"
-		t += "<A href='?src=\ref[src];setangle=1'>Set Elevation</A>"
+		t += "<A href='?src=[REF(src)];setangle=1'>Set Elevation</A>"
 		t += "<div class='statusDisplay'>[angle]&deg;</div>"
 		t += "<span class='linkOn'>Set Power</span>"
 		t += "<div class='statusDisplay'>"
@@ -219,14 +219,14 @@
 			if(power == power_options[i])
 				t += "<span class='linkOn'>[power_options[i]]</span>"
 				continue
-			t += "<A href='?src=\ref[src];setpower=[i]'>[power_options[i]]</A>"
+			t += "<A href='?src=[REF(src)];setpower=[i]'>[power_options[i]]</A>"
 		t += "</div>"
 
-		t += "<A href='?src=\ref[src];setz=1'>Set Vertical Offset</A>"
+		t += "<A href='?src=[REF(src)];setz=1'>Set Vertical Offset</A>"
 		t += "<div class='statusDisplay'>[!isnull(zlevel_offset) ? zlevel_offset : "No Data"]</div>"
 
-		t += "<BR><A href='?src=\ref[src];send=1'>Open Portal</A>"
-		t += "<BR><A href='?src=\ref[src];recal=1'>Recalibrate Crystals</A> <A href='?src=\ref[src];eject=1'>Eject Crystals</A>"
+		t += "<BR><A href='?src=[REF(src)];send=1'>Open Portal</A>"
+		t += "<BR><A href='?src=[REF(src)];recal=1'>Recalibrate Crystals</A> <A href='?src=[REF(src)];eject=1'>Eject Crystals</A>"
 
 		// Information about the last teleport
 		t += "<BR><div class='statusDisplay'>"

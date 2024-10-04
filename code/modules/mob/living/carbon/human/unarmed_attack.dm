@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 					target.visible_message(SPAN_WARNING("[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!"),
 											SPAN_WARNING("[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, that REALLY hurt!"]"))
 
-				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armor)
+				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = (armor * 100))
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
 					if(pain_message)

@@ -68,8 +68,7 @@
 // may be opened to change power cell
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
-/obj/machinery/power/apc
-	abstract_type = /obj/machinery/power/apc //This is an abstract representation of the APC, use one of the subtypes for the actual APC
+ABSTRACT_TYPE(/obj/machinery/power/apc)
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
 	desc_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \
@@ -798,9 +797,9 @@
 				for(var/obj/item/implant/mindshield/ipc/I in H)
 					if(I.implanted)
 						return
-				if(SOFTREF(H) in hacked_ipcs)
+				if(REF(H) in hacked_ipcs)
 					return
-				LAZYADD(hacked_ipcs, SOFTREF(H))
+				LAZYADD(hacked_ipcs, REF(H))
 				infected = FALSE
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))

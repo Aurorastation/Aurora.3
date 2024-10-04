@@ -1,6 +1,4 @@
-/mob/living/simple_animal/hostile
-	abstract_type = /mob/living/simple_animal/hostile
-
+ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
@@ -54,7 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
+	target_type_validator_map = null
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
@@ -120,10 +118,13 @@
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/projectile/P, var/def_zone)
-	..()
-	if (ismob(P.firer) && target_mob != P.firer)
-		target_mob = P.firer
+/mob/living/simple_animal/hostile/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (ismob(hitting_projectile.firer) && target_mob != hitting_projectile.firer)
+		target_mob = hitting_projectile.firer
 		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)
@@ -375,11 +376,9 @@
 	if(target == start)
 		return
 
-	var/obj/projectile/A = new projectiletype(user.loc)
-	playsound(user, projectilesound, 100, 1)
-	if(!A)	return
-	var/def_zone = get_exposed_defense_zone(target)
-	A.launch_projectile(target, def_zone)
+	// var/def_zone = get_exposed_defense_zone(target)
+
+	fire_projectile(/obj/projectile, target, projectilesound, firer = user)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
 	if(ON_ATTACK_COOLDOWN(src))

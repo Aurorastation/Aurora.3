@@ -107,9 +107,12 @@
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(var/obj/projectile/Proj)
-	takedamage(Proj.damage)
-	..()
+/obj/item/device/magnetic_lock/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	takedamage(hitting_projectile.damage)
 
 /obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)

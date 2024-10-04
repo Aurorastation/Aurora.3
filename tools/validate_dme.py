@@ -74,9 +74,11 @@ def compare_lines(a, b):
     a_segments = a.split('\\')
     b_segments = b.split('\\')
 
+    file_end_types = (".dm", ".dmf")
+
     for (a_segment, b_segment) in zip(a_segments, b_segments):
-        a_is_file = a_segment.endswith(".dm")
-        b_is_file = b_segment.endswith(".dm")
+        a_is_file = a_segment.endswith(file_end_types)
+        b_is_file = b_segment.endswith(file_end_types)
 
         # code\something.dm will ALWAYS come before code\directory\something.dm
         if a_is_file and not b_is_file:

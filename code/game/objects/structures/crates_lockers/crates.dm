@@ -97,6 +97,8 @@
 ==========================
 */
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
 		if (tablestatus && tablestatus != C.tablestatus) // Crates can go under tables with crates on top of them, and vice versa
@@ -551,6 +553,22 @@
 					M.forceMove(src)
 					break
 	return
+
+/obj/structure/closet/crate/secure/large/larva // Spawns with one greimorian larva inside of it. Can mature inside, so be careful.
+
+/obj/structure/closet/crate/secure/large/larva/fill()
+	new /obj/effect/spider/spiderling(src)
+
+/obj/structure/closet/crate/secure/large/viscerator // Spawns with one viscerator inside of it.
+
+/obj/structure/closet/crate/secure/large/viscerator/fill()
+	new /mob/living/simple_animal/hostile/viscerator(src)
+
+/obj/structure/closet/crate/secure/large/rats // Spawns with rats inside it.
+
+/obj/structure/closet/crate/secure/large/rats/fill()
+	for(var/i=1,i<=5,i++)
+		new /mob/living/simple_animal/rat(src)
 
 /obj/structure/closet/crate/hydroponics
 	name = "hydroponics crate"

@@ -5,7 +5,7 @@
 	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
 	species_height = HEIGHT_CLASS_SHORT
-	height_min = 100
+	height_min = 120
 	height_max = 250
 	age_min = 1
 	age_max = 60

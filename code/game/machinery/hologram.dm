@@ -134,7 +134,7 @@ Possible to do for anyone motivated enough:
 	data["holopad_list"] = list()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
-			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]"))
+			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "[REF(H)]"))
 	data["command_auth"] = has_command_auth(user)
 	data["forcing_call"] = forcing_call
 	data["call_range"] = max_overmap_call_range
@@ -161,7 +161,7 @@ Possible to do for anyone motivated enough:
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
 					continue
-				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
 				. = TRUE
 
 		if("call_holopad")

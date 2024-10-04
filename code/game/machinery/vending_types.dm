@@ -19,27 +19,28 @@
 
 //RECURSION
 /obj/machinery/vending/vendors
-	name = "Omni-Vendor"
+	name = "Omni-Restocker"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	vend_id = "admin"
 	req_access = list(ACCESS_JANITOR)
 	products = list(
-		/obj/item/device/vending_refill/booze = 1,
-		/obj/item/device/vending_refill/tools = 1,
-		/obj/item/device/vending_refill/coffee = 1,
-		/obj/item/device/vending_refill/snack = 1,
-		/obj/item/device/vending_refill/cola = 1,
-		/obj/item/device/vending_refill/zora = 1,
-		/obj/item/device/vending_refill/frontiervend = 1,
-		/obj/item/device/vending_refill/smokes = 1,
-		/obj/item/device/vending_refill/meds = 1,
-		/obj/item/device/vending_refill/robust = 1,
-		/obj/item/device/vending_refill/hydro = 1,
-		/obj/item/device/vending_refill/cutlery = 1,
-		/obj/item/device/vending_refill/robo = 1,
-		/obj/item/device/vending_refill/battlemonsters = 1,
+		/obj/item/device/vending_refill/booze = 2,
+		/obj/item/device/vending_refill/tools = 2,
+		/obj/item/device/vending_refill/coffee = 2,
+		/obj/item/device/vending_refill/snack = 2,
+		/obj/item/device/vending_refill/cola = 2,
+		/obj/item/device/vending_refill/zora = 2,
+		/obj/item/device/vending_refill/frontiervend = 2,
+		/obj/item/device/vending_refill/smokes = 2,
+		/obj/item/device/vending_refill/meds = 2,
+		/obj/item/device/vending_refill/robust = 2,
+		/obj/item/device/vending_refill/hydro = 2,
+		/obj/item/device/vending_refill/cutlery = 2,
+		/obj/item/device/vending_refill/robo = 2,
+		/obj/item/device/vending_refill/battlemonsters = 2,
+		/obj/item/device/vending_refill/encryption = 2
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -715,7 +716,7 @@
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
 	req_access = list(ACCESS_MEDICAL)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 3,
@@ -735,7 +736,7 @@
 	premium = list(
 		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
-	random_itemcount = 0
+	random_itemcount = FALSE
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -746,7 +747,7 @@
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	req_access = list(ACCESS_MEDICAL)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
@@ -766,11 +767,49 @@
 	premium = list(
 		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
-	random_itemcount = 0
+	random_itemcount = FALSE
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
+
+/obj/machinery/vending/wallpharm
+	name = "\improper NanoPharm Mini"
+	desc = "A wall-mounted pharmaceuticals vending machine packed with over-the-counter bottles. For the sick salaried worker in you."
+	icon_state = "wallpharm"
+	density = FALSE
+	products = list(
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/antidexafen = 4,
+		/obj/item/storage/pill_bottle/dexalin = 4,
+		/obj/item/storage/pill_bottle/dylovene = 4,
+		/obj/item/storage/pill_bottle/vitamin = 5,
+		/obj/item/storage/pill_bottle/cetahydramine  = 4,
+		/obj/item/storage/pill_bottle/caffeine = 3,
+		/obj/item/storage/pill_bottle/nicotine  = 4,
+		/obj/item/storage/pill_bottle/rmt = 2
+	)
+	prices = list(
+		/obj/item/storage/pill_bottle/antidexafen = 70,
+		/obj/item/storage/pill_bottle/dexalin = 60,
+		/obj/item/storage/pill_bottle/dylovene = 75,
+		/obj/item/storage/pill_bottle/vitamin = 55,
+		/obj/item/storage/pill_bottle/cetahydramine  = 60,
+		/obj/item/storage/pill_bottle/caffeine = 90,
+		/obj/item/storage/pill_bottle/nicotine  = 85,
+		/obj/item/storage/pill_bottle/rmt = 550
+	)
+	contraband = list(
+		/obj/item/reagent_containers/pill/tox = 3,
+		/obj/item/storage/pill_bottle/perconol = 3
+	)
+	random_itemcount = FALSE
+	temperature_setting = -1
+	light_color = COLOR_GOLD
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	manufacturer = "nanotrasen"
 
 /obj/machinery/vending/security
 	name = "SecTech"
@@ -1085,7 +1124,6 @@
 	)
 	premium = list(
 		/obj/item/storage/toolbox/lunchbox/scc/filled = 2,
-		/obj/item/reagent_containers/food/drinks/boba = 2
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -1564,10 +1602,10 @@
 		/obj/item/storage/overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/storage/overloader/classic = 200,
-		/obj/item/storage/overloader/tranquil = 200,
-		/obj/item/storage/overloader/rainbow = 200,
-		/obj/item/storage/overloader/screenshaker = 200
+		/obj/item/storage/overloader/classic = 100,
+		/obj/item/storage/overloader/tranquil = 100,
+		/obj/item/storage/overloader/rainbow = 100,
+		/obj/item/storage/overloader/screenshaker = 100
 	)
 	contraband = list(
 		/obj/item/storage/overloader/rainbow = 2
@@ -1808,3 +1846,33 @@
 		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
 	)
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/encryption
+	name = "SCC Encryption Key Vendor"
+	desc = "Communications galore, at the tip of your fingers."
+	product_ads = "Stop walkin, get talkin!;Get them keys!;Psst, got a minute?"
+	icon_state = "wallencrypt"
+	density = 0 //It is wall-mounted.
+	req_access = list(ACCESS_HOP)
+	vend_id = "encryption"
+	products = list(
+		/obj/item/device/encryptionkey/heads/captain = 1,
+		/obj/item/device/encryptionkey/heads/ce = 1,
+		/obj/item/device/encryptionkey/heads/cmo = 1,
+		/obj/item/device/encryptionkey/heads/hos = 1,
+		/obj/item/device/encryptionkey/heads/rd = 1,
+		/obj/item/device/encryptionkey/heads/xo = 1,
+		/obj/item/device/encryptionkey/headset_operations_manager = 1,
+		/obj/item/device/encryptionkey/headset_com = 5,
+		/obj/item/device/encryptionkey/headset_cargo = 5,
+		/obj/item/device/encryptionkey/headset_eng = 5,
+		/obj/item/device/encryptionkey/headset_med = 5,
+		/obj/item/device/encryptionkey/headset_sci = 5,
+		/obj/item/device/encryptionkey/headset_sec = 5,
+		/obj/item/device/encryptionkey/headset_service = 5,
+		/obj/item/device/encryptionkey/headset_warden = 5,
+		/obj/item/device/encryptionkey/headset_xenoarch = 5,
+
+
+	)
+

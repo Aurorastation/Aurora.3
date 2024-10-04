@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/raskara_okon
-	name = "Okon 011"
+	name = "Okon 001"
 	id = "raskara_okon"
 	description = "A People's Republic observation outpost on the Moon."
 
@@ -12,7 +12,7 @@
 	unit_test_groups = list(1)
 
 /area/raskara_okon
-	name = "Okon 011"
+	name = "Okon 001"
 	icon_state = "bluenew"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
@@ -22,39 +22,39 @@
 	ambience = AMBIENCE_EXPOUTPOST
 
 /area/raskara_okon/observatory
-	name = "Okon 011 Observatory"
+	name = "Okon 001 Observatory"
 	icon_state = "bridge"
 
 /area/raskara_okon/mess_hall
-	name = "Okon 011 Mess Hall"
-	icon_state = "bridge"
+	name = "Okon 001 Mess Hall"
+	icon_state = "lounge"
 
 /area/raskara_okon/barracks
-	name = "Okon 011 Barracks"
+	name = "Okon 001 Barracks"
 	icon_state = "crew_quarters"
 
 /area/raskara_okon/mining
-	name = "Okon 011 Mining"
+	name = "Okon 001 Mining"
 	icon_state = "mining"
 
 /area/raskara_okon/entry
-	name = "Okon 011 Entry"
-	icon_state = "thunder"
+	name = "Okon 001 Entry"
+	icon_state = "exit"
 
 /area/raskara_okon/eva
-	name = "Okon 011 EVA Storage"
-	icon_state = "machinist_workshop"
+	name = "Okon 001 EVA Storage"
+	icon_state = "eva"
 
 /area/raskara_okon/engineer
-	name = "Okon 011 Engineer"
+	name = "Okon 001 Engineer"
 	icon_state = "outpost_engine"
 
 /area/raskara_okon/laboratory
-	name = "Okon 011 Laboratory"
+	name = "Okon 001 Laboratory"
 	icon_state = "anolab"
 
 /area/raskara_okon/medbay
-	name = "Okon 011 Medbay"
+	name = "Okon 001 Medbay"
 	icon_state = "medbay"
 
 //ghost roles
@@ -62,7 +62,7 @@
 /datum/ghostspawner/human/okon_crew
 	short_name = "okon_crew"
 	name = "Okon Crewmember"
-	desc = "Man the Okon 011 observation outpost on Raskara."
+	desc = "Man the Okon 001 observation outpost on Raskara."
 	tags = list("External")
 
 	spawnpoints = list("okon_crew")

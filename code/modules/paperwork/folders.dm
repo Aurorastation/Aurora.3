@@ -47,20 +47,20 @@
 	else if(attacking_item.ispen())
 		var/n_name = sanitizeSafe( tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == 0)
-			name = "folder[(n_name ? text("- '[n_name]'") : null)]"
+			name = "folder[(n_name ? "- '[n_name]'" : null)]"
 	return
 
 /obj/item/folder/attack_self(mob/user as mob)
 	var/dat = "<title>[name]</title>"
 
 	for(var/obj/item/paper/P in src)
-		dat += "[can_write ? "<A href='?src=\ref[src];write=\ref[P]'>Write</A> " : ""]<A href='?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
+		dat += "[can_write ? "<A href='?src=[REF(src)];write=[REF(P)]'>Write</A> " : ""]<A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(P)]'>Rename</A> - <A href='?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
 	for(var/obj/item/photo/Ph in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[Ph]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Ph]'>Rename</A> - <A href='?src=\ref[src];look=\ref[Ph]'>[Ph.name]</A><BR>"
+		dat += "<A href='?src=[REF(src)];remove=[REF(Ph)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(Ph)]'>Rename</A> - <A href='?src=[REF(src)];look=[REF(Ph)]'>[Ph.name]</A><BR>"
 	for(var/obj/item/paper_bundle/Pb in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[Pb]'>Remove</A> <A href='?src=\ref[src];rename=\ref[Pb]'>Rename</A> - <A href='?src=\ref[src];browse=\ref[Pb]'>[Pb.name]</A><BR>"
+		dat += "<A href='?src=[REF(src)];remove=[REF(Pb)]'>Remove</A> <A href='?src=[REF(src)];rename=[REF(Pb)]'>Rename</A> - <A href='?src=[REF(src)];browse=[REF(Pb)]'>[Pb.name]</A><BR>"
 	for(var/obj/item/sample/Pf in src)
-		dat += "<A href='?src=\ref[src];remove=\ref[Pf]'>Remove</A> - [Pf.name]<BR>"
+		dat += "<A href='?src=[REF(src)];remove=[REF(Pf)]'>Remove</A> - [Pf.name]<BR>"
 	user << browse(dat, "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)
@@ -191,9 +191,19 @@
 	else
 		..()
 
+/obj/item/folder/envelope/empty
+	sealed = FALSE
+
+/obj/item/folder/envelope/empty/zat
+	name = "instructions envelope"
+	desc = "\
+		A small envelope with some warning words written in bold text on the front. \
+		It is all dusty and crumpled, like someone forgot about it a while ago.\
+	"
+
 /obj/item/folder/envelope/zat
 	name = "leviathan zero-point artillery instructions"
-	desc = "A small envelope with \"SCC CONFIDENTIAL\" written in bold text on the front."
+	desc = "A small envelope with 'SCC CONFIDENTIAL' written in bold text on the front."
 
 /obj/item/folder/envelope/zat/Initialize()
 	. = ..()

@@ -13,7 +13,8 @@
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(blocked < 100 && ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(H.can_inject(target_zone=def_zone))
@@ -141,12 +142,12 @@
 					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
+					dat += "<A href='?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += text("<A href='?src=\ref[src];mix=[i]'><span class='warning'>Not mixing</span></A> ")
+					dat += "<A href='?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
 			i++
 	else
 		dat += "There are no beakers inserted!<br><br>"
@@ -156,7 +157,7 @@
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
 			dat += SPAN_WARNING("The dart cartridge is empty!")
-		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
+		dat += " \[<A href='?src=[REF(src)];eject_cart=1'>Eject</A>\]"
 
 	user << browse(dat, "window=dartgun")
 	onclose(user, "dartgun", src)

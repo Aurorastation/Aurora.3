@@ -147,7 +147,7 @@
 		H.drop_from_inventory(H.w_uniform)
 		qdel(H.w_uniform)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
 		H.drop_from_inventory(H.wear_suit)
 		qdel(H.wear_suit)
 

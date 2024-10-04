@@ -4,8 +4,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	var/list/ammo = list()
-	var/list/ammo_overlays = list()
-	var/image/ammo_overlay = list()
+	var/list/image/ammo_overlays = list()
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
 
@@ -148,14 +147,14 @@
 	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(GLOB.alldirs))
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
-	ammo_overlay[bullet] = ammo_picture
-	AddOverlays(ammo_overlay[bullet])
+	ammo_overlays[bullet] = ammo_picture
+	AddOverlays(ammo_overlays[bullet])
 
 /obj/item/ammo_pile/proc/remove_ammo(var/atom/target)
 	var/obj/bullet = ammo[1]
 	if(target)
 		bullet.forceMove(target)
-	CutOverlays(ammo_overlay[bullet])
+	CutOverlays(ammo_overlays[bullet])
 	ammo -= bullet
 	check_ammo()
 
@@ -172,6 +171,21 @@
 
 /obj/item/ammo_pile/slug
 	ammo_type = /obj/item/ammo_casing/shotgun
+
+/obj/item/ammo_pile/shotgun_blanks
+	ammo_type = /obj/item/ammo_casing/shotgun/blank
+
+/obj/item/ammo_pile/shotgun_beanbag
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+
+/obj/item/ammo_pile/shotgun_flash
+	ammo_type = /obj/item/ammo_casing/shotgun/flash
+
+/obj/item/ammo_pile/shotgun_pellet
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_pile/shotgun_stunshell
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 
 /obj/item/ammo_pile/fourty_five
 	ammo_type = /obj/item/ammo_casing/c45
