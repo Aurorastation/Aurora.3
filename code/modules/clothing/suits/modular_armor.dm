@@ -302,8 +302,6 @@
 	icon_state = "plate_navy"
 	item_state = "plate_navy"
 
-
-
 /obj/item/clothing/accessory/storage/chestpouch
 	name = "chestpouch rig"
 	desc = "A harness made to be worn over a set of armor. Comes with three pouches on the front, and a hidden pouch on the back for your snacks!"
