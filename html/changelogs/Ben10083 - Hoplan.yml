@@ -56,3 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds new Golden Deep Hoplan uniform and armor. Thanks to NobleRow for lore and sprites."
+  - rscadd: "Hoplan assets added to traitor uplink."

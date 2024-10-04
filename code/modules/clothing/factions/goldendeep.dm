@@ -58,7 +58,7 @@
 
 // Hoplan
 /obj/item/clothing/under/goldendeep/hoplan
-	name = "\improper Hoplan uniform"
+	name = "hoplan uniform"
 	desc = "desc"
 	desc_extended = "extended"
 	icon_state = "hoplan_uniform"
@@ -67,7 +67,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/goldendeep/hoplan
-	name = "Hoplan combat hat"
+	name = "hoplan combat hat"
 	desc = "desc"
 	desc_extended = "extended"
 	icon_state = "hoplan_combat_hat"

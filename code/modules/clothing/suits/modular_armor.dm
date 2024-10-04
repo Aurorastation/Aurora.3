@@ -466,7 +466,7 @@
 	item_state = "tcaf_helm_visor"
 
 /obj/item/clothing/head/helmet/hoplan
-	name = "\improper Hoplan helmet"
+	name = "hoplan helmet"
 	desc = "desc."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
