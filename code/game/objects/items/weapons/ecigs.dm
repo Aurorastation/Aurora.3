@@ -250,6 +250,7 @@
 		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
 	else
 		. += SPAN_NOTICE("There's no cartridge connected.")
+
 	if(cig_cell)
 		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 1)]% power remaining.")
 	else
