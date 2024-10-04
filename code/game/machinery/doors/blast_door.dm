@@ -251,7 +251,7 @@
 		var/obj/item/weldingtool/WT = attacking_item
 		while (cuts_needed)
 			welding = TRUE
-			to_chat(user, SPAN_NOTICE("You begin slicing through a support beam in the shutters. You see [cuts_needed] remaining."))
+			to_chat(user, SPAN_NOTICE("You begin slicing through a support beam in \the [src]. You see [cuts_needed] remaining."))
 
 			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
 				welding = FALSE
@@ -271,6 +271,8 @@
 				user.visible_message(SPAN_WARNING("\The [src] were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through \the [src], opening the way!"))
 				new /obj/item/stack/rods(src.loc)
 				break
+
+		welding = FALSE
 
 	return ..()
 
