@@ -537,6 +537,7 @@
 #include "code\datums\repositories\singletons.dm"
 #include "code\datums\repositories\sound_channels.dm"
 #include "code\datums\repositories\unique.dm"
+#include "code\datums\skills\_skill_categories.dm"
 #include "code\datums\skills\_skills.dm"
 #include "code\datums\skills\combat\combat.dm"
 #include "code\datums\skills\everyday\service.dm"

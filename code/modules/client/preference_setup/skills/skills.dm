@@ -44,17 +44,16 @@
 /datum/category_item/player_setup_item/skills/content(var/mob/user)
 	var/list/dat = list()
 	for(var/category in SSskills.skill_tree)
-		var/subcategory = SSskills.skill_tree[category]
-		for(var/singleton/skill/skill in SSskills.skill_tree[category][subcategory])
-			dat += "<tr><th colspan = 5><b>[category]</b>"
-			dat += "</th></tr>"
+		var/singleton/skill_category/skill_category = category
+		dat += "<br><b><font size=5>[skill_category.name]</font></b>"
+		for(var/subcategory in SSskills.skill_tree[skill_category])
+			dat += "[subcategory]<table>"
 			dat += "<tr style='text-align:left;'>"
-			dat += "<th><a href='?src=\ref[src];skillinfo=\ref[skill]'>[skill.name] ([subcategory])</a></th>"
-			//TODOMATT: add education cap
-			for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.maximum_level)
-				dat += "<th><a href='?src=\ref[src];setskill=\ref[skill];newvalue=[skill_level]'>\[SSskills.skill_level_map[skill_level]\]</a></th>"
-			dat += "</tr>"
-	dat += "</table>"
+			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
+				dat += "<th><a href='?src=\ref[src];skillinfo=\ref[skill]'>[skill.name]</a></th>"
+				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.maximum_level)
+					dat += "<td><a href='?src=\ref[src];setskill=\ref[skill];newvalue=[skill_level]'>[SSskills.skill_level_map[skill_level]]</a></td></tr>"
+		dat += "</table>"
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
