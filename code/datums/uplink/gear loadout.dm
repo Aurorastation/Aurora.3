@@ -217,11 +217,11 @@
 
 /datum/uplink_item/item/gear_loadout/hoplan
 	name = "Golden Deep Hoplan Assets (Group)"
-	desc = "A crate containing gear for a group. Includes extra clothes as well."
+	desc = "A crate containing gear for a group. Includes merchant clothes as well. Recommended for IPCs."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hoplan
 
 /datum/uplink_item/item/gear_loadout/exclusionist_single
 	name = "Golden Deep Hoplan Assets (Single)"
-	desc = "A crate containing gear for a single individual."
+	desc = "A crate containing gear for a single individual. Recommended for IPCs."
 	path = /obj/structure/closet/crate/secure/gear_loadout/hoplan/single
 	telecrystal_cost = 10

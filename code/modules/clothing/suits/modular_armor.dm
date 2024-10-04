@@ -254,8 +254,7 @@
 
 /obj/item/clothing/accessory/armor_plate/heavy/hoplan
 	name = "hoplan breastplate"
-	desc = "desc"
-	desc_extended = "Extended"
+	desc = "What looks to you like a medieval relic, is actually ablative plating backed by ballistic padding! Have at thee!"
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "hoplan_breastplate"
 	item_state = "hoplan_breastplate"
@@ -464,8 +463,8 @@
 	item_state = "tcaf_helm_visor"
 
 /obj/item/clothing/head/helmet/hoplan
-	name = "hoplan helmet"
-	desc = "desc."
+	name = "hoplan helm"
+	desc = "A modern combat helmet with a stylish outer shell to make it appear from another era entirely. What these robots do for fashion..."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "hoplan_helm"

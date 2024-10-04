@@ -140,8 +140,9 @@
 	)
 
 /obj/item/clothing/accessory/leg_guard/hoplan
-	name = "\improper Hoplan thigh protector"
-	desc = "desc."
+	name = "hoplan thigh protector"
+	desc = "Ablative plating fashioned to sit around the thigh from the hips, \
+	made to link together with an adjoining breastplate. This ancient style is reinvigorated with ablative metals and ballistic padding."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "hoplan_thigh_protector"
 	item_state = "hoplan_thigh_protector"
@@ -155,8 +156,8 @@
 	)
 
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt
-	name = "\improper Hoplan ballistic skirt"
-	desc = "desc."
+	name = "hoplan ballistic skirt"
+	desc = "A long skirt that falls down to one's ankles with an outer layer of ballistic padding, and woven in pouches featuring ablative plates."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "hoplan_ballistic_skirt"
 	item_state = "hoplan_ballistic_skirt"
@@ -309,8 +310,9 @@
 	item_state = "tcaf_armguards_stripe"
 
 /obj/item/clothing/accessory/arm_guard/hoplan
-	name = "\improper Hoplan sleeves"
-	desc = "Desc."
+	name = "hoplan sleeves"
+	desc = "Big and poofy and reminiscent of an era more enlightened. \
+	These are lined with special fabric woven in the laboratories of Pactolus to provide armor to an otherwise gaudy fashion piece."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "hoplan_sleeves"
 	item_state = "hoplan_sleeves"
