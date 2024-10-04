@@ -37,8 +37,12 @@
 
 	// At this point, we know that APC can power us for this tick. Check if we also need to charge our battery, and then actually use the power.
 	if(battery_module && (battery_module.battery.charge < battery_module.battery.maxcharge))
-		power_usage += tesla_link.passive_charging_rate
-		battery_module.battery.give(tesla_link.passive_charging_rate * CELLRATE)
+		var/power_to_get = tesla_link.passive_charging_rate
+		if(istype(tesla_link, /obj/item/computer_hardware/tesla_link/charging_cable))
+			var/obj/item/computer_hardware/tesla_link/charging_cable/cable = tesla_link
+			power_to_get += cable.source.active_power_usage
+		power_usage += power_to_get
+		battery_module.battery.give(power_to_get * CELLRATE)
 
 	A.use_power_oneoff(power_usage, EQUIP)
 	return TRUE
