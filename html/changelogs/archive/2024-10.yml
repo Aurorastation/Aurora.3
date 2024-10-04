@@ -37,3 +37,8 @@
   - bugfix: Vaurca Attendants can no longer join as consulars.
   - bugfix: Vaurca Attendants now work smoothly with a number of event outfits.
   - balance: Overloaders now cost fewer credits and last substantially longer.
+2024-10-04:
+  Furrycactus:
+  - rscadd: Updated and fixed some small bugs with the IAC Rescue Ship.
+  - bugfix: Fixes the uranium-fueled advanced portable generator exploding when running
+      at level 4.
