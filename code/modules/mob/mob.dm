@@ -206,7 +206,11 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
-	animate_chat(message, /datum/language/noise, TRUE, messagemobs, 30)
+	var/list/hear_clients = list()
+	for(var/mob/M in messagemobs)
+		if(M.client)
+			hear_clients += M.client
+
 
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs + src)

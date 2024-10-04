@@ -52,8 +52,6 @@
 				ghosts += M
 				continue
 
-	animate_chat(message, /datum/language/noise, TRUE, messagemobs + ghosts, 30)
-
 	for (var/mob/N in messagemobs)
 		N.show_message(message, type)
 
