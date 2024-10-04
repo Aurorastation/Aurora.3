@@ -215,7 +215,7 @@
 // Nicer looking, and also weaker, shutters. Found in kitchen and similar areas. Unlike blast doors, can be destroyed with a welder.
 /obj/machinery/door/blast/shutters
 	name = "shutter"
-	desc_extended = "This can be disassembled by cutting all six support structs off with a welding tool, and this process can be reversed by reinstalling support structs with use of steel rods."
+	desc_extended = "This can be disassembled by cutting all six support beams off with a welding tool, and this process can be reversed by reinstalling support beams with use of steel rods."
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
@@ -234,24 +234,24 @@
 	opacity = FALSE
 
 /obj/machinery/door/blast/shutters/attackby(obj/item/attacking_item, mob/user)
-	// For replacing welded-off structs.
+	// For replacing welded-off beams.
 	if(istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = attacking_item
 		if(cuts_needed == 6)
-			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support structs."))
+			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support beams."))
 		else
-			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support struct..."))
+			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support beam..."))
 			if (do_after(user, 30 SECONDS))
-				to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support struct."))
+				to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support beam."))
 				R.use(1)
 				cuts_needed++
 
-	// For welding off structs.
+	// For welding off beams.
 	else if (attacking_item.iswelder() && welding == FALSE)
 		var/obj/item/weldingtool/WT = attacking_item
 		while (cuts_needed)
 			welding = TRUE
-			to_chat(user, SPAN_NOTICE("You begin slicing through a support struct in the shutters. You see [cuts_needed] remaining."))
+			to_chat(user, SPAN_NOTICE("You begin slicing through a support beam in the shutters. You see [cuts_needed] remaining."))
 
 			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
 				welding = FALSE
@@ -262,7 +262,7 @@
 
 			if (cuts_needed)
 				welding = FALSE
-				to_chat(user, SPAN_NOTICE("You successfully cut a support struct! Now dislodged from its fitting, it clatters down to the floor."))
+				to_chat(user, SPAN_NOTICE("You successfully cut a support beam! Now dislodged from its fitting, it clatters down to the floor."))
 				new /obj/item/stack/rods(src.loc)
 			else
 				welding = FALSE
@@ -278,9 +278,9 @@
 /obj/machinery/door/blast/shutters/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (cuts_needed > 1)
-		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support structs.")
+		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support beams.")
 	else
-		. += SPAN_NOTICE("\The [src] seems to only have [cuts_needed] intact support struct! It's close to collapse!")
+		. += SPAN_NOTICE("\The [src] seems to only have [cuts_needed] intact support beam! It's close to collapse!")
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
