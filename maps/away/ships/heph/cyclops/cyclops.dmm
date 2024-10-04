@@ -1858,6 +1858,17 @@
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"rO" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/standard,
+/obj/effect/floor_decal/spline/fancy{
+	color = "#ff9900"
+	},
+/obj/item/lore_radio{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops)
 "sb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/brown,
@@ -38085,7 +38096,7 @@ qU
 lV
 Qd
 XR
-Ln
+rO
 hS
 FP
 oA
