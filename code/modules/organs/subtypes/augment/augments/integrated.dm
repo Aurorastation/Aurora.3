@@ -5,7 +5,10 @@
 	action_button_icon = "augment-tool"
 	parent_organ = BP_R_HAND
 	organ_tag = BP_AUG_TOOL
-	var/list/tools
+	cooldown = 1
+	/// What tools the implant has
+	var/list/obj/item/tools
+	/// Do we have an active tool or not?
 	var/using_tool = FALSE
 
 /obj/item/organ/internal/augment/tool/integrated/surgical
@@ -22,13 +25,13 @@
 	if(using_tool)
 		..()
 		using_tool = FALSE
-		return 1
+		return
 	var/tool = RADIAL_INPUT(user, tools)
 	if(tool)
 		using_tool = TRUE
 		augment_type = tools[tool]
 		..()
-	return 1
+	return
 
 /obj/item/organ/internal/augment/tool/integrated/surgical/left
 	parent_organ = BP_L_HAND
