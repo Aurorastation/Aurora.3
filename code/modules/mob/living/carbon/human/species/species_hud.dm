@@ -30,6 +30,7 @@
 		"head" =         list("loc" = ui_head,      "name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
 		"shoes" =        list("loc" = ui_shoes,     "name" = "shoes",        "slot" = slot_shoes,     "state" = "shoes",  "toggle" = 1),
 		"wrists" =       list("loc" = ui_wrists,    "name" = "wrists",       "slot" = slot_wrists,    "state" = "wrists", "toggle" = 1),
+		"pants" =        list("loc" = ui_pants,     "name" = "pants",        "slot" = slot_pants,     "state" = "pants",  "toggle" = 1),
 		"suit storage" = list("loc" = ui_sstore1,   "name" = "suit storage", "slot" = slot_s_store,   "state" = "suitstore"),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back", "slot_type" = /atom/movable/screen/inventory/back),
 		"id" =           list("loc" = ui_id,        "name" = "id",           "slot" = slot_wear_id,   "state" = "id"),

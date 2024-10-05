@@ -690,7 +690,7 @@
 /obj/item/clothing/mask/offworlder{
 	color = "#7d3e6a"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/pants/skirt/offworlder{
 	color = "#604343"
 	},
 /obj/item/clothing/under/offworlder{
@@ -747,8 +747,8 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/black,
 /obj/item/clothing/ears/skrell/scrunchy,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/gloves/offworlder{
 	color = "#604343"
 	},

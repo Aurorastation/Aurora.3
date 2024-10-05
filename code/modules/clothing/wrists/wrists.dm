@@ -11,7 +11,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	siemens_coefficient = 1.0
 	var/flipped = 0
-	var/mob_wear_layer = WRISTS_LAYER_OVER
+	var/mob_wear_layer = ABOVE_SUIT_LAYER
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
@@ -32,7 +32,7 @@
 	set name = "Change Wristwear Layer"
 	set src in usr
 
-	var/list/options = list("Under Uniform" = WRISTS_LAYER_UNDER, "Over Uniform" = WRISTS_LAYER_UNIFORM, "Over Suit" = WRISTS_LAYER_OVER)
+	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER, "Over Uniform" = ABOVE_UNIFORM_LAYER, "Over Suit" = ABOVE_SUIT_LAYER)
 	var/new_layer = tgui_input_list(usr, "Position Wristwear", "Wristwear Style", options)
 	if(new_layer)
 		mob_wear_layer = options[new_layer]

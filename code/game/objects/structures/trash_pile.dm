@@ -159,7 +159,7 @@
 		/obj/item/clothing/mask/gas/alt = 2,
 		/obj/item/clothing/mask/gas/half = 2,
 		/obj/item/clothing/shoes/galoshes = 2,
-		/obj/item/clothing/under/pants/camo = 2,
+		/obj/item/clothing/pants/camo = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,
 		/obj/item/device/camera = 2,
 		/obj/item/device/flashlight/flare = 2,

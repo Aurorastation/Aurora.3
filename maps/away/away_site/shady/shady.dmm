@@ -240,10 +240,10 @@
 /area/hideout)
 "df" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/mustang,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/mustang,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/track,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
 /area/hideout)
