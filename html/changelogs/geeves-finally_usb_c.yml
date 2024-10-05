@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added power outlets to the service area. More can be printed at RnD. The capacitor can be upgraded to improve charging speed for connected devices."
