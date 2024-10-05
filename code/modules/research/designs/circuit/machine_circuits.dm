@@ -241,3 +241,8 @@
 	name = "oxygen regenerator"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/oxyregenerator
+
+/datum/design/circuit/power_outlet
+	name = "Power Outlet"
+	req_tech = list(TECH_ENGINEERING = 1, TECH_POWER = 1)
+	build_path = /obj/item/circuitboard/outlet

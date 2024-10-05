@@ -33,7 +33,7 @@
 	shiptype = "Short-distance military tasking, low-level naval interdiction"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"nav_hailstorm_ship_1",

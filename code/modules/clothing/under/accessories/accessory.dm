@@ -782,23 +782,6 @@
 	base.AddOverlays(robe_backing)
 	return base
 
-//tau ceti legion ribbons
-/obj/item/clothing/accessory/legion
-	name = "seniority ribbons"
-	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
-	icon_state = "senior_ribbon"
-	item_state = "senior_ribbon"
-	overlay_state = "senior_ribbon"
-	slot = ACCESSORY_SLOT_CAPE
-	flippable = TRUE
-
-/obj/item/clothing/accessory/legion/specialist
-	name = "specialist medallion"
-	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in the Tau Ceti Armed Forces."
-	icon_state = "specialist_medallion"
-	item_state = "specialist_medallion"
-	overlay_state = "specialist_medallion"
-
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."

@@ -1,0 +1,56 @@
+2024-10-01:
+  SimpleMaroon:
+  - rscadd: Added Vaurca Attendants, a subspecies of a subspecies (Warriors). Compared
+      to Warriors, they're faster, less prone to brute injury but more prone to burns,
+      experience more pain than other Vaurcae, have a signature gaster tail, and no
+      mandibles, along with a somewhat unique appearance compared to Warriors overall.
+      They can also hold normal-sized items instead of small ones with their vestigial
+      arms, and they have no bite attack.
+  - imageadd: Added unique sprite aspects for the Vaurca Attendant compared to the
+      Warrior, including a differently-shaped head and feet.
+  - bugfix: Fixed the Vaurca Warrior left hand icon state, which was one pixel too
+      far to the side on the north-facing sprite.
+  - qol: Changed the name of Vaurca Warriors to Vaurca Myrmidon.
+  hazelmouse:
+  - rscadd: Remaps the Tau Ceti Armed Forces corvette ghostrole map to fit newer mapping
+      standards. Go Biesel!
+  - rscadd: Adds a variety of Tau Ceti Armed Forces uniform assets to the codebase,
+      including assets for officers and non-combatants, sprited by NobleRow.
+  - bugfix: The TCAF jacket is no longer invisible when worn.
+2024-10-03:
+  Crozarius:
+  - qol: Ethanol no longer automatically makes Unathi vomit.
+  FabianK3:
+  - qol: 'Added cameras to missing angles or completely uncovered areas: Central ring
+      (locker room entrance), bridge conference room, XO office, gym, telescience,
+      secure artifact storage, deck two tool storage.'
+  - qol: Added lights and lightswitch to research secure artifact storage.
+  - bugfix: Fixed unrealistic power readings throughout the combustion turbine power
+      grid.
+  - rscadd: Added a powernet sensor to the combustion turbine power grid.
+  hazelmouse:
+  - rscadd: Added a paintgun to the Jockey Workshop, so you can paint your exosuits
+      as a Jockey. Bonus points if they're an eye-sore.
+  - rscadd: Adds the new Vaurca Attendant subspecies to a number of ghostroles.
+  - bugfix: Vaurca Attendants can now take species-specific items from the loadout,
+      including clothing and augments.
+  - bugfix: Vaurca Attendants can no longer join as consulars.
+  - bugfix: Vaurca Attendants now work smoothly with a number of event outfits.
+  - balance: Overloaders now cost fewer credits and last substantially longer.
+2024-10-04:
+  Furrycactus:
+  - rscadd: Updated and fixed some small bugs with the IAC Rescue Ship.
+  - bugfix: Fixes the uranium-fueled advanced portable generator exploding when running
+      at level 4.
+2024-10-05:
+  Ben10083:
+  - qol: Doubles the starting pressure of airlock air canisters to lessen occurances
+      of canisters not having enough air to work.
+  - bugfix: TCAF shuttle should now dock and undock with Hangar properly.
+  Geeves:
+  - rscadd: Added power outlets to the service area. More can be printed at RnD. The
+      capacitor can be upgraded to improve charging speed for connected devices.
+  hazelmouse:
+  - bugfix: Coaliton Rangers now spawn with appropriate access. You can unlock your
+      suit cyclers now!
+  - bugfix: Resolves a bug preventing characters from lighting smoking pipes.

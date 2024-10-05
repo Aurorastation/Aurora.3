@@ -80,6 +80,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/gloves/latex/nitrile/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/gloves/latex/nitrile/vaurca,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/gloves/latex/nitrile/vaurca
 	)
 
@@ -117,6 +118,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_VAURCA_WARRIOR = null,
+		SPECIES_VAURCA_ATTENDANT = null,
 		SPECIES_VAURCA_WORKER = null,
 		SPECIES_VAURCA_BULWARK = null
 	)

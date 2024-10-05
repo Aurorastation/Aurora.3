@@ -411,6 +411,7 @@
 	board_path = "/obj/item/circuitboard/portgen/advanced"
 
 	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	max_temperature = 340
 	temperature_gain = 60
 
 /obj/machinery/power/portgen/basic/advanced/UseFuel()

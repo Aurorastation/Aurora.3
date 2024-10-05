@@ -21,6 +21,7 @@
 		/datum/species/unathi,
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_b/type_bb = TRUE,
 		/datum/species/machine
 	)
 
@@ -29,7 +30,8 @@
 			SPECIES_DIONA,
 			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT
 		)
 	)
 

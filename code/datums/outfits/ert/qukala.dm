@@ -18,16 +18,19 @@
 	species_suit = list( //bugs and trees can't use the skroidsuits
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/suit/storage/vest/kala,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/suit/storage/vest/kala,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/suit/storage/vest/kala,
 		SPECIES_DIONA = /obj/item/clothing/suit/storage/vest/kala
 	)
 	species_head = list( //until we get non-skrell kala helmets
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/head/helmet/tactical,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/head/helmet/tactical,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/head/helmet/tactical,
 		SPECIES_DIONA = /obj/item/clothing/head/helmet/tactical
 	)
 	species_shoes = list(
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca,
 		SPECIES_DIONA = null
 	)
 	belt_contents = list(
@@ -71,6 +74,7 @@
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/gloves/latex/nitrile/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/gloves/latex/nitrile/vaurca,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/gloves/latex/nitrile/vaurca,
 		SPECIES_DIONA = null
 	)
@@ -107,6 +111,7 @@
 	belt = /obj/item/storage/belt/utility/very_full
 	glasses = /obj/item/clothing/glasses/welding/superior
 	species_gloves = list(
+		SPECIES_VAURCA_ATTENDANT = null,
 		SPECIES_VAURCA_WARRIOR = null,
 		SPECIES_VAURCA_WORKER = null,
 		SPECIES_DIONA = null
