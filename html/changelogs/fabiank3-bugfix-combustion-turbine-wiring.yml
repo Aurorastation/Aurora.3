@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed unrealistic power readings throughout the combustion turbine power grid."
-  - rscadd: "Added a powernet sensor to the combustion turbine power grid."

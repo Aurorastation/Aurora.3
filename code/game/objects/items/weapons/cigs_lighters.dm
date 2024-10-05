@@ -583,6 +583,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_off = "pipeoff"
 	w_class = WEIGHT_CLASS_TINY
 	chem_volume = 30
+	burn_rate = 0.003
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
 	zippomes = SPAN_NOTICE("With much care, USER lights their NAME with their FLAME.")

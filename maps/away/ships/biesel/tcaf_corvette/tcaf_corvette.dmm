@@ -13069,6 +13069,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	name = "TCAF Gunship Hangar Docking Controller";
+	id_tag = "tcaf_shuttle_dock";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "ZZ" = (
