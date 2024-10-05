@@ -1518,9 +1518,9 @@
 	return WEATHER_EXPOSED
 
 ///Apply a proper movespeed modifier based on items we have equipped
-/mob/proc/update_equipment_speed_mods()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+/mob/proc/update_equipment_speed_mods(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
 		if(H.species && (H.species.flags & NO_EQUIP_SLOWDOWN))
 			return
 	var/speedies = 0

@@ -428,7 +428,7 @@
 				wearer.wearing_rig = src
 			if(slowdown != initial(slowdown))
 				slowdown = initial(slowdown)
-				wearer?.update_equipment_speed_mods()
+				wearer?.update_equipment_speed_mods(wearer)
 
 	set_vision(!offline)
 	if(offline)
@@ -439,7 +439,7 @@
 			offline = 2
 			if(slowdown != offline_slowdown)
 				slowdown = offline_slowdown
-				wearer?.update_equipment_speed_mods()
+				wearer?.update_equipment_speed_mods(wearer)
 		return
 
 	if(crushing)
