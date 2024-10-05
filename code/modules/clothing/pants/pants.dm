@@ -21,7 +21,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	set name = "Change Pants Layer"
 	set src in usr
 
-	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER, "Over Uniform" = ABOVE_UNIFORM_LAYER, "Over Suit" = ABOVE_SUIT_LAYER)
+	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER_PA, "Over Uniform" = ABOVE_UNIFORM_LAYER_PA, "Over Suit" = ABOVE_SUIT_LAYER_PA)
 	var/new_layer = tgui_input_list(usr, "Position Pants", "Pants Layer", options)
 	if(new_layer)
 		mob_wear_layer = options[new_layer]

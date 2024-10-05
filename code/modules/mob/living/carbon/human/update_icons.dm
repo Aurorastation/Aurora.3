@@ -792,7 +792,7 @@ There are several things that need to be remembered:
 			var/layer = L_EAR_LAYER
 			var/layer_alt = L_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = l_ear
-			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER)
+			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = L_EAR_LAYER_ALT
 				layer_alt = L_EAR_LAYER
 
@@ -833,7 +833,7 @@ There are several things that need to be remembered:
 			var/layer = R_EAR_LAYER
 			var/layer_alt = R_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = r_ear
-			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER)
+			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = R_EAR_LAYER_ALT
 				layer_alt = R_EAR_LAYER
 
@@ -1276,9 +1276,9 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[UNDER_UNIFORM_LAYER] = null
-	overlays_raw[ABOVE_UNIFORM_LAYER] = null
-	overlays_raw[ABOVE_SUIT_LAYER] = null
+	overlays_raw[UNDER_UNIFORM_LAYER_WR] = null
+	overlays_raw[ABOVE_UNIFORM_LAYER_WR] = null
+	overlays_raw[ABOVE_SUIT_LAYER_WR] = null
 
 	if(check_draw_wrists())
 		var/mob_icon
@@ -1307,7 +1307,7 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/wrist_layer = ABOVE_SUIT_LAYER
+		var/wrist_layer = ABOVE_SUIT_LAYER_WR
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
 			wrist_layer = W.mob_wear_layer
@@ -1321,9 +1321,9 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[UNDER_UNIFORM_LAYER] = null
-	overlays_raw[ABOVE_UNIFORM_LAYER] = null
-	overlays_raw[ABOVE_SUIT_LAYER] = null
+	overlays_raw[UNDER_UNIFORM_LAYER_PA] = null
+	overlays_raw[ABOVE_UNIFORM_LAYER_PA] = null
+	overlays_raw[ABOVE_SUIT_LAYER_PA] = null
 
 	if(check_draw_pants())
 		var/mob_icon
@@ -1352,7 +1352,7 @@ There are several things that need to be remembered:
 
 		var/image/pants_overlay = pants.get_mob_overlay(src, mob_icon, mob_state, slot_pants_str)
 
-		var/pants_layer = ABOVE_SUIT_LAYER
+		var/pants_layer = ABOVE_SUIT_LAYER_PA
 		if(istype(pants, /obj/item/clothing/pants))
 			var/obj/item/clothing/pants/P = pants
 			pants_layer = P.mob_wear_layer

@@ -47,7 +47,7 @@
 GLOBAL_DATUM_INIT(gear_tweak_wrist_layer, /datum/gear_tweak/wrist_layer, new())
 
 /datum/gear_tweak/wrist_layer
-	var/list/options = list(WRISTS_UNDER = UNDER_UNIFORM_LAYER, WRISTS_OVER_UNIFORM = ABOVE_UNIFORM_LAYER, WRISTS_OVER_SUIT = ABOVE_SUIT_LAYER)
+	var/list/options = list(WRISTS_UNDER = UNDER_UNIFORM_LAYER_WR, WRISTS_OVER_UNIFORM = ABOVE_UNIFORM_LAYER_WR, WRISTS_OVER_SUIT = ABOVE_SUIT_LAYER_WR)
 
 /datum/gear_tweak/wrist_layer/get_contents(var/metadata)
 	return "Wrist Layer: [metadata]"
