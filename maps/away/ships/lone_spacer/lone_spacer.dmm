@@ -957,13 +957,7 @@
 	pixel_y = 11
 	},
 /obj/item/spacecash/c1000{
-	pixel_y = 9
-	},
-/obj/item/spacecash/c1000{
 	pixel_y = 7
-	},
-/obj/item/spacecash/c1000{
-	pixel_y = 5
 	},
 /obj/item/spacecash/c1000{
 	pixel_y = 3
