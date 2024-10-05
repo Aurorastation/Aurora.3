@@ -249,7 +249,7 @@
 				cuts_needed++
 
 	// For welding off beams.
-	else if (attacking_item.iswelder() && welding == FALSE)
+	else if (attacking_item.iswelder() && !welding)
 		var/obj/item/weldingtool/WT = attacking_item
 		while (cuts_needed)
 			welding = TRUE
@@ -260,14 +260,14 @@
 			else
 				break
 
+			new /obj/item/stack/rods(get_turf(src))
+
 			if (cuts_needed)
 				to_chat(user, SPAN_NOTICE("You successfully cut a support beam! Now dislodged from its fitting, it clatters down to the floor."))
-				new /obj/item/stack/rods(src.loc)
 			else
 				qdel(src)
 				playsound(src, 'sound/items/Welder.ogg', 10, TRUE)
 				user.visible_message(SPAN_WARNING("\The [src] were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through \the [src], opening the way!"))
-				new /obj/item/stack/rods(src.loc)
 				break
 
 		welding = FALSE
