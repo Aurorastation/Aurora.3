@@ -9,7 +9,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	icon = 'icons/obj/item/clothing/pants/pants.dmi'
 	contained_sprite = TRUE
 	body_parts_covered = LOWER_TORSO | LEGS
-	var/mob_wear_layer = ABOVE_UNIFORM_LAYER
+	var/mob_wear_layer = ABOVE_UNIFORM_LAYER_PA
 
 /obj/item/clothing/pants/update_clothing_icon()
 	if (ismob(src.loc))
