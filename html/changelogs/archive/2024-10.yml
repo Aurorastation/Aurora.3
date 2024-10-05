@@ -42,3 +42,15 @@
   - rscadd: Updated and fixed some small bugs with the IAC Rescue Ship.
   - bugfix: Fixes the uranium-fueled advanced portable generator exploding when running
       at level 4.
+2024-10-05:
+  Ben10083:
+  - qol: Doubles the starting pressure of airlock air canisters to lessen occurances
+      of canisters not having enough air to work.
+  - bugfix: TCAF shuttle should now dock and undock with Hangar properly.
+  Geeves:
+  - rscadd: Added power outlets to the service area. More can be printed at RnD. The
+      capacitor can be upgraded to improve charging speed for connected devices.
+  hazelmouse:
+  - bugfix: Coaliton Rangers now spawn with appropriate access. You can unlock your
+      suit cyclers now!
+  - bugfix: Resolves a bug preventing characters from lighting smoking pipes.
