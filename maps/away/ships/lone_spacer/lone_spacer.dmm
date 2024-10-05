@@ -122,6 +122,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aC" = (
@@ -759,6 +760,16 @@
 /obj/item/clothing/accessory/wcoat_rec{
 	color = "#494949"
 	},
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/accessory/dressshirt{
+	color = "#bbbbbb"
+	},
+/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/head/sidecap{
+	color = "#2E2E2E";
+	desc = "A simple cap, often worn by pilots. This one is faded with age."
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "hM" = (
@@ -922,11 +933,28 @@
 /area/shuttle/lone_spacer/port_nacelle)
 "ly" = (
 /obj/structure/table/wood,
-/obj/random/plushie{
-	pixel_y = 2
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c1000{
+	pixel_y = 11
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 9
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 7
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 5
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 3
 	},
 /obj/structure/sign/poster{
 	pixel_x = -32
+	},
+/obj/item/storage/wallet{
+	pixel_y = -1;
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -942,6 +970,11 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle{
+	pixel_y = 5;
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "mj" = (
@@ -1078,6 +1111,7 @@
 /obj/item/material/hatchet/lumber,
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
 "pd" = (
@@ -1536,6 +1570,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/cell_charger,
+/obj/item/storage/firstaid/empty{
+	pixel_y = 14;
+	pixel_x = 15
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "wT" = (
@@ -2458,6 +2496,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
+"Oa" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+	dir = 8
+	},
+/obj/vehicle/bike{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
 "Ok" = (
 /obj/structure/closet/crate,
 /obj/item/mecha_equipment/mounted_system/plasmacutter,
@@ -2467,9 +2515,6 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/console_screen,
 /obj/item/circuitboard/autolathe,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
 /obj/item/cane/crutch,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/circuitboard/biogenerator,
@@ -2487,6 +2532,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/circuitboard/oven,
+/obj/item/circuitboard/stove,
+/obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "Os" = (
@@ -2532,6 +2580,13 @@
 "Pk" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/hypospray/autoinjector/stimpack,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/storage/pill_bottle/smart,
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene,
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
 "PC" = (
@@ -3084,15 +3139,20 @@
 /area/shuttle/lone_spacer/washroom)
 "XJ" = (
 /obj/structure/table/wood,
+/obj/item/gamehelm/pink{
+	icon_state = "closed_pink";
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/dirt,
 /obj/item/device/flashlight/lamp/green{
 	pixel_y = 15;
 	pixel_x = 8
 	},
-/obj/item/gamehelm/pink{
-	icon_state = "closed_pink";
-	pixel_x = -1
+/obj/random/plushie{
+	pixel_y = 7;
+	pixel_x = -9
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "XU" = (
@@ -35755,7 +35815,7 @@ YV
 YV
 yc
 Bl
-yc
+Oa
 YV
 YV
 NY
