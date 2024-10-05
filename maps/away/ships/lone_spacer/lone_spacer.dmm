@@ -127,6 +127,8 @@
 /obj/item/clothing/suit/space,
 /obj/item/clothing/head/helmet/space,
 /obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aC" = (
@@ -918,12 +920,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/fore_hall)
 "kx" = (
-/obj/structure/dispenser/oxygen,
 /obj/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cargo_receptacle{
+	desc = "An Orion Express automated cargo acceptance device. This one appears to be configured to receive cargo packages intended for the ship it's on.";
+	name = "ship cargo delivery point"
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "kG" = (
@@ -2982,10 +2987,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"UO" = (
-/obj/item/clothing/accessory/scarf/lone_spacer_green,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/fore_hall)
 "UQ" = (
 /obj/effect/map_effect/marker/airlock/shuttle/lone_spacer,
 /obj/machinery/airlock_sensor/airlock_exterior{
@@ -38139,7 +38140,7 @@ Wu
 Pg
 Wu
 IB
-UO
+Xn
 ks
 XE
 lB
