@@ -123,6 +123,10 @@
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/head/helmet/space,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aC" = (
@@ -676,6 +680,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
+"hE" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+	dir = 8
+	},
+/obj/vehicle/bike{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
 "hH" = (
 /obj/item/device/paicard,
 /obj/structure/closet/cabinet,
@@ -1110,8 +1124,8 @@
 /obj/item/melee/baton/loaded,
 /obj/item/material/hatchet/lumber,
 /obj/item/clothing/accessory/holster/thigh/brown,
-/obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/suit/armor/carrier/generic,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
 "pd" = (
@@ -2181,6 +2195,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Ie" = (
@@ -2495,16 +2512,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/lone_spacer/storage)
-"Oa" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
-	dir = 8
-	},
-/obj/vehicle/bike{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "Ok" = (
 /obj/structure/closet/crate,
@@ -35815,7 +35822,7 @@ YV
 YV
 yc
 Bl
-Oa
+hE
 YV
 YV
 NY
