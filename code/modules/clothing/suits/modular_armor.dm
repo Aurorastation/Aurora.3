@@ -754,6 +754,13 @@
 	icon_state = "flagpatch_sedantis"
 	item_state = "flagpatch_sedantis"
 
+/obj/item/clothing/accessory/flagpatch/burzsia
+	name = "burzsia flagpatch"
+	desc = "A patch bearing the sigil of Burzsia. While mainly worn by workers and natives loyal to Hephaestus alike, \
+	there are still those who don this item in a more patriotic sense."
+	icon_state = "flagpatch_burzsia"
+	item_state = "flagpatch_burzsia"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf
