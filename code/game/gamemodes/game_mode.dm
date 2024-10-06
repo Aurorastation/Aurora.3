@@ -493,6 +493,10 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/check_victory()
 	return
 
+/// This proc is called once the vote for the gamemode finishes and this gamemode is picked.
+/datum/game_mode/proc/post_finalize_vote()
+	return
+
 //////////////////////////
 //Reports player logouts//
 //////////////////////////

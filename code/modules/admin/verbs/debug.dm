@@ -313,58 +313,20 @@
 		return
 	do_dressing(H)
 
-/client/proc/do_dressing(var/mob/living/carbon/human/M = null)
+/proc/do_dressing(var/mob/living/carbon/human/M = null)
 	if(!M || !istype(M))
-		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in GLOB.human_mob_list
+		M = tgui_input_list(usr, "Select a mob you would like to dress.", "Set Human Outfit", GLOB.human_mob_list)
 	if(!M)
 		return
 
-	var/list/outfit_catagories = list()
-	switch(alert("Would you like ERT outfits, or standard admin outfits?", "ERT-or-Admin?", "ERT", "Admin", "Cancel"))
-		if("Cancel")
-			return
-		if("ERT")
-			outfit_catagories["SCC-ERT"] = typesof(/obj/outfit/admin/ert/scc)
-			outfit_catagories["NT-ERT"] = typesof(/obj/outfit/admin/ert/nanotrasen)
-			outfit_catagories["Deathsquad"] = typesof(/obj/outfit/admin/deathsquad)
-			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/ert/legion)
-			outfit_catagories["Syndicate"] = typesof(/obj/outfit/admin/deathsquad/syndicate)
-			outfit_catagories["Freelance Mercenaries"] = typesof(/obj/outfit/admin/ert/mercenary)
-			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/obj/outfit/admin/ert/fsf)
-			outfit_catagories["Kataphracts"] = typesof(/obj/outfit/admin/ert/kataphract)
-			outfit_catagories["Eridani"] = typesof(/obj/outfit/admin/ert/ap_eridani)
-			outfit_catagories["IAC"] = typesof(/obj/outfit/admin/ert/iac)
-			outfit_catagories["Kosmostrelki"] = typesof(/obj/outfit/admin/ert/pra_cosmonaut)
-			outfit_catagories["Elyran Navy"] = typesof(/obj/outfit/admin/ert/elyran_trooper)
-		if("Admin")
-			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/obj/outfit/admin/scc)
-			outfit_catagories["NanoTrasen"] = typesof(/obj/outfit/admin/nt)
-			outfit_catagories["Antagonist"] = typesof(/obj/outfit/admin/syndicate)
-			outfit_catagories["Event"] = typesof(/obj/outfit/admin/event)
-			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/tcfl)
-			outfit_catagories["Killers"] = typesof(/obj/outfit/admin/killer)
-			outfit_catagories["Job"] = subtypesof(/obj/outfit/job)
-			outfit_catagories["Megacorps"] = subtypesof(/obj/outfit/admin/megacorp)
-			outfit_catagories["Pod Survivors"] = subtypesof(/obj/outfit/admin/pod)
-			outfit_catagories["Miscellaneous"] = typesof(/obj/outfit/admin/random)
-			outfit_catagories["Miscellaneous"] += /obj/outfit/admin/random_employee
 
-	var/chosen_catagory = input("Select an outfit catagory.", "Robust Quick-dress Shop") as null|anything in outfit_catagories
-	if(isnull(chosen_catagory))
-		return
-
-	var/list/outfit_types = list()
-	for(var/outfit in outfit_catagories[chosen_catagory])
-		var/obj/outfit/admin/A = new outfit
-		outfit_types[A.name] = A
-
-	var/chosen_outfit = input("Select an outfit.", "Robust Quick-dress Shop") as null|anything in outfit_types
+	var/chosen_outfit = tgui_input_list(usr, "Select an outfit.", "Set Human Outfit", GLOB.outfit_cache)
 	if(isnull(chosen_outfit))
 		return
 
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
-	var/obj/outfit/O = outfit_types[chosen_outfit]
+	var/obj/outfit/O = GLOB.outfit_cache[chosen_outfit]
 	if(O)
 		for(var/obj/item/I in M)
 			if(istype(I, /obj/item/implant))

@@ -815,3 +815,7 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+#define ACCESS_CRYO_OUTPOST 244
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Outpost #187-D Access"

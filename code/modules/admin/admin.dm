@@ -1386,3 +1386,43 @@ var/global/enabled_spooking = 0
 /atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
 	var/turf/T = get_turf(src)
 	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"
+
+/**
+ * Used to manually set an Odyssey for the Odyssey gamemode.
+ */
+
+/datum/admins/proc/set_odyssey()
+	set name = "Set Odyssey Type"
+	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!SSticker.mode || !istype(SSticker.mode, /datum/game_mode/odyssey))
+		to_chat(usr, SPAN_WARNING("The gamemode either does not exist, or is not Odyssey."))
+		return
+
+	if(SSticker.current_state != GAME_STATE_SETTING_UP)
+		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
+		return
+
+	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+	var/list/possible_scenarios = list()
+	for(var/singleton/scenario/S in all_scenarios)
+		possible_scenarios[S.name] = S
+
+	var/singleton/scenario/chosen_scenario
+	var/situation_name = tgui_input_list(usr, "Choose an Odyssey.", "Set Odyssey", possible_scenarios)
+	chosen_scenario = possible_scenarios[situation_name]
+
+	if(!chosen_scenario)
+		return
+
+	if(!(SSatlas.current_sector.name in chosen_scenario.sector_whitelist))
+		if(tgui_alert(usr, "This Odyssey is not appropriate for the current sector. Continue?", "Set Odyssey", list("Yes", "No")) != "Yes")
+			return
+
+	SSodyssey.scenario = chosen_scenario
+	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
+	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
