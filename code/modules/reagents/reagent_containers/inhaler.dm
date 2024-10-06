@@ -141,8 +141,10 @@
 /obj/item/reagent_containers/inhaler/update_icon()
 	ClearOverlays()
 
-	if(has_overlays == FALSE)
-		update_held_icon() // In case it has inhands.
+	if(has_overlays == FALSE) // For inhaler subtypes that don't use overlays.
+		icon_state = "[initial(icon_state)][spent]"
+		item_state = "[initial(item_state)][spent]"
+		update_held_icon()
 		return
 
 	if(!is_open_container())
