@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Lipstick now functions for Unathi and Tajara as well."
+  - rscadd: "Lipstick can now be shifted into different places, depending on the selected variant. The side-shifted lips will have slightly lower side sprites, compared to the default variant."

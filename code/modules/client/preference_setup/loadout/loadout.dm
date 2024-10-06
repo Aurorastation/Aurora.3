@@ -580,6 +580,11 @@ var/list/gear_datums = list()
 			gt.tweak_item(item, metadata["[gt]"], H)
 		else
 			gt.tweak_item(item, gt.get_default(), H)
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		if(metadata["[gt]"])
+			gt.finalize_tweak_item(item, metadata["[gt]"], H)
+		else
+			gt.finalize_tweak_item(item, gt.get_default(), H)
 
 	return item
 
@@ -590,6 +595,8 @@ var/list/gear_datums = list()
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		gt.tweak_item(item, gt.get_random())
+	for(var/datum/gear_tweak/gt in gear_tweaks)
+		gt.finalize_tweak_item(item, gt.get_random())
 	return item
 
 /datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)

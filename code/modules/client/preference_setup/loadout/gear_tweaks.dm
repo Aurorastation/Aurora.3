@@ -46,6 +46,11 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	return
 
+/// Applies the gear tweak after all the other tweak_items have run on that item
+/datum/gear_tweak/proc/finalize_tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	SHOULD_NOT_SLEEP(TRUE)
+	return
+
 /*
 Color adjustment
 */

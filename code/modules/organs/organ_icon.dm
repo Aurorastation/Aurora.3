@@ -80,12 +80,15 @@
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
 			AddOverlays(eyes_icon)
 
-	if(owner.lipstick_color && (species && (species.appearance_flags & HAS_LIPS)))
-		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lipstick_color]"]
+	if(owner.lipstick_data && (species && (species.appearance_flags & HAS_LIPS)))
+		var/lipstick_variant = owner.lipstick_data.variant
+		if(owner.species.short_name in owner.lipstick_data.species_types)
+			lipstick_variant = "[owner.species.short_name]_[lipstick_variant]"
+		var/icon/lip_icon = SSicon_cache.human_lip_cache["[lipstick_variant]-[owner.lipstick_data.color]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "lips")
-			lip_icon.Blend(owner.lipstick_color, species.eyes_icon_blend)
-			SSicon_cache.human_lip_cache["[owner.lipstick_color]"] = lip_icon
+			lip_icon = new/icon('icons/mob/human_face/lips.dmi', lipstick_variant)
+			lip_icon.Blend(owner.lipstick_data.color, species.eyes_icon_blend)
+			SSicon_cache.human_lip_cache["[lipstick_variant]-[owner.lipstick_data.color]"] = lip_icon
 
 		AddOverlays(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
