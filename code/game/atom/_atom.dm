@@ -43,6 +43,8 @@
 	var/simulated = 1 // Filter for actions. Used by lighting overlays.
 	var/fluorescent // Shows up under a UV light.
 
+	var/explosion_resistance
+
 	/// Chemistry.
 	var/datum/reagents/reagents = null
 	var/list/reagents_to_add

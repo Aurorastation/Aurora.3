@@ -138,8 +138,8 @@
 	F2.flag_item = flag_item
 
 	//Requeue the area for smoothing, just in case
-	SSicon_smooth.add_to_queue(src)
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()

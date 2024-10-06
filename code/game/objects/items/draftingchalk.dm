@@ -10,11 +10,11 @@
 /obj/effect/decal/cleanable/draftingchalk/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		SSicon_smooth.add_to_queue(src)
+		QUEUE_SMOOTH(src)
 	else
-		smooth_icon(src)
+		smooth_icon()
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
-			smooth_icon(C)
+			C.smooth_icon()
 
 /obj/item/pen/drafting
 	name = "white drafting chalk"

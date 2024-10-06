@@ -91,7 +91,7 @@ Alpha adjustment
 
 /datum/gear_tweak/alpha/get_metadata(var/user, var/metadata, var/title = "Character Preference")
 	var/selected_alpha = tgui_input_number(user, "Choose a color.", title, 255)
-	selected_alpha = Clamp(selected_alpha, 0, 255)
+	selected_alpha = clamp(selected_alpha, 0, 255)
 	return selected_alpha
 
 /datum/gear_tweak/alpha/tweak_item(var/obj/item/item, var/metadata, var/mob/living/carbon/human/H)

@@ -63,7 +63,7 @@
 
 	name = lowertext("[english_list(words)] [base_name]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] [base_name]"
-	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
+	w_class = n_ceil(clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
 	QDEL_LIST(ingredients)
