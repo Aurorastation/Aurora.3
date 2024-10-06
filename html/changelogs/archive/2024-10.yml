@@ -54,3 +54,18 @@
   - bugfix: Coaliton Rangers now spawn with appropriate access. You can unlock your
       suit cyclers now!
   - bugfix: Resolves a bug preventing characters from lighting smoking pipes.
+2024-10-06:
+  CourierBravo:
+  - rscadd: Redid random object sprites, assigning unique sprites to each random object.
+      With the expectation that in the future, random objects have unique icons. You'll
+      only ever see this when you do map making stuff.
+  - rscadd: Created a new sprite for the cooking oil tank, a modified reagent tank
+      sprite.
+  - imageadd: Added rainbow sprites for random objects, and replaced the oil tank
+      sprite.
+  - balance: Reduced the amount of cooking oil in oil tanks to be in line with other
+      reagent tanks.
+  hazelmouse:
+  - bugfix: SCC and TCAF flight helmets are no longer invisible on Unathi and Tajara.
+  hazelmouse, stev iii:
+  - rscadd: Adds a number of new flags into the game, now available in the loadout!
