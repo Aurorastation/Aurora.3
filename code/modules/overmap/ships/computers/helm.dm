@@ -45,7 +45,7 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))

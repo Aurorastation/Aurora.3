@@ -1,8 +1,8 @@
-/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user)
+/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/attacking_item, mob/user, params)
 
-	if(istype(W,/obj/item/reagent_containers/food/snacks))
+	if(istype(attacking_item,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/S = new(get_turf(src))
-		S.attackby(W,user)
+		S.attackby(attacking_item,user)
 		qdel(src)
 	..()
 

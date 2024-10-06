@@ -45,7 +45,7 @@
 	to_chat(user, SPAN_NOTICE("You overlay \the [src] and \the [initial(supplied.name)], combining the print records."))
 	return 1
 
-/obj/item/sample/attackby(obj/item/attacking_item, var/mob/user)
+/obj/item/sample/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.type == src.type)
 		user.unEquip(attacking_item)
 		if(merge_evidence(attacking_item, user))
@@ -110,15 +110,15 @@
 	name = "[initial(name)] (\the [H])"
 	icon_state = "fingerprint1"
 
-/obj/item/sample/print/attack(var/mob/living/M, var/mob/user, var/target_zone)
+/obj/item/sample/print/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	if(!ishuman(M))
+	var/mob/living/carbon/human/H = target_mob
+	if(!istype(H))
 		return ..()
 
 	if(LAZYLEN(evidence))
 		return 0
 
-	var/mob/living/carbon/human/H = M
 
 	if(H.gloves)
 		to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))

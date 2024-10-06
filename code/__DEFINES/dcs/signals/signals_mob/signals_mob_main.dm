@@ -12,5 +12,8 @@
 	/// The arugment of move_args which dictates our movement direction
 	#define MOVE_ARG_DIRECTION 2
 
+///from base of /obj/item/attack(): (mob/M, mob/user)
+#define COMSIG_MOB_ITEM_ATTACK "mob_item_attack"
+
 ///From base of mob/update_movespeed():area
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"

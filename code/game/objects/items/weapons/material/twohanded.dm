@@ -302,7 +302,7 @@
 		icon_state = "spearglass[wielded]"
 		item_state = "spearglass[wielded]"
 
-/obj/item/material/twohanded/spear/attack(mob/living/target, mob/living/user, var/target_zone)
+/obj/item/material/twohanded/spear/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
 
 	if(wielded && explosive)
@@ -481,7 +481,7 @@
 		if(powered)
 			. += SPAN_NOTICE("It is currently powered on.")
 
-/obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/material/twohanded/chainsaw/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
 	if(powered)
 		playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)

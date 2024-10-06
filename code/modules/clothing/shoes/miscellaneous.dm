@@ -44,7 +44,9 @@
 	force = 2
 	sharp = TRUE
 
-/obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
+/obj/item/clothing/shoes/heels/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
 	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))

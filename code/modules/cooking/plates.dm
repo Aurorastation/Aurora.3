@@ -60,11 +60,11 @@ Plates that can hold your cooking stuff
 	update_icon()
 	return ..()
 
-/obj/item/reagent_containers/bowl/attack(mob/living/M, mob/living/user, target_zone)
+/obj/item/reagent_containers/bowl/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isipc(user))
 		to_chat(user, SPAN_NOTICE("You don't have a mouth, so you can't lick \the [src] clean."))
 		return
-	if(grease && !reagents.total_volume && (M == user))
+	if(grease && !reagents.total_volume && (target_mob == user))
 		user.visible_message(
 			SPAN_NOTICE("[user] starts to lick \the [src] clean."),
 			SPAN_NOTICE("You start to lick \the [src] clean.")
@@ -157,11 +157,11 @@ Plates that can hold your cooking stuff
 		to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
 		return
 
-/obj/item/reagent_containers/bowl/plate/attack(mob/living/M, mob/living/user, target_zone)
+/obj/item/reagent_containers/bowl/plate/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(istype(holding, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = holding
-		S.standard_feed_mob(user, M)
-	else if(grease && !holding && (M == user))
+		S.standard_feed_mob(user, target_mob)
+	else if(grease && !holding && (target_mob == user))
 		user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
 		if(do_after(user, 5))
 			grease = FALSE

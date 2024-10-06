@@ -109,26 +109,26 @@
 		icon_state = "hammeroff"
 		item_state = "hammeroff"
 
-/obj/item/melee/hammer/powered/attack(var/mob/target, var/mob/living/user, var/target_zone)
+/obj/item/melee/hammer/powered/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
 	if(prob(trigger_chance))
 		if(!on)
 			to_chat(user, SPAN_WARNING("\The [src] buzzes!"))
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message(SPAN_DANGER("\The [user] slams \the [target] away with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [target_mob] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
-		step_away(target,user,15)
+		step_away(target_mob,user,15)
 		sleep(1)
-		step_away(target,user,15)
+		step_away(target_mob,user,15)
 		sleep(1)
-		step_away(target,user,15)
+		step_away(target_mob,user,15)
 		sleep(1)
-		step_away(target,user,15)
+		step_away(target_mob,user,15)
 		sleep(1)
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
+		if(ishuman(target_mob))
+			var/mob/living/carbon/human/H = target_mob
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
@@ -163,17 +163,17 @@
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
 
-/obj/item/melee/whip/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/whip/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
-	if(ishuman(target))
+	if(ishuman(target_mob))
 		if(prob(25))
 			if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-				if (target.l_hand && target.l_hand != src)
-					target.drop_l_hand()
+				if (target_mob.l_hand && target_mob.l_hand != src)
+					target_mob.drop_l_hand()
 			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-				if (target.r_hand && target.r_hand != src)
-					target.drop_r_hand()
-			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
+				if (target_mob.r_hand && target_mob.r_hand != src)
+					target_mob.drop_r_hand()
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"))
 		return
 
 /obj/item/melee/ceremonial_sword

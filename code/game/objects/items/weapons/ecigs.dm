@@ -173,7 +173,9 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] needs to be in one of your hands."))
 
-/obj/item/clothing/mask/smokable/ecig/attack(mob/living/carbon/human/C, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/ecig/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/C = target_mob
+
 	if(active && C == user && istype(C))
 		var/obj/item/blocked = C.check_mouth_coverage()
 		if(blocked)
