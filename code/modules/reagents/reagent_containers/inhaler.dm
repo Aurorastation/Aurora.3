@@ -17,7 +17,8 @@
 	slot_flags = SLOT_BELT
 	var/name_label
 	var/spent = FALSE
-	var/has_overlays = TRUE // For inhalers with sprites not designed for overlays. Define to false if overlays aren't wanted.
+	/// Define to false if overlays aren't wanted, such as if the sprite isn't designed for them.
+	var/has_overlays = TRUE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
