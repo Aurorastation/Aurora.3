@@ -1,7 +1,7 @@
 /singleton/cargo_item
 	var/category = "miscellaneous"
 	var/name = "generic cargo item"
-	var/supplier = "generic supplier"
+	var/supplier = "generic_supplier"
 	var/description = "A basic cargo item."
 	var/price = 1
 	var/list/items = list()
@@ -9,6 +9,29 @@
 	var/container_type = "crate" //what container it spawns in
 	var/groupable = 1 //whether or not this can be combined with other items in a crate
 	var/item_mul = 1
+
+//Gets a list of the cargo item - To be json encoded
+/singleton/cargo_item/proc/get_list()
+	var/list/data = list()
+	data["name"] = name
+	data["description"] = description
+	data["categories"] = category
+	data["price"] = price
+	data["items"] = items
+	data["supplier"] = supplier
+
+	//Adjust the price based on the supplier adjustment and the categories
+	data["price_adjusted"] = get_adjusted_price()
+	return data
+
+/singleton/cargo_item/proc/get_adjusted_price()
+	var/return_price = price
+	for(var/category in SScargo.cargo_categories)
+		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
+		if(cc)
+			return_price *= cc.price_modifier
+
+	return return_price
 
 /*
 /singleton/cargo_item/machinepistol45

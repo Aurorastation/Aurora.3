@@ -96,12 +96,16 @@ SUBSYSTEM_DEF(cargo)
 	last_item_id = 0
 
 /datum/controller/subsystem/cargo/proc/load_cargo_categories()
-	var/list/cargo_categories = GET_SINGLETON_SUBTYPE_MAP(/singleton/cargo_category)
+	var/list/cargo_categories = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)
 
-	for(var/category in cargo_categories)
-		var/singleton/cargo_category/C = GET_SINGLETON(category)
-		log_subsystem_cargo("Loading category [C.name].")
-		SScargo.cargo_categories["[C.name]"] = C
+	if(!cargo_categories)
+		log_subsystem_cargo("Error: 'Cargo categories' list is blank.")
+		return
+	else
+		for(var/category in cargo_categories)
+			var/singleton/cargo_category/C = GET_SINGLETON(category)
+			log_subsystem_cargo("Loading category '[C.name]'.")
+			SScargo.cargo_categories[C.name] = C
 
 /*
 /obj/structure/sign/double/barsign/proc/set_sign()
@@ -112,7 +116,6 @@ SUBSYSTEM_DEF(cargo)
 		var/singleton/sign/double/B = GET_SINGLETON(sign)
 		sign_index["[B.name]"] = B
 */
-
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
 	log_subsystem_cargo("Loading cargo items.")
@@ -142,8 +145,6 @@ SUBSYSTEM_DEF(cargo)
 				new_category.items = list(I) // Initialize the new category's item list with the current item
 				SScargo.cargo_categories[I.category] = new_category
 
-
-
 	log_subsystem_cargo("Finished loading cargo items.")
 
 //Load cargo data from cargo_items.dm
@@ -164,23 +165,36 @@ SUBSYSTEM_DEF(cargo)
 //Add a new Supplier to the Cargo Subsystem
 //Returns the /datum/cargo_supplier/ on success or a error message
 /datum/controller/subsystem/cargo/proc/add_supplier(var/short_name, var/name, var/description, var/tag_line, var/shuttle_time, var/shuttle_price, var/available, var/price_modifier)
-	// Create a new supplier object
-	var/datum/cargo_supplier/cs = new()
+    // Retrieve the subtype map for cargo_supplier
+    var/singleton_subtypes = GET_SINGLETON_SUBTYPE_MAP(/singleton/cargo_supplier)
 
-	// Assign the passed values to the supplier
-	cs.short_name = short_name   // This could be a short identifier, but could also be the full name depending on your needs
-	cs.name = name			   // Full name of the supplier
-	cs.description = description
-	cs.tag_line = tag_line
-	cs.shuttle_time = text2num(shuttle_time)
-	cs.shuttle_price = text2num(shuttle_price)
-	cs.available = text2num(available)
-	cs.price_modifier = text2num(price_modifier)
+    // Check if we retrieved a valid map
+    if (!singleton_subtypes)
+        log_subsystem_cargo("Error: Could not retrieve cargo_supplier singleton subtype map.")
+        return null
 
-	// Add the supplier to the cargo_suppliers list
-	cargo_suppliers[cs.short_name] = cs
+    // Find the specific supplier singleton by its short name in the subtype map
+    var/singleton/cargo_supplier/cs = singleton_subtypes[short_name]
 
-	return cs
+    // Check if the supplier singleton exists
+    if (!cs)
+        log_subsystem_cargo("Error: Could not find supplier with short name [short_name].")
+        return null
+
+    // Assign the passed values to the singleton supplier
+    cs.short_name = short_name
+    cs.name = name
+    cs.description = description
+    cs.tag_line = tag_line
+    cs.shuttle_time = text2num(shuttle_time)
+    cs.shuttle_price = text2num(shuttle_price)
+    cs.available = text2num(available)
+    cs.price_modifier = text2num(price_modifier)
+
+    // Add or update the supplier in the cargo_suppliers list
+    cargo_suppliers[cs.short_name] = cs
+
+    return cs
 
 /*
 	Getting items, categories, suppliers and shipments
@@ -208,9 +222,11 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/get_category_list()
 	var/list/category_list = list()
 
+	log_subsystem_cargo("get_category_list() called.")
+
 	for (var/cat_name in cargo_categories)
 		// Get the singleton instance for the current category
-		var/singleton/cargo_category/cc = GET_SINGLETON(cargo_categories[cat_name])
+		var/singleton/cargo_category/cc = cargo_categories[cat_name]
 
 		if (cc)  // Ensure the singleton was found
 			// Add the list returned by get_list() to category_list
@@ -294,7 +310,7 @@ SUBSYSTEM_DEF(cargo)
 			//Get the list of supplirs and add it to the suppliers list
 			for(var/supplier in co.get_supplier_list())
 				if(pretty_names)
-					var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+					var/singleton/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 					suppliers[cs.short_name] = cs.name
 				else
 					suppliers[supplier] = supplier
@@ -358,6 +374,7 @@ SUBSYSTEM_DEF(cargo)
 		log_subsystem_cargo("Warning: Tried to charge supply account but supply acount doesnt exist")
 		return 0
 	return SSeconomy.charge_to_account(supply_account.account_number, "[commstation_name()] - Operations", "[charge_text]", "[commstation_name()] - Banking System", -charge_credits)
+
 //Gets the pending shipment costs for the items that are about to be shipped to the station
 /datum/controller/subsystem/cargo/proc/get_pending_shipment_cost(var/status="approved")
 	//Loop through all the orders marked as shipped and get the suppliers into a list of involved suppliers
