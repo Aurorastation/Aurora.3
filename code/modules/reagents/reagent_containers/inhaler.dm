@@ -143,7 +143,7 @@
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
 
-	if(has_overlays == TRUE)
+	if(has_overlays)
 		ClearOverlays()
 		if(!is_open_container())
 			var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
