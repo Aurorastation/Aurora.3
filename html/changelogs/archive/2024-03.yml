@@ -158,7 +158,7 @@
   - tweak: Point Verdant Police now spawn with headsets instead of bounced radios,
       as the role had too much soul.
   DreamySkrell:
-  - rscadd: Refactored `/datum/outfit` to `/datum/outfit`.
+  - rscadd: Refactored `/obj/outfit` to `/obj/outfit`.
   - rscadd: Outfits can be mapped in or spawned manually, to spill all their items
       on the floor.
   FluffyGhost:
