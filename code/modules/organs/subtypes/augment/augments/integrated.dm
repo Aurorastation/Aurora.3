@@ -31,7 +31,6 @@
 		using_tool = TRUE
 		augment_type = tools[tool]
 		..()
-	return
 
 /obj/item/organ/internal/augment/tool/integrated/surgical/left
 	parent_organ = BP_L_HAND
