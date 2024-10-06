@@ -2,9 +2,36 @@
 	var/name = "category"
 	var/display_name = "Generic Category"
 	var/description = "A generic category."
-	var/icon = "box" //tgui icon to use for category
+	var/icon = "box"
 	var/price_modifier = 1
-	var/list/items = list()  // This should already be the default.
+	var/list/items = list()
+
+	var/list/shipment_data = list(
+		"shipment_num" = 0,
+		"shipment_cost_sell" = 0,
+		"shipment_cost_purchase" = 0,
+		"shipment_invoice" = "",
+		"shuttle_fee" = 0,
+		"shuttle_time" = 0,
+		"shuttle_called_by" = "",
+		"shuttle_recalled_by" = "",
+		"completed" = 0
+	)
+
+/singleton/cargo_category/proc/get_list()
+	var/list/data = list()
+	data["name"] = src.name
+	data["display_name"] = src.display_name
+	data["description"] = src.description
+	data["icon"] = src.icon
+	data["price_modifier"] = src.price_modifier
+	return data
+
+/singleton/cargo_category/proc/get_item_list()
+	var/list/item_list = list()
+	for (var/datum/cargo_item/ci in src.items)
+		item_list.Add(list(ci.get_list()))
+	return item_list
 
 /singleton/cargo_category/security
 	name = "security"

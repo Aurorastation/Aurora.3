@@ -514,20 +514,21 @@
 	var/message = null //Message from central
 
 /datum/cargo_shipment/proc/get_list(var/shipment_completion = 1)
-	if(shipment_completion != completed)
-		return null
-	else
-		var/list/data = list()
-		data["shipment_num"] = shipment_num
-		data["shipment_cost_sell"] = shipment_cost_sell
-		data["shipment_cost_purchase"] = shipment_cost_purchase
-		data["shipment_invoice"] = shipment_invoice
-		data["shuttle_fee"] = shuttle_fee
-		data["shuttle_time"] = shuttle_time
-		data["shuttle_called_by"] = shuttle_called_by
-		data["shuttle_recalled_by"] = shuttle_recalled_by
-		data["invoice"] = get_invoice()
-		return data
+    // Access the cargo category singleton
+    var/singleton/cargo_category/cc = GET_SINGLETON(/singleton/cargo_category)
+
+    if (!cc)
+        return null
+
+    // Check the shipment completion from the singleton
+    if (shipment_completion != cc.shipment_data["completed"])
+        return null
+
+    // Fetch data dynamically from the shipment_data list
+    var/list/data = cc.shipment_data.Copy()  // Copy the entire shipment_data list
+
+    return data
+
 
 // Generates the invoice at the time of shipping
 /datum/cargo_shipment/proc/generate_invoice()

@@ -10,6 +10,7 @@
 	var/groupable = 1 //whether or not this can be combined with other items in a crate
 	var/item_mul = 1
 
+/*
 /singleton/cargo_item/machinepistol45
 	category = "security"
 	name = ".45 machine pistol"
@@ -6361,3 +6362,4 @@
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
+*/

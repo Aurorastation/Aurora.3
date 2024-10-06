@@ -1,0 +1,668 @@
+/singleton/cargo_item/autakhlimbs
+	category = "operations"
+	name = "autakh limbs"
+	supplier = "NanoTrasen"
+	description = "A box with various autakh limbs"
+	price = 3000
+	items = list(
+		/obj/item/organ/external/hand/right/autakh/tool,
+		/obj/item/organ/external/hand/right/autakh/tool/mining,
+		/obj/item/organ/external/hand/right/autakh/medical
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 2
+
+/singleton/cargo_item/auto_chisel
+	category = "operations"
+	name = "auto-chisel"
+	supplier = "NanoTrasen"
+	description = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
+	price = 500
+	items = list(
+		/obj/item/autochisel
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/battlemonstersresupplycanister
+	category = "operations"
+	name = "battlemonsters resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/battlemonsters
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/blackpaint
+	category = "operations"
+	name = "black paint"
+	supplier = "NanoTrasen"
+	description = "Black paint, the color of space."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/black
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/bluepaint
+	category = "operations"
+	name = "blue paint"
+	supplier = "NanoTrasen"
+	description = "Blue paint, for when you're on a mission from god."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/blue
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/boozeresupplycanister
+	category = "operations"
+	name = "booze resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/booze
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/camera
+	category = "operations"
+	name = "camera"
+	supplier = "NanoTrasen"
+	description = "A polaroid camera. 10 photos left."
+	price = 80
+	items = list(
+		/obj/item/device/camera
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/cargotraintrolley
+	category = "operations"
+	name = "cargo train trolley"
+	supplier = "NanoTrasen"
+	description = "A cargo trolley for carrying cargo, NOT people."
+	price = 1500
+	items = list(
+		/obj/vehicle/train/cargo/trolley
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/cargotraintug
+	category = "operations"
+	name = "cargo train tug"
+	supplier = "NanoTrasen"
+	description = "A ridable electric car designed for pulling cargo trolleys."
+	price = 500
+	items = list(
+		/obj/vehicle/train/cargo/engine
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/coathanger
+	category = "operations"
+	name = "Coat Hanger"
+	supplier = "NanoTrasen"
+	description = "To hang your coat"
+	price = 150
+	items = list(
+		/obj/structure/coatrack
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/coffeeresupplycanister
+	category = "operations"
+	name = "coffee resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/coffee
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/colaresupplycanister
+	category = "operations"
+	name = "cola resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/cola
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/cutleryresupplycanister
+	category = "operations"
+	name = "cutlery resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/cutlery
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/debugger
+	category = "operations"
+	name = "Debugger"
+	supplier = "NanoTrasen"
+	description = "Used to debug electronic equipment."
+	price = 50
+	items = list(
+		/obj/item/device/debugger
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 2
+
+/singleton/cargo_item/eftposscanner
+	category = "operations"
+	name = "EFTPOS scanner"
+	supplier = "NanoTrasen"
+	description = "Swipe your ID card to make purchases electronically."
+	price = 45
+	items = list(
+		/obj/item/device/eftpos
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/emptyspraybottle
+	category = "operations"
+	name = "empty spray bottle"
+	supplier = "blm"
+	description = "A empty spray bottle"
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/spray
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/faxmachine
+	category = "operations"
+	name = "fax machine"
+	supplier = "NanoTrasen"
+	description = "Needed office equipment for any space based corporation to function"
+	price = 300
+	items = list(
+		/obj/machinery/photocopier/faxmachine
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/filmcartridge
+	category = "operations"
+	name = "film cartridge"
+	supplier = "NanoTrasen"
+	description = "A camera film cartridge. Insert it into a camera to reload it."
+	price = 15
+	items = list(
+		/obj/item/device/camera_film
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/flare
+	category = "operations"
+	name = "flare"
+	supplier = "NanoTrasen"
+	description = "Good for illuminating dark areas or burning someones face off."
+	price = 80
+	items = list(
+		/obj/item/device/flashlight/flare
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/formalwearcrate
+	category = "operations"
+	name = "formal wear crate"
+	supplier = "NanoTrasen"
+	description = "Formalwear for the best occasions."
+	price = 800
+	items = list(
+		/obj/item/clothing/head/bowler,
+		/obj/item/clothing/head/that,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/shoes/laceup/grey,
+		/obj/item/clothing/suit/wcoat
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/giftwrappingpaper
+	category = "operations"
+	name = "gift wrapping paper"
+	supplier = "NanoTrasen"
+	description = "You can use this to wrap items in."
+	price = 8
+	items = list(
+		/obj/item/stack/wrapping_paper
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/greenpaint
+	category = "operations"
+	name = "green paint"
+	supplier = "NanoTrasen"
+	description = "Green paint, a aesthetic replacement for grass."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/green
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/hmatrrafillet
+	category = "operations"
+	name = "Hma'trra fillet"
+	supplier = "Zharkov Shipping Company"
+	description = "A fillet of glacier worm meat."
+	price = 45
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hmatrrameat
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/hydroresupplycanister
+	category = "operations"
+	name = "hydro resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/hydro
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/janitorialresupplyset
+	category = "operations"
+	name = "janitorial resupply set"
+	supplier = "blm"
+	description = "A set of items to restock the janitors closet"
+	price = 2000
+	items = list(
+		/obj/structure/janitorialcart,
+		/obj/structure/mopbucket,
+		/obj/item/mop,
+		/obj/item/storage/bag/trash,
+		/obj/item/reagent_containers/spray/cleaner,
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/clothing/suit/caution,
+		/obj/item/clothing/suit/caution,
+		/obj/item/clothing/suit/caution,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/soap/nanotrasen
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/jukebox
+	category = "operations"
+	name = "juke box"
+	supplier = "NanoTrasen"
+	description = "A common sight in any modern space bar, this jukebox has all the space classics."
+	price = 500
+	items = list(
+		/obj/machinery/media/jukebox
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/loadbearingequipment
+	category = "operations"
+	name = "load bearing equipment"
+	supplier = "NanoTrasen"
+	description = "Used to hold things when you don't have enough hands."
+	price = 83
+	items = list(
+		/obj/item/clothing/accessory/storage
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/medsresupplycanister
+	category = "operations"
+	name = "meds resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/meds
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/packagewrapper
+	category = "operations"
+	name = "package wrapper"
+	supplier = "NanoTrasen"
+	description = "A roll of paper used to enclose an object for delivery."
+	price = 8
+	items = list(
+		/obj/item/stack/packageWrap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/pda
+	category = "operations"
+	name = "PDA"
+	supplier = "NanoTrasen"
+	description = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
+	price = 90
+	items = list(
+		/obj/item/modular_computer/handheld/pda
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/photoalbum
+	category = "operations"
+	name = "Photo album"
+	supplier = "NanoTrasen"
+	description = "A place to store fond memories you made in space"
+	price = 45
+	items = list(
+		/obj/item/storage/photo_album
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/photocopier
+	category = "operations"
+	name = "photo copier"
+	supplier = "NanoTrasen"
+	description = "When you're too lazy to write a copy yourself"
+	price = 300
+	items = list(
+		/obj/machinery/photocopier
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/purplepaint
+	category = "operations"
+	name = "purple paint"
+	supplier = "NanoTrasen"
+	description = "Purple paint, it makes you feel like royalty."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/purple
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/redpaint
+	category = "operations"
+	name = "red paint"
+	supplier = "NanoTrasen"
+	description = "Red paint, its not blood we promise."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/red
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/robotoolsresupplycanister
+	category = "operations"
+	name = "robo-tools resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/robo
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/poster19
+	category = "operations"
+	name = "rolled-up poster - No. 19"
+	supplier = "NanoTrasen"
+	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
+	price = 38
+	items = list(
+		/obj/item/contraband/poster
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/securityresupplycanister
+	category = "operations"
+	name = "security resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/robust
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/shoulderholster
+	category = "operations"
+	name = "shoulder holster"
+	supplier = "NanoTrasen"
+	description = "A handgun holster."
+	price = 23
+	items = list(
+		/obj/item/clothing/accessory/holster
+	)
+	access = 2
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/smokesresupplycanister
+	category = "operations"
+	name = "smokes resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/smokes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/snacksresupplycanister
+	category = "operations"
+	name = "snacks resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 967
+	items = list(
+		/obj/item/device/vending_refill/snack
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/space_bike
+	category = "operations"
+	name = "space-bike"
+	supplier = "Zharkov Shipping Company"
+	description = "Space wheelies! Woo!"
+	price = 1200
+	items = list(
+		/obj/vehicle/bike
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/toolsresupplycanister
+	category = "operations"
+	name = "tools resupply canister"
+	supplier = "blm"
+	description = "A vending machine restock cart."
+	price = 500
+	items = list(
+		/obj/item/device/vending_refill/tools
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/webbing
+	category = "operations"
+	name = "webbing"
+	supplier = "NanoTrasen"
+	description = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
+	price = 83
+	items = list(
+		/obj/item/clothing/accessory/storage/webbing
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/whitepaint
+	category = "operations"
+	name = "white paint"
+	supplier = "NanoTrasen"
+	description = "White paint, perfect for sterile boring lab environments."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/white
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/yellowpaint
+	category = "operations"
+	name = "yellow paint"
+	supplier = "NanoTrasen"
+	description = "Yellow paint, for when you need to make eyes sore."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/yellow
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/zorasodaresupplycanister
+	category = "operations"
+	name = "zora soda resupply canister"
+	supplier = "zra"
+	description = "A vending machine restock cart."
+	price = 800
+	items = list(
+		/obj/item/device/vending_refill/zora
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
