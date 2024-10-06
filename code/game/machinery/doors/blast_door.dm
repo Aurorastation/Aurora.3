@@ -239,14 +239,15 @@
 	// For replacing welded-off beams.
 	if(istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = attacking_item
-		if(cuts_needed == initial(cuts_needed))
+		if(cuts_needed >= initial(cuts_needed))
 			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support beams."))
 		else
 			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support beam..."))
 			if (do_after(user, 30 SECONDS))
-				to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support beam."))
-				R.use(1)
-				cuts_needed++
+				if(cuts_needed <= initial(cuts_needed))
+					to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support beam."))
+					R.use(1)
+					cuts_needed++
 
 	// For welding off beams.
 	else if (attacking_item.iswelder() && !welding)
