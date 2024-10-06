@@ -42,6 +42,7 @@
 	surface_color = COLOR_BLUE_GRAY
 	scanimage = "asteroid.png"
 	possible_themes = list(/datum/exoplanet_theme/barren/asteroid/ice)
+	has_icy_weather = TRUE
 	rock_colors = list(COLOR_ASH)
 	planetary_area = /area/exoplanet/barren/asteroid
 	ruin_planet_type = PLANET_ASTEROID

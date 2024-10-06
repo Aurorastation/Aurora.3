@@ -7,6 +7,7 @@
 	weather = "Global full-atmosphere hydrological weather system. Barely-habitable ambient low temperatures. Frequently dangerous, unpredictable meteorological upsets"
 	surfacewater = "Majority frozen, 70% surface water"
 	initial_weather_state = /singleton/state/weather/calm/snow_planet
+	has_icy_weather = TRUE
 	planetary_area = /area/exoplanet/snow
 	flora_diversity = 4
 	has_trees = TRUE
