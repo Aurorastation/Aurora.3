@@ -139,20 +139,14 @@
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	ClearOverlays()
+	icon_state = "[initial(icon_state)][spent]"
+	item_state = "[initial(item_state)][spent]"
 
-	if(has_overlays == FALSE) // For inhaler subtypes that don't use overlays.
-		icon_state = "[initial(icon_state)][spent]"
-		item_state = "[initial(item_state)][spent]"
-
-	else
+	if(has_overlays == TRUE)
+		ClearOverlays()
 		if(!is_open_container())
 			var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
 			AddOverlays(backing_overlay)
-
-			icon_state = "[initial(icon_state)][spent]"
-			item_state = "[initial(item_state)][spent]"
-
 		if(reagents.total_volume)
 			var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
 			reagent_overlay.color = reagents.get_color()
