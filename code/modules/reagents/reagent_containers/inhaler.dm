@@ -144,20 +144,19 @@
 	if(has_overlays == FALSE) // For inhaler subtypes that don't use overlays.
 		icon_state = "[initial(icon_state)][spent]"
 		item_state = "[initial(item_state)][spent]"
-		update_held_icon()
-		return
 
-	if(!is_open_container())
-		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
-		AddOverlays(backing_overlay)
+	else
+		if(!is_open_container())
+			var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
+			AddOverlays(backing_overlay)
 
-		icon_state = "[initial(icon_state)][spent]"
-		item_state = "[initial(item_state)][spent]"
+			icon_state = "[initial(icon_state)][spent]"
+			item_state = "[initial(item_state)][spent]"
 
-	if(reagents.total_volume)
-		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
-		reagent_overlay.color = reagents.get_color()
-		AddOverlays(reagent_overlay)
+		if(reagents.total_volume)
+			var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
+			reagent_overlay.color = reagents.get_color()
+			AddOverlays(reagent_overlay)
 
 	update_held_icon()
 
@@ -227,7 +226,6 @@
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler"
-	item_state = "anthaler"
 	atom_flags = 0
 	volume = 10
 	has_overlays = FALSE
