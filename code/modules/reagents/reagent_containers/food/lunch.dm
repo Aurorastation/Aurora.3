@@ -32,6 +32,7 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/stokkebab,
 	/obj/item/reagent_containers/food/snacks/batwings,
 	/obj/item/reagent_containers/food/snacks/salad/earthenroot
+	/obj/item/reagent_containers/food/snacks/pepperoniroll
 )
 
 var/list/lunchables_snacks_ = list(
@@ -80,6 +81,7 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/honeybun,
 	/obj/item/reagent_containers/food/snacks/stuffed_meatball,
 	/obj/item/reagent_containers/food/snacks/grilled_peppers
+	/obj/item/reagent_containers/food/snacks/salmiak
 )
 
 var/list/lunchables_drinks_ = list(
@@ -105,6 +107,7 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/carton/small/milk/choco,
 	/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry,
 	/obj/item/reagent_containers/food/drinks/cans/melon_soda,
+	/obj/item/reagent_containers/food/drinks/cans/himeokvass
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax,
