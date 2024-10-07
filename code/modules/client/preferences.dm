@@ -109,9 +109,10 @@ var/list/preferences_datums = list()
 	/// The character's education singleton.
 	var/education
 
-	/// The character's skills list.
+	/// The character's skills list. JSON.
 	var/list/skills = list()
 
+	/// The character's psionics. JSON.
 	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.

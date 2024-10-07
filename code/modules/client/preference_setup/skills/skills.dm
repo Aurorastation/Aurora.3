@@ -37,6 +37,16 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
+/datum/category_item/player_setup_item/skills/load_character_special(savefile/S)
+	if(!pref.skills)
+		pref.skills = "{}"
+
+	var/before = pref.skills
+	try
+		pref.skills = json_decode(pref.skills)
+	catch (var/exception/e)
+		log_debug("SKILLS: Caught [e]. Initial value: [before]")
+		pref.skills = list()
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	//todomatt
@@ -49,13 +59,33 @@
 		for(var/subcategory in SSskills.skill_tree[skill_category])
 			dat += "<font size=4>[subcategory]</font><br><table><tr style='text-align:left;'>"
 			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
-				dat += "<tr><a href='?src=\ref[src];skillinfo=\ref[skill]'><font color='red'>[skill.name]</font></a>: "
+				dat += "<tr><a href='?src=\ref[src];skillinfo=[skill.type]'><font color='red'>[skill.name]</font></a>: "
 				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.maximum_level)
-					dat += "<a href='?src=\ref[src];setskill=\ref[skill];newvalue=[skill_level]'>[SSskills.skill_level_map[skill_level]]</a>"
+					dat += "<a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'>[SSskills.skill_level_map[skill_level]]</a>"
 				dat += "</tr><br>"
 		dat += "</table><hr>"
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
-	//todomatt
+	if(href_list["skillinfo"])
+		var/singleton/skill/skill_to_show = GET_SINGLETON(text2path(href_list["skillinfo"]))
+		if(!skill_to_show)
+			log_debug("SKILLS: Invalid skill selected for [user]: [skill_to_show]")
+			return
+		var/datum/browser/skill_window = new(user, "skill_info", "Skill Information")
+		var/dat = "<html><center><b>[skill_to_show.name]</center></b>"
+		dat += "<hr>[skill_to_show.description]<br>"
+		if(skill_to_show.uneducated_skill_cap)
+			dat += "Without the relevant education, you may only reach the <b>[SSskills.skill_level_map[skill_to_show.uneducated_skill_cap]]</b> level.<br>"
+		dat += "</html>"
+		skill_window.set_content(dat)
+		skill_window.open()
+	else if(href_list["setskill"])
+		var/singleton/skill/new_skill = GET_SINGLETON(text2path(href_list["setskill"]))
+		if(!new_skill)
+			log_debug("SKILLS: Invalid skill selected for [user]: [new_skill]")
+			return
+		// check if you can actually pick it...
+		pref.skills[new_skill.type] = text2num(href_list["newvalue"])
+
 	return ..()
