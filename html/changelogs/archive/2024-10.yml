@@ -69,3 +69,55 @@
   - bugfix: SCC and TCAF flight helmets are no longer invisible on Unathi and Tajara.
   hazelmouse, stev iii:
   - rscadd: Adds a number of new flags into the game, now available in the loadout!
+2024-10-07:
+  Ben10083:
+  - rscadd: Fixes up various aspects of the Coalition Ranger ship, primarily relating
+      to airlock names, wrong facing buttons, and missing access.
+  - rscadd: Coalition Ranger ship given aft docking port.
+  - balance: Replaces rat in Coalition Ranger ship with more balanced white variant.
+  FluffyGhost:
+  - refactor: Refactored the attack proc signature.
+  - code_imp: Added signals and components for the attack proc.
+  - code_imp: Added signals and components for the attackby proc.
+  - code_imp: Adjusted some leftover attackby procs signatures.
+  - server: Added grep test to ensure people don't keep adding attack/attackby procs
+      with the wrong signature.
+  - rscadd: Runtime map now has a bunch of new areas / items with often-tested stuffs,
+      and some hard-to-put-at-runtime stuffs.
+  - rscadd: Runtime map jobs now are positioned to make it faster to reach the aforementioned
+      often-tested stuffs.
+  - code_imp: Runtime map doesn't generate an overmap anymore by default, which speeds
+      up the process.
+  - code_imp: Runtime map now loads in ~11 seconds instead of ~40 seconds as it was
+      before.
+  - refactor: Updated the maploader to be faster in parsing maps.
+  - code_imp: Bapi is not engaged anymore if we're only measuring the map size, which
+      speeds up the process.
+  - code_imp: In fastboot we do not generate the codexes anymore, which speeds up
+      the process.
+  - code_imp: In fastboot and if exoplanets and away sites are not enabled, we do
+      not parse the map templates anymore, which speeds up the process.
+  - refactor: Updated the icon smoothing to be faster.
+  - code_imp: Optimized cargo area code.
+  - code_imp: Other optimizations.
+  Furrycactus:
+  - rscadd: Updated airlock markers on the Hephaestus Cyclops ship, and added two
+      small EVA docking platforms.
+  - rscadd: Added the circuitboard for the miniature fusion reactors to the circuit
+      imprinter list. Also added a board and some spare tritium to Engineering Hard
+      Storage as a potential backup power source, or for more energy intensive construction
+      projects.
+  MattAtlas:
+  - code_imp: Cleaned up electronic cigarette code slightly.
+  - qol: Electronic cigarette cartridges are now removed with alt-click.
+  - qol: Electronic cigarette cartridges now last far longer.
+  Snowy1237:
+  - bugfix: Made power outlets not dense.
+  - bugfix: Fixed jetpacks not working while in suit storage.
+  - bugfix: fixes magnetic door locks being layered under the door and unremovable.
+  Tag114:
+  - rscadd: Re-enables the ability for changelings to stealthily extract DNA from
+      targets by stinging them.
+  hazelmouse:
+  - balance: Reduces the spawn chance of all Adhomian ghostroles in the Badlands by
+      half.
