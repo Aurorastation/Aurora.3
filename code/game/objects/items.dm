@@ -443,9 +443,9 @@
 
 /obj/item/proc/get_volume_by_throwforce_and_or_w_class()
 		if(throwforce && w_class)
-				return Clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
+				return clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
 		else if(w_class)
-				return Clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
+				return clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
 		else
 				return 0
 
@@ -776,12 +776,17 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/ui_action_click()
 	attack_self(usr)
 
-//RETURN VALUES
-//handle_shield
-//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
-//Otherwise should return 0 to indicate that the attack is not affected in any way.
+/**
+ * Called when a mob is hit by a projectile, item or by an attack
+ *
+ * Return one of the `BULLET_ACT_*` defines
+ *
+ * BULLET_ACT_HIT will let the attack continue, BULLET_ACT_BLOCK will block the attack
+ */
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return FALSE
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return BULLET_ACT_HIT
 
 /obj/item/proc/can_shield_back()
 	return

@@ -17,7 +17,7 @@
 	armor_penetration = 1000
 	var/penetrated = FALSE
 
-/obj/projectile/ship_ammo/longbow/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread)
+/obj/projectile/ship_ammo/longbow/fire_projectile(projectile_type, atom/target, sound, firer, list/ignore_targets)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		penetrating = 1
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_BUNKERBUSTER)

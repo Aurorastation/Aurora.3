@@ -10,9 +10,9 @@
 	var/status = 0								// Bitfield including different statuses.
 	var/stealth = TRUE							// Do you want your victims to know of your sucking?
 
-	var/obj/screen/blood_hud
-	var/obj/screen/frenzy_hud
-	var/obj/screen/blood_suck_hud
+	var/atom/movable/screen/blood_hud
+	var/atom/movable/screen/frenzy_hud
+	var/atom/movable/screen/blood_suck_hud
 
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.

@@ -31,21 +31,3 @@
 	d.epicenter = T
 	d.rec_pow = power
 	SSexplosives.queue(d)
-
-/atom
-	var/explosion_resistance
-
-/turf/space
-	explosion_resistance = 3
-
-/turf/simulated/open
-	explosion_resistance = 3
-
-/turf/simulated/floor
-	explosion_resistance = 1
-
-/turf/simulated/mineral
-	explosion_resistance = 2
-
-/turf/simulated/wall
-	explosion_resistance = 10

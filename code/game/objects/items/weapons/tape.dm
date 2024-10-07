@@ -8,7 +8,8 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	surgerysound = /singleton/sound_category/rip_sound
 
-/obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
+/obj/item/tape_roll/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H))
 		if(target_zone == BP_EYES)
 

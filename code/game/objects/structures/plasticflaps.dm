@@ -56,27 +56,30 @@
 		return AIR_BLOCKED
 	return FALSE
 
-/obj/structure/plasticflaps/CanPass(atom/A, turf/T)
-	if(istype(A) && A.pass_flags & PASSGLASS)
+/obj/structure/plasticflaps/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(60)
 
-	var/obj/structure/bed/B = A
-	if (istype(A, /obj/structure/bed) && B.buckled)//if it's a bed/chair and someone is buckled, it will not pass
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
+	var/obj/structure/bed/B = mover
+	if (istype(mover, /obj/structure/bed) && B.buckled)//if it's a bed/chair and someone is buckled, it will not pass
 		return 0
 
-	if(istype(A, /obj/vehicle))	//no vehicles
+	if(istype(mover, /obj/vehicle))	//no vehicles
 		return 0
 
 	//Bots can always pass
-	if(isbot(A))
+	if(isbot(mover))
 		return TRUE
 
-	var/mob/living/M = A
+	var/mob/living/M = mover
 	if(istype(M))
 		if(M.lying)
 			return ..()
 		for(var/mob_type in mobs_can_pass)
-			if(istype(A, mob_type))
+			if(istype(mover, mob_type))
 				return ..()
 		return issmall(M)
 

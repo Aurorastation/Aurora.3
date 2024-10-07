@@ -65,11 +65,13 @@
 				to_chat(user,SPAN_NOTICE("You take \the [stored_item] from [src]."))
 			stored_item = null
 
-/obj/structure/flora/pottedplant/bullet_act(var/obj/projectile/Proj)
-	if (prob(Proj.damage*2))
+/obj/structure/flora/pottedplant/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (prob(hitting_projectile.damage*2))
 		death()
-		return 1
-	return ..()
 
 // ------------------------------------ dead/empty
 

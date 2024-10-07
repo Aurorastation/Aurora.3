@@ -107,13 +107,13 @@
 	if(!proximity)
 		return
 
-/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(is_open_container())
 		to_chat(user,SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
 
 	else
-		inject(M, user, M.Adjacent(user))
+		inject(target_mob, user, target_mob.Adjacent(user))
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
