@@ -47,12 +47,12 @@
 		var/singleton/skill_category/skill_category = category
 		dat += "<b><font size=5>[skill_category.name]</font></b><br>"
 		for(var/subcategory in SSskills.skill_tree[skill_category])
-			dat += "[subcategory]<table><tr style='text-align:left;'>"
+			dat += "<font size=4>[subcategory]</font><br><table><tr style='text-align:left;'>"
 			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
-				dat += "<tr><a href='?src=\ref[src];skillinfo=\ref[skill]'>[skill.name]</a>"
+				dat += "<tr><a href='?src=\ref[src];skillinfo=\ref[skill]'><font color='red'>[skill.name]</font></a>: "
 				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.maximum_level)
 					dat += "<a href='?src=\ref[src];setskill=\ref[skill];newvalue=[skill_level]'>[SSskills.skill_level_map[skill_level]]</a>"
-				dat += "</tr>"
+				dat += "</tr><br>"
 		dat += "</table><hr>"
 	. = dat.Join()
 
