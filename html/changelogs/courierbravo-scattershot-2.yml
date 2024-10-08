@@ -57,6 +57,4 @@ delete-after: True
 changes:
   - bugfix: "Removed the crew armory buttons around the Horizon."
   - bugfix: "Added air alarms to several rooms in science missing one."
-  - bugfix: "Removed access requirement for the Rangers nanomed."
-  - bugfix: "Fixed a weirdly placed APC in deck 3 maints."
   - qol: "Moved the supermatter controls on the CE's desk onto the wall. Also, moved the window so Ginny can look into that back hallway."
