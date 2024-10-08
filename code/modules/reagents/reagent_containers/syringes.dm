@@ -281,7 +281,7 @@
 		AddOverlays("capped")
 
 	if(reagents && reagents.total_volume)
-		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
+		worn_overlay = clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
 		AddOverlays(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
@@ -314,7 +314,7 @@
 
 		var/hit_area = affecting.name
 
-		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
+		if((user != target) && (H.check_shields(7, src, user, "\the [src]") != BULLET_ACT_HIT))
 			return
 
 		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100

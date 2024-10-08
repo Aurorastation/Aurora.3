@@ -19,9 +19,9 @@
 		above.update_mimic()
 
 	if(queue_neighbors)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
-		SSicon_smooth.add_to_queue(src)
+		QUEUE_SMOOTH(src)
 
 	if (SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]

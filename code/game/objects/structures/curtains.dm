@@ -20,12 +20,14 @@
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
 
-/obj/structure/curtain/bullet_act(obj/projectile/P, def_zone)
-	if(!P.nodamage)
-		visible_message(SPAN_WARNING("[P] tears [src] down!"))
+/obj/structure/curtain/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.damage > 0)
+		visible_message(SPAN_WARNING("[hitting_projectile] tears [src] down!"))
 		qdel(src)
-	else
-		..(P, def_zone)
 
 /obj/structure/curtain/attack_hand(mob/user)
 	playsound(get_turf(loc), 'sound/effects/curtain.ogg', 15, 1, -5)

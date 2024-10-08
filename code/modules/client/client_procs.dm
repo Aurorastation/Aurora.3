@@ -619,7 +619,7 @@ var/list/localhost_addresses = list(
 	var/static/next_external_rsc = 0
 	var/list/external_rsc_urls = GLOB.config.external_rsc_urls
 	if(length(external_rsc_urls))
-		next_external_rsc = Wrap(next_external_rsc+1, 1, external_rsc_urls.len+1)
+		next_external_rsc = WRAP(next_external_rsc+1, 1, external_rsc_urls.len+1)
 		preload_rsc = external_rsc_urls[next_external_rsc]
 #endif
 
@@ -898,10 +898,10 @@ var/list/localhost_addresses = list(
 /atom/proc/is_auto_clickable()
 	return TRUE
 
-/obj/screen/is_auto_clickable()
+/atom/movable/screen/is_auto_clickable()
 	return FALSE
 
-/obj/screen/click_catcher/is_auto_clickable()
+/atom/movable/screen/click_catcher/is_auto_clickable()
 	return TRUE
 
 /**

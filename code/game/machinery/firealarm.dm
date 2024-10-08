@@ -82,8 +82,12 @@
 		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
 
-/obj/machinery/firealarm/bullet_act()
-	return src.alarm()
+/obj/machinery/firealarm/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	src.alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
 	. = ..()
@@ -226,7 +230,7 @@
 			if(!isnum(input_time))
 				return
 
-			time = Clamp(input_time SECONDS, 1, 600)
+			time = clamp(input_time SECONDS, 1, 600)
 
 		if("start_timer")
 			src.timing = 1

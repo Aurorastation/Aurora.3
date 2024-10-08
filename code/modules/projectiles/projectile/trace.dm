@@ -10,16 +10,16 @@
 		trace.obj_flags = obj_flags
 	trace.pass_flags = pass_flags
 
-	return trace.launch_projectile(target) //Test it!
+	trace.preparePixelProjectile(target, firer)
+	trace.firer = firer
 
-/obj/projectile/proc/_check_fire(atom/target as mob, mob/living/user as mob)  //Checks if you can hit them or not.
-	check_trajectory(target, user, pass_flags, obj_flags)
+	return trace.fire()
 
 //"Tracing" projectile
 /obj/projectile/test //Used to see if you can hit them.
-	invisibility = 101 //Nope!  Can't see me!
+	invisibility = INVISIBILITY_ABSTRACT //Nope!  Can't see me!
 	hitscan = TRUE
-	nodamage = TRUE
+	do_not_log = TRUE
 	damage = 0
 	var/list/hit = list()
 
@@ -34,5 +34,6 @@
 		hit |= A
 	return ..()
 
-/obj/projectile/test/attack_mob()
+/obj/projectile/test/on_hit(atom/target, blocked, def_zone)
+	SHOULD_CALL_PARENT(FALSE)
 	return

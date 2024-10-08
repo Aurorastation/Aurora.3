@@ -41,16 +41,16 @@
 	health = 50
 	cover = 25
 
-/obj/structure/girder/bullet_act(var/obj/projectile/Proj)
+/obj/structure/girder/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	//Girders only provide partial cover. There's a chance that the projectiles will just pass through. (unless you are trying to shoot the girder)
-	if(Proj.original != src && !prob(cover))
-		return PROJECTILE_CONTINUE //pass through
+	if(hitting_projectile.original != src && !prob(cover))
+		return BULLET_ACT_HIT //pass through
 
-	var/damage = Proj.get_structure_damage()
+	var/damage = hitting_projectile.get_structure_damage()
 	if(!damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	if(!istype(Proj, /obj/projectile/beam))
+	if(!istype(hitting_projectile, /obj/projectile/beam))
 		damage *= 0.4 //non beams do reduced damage
 
 	take_damage(damage)
@@ -376,6 +376,8 @@
 /obj/structure/girder/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)
 		return 1
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile) && density)
 		if (prob(50))
 			return 1

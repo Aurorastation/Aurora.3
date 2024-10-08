@@ -51,7 +51,7 @@
 
 	max_count = 1
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Warrior of the Hive K'lax, tasked with protecting a k'ois farm on Pid. Ensure the safety of the Workers and Bulwarks at this location."
 

@@ -55,7 +55,7 @@
 	if(data["mobile_platform"])
 		data["platform_direction"] = platform_direction
 		data["platform_directions"] = list("NORTH", "NORTHEAST", "EAST", "SOUTHEAST", "SOUTH", "SOUTHWEST", "WEST", "NORTHWEST")
-	if(linked.targeting)
+	if(linked?.targeting)
 		for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
 			if(!SW.special_firing_mechanism)
 				data["guns"] += list(get_gun_data(SW))

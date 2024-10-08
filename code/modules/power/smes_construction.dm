@@ -135,10 +135,13 @@
 	wires = null
 	return ..()
 
-/obj/machinery/power/smes/buildable/bullet_act(obj/projectile/P, def_zone)
+/obj/machinery/power/smes/buildable/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
-	health_check(P.damage)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
+	health_check(hitting_projectile.damage)
 
 /obj/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
 	health -= health_reduction

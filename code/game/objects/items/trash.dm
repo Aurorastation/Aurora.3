@@ -11,7 +11,7 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/trash/koisbar

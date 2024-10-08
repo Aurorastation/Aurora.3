@@ -76,7 +76,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	shaken = 0
 
-/obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/drinks/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(force && !(atom_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0

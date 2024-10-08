@@ -10,7 +10,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/heph_security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -30,7 +30,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae/socks,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 	species_suit = list(
 		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus

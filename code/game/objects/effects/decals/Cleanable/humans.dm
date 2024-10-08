@@ -180,9 +180,13 @@
 	amount = 0
 	var/list/drips
 
-/obj/effect/decal/cleanable/blood/drip/Initialize()
-	. = ..()
+/obj/effect/decal/cleanable/blood/drip/New()
+	..()
 	drips = list(icon_state)
+
+/obj/effect/decal/cleanable/blood/drip/Destroy()
+	drips = null
+	. = ..()
 
 /obj/effect/decal/cleanable/blood/writing
 	icon_state = "tracks"

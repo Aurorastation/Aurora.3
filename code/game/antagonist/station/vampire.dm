@@ -94,9 +94,9 @@ var/datum/antagonist/vampire/vamp = null
 		user.client.images += vampire.master_image
 	if(vampire.status & VAMP_ISTHRALL)
 		return
-	vampire.blood_hud = new /obj/screen/vampire/blood()
-	vampire.frenzy_hud = new /obj/screen/vampire/frenzy()
-	vampire.blood_suck_hud = new /obj/screen/vampire/suck()
+	vampire.blood_hud = new /atom/movable/screen/vampire/blood()
+	vampire.frenzy_hud = new /atom/movable/screen/vampire/frenzy()
+	vampire.blood_suck_hud = new /atom/movable/screen/vampire/suck()
 	user.client.screen += vampire.blood_hud
 	user.client.screen += vampire.frenzy_hud
 	user.client.screen += vampire.blood_suck_hud
