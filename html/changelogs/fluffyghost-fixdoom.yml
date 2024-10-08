@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed monkey cubes under showers from turning the game into Doom 3."
+  - bugfix: "Fixed monkey cubes under showers from turning the game into Doom."
   - bugfix: "Fixed showers not showering you because of an improper early return on wet floors."
   - bugfix: "Fixed blood overlays being wrongly cleared when you shower."
   - code_imp: "Sonme code improvements."
