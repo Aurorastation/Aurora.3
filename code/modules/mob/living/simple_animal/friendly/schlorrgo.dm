@@ -136,7 +136,6 @@
 
 /mob/living/simple_animal/schlorrgo/proc/increase_wideness()
 	switch(current_size)
-
 		if(EGG_SCHLORRGO)
 			if(!named)
 				name = "schlorrgo hatchling"
