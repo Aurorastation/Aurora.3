@@ -8702,6 +8702,12 @@
 /obj/structure/closet/crate/drop{
 	name = "personal belongings"
 	},
+/obj/item/clothing/accessory/offworlder/bracer{
+	color = "#554444"
+	},
+/obj/item/clothing/accessory/offworlder{
+	color = "#554444"
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "HU" = (
@@ -12590,10 +12596,6 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
-	},
-/obj/item/ship_ammunition/autocannon{
-	pixel_y = 4;
-	pixel_x = -1
 	},
 /obj/item/ship_ammunition/autocannon{
 	pixel_y = 4;
