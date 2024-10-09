@@ -18,6 +18,7 @@
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
@@ -136,6 +137,6 @@
 	<BR>STEP 4: Ignite the mix inside the combustion chamber, and wait for it to fully burn out. \
 	Some strain on the glass at this step is expected.<BR>\
 	<BR>STEP 5: Once the fire has stopped and the contents of the tank are 100% CO2, \
-	enable circulation: I recommend 700L/s input and 500kpa output. Higher you put the output, more power it generates.<BR>\
+	enable circulation: I recommend 700L/s input and 1000kpa output. The higher you put the output, more power it generates, raise as necessary.<BR>\
 	<BR>WARNING: If you feel it's going to break the glass, lower the blast doors and vent the chamber immediately! \
 	We have a portable generator in the back if we run out of fuel or suffer another mishap.</b></font>"
