@@ -36,6 +36,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/sink/kitchen{
+	pixel_y = 26;
+	pixel_x = 2;
+	name = "sink"
+	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "ag" = (
@@ -1365,6 +1370,11 @@
 "ey" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
 	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/forensics)
@@ -5552,7 +5562,6 @@
 /area/tcaf_corvette/hangar)
 "vp" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/glass/phoronrglass/full{
 	pixel_y = 6
 	},
@@ -5561,7 +5570,12 @@
 	pixel_y = 6
 	},
 /obj/item/stack/material/wood/full,
-/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/aluminium/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "vq" = (
@@ -7386,20 +7400,8 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/backpack/duffel/eng{
-	pixel_y = 9
-	},
-/obj/item/gun/energy/plasmacutter{
-	pixel_x = -3;
-	pixel_y = 1
-	},
-/obj/random/tool,
-/obj/random/tool,
-/obj/item/clothing/glasses/welding,
-/obj/item/clothing/glasses/welding,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "Dh" = (
@@ -8495,24 +8497,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/closet/crate/drop{
-	name = "personal belongings"
-	},
 /obj/item/flag/mictlan,
-/obj/item/flag/mictlan/l,
 /obj/item/clothing/accessory/flagpatch/zora,
-/obj/item/clothing/accessory/flagpatch/zora,
-/obj/item/clothing/accessory/flagpatch/biesel,
-/obj/item/clothing/accessory/flagpatch/biesel,
 /obj/item/clothing/accessory/flagpatch/valkyrie,
 /obj/item/clothing/accessory/flagpatch/valkyrie,
 /obj/item/clothing/accessory/flagpatch/newgibson,
-/obj/item/clothing/accessory/flagpatch/newgibson,
-/obj/item/clothing/accessory/flagpatch/mictlan,
 /obj/item/clothing/accessory/flagpatch/mictlan,
 /obj/item/clothing/accessory/flagpatch/portantillia,
-/obj/item/clothing/accessory/flagpatch/portantillia,
-/obj/item/clothing/accessory/crucifix/silver/saint_peter,
 /obj/item/clothing/accessory/crucifix/gold,
 /obj/item/clothing/head/hijab/black,
 /obj/item/clothing/ears/skrell/scrunchy,
@@ -8577,6 +8568,14 @@
 /obj/item/clothing/accessory/tajaran/charm,
 /obj/item/flag/trinaryperfection,
 /obj/item/flag/traverse,
+/obj/item/clothing/ears/antenna/whip/single{
+	color = "#4e6690"
+	},
+/obj/item/clothing/ears/antenna/whip{
+	color = "#4e6690"
+	},
+/obj/item/clothing/ears/antenna/trinary_halo,
+/obj/item/flag/mictlan,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "HU" = (
@@ -9201,17 +9200,12 @@
 /turf/simulated/floor,
 /area/tcaf_corvette/hangar)
 "Ky" = (
-/obj/item/stack/material/aluminium/full,
-/obj/item/stack/material/glass/reinforced/full,
-/obj/item/stack/rods/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "Kz" = (
@@ -10254,6 +10248,16 @@
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/gun/energy/plasmacutter{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/pipewrench,
+/obj/item/storage/backpack/duffel/eng{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "OF" = (
@@ -10889,13 +10893,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/francisca)
 "RO" = (
-/obj/machinery/pipedispenser,
-/obj/item/pipewrench,
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/tiled/gridded,
 /area/tcaf_corvette/engineering)
 "RP" = (
@@ -111178,10 +111181,10 @@ xB
 IF
 kt
 HW
-Fi
+ia
 QK
-Fi
-Fi
+ia
+ia
 HW
 Cg
 bA
