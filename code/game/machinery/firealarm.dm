@@ -230,7 +230,7 @@
 			if(!isnum(input_time))
 				return
 
-			time = Clamp(input_time SECONDS, 1, 600)
+			time = clamp(input_time SECONDS, 1, 600)
 
 		if("start_timer")
 			src.timing = 1

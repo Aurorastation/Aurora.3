@@ -103,6 +103,13 @@ var/list/datum/power/changeling/powerinstances = list()
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 
+/datum/power/changeling/extract_dna
+	name = "Extract DNA Sting"
+	desc = "We silently sting a human and copy their DNA, allowing us to mimic their form."
+	genomecost = 0
+	allowduringlesserform = TRUE
+	verbpath = /mob/proc/changeling_extract_dna_sting
+
 /datum/power/changeling/boost_range
 	name = "Boost Range"
 	desc = "We evolve the ability to shoot our stingers at humans, with some preperation."

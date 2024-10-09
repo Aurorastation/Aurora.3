@@ -2342,7 +2342,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "hxd" = (
 /obj/structure/cable/green{
@@ -2474,7 +2474,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "ian" = (
 /obj/structure/table/stone/marble,
@@ -3047,7 +3047,7 @@
 	dir = 8;
 	pixel_x = 5
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "kiR" = (
 /obj/structure/cable/green{
@@ -3758,7 +3758,7 @@
 /area/ship/orion/cargo)
 "mSt" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "mSy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3856,7 +3856,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/bed/handrail,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "niD" = (
 /obj/machinery/vending/dinnerware,
@@ -4133,7 +4133,7 @@
 	dir = 8;
 	pixel_x = 5
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "nMR" = (
 /obj/machinery/door/airlock/external{
@@ -4505,7 +4505,7 @@
 	dir = 4;
 	pixel_x = -5
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "oVV" = (
 /obj/machinery/door/firedoor/noid,
@@ -4608,7 +4608,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "ptP" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -4688,7 +4688,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "pHQ" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -4987,7 +4987,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "qEK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -5652,10 +5652,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/orion/bridge)
-"sAZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/template_noop,
-/area/space)
 "sBH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -6827,7 +6823,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "vOd" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -34817,7 +34813,7 @@ xRX
 xRX
 xRX
 xRX
-sAZ
+xRX
 xRX
 xRX
 xRX

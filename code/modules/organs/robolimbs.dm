@@ -38,6 +38,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 		SPECIES_UNATHI,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
 		SPECIES_IPC_BISHOP,
@@ -193,13 +194,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	company = PROSTHETIC_VAURCA
 	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenance to most of the basic Vaurcesian bioforms."
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
-	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allows_internal = FALSE
 
 /datum/robolimb/vaurca/warrior
 	company = PROSTHETIC_VAURCA_WARRIOR
 	icon = 'icons/mob/human_races/vaurca/r_vaurcawarriorlimbs.dmi'
-	species_can_use = list(SPECIES_VAURCA_WARRIOR)
+	species_can_use = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allowed_external_organs = list(BP_L_HAND, BP_R_HAND)
 
 /datum/robolimb/hoplan

@@ -1,29 +1,40 @@
 /obj/item/clothing/mask/smokable/ecig
 	name = "electronic cigarette"
 	desc = "A battery powered cigarette."
+	desc_info = "Alt-Click to remove the cartridge. The cigarette must be in one of your hands to do this."
 	icon = 'icons/obj/ecig.dmi'
 	contained_sprite = TRUE
 	item_icons = null // Needs to nuke this because Contained Sprites and all
 	sprite_sheets = null // This as well
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
-	var/active = FALSE
-	var/obj/item/cell/cig_cell
-	var/cell_type = /obj/item/cell/device
-	var/obj/item/reagent_containers/ecig_cartridge/ec_cartridge
-	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("attacked", "poked", "battered")
 	body_parts_covered = 0
-	var/brightness_on = 1
 	chem_volume = 0 //ecig has no storage on its own but has reagent container created by parent obj
 	item_state = "ecigoff"
+
+	/// If the electronic cigarette is working or not.
+	var/active = FALSE
+	/// The cigarette's attached cell item.
+	var/obj/item/cell/cig_cell
+	/// The type of cell to spawn.
+	var/cell_type = /obj/item/cell/device
+	/// The electronic cigarette's cartridge object, a reagent container.
+	var/obj/item/reagent_containers/ecig_cartridge/ec_cartridge
+	/// The type of cartridge to spawn.
+	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
+	/// The icon of the electronic cigarette when it's empty.
 	var/icon_empty
-	var/power_usage = 250 //value for simple ecig, divide by 5 to get the charge needed for 1 cartridge
+	/// Value for simple ecig, divide by 5 to get the charge needed for 1 cartridge.
+	var/power_usage = 250
+	/// A list of colours for the icon. On Initialize it picks() between these.
 	var/ecig_colors = list(null, COLOR_DARK_GRAY, COLOR_RED_GRAY, COLOR_BLUE_GRAY, COLOR_GREEN_GRAY, COLOR_PURPLE_GRAY)
+	/// If it's idling. Ticks up on process(), so not a boolean. When idle is >= idle_threshold, the cigarette shuts off.
 	var/idle = 0
-	var/idle_treshold = 30
+	/// The threshold to equal before the cigarette shuts down automatically.
+	var/idle_threshold = 30
 
 /obj/item/clothing/mask/smokable/ecig/Initialize()
 	. = ..()
@@ -34,70 +45,9 @@
 /obj/item/clothing/mask/smokable/ecig/get_cell()
 	return cig_cell
 
-/obj/item/clothing/mask/smokable/ecig/simple
-	name = "cheap electronic cigarette"
-	desc = "A cheap Lucky 1337 electronic cigarette, styled like a traditional cigarette."
-	icon_state = "ccigoff"
-	icon_off = "ccigoff"
-	icon_empty = "ccigoff"
-	icon_on = "ccigon"
-
-/obj/item/clothing/mask/smokable/ecig/simple/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
-	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
-
-/obj/item/clothing/mask/smokable/ecig/util
-	name = "electronic cigarette"
-	desc = "A popular utilitarian model electronic cigarette, the ONI-55. Comes in a variety of colors."
-	icon_state = "ecigoff1"
-	icon_off = "ecigoff1"
-	icon_empty = "ecigoff1"
-	icon_on = "ecigon"
-
-/obj/item/clothing/mask/smokable/ecig/util/Initialize()
-	. = ..()
-	color = pick(ecig_colors)
-
-/obj/item/clothing/mask/smokable/ecig/util/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
-	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
-	if(cig_cell)
-		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 5)]% power remaining.")
-	else
-		. += SPAN_NOTICE("There's no power cell connected.")
-	if(active)
-		. += SPAN_NOTICE("It is currently turned on.")
-	else
-		. += SPAN_NOTICE("It is currently turned off.")
-
-/obj/item/clothing/mask/smokable/ecig/deluxe
-	name = "deluxe electronic cigarette"
-	desc = "A premium model eGavana MK3 electronic cigarette, shaped like a cigar."
-	icon_state = "pcigoff1"
-	icon_off = "pcigoff1"
-	icon_empty = "pcigoff2"
-	icon_on = "pcigon"
-	cell_type = /obj/item/cell/device/high
-
-/obj/item/clothing/mask/smokable/ecig/deluxe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(ec_cartridge)
-		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
-	else
-		. += SPAN_NOTICE("There's no cartridge connected.")
-	if(cig_cell)
-		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 1)]% power remaining.")
-	else
-		. += SPAN_NOTICE("There's no power cell connected.")
-
 /obj/item/clothing/mask/smokable/ecig/proc/deactivate()
 	active = FALSE
+	idle = 0
 	STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -105,12 +55,12 @@
 	if(!cig_cell)
 		deactivate()
 		return
+
 	if(!ec_cartridge)
 		deactivate()
 		return
 
-	if(idle >= idle_treshold) //idle too long -> automatic shut down
-		idle = 0
+	if(idle >= idle_threshold) //idle too long -> automatic shut down
 		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), null, 2)
 		deactivate()
 		return
@@ -133,13 +83,14 @@
 				deactivate()
 				to_chat(C,SPAN_NOTICE("\The [src]'s power meter flashes a low battery warning and shuts down."))
 				return
-			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4) // Most of it is not inhaled... balance reasons.
+			/// Electronic cigarettes are a bit more efficient than normal cigarettes, owing to having a bit more reagent capacity.
+			ec_cartridge.reagents.trans_to_mob(C, 0.003 * ec_cartridge.reagents.total_volume, CHEM_BREATHE, 0.75)
 
 /obj/item/clothing/mask/smokable/ecig/update_icon()
 	if (active)
 		item_state = icon_on
 		icon_state = icon_on
-		set_light(1.4, 0.5, brightness_on)
+		set_light(1.4, 0.5, COLOR_ORANGE)
 	else if (ec_cartridge)
 		set_light(0)
 		item_state = icon_off
@@ -208,8 +159,11 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src] does not have a battery installed."))
 
-/obj/item/clothing/mask/smokable/ecig/attack_hand(mob/user) //eject cartridge
-	if(user.get_inactive_hand() == src) //if being held
+/obj/item/clothing/mask/smokable/ecig/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
+
+	if(user.get_inactive_hand() == src || user.get_active_hand() == src)
 		if (ec_cartridge)
 			active = FALSE
 			user.put_in_hands(ec_cartridge)
@@ -217,9 +171,11 @@
 			ec_cartridge = null
 			update_icon()
 	else
-		..()
+		to_chat(user, SPAN_WARNING("\The [src] needs to be in one of your hands."))
 
-/obj/item/clothing/mask/smokable/ecig/attack(mob/living/carbon/human/C, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/ecig/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/C = target_mob
+
 	if(active && C == user && istype(C))
 		var/obj/item/blocked = C.check_mouth_coverage()
 		if(blocked)
@@ -237,6 +193,71 @@
 			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4)
 			return TRUE
 	return ..()
+
+/obj/item/clothing/mask/smokable/ecig/simple
+	name = "cheap electronic cigarette"
+	desc = "A cheap Lucky 1337 electronic cigarette, styled like a traditional cigarette."
+	icon_state = "ccigoff"
+	icon_off = "ccigoff"
+	icon_empty = "ccigoff"
+	icon_on = "ccigon"
+
+/obj/item/clothing/mask/smokable/ecig/simple/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(ec_cartridge)
+		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
+	else
+		. += SPAN_NOTICE("There's no cartridge connected.")
+
+/obj/item/clothing/mask/smokable/ecig/util
+	name = "electronic cigarette"
+	desc = "A popular utilitarian model electronic cigarette, the ONI-55. Comes in a variety of colors."
+	icon_state = "ecigoff1"
+	icon_off = "ecigoff1"
+	icon_empty = "ecigoff1"
+	icon_on = "ecigon"
+
+/obj/item/clothing/mask/smokable/ecig/util/Initialize()
+	. = ..()
+	color = pick(ecig_colors)
+
+/obj/item/clothing/mask/smokable/ecig/util/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(ec_cartridge)
+		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
+	else
+		. += SPAN_NOTICE("There's no cartridge connected.")
+
+	if(cig_cell)
+		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 5)]% power remaining.")
+	else
+		. += SPAN_NOTICE("There's no power cell connected.")
+
+	if(active)
+		. += SPAN_NOTICE("It is currently turned on.")
+	else
+		. += SPAN_NOTICE("It is currently turned off.")
+
+/obj/item/clothing/mask/smokable/ecig/deluxe
+	name = "deluxe electronic cigarette"
+	desc = "A premium model eGavana MK3 electronic cigarette, shaped like a cigar."
+	icon_state = "pcigoff1"
+	icon_off = "pcigoff1"
+	icon_empty = "pcigoff2"
+	icon_on = "pcigon"
+	cell_type = /obj/item/cell/device/high
+
+/obj/item/clothing/mask/smokable/ecig/deluxe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(ec_cartridge)
+		. += SPAN_NOTICE("There are [round(ec_cartridge.reagents.total_volume, 1)] unit\s of liquid remaining.")
+	else
+		. += SPAN_NOTICE("There's no cartridge connected.")
+
+	if(cig_cell)
+		. += SPAN_NOTICE("The power meter shows that there's about [round(cig_cell.percent(), 1)]% power remaining.")
+	else
+		. += SPAN_NOTICE("There's no power cell connected.")
 
 /obj/item/reagent_containers/ecig_cartridge
 	name = "tobacco flavour cartridge"

@@ -277,6 +277,8 @@ var/list/world_api_rate_limit = list()
 		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
 
 /world/proc/update_status()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/list/s = list()
 
 	if (GLOB.config && GLOB.config.server_name)

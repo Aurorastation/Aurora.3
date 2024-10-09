@@ -111,7 +111,8 @@
 		"nav_ranger_corvette_1",
 		"nav_ranger_corvette_2",
 		"nav_ranger_corvette_3",
-		"nav_ranger_corvette_4"
+		"nav_ranger_corvette_4",
+		"nav_ranger_corvette_dock_aft"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -149,6 +150,17 @@
 	landmark_tag = "nav_ranger_corvette_4"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
+
+// Aft Dock
+/obj/effect/shuttle_landmark/ranger_corvette/dock_aft
+	name = "Aft Docking Port"
+	docking_controller = "airlock_ranger_aft_dock"
+	landmark_tag = "nav_ranger_corvette_dock_aft"
+
+/obj/effect/map_effect/marker/airlock/docking/ranger_corvette/aft
+	name = "Aft Dock"
+	landmark_tag = "nav_ranger_corvette_dock_aft"
+	master_tag = "airlock_ranger_aft_dock"
 
 /obj/effect/shuttle_landmark/ranger_corvette/transit
 	name = "In transit"
