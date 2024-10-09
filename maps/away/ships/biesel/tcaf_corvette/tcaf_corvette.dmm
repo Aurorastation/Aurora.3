@@ -686,6 +686,8 @@
 "cg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
+/obj/item/target,
+/obj/item/target,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
 "ch" = (
@@ -893,6 +895,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/target_stake,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "cZ" = (
@@ -2570,6 +2574,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/mesmetron,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_lift)
 "iY" = (
@@ -4942,6 +4947,10 @@
 	},
 /obj/structure/bed/stool/chair/sofa/corner/convex/beige,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/eightball{
+	pixel_x = -2;
+	pixel_y = -7
+	},
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "sl" = (
@@ -8092,6 +8101,7 @@
 /obj/item/storage/box/monkeycubes,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
+/obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/medical)
 "FF" = (
@@ -8127,6 +8137,9 @@
 	dir = 9;
 	icon_state = "intact"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/target_stake,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "FR" = (
@@ -8620,9 +8633,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/flag/mictlan,
 /obj/item/clothing/accessory/flagpatch/zora,
-/obj/item/clothing/accessory/flagpatch/valkyrie,
 /obj/item/clothing/accessory/flagpatch/valkyrie,
 /obj/item/clothing/accessory/flagpatch/newgibson,
 /obj/item/clothing/accessory/flagpatch/mictlan,
@@ -8708,6 +8719,7 @@
 /obj/item/clothing/accessory/offworlder{
 	color = "#554444"
 	},
+/obj/item/gamehelm/black,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "HU" = (
@@ -9119,6 +9131,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "Jw" = (
@@ -9758,6 +9771,10 @@
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois{
 	pixel_y = 4;
 	pixel_x = 3
+	},
+/obj/item/coin/battlemonsters{
+	pixel_x = -8;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/autocannon)
@@ -11055,6 +11072,9 @@
 /obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
 /obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
 /turf/simulated/floor/tiled/techfloor,
 /area/tcaf_corvette/crew)
 "Ry" = (
@@ -11935,6 +11955,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/broken_bottle{
+	pixel_x = -14;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
 "Uw" = (
@@ -12590,6 +12614,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/hangar)
 "Xh" = (
