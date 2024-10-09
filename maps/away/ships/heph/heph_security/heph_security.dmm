@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -195,8 +194,7 @@
 	req_access = list(216)
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -515,8 +513,7 @@
 	req_access = list(216)
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -684,8 +681,7 @@
 /area/heph_security_ship/kitchen)
 "eQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, medical"
@@ -778,8 +774,7 @@
 /area/heph_security_ship/kitchen)
 "fo" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, captain's quarters"
@@ -1181,8 +1176,7 @@
 /area/heph_security_ship/crew)
 "iw" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1349,8 +1343,7 @@
 /area/heph_security_ship/grauwolf)
 "jT" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1690,8 +1683,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
@@ -1867,8 +1859,7 @@
 /area/heph_security_ship/engineering)
 "nc" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew bunks"
@@ -1961,8 +1952,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
@@ -2861,8 +2851,7 @@
 /area/heph_security_ship/grauwolf)
 "tS" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -4168,8 +4157,7 @@
 /area/heph_security_ship/brig)
 "FK" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, kitchen"
@@ -4348,8 +4336,7 @@
 /area/heph_security_ship/engineering)
 "Hn" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -4851,8 +4838,7 @@
 /area/heph_security_ship/crew)
 "Kt" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5466,8 +5452,7 @@
 "OO" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -5766,8 +5751,7 @@
 /area/heph_security_ship/medbay)
 "Sh" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5869,8 +5853,7 @@
 "SQ" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -5972,8 +5955,7 @@
 /area/shuttle/heph_security)
 "TQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid{
@@ -6436,8 +6418,7 @@
 "Xe" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid,
@@ -6591,8 +6572,7 @@
 "YC" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid,

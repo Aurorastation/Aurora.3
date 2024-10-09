@@ -1378,7 +1378,6 @@
 	icon_state = "2-8"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,

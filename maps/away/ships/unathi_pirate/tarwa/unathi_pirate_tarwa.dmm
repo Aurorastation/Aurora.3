@@ -1115,7 +1115,6 @@
 "jE" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -1649,8 +1648,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
-	id = "tarwa_tank_co2_shield";
-	name = "blast door"
+	id = "tarwa_tank_co2_shield"
 	},
 /turf/space,
 /area/tarwa_ship/engineering2)
@@ -2837,7 +2835,6 @@
 "BD" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -2863,8 +2860,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
-	id = "tarwa_tank_co2_shield";
-	name = "blast door"
+	id = "tarwa_tank_co2_shield"
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
@@ -3107,7 +3103,6 @@
 "DD" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -3268,7 +3263,6 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -3334,7 +3328,6 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
 	dir = 4;
 	id = "tarwa_cic"
 	},
@@ -3613,7 +3606,6 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_lockdown"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -3995,8 +3987,7 @@
 "Lc" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
-	id = "tarwa_rotary";
-	name = "blast door"
+	id = "tarwa_rotary"
 	},
 /turf/space,
 /area/tarwa_ship/oldhangar)
@@ -4884,7 +4875,6 @@
 "Se" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "tarwa_bruiser"
 	},
 /turf/simulated/floor/plating{
@@ -4895,7 +4885,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
 	id = "tarwa_rotary";
-	name = "blast door";
 	dir = 4
 	},
 /turf/simulated/floor/plating,

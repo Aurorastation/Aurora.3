@@ -33,8 +33,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -61,8 +60,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -689,7 +687,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
 	id = "hegemony_cic"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -740,8 +737,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/captains_quarters)
@@ -941,8 +937,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -1496,8 +1491,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -1815,8 +1809,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hegemony_window";
-	dir = 4;
-	name = "blast door"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
@@ -2454,8 +2447,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
@@ -2556,8 +2548,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3251,8 +3242,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3354,8 +3344,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3559,8 +3548,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -4120,8 +4108,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -4645,8 +4632,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -4894,8 +4880,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6197,8 +6182,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6426,8 +6410,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
@@ -6963,8 +6946,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/captains_quarters)
@@ -7880,8 +7862,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hegemony_window";
-	dir = 4;
-	name = "blast door"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
@@ -8154,8 +8135,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -8176,8 +8156,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony_shuttle";
-	name = "blast door"
+	id = "hegemony_shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -8374,7 +8353,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
 	id = "hegemony_cic"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8605,8 +8583,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony_shuttle";
-	name = "blast door"
+	id = "hegemony_shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -8784,8 +8761,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_flak)
@@ -8868,8 +8844,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -8991,8 +8966,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)

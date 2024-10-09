@@ -14313,8 +14313,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette_exterior";
-	name = "blast door"
+	id = "corvette_exterior"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)

@@ -2777,7 +2777,6 @@
 "pRO" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
 	id = "hab_module"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{

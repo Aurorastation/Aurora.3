@@ -4697,8 +4697,7 @@
 "rMx" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -4918,8 +4917,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/bridge)
@@ -5889,8 +5887,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"

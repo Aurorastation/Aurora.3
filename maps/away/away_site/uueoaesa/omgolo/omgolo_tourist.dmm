@@ -54,7 +54,6 @@
 /area/omgolo_tourist/roomhallway)
 "aaf" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
@@ -1454,7 +1453,6 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood/ebony,
@@ -2380,7 +2378,6 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -3098,7 +3095,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3663,7 +3659,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	dir = 2;
 	icon_state = "pipe-j2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,

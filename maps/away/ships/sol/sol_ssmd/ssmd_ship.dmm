@@ -108,8 +108,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_cap_windows";
-	name = "blast door"
+	id = "ssmd_cap_windows"
 	},
 /turf/template_noop,
 /area/ship/ssmd_corvette/hangar)
@@ -1103,8 +1102,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_grau_shroud";
-	name = "blast door"
+	id = "ssmd_grau_shroud"
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
@@ -1523,8 +1521,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_cap_windows";
-	name = "blast door"
+	id = "ssmd_cap_windows"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, captain's office"
@@ -2023,8 +2020,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "ssmd_relax_windows";
-	name = "blast door"
+	id = "ssmd_relax_windows"
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardfoyer)
@@ -3212,8 +3208,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_cap_windows";
-	name = "blast door"
+	id = "ssmd_cap_windows"
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/captain)
@@ -3555,8 +3550,7 @@
 "jZd" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_grau_shroud";
-	name = "blast door"
+	id = "ssmd_grau_shroud"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, grauwolf array"
@@ -6128,8 +6122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_bridge_lockdown";
-	name = "blast door"
+	id = "ssmd_bridge_lockdown"
 	},
 /obj/machinery/door/airlock/command{
 	name = "Captain's Ready Room";
@@ -6230,8 +6223,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "ssmd_relax_windows";
-	name = "blast door"
+	id = "ssmd_relax_windows"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, lounge"
@@ -6328,8 +6320,7 @@
 "sYY" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_grau_shroud";
-	name = "blast door"
+	id = "ssmd_grau_shroud"
 	},
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
@@ -7404,8 +7395,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "ssmd_cap_windows";
-	name = "blast door"
+	id = "ssmd_cap_windows"
 	},
 /turf/template_noop,
 /area/ship/ssmd_corvette/hangar)
@@ -8115,8 +8105,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "ssmd_bridge_lockdown";
-	name = "blast door"
+	id = "ssmd_bridge_lockdown"
 	},
 /obj/machinery/door/airlock/command{
 	name = "Bridge";

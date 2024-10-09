@@ -10,8 +10,7 @@
 /area/ouerea_guild_mining)
 "cG" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -538,8 +537,7 @@
 /area/ouerea_guild_mining)
 "TB" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/structure/railing/mapped{
 	dir = 8

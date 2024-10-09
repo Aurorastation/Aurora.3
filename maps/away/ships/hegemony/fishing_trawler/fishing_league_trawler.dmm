@@ -732,8 +732,7 @@
 "gJ" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
@@ -2737,8 +2736,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
