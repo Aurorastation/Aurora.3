@@ -195,8 +195,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
@@ -419,15 +418,13 @@
 "bsV" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
@@ -1792,8 +1789,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /obj/machinery/door/airlock/service{
 	name = "Dormitory";
@@ -2010,8 +2006,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_fore";
-	name = "blast door"
+	id = "coc_fore"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -2224,8 +2219,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_fore";
-	name = "blast door"
+	id = "coc_fore"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2672,8 +2666,7 @@
 "kyh" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5b5b5b";
@@ -2995,8 +2988,7 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
@@ -3124,8 +3116,7 @@
 /area/ship/ranger_corvette/telecomms)
 "muQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
@@ -4785,8 +4776,7 @@
 "sJP" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -5471,8 +5461,7 @@
 /area/ship/ranger_corvette/crew)
 "unz" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
@@ -5643,8 +5632,7 @@
 /area/ship/ranger_corvette/engineering)
 "uAk" = (
 /obj/machinery/door/blast/regular/open{
-	id = "coc_bridge";
-	name = "blast door"
+	id = "coc_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5b5b5b";
@@ -6087,8 +6075,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "coc_midship";
-	name = "blast door"
+	id = "coc_midship"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
