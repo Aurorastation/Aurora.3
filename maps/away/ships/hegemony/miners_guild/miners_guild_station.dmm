@@ -157,8 +157,7 @@
 /area/miners_guild)
 "bk" = (
 /obj/machinery/door/airlock/service{
-	name = "Gear Storage";
-	dir = 2
+	name = "Gear Storage"
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
@@ -762,8 +761,7 @@
 /area/miners_guild/bridge)
 "gD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -794,8 +792,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1056,12 +1053,10 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1539,8 +1534,7 @@
 /area/miners_guild/engineering1)
 "lY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1737,12 +1731,10 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -1834,8 +1826,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1854,8 +1845,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2022,9 +2012,7 @@
 "pA" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/power/apc/south,
-/obj/structure/cable/green{
-	icon_state = "0-1"
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "pB" = (
@@ -2080,8 +2068,7 @@
 /area/miners_guild/engineering1)
 "pM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2094,13 +2081,11 @@
 /area/miners_guild)
 "pN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2398,8 +2383,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2616,8 +2600,7 @@
 /area/miners_guild/hangar)
 "tW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/miners_guild/processing)
@@ -2835,8 +2818,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2855,8 +2837,7 @@
 /area/miners_guild/storage)
 "wa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/steel,
@@ -2929,8 +2910,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -3452,8 +3432,7 @@
 /area/shuttle/miners_guild)
 "AO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3489,8 +3468,7 @@
 /area/miners_guild)
 "AU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -3518,8 +3496,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable/green{
@@ -3636,12 +3613,10 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -3709,9 +3684,7 @@
 /obj/machinery/power/apc/west{
 	req_access = null
 	},
-/obj/structure/cable/green{
-	icon_state = "0-1"
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_3)
 "CO" = (
@@ -4026,15 +3999,12 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
-/obj/structure/cable/green{
-	icon_state = "0-1"
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_1)
 "EK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -4256,8 +4226,7 @@
 /area/miners_guild/medical)
 "Hi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
@@ -4412,9 +4381,7 @@
 	shuttle_tag = "Miners' Guild Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
@@ -4477,8 +4444,7 @@
 "IP" = (
 /obj/effect/overmap/visitable/sector/miners_guild_station,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4540,8 +4506,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel,
@@ -4675,8 +4640,7 @@
 /area/miners_guild/processing)
 "Ky" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
@@ -5393,8 +5357,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6175,8 +6138,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_2)
@@ -6237,8 +6199,7 @@
 "Xe" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6522,12 +6483,10 @@
 "Zb" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/effect/floor_decal/industrial/outline/security,

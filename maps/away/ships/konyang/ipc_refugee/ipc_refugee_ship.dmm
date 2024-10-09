@@ -741,8 +741,7 @@
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/random/powercell{
 	pixel_x = -1;
@@ -937,8 +936,7 @@
 /area/ship/ipc_refugee/atmos)
 "hl" = (
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/curtain/open/shower,
 /obj/item/stack/material/steel,
@@ -2728,8 +2726,7 @@
 	dir = 4
 	},
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -3892,8 +3889,7 @@
 /area/ship/ipc_refugee/cargopod_b)
 "CW" = (
 /obj/random/tech_supply{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)

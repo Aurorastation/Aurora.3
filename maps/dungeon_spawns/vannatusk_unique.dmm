@@ -74,12 +74,6 @@
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
-"ao" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
 "ap" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -589,25 +583,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
-"ca" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"cb" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"cc" = (
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
 "cd" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
@@ -616,12 +591,6 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ce" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"cf" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
@@ -650,10 +619,6 @@
 /area/dungeon/bluespace_outpost)
 "AH" = (
 /mob/living/simple_animal/hostile/vannatusk/dead,
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"FD" = (
-/obj/machinery/power/apc/high/inactive/north,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "Iu" = (
@@ -714,7 +679,7 @@ Nw
 Nw
 Iu
 Iu
-ao
+ce
 Iu
 Iu
 Nw
@@ -850,7 +815,7 @@ Nw
 Iu
 Iu
 Iu
-ca
+ce
 Iu
 Iu
 Nw
@@ -1055,7 +1020,7 @@ Iu
 Iu
 Iu
 Iu
-cb
+ce
 Iu
 Iu
 Iu
@@ -1122,7 +1087,7 @@ ax
 Iu
 aO
 ad
-cc
+cd
 ac
 ad
 qX
@@ -1232,7 +1197,7 @@ Iu
 Iu
 Iu
 Iu
-cf
+ce
 Iu
 Iu
 as
@@ -1390,7 +1355,7 @@ Nw
 Iu
 Iu
 Iu
-FD
+ac
 sX
 AH
 ac

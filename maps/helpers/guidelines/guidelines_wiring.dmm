@@ -204,9 +204,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "jx" = (
-/obj/structure/cable/green{
-	icon_state = "0-1"
-	},
+/obj/structure/cable/green,
 /obj/machinery/power/apc/low/west,
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -996,9 +994,7 @@
 /area/template_noop)
 "PU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-1"
-	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Qf" = (
