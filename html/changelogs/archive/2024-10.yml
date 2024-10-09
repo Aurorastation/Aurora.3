@@ -121,3 +121,8 @@
   hazelmouse:
   - balance: Reduces the spawn chance of all Adhomian ghostroles in the Badlands by
       half.
+2024-10-09:
+  hazelmouse:
+  - bugfix: Fixed the broken sprite of the Vaurca phoron autoinhaler.
+  - qol: Implemented several small quality-of-life improvements to the Lone Spacer,
+      Orion Express, and Tramp Freighter ghostroles.
