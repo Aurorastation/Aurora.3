@@ -29,9 +29,9 @@
 #define SUIT_STORE_LAYER      	28
 #define BACK_LAYER            	29
 #define HAIR_LAYER            	30
-#define HAIR_LAYER_EMISSIVE		31
+#define HAIR_LAYER_EMISSIVE     31
 #define GLASSES_LAYER_ALT     	32
-#define L_EAR_LAYER           	33
+#define L_EAR_LAYER             33
 #define R_EAR_LAYER           	34
 #define FACEMASK_LAYER        	35
 #define HEAD_LAYER            	36

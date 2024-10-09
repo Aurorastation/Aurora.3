@@ -7,9 +7,11 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	name = "pants parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/pants/pants.dmi'
+	slot_flags = SLOT_PANTS
 	contained_sprite = TRUE
 	body_parts_covered = LOWER_TORSO | LEGS
 	var/mob_wear_layer = ABOVE_UNIFORM_LAYER_PA
+	gender = PLURAL // some pants vs. a skirt
 
 /obj/item/clothing/pants/update_clothing_icon()
 	if (ismob(src.loc))

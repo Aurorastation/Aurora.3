@@ -9,6 +9,7 @@
 	item_state = "skirt_casual"
 	body_parts_covered = LOWER_TORSO
 	contained_sprite = TRUE
+	gender = NEUTER
 
 /obj/item/clothing/pants/skirt/puffy
 	name = "puffy skirt"

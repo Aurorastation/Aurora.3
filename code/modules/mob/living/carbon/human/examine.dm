@@ -167,7 +167,7 @@
 
 	//pants
 	if(pants && !skippants)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(pants, user)] <a href='?src=[REF(src)];lookitem_desc_only=[REF(pants)]'>\a [pants]</a>.\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(pants, user)] <a href='?src=[REF(src)];lookitem_desc_only=[REF(pants)]'>\a [pants]</a> about [get_pronoun("his")] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
