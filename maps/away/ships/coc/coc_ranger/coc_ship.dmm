@@ -278,8 +278,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = null
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -377,7 +376,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	frequency = 1394
 	},
@@ -432,7 +430,6 @@
 	name = "blast door"
 	},
 /obj/machinery/door/airlock/glass_command{
-	id_tag = null;
 	name = "Bridge";
 	dir = 1;
 	req_one_access = list(221,222)
@@ -633,8 +630,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -680,7 +676,6 @@
 "coK" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	frequency = 1441;
 	id_tag = "headmaster_co2_out_starboard"
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -722,8 +717,7 @@
 /area/ship/ranger_corvette/gunnery)
 "cHm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
@@ -957,8 +951,7 @@
 /area/ship/ranger_corvette/engine1)
 "dMX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1612,8 +1605,7 @@
 /area/ship/ranger_corvette/leader)
 "gkq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1778,15 +1770,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "gNW" = (
-/obj/effect/shuttle_landmark/ranger_corvette/nav3{
-	name = "Ranger Gunboat - Starboard Side"
-	},
+/obj/effect/shuttle_landmark/ranger_corvette/nav3,
 /turf/template_noop,
 /area/space)
 "gOp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2637,8 +2626,7 @@
 "kji" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2942,8 +2930,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/helm{
-	dir = 4;
-	req_access = null
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3013,7 +3000,6 @@
 	},
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = null;
 	dir = 4;
 	req_one_access = list(221,222)
 	},
@@ -3671,9 +3657,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engineering)
 "oOX" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4217,8 +4201,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
 	pixel_x = 13;
@@ -4388,8 +4371,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/white,
@@ -4515,8 +4497,7 @@
 "rwS" = (
 /mob/living/simple_animal/rat/white,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
@@ -4557,8 +4538,7 @@
 /area/ship/ranger_corvette/gunnery)
 "rMA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -4699,8 +4679,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -4757,7 +4736,6 @@
 "sCd" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 20;
 	frequency = 1394
 	},
@@ -5157,8 +5135,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -5235,8 +5212,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ranger_corvette/crew)
@@ -5576,7 +5552,6 @@
 /obj/machinery/access_button{
 	pixel_x = -23;
 	pixel_y = 22;
-	dir = 2;
 	frequency = 1394
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -5683,8 +5658,7 @@
 "uCz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/east{
@@ -5940,8 +5914,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6235,7 +6208,6 @@
 "wHL" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20;
 	frequency = 2137
 	},
@@ -6493,12 +6465,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	frequency = 1395
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 20;
 	frequency = 1395
 	},

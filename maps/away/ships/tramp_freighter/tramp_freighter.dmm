@@ -303,8 +303,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
@@ -422,8 +421,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -482,8 +480,7 @@
 "cO" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -535,8 +532,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable/green{
@@ -800,8 +796,7 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 29;
-	pixel_y = -5;
-	dir = 2
+	pixel_y = -5
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/decal/cleanable/dirt,
@@ -1192,8 +1187,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
@@ -1222,7 +1216,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "tramp_air_out_in_3"
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -1579,8 +1572,7 @@
 "ig" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1848,8 +1840,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
@@ -2732,8 +2723,7 @@
 "ol" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -3307,8 +3297,7 @@
 "rF" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -4322,8 +4311,7 @@
 /area/tramp_freighter/washroom)
 "vY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4408,7 +4396,6 @@
 	frequency = 1337
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/light/small,
@@ -4801,8 +4788,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4898,8 +4884,7 @@
 /area/tramp_freighter/engi)
 "yS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -5180,8 +5165,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
@@ -5189,7 +5173,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "tramp_air_out_in_2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5326,8 +5309,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -6103,8 +6085,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
@@ -6303,8 +6284,7 @@
 /area/tramp_freighter/refinery)
 "GZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -6413,8 +6393,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -7033,8 +7012,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7856,8 +7834,7 @@
 "Pt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9666,7 +9643,6 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/light/small,
@@ -9859,7 +9835,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "tramp_air_out_in_1"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -9955,8 +9930,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)

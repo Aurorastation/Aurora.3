@@ -685,8 +685,7 @@
 /area/shuttle/einstein_shuttle/room/four)
 "se" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
@@ -883,8 +882,7 @@
 "xe" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/item/clothing/under/suit_jacket/navy,
 /obj/item/clothing/under/suit_jacket/checkered,
@@ -1490,8 +1488,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Lh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
@@ -1793,8 +1790,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Ux" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
@@ -2038,8 +2034,7 @@
 "ZL" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 8;

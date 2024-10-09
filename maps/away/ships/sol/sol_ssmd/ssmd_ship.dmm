@@ -295,9 +295,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "aLy" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -982,8 +980,7 @@
 	req_one_access = list(13,203)
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -2152,8 +2149,7 @@
 "fBb" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -6746,9 +6742,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/canteen)
 "upw" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -7450,9 +7444,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "wiX" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -7699,8 +7691,7 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_ssmd_corvette_2";
