@@ -242,6 +242,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

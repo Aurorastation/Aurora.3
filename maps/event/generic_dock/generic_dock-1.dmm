@@ -1667,8 +1667,7 @@
 "aNY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/odin/open{
-	id = "arrivals_inner";
-	name = "blast door"
+	id = "arrivals_inner"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
