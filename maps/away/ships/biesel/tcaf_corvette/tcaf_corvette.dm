@@ -18,7 +18,6 @@
 	id = "tcaf_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcaf_shuttle, /datum/shuttle/autodock/multi/lift/tcaf)
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
