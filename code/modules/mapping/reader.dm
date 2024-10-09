@@ -19,9 +19,21 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/static/regex/trimRegex = new/regex("^\[\\s\n]+|\[\\s\n]+$", "g")
 	var/static/list/modelCache = list()
 	var/static/space_key
+	var/loading = FALSE
 
 //text trimming (both directions) helper macro
 #define TRIM_TEXT(text) (replacetext_char(text, trimRegex, ""))
+
+#define MAPLOADING_CHECK_TICK \
+	if(TICK_CHECK) { \
+		if(loading) { \
+			SSatoms.map_loader_stop(REF(src)); \
+			stoplag(); \
+			SSatoms.map_loader_begin(REF(src)); \
+		} else { \
+			stoplag(); \
+		} \
+	}
 
 /**
  * Construct the model map and control the loading process
@@ -166,6 +178,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			else
 				//turn off base new Initialization until the whole thing is loaded
 				SSatoms.map_loader_begin(REF(src))
+				loading = TRUE
 
 				for(var/line in gridLines)
 					if((ycrd - y_offset + 1) < y_lower || (ycrd - y_offset + 1) > y_upper)				//Reverse operation and check if it is out of bounds of cropping.
@@ -199,6 +212,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 							++xcrd
 					--ycrd
 
+				loading = FALSE
 				//Restore initialization to the previous value
 				SSatoms.map_loader_stop(REF(src))
 
@@ -312,7 +326,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			members_attributes.len++
 			members_attributes[index++] = fields
 
-			CHECK_TICK
+			MAPLOADING_CHECK_TICK
 		while(dpos != 0)
 
 		//check and see if we can just skip this turf
@@ -403,11 +417,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	if(GLOB.use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
 		GLOB._preloader.load(.)
 
-	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
-	if(TICK_CHECK)
-		SSatoms.map_loader_stop(REF(src))
-		stoplag()
-		SSatoms.map_loader_begin(REF(src))
+	MAPLOADING_CHECK_TICK
 
 /dmm_suite/proc/create_atom(path, crds)
 	set waitfor = FALSE
@@ -539,3 +549,4 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 	icon_state = "noop"
 
 #undef TRIM_TEXT
+#undef MAPLOADING_CHECK_TICK
