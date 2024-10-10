@@ -875,7 +875,29 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
 
+/obj/machinery/computer/rdconsole/robotics/terminal
+	name = "\improper robotics R&D terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "rdcomp"
+	icon_keyboard = "tech_key"
+	icon_keyboard_emis = "tech_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"
 	desc = "A console which is used to operate various research devices. It is the backbone of any megacorporate research division."
 	id = 1
+
+/obj/machinery/computer/rdconsole/core/terminal
+	name = "\improper core R&D terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "rdcomp"
+	icon_keyboard = "tech_key"
+	icon_keyboard_emis = "tech_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
