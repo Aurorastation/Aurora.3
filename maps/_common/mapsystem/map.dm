@@ -63,6 +63,9 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// The typepath of the visitable our main map is, for example /obj/effect/overmap/visitable/ship/sccv_horizon
+	var/overmap_visitable_type
+
 	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
 	/// Ports of call are taken from the current map sector.
 	var/ports_of_call = FALSE
