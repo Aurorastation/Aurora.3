@@ -508,7 +508,7 @@
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
-	user?.update_equipment_speed_mods()
+	user?.update_equipment_speed_mods(user)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -618,7 +618,7 @@
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
-	user.update_equipment_speed_mods()
+	user.update_equipment_speed_mods(user)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE

@@ -384,7 +384,7 @@
 		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 		if(ismob(src.loc))
 			var/mob/user = src.loc
-			user.update_equipment_speed_mods()
+			user.update_equipment_speed_mods(user)
 
 /obj/item/clothing/proc/get_accessory(var/typepath)
 	if(istype(src, typepath))

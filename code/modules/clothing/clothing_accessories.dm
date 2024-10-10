@@ -107,7 +107,7 @@
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		slowdown_accessory += bling.slowdown
-	user?.update_equipment_speed_mods()
+	user?.update_equipment_speed_mods(user)
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
