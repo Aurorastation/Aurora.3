@@ -15,6 +15,9 @@
 /// Will show job suit if true, will hide if this is false or EQUIP_PREVIEW_JOB is false
 #define EQUIP_PREVIEW_JOB_SUIT BITFLAG(4)
 
+/// Will show custom items if set, not set by default, to prevent overloading SQL requests
+#define EQUIP_PREVIEW_CUSTOM_ITEMS BITFLAG(5)
+
 /// The default EQUIP_PREVIEW bitflag, with this, all character creation items are shown
 #define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB|EQUIP_PREVIEW_JOB_HAT|EQUIP_PREVIEW_JOB_UNIFORM|EQUIP_PREVIEW_JOB_SUIT)
 

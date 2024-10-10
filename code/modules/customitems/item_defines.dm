@@ -1971,3 +1971,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flag_path = "devorask_flag"
 	flag_size = TRUE
 	flag_item = /obj/item/flag/fluff/devorask_flag/l
+
+/obj/item/organ/external/arm/fluff/gracia_autakh // gracia's aut'akh left arm - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/arm/fluff/gracia_autakh/Initialize(mapload)
+	. = ..()
+	// adding the hand to the child here means only the arm has to be added to the DB
+	// since the hand will be attached automatically
+	LAZYADD(children, new /obj/item/organ/external/hand/fluff/gracia_autakh(src))
+
+/obj/item/organ/external/hand/fluff/gracia_autakh // gracia's aut'akh left hand - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
