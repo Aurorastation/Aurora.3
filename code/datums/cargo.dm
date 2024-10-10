@@ -479,8 +479,7 @@
 
 //Calculate Price
 /datum/cargo_order_item/proc/calculate_price()
-	price = ci.get_adjusted_price()
-	return price
+	price = ci.adjusted_price
 
 // Gets a list of the cargo order item - to be json encoded
 /datum/cargo_order_item/proc/get_list()

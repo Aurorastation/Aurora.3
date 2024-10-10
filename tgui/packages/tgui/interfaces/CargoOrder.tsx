@@ -182,7 +182,7 @@ export const MainPage = (props, context) => {
             {item.description}
             <LabeledList>
               <LabeledList.Item label="Shipped By">
-                {item.supplier}
+                {item.supplier_data.name}
               </LabeledList.Item>
             </LabeledList>
           </Section>

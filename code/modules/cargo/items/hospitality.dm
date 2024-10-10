@@ -1,16 +1,21 @@
 /singleton/cargo_item/adhomianmeat
 	category = "hospitality"
-	name = "adhomian meat"
+	name = "adhomian meat (x5)"
 	supplier = "zharkov"
-	description = "A slab of meat native from Adhomian animals."
-	price = 13
+	description = "A handful of meat slices from Adhomian animals."
+	price = 120
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/adhomai
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 	)
 	access = 0
 	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
+	amount = 5
 
 /singleton/cargo_item/beerkeg
 	category = "hospitality"

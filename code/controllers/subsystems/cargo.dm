@@ -131,6 +131,7 @@ SUBSYSTEM_DEF(cargo)
 		var/singleton/cargo_item/I = item
 		cargo_items[I.name] = I
 		I.id = id++
+		I.get_adjusted_price()
 
 		// Check if the category exists in SScargo.cargo_categories
 		if (I.category && SScargo.cargo_categories[I.category])
@@ -213,7 +214,7 @@ SUBSYSTEM_DEF(cargo)
 		log_subsystem_cargo("Error: Unable to find supplier '[supplier_short_name]'.")
 		return
 
-	supplier_data += list(list(
+	supplier_data += list(
 		"short_name" = S.short_name,
 		"name" = S.name,
 		"description" = S.description,
@@ -222,7 +223,7 @@ SUBSYSTEM_DEF(cargo)
 		"shuttle_price" = S.shuttle_price,
 		"available" = S.available,
 		"price_modifier" = S.price_modifier,
-	))
+	)
 
 	return supplier_data
 
@@ -236,15 +237,6 @@ SUBSYSTEM_DEF(cargo)
   available: BooleanLike;
   price_modifier: number;
 */
-
-/datum/controller/subsystem/cargo/proc/adjust_price(var/item_to_adjust)
-	var/singleton/cargo_item/I = item_to_adjust
-
-	if(!I)
-		log_subsystem_cargo("Error: Attempted to call adjust_price() on invalid item '[I.name]'.")
-
-	//TODO: make this actually adjust the price
-	return I.price
 
 //Gets items for a category. To be used for cargo consoles.
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category_name)
@@ -263,7 +255,7 @@ SUBSYSTEM_DEF(cargo)
 			"description" = ci.description,
 			"price" = ci.price,
 			"id" = ci.id,
-			"price_adjusted" = adjust_price(ci),
+			"price_adjusted" = ci.adjusted_price,
 			"supplier" = ci.supplier,
 			"supplier_data" = get_supplier_data(ci.supplier),
 		))
@@ -656,7 +648,7 @@ SUBSYSTEM_DEF(cargo)
 				continue
 			for(var/j = 1; j <= coi.ci.item_mul; j++)
 				for(var/item in coi.ci.items)
-					var/atom/N = new item(crate)
+					new item(crate)
 
 		//Spawn the Paper Inside
 		var/obj/item/paper/P = new(crate)

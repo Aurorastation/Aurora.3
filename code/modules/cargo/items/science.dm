@@ -169,7 +169,7 @@
 /singleton/cargo_item/chemicalcartridge_mercury
 	category = "science"
 	name = "chemical cartridge-mercury"
-	supplier = "Zeng-Hu Pharmaceuticals"
+	supplier = "zeng_hu"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 55
 	items = list(

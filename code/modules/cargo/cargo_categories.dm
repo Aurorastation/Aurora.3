@@ -27,12 +27,6 @@
 	data["price_modifier"] = src.price_modifier
 	return data
 
-/singleton/cargo_category/proc/get_item_list()
-	var/list/item_list = list()
-	for (var/singleton/cargo_item/ci in src.items)
-		item_list.Add(list(ci.get_list()))
-	return item_list
-
 /singleton/cargo_category/security
 	name = "security"
 	display_name = "Security"
