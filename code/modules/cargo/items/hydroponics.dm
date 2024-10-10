@@ -29,7 +29,7 @@
 /singleton/cargo_item/beenet
 	category = "hydroponics"
 	name = "bee net"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "A needed tool to maintain bee imprisonment."
 	price = 55
 	items = list(
@@ -43,7 +43,7 @@
 /singleton/cargo_item/beesmoker
 	category = "hydroponics"
 	name = "bee smoker"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "For when you need to show those bees whos boss."
 	price = 120
 	items = list(
@@ -57,7 +57,7 @@
 /singleton/cargo_item/beehiveassembly
 	category = "hydroponics"
 	name = "beehive assembly"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "Beehive frame, some assembly required."
 	price = 75
 	items = list(
@@ -71,7 +71,7 @@
 /singleton/cargo_item/cat
 	category = "hydroponics"
 	name = "cat"
-	supplier = "getmore"
+	supplier = "molinaris"
 	description = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	price = 300
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/chicken
 	category = "hydroponics"
 	name = "chicken"
-	supplier = "getmore"
+	supplier = "molinaris"
 	description = "Adorable! They make such a racket though."
 	price = 150
 	items = list(
@@ -113,7 +113,7 @@
 /singleton/cargo_item/corgi
 	category = "hydroponics"
 	name = "corgi"
-	supplier = "nanotrasen"
+	supplier = "molinaris"
 	description = "Studies have shown corgis are the most well adapted canines in space, for some reason."
 	price = 400
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/cow
 	category = "hydroponics"
 	name = "cow"
-	supplier = "getmore"
+	supplier = "molinaris"
 	description = "Known for their milk, just don't tip them over."
 	price = 500
 	items = list(
@@ -155,7 +155,7 @@
 /singleton/cargo_item/fatshouter
 	category = "hydroponics"
 	name = "fatshouter"
-	supplier = "nanotrasen"
+	supplier = "zharkov"
 	description = "A crate containing a fatshouter."
 	price = 500
 	items = list(
@@ -183,7 +183,7 @@
 /singleton/cargo_item/goat
 	category = "hydroponics"
 	name = "goat"
-	supplier = "getmore"
+	supplier = "molinaris"
 	description = "Not known for their pleasant disposition."
 	price = 400
 	items = list(
@@ -197,7 +197,7 @@
 /singleton/cargo_item/hakhma
 	category = "hydroponics"
 	name = "hakhma"
-	supplier = "getmore"
+	supplier = "molinaris"
 	description = "An oversized insect breed by Scarab colony ships, known for their milk."
 	price = 600
 	items = list(
@@ -211,7 +211,7 @@
 /singleton/cargo_item/honeyextractor
 	category = "hydroponics"
 	name = "honey extractor"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "Needed equipment to extract sweet liquid gold."
 	price = 300
 	items = list(
@@ -239,7 +239,7 @@
 /singleton/cargo_item/icetunneler
 	category = "hydroponics"
 	name = "ice tunneler"
-	supplier = "nanotrasen"
+	supplier = "zharkov"
 	description = "A crate containing a ice tunneler."
 	price = 300
 	items = list(
@@ -296,7 +296,7 @@
 	category = "hydroponics"
 	name = "packet of diona nodes"
 	supplier = "nanotrasen"
-	description = "It has a picture of replicant pods on the front."
+	description = "It has a picture of diona pods on the front."
 	price = 15
 	items = list(
 		/obj/item/seeds/replicapod
@@ -309,7 +309,7 @@
 /singleton/cargo_item/packetofkudzuseeds
 	category = "hydroponics"
 	name = "packet of kudzu seeds"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "It has a picture of kudzu vines on the front."
 	price = 15
 	items = list(
@@ -323,7 +323,7 @@
 /singleton/cargo_item/packetofstrangeplantnodes
 	category = "hydroponics"
 	name = "packet of strange plant nodes"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "It has a picture of strange plants on the front."
 	price = 15
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/plant_b_gone
 	category = "hydroponics"
 	name = "Plant-B-Gone"
-	supplier = "getmore"
+	supplier = "blam"
 	description = "Kills those pesky weeds!"
 	price = 200
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/queenbeepack
 	category = "hydroponics"
 	name = "queen bee pack"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "Contains one queen bee, bee kingdom not included."
 	price = 150
 	items = list(
@@ -379,7 +379,7 @@
 /singleton/cargo_item/sampleoflibertycapspores
 	category = "hydroponics"
 	name = "sample of liberty cap spores"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "It's labelled as coming from liberty cap mushrooms."
 	price = 15
 	items = list(
@@ -393,13 +393,27 @@
 /singleton/cargo_item/sampleofreishispores
 	category = "hydroponics"
 	name = "sample of reishi spores"
-	supplier = "nanotrasen"
+	supplier = "vysoka"
 	description = "It's labelled as coming from reishi."
 	price = 15
 	items = list(
 		/obj/item/seeds/reishimycelium
 	)
 	access = 35
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/wulumunushaseed
+	category = "hydroponics"
+	name = "wulumunusha seed"
+	supplier = "zeng_hu"
+	description = "A Skrellian plant used in religious ceremonies and drinks."
+	price = 100
+	items = list(
+		/obj/item/seeds/wulumunushaseed
+	)
+	access = 0
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -421,8 +435,8 @@
 /singleton/cargo_item/steelhatchet
 	category = "hydroponics"
 	name = "steel hatchet"
-	supplier = "getmore"
-	description = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for choppin 洀攀愀琀"
+	supplier = "nanotrasen"
+	description = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
 	price = 36
 	items = list(
 		/obj/item/material/hatchet
@@ -435,7 +449,7 @@
 /singleton/cargo_item/steelminihoe
 	category = "hydroponics"
 	name = "steel mini hoe"
-	supplier = "getmore"
+	supplier = "nanotrasen"
 	description = "It's used for removing weeds or scratching your back."
 	price = 15
 	items = list(
@@ -477,25 +491,11 @@
 /singleton/cargo_item/weedkillergrenade
 	category = "hydroponics"
 	name = "weedkiller grenade"
-	supplier = "getmore"
+	supplier = "blam"
 	description = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
 	price = 225
 	items = list(
 		/obj/item/grenade/chem_grenade/antiweed
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/wulumunushaseed
-	category = "hydroponics"
-	name = "wulumunusha seed"
-	supplier = "nanotrasen"
-	description = "A skrellian plant used in religious ceremonies and drinks."
-	price = 100
-	items = list(
-		/obj/item/seeds/wulumunushaseed
 	)
 	access = 0
 	container_type = "crate"

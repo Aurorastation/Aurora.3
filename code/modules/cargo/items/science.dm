@@ -28,9 +28,9 @@
 
 /singleton/cargo_item/chemicalcartridge_acetone
 	category = "science"
-	name = "chemical cartridge-acetone"
+	name = "chemical cartridge - acetone"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/acetone
@@ -42,9 +42,9 @@
 
 /singleton/cargo_item/chemicalcartridge_aluminum
 	category = "science"
-	name = "chemical cartridge-aluminum"
+	name = "chemical cartridge - aluminum"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/aluminum
@@ -56,9 +56,9 @@
 
 /singleton/cargo_item/chemicalcartridge_ammonia
 	category = "science"
-	name = "chemical cartridge-ammonia"
+	name = "chemical cartridge - ammonia"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ammonia
@@ -70,9 +70,9 @@
 
 /singleton/cargo_item/chemicalcartridge_carbon
 	category = "science"
-	name = "chemical cartridge-carbon"
+	name = "chemical cartridge - carbon"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/carbon
@@ -84,9 +84,9 @@
 
 /singleton/cargo_item/chemicalcartridge_copper
 	category = "science"
-	name = "chemical cartridge-copper"
+	name = "chemical cartridge - copper"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/copper
@@ -98,9 +98,9 @@
 
 /singleton/cargo_item/chemicalcartridge_ethanol
 	category = "science"
-	name = "chemical cartridge-ethanol"
+	name = "chemical cartridge - ethanol"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ethanol
@@ -112,9 +112,9 @@
 
 /singleton/cargo_item/chemicalcartridge_hydrazine
 	category = "science"
-	name = "chemical cartridge-hydrazine"
+	name = "chemical cartridge - hydrazine"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/hydrazine
@@ -126,9 +126,9 @@
 
 /singleton/cargo_item/chemicalcartridge_hydrochloricacid
 	category = "science"
-	name = "chemical cartridge-hydrochloric acid"
+	name = "chemical cartridge - hydrochloric acid"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/hclacid
@@ -140,9 +140,9 @@
 
 /singleton/cargo_item/chemicalcartridge_iron
 	category = "science"
-	name = "chemical cartridge-iron"
+	name = "chemical cartridge - iron"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/iron
@@ -154,9 +154,9 @@
 
 /singleton/cargo_item/chemicalcartridge_lithium
 	category = "science"
-	name = "chemical cartridge-lithium"
+	name = "chemical cartridge - lithium"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lithium
@@ -168,9 +168,9 @@
 
 /singleton/cargo_item/chemicalcartridge_mercury
 	category = "science"
-	name = "chemical cartridge-mercury"
+	name = "chemical cartridge - mercury"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/mercury
@@ -182,9 +182,9 @@
 
 /singleton/cargo_item/chemicalcartridge_phosphorus
 	category = "science"
-	name = "chemical cartridge-phosphorus"
+	name = "chemical cartridge - phosphorus"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/phosphorus
@@ -196,9 +196,9 @@
 
 /singleton/cargo_item/chemicalcartridge_potassium
 	category = "science"
-	name = "chemical cartridge-potassium"
+	name = "chemical cartridge - potassium"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/potassium
@@ -210,9 +210,9 @@
 
 /singleton/cargo_item/chemicalcartridge_radium
 	category = "science"
-	name = "chemical cartridge-radium"
+	name = "chemical cartridge - radium"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/radium
@@ -224,9 +224,9 @@
 
 /singleton/cargo_item/chemicalcartridge_silicon
 	category = "science"
-	name = "chemical cartridge-silicon"
+	name = "chemical cartridge - silicon"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/silicon
@@ -238,9 +238,9 @@
 
 /singleton/cargo_item/chemicalcartridge_sodium
 	category = "science"
-	name = "chemical cartridge-sodium"
+	name = "chemical cartridge - sodium"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sodium
@@ -252,9 +252,9 @@
 
 /singleton/cargo_item/chemicalcartridge_sugar
 	category = "science"
-	name = "chemical cartridge-sugar"
+	name = "chemical cartridge - sugar"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sugar
@@ -266,9 +266,9 @@
 
 /singleton/cargo_item/chemicalcartridge_sulfur
 	category = "science"
-	name = "chemical cartridge-sulfur"
+	name = "chemical cartridge - sulfur"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sulfur
@@ -280,9 +280,9 @@
 
 /singleton/cargo_item/chemicalcartridge_sulfuricacid
 	category = "science"
-	name = "chemical cartridge-sulfuric acid"
+	name = "chemical cartridge - sulfuric acid"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sacid
@@ -294,9 +294,9 @@
 
 /singleton/cargo_item/chemicalcartridge_tungsten
 	category = "science"
-	name = "chemical cartridge-tungsten"
+	name = "chemical cartridge - tungsten"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tungsten
@@ -308,9 +308,9 @@
 
 /singleton/cargo_item/chemicalcartridge_water
 	category = "science"
-	name = "chemical cartridge-water"
+	name = "chemical cartridge - water"
 	supplier = "zeng_hu"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/water
@@ -323,7 +323,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_central
 	category = "science"
 	name = "exosuit module circuit board (Odysseus central control)"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_peripheral
 	category = "science"
 	name = "exosuit module circuit board (Odysseus peripherals control)"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_central
 	category = "science"
 	name = "exosuit module circuit board (Ripley central control)"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_peripheral
 	category = "science"
 	name = "exosuit module circuit board (Ripley peripherals control)"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -422,7 +422,7 @@
 	category = "science"
 	name = "mindshield firing pin"
 	supplier = "nanotrasen"
-	description = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
+	description = "This implant - locked firing pin authorizes the weapon for only loyalty - implanted users."
 	price = 2000
 	items = list(
 		/obj/item/device/firing_pin/implant/loyalty
@@ -450,7 +450,7 @@
 	category = "science"
 	name = "Proto-Human"
 	supplier = "zavodskoi"
-	description = "A brain dead, generic human clone"
+	description = "A human body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
 	price = 2000
 	items = list(
 		/mob/living/carbon/human
@@ -464,7 +464,7 @@
 	category = "science"
 	name = "Proto-Skrell"
 	supplier = "zeng_hu"
-	description = "A brain dead, generic skrell clone"
+	description = "A Skrell body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
 	price = 2000
 	items = list(
 		/mob/living/carbon/human/skrell
@@ -478,7 +478,7 @@
 	category = "science"
 	name = "Proto-Tajara"
 	supplier = "zeng_hu"
-	description = "A brain dead, generic tajara clone"
+	description = "A Tajara body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
 	price = 2000
 	items = list(
 		/mob/living/carbon/human/tajaran
@@ -492,7 +492,7 @@
 	category = "science"
 	name = "Proto-Unathi"
 	supplier = "zavodskoi"
-	description = "A brain dead, generic unathi clone"
+	description = "An Unathi body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
 	price = 2000
 	items = list(
 		/mob/living/carbon/human/unathi
@@ -518,7 +518,7 @@
 
 /singleton/cargo_item/testrange_firingpin
 	category = "science"
-	name = "test-range firing pin"
+	name = "test - range firing pin"
 	supplier = "nanotrasen"
 	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	price = 500
@@ -630,9 +630,9 @@
 
 /singleton/cargo_item/torso_zenghu
 	category = "science"
-	name = "Torso - Zeng-Hu Pharmaceuticals"
+	name = "Torso - Zeng - Hu Pharmaceuticals"
 	supplier = "zeng_hu"
-	description = "A Zeng-Hu Pharmaceuticals torso"
+	description = "A Zeng - Hu Pharmaceuticals torso"
 	price = 3000
 	items = list(
 		/obj/item/robot_parts/chest/zenghu

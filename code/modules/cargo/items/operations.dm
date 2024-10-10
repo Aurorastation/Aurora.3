@@ -1,7 +1,7 @@
 /singleton/cargo_item/autakhlimbs
 	category = "operations"
 	name = "autakh limbs"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "A box with various autakh limbs"
 	price = 3000
 	items = list(
@@ -31,7 +31,7 @@
 /singleton/cargo_item/battlemonstersresupplycanister
 	category = "operations"
 	name = "battlemonsters resupply canister"
-	supplier = "blam"
+	supplier = "nanotrasen"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -45,7 +45,7 @@
 /singleton/cargo_item/blackpaint
 	category = "operations"
 	name = "black paint"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Black paint, the color of space."
 	price = 10
 	items = list(
@@ -59,7 +59,7 @@
 /singleton/cargo_item/bluepaint
 	category = "operations"
 	name = "blue paint"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Blue paint, for when you're on a mission from god."
 	price = 10
 	items = list(
@@ -73,7 +73,7 @@
 /singleton/cargo_item/boozeresupplycanister
 	category = "operations"
 	name = "booze resupply canister"
-	supplier = "blam"
+	supplier = "orion"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -101,7 +101,7 @@
 /singleton/cargo_item/cargotraintrolley
 	category = "operations"
 	name = "cargo train trolley"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "A cargo trolley for carrying cargo, NOT people."
 	price = 1500
 	items = list(
@@ -115,7 +115,7 @@
 /singleton/cargo_item/cargotraintug
 	category = "operations"
 	name = "cargo train tug"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "A ridable electric car designed for pulling cargo trolleys."
 	price = 500
 	items = list(
@@ -143,7 +143,7 @@
 /singleton/cargo_item/coffeeresupplycanister
 	category = "operations"
 	name = "coffee resupply canister"
-	supplier = "blam"
+	supplier = "getmore"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -157,7 +157,7 @@
 /singleton/cargo_item/colaresupplycanister
 	category = "operations"
 	name = "cola resupply canister"
-	supplier = "blam"
+	supplier = "idris"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -171,7 +171,7 @@
 /singleton/cargo_item/cutleryresupplycanister
 	category = "operations"
 	name = "cutlery resupply canister"
-	supplier = "blam"
+	supplier = "nanotrasen"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -182,24 +182,10 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/debugger
-	category = "operations"
-	name = "Debugger"
-	supplier = "nanotrasen"
-	description = "Used to debug electronic equipment."
-	price = 50
-	items = list(
-		/obj/item/device/debugger
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 2
-
 /singleton/cargo_item/eftposscanner
 	category = "operations"
 	name = "EFTPOS scanner"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Swipe your ID card to make purchases electronically."
 	price = 45
 	items = list(
@@ -255,7 +241,7 @@
 /singleton/cargo_item/flare
 	category = "operations"
 	name = "flare"
-	supplier = "nanotrasen"
+	supplier = "heph"
 	description = "Good for illuminating dark areas or burning someones face off."
 	price = 80
 	items = list(
@@ -293,7 +279,7 @@
 /singleton/cargo_item/giftwrappingpaper
 	category = "operations"
 	name = "gift wrapping paper"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "You can use this to wrap items in."
 	price = 8
 	items = list(
@@ -307,7 +293,7 @@
 /singleton/cargo_item/greenpaint
 	category = "operations"
 	name = "green paint"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Green paint, a aesthetic replacement for grass."
 	price = 10
 	items = list(
@@ -335,7 +321,7 @@
 /singleton/cargo_item/hydroresupplycanister
 	category = "operations"
 	name = "hydro resupply canister"
-	supplier = "blam"
+	supplier = "nanotrasen"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -389,7 +375,7 @@
 /singleton/cargo_item/loadbearingequipment
 	category = "operations"
 	name = "load bearing equipment"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Used to hold things when you don't have enough hands."
 	price = 83
 	items = list(
@@ -403,7 +389,7 @@
 /singleton/cargo_item/medsresupplycanister
 	category = "operations"
 	name = "meds resupply canister"
-	supplier = "blam"
+	supplier = "zeng_hu"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -417,7 +403,7 @@
 /singleton/cargo_item/packagewrapper
 	category = "operations"
 	name = "package wrapper"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "A roll of paper used to enclose an object for delivery."
 	price = 8
 	items = list(
@@ -473,7 +459,7 @@
 /singleton/cargo_item/purplepaint
 	category = "operations"
 	name = "purple paint"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Purple paint, it makes you feel like royalty."
 	price = 10
 	items = list(
@@ -487,7 +473,7 @@
 /singleton/cargo_item/redpaint
 	category = "operations"
 	name = "red paint"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Red paint, its not blood we promise."
 	price = 10
 	items = list(
@@ -515,7 +501,7 @@
 /singleton/cargo_item/poster19
 	category = "operations"
 	name = "rolled-up poster - No. 19"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	price = 38
 	items = list(
@@ -543,7 +529,7 @@
 /singleton/cargo_item/shoulderholster
 	category = "operations"
 	name = "shoulder holster"
-	supplier = "nanotrasen"
+	supplier = "zavodskoi"
 	description = "A handgun holster."
 	price = 23
 	items = list(
@@ -557,7 +543,7 @@
 /singleton/cargo_item/smokesresupplycanister
 	category = "operations"
 	name = "smokes resupply canister"
-	supplier = "blam"
+	supplier = "getmore"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -571,7 +557,7 @@
 /singleton/cargo_item/snacksresupplycanister
 	category = "operations"
 	name = "snacks resupply canister"
-	supplier = "blam"
+	supplier = "getmore"
 	description = "A vending machine restock cart."
 	price = 967
 	items = list(
@@ -599,7 +585,7 @@
 /singleton/cargo_item/toolsresupplycanister
 	category = "operations"
 	name = "tools resupply canister"
-	supplier = "blam"
+	supplier = "heph"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -641,7 +627,7 @@
 /singleton/cargo_item/yellowpaint
 	category = "operations"
 	name = "yellow paint"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "Yellow paint, for when you need to make eyes sore."
 	price = 10
 	items = list(
@@ -666,3 +652,242 @@
 	groupable = 1
 	item_mul = 1
 
+/singleton/cargo_item/classakineticaccelerator
+	category = "operations"
+	name = "Class A Kinetic Accelerator"
+	supplier = "heph"
+	description = "Contains a tactical KA frame, an experimental core KA power converter, a recoil reloading KA cell, and a upgrade chip - damage increase."
+	price = 7999
+	items = list(
+		/obj/item/gun/custom_ka/frame05/prebuilt
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/classbkineticaccelerator
+	category = "operations"
+	name = "Class B Kinetic Accelerator"
+	supplier = "heph"
+	description = "Contains a heavy KA frame, a planet core KA power converter, a uranium recharging KA cell, and a upgrade chip - efficiency increase."
+	price = 5599
+	items = list(
+		/obj/item/gun/custom_ka/frame04/prebuilt
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/classckineticaccelerator
+	category = "operations"
+	name = "Class C Kinetic Accelerator"
+	supplier = "heph"
+	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing"
+	price = 3299
+	items = list(
+		/obj/item/gun/custom_ka/frame03/prebuilt
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/classdkineticaccelerator
+	category = "operations"
+	name = "Class D Kinetic Accelerator"
+	supplier = "heph"
+	description = "Contains a light KA frame, a professional core KA power converter, an advanced pump recharging KA cell, and a upgrade chip - firedelay increase."
+	price = 2299
+	items = list(
+		/obj/item/gun/custom_ka/frame02/prebuilt
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/classekineticaccelerator
+	category = "operations"
+	name = "Class E Kinetic Accelerator"
+	supplier = "heph"
+	description = "Contains a compact KA frame, a standard core KA power converter, a pump recharging KA cell, and a upgrade chip - focusing."
+	price = 1499
+	items = list(
+		/obj/item/gun/custom_ka/frame01/prebuilt
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/industrialminingdrill
+	category = "operations"
+	name = "Industrial Mining Drill"
+	supplier = "blam"
+	description = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
+	price = 4000
+	items = list(
+		/obj/machinery/mining/drill,
+		/obj/machinery/mining/brace,
+		/obj/machinery/mining/brace
+	)
+	access = 48
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/franciscaapammo
+	category = "operations"
+	name = "francisca AP ammo"
+	supplier = "zavodskoi"
+	description = "A box of 40mm AP ammo."
+	price = 1200
+	items = list(
+		/obj/item/ship_ammunition/grauwolf_bundle/ap
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/franciscafmjammo
+	category = "operations"
+	name = "francisca FMJ ammo"
+	supplier = "zavodskoi"
+	description = "A box of 40mm FMJ ammo."
+	price = 1000
+	items = list(
+		/obj/item/ship_ammunition/grauwolf_bundle
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/grauwolfapflak
+	category = "operations"
+	name = "grauwolf AP flak"
+	supplier = "zavodskoi"
+	description = "Armor-Piercing shells for a flak battery."
+	price = 2500
+	items = list(
+		/obj/item/ship_ammunition/grauwolf_bundle/ap
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/grauwolfheflak
+	category = "operations"
+	name = "grauwolf HE flak"
+	supplier = "zavodskoi"
+	description = "High-explosive shells for a flak battery."
+	price = 2000
+	items = list(
+		/obj/item/ship_ammunition/grauwolf_bundle
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/longbowapwarhead
+	category = "operations"
+	name = "longbow AP warhead"
+	supplier = "zavodskoi"
+	description = "An armor-piercing 406mm warhead."
+	price = 3500
+	items = list(
+		/obj/item/warhead/longbow/ap
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/longbowcasing
+	category = "operations"
+	name = "longbow casing"
+	supplier = "zavodskoi"
+	description = "A casing for a 406mm warhead."
+	price = 2000
+	items = list(
+		/obj/item/ship_ammunition/longbow
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/longbowepwarhead
+	category = "operations"
+	name = "longbow EP warhead"
+	supplier = "zavodskoi"
+	description = "A bunker-buster 406mm warhead."
+	price = 3500
+	items = list(
+		/obj/item/warhead/longbow/bunker
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/longbowhewarhead
+	category = "operations"
+	name = "longbow HE warhead"
+	supplier = "zavodskoi"
+	description = "A high-explosive 406mm warhead."
+	price = 3000
+	items = list(
+		/obj/item/warhead/longbow
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/highpowerlongbowprimer
+	category = "operations"
+	name = "high-power longbow primer"
+	supplier = "zavodskoi"
+	description = "A high-power primer for a 406mm warhead."
+	price = 1500
+	items = list(
+		/obj/item/primer/high
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/longbowwarheadprimer
+	category = "operations"
+	name = "longbow warhead primer"
+	supplier = "zavodskoi"
+	description = "A standard primer for a 406mm warhead."
+	price = 1200
+	items = list(
+		/obj/item/primer
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/lowpowerlongbowprimer
+	category = "operations"
+	name = "low-power longbow primer"
+	supplier = "zavodskoi"
+	description = "A low-power primer for a 406mm warhead."
+	price = 1000
+	items = list(
+		/obj/item/primer/low
+	)
+	access = 31
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1

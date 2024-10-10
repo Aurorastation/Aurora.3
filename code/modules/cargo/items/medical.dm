@@ -85,7 +85,7 @@
 /singleton/cargo_item/bonegel
 	category = "medical"
 	name = "bone gel"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "A gel made from a mixture of Calcium and Science, but mostly Calcium."
 	price = 495
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/bonesetter
 	category = "medical"
 	name = "bone setter"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "Sets bones into place."
 	price = 225
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/sterilegloves_box
 	category = "medical"
 	name = "box of sterile gloves"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "Contains sterile gloves."
 	price = 98
 	items = list(
@@ -141,7 +141,7 @@
 /singleton/cargo_item/sterilemasks_box
 	category = "medical"
 	name = "box of sterile masks"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "This box contains masks of sterility."
 	price = 98
 	items = list(
@@ -169,7 +169,7 @@
 /singleton/cargo_item/cautery
 	category = "medical"
 	name = "cautery"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "This stops bleeding."
 	price = 165
 	items = list(
@@ -184,7 +184,7 @@
 	category = "medical"
 	name = "chemical cartridge-dylovene"
 	supplier = "iac"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 200
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
@@ -198,7 +198,7 @@
 	category = "medical"
 	name = "chemical cartridge-inaprovaline"
 	supplier = "iac"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 200
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
@@ -212,7 +212,7 @@
 	category = "medical"
 	name = "chemical cartridge-thetamycin"
 	supplier = "iac"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 800
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
@@ -225,7 +225,7 @@
 /singleton/cargo_item/circularsaw
 	category = "medical"
 	name = "circular saw"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "For heavy duty cutting."
 	price = 195
 	items = list(
@@ -281,7 +281,7 @@
 /singleton/cargo_item/fixovein
 	category = "medical"
 	name = "FixOVein"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "When life gives you internal bleeding, FixOVein is there."
 	price = 495
 	items = list(
@@ -295,7 +295,7 @@
 /singleton/cargo_item/hemostat
 	category = "medical"
 	name = "hemostat"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "You think you have seen this before."
 	price = 135
 	items = list(
@@ -439,7 +439,7 @@
 /singleton/cargo_item/nanopaste
 	category = "medical"
 	name = "nanopaste"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	price = 2000
 	items = list(
@@ -495,7 +495,7 @@
 /singleton/cargo_item/retractor
 	category = "medical"
 	name = "retractor"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "Retracts stuff."
 	price = 115
 	items = list(
@@ -509,7 +509,7 @@
 /singleton/cargo_item/scalpel
 	category = "medical"
 	name = "scalpel"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "Cut, cut, and once more cut."
 	price = 100
 	items = list(
@@ -588,7 +588,7 @@
 /singleton/cargo_item/surgicaldrill
 	category = "medical"
 	name = "surgical drill"
-	supplier = "nanotrasen"
+	supplier = "zeng_hu"
 	description = "You can drill using this item. You dig?"
 	price = 195
 	items = list(
@@ -616,7 +616,7 @@
 /singleton/cargo_item/therapydoll
 	category = "medical"
 	name = "therapy doll"
-	supplier = "nanotrasen"
+	supplier = "virgo"
 	description = "A toy for therapeutic and recreational purposes."
 	price = 200
 	items = list(
@@ -637,20 +637,6 @@
 		/obj/item/storage/firstaid/toxin
 	)
 	access = 5
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/triglyceridebottle
-	category = "medical"
-	name = "triglyceride bottle"
-	supplier = "virgo"
-	description = "A small bottle. Contains triglyceride."
-	price = 50
-	items = list(
-		/obj/item/reagent_containers/glass/bottle/triglyceride
-	)
-	access = 0
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

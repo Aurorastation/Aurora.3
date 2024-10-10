@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs } from '../components';
+import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -83,9 +83,9 @@ export const CargoOrder = (props, context) => {
   const { act, data } = useBackend<CargoData>(context);
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow resizable width={800} height={800}>
       <NtosWindow.Content scrollable>
-        <Tabs fitted>
+        <Tabs fluid>
           <Tabs.Tab
             onClick={() => act('page', { page: 'main' })}
             selected={data.page === 'main'}>
@@ -151,7 +151,7 @@ export const MainPage = (props, context) => {
         {details && <ShowDetails />}
       </Section>
       <Section title="Catalog">
-        <Tabs>
+        <Tabs fluid>
           {data.cargo_categories.map((category) => (
             <Tabs.Tab
               key={category.name}
@@ -181,9 +181,11 @@ export const MainPage = (props, context) => {
             }>
             {item.description}
             <LabeledList>
-              <LabeledList.Item label="Shipped By">
-                {item.supplier_data.name}
-              </LabeledList.Item>
+              <Tooltip content={item.supplier_data.description}>
+                <LabeledList.Item label="Shipped By">
+                  {item.supplier_data.name}
+                </LabeledList.Item>
+              </Tooltip>
             </LabeledList>
           </Section>
         ))}

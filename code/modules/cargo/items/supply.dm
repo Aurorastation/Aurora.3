@@ -17,7 +17,7 @@
 /singleton/cargo_item/box
 	category = "supply"
 	name = "box"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "It's just an ordinary box."
 	price = 45
 	items = list(
@@ -59,7 +59,7 @@
 /singleton/cargo_item/chestdrawer
 	category = "supply"
 	name = "chest drawer"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "A large cabinet with drawers."
 	price = 45
 	items = list(
@@ -87,7 +87,7 @@
 /singleton/cargo_item/clipboard
 	category = "supply"
 	name = "clipboard"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "The timeless prop for looking like your working."
 	price = 23
 	items = list(
@@ -168,10 +168,10 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/folder
+/singleton/cargo_item/folderblue
 	category = "supply"
-	name = "folder"
-	supplier = "nanotrasen"
+	name = "blue folder"
+	supplier = "orion"
 	description = "A blue folder."
 	price = 8
 	items = list(
@@ -184,8 +184,8 @@
 
 /singleton/cargo_item/folderblue
 	category = "supply"
-	name = "folder blue"
-	supplier = "nanotrasen"
+	name = "yellow folder"
+	supplier = "orion"
 	description = "A yellow folder."
 	price = 8
 	items = list(
@@ -198,7 +198,7 @@
 
 /singleton/cargo_item/folderred
 	category = "supply"
-	name = "folder red"
+	name = "red folder"
 	supplier = "nanotrasen"
 	description = "A red folder."
 	price = 8
@@ -206,62 +206,6 @@
 		/obj/item/folder/red
 	)
 	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/franciscaapammo
-	category = "supply"
-	name = "francisca AP ammo"
-	supplier = "zavodskoi"
-	description = "A box of 40mm AP ammo."
-	price = 1200
-	items = list(
-		/obj/item/ship_ammunition/grauwolf_bundle/ap
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/franciscafmjammo
-	category = "supply"
-	name = "francisca FMJ ammo"
-	supplier = "zavodskoi"
-	description = "A box of 40mm FMJ ammo."
-	price = 1000
-	items = list(
-		/obj/item/ship_ammunition/grauwolf_bundle
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/grauwolfapflak
-	category = "supply"
-	name = "grauwolf AP flak"
-	supplier = "zavodskoi"
-	description = "Armor-Piercing shells for a flak battery."
-	price = 2500
-	items = list(
-		/obj/item/ship_ammunition/grauwolf_bundle/ap
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/grauwolfheflak
-	category = "supply"
-	name = "grauwolf HE flak"
-	supplier = "zavodskoi"
-	description = "High-explosive shells for a flak battery."
-	price = 2000
-	items = list(
-		/obj/item/ship_ammunition/grauwolf_bundle
-	)
-	access = 31
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -308,20 +252,6 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/highpowerlongbowprimer
-	category = "supply"
-	name = "high-power longbow primer"
-	supplier = "zavodskoi"
-	description = "A high-power primer for a 406mm warhead."
-	price = 1500
-	items = list(
-		/obj/item/primer/high
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/inflatableduck
 	category = "supply"
 	name = "inflatable duck"
@@ -347,104 +277,6 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/longbowapwarhead
-	category = "supply"
-	name = "longbow AP warhead"
-	supplier = "zavodskoi"
-	description = "An armor-piercing 406mm warhead."
-	price = 3500
-	items = list(
-		/obj/item/warhead/longbow/ap
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/longbowcasing
-	category = "supply"
-	name = "longbow casing"
-	supplier = "zavodskoi"
-	description = "A casing for a 406mm warhead."
-	price = 2000
-	items = list(
-		/obj/item/ship_ammunition/longbow
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/longbowepwarhead
-	category = "supply"
-	name = "longbow EP warhead"
-	supplier = "zavodskoi"
-	description = "A bunker-buster 406mm warhead."
-	price = 3500
-	items = list(
-		/obj/item/warhead/longbow/bunker
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/longbowhewarhead
-	category = "supply"
-	name = "longbow HE warhead"
-	supplier = "zavodskoi"
-	description = "A high-explosive 406mm warhead."
-	price = 3000
-	items = list(
-		/obj/item/warhead/longbow
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/longbowwarheadprimer
-	category = "supply"
-	name = "longbow warhead primer"
-	supplier = "zavodskoi"
-	description = "A standard primer for a 406mm warhead."
-	price = 1200
-	items = list(
-		/obj/item/primer
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/lowpowerlongbowprimer
-	category = "supply"
-	name = "low-power longbow primer"
-	supplier = "zavodskoi"
-	description = "A low-power primer for a 406mm warhead."
-	price = 1000
-	items = list(
-		/obj/item/primer/low
-	)
-	access = 31
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/meat
-	category = "supply"
-	name = "meat"
-	supplier = "getmore"
-	description = "A slab of meat."
-	price = 3
-	items = list(
-		/obj/item/reagent_containers/food/snacks/meat
-	)
-	access = 0
-	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
 

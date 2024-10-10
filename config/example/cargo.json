@@ -1759,7 +1759,7 @@
 			"chemical cartridge-acetone": {
 				"name": "chemical cartridge-acetone",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -1779,7 +1779,7 @@
 			"chemical cartridge-ale": {
 				"name": "chemical cartridge-ale",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1798,7 +1798,7 @@
 			"chemical cartridge-aluminum": {
 				"name": "chemical cartridge-aluminum",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -1818,7 +1818,7 @@
 			"chemical cartridge-ammonia": {
 				"name": "chemical cartridge-ammonia",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -1838,7 +1838,7 @@
 			"chemical cartridge-beer": {
 				"name": "chemical cartridge-beer",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1857,7 +1857,7 @@
 			"chemical cartridge-carbon": {
 				"name": "chemical cartridge-carbon",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -1877,7 +1877,7 @@
 			"chemical cartridge-champagne": {
 				"name": "chemical cartridge-champagne",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1896,7 +1896,7 @@
 			"chemical cartridge-coffee": {
 				"name": "chemical cartridge-coffee",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1915,7 +1915,7 @@
 			"chemical cartridge-cognac": {
 				"name": "chemical cartridge-cognac",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1934,7 +1934,7 @@
 			"chemical cartridge-cola": {
 				"name": "chemical cartridge-cola",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1953,7 +1953,7 @@
 			"chemical cartridge-copper": {
 				"name": "chemical cartridge-copper",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -1973,7 +1973,7 @@
 			"chemical cartridge-cream": {
 				"name": "chemical cartridge-cream",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -1992,7 +1992,7 @@
 			"chemical cartridge-dr gibb": {
 				"name": "chemical cartridge-dr gibb",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2011,7 +2011,7 @@
 			"chemical cartridge-dylovene": {
 				"name": "chemical cartridge-dylovene",
 				"supplier": "iac",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"medical"
 				],
@@ -2030,7 +2030,7 @@
 			"chemical cartridge-ethanol": {
 				"name": "chemical cartridge-ethanol",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2050,7 +2050,7 @@
 			"chemical cartridge-gin": {
 				"name": "chemical cartridge-gin",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2069,7 +2069,7 @@
 			"chemical cartridge-hydrazine": {
 				"name": "chemical cartridge-hydrazine",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2089,7 +2089,7 @@
 			"chemical cartridge-hydrochloric acid": {
 				"name": "chemical cartridge-hydrochloric acid",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2109,7 +2109,7 @@
 			"chemical cartridge-ice": {
 				"name": "chemical cartridge-ice",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2128,7 +2128,7 @@
 			"chemical cartridge-ice tea": {
 				"name": "chemical cartridge-ice tea",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2147,7 +2147,7 @@
 			"chemical cartridge-inaprovaline": {
 				"name": "chemical cartridge-inaprovaline",
 				"supplier": "iac",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"medical"
 				],
@@ -2166,7 +2166,7 @@
 			"chemical cartridge-iron": {
 				"name": "chemical cartridge-iron",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2186,7 +2186,7 @@
 			"chemical cartridge-kahlua": {
 				"name": "chemical cartridge-kahlua",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2205,7 +2205,7 @@
 			"chemical cartridge-lemon lime": {
 				"name": "chemical cartridge-lemon lime",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2224,7 +2224,7 @@
 			"chemical cartridge-lime": {
 				"name": "chemical cartridge-lime",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2243,7 +2243,7 @@
 			"chemical cartridge-lithium": {
 				"name": "chemical cartridge-lithium",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2263,7 +2263,7 @@
 			"chemical cartridge-mead": {
 				"name": "chemical cartridge-mead",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2282,7 +2282,7 @@
 			"chemical cartridge-mercury": {
 				"name": "chemical cartridge-mercury",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2302,7 +2302,7 @@
 			"chemical cartridge-orange": {
 				"name": "chemical cartridge-orange",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2321,7 +2321,7 @@
 			"chemical cartridge-phosphorus": {
 				"name": "chemical cartridge-phosphorus",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2341,7 +2341,7 @@
 			"chemical cartridge-potassium": {
 				"name": "chemical cartridge-potassium",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2361,7 +2361,7 @@
 			"chemical cartridge-radium": {
 				"name": "chemical cartridge-radium",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2381,7 +2381,7 @@
 			"chemical cartridge-rum": {
 				"name": "chemical cartridge-rum",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2400,7 +2400,7 @@
 			"chemical cartridge-silicon": {
 				"name": "chemical cartridge-silicon",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2420,7 +2420,7 @@
 			"chemical cartridge-smw": {
 				"name": "chemical cartridge-smw",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2439,7 +2439,7 @@
 			"chemical cartridge-sodawater": {
 				"name": "chemical cartridge-sodawater",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2458,7 +2458,7 @@
 			"chemical cartridge-sodium": {
 				"name": "chemical cartridge-sodium",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2478,7 +2478,7 @@
 			"chemical cartridge-spaceup": {
 				"name": "chemical cartridge-spaceup",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2497,7 +2497,7 @@
 			"chemical cartridge-sugar": {
 				"name": "chemical cartridge-sugar",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2517,7 +2517,7 @@
 			"chemical cartridge-sulfur": {
 				"name": "chemical cartridge-sulfur",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2537,7 +2537,7 @@
 			"chemical cartridge-sulfuric acid": {
 				"name": "chemical cartridge-sulfuric acid",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2557,7 +2557,7 @@
 			"chemical cartridge-tea": {
 				"name": "chemical cartridge-tea",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2576,7 +2576,7 @@
 			"chemical cartridge-tequila": {
 				"name": "chemical cartridge-tequila",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2595,7 +2595,7 @@
 			"chemical cartridge-thetamycin": {
 				"name": "chemical cartridge-thetamycin",
 				"supplier": "iac",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"medical"
 				],
@@ -2614,7 +2614,7 @@
 			"chemical cartridge-tonic": {
 				"name": "chemical cartridge-tonic",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2633,7 +2633,7 @@
 			"chemical cartridge-tungsten": {
 				"name": "chemical cartridge-tungsten",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2653,7 +2653,7 @@
 			"chemical cartridge-vermouth": {
 				"name": "chemical cartridge-vermouth",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2672,7 +2672,7 @@
 			"chemical cartridge-vodka": {
 				"name": "chemical cartridge-vodka",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2691,7 +2691,7 @@
 			"chemical cartridge-water": {
 				"name": "chemical cartridge-water",
 				"supplier": "zhu",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"science",
 					"medical"
@@ -2711,7 +2711,7 @@
 			"chemical cartridge-watermelon": {
 				"name": "chemical cartridge-watermelon",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2730,7 +2730,7 @@
 			"chemical cartridge-whiskey": {
 				"name": "chemical cartridge-whiskey",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],
@@ -2749,7 +2749,7 @@
 			"chemical cartridge-wine": {
 				"name": "chemical cartridge-wine",
 				"supplier": "get",
-				"description": "A square plastic cartridge, this one is filled with 500 units of liquid.",
+				"description": "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can.",
 				"categories": [
 					"hospitality"
 				],

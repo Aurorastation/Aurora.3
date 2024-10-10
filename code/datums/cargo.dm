@@ -485,7 +485,7 @@
 /datum/cargo_order_item/proc/get_list()
 	var/list/data = list()
 	data["name"] = ci.name
-	data["supplier_name"] = ci.supplier_data.name
+	data["supplier_data"] = ci.supplier_data
 	data["amount"] = ci.amount
 	data["price"] = price
 	data["item_id"] = item_id

@@ -3,7 +3,7 @@
 	name = "adhomian meat (x5)"
 	supplier = "zharkov"
 	description = "A handful of meat slices from Adhomian animals."
-	price = 120
+	price = 200
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -17,12 +17,97 @@
 	item_mul = 1
 	amount = 5
 
+/singleton/cargo_item/meat
+	category = "hospitality"
+	name = "meat (x5)"
+	supplier = "getmore"
+	description = "Slabs of real meat, from real animals. Freshly frozen and extremely not-vegan."
+	price = 120
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat,
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+	amount = 5
+
+/singleton/cargo_item/fishfillet
+	category = "hospitality"
+	name = "fish fillet (x5)"
+	supplier = "getmore"
+	description = "Raw fish fillets, sourced from an aquaponics farm."
+	price = 100
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+	amount = 5
+
+/singleton/cargo_item/moghresianmeat
+	category = "hospitality"
+	name = "moghresian meat (x5)"
+	supplier = "arizi"
+	description = "Slabs of meat from animals native to Moghes."
+	price = 130
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+	amount = 5
+
+/singleton/cargo_item/squidmeat
+	category = "hospitality"
+	name = "squid meat"
+	supplier = "getmore"
+	description = "Soylent squid is (not) people!"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/snacks/squidmeat
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/wormfillet
+	category = "hospitality"
+	name = "worm fillet"
+	supplier = "nanotrasen"
+	description = "Meat from a cavern Dweller. Mildly toxic if prepared improperly."
+	price = 16
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dwellermeat
+	)
+	access = 28
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
 /singleton/cargo_item/beerkeg
 	category = "hospitality"
 	name = "beer keg"
 	supplier = "virgo"
-	description = "A beer keg."
-	price = 200
+	description = "A keg of refreshing, intoxicating beer."
+	price = 500
 	items = list(
 		/obj/structure/reagent_dispensers/keg/beerkeg
 	)
@@ -33,10 +118,10 @@
 
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"
-	name = "box of crab legs"
-	supplier = "nanotrasen"
-	description = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
-	price = 20
+	name = "box of Silversun crab legs"
+	supplier = "idris"
+	description = "A box filled with high-quality crab legs from Silversun. Shipped by popular demand!"
+	price = 200
 	items = list(
 		/obj/item/storage/box/crabmeat
 	)
@@ -49,7 +134,7 @@
 	category = "hospitality"
 	name = "box of drinking glasses"
 	supplier = "virgo"
-	description = "It has a picture of drinking glasses on it."
+	description = "A box of drinking glasses, for drinking purposes."
 	price = 21
 	items = list(
 		/obj/item/storage/box/drinkingglasses
@@ -75,9 +160,9 @@
 
 /singleton/cargo_item/chemicalcartridge_ale
 	category = "hospitality"
-	name = "chemical cartridge-ale"
+	name = "chemical cartridge - ale"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ale
@@ -89,9 +174,9 @@
 
 /singleton/cargo_item/chemicalcartridge_beer
 	category = "hospitality"
-	name = "chemical cartridge-beer"
+	name = "chemical cartridge - beer"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/beer
@@ -103,9 +188,9 @@
 
 /singleton/cargo_item/chemicalcartridge_champagne
 	category = "hospitality"
-	name = "chemical cartridge-champagne"
+	name = "chemical cartridge - champagne"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/champagne
@@ -117,9 +202,9 @@
 
 /singleton/cargo_item/chemicalcartridge_coffee
 	category = "hospitality"
-	name = "chemical cartridge-coffee"
+	name = "chemical cartridge - coffee"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/coffee
@@ -131,9 +216,9 @@
 
 /singleton/cargo_item/chemicalcartridge_cognac
 	category = "hospitality"
-	name = "chemical cartridge-cognac"
+	name = "chemical cartridge - cognac"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cognac
@@ -145,9 +230,9 @@
 
 /singleton/cargo_item/chemicalcartridge_cola
 	category = "hospitality"
-	name = "chemical cartridge-cola"
+	name = "chemical cartridge - cola"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cola
@@ -159,9 +244,9 @@
 
 /singleton/cargo_item/chemicalcartridge_cream
 	category = "hospitality"
-	name = "chemical cartridge-cream"
+	name = "chemical cartridge - cream"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cream
@@ -173,9 +258,9 @@
 
 /singleton/cargo_item/chemicalcartridge_drgibb
 	category = "hospitality"
-	name = "chemical cartridge-dr gibb"
+	name = "chemical cartridge - dr gibb"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dr_gibb
@@ -187,9 +272,9 @@
 
 /singleton/cargo_item/chemicalcartridge_gin
 	category = "hospitality"
-	name = "chemical cartridge-gin"
+	name = "chemical cartridge - gin"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/gin
@@ -201,9 +286,9 @@
 
 /singleton/cargo_item/chemicalcartridge_ice
 	category = "hospitality"
-	name = "chemical cartridge-ice"
+	name = "chemical cartridge - ice"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ice
@@ -215,9 +300,9 @@
 
 /singleton/cargo_item/chemicalcartridge_icetea
 	category = "hospitality"
-	name = "chemical cartridge-ice tea"
+	name = "chemical cartridge - iced tea"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/icetea
@@ -229,9 +314,9 @@
 
 /singleton/cargo_item/chemicalcartridge_kahlua
 	category = "hospitality"
-	name = "chemical cartridge-kahlua"
+	name = "chemical cartridge - kahlua"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/kahlua
@@ -243,9 +328,9 @@
 
 /singleton/cargo_item/chemicalcartridge_lemonlime
 	category = "hospitality"
-	name = "chemical cartridge-lemon lime"
+	name = "chemical cartridge - lemon lime"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime
@@ -257,9 +342,9 @@
 
 /singleton/cargo_item/chemicalcartridge_lime
 	category = "hospitality"
-	name = "chemical cartridge-lime"
+	name = "chemical cartridge - lime juice"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lime
@@ -271,9 +356,9 @@
 
 /singleton/cargo_item/chemicalcartridge_mead
 	category = "hospitality"
-	name = "chemical cartridge-mead"
+	name = "chemical cartridge - mead"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/mead
@@ -285,9 +370,9 @@
 
 /singleton/cargo_item/chemicalcartridge_orange
 	category = "hospitality"
-	name = "chemical cartridge-orange"
+	name = "chemical cartridge - orange juice"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/orange
@@ -299,9 +384,9 @@
 
 /singleton/cargo_item/chemicalcartridge_rum
 	category = "hospitality"
-	name = "chemical cartridge-rum"
+	name = "chemical cartridge - rum"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/rum
@@ -313,9 +398,9 @@
 
 /singleton/cargo_item/chemicalcartridge_smw
 	category = "hospitality"
-	name = "chemical cartridge-smw"
+	name = "chemical cartridge - Stellar Jolt"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/smw
@@ -327,9 +412,9 @@
 
 /singleton/cargo_item/chemicalcartridge_sodawater
 	category = "hospitality"
-	name = "chemical cartridge-sodawater"
+	name = "chemical cartridge - soda water"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sodawater
@@ -341,9 +426,9 @@
 
 /singleton/cargo_item/chemicalcartridge_spaceup
 	category = "hospitality"
-	name = "chemical cartridge-spaceup"
+	name = "chemical cartridge - Vacuum Fizz"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/spaceup
@@ -355,9 +440,9 @@
 
 /singleton/cargo_item/chemicalcartridge_tea
 	category = "hospitality"
-	name = "chemical cartridge-tea"
+	name = "chemical cartridge - tea"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tea
@@ -369,9 +454,9 @@
 
 /singleton/cargo_item/chemicalcartridge_tequila
 	category = "hospitality"
-	name = "chemical cartridge-tequila"
+	name = "chemical cartridge - tequila"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tequila
@@ -383,9 +468,9 @@
 
 /singleton/cargo_item/chemicalcartridge_tonic
 	category = "hospitality"
-	name = "chemical cartridge-tonic"
+	name = "chemical cartridge - tonic"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tonic
@@ -397,9 +482,9 @@
 
 /singleton/cargo_item/chemicalcartridge_vermouth
 	category = "hospitality"
-	name = "chemical cartridge-vermouth"
+	name = "chemical cartridge - vermouth"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vermouth
@@ -411,9 +496,9 @@
 
 /singleton/cargo_item/chemicalcartridge_vodka
 	category = "hospitality"
-	name = "chemical cartridge-vodka"
+	name = "chemical cartridge - vodka"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vodka
@@ -425,9 +510,9 @@
 
 /singleton/cargo_item/chemicalcartridge_watermelon
 	category = "hospitality"
-	name = "chemical cartridge-watermelon"
+	name = "chemical cartridge - watermelon"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/watermelon
@@ -439,9 +524,9 @@
 
 /singleton/cargo_item/chemicalcartridge_whiskey
 	category = "hospitality"
-	name = "chemical cartridge-whiskey"
+	name = "chemical cartridge - whiskey"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/whiskey
@@ -453,9 +538,9 @@
 
 /singleton/cargo_item/chemicalcartridge_wine
 	category = "hospitality"
-	name = "chemical cartridge-wine"
+	name = "chemical cartridge - wine"
 	supplier = "getmore"
-	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 35
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/wine
@@ -486,31 +571,22 @@
 
 /singleton/cargo_item/dryrag
 	category = "hospitality"
-	name = "dry rag"
+	name = "dry rags (x5)"
 	supplier = "blam"
 	description = "For cleaning up messes, you suppose."
-	price = 2
+	price = 20
 	items = list(
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/reagent_containers/glass/rag,
 		/obj/item/reagent_containers/glass/rag
 	)
 	access = 0
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
-
-/singleton/cargo_item/fishfillet
-	category = "hospitality"
-	name = "fish fillet"
-	supplier = "getmore"
-	description = "A fillet of fish."
-	price = 15
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	amount = 5
 
 /singleton/cargo_item/flask
 	category = "hospitality"
@@ -542,7 +618,7 @@
 
 /singleton/cargo_item/magmale
 	category = "hospitality"
-	name = "Magm-ale"
+	name = "Magm - ale"
 	supplier = "virgo"
 	description = "A true dorf's drink of choice."
 	price = 12
@@ -568,20 +644,6 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/moghresianmeat
-	category = "hospitality"
-	name = "moghresian meat"
-	supplier = "zharkov"
-	description = "A slab of meat from an animal native to Moghes."
-	price = 13
-	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/moghes
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/piano
 	category = "hospitality"
 	name = "piano"
@@ -598,9 +660,9 @@
 
 /singleton/cargo_item/pianosoundsynthesizer
 	category = "hospitality"
-	name = "pianosound synthesizer"
+	name = "synthesizer 3.0"
 	supplier = "nanotrasen"
-	description = "A sound synthesizer"
+	description = "An expensive sound synthesizer. Great for those orchestra-of-one performances."
 	price = 1900
 	items = list(
 		/obj/structure/synthesized_instrument/synthesizer
@@ -613,7 +675,7 @@
 /singleton/cargo_item/pizzabox_margherita
 	category = "hospitality"
 	name = "pizza box, margherita"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -627,7 +689,7 @@
 /singleton/cargo_item/pizzabox_meat
 	category = "hospitality"
 	name = "pizza box, meat"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -641,7 +703,7 @@
 /singleton/cargo_item/pizzabox_mushroom
 	category = "hospitality"
 	name = "pizza box, mushroom"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -655,7 +717,7 @@
 /singleton/cargo_item/pizzabox_pineapple
 	category = "hospitality"
 	name = "pizza box, pineapple"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -669,7 +731,7 @@
 /singleton/cargo_item/pizzabox_random
 	category = "hospitality"
 	name = "pizza box, random"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 40
 	items = list(
@@ -683,7 +745,7 @@
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
 	name = "pizza box, vegetable"
-	supplier = "virgo"
+	supplier = "orion"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -710,12 +772,16 @@
 
 /singleton/cargo_item/roesack
 	category = "hospitality"
-	name = "roe sack"
+	name = "roe sack (x5)"
 	supplier = "getmore"
 	description = "A fleshy organ filled with fish eggs."
-	price = 16
+	price = 160
 	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/roe
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
 	)
 	access = 0
 	container_type = "crate"
@@ -755,40 +821,12 @@
 	name = "space beer"
 	supplier = "nanotrasen"
 	description = "Contains only water, malt and hops."
-	price = 2
+	price = 40
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/squidmeat
-	category = "hospitality"
-	name = "squid meat"
-	supplier = "getmore"
-	description = "Soylent squid is (not) people!"
-	price = 15
-	items = list(
-		/obj/item/reagent_containers/food/snacks/squidmeat
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/wormfillet
-	category = "hospitality"
-	name = "worm fillet"
-	supplier = "nanotrasen"
-	description = "Meat from a cavern Dweller. Mildly toxic if prepared improperly."
-	price = 16
-	items = list(
-		/obj/item/reagent_containers/food/snacks/dwellermeat
-	)
-	access = 28
-	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
 
@@ -820,3 +858,16 @@
 	groupable = 1
 	item_mul = 1
 
+/singleton/cargo_item/triglyceridebottle
+	category = "hospitality"
+	name = "triglyceride bottle"
+	supplier = "virgo"
+	description = "A small bottle. Contains triglyceride."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/triglyceride
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1

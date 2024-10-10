@@ -44,6 +44,12 @@
 	description = "A robotics company that specializes in manufacturing high-end IPC chassis, mechanical organs, and prosthetics. A subsidiary of Zeng-Hu."
 	tag_line = "Without compromise."
 
+/singleton/cargo_supplier/blam
+	short_name = "blam"
+	name = "BLAM! Products"
+	description = "A janitorial supplies company best known for their highly-effective and mostly-non-toxic 'space cleaner' formula, in wide usage throughout the Spur."
+	tag_line = "Just say BLAM! And it's gone!"
+
 /singleton/cargo_supplier/eckharts
 	short_name = "eckharts"
 	name = "Eckhart's Energy Solutions Limited"
@@ -80,6 +86,12 @@
 	description = "A financial and service giant that operates the largest banking and finances network in the galaxy."
 	tag_line = "Astronomical figures. Unlimited power."
 
+/singleton/cargo_supplier/molinaris
+	short_name = "molinaris"
+	name = "Molinari's Animal Shipping Company"
+	description = "A logistics courier specializing in delivering live animals across the galaxy. It's become well-known for being the only large carrier to deliver animals alive, well-fed, and not violently killed by blunt force trauma."
+	tag_line = "We care about the little guys."
+
 /singleton/cargo_supplier/nanotrasen
 	short_name = "nanotrasen"
 	name = "NanoTrasen Corporation"
@@ -97,6 +109,12 @@
 	name = "Virgo Freight Carriers"
 	description = "A Xanan shipping company that operates across the Spur. It's carved a niche in small-volume, high-priority deliveries."
 	tag_line = "Go quick, go Virgo."
+
+/singleton/cargo_supplier/vysoka
+	short_name = "vysoka"
+	name = "Vysoka Farming Supplies Association"
+	description = "A collective of farming vendors from Vysoka that provide high-quality agricultural products to farmers, gardeners and hydroponicists across the galaxy."
+	tag_line = "All organic. All Vysokan."
 
 /singleton/cargo_supplier/xion
 	short_name = "xion"
@@ -121,12 +139,6 @@
 	name = "Zharkov Shipping Company"
 	description = "One of the largest logistics companies native to Adhomai, Zharkov specializes in interstellar exports bringing Adhomian goods to alien worlds."
 	tag_line = "All around Adhomai in a day or less."
-
-/singleton/cargo_supplier/blam
-	short_name = "blam"
-	name = "BLAM! Products"
-	description = "A cleaning supplies company best known for their highly-effective and mostly-non-toxic 'space cleaner' formula, in wide usage throughout the Spur."
-	tag_line = ""
 
 /singleton/cargo_supplier/zora
 	short_name = "zora"
