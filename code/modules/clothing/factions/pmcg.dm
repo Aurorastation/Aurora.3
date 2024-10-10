@@ -50,7 +50,8 @@
 		item_state = initial(item_state) + "_[modsuit_mode]"
 
 	update_clothing_icon()
-	user.update_action_buttons()
+	if(user)
+		user.update_action_buttons()
 
 /obj/item/clothing/under/pmc_modsuit/verb/change_modsuit()
 	set name = "Change Modsuit"
