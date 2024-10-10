@@ -29,7 +29,7 @@
 "ag" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
-/area/space)
+/area/headmaster_ship/gun_deck)
 "ai" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -749,9 +749,7 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "bU" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Headmaster Grauwolf Flak Battery"
-	},
+/obj/machinery/ammunition_loader/autocannon,
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "bV" = (
@@ -1022,11 +1020,6 @@
 /area/headmaster_ship/engine)
 "cG" = (
 /obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "Headmaster Grauwolf Flak Battery"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -2911,13 +2904,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/machinery/door/window{
 	dir = 1
 	},
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
+/obj/item/ship_ammunition/autocannon,
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "iS" = (
@@ -4752,7 +4745,7 @@
 /area/headmaster_ship/engineering)
 "rS" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, grauwolf compartment"
+	name = "starboard, goshawk compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/gun_deck)
@@ -4875,6 +4868,13 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/eva)
+"tc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced/airless,
+/area/headmaster_ship/gun_deck)
 "th" = (
 /mob/living/heavy_vehicle/premade/ripley/loader{
 	faction = "PRA"
@@ -5643,12 +5643,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/machinery/door/window{
 	dir = 1
 	},
+/obj/item/ship_ammunition/autocannon/frag,
+/obj/item/ship_ammunition/autocannon/frag,
+/obj/item/ship_ammunition/autocannon/frag,
+/obj/item/ship_ammunition/autocannon/frag,
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "Co" = (
@@ -6483,13 +6484,19 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "KX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	req_one_access = list(209)
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "headmaster_gun";
 	dir = 8
 	},
 /obj/effect/landmark/entry_point/fore{
-	name = "fore, grauwolf compartment"
+	name = "fore, goshawk compartment"
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -6622,13 +6629,14 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/machinery/door/window{
 	dir = 1
 	},
 /obj/machinery/light/small/emergency,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
+/obj/item/ship_ammunition/autocannon/he,
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "Nb" = (
@@ -6743,6 +6751,9 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
+"NL" = (
+/turf/template_noop,
+/area/headmaster_ship/gun_deck)
 "NM" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	use_power = 1;
@@ -6953,6 +6964,10 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
+"PM" = (
+/obj/machinery/ship_weapon/autocannon,
+/turf/template_noop,
+/area/space)
 "PO" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -37279,11 +37294,11 @@ hK
 iB
 Mm
 rS
-Mm
+tc
 Dx
 ei
-ei
-ag
+NL
+PM
 iB
 iB
 iB
@@ -37796,8 +37811,8 @@ Mm
 aE
 RT
 ei
-ei
-ag
+NL
+iB
 iB
 iB
 iB
