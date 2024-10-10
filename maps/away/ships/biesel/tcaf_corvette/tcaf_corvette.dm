@@ -136,6 +136,6 @@
 	<BR>STEP 4: Ignite the mix inside the combustion chamber, and wait for it to fully burn out. \
 	Some strain on the glass at this step is expected.<BR>\
 	<BR>STEP 5: Once the fire has stopped and the contents of the tank are 100% CO2, \
-	enable circulation: I recommend 700L/s input and 500kpa output. Higher you put the output, more power it generates.<BR>\
+	enable circulation: I recommend 700L/s input and 1000kpa output. The higher you put the output, more power it generates, raise as necessary.<BR>\
 	<BR>WARNING: If you feel it's going to break the glass, lower the blast doors and vent the chamber immediately! \
 	We have a portable generator in the back if we run out of fuel or suffer another mishap.</b></font>"
