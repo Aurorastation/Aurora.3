@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - bugfix: "BAPI - mapmanip grid alloc bugfix."
