@@ -298,6 +298,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "Headmaster Goshawk Heavy Autocannon";
+	pixel_x = -65;
+	pixel_y = -125
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "aF" = (
@@ -749,7 +754,9 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "bU" = (
-/obj/machinery/ammunition_loader/autocannon,
+/obj/machinery/ammunition_loader/autocannon{
+	weapon_id = "Headmaster Goshawk Heavy Autocannon"
+	},
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "bV" = (
@@ -6964,10 +6971,6 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hangar)
-"PM" = (
-/obj/machinery/ship_weapon/autocannon,
-/turf/template_noop,
-/area/space)
 "PO" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -37298,7 +37301,7 @@ tc
 Dx
 ei
 NL
-PM
+iB
 iB
 iB
 iB
