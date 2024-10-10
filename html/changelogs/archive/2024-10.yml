@@ -121,3 +121,15 @@
   hazelmouse:
   - balance: Reduces the spawn chance of all Adhomian ghostroles in the Badlands by
       half.
+2024-10-09:
+  hazelmouse:
+  - bugfix: Fixed the broken sprite of the Vaurca phoron autoinhaler.
+  - qol: Implemented several small quality-of-life improvements to the Lone Spacer,
+      Orion Express, and Tramp Freighter ghostroles.
+2024-10-10:
+  FluffyGhost:
+  - bugfix: Fixed the maploader sleeping without reinitializing SSAtoms to initialize,
+      which caused some runtimes in niche cases in the CI.
+  - bugfix: Generic attacks below 15 damage were being ignored due to a logic error
+      in how the shields are handled, now they aren't anymore, fixes gremorian nurses
+      doing no damage and possibly other things.

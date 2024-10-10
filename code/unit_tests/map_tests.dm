@@ -343,5 +343,19 @@
 
 	return test_status
 
+/datum/unit_test/map_test/no_dirty_vars
+	name = "MAP: No Dirty Vars"
+
+/datum/unit_test/map_test/no_dirty_vars/start_test()
+	var/test_status
+
+	if(length(GLOB.dirty_vars))
+		test_status = TEST_FAIL("There are dirty vars in the map! Read the logs above!")
+		TEST_DEBUG(json_encode(GLOB.dirty_vars))
+	else
+		test_status = TEST_PASS("No dirty vars in the map.")
+
+	return test_status
+
 #undef SUCCESS
 #undef FAILURE

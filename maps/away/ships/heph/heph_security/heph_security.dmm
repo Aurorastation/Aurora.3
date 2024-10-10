@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "af" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -195,8 +194,7 @@
 	req_access = list(216)
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -236,8 +234,7 @@
 /area/heph_security_ship/crew)
 "bF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -274,8 +271,7 @@
 /area/heph_security_ship/kitchen)
 "bO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/effect/decal/remains/rat,
 /turf/simulated/floor/reinforced,
@@ -517,8 +513,7 @@
 	req_access = list(216)
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -686,8 +681,7 @@
 /area/heph_security_ship/kitchen)
 "eQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, medical"
@@ -780,8 +774,7 @@
 /area/heph_security_ship/kitchen)
 "fo" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, captain's quarters"
@@ -898,8 +891,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1033,8 +1025,7 @@
 /area/heph_security_ship/bridge)
 "hu" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
@@ -1128,8 +1119,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/heph_security)
@@ -1186,8 +1176,7 @@
 /area/heph_security_ship/crew)
 "iw" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1354,8 +1343,7 @@
 /area/heph_security_ship/grauwolf)
 "jT" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1610,8 +1598,7 @@
 /area/heph_security_ship/bridge)
 "lj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -1696,8 +1683,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
@@ -1723,8 +1709,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -1874,8 +1859,7 @@
 /area/heph_security_ship/engineering)
 "nc" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew bunks"
@@ -1938,8 +1922,7 @@
 /area/heph_security_ship/medbay)
 "nP" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/airless,
 /area/heph_security_ship/grauwolf)
@@ -1969,8 +1952,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/carpet/rubber,
@@ -2064,8 +2046,7 @@
 /area/heph_security_ship/francisca)
 "oG" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -2464,8 +2445,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2637,8 +2617,7 @@
 "rs" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
@@ -2872,8 +2851,7 @@
 /area/heph_security_ship/grauwolf)
 "tS" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -3116,8 +3094,7 @@
 /area/heph_security_ship)
 "vs" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
@@ -3173,8 +3150,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -3506,8 +3482,7 @@
 /area/heph_security_ship/grauwolf)
 "yP" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/airless,
 /area/heph_security_ship/francisca)
@@ -3594,8 +3569,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
@@ -3604,8 +3578,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4184,8 +4157,7 @@
 /area/heph_security_ship/brig)
 "FK" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, kitchen"
@@ -4364,8 +4336,7 @@
 /area/heph_security_ship/engineering)
 "Hn" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -4562,8 +4533,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4671,8 +4641,7 @@
 "IS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light{
@@ -4869,8 +4838,7 @@
 /area/heph_security_ship/crew)
 "Kt" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5210,8 +5178,7 @@
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window{
 	dir = 8
@@ -5485,8 +5452,7 @@
 "OO" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -5510,8 +5476,7 @@
 /area/heph_security_ship/engineering)
 "Ph" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
@@ -5671,8 +5636,7 @@
 /area/heph_security_ship/atmos)
 "QC" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /obj/structure/bed/handrail{
 	buckle_dir = 8;
@@ -5734,7 +5698,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 0451;
-	icon_state = "map_injector";
 	id = "hephsec_fuel_in"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5788,8 +5751,7 @@
 /area/heph_security_ship/medbay)
 "Sh" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -5891,8 +5853,7 @@
 "SQ" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -5948,8 +5909,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5995,8 +5955,7 @@
 /area/shuttle/heph_security)
 "TQ" = (
 /obj/machinery/door/blast/regular/open{
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid{
@@ -6082,8 +6041,7 @@
 /area/shuttle/heph_security)
 "Uz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "hephsec_shuttle";
@@ -6240,8 +6198,7 @@
 "VM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -6424,8 +6381,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -6462,8 +6418,7 @@
 "Xe" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid,
@@ -6506,8 +6461,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -6559,8 +6513,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -6589,8 +6542,7 @@
 "Yl" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -6620,8 +6572,7 @@
 "YC" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "heph_lockdown";
-	name = "blast door"
+	id = "heph_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/firedoor/noid,

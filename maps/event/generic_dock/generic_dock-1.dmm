@@ -1580,9 +1580,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aNc" = (
-/turf/unsimulated/floor/plating,
-/area/centcom/spawning)
 "aNs" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1670,8 +1667,7 @@
 "aNY" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/odin/open{
-	id = "arrivals_inner";
-	name = "blast door"
+	id = "arrivals_inner"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -2439,14 +2435,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
-"bsS" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "bto" = (
 /obj/machinery/light{
 	dir = 8;
@@ -3069,13 +3057,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/unsimulated/floor,
 /area/centcom/holding)
-"cik" = (
-/obj/effect/landmark/thunderdome1,
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome1)
 "ciV" = (
 /turf/simulated/wall/elevator,
 /area/centcom/spawning)
@@ -4322,11 +4303,6 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
-"dXz" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "dXJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced,
@@ -7636,12 +7612,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"ifi" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/unsimulated/floor,
-/area/centcom/bar)
 "ifs" = (
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -9899,11 +9869,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"kYq" = (
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/centcom/holding)
 "kYV" = (
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -11461,9 +11426,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
-"nkX" = (
-/turf/simulated/floor/holofloor/space,
-/area/centcom/start)
 "nli" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -12174,13 +12136,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/specops)
-"odb" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/effect/shuttle_landmark/admin/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
 "odx" = (
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
@@ -13893,13 +13848,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
-"qKr" = (
-/obj/effect/landmark/thunderdome2,
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome2)
 "qKH" = (
 /obj/structure/railing/mapped{
 	name = "adjusted railing"
@@ -14147,22 +14095,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"rky" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/door/blast/odin{
-	dir = 4;
-	icon_state = "shutter1";
-	icon_state_closed = "shutter1";
-	icon_state_closing = "shutterc1";
-	icon_state_open = "shutter0";
-	icon_state_opening = "shutterc0";
-	id = "CentComBarShutters";
-	name = "Bar Shutter"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_diamond"
-	},
-/area/centcom/bar)
 "rkF" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,4"
@@ -14380,8 +14312,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette_exterior";
-	name = "blast door"
+	id = "corvette_exterior"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -41292,7 +41223,7 @@ mbe
 mbe
 mbe
 mbe
-nkX
+mbe
 mbe
 mbe
 mbe
@@ -45095,7 +45026,7 @@ pqX
 pqX
 pqX
 pqX
-odb
+pqX
 rFI
 iSG
 kqG
@@ -47201,10 +47132,10 @@ qiY
 mLh
 khA
 lvy
-qKr
+egh
 lvy
-qKr
-qKr
+egh
+egh
 lvy
 rgN
 wEG
@@ -47457,12 +47388,12 @@ bLK
 qiY
 bIQ
 khA
-qKr
+egh
 gEh
-qKr
-qKr
+egh
+egh
 gEh
-qKr
+egh
 rgN
 cFp
 qiY
@@ -47714,12 +47645,12 @@ bLK
 qiY
 mLh
 khA
-qKr
+egh
 lvy
 egh
-qKr
+egh
 lvy
-qKr
+egh
 rgN
 wEG
 qiY
@@ -47971,12 +47902,12 @@ bLK
 qiY
 bIQ
 khA
-qKr
+egh
 gEh
-qKr
-qKr
+egh
+egh
 gEh
-qKr
+egh
 rgN
 cFp
 qiY
@@ -48229,10 +48160,10 @@ qiY
 mLh
 khA
 lvy
-qKr
-qKr
+egh
+egh
 lvy
-qKr
+egh
 lvy
 rgN
 wEG
@@ -49758,9 +49689,9 @@ eJc
 eJc
 bQP
 qrQ
-kYq
-kYq
-kYq
+aix
+aix
+aix
 wkk
 avk
 aiz
@@ -51035,7 +50966,7 @@ wjH
 bQP
 bLK
 rAP
-kYq
+aix
 aix
 bQP
 mAD
@@ -51286,23 +51217,23 @@ iEv
 bQP
 eMQ
 liY
-kYq
+aix
 liY
 oBu
 aDb
 kVk
 ebr
-kYq
-kYq
+aix
+aix
 aDb
 mAD
 bLK
 lOO
 bQP
 swe
-kYq
-kYq
-kYq
+aix
+aix
+aix
 ezF
 avk
 aiz
@@ -51542,15 +51473,15 @@ tRr
 qwA
 bQP
 kUb
-kYq
-kYq
-kYq
+aix
+aix
+aix
 oBu
 aag
-kYq
-kYq
-kYq
-kYq
+aix
+aix
+aix
+aix
 aah
 mAD
 bLK
@@ -51792,7 +51723,7 @@ vVC
 vVC
 txl
 bQP
-bsS
+rvo
 iGC
 tRr
 bCG
@@ -51800,14 +51731,14 @@ rvo
 bQP
 wfu
 liY
-kYq
+aix
 liY
 oBu
 aDb
 qnC
 qhn
-kYq
-kYq
+aix
+aix
 aDb
 mAD
 bLK
@@ -52063,8 +51994,8 @@ tDA
 bQP
 bLK
 wqv
-kYq
-kYq
+aix
+aix
 bQP
 mAD
 bLK
@@ -52577,7 +52508,7 @@ suV
 sXE
 bQP
 vKf
-kYq
+aix
 sAP
 bQP
 mAD
@@ -52834,7 +52765,7 @@ suV
 siK
 bQP
 iqi
-kYq
+aix
 awC
 aCm
 mAD
@@ -52855,10 +52786,10 @@ nOh
 iAl
 lDL
 wGT
-cik
-cik
+nYH
+nYH
 wGT
-cik
+nYH
 wGT
 ygd
 eUW
@@ -53091,7 +53022,7 @@ suV
 rsL
 bQP
 epa
-kYq
+aix
 awC
 aCm
 mAD
@@ -53111,12 +53042,12 @@ bLK
 nOh
 uWm
 lDL
-cik
+nYH
 cwK
-cik
-cik
+nYH
+nYH
 cwK
-cik
+nYH
 ygd
 ihi
 nOh
@@ -53348,7 +53279,7 @@ suV
 siK
 bQP
 iqi
-kYq
+aix
 awC
 aCm
 mAD
@@ -53368,12 +53299,12 @@ bLK
 nOh
 iAl
 lDL
-cik
+nYH
 wGT
 nYH
-cik
+nYH
 wGT
-cik
+nYH
 ygd
 eUW
 nOh
@@ -53605,7 +53536,7 @@ suV
 avT
 bQP
 idk
-kYq
+aix
 awE
 bQP
 mAD
@@ -53625,12 +53556,12 @@ bLK
 nOh
 uWm
 lDL
-cik
+nYH
 cwK
-cik
-cik
+nYH
+nYH
 cwK
-cik
+nYH
 ygd
 ihi
 nOh
@@ -53837,11 +53768,11 @@ hLp
 xQs
 eBz
 oaC
-rky
-rky
-rky
-rky
-rky
+oaC
+oaC
+oaC
+oaC
+oaC
 hWU
 vpg
 irn
@@ -53883,10 +53814,10 @@ nOh
 iAl
 lDL
 wGT
-cik
+nYH
 wGT
-cik
-cik
+nYH
+nYH
 wGT
 ygd
 eUW
@@ -54604,7 +54535,7 @@ aqu
 fOK
 exm
 ujM
-ifi
+exm
 xps
 rvN
 iCW
@@ -55896,7 +55827,7 @@ jcv
 hmF
 xhC
 vpg
-dXz
+vpg
 eCE
 vpg
 kOI
@@ -55908,7 +55839,7 @@ qqp
 cTw
 cTw
 cEa
-kYq
+aix
 tbP
 yao
 yao
@@ -56164,9 +56095,9 @@ nli
 kop
 tix
 iIp
-kYq
-kYq
-kYq
+aix
+aix
+aix
 vCY
 lWl
 hEz
@@ -56421,9 +56352,9 @@ nli
 etl
 qwZ
 amg
-kYq
-kYq
-kYq
+aix
+aix
+aix
 vxi
 nZv
 vbT
@@ -57684,7 +57615,7 @@ aaM
 eBz
 tAC
 iXX
-ifi
+exm
 xps
 eBz
 gsY
@@ -60812,7 +60743,7 @@ aKK
 aTs
 isr
 siZ
-aNc
+aJH
 qce
 pDr
 aOa
