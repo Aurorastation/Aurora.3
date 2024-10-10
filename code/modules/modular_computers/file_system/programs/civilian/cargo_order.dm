@@ -12,7 +12,7 @@
 	ui_auto_update = FALSE
 
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
-	var/selected_category = "" // Category that is currently selected
+	var/selected_category = "security" // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
 	var/status_message //Status Message to be displayed to the user
@@ -105,7 +105,7 @@
 		//Add item to the order list
 		if("add_item")
 			var/datum/cargo_order_item/coi = new
-			var/datum/cargo_item/ci = SScargo.cargo_items[params["add_item"]]
+			var/singleton/cargo_item/ci = SScargo.cargo_items[params["add_item"]]
 			if(ci)
 				coi.ci = ci
 				coi.calculate_price()

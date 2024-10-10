@@ -1,7 +1,7 @@
 /singleton/cargo_item/machinepistol45
 	category = "security"
 	name = ".45 machine pistol"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A lightweight, fast firing gun."
 	price = 1150
 	items = list(
@@ -15,8 +15,8 @@
 /singleton/cargo_item/pistol45
 	category = "security"
 	name = ".45 pistol"
-	supplier = "NanoTrasen"
-	description = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
+	supplier = "nanotrasen"
+	description = "A nanotrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
 	price = 400
 	items = list(
 		/obj/item/gun/projectile/sec
@@ -29,7 +29,7 @@
 /singleton/cargo_item/ablativehelmet
 	category = "security"
 	name = "ablative helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A helmet made from advanced materials which protects against concentrated energy weapons."
 	price = 550
 	items = list(
@@ -43,7 +43,7 @@
 /singleton/cargo_item/adhomianrecoillessrifle
 	category = "security"
 	name = "adhomian recoilless rifle"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "An inexpensive, one use anti-tank weapon."
 	price = 500
 	items = list(
@@ -57,7 +57,7 @@
 /singleton/cargo_item/ammunitionbox_beanbag
 	category = "security"
 	name = "ammunition box (beanbag shells)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 45
 	items = list(
@@ -71,7 +71,7 @@
 /singleton/cargo_item/ammunitionbox_haywire
 	category = "security"
 	name = "ammunition box (haywire shells)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 600
 	items = list(
@@ -85,7 +85,7 @@
 /singleton/cargo_item/ammunitionbox_incendiary
 	category = "security"
 	name = "ammunition box (incendiary shells)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 100
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/ammunitionbox_shells
 	category = "security"
 	name = "ammunition box (shell)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 450
 	items = list(
@@ -113,7 +113,7 @@
 /singleton/cargo_item/ammunitionbox_slugs
 	category = "security"
 	name = "ammunition box (slug)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 500
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/anti_materiel_cannon_cartridge
 	category = "security"
 	name = "anti-materiel cannon cartridge"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A single use cartridge for an anti-materiel cannon."
 	price = 300
 	items = list(
@@ -141,7 +141,7 @@
 /singleton/cargo_item/apcarbinemagazine_556
 	category = "security"
 	name = "ap carbine magazine (5.56mm)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An AP 5.56 ammo magazine fit for a carbine, not an assault rifle."
 	price = 450
 	items = list(
@@ -155,7 +155,7 @@
 /singleton/cargo_item/armor
 	category = "security"
 	name = "armor"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An armored vest that protects against some damage."
 	price = 250
 	items = list(
@@ -169,7 +169,7 @@
 /singleton/cargo_item/ballisticcarbine
 	category = "security"
 	name = "ballistic carbine"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds."
 	price = 5800
 	items = list(
@@ -183,7 +183,7 @@
 /singleton/cargo_item/ballistichelmet
 	category = "security"
 	name = "ballistic helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A helmet with reinforced plating to protect against ballistic projectiles."
 	price = 550
 	items = list(
@@ -197,7 +197,7 @@
 /singleton/cargo_item/bandolier
 	category = "security"
 	name = "bandolier"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A pocketed belt designated to hold shotgun shells."
 	price = 300
 	items = list(
@@ -211,7 +211,7 @@
 /singleton/cargo_item/bayonet
 	category = "security"
 	name = "bayonet"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A sharp military knife, can be attached to a rifle."
 	price = 300
 	items = list(
@@ -225,7 +225,7 @@
 /singleton/cargo_item/blackgloves
 	category = "security"
 	name = "black gloves"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Black gloves that are somewhat fire resistant."
 	price = 70
 	items = list(
@@ -239,7 +239,7 @@
 /singleton/cargo_item/boltactionrifle
 	category = "security"
 	name = "bolt action rifle"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "If only it came with a scope."
 	price = 850
 	items = list(
@@ -253,7 +253,7 @@
 /singleton/cargo_item/empgrenades_box
 	category = "security"
 	name = "box of emp grenades"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box containing 5 military grade EMP grenades.<br> WARNING:</br> Do not use near unshielded electronics or biomechanical augmentations"
 	price = 4395
 	items = list(
@@ -267,7 +267,7 @@
 /singleton/cargo_item/flashbangs_box
 	category = "security"
 	name = "box of flashbangs"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING:</br> These devices are extremely dangerous and can cause blindness"
 	price = 520
 	items = list(
@@ -281,7 +281,7 @@
 /singleton/cargo_item/illuminationshells_box
 	category = "security"
 	name = "box of illumination shells"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It has a picture of a gun and several warning symbols on the front.<br>WARNING:</br> Live ammunition. Misuse may result in serious injury and death"
 	price = 97
 	items = list(
@@ -295,7 +295,7 @@
 /singleton/cargo_item/pepperspraygrenades_box
 	category = "security"
 	name = "box of pepperspray grenades"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING:</br> Exposure carries risk of serious injuries"
 	price = 1050
 	items = list(
@@ -309,7 +309,7 @@
 /singleton/cargo_item/swabkits_box
 	category = "security"
 	name = "box of swab kits"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Sterilized equipment within. Do not contaminate."
 	price = 25
 	items = list(
@@ -323,7 +323,7 @@
 /singleton/cargo_item/zipties_box
 	category = "security"
 	name = "box of zipties"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box full of zipties."
 	price = 145
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/bullpupassaultcarbine
 	category = "security"
 	name = "bullpup assault carbine"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds."
 	price = 8650
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/carbinemagazine_556
 	category = "security"
 	name = "carbine magazine (5.56mm)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A 5.56 ammo magazine fit for a carbine, not an assault rifle."
 	price = 250
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/combatbelt
 	category = "security"
 	name = "combat belt"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "The only utility belt you will ever need."
 	price = 300
 	items = list(
@@ -379,7 +379,7 @@
 /singleton/cargo_item/combatshotgun
 	category = "security"
 	name = "combat shotgun"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders"
 	price = 8250
 	items = list(
@@ -393,7 +393,7 @@
 /singleton/cargo_item/compacttungstenslug
 	category = "security"
 	name = "compact tungsten slug"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	price = 500
 	items = list(
@@ -407,7 +407,7 @@
 /singleton/cargo_item/crimescenekit
 	category = "security"
 	name = "crime scene kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A stainless steel-plated carrycase for all of your forensic needs. This one is empty."
 	price = 145
 	items = list(
@@ -421,7 +421,7 @@
 /singleton/cargo_item/deployablebarrier
 	category = "security"
 	name = "deployable barrier"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A deployable barrier. Swipe your ID card to lock/unlock it."
 	price = 750
 	items = list(
@@ -435,7 +435,7 @@
 /singleton/cargo_item/derringer
 	category = "security"
 	name = "derringer"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A blast from the past that can fit in your pocket."
 	price = 1250
 	items = list(
@@ -449,8 +449,8 @@
 /singleton/cargo_item/disruptorpistol
 	category = "security"
 	name = "disruptor pistol"
-	supplier = "NanoTrasen"
-	description = "A Nanotrasen designed blaster pistol with two settings: stun and lethal."
+	supplier = "nanotrasen"
+	description = "A nanotrasen designed blaster pistol with two settings: stun and lethal."
 	price = 500
 	items = list(
 		/obj/item/gun/energy/disruptorpistol
@@ -463,7 +463,7 @@
 /singleton/cargo_item/electronicfiringpin
 	category = "security"
 	name = "electronic firing pin"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small authentication device, to be inserted into a firearm receiver to allow operation."
 	price = 2000
 	items = list(
@@ -477,7 +477,7 @@
 /singleton/cargo_item/energycarbine
 	category = "security"
 	name = "energy carbine"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An energy-based carbine with two settings: Stun and kill."
 	price = 2250
 	items = list(
@@ -491,7 +491,7 @@
 /singleton/cargo_item/energypistol
 	category = "security"
 	name = "energy pistol"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A basic energy-based pistol gun with two settings: Stun and kill."
 	price = 1800
 	items = list(
@@ -505,7 +505,7 @@
 /singleton/cargo_item/fibercollectionkit
 	category = "security"
 	name = "fiber collection kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magnifying glass and tweezers. Used to lift suit fibers."
 	price = 115
 	items = list(
@@ -519,7 +519,7 @@
 /singleton/cargo_item/fingerprintpowder
 	category = "security"
 	name = "fingerprint powder"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A jar containing aluminum powder and a specialized brush."
 	price = 75
 	items = list(
@@ -533,7 +533,7 @@
 /singleton/cargo_item/flash
 	category = "security"
 	name = "flash"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Used for blinding and being an asshole."
 	price = 135
 	items = list(
@@ -547,7 +547,7 @@
 /singleton/cargo_item/holographicammodisplay
 	category = "security"
 	name = "holographic ammo display"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A device that can be attached to most firearms, providing a holographic display of the remaining ammunition to the user."
 	price = 200
 	items = list(
@@ -561,7 +561,7 @@
 /singleton/cargo_item/ionrifle
 	category = "security"
 	name = "ion rifle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
 	price = 3000
 	items = list(
@@ -575,7 +575,7 @@
 /singleton/cargo_item/jackboots
 	category = "security"
 	name = "jack boots"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Classic law enforcement footwear, comes with handy knife holder for when you need to enforce law up close."
 	price = 100
 	items = list(
@@ -589,7 +589,7 @@
 /singleton/cargo_item/laserrifle
 	category = "security"
 	name = "laser rifle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A common laser weapon, designed to kill with concentrated energy blasts."
 	price = 2250
 	items = list(
@@ -603,7 +603,7 @@
 /singleton/cargo_item/luminolbottle
 	category = "security"
 	name = "luminol bottle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A bottle containing an odourless, colorless liquid."
 	price = 115
 	items = list(
@@ -617,7 +617,7 @@
 /singleton/cargo_item/machinepistol
 	category = "security"
 	name = "machine pistol"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use."
 	price = 1300
 	items = list(
@@ -631,7 +631,7 @@
 /singleton/cargo_item/magazine_45flash
 	category = "security"
 	name = "magazine (.45 flash)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 10
 	items = list(
@@ -645,7 +645,7 @@
 /singleton/cargo_item/magazine_45
 	category = "security"
 	name = "magazine (.45)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 200
 	items = list(
@@ -659,7 +659,7 @@
 /singleton/cargo_item/magazine_556
 	category = "security"
 	name = "magazine (5.56mm)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 65
 	items = list(
@@ -673,7 +673,7 @@
 /singleton/cargo_item/magazine_762
 	category = "security"
 	name = "magazine (7.62mm)"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A magazine for some kind of gun."
 	price = 70
 	items = list(
@@ -687,7 +687,7 @@
 /singleton/cargo_item/magazine_9
 	category = "security"
 	name = "magazine (9mm)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 40
 	items = list(
@@ -701,7 +701,7 @@
 /singleton/cargo_item/maglight
 	category = "security"
 	name = "maglight"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A heavy flashlight designed for security personnel."
 	price = 20
 	items = list(
@@ -715,7 +715,7 @@
 /singleton/cargo_item/doorlock_security
 	category = "security"
 	name = "magnetic door lock - security"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Security colors."
 	price = 135
 	items = list(
@@ -729,7 +729,7 @@
 /singleton/cargo_item/marksmanenergyrifle
 	category = "security"
 	name = "marksman energy rifle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized b愀猀琀猀"
 	price = 9600
 	items = list(
@@ -743,7 +743,7 @@
 /singleton/cargo_item/microscopeslidebox
 	category = "security"
 	name = "microscope slide box"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It's just an ordinary box."
 	price = 35
 	items = list(
@@ -757,7 +757,7 @@
 /singleton/cargo_item/platecarrier_ablative
 	category = "security"
 	name = "plate carrier - ablative"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A plate carrier equipped with ablative armor plates"
 	price = 1550
 	items = list(
@@ -771,7 +771,7 @@
 /singleton/cargo_item/platecarrier_ballistic
 	category = "security"
 	name = "plate carrier - ballistic"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A plate carrier equipped with ballistic armor plates"
 	price = 1450
 	items = list(
@@ -785,7 +785,7 @@
 /singleton/cargo_item/platecarrier_riot
 	category = "security"
 	name = "plate carrier - riot"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A plate carrier equipped with riot armor plates"
 	price = 1050
 	items = list(
@@ -799,7 +799,7 @@
 /singleton/cargo_item/peac
 	category = "security"
 	name = "point entry anti-materiel cannon"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats."
 	price = 1200
 	items = list(
@@ -813,7 +813,7 @@
 /singleton/cargo_item/retrolaser
 	category = "security"
 	name = "retro laser"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Popular with space pirates and people who think they are space pirates."
 	price = 1000
 	items = list(
@@ -827,7 +827,7 @@
 /singleton/cargo_item/riothelmet
 	category = "security"
 	name = "riot helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It's a helmet specifically designed to protect against close range attacks."
 	price = 750
 	items = list(
@@ -841,7 +841,7 @@
 /singleton/cargo_item/riotshield
 	category = "security"
 	name = "riot shield"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
 	price = 225
 	items = list(
@@ -855,7 +855,7 @@
 /singleton/cargo_item/securityvoidsuit
 	category = "security"
 	name = "security voidsuit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	price = 4500
 	items = list(
@@ -869,7 +869,7 @@
 /singleton/cargo_item/securityvoidsuithelmet
 	category = "security"
 	name = "security voidsuit helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	price = 3000
 	items = list(
@@ -883,7 +883,7 @@
 /singleton/cargo_item/shieldgenerator
 	category = "security"
 	name = "Shield Generator"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A shield generator."
 	price = 1500
 	items = list(
@@ -897,7 +897,7 @@
 /singleton/cargo_item/silencedpistol
 	category = "security"
 	name = "silenced pistol"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Internally silenced for stealthy operations."
 	price = 950
 	items = list(
@@ -911,7 +911,7 @@
 /singleton/cargo_item/stunbaton
 	category = "security"
 	name = "stunbaton"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A stun baton for incapacitating people with."
 	price = 120
 	items = list(
@@ -925,7 +925,7 @@
 /singleton/cargo_item/tacticalarmor
 	category = "security"
 	name = "tactical armor"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Surplus tactical armor imported straight from Sol"
 	price = 6000
 	items = list(
@@ -939,7 +939,7 @@
 /singleton/cargo_item/tacticalhelmet
 	category = "security"
 	name = "tactical helmet"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A surplus tactical helmet imported straight from Sol"
 	price = 3000
 	items = list(
@@ -953,7 +953,7 @@
 /singleton/cargo_item/tacticalhud
 	category = "security"
 	name = "tactical hud"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A tactical hud for tactical operations that ensures they proceed tactically."
 	price = 200
 	items = list(
@@ -967,7 +967,7 @@
 /singleton/cargo_item/tacticaljumpsuit
 	category = "security"
 	name = "tactical jumpsuit"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Tactical fatigues guaranteed to bring out the space marine in you"
 	price = 200
 	items = list(
@@ -981,7 +981,7 @@
 /singleton/cargo_item/tasergun
 	category = "security"
 	name = "taser gun"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The NT Mk30 NL is a small, low capacity gun used for non-lethal takedowns."
 	price = 150
 	items = list(
@@ -995,7 +995,7 @@
 /singleton/cargo_item/topmountedmagazine_9mmrubber
 	category = "security"
 	name = "top mounted magazine (9mm rubber)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 25
 	items = list(
@@ -1009,7 +1009,7 @@
 /singleton/cargo_item/tranquilizerdarts_50cal_pps
 	category = "security"
 	name = "tranquilizer darts (.50 cal PPS)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
 	price = 45
 	items = list(
@@ -1023,7 +1023,7 @@
 /singleton/cargo_item/uvlight
 	category = "security"
 	name = "UV light"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small handheld black light."
 	price = 115
 	items = list(
@@ -1037,7 +1037,7 @@
 /singleton/cargo_item/zipgun
 	category = "security"
 	name = "zip gun"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Recommended for raiders 12 and up."
 	price = 550
 	items = list(

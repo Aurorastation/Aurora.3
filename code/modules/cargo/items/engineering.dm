@@ -1,7 +1,7 @@
 /singleton/cargo_item/airtank
 	category = "engineering"
 	name = "air tank"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Mixed anyone?"
 	price = 65
 	items = list(
@@ -15,7 +15,7 @@
 /singleton/cargo_item/alphaparticlegenerationarray
 	category = "engineering"
 	name = "Alpha Particle Generation Array"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -29,7 +29,7 @@
 /singleton/cargo_item/antifuelgrenade
 	category = "engineering"
 	name = "antifuel grenade"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This grenade is loaded with a foaming antifuel compound -- the twenty-fifth century standard for eliminating industrial spills."
 	price = 62
 	items = list(
@@ -43,7 +43,7 @@
 /singleton/cargo_item/antimattercontainmentjar
 	category = "engineering"
 	name = "antimatter containment jar"
-	supplier = "een"
+	supplier = "eckharts"
 	description = "Holds antimatter. Warranty void if exposed to matter."
 	price = 1000
 	items = list(
@@ -57,7 +57,7 @@
 /singleton/cargo_item/antimattercontrolunit
 	category = "engineering"
 	name = "antimatter control unit"
-	supplier = "een"
+	supplier = "eckharts"
 	description = "The control unit for an antimatter reactor. Probably safe."
 	price = 5500
 	items = list(
@@ -71,7 +71,7 @@
 /singleton/cargo_item/atmosvoidsuit
 	category = "engineering"
 	name = "atmos voidsuit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation"
 	price = 4200
 	items = list(
@@ -85,7 +85,7 @@
 /singleton/cargo_item/atmosphericsvoidsuithelmet
 	category = "engineering"
 	name = "atmospherics voidsuit helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protect"
 	price = 2850
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/brownwebbingvest
 	category = "engineering"
 	name = "brown webbing vest"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
 	price = 83
 	items = list(
@@ -113,7 +113,7 @@
 /singleton/cargo_item/canister_air
 	category = "engineering"
 	name = "Canister (Air)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/canister_bo
 	category = "engineering"
 	name = "Canister (boron)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -141,7 +141,7 @@
 /singleton/cargo_item/canister_co2
 	category = "engineering"
 	name = "Canister (CO2)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -155,7 +155,7 @@
 /singleton/cargo_item/canister_h2
 	category = "engineering"
 	name = "Canister (Hydrogen)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -169,7 +169,7 @@
 /singleton/cargo_item/canister_he
 	category = "engineering"
 	name = "Canister (Helium)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -183,7 +183,7 @@
 /singleton/cargo_item/canister_n2
 	category = "engineering"
 	name = "Canister (Nitrogen)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -197,7 +197,7 @@
 /singleton/cargo_item/canister_n2o
 	category = "engineering"
 	name = "Canister (Nitrous Oxide)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -211,7 +211,7 @@
 /singleton/cargo_item/canister_o2
 	category = "engineering"
 	name = "Canister (Oxygen)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	price = 1500
 	items = list(
@@ -225,7 +225,7 @@
 /singleton/cargo_item/cardboardsheet
 	category = "engineering"
 	name = "cardboard sheet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A sheet of cardboard."
 	price = 50
 	items = list(
@@ -239,7 +239,7 @@
 /singleton/cargo_item/carpet
 	category = "engineering"
 	name = "carpet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A piece of carpet. It is the same size as a normal floor tile!"
 	price = 8
 	items = list(
@@ -253,7 +253,7 @@
 /singleton/cargo_item/circuitboard_bubbleshield
 	category = "engineering"
 	name = "circuit board (bubble shield generator)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -267,7 +267,7 @@
 /singleton/cargo_item/circuitboard_hullshield
 	category = "engineering"
 	name = "circuit board (hull shield generator)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -281,7 +281,7 @@
 /singleton/cargo_item/circuitboard_shieldcapacitor
 	category = "engineering"
 	name = "circuit board (shield capacitor)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -295,7 +295,7 @@
 /singleton/cargo_item/circuitboard_solarcontrol
 	category = "engineering"
 	name = "circuit board (solar control console)"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -309,7 +309,7 @@
 /singleton/cargo_item/circulator
 	category = "engineering"
 	name = "circulator"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A gas circulator turbine and heat exchanger. Its outlet port is to the south."
 	price = 3750
 	items = list(
@@ -323,7 +323,7 @@
 /singleton/cargo_item/coolanttank
 	category = "engineering"
 	name = "coolant tank"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A tank of industrial coolant"
 	price = 45
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/disposalpipedispenser
 	category = "engineering"
 	name = "Disposal Pipe Dispenser"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It dispenses bigger pipes for things to travel through. No, the pipes aren't green."
 	price = 150
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/electricaltoolbox
 	category = "engineering"
 	name = "electrical toolbox"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Danger. Very robust."
 	price = 930
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/emaccelerationchamber
 	category = "engineering"
 	name = "EM Acceleration Chamber"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -379,7 +379,7 @@
 /singleton/cargo_item/emcontainmentgridcenter
 	category = "engineering"
 	name = "EM Containment Grid Center"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -393,7 +393,7 @@
 /singleton/cargo_item/emcontainmentgridleft
 	category = "engineering"
 	name = "EM Containment Grid Left"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -407,7 +407,7 @@
 /singleton/cargo_item/emcontainmentgridright
 	category = "engineering"
 	name = "EM Containment Grid Right"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -421,7 +421,7 @@
 /singleton/cargo_item/emergencybluespacerelaycircuit
 	category = "engineering"
 	name = "emergency bluespace relay circuit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Looks like a circuit. Probably is."
 	price = 3000
 	items = list(
@@ -435,7 +435,7 @@
 /singleton/cargo_item/emitter
 	category = "engineering"
 	name = "emitter"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It is a heavy duty industrial laser."
 	price = 1500
 	items = list(
@@ -449,7 +449,7 @@
 /singleton/cargo_item/doorlock_engineering
 	category = "engineering"
 	name = "engineering magnetic door lock - engineering"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Engineering colors."
 	price = 135
 	items = list(
@@ -463,7 +463,7 @@
 /singleton/cargo_item/engineeringvoidsuit
 	category = "engineering"
 	name = "engineering voidsuit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
 	price = 4200
 	items = list(
@@ -477,7 +477,7 @@
 /singleton/cargo_item/engineeringvoidsuithelmet
 	category = "engineering"
 	name = "engineering voidsuit helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
 	price = 2850
 	items = list(
@@ -491,7 +491,7 @@
 /singleton/cargo_item/fieldgenerator
 	category = "engineering"
 	name = "Field Generator"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A large thermal battery that projects a high amount of energy when powered."
 	price = 1500
 	items = list(
@@ -505,7 +505,7 @@
 /singleton/cargo_item/fireaxe
 	category = "engineering"
 	name = "fireaxe"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "The fire axe is a wooden handled axe with a heavy steel head intended for firefighting use."
 	price = 1500
 	items = list(
@@ -519,7 +519,7 @@
 /singleton/cargo_item/fueltank
 	category = "engineering"
 	name = "fuel tank"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A tank filled with welding fuel."
 	price = 45
 	items = list(
@@ -533,7 +533,7 @@
 /singleton/cargo_item/gasmask
 	category = "engineering"
 	name = "gas mask"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	price = 75
 	items = list(
@@ -547,7 +547,7 @@
 /singleton/cargo_item/glasssheets
 	category = "engineering"
 	name = "glass sheets"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "50 sheets of glass."
 	price = 75
 	items = list(
@@ -561,7 +561,7 @@
 /singleton/cargo_item/hardhat
 	category = "engineering"
 	name = "hard hat"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
 	price = 35
 	items = list(
@@ -575,7 +575,7 @@
 /singleton/cargo_item/hazardvest
 	category = "engineering"
 	name = "hazard vest"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A high-visibility vest used in work zones."
 	price = 90
 	items = list(
@@ -589,7 +589,7 @@
 /singleton/cargo_item/highcapacitypowercell
 	category = "engineering"
 	name = "high-capacity power cell"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A rechargable electrochemical power cell."
 	price = 240
 	items = list(
@@ -603,7 +603,7 @@
 /singleton/cargo_item/hoistkit
 	category = "engineering"
 	name = "hoist kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
 	price = 225
 	items = list(
@@ -617,7 +617,7 @@
 /singleton/cargo_item/hydrogentank
 	category = "engineering"
 	name = "hydrogen tank"
-	supplier = "Hephaestus Industries"
+	supplier = "heph"
 	description = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
 	price = 500
 	items = list(
@@ -631,7 +631,7 @@
 /singleton/cargo_item/inflatablebarrierbox
 	category = "engineering"
 	name = "inflatable barrier box"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Contains inflatable walls and doors."
 	price = 360
 	items = list(
@@ -645,7 +645,7 @@
 /singleton/cargo_item/insulatedgloves
 	category = "engineering"
 	name = "insulated gloves"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "These gloves will protect the wearer from electric shock."
 	price = 450
 	items = list(
@@ -659,7 +659,7 @@
 /singleton/cargo_item/packagedantimatterreactorsection
 	category = "engineering"
 	name = "packaged antimatter reactor section"
-	supplier = "een"
+	supplier = "eckharts"
 	description = "A section of antimatter reactor shielding. Do not eat."
 	price = 1000
 	items = list(
@@ -673,7 +673,7 @@
 /singleton/cargo_item/paintgun
 	category = "engineering"
 	name = "paint gun"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Useful for designating areas and pissing off coworkers"
 	price = 135
 	items = list(
@@ -687,7 +687,7 @@
 /singleton/cargo_item/particleacceleratorcontrolcomputer
 	category = "engineering"
 	name = "Particle Accelerator Control Computer"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This controls the density of the particles."
 	price = 1500
 	items = list(
@@ -701,7 +701,7 @@
 /singleton/cargo_item/particlefocusingemlens
 	category = "engineering"
 	name = "Particle Focusing EM Lens"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Part of a Particle Accelerator."
 	price = 3000
 	items = list(
@@ -715,7 +715,7 @@
 /singleton/cargo_item/pipedispenser
 	category = "engineering"
 	name = "Pipe Dispenser"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It dispenses pipes, no idea how though."
 	price = 150
 	items = list(
@@ -729,7 +729,7 @@
 /singleton/cargo_item/pipepainter
 	category = "engineering"
 	name = "pipe painter"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Its said that green pipes are safe to travel through"
 	price = 135
 	items = list(
@@ -743,7 +743,7 @@
 /singleton/cargo_item/plasteelsheets
 	category = "engineering"
 	name = "plasteel sheets"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "50 sheets of plasteel."
 	price = 75
 	items = list(
@@ -757,7 +757,7 @@
 /singleton/cargo_item/plasticsheets
 	category = "engineering"
 	name = "plastic sheets"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "50 sheets of plastic."
 	price = 50
 	items = list(
@@ -771,7 +771,7 @@
 /singleton/cargo_item/portableladder
 	category = "engineering"
 	name = "portable ladder"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A lightweight deployable ladder, which you can use to move up or down. Or alternatively, you can bash some faces in."
 	price = 200
 	items = list(
@@ -785,7 +785,7 @@
 /singleton/cargo_item/powercell
 	category = "engineering"
 	name = "power cell"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A rechargable electrochemical power cell."
 	price = 90
 	items = list(
@@ -799,7 +799,7 @@
 /singleton/cargo_item/radiationhood
 	category = "engineering"
 	name = "radiation Hood"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation"
 	price = 375
 	items = list(
@@ -813,7 +813,7 @@
 /singleton/cargo_item/radiationsuit
 	category = "engineering"
 	name = "radiation suit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
 	price = 675
 	items = list(
@@ -827,7 +827,7 @@
 /singleton/cargo_item/researchshuttleconsoleboard
 	category = "engineering"
 	name = "research shuttle console board"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A replacement board for the research shuttle console, in case the original console is destroyed"
 	price = 500
 	items = list(
@@ -841,7 +841,7 @@
 /singleton/cargo_item/singularitygenerator
 	category = "engineering"
 	name = "Singularity Generator"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Used to generate a Singularity. It is not adviced to use this on the asteroid."
 	price = 20000
 	items = list(
@@ -855,7 +855,7 @@
 /singleton/cargo_item/solarpanelassembly
 	category = "engineering"
 	name = "solar panel assembly"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker"
 	price = 1020
 	items = list(
@@ -869,7 +869,7 @@
 /singleton/cargo_item/steelsheets
 	category = "engineering"
 	name = "steel sheets"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "50 sheets of steel."
 	price = 75
 	items = list(
@@ -883,7 +883,7 @@
 /singleton/cargo_item/superconductivemagneticcoil
 	category = "engineering"
 	name = "superconductive magnetic coil"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Standard superconductive magnetic coil with average capacity and I/O rating."
 	price = 3000
 	items = list(
@@ -897,7 +897,7 @@
 /singleton/cargo_item/supermattercore
 	category = "engineering"
 	name = "Supermatter Core"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A highly advanced energy source. A warning label states that it may only be used on the Aurora"
 	price = 30000
 	items = list(
@@ -911,7 +911,7 @@
 /singleton/cargo_item/thermoelectricgenerator
 	category = "engineering"
 	name = "thermoelectric generator"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It's a high efficiency thermoelectric generator. Rated for 500 kW."
 	price = 1500
 	items = list(
@@ -925,7 +925,7 @@
 /singleton/cargo_item/toolbelt
 	category = "engineering"
 	name = "tool-belt"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Can hold various tools."
 	price = 500
 	items = list(
@@ -939,7 +939,7 @@
 /singleton/cargo_item/trackerelectronics
 	category = "engineering"
 	name = "tracker electronics"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Electronic guidance systems for a solar array"
 	price = 225
 	items = list(
@@ -953,7 +953,7 @@
 /singleton/cargo_item/watertank
 	category = "engineering"
 	name = "watertank"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A tank filled with water."
 	price = 45
 	items = list(
@@ -967,7 +967,7 @@
 /singleton/cargo_item/weldinghelmet
 	category = "engineering"
 	name = "welding helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	price = 225
 	items = list(
@@ -981,7 +981,7 @@
 /singleton/cargo_item/woodplanks
 	category = "engineering"
 	name = "wood planks"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "50 planks of wood."
 	price = 80
 	items = list(

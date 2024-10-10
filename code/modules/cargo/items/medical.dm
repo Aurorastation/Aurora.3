@@ -1,7 +1,7 @@
 /singleton/cargo_item/advancedfirstaidkit
 	category = "medical"
 	name = "advanced first-aid kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Contains advanced medical treatments."
 	price = 605
 	items = list(
@@ -15,7 +15,7 @@
 /singleton/cargo_item/anesthetictank
 	category = "medical"
 	name = "anesthetic tank"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A tank with an N2O/O2 gas mix."
 	price = 200
 	items = list(
@@ -29,7 +29,7 @@
 /singleton/cargo_item/bicaridineautoinjector
 	category = "medical"
 	name = "bicaridine autoinjector"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat physical trauma."
 	price = 1000
 	items = list(
@@ -43,7 +43,7 @@
 /singleton/cargo_item/bloodpack_ominus
 	category = "medical"
 	name = "blood pack O-"
-	supplier = "Zeng-Hu Pharmaceuticals"
+	supplier = "zeng_hu"
 	description = "A blood pack filled with O- Blood"
 	price = 500
 	items = list(
@@ -57,7 +57,7 @@
 /singleton/cargo_item/bloodpacksbags
 	category = "medical"
 	name = "blood packs bags"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This box contains blood packs."
 	price = 55
 	items = list(
@@ -71,7 +71,7 @@
 /singleton/cargo_item/bodybags
 	category = "medical"
 	name = "body bags"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This box contains body bags."
 	price = 255
 	items = list(
@@ -85,7 +85,7 @@
 /singleton/cargo_item/bonegel
 	category = "medical"
 	name = "bone gel"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A gel made from a mixture of Calcium and Science, but mostly Calcium."
 	price = 495
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/bonesetter
 	category = "medical"
 	name = "bone setter"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Sets bones into place."
 	price = 225
 	items = list(
@@ -113,7 +113,7 @@
 /singleton/cargo_item/injectors_box
 	category = "medical"
 	name = "box of injectors"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Contains autoinjectors."
 	price = 1168
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/sterilegloves_box
 	category = "medical"
 	name = "box of sterile gloves"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Contains sterile gloves."
 	price = 98
 	items = list(
@@ -141,7 +141,7 @@
 /singleton/cargo_item/sterilemasks_box
 	category = "medical"
 	name = "box of sterile masks"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This box contains masks of sterility."
 	price = 98
 	items = list(
@@ -155,7 +155,7 @@
 /singleton/cargo_item/syringes_box
 	category = "medical"
 	name = "box of syringes"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box full of syringes."
 	price = 200
 	items = list(
@@ -169,7 +169,7 @@
 /singleton/cargo_item/cautery
 	category = "medical"
 	name = "cautery"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "This stops bleeding."
 	price = 165
 	items = list(
@@ -183,7 +183,7 @@
 /singleton/cargo_item/chemicalcartridge_dylovene
 	category = "medical"
 	name = "chemical cartridge-dylovene"
-	supplier = "Interstellar Aid Corps"
+	supplier = "iac"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 200
 	items = list(
@@ -197,7 +197,7 @@
 /singleton/cargo_item/chemicalcartridge_inaprovaline
 	category = "medical"
 	name = "chemical cartridge-inaprovaline"
-	supplier = "Interstellar Aid Corps"
+	supplier = "iac"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 200
 	items = list(
@@ -211,7 +211,7 @@
 /singleton/cargo_item/chemicalcartridge_thetamycin
 	category = "medical"
 	name = "chemical cartridge-thetamycin"
-	supplier = "Interstellar Aid Corps"
+	supplier = "iac"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 800
 	items = list(
@@ -225,7 +225,7 @@
 /singleton/cargo_item/circularsaw
 	category = "medical"
 	name = "circular saw"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "For heavy duty cutting."
 	price = 195
 	items = list(
@@ -239,7 +239,7 @@
 /singleton/cargo_item/dylovenebottle
 	category = "medical"
 	name = "dylovene bottle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."
 	price = 20
 	items = list(
@@ -253,7 +253,7 @@
 /singleton/cargo_item/firefirstaidkit
 	category = "medical"
 	name = "fire first-aid kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
 	price = 167
 	items = list(
@@ -267,7 +267,7 @@
 /singleton/cargo_item/firstaidkit
 	category = "medical"
 	name = "first-aid kit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "It's an emergency medical kit for those serious boo-boos."
 	price = 157
 	items = list(
@@ -281,7 +281,7 @@
 /singleton/cargo_item/fixovein
 	category = "medical"
 	name = "FixOVein"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "When life gives you internal bleeding, FixOVein is there."
 	price = 495
 	items = list(
@@ -295,7 +295,7 @@
 /singleton/cargo_item/hemostat
 	category = "medical"
 	name = "hemostat"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "You think you have seen this before."
 	price = 135
 	items = list(
@@ -309,7 +309,7 @@
 /singleton/cargo_item/hyronalinbottle
 	category = "medical"
 	name = "hyronalin bottle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small bottle. Contains hyronalin - used to treat radiation poisoning."
 	price = 1000
 	items = list(
@@ -323,7 +323,7 @@
 /singleton/cargo_item/inaprovalinebottle
 	category = "medical"
 	name = "inaprovaline bottle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small bottle. Contains inaprovaline - used to stabilize patients."
 	price = 25
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/kelotaneautoinjector
 	category = "medical"
 	name = "kelotane autoinjector"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat burns."
 	price = 1000
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/medicalaidset
 	category = "medical"
 	name = "medical aid set"
-	supplier = "Interstellar Aid Corps"
+	supplier = "iac"
 	description = "A set of medical first aid kits"
 	price = 2000
 	items = list(
@@ -369,7 +369,7 @@
 /singleton/cargo_item/medicalbelt
 	category = "medical"
 	name = "medical belt"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Can hold various medical equipment."
 	price = 75
 	items = list(
@@ -383,7 +383,7 @@
 /singleton/cargo_item/medicalmask
 	category = "medical"
 	name = "medical mask"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A close-fitting sterile mask that can be connected to an air supply."
 	price = 105
 	items = list(
@@ -397,7 +397,7 @@
 /singleton/cargo_item/medicalscrubs
 	category = "medical"
 	name = "medical scrubs"
-	supplier = "Zeng-Hu Pharmaceuticals"
+	supplier = "zeng_hu"
 	description = "It's made of a special fiber that provides minor protection against biohazards. This one is in dark green."
 	price = 75
 	items = list(
@@ -411,7 +411,7 @@
 /singleton/cargo_item/medicalvoidsuit
 	category = "medical"
 	name = "medical voidsuit"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
 	price = 4200
 	items = list(
@@ -425,7 +425,7 @@
 /singleton/cargo_item/medicalvoidsuithelmet
 	category = "medical"
 	name = "medical voidsuit helmet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has minor radiation shielding."
 	price = 2850
 	items = list(
@@ -439,7 +439,7 @@
 /singleton/cargo_item/nanopaste
 	category = "medical"
 	name = "nanopaste"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	price = 2000
 	items = list(
@@ -453,7 +453,7 @@
 /singleton/cargo_item/oxygendeprivationfirstaid
 	category = "medical"
 	name = "oxygen deprivation first aid"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box full of oxygen goodies."
 	price = 242
 	items = list(
@@ -467,7 +467,7 @@
 /singleton/cargo_item/peridaxonautoinjector
 	category = "medical"
 	name = "peridaxon autoinjector"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat minor organ damage."
 	price = 1000
 	items = list(
@@ -481,7 +481,7 @@
 /singleton/cargo_item/pillbottles
 	category = "medical"
 	name = "pill bottles"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A storage box containing pill bottles"
 	price = 155
 	items = list(
@@ -495,7 +495,7 @@
 /singleton/cargo_item/retractor
 	category = "medical"
 	name = "retractor"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Retracts stuff."
 	price = 115
 	items = list(
@@ -509,7 +509,7 @@
 /singleton/cargo_item/scalpel
 	category = "medical"
 	name = "scalpel"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Cut, cut, and once more cut."
 	price = 100
 	items = list(
@@ -523,7 +523,7 @@
 /singleton/cargo_item/soporificbottle
 	category = "medical"
 	name = "soporific bottle"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A small bottle of soporific. Just the fumes make you sleepy."
 	price = 55
 	items = list(
@@ -537,7 +537,7 @@
 /singleton/cargo_item/stasisbag
 	category = "medical"
 	name = "stasis bag"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A folded, non-reusable bag designed to prevent additional damage to an occupant at the cost of genetic damage."
 	price = 900
 	items = list(
@@ -551,7 +551,7 @@
 /singleton/cargo_item/surgeryresupplyset
 	category = "medical"
 	name = "surgery resupply set"
-	supplier = "Interstellar Aid Corps"
+	supplier = "iac"
 	description = "A set of surgical tools in case the original ones have been lost or misplaced"
 	price = 2000
 	items = list(
@@ -574,7 +574,7 @@
 /singleton/cargo_item/surgicalcap
 	category = "medical"
 	name = "surgical cap"
-	supplier = "Zeng-Hu Pharmaceuticals"
+	supplier = "zeng_hu"
 	description = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
 	price = 75
 	items = list(
@@ -588,7 +588,7 @@
 /singleton/cargo_item/surgicaldrill
 	category = "medical"
 	name = "surgical drill"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "You can drill using this item. You dig?"
 	price = 195
 	items = list(
@@ -602,7 +602,7 @@
 /singleton/cargo_item/tajaranlatexgloves
 	category = "medical"
 	name = "tajaran latex gloves"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "Sterile latex gloves. Designed for Tajara use."
 	price = 8
 	items = list(
@@ -616,7 +616,7 @@
 /singleton/cargo_item/therapydoll
 	category = "medical"
 	name = "therapy doll"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A toy for therapeutic and recreational purposes."
 	price = 200
 	items = list(
@@ -630,7 +630,7 @@
 /singleton/cargo_item/toxinfirstaid
 	category = "medical"
 	name = "toxin first aid"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Used to treat when you have a high amount of toxins in your body."
 	price = 212
 	items = list(
@@ -644,7 +644,7 @@
 /singleton/cargo_item/triglyceridebottle
 	category = "medical"
 	name = "triglyceride bottle"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A small bottle. Contains triglyceride."
 	price = 50
 	items = list(
@@ -658,7 +658,7 @@
 /singleton/cargo_item/unathilatexgloves
 	category = "medical"
 	name = "unathi latex gloves"
-	supplier = "Arizi Guild"
+	supplier = "arizi"
 	description = "Sterile latex gloves. Designed for Unathi use."
 	price = 8
 	items = list(

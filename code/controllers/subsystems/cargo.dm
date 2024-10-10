@@ -90,53 +90,65 @@ SUBSYSTEM_DEF(cargo)
 	cargo_shipments = list() //List of the shipments to the station
 	current_shipment = null //The current cargo shipment
 	cargo_items = list() //The list of items
-	cargo_categories = list() //The list of categories
-	cargo_suppliers = list() //The list of suppliers
+	//cargo_categories = list() //The list of categories
+	//cargo_suppliers = list() //The list of suppliers
 	all_orders = list() //All orders
 	last_item_id = 0
 
+//Load categories
 /datum/controller/subsystem/cargo/proc/load_cargo_categories()
-	var/list/cargo_categories = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)
+	for(var/singleton/cargo_category/C in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)))
+		log_subsystem_cargo("Loading category '[C.name]'.")
+		SScargo.cargo_categories[C.name] = C
 
-	if(!cargo_categories)
-		log_subsystem_cargo("Error: 'Cargo categories' list is blank.")
-		return
-	else
-		for(var/category in cargo_categories)
-			var/singleton/cargo_category/C = GET_SINGLETON(category)
-			log_subsystem_cargo("Loading category '[C.name]'.")
-			SScargo.cargo_categories[C.name] = C
+//Load Suppliers
+/datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
+	for(var/singleton/cargo_supplier/S in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
+		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
+		SScargo.cargo_suppliers[S.short_name] = S
 
 /*
-/obj/structure/sign/double/barsign/proc/set_sign()
-	var/list/sign_choices = get_sign_choices()
-
-	var/list/sign_index = list()
-	for(var/sign in sign_choices)
-		var/singleton/sign/double/B = GET_SINGLETON(sign)
-		sign_index["[B.name]"] = B
+/singleton/cargo_supplier
+	var/short_name = "Generic" //Short name of the cargo supplier
+	var/name = "Generic Supplies Ltd." //Long name of the cargo supplier
+	var/description = "The generic company, for generic supplies." //Description of the supplier
+	var/tag_line = "Our favorite color is gray!" //Tag line of the supplier
+	var/shuttle_time = 0 //Time the shuttle takes to get to the supplier
+	var/shuttle_price = 0 //Price to call the shuttle
+	var/available = 1 //If the supplier is available
+	var/price_modifier = 1 //Price modifier for the supplier
+	var/list/items = list() //List of items of the supplier
 */
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
 	log_subsystem_cargo("Loading cargo items.")
+	var/id = 1
 
-	reset_cargo()
+	//reset_cargo()
 
 	// Get the list of all valid cargo items
 	for (var/item in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
 		var/singleton/cargo_item/I = item
-
-		log_subsystem_cargo("Loading item '[I.name]' with category '[I.category]'.")
 		cargo_items[I.name] = I
+		I.id = id++
 
 		// Check if the category exists in SScargo.cargo_categories
 		if (I.category && SScargo.cargo_categories[I.category])
 			var/singleton/cargo_category/item_category = SScargo.cargo_categories[I.category]
-
 			if (!item_category.items)
 				item_category.items = list()
-
 			item_category.items += I
+			log_subsystem_cargo("Inserted item '[I.name]' into category '[I.category]' with ID '[I.id]'.")
+
+		if (I.supplier && SScargo.cargo_suppliers[I.supplier])
+			var/singleton/cargo_supplier/item_supplier = SScargo.cargo_suppliers[I.supplier]
+			if (!item_supplier.items)
+				item_supplier.items = list()
+			item_supplier.items += I
+			I.supplier_data = item_supplier
+			log_subsystem_cargo("Inserted item '[I.name]' into supplier '[I.supplier]'.")
+
+		/*
 		else
 			if (!SScargo.cargo_categories[I.category])
 				log_subsystem_cargo("Warning: Creating missing category '[I.category]' for item '[I.name]'.")
@@ -144,6 +156,7 @@ SUBSYSTEM_DEF(cargo)
 				new_category.name = I.category
 				new_category.items = list(I) // Initialize the new category's item list with the current item
 				SScargo.cargo_categories[I.category] = new_category
+		*/
 
 	log_subsystem_cargo("Finished loading cargo items.")
 
@@ -157,44 +170,13 @@ SUBSYSTEM_DEF(cargo)
 	//Add categories
 	load_cargo_categories()
 
+	//Load suppliers
+	load_cargo_suppliers()
+
 	//Load cargo items
 	load_cargo_items()
 
 	log_subsystem_cargo("Finished loading cargo data from files.")
-
-//Add a new Supplier to the Cargo Subsystem
-//Returns the /datum/cargo_supplier/ on success or a error message
-/datum/controller/subsystem/cargo/proc/add_supplier(var/short_name, var/name, var/description, var/tag_line, var/shuttle_time, var/shuttle_price, var/available, var/price_modifier)
-    // Retrieve the subtype map for cargo_supplier
-    var/singleton_subtypes = GET_SINGLETON_SUBTYPE_MAP(/singleton/cargo_supplier)
-
-    // Check if we retrieved a valid map
-    if (!singleton_subtypes)
-        log_subsystem_cargo("Error: Could not retrieve cargo_supplier singleton subtype map.")
-        return null
-
-    // Find the specific supplier singleton by its short name in the subtype map
-    var/singleton/cargo_supplier/cs = singleton_subtypes[short_name]
-
-    // Check if the supplier singleton exists
-    if (!cs)
-        log_subsystem_cargo("Error: Could not find supplier with short name [short_name].")
-        return null
-
-    // Assign the passed values to the singleton supplier
-    cs.short_name = short_name
-    cs.name = name
-    cs.description = description
-    cs.tag_line = tag_line
-    cs.shuttle_time = text2num(shuttle_time)
-    cs.shuttle_price = text2num(shuttle_price)
-    cs.available = text2num(available)
-    cs.price_modifier = text2num(price_modifier)
-
-    // Add or update the supplier in the cargo_suppliers list
-    cargo_suppliers[cs.short_name] = cs
-
-    return cs
 
 /*
 	Getting items, categories, suppliers and shipments
@@ -211,30 +193,108 @@ SUBSYSTEM_DEF(cargo)
 	last_item_id++
 	return last_item_id
 //Gets the items from a category
+
+/*
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category)
 	var/singleton/cargo_category/cc = cargo_categories[category]
 	if(cc)
+		log_subsystem_cargo("get_item_list() called.")
 		return cc.get_item_list()
 	else
+		log_subsystem_cargo("Warning: get_item_list() called, but returned an empty list.")
 		return list()
+*/
+
+/datum/controller/subsystem/cargo/proc/get_supplier_data(var/supplier_short_name)
+	var/list/supplier_data = list()
+	var/singleton/cargo_supplier/S = cargo_suppliers[supplier_short_name]
+
+	if(!S)
+		log_subsystem_cargo("Error: Unable to find supplier '[supplier_short_name]'.")
+		return
+
+	supplier_data += list(list(
+		"short_name" = S.short_name,
+		"name" = S.name,
+		"description" = S.description,
+		"tag_line" = S.tag_line,
+		"shuttle_time" = S.shuttle_time,
+		"shuttle_price" = S.shuttle_price,
+		"available" = S.available,
+		"price_modifier" = S.price_modifier,
+	))
+
+	return supplier_data
+
+/*
+  short_name: string;
+  name: string;
+  description: string;
+  tag_line: string;
+  shuttle_time: number;
+  shuttle_price: number;
+  available: BooleanLike;
+  price_modifier: number;
+*/
+
+/datum/controller/subsystem/cargo/proc/adjust_price(var/item_to_adjust)
+	var/singleton/cargo_item/I = item_to_adjust
+
+	if(!I)
+		log_subsystem_cargo("Error: Attempted to call adjust_price() on invalid item '[I.name]'.")
+
+	//TODO: make this actually adjust the price
+	return I.price
+
+//Gets items for a category. To be used for cargo consoles.
+/datum/controller/subsystem/cargo/proc/get_items_for_category(var/category_name)
+	var/list/item_list = list()
+	var/singleton/cargo_category/C = cargo_categories[category_name]
+
+	if(!C)
+		log_subsystem_cargo("Error: get_items_for_category() was unable to find category '[category_name]'.")
+		return
+
+	for(var/item in C.items)
+		var/singleton/cargo_item/ci = item
+
+		item_list += list(list(
+			"name" = ci.name,
+			"description" = ci.description,
+			"price" = ci.price,
+			"id" = ci.id,
+			"price_adjusted" = adjust_price(ci),
+			"supplier" = ci.supplier,
+			"supplier_data" = get_supplier_data(ci.supplier),
+		))
+
+	return item_list
 
 //Gets the categories
 /datum/controller/subsystem/cargo/proc/get_category_list()
 	var/list/category_list = list()
 
-	log_subsystem_cargo("get_category_list() called.")
-
 	for (var/cat_name in cargo_categories)
 		// Get the singleton instance for the current category
 		var/singleton/cargo_category/cc = cargo_categories[cat_name]
 
-		if (cc)  // Ensure the singleton was found
-			// Add the list returned by get_list() to category_list
-			category_list.Add(cc.get_list())
-		else
-			log_subsystem_cargo("Error: Singleton for category [cat_name] could not be found.")
+		category_list += list(list(
+			"name" = cc.name,
+			"display_name" = cc.display_name,
+			"description" = cc.description,
+			"icon" = cc.icon,
+			"price_modifier" = cc.price_modifier,
+		))
 
 	return category_list
+
+	/*
+	name: string;
+	display_name: string;
+	description: string;
+	icon: string;
+	price_modifier: number;
+	*/
 
 //Get category names
 /datum/controller/subsystem/cargo/proc/get_category_by_name(var/name)
@@ -246,7 +306,6 @@ SUBSYSTEM_DEF(cargo)
 	// Return the category if it exists
 	return cargo_categories[name]
 
-
 //Gets a order by order id
 /datum/controller/subsystem/cargo/proc/get_order_by_id(var/id)
 	for (var/datum/cargo_order/co in all_orders)
@@ -256,7 +315,7 @@ SUBSYSTEM_DEF(cargo)
 
 //Gets a supplier by name
 /datum/controller/subsystem/cargo/proc/get_supplier_by_name(var/name)
-	return cargo_suppliers[name]
+	return cargo_suppliers[name] ? cargo_suppliers[name] : null
 
 //Gets all the shipments sent to / from the station
 /datum/controller/subsystem/cargo/proc/get_shipment_list()
@@ -276,6 +335,7 @@ SUBSYSTEM_DEF(cargo)
 /*
 	Submitting, Approving, Rejecting and Shipping Orders
 */
+
 //Gets the orders based on their status (submitted, approved, shipped)
 /datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
 	if(!status)
@@ -289,6 +349,7 @@ SUBSYSTEM_DEF(cargo)
 			else
 				orders.Add(co)
 	return orders
+
 //Gets the value of orders based on their status, type is passed on to co.get_value
 /datum/controller/subsystem/cargo/proc/get_orders_value_by_status(var/status, var/type=0)
 	if(!status)
@@ -299,6 +360,7 @@ SUBSYSTEM_DEF(cargo)
 		if(co.status == status)
 			value += co.get_value(type)
 	return value
+
 //Gets the suppliers of the orders of a specific type
 /datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status, var/pretty_names=0)
 	if(!status)
@@ -563,8 +625,8 @@ SUBSYSTEM_DEF(cargo)
 
 		//Check if the supplier is still available
 		for(var/datum/cargo_order_item/coi in co.items)
-			if(!coi.ci.supplier_datum.available)
-				log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_datum.name] for item [coi.ci.name] is unavailable")
+			if(!coi.ci.supplier_data.available)
+				log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_data.name] for item [coi.ci.name] is unavailable")
 				continue
 
 		//Check if there is enough money to ship the order
@@ -577,34 +639,27 @@ SUBSYSTEM_DEF(cargo)
 
 		//Spawn the crate
 		var/containertype = co.get_container_type()
-		var/obj/A = new containertype(pickedloc)
+		var/obj/crate = new containertype(pickedloc)
 
 		//Label the crate
-		A.name_unlabel = A.name
-		A.name = "[A.name] ([co.order_id] - [co.ordered_by])"
-		A.verbs += /atom/proc/remove_label
+		crate.name_unlabel = crate.name
+		crate.name = "[crate.name] ([co.order_id] - [co.ordered_by])"
+		crate.verbs += /atom/proc/remove_label
 
 		//Set the access requirement
 		if(co.required_access.len > 0)
-			A.req_access = co.required_access.Copy()
+			crate.req_access = co.required_access.Copy()
 
 		//Loop through the items and spawn them
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
-			for(var/j=1;j<=coi.ci.item_mul;j++)
-				for(var/name in coi.ci.items)
-					var/path = coi.ci.items[name]["path"]
-					var/atom/item = new path(A)
-					//Customize the items
-					for(var/var_name in coi.ci.items[name]["vars"])
-						try
-							item.vars[var_name] = coi.ci.items[name]["vars"][var_name]
-						catch(var/exception/e)
-							log_subsystem_cargo("Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
+			for(var/j = 1; j <= coi.ci.item_mul; j++)
+				for(var/item in coi.ci.items)
+					var/atom/N = new item(crate)
 
 		//Spawn the Paper Inside
-		var/obj/item/paper/P = new(A)
+		var/obj/item/paper/P = new(crate)
 		P.set_content_unsafe("[co.order_id] - [co.ordered_by]", co.get_report_delivery_order())
 
 	//Shuttle is loaded now - Charge cargo for it

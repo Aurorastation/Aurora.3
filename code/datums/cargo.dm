@@ -1,6 +1,6 @@
 /*
 	A item orderable via cargo
-*/
+
 /datum/cargo_item
 	var/id = 0 //ID of the item
 	var/name = "Cargo Item" //Name of the item
@@ -40,7 +40,7 @@
 		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
 		if(cc)
 			. *= cc.price_modifier
-
+*/
 
 /*
 	A supplier of items
@@ -78,7 +78,7 @@
 	return final_coef
 /*
 	A category displayed in the cargo order app
-*/
+
 /datum/cargo_category
 	var/name = "cargo_category" //Name of the category
 	var/display_name = "Cargo Category"
@@ -103,7 +103,7 @@
 	for(var/datum/cargo_item/ci in items)
 		item_list.Add(list(ci.get_list()))
 	return item_list
-
+*/
 /*
 	A order placed in the cargo order app.
 	Contains multiple order items
@@ -151,8 +151,8 @@
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
 	for (var/datum/cargo_order_item/coi in items)
-		for(var/object in coi.ci.items)
-			object_list.Add(object)
+		for(var/atom/object in coi.ci.items)
+			object_list.Add(object.name)
 	return object_list
 
 // Gets a list of the order data - Formatted as list to be json_encoded
@@ -472,7 +472,7 @@
 	specifies the item, the supplier and the price of the item
 */
 /datum/cargo_order_item
-	var/datum/cargo_item/ci //Item that has been ordered
+	var/singleton/cargo_item/ci //Item that has been ordered
 	var/price //Price of the item with the given supplier
 	var/item_id //Item id in the order
 	//TODO-CARGO: Maybe add the option to set a fake item for traitors here -> So that cargo cant see what they are really ordering
@@ -486,7 +486,7 @@
 /datum/cargo_order_item/proc/get_list()
 	var/list/data = list()
 	data["name"] = ci.name
-	data["supplier_name"] = ci.supplier_datum.name
+	data["supplier_name"] = ci.supplier_data.name
 	data["amount"] = ci.amount
 	data["price"] = price
 	data["item_id"] = item_id
@@ -514,21 +514,20 @@
 	var/message = null //Message from central
 
 /datum/cargo_shipment/proc/get_list(var/shipment_completion = 1)
-    // Access the cargo category singleton
-    var/singleton/cargo_category/cc = GET_SINGLETON(/singleton/cargo_category)
-
-    if (!cc)
-        return null
-
-    // Check the shipment completion from the singleton
-    if (shipment_completion != cc.shipment_data["completed"])
-        return null
-
-    // Fetch data dynamically from the shipment_data list
-    var/list/data = cc.shipment_data.Copy()  // Copy the entire shipment_data list
-
-    return data
-
+	if(shipment_completion != completed)
+		return null
+	else
+		var/list/data = list()
+		data["shipment_num"] = shipment_num
+		data["shipment_cost_sell"] = shipment_cost_sell
+		data["shipment_cost_purchase"] = shipment_cost_purchase
+		data["shipment_invoice"] = shipment_invoice
+		data["shuttle_fee"] = shuttle_fee
+		data["shuttle_time"] = shuttle_time
+		data["shuttle_called_by"] = shuttle_called_by
+		data["shuttle_recalled_by"] = shuttle_recalled_by
+		data["invoice"] = get_invoice()
+		return data
 
 // Generates the invoice at the time of shipping
 /datum/cargo_shipment/proc/generate_invoice()

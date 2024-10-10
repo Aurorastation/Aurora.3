@@ -175,14 +175,14 @@ export const MainPage = (props, context) => {
                 }
                 icon="shopping-basket"
                 onClick={
-                  () => act('add_item', { add_item: item.id.toString() }) // don't ask why this is the way it is
+                  () => act('add_item', { add_item: item.name.toString() }) // don't ask why this is the way it is
                 }
               />
             }>
             {item.description}
             <LabeledList>
               <LabeledList.Item label="Shipped By">
-                {item.supplier_data.name}
+                {item.supplier}
               </LabeledList.Item>
             </LabeledList>
           </Section>

@@ -1,7 +1,7 @@
 /singleton/cargo_item/adhomianmeat
 	category = "hospitality"
 	name = "adhomian meat"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A slab of meat native from Adhomian animals."
 	price = 13
 	items = list(
@@ -15,7 +15,7 @@
 /singleton/cargo_item/beerkeg
 	category = "hospitality"
 	name = "beer keg"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A beer keg."
 	price = 200
 	items = list(
@@ -29,7 +29,7 @@
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"
 	name = "box of crab legs"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
 	price = 20
 	items = list(
@@ -43,7 +43,7 @@
 /singleton/cargo_item/drinkingglasses_box
 	category = "hospitality"
 	name = "box of drinking glasses"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "It has a picture of drinking glasses on it."
 	price = 21
 	items = list(
@@ -57,7 +57,7 @@
 /singleton/cargo_item/rasvalclams_box
 	category = "hospitality"
 	name = "box of Ras'val clams"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A box filled with clams from the Ras'val sea, imported from Adhomai."
 	price = 200
 	items = list(
@@ -71,7 +71,7 @@
 /singleton/cargo_item/chemicalcartridge_ale
 	category = "hospitality"
 	name = "chemical cartridge-ale"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -85,7 +85,7 @@
 /singleton/cargo_item/chemicalcartridge_beer
 	category = "hospitality"
 	name = "chemical cartridge-beer"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -99,7 +99,7 @@
 /singleton/cargo_item/chemicalcartridge_champagne
 	category = "hospitality"
 	name = "chemical cartridge-champagne"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -113,7 +113,7 @@
 /singleton/cargo_item/chemicalcartridge_coffee
 	category = "hospitality"
 	name = "chemical cartridge-coffee"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -127,7 +127,7 @@
 /singleton/cargo_item/chemicalcartridge_cognac
 	category = "hospitality"
 	name = "chemical cartridge-cognac"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -141,7 +141,7 @@
 /singleton/cargo_item/chemicalcartridge_cola
 	category = "hospitality"
 	name = "chemical cartridge-cola"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -155,7 +155,7 @@
 /singleton/cargo_item/chemicalcartridge_cream
 	category = "hospitality"
 	name = "chemical cartridge-cream"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -169,7 +169,7 @@
 /singleton/cargo_item/chemicalcartridge_drgibb
 	category = "hospitality"
 	name = "chemical cartridge-dr gibb"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -183,7 +183,7 @@
 /singleton/cargo_item/chemicalcartridge_gin
 	category = "hospitality"
 	name = "chemical cartridge-gin"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -197,7 +197,7 @@
 /singleton/cargo_item/chemicalcartridge_ice
 	category = "hospitality"
 	name = "chemical cartridge-ice"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -211,7 +211,7 @@
 /singleton/cargo_item/chemicalcartridge_icetea
 	category = "hospitality"
 	name = "chemical cartridge-ice tea"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -225,7 +225,7 @@
 /singleton/cargo_item/chemicalcartridge_kahlua
 	category = "hospitality"
 	name = "chemical cartridge-kahlua"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -239,7 +239,7 @@
 /singleton/cargo_item/chemicalcartridge_lemonlime
 	category = "hospitality"
 	name = "chemical cartridge-lemon lime"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -253,7 +253,7 @@
 /singleton/cargo_item/chemicalcartridge_lime
 	category = "hospitality"
 	name = "chemical cartridge-lime"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -267,7 +267,7 @@
 /singleton/cargo_item/chemicalcartridge_mead
 	category = "hospitality"
 	name = "chemical cartridge-mead"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -281,7 +281,7 @@
 /singleton/cargo_item/chemicalcartridge_orange
 	category = "hospitality"
 	name = "chemical cartridge-orange"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -295,7 +295,7 @@
 /singleton/cargo_item/chemicalcartridge_rum
 	category = "hospitality"
 	name = "chemical cartridge-rum"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -309,7 +309,7 @@
 /singleton/cargo_item/chemicalcartridge_smw
 	category = "hospitality"
 	name = "chemical cartridge-smw"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -323,7 +323,7 @@
 /singleton/cargo_item/chemicalcartridge_sodawater
 	category = "hospitality"
 	name = "chemical cartridge-sodawater"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/chemicalcartridge_spaceup
 	category = "hospitality"
 	name = "chemical cartridge-spaceup"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/chemicalcartridge_tea
 	category = "hospitality"
 	name = "chemical cartridge-tea"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/chemicalcartridge_tequila
 	category = "hospitality"
 	name = "chemical cartridge-tequila"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -379,7 +379,7 @@
 /singleton/cargo_item/chemicalcartridge_tonic
 	category = "hospitality"
 	name = "chemical cartridge-tonic"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -393,7 +393,7 @@
 /singleton/cargo_item/chemicalcartridge_vermouth
 	category = "hospitality"
 	name = "chemical cartridge-vermouth"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -407,7 +407,7 @@
 /singleton/cargo_item/chemicalcartridge_vodka
 	category = "hospitality"
 	name = "chemical cartridge-vodka"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -421,7 +421,7 @@
 /singleton/cargo_item/chemicalcartridge_watermelon
 	category = "hospitality"
 	name = "chemical cartridge-watermelon"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -435,7 +435,7 @@
 /singleton/cargo_item/chemicalcartridge_whiskey
 	category = "hospitality"
 	name = "chemical cartridge-whiskey"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -449,7 +449,7 @@
 /singleton/cargo_item/chemicalcartridge_wine
 	category = "hospitality"
 	name = "chemical cartridge-wine"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A square plastic cartridge, this one is filled with 500 units of liquid."
 	price = 35
 	items = list(
@@ -463,7 +463,7 @@
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
 	name = "chip multipack crate"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A Getmore supply crate of multipack chip bags."
 	price = 400
 	items = list(
@@ -482,7 +482,7 @@
 /singleton/cargo_item/dryrag
 	category = "hospitality"
 	name = "dry rag"
-	supplier = "blm"
+	supplier = "blam"
 	description = "For cleaning up messes, you suppose."
 	price = 2
 	items = list(
@@ -496,7 +496,7 @@
 /singleton/cargo_item/fishfillet
 	category = "hospitality"
 	name = "fish fillet"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A fillet of fish."
 	price = 15
 	items = list(
@@ -510,7 +510,7 @@
 /singleton/cargo_item/flask
 	category = "hospitality"
 	name = "flask"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "For those who can't be bothered to hang out at the bar to drink."
 	price = 25
 	items = list(
@@ -524,7 +524,7 @@
 /singleton/cargo_item/goldschlager
 	category = "hospitality"
 	name = "Gold Schlager"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A gold laced drink imported from noble houses within S'rand'marr."
 	price = 46
 	items = list(
@@ -538,7 +538,7 @@
 /singleton/cargo_item/magmale
 	category = "hospitality"
 	name = "Magm-ale"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A true dorf's drink of choice."
 	price = 12
 	items = list(
@@ -552,7 +552,7 @@
 /singleton/cargo_item/meadbarrel
 	category = "hospitality"
 	name = "mead barrel"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A wooden mead barrel."
 	price = 200
 	items = list(
@@ -566,7 +566,7 @@
 /singleton/cargo_item/moghresianmeat
 	category = "hospitality"
 	name = "moghresian meat"
-	supplier = "Zharkov Shipping Company"
+	supplier = "zharkov"
 	description = "A slab of meat from an animal native to Moghes."
 	price = 13
 	items = list(
@@ -580,7 +580,7 @@
 /singleton/cargo_item/piano
 	category = "hospitality"
 	name = "piano"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Like a regular piano, but always in tune! Even if the musician isn't."
 	price = 1200
 	items = list(
@@ -594,7 +594,7 @@
 /singleton/cargo_item/pianosoundsynthesizer
 	category = "hospitality"
 	name = "pianosound synthesizer"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A sound synthesizer"
 	price = 1900
 	items = list(
@@ -608,7 +608,7 @@
 /singleton/cargo_item/pizzabox_margherita
 	category = "hospitality"
 	name = "pizza box, margherita"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -622,7 +622,7 @@
 /singleton/cargo_item/pizzabox_meat
 	category = "hospitality"
 	name = "pizza box, meat"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -636,7 +636,7 @@
 /singleton/cargo_item/pizzabox_mushroom
 	category = "hospitality"
 	name = "pizza box, mushroom"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -650,7 +650,7 @@
 /singleton/cargo_item/pizzabox_pineapple
 	category = "hospitality"
 	name = "pizza box, pineapple"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -664,7 +664,7 @@
 /singleton/cargo_item/pizzabox_random
 	category = "hospitality"
 	name = "pizza box, random"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 40
 	items = list(
@@ -678,7 +678,7 @@
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
 	name = "pizza box, vegetable"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A box suited for pizzas."
 	price = 50
 	items = list(
@@ -692,7 +692,7 @@
 /singleton/cargo_item/redlipstick
 	category = "hospitality"
 	name = "red lipstick"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "A generic brand of lipstick."
 	price = 8
 	items = list(
@@ -706,7 +706,7 @@
 /singleton/cargo_item/roesack
 	category = "hospitality"
 	name = "roe sack"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "A fleshy organ filled with fish eggs."
 	price = 16
 	items = list(
@@ -720,7 +720,7 @@
 /singleton/cargo_item/sarezhiwine
 	category = "hospitality"
 	name = "Sarezhi Wine"
-	supplier = "Arizi Guild"
+	supplier = "arizi"
 	description = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
 	price = 60
 	items = list(
@@ -734,7 +734,7 @@
 /singleton/cargo_item/shaker
 	category = "hospitality"
 	name = "shaker"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A metal shaker to mix drinks in."
 	price = 22
 	items = list(
@@ -748,7 +748,7 @@
 /singleton/cargo_item/spacebeer
 	category = "hospitality"
 	name = "space beer"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Contains only water, malt and hops."
 	price = 2
 	items = list(
@@ -762,7 +762,7 @@
 /singleton/cargo_item/squidmeat
 	category = "hospitality"
 	name = "squid meat"
-	supplier = "Getmore Products"
+	supplier = "getmore"
 	description = "Soylent squid is (not) people!"
 	price = 15
 	items = list(
@@ -776,7 +776,7 @@
 /singleton/cargo_item/wormfillet
 	category = "hospitality"
 	name = "worm fillet"
-	supplier = "NanoTrasen"
+	supplier = "nanotrasen"
 	description = "Meat from a cavern Dweller. Mildly toxic if prepared improperly."
 	price = 16
 	items = list(
@@ -790,7 +790,7 @@
 /singleton/cargo_item/wrappartistepatron
 	category = "hospitality"
 	name = "Wrapp Artiste patron"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "Silver laced tequilla, served in space night clubs across the galaxy."
 	price = 41
 	items = list(
@@ -804,7 +804,7 @@
 /singleton/cargo_item/xuizijuicekeg
 	category = "hospitality"
 	name = "xuizi juice keg"
-	supplier = "Virgo Freight Carriers"
+	supplier = "virgo"
 	description = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	price = 200
 	items = list(
