@@ -35,8 +35,8 @@
 	var/economic_modifier = 2             // With how much does this job modify the initial account amount?
 	var/create_record = TRUE              // Do we announce/make records for people who spawn on this job?
 
-	var/obj/outfit/outfit = null
-	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /obj/outfit)
+	var/datum/outfit/outfit = null
+	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
 	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
@@ -120,8 +120,7 @@
 			if(!F.is_default)
 				var/new_outfit = F.titles_to_loadout[title]
 				if(ispath(new_outfit))
-					var/obj/outfit/O = new new_outfit
-					O.pre_equip(H, TRUE)
+					var/datum/outfit/O = new new_outfit
 					O.equip(H, TRUE)
 					return
 
@@ -204,7 +203,7 @@
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
 
-/obj/outfit/job
+/datum/outfit/job
 	name = "Standard Gear"
 	var/base_name = null
 	collect_not_del = FALSE
@@ -232,7 +231,7 @@
 
 	var/box = /obj/item/storage/box/survival
 
-/obj/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
 		var/spawnbox = box
@@ -240,16 +239,16 @@
 		backpack_contents[spawnbox] = 1
 	. = ..()
 
-/obj/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-/obj/outfit/job/get_id_access(mob/living/carbon/human/H)
+/datum/outfit/job/get_id_access(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
 	return J.get_access(get_id_assignment(H, TRUE))
 
-/obj/outfit/job/get_id_rank(mob/living/carbon/human/H)
+/datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)

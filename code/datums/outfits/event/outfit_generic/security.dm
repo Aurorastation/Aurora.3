@@ -1,5 +1,5 @@
 
-/obj/outfit/admin/generic/security
+/datum/outfit/admin/generic/security
 	name = "Generic Outfit"
 
 	uniform = list(

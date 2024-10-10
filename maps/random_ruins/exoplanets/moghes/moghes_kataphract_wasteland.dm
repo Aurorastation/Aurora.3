@@ -39,7 +39,7 @@
 	mob_name_prefix = "Zosaa "
 	mob_name_pick_message = "Pick an Unathi last name."
 
-	outfit = /obj/outfit/admin/kataphract/wasteland
+	outfit = /datum/outfit/admin/kataphract/wasteland
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -58,7 +58,7 @@
 	mob_name_pick_message = "Pick an Unathi last name."
 	welcome_message = "You are a warrior of the Kataphract Guild, assigned to train and protect a group of Hopefuls in the harshness of the Wasteland. Seek to test them on their prowess and honor, and instruct them on the meaning of being a Kataphract. Try not to get them killed, though."
 
-	outfit = /obj/outfit/admin/kataphract/knight/wasteland
+	outfit = /datum/outfit/admin/kataphract/knight/wasteland
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -67,10 +67,10 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 
-/obj/outfit/admin/kataphract/wasteland
+/datum/outfit/admin/kataphract/wasteland
 	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null
 
-/obj/outfit/admin/kataphract/knight/wasteland
+/datum/outfit/admin/kataphract/knight/wasteland
 	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null

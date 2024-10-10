@@ -9,7 +9,7 @@
 	spawnpoints = list("kasf_crewman")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/kasf_crewman
+	outfit = /datum/outfit/admin/kasf_crewman
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -19,7 +19,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/kasf_crewman
+/datum/outfit/admin/kasf_crewman
 	name = "KASF Crewman"
 	uniform = /obj/item/clothing/under/rank/konyang/space
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -31,7 +31,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/obj/outfit/admin/kasf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/kasf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -41,7 +41,7 @@
 		tag.ownership_info = IPC_OWNERSHIP_SELF
 		tag.citizenship_info = CITIZENSHIP_COALITION
 
-/obj/outfit/admin/kasf_crewman/get_id_access()
+/datum/outfit/admin/kasf_crewman/get_id_access()
 	return list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
 // kasf engineer
@@ -55,12 +55,12 @@
 	spawnpoints = list("kasf_engineer")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/kasf_crewman/engineer
+	outfit = /datum/outfit/admin/kasf_crewman/engineer
 
 	assigned_role = "KASF Engineer"
 	special_role = "KASF Engineer"
 
-/obj/outfit/admin/kasf_crewman/engineer
+/datum/outfit/admin/kasf_crewman/engineer
 	name = "KASF Engineer"
 
 // kasf corpsman
@@ -74,12 +74,12 @@
 	spawnpoints = list("kasf_corpsman")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/kasf_crewman/corpsman
+	outfit = /datum/outfit/admin/kasf_crewman/corpsman
 
 	assigned_role = "KASF Corpsman"
 	special_role = "KASF Corpsman"
 
-/obj/outfit/admin/kasf_crewman/corpsman
+/datum/outfit/admin/kasf_crewman/corpsman
 	name = "KASF Corpsman"
 
 // kasf officer
@@ -92,13 +92,13 @@
 	spawnpoints = list("kasf_crewman_officer")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/kasf_crewman/officer
+	outfit = /datum/outfit/admin/kasf_crewman/officer
 
 	assigned_role = "KASF Officer"
 	special_role = "KASF Offcier"
 
 
-/obj/outfit/admin/kasf_crewman/officer
+/datum/outfit/admin/kasf_crewman/officer
 	name = "KASF Officer"
 
 	uniform = /obj/item/clothing/under/rank/konyang/space/officer

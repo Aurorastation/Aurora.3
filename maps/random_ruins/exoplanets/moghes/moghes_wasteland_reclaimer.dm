@@ -31,7 +31,7 @@
 	spawnpoints = list("moghes_reclaimer")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_reclaimer
+	outfit = /datum/outfit/admin/moghes_reclaimer
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -40,7 +40,7 @@
 	special_role = "Reclaimer Salvager"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_reclaimer
+/datum/outfit/admin/moghes_reclaimer
 	name = "Reclaimer Salvager"
 
 	uniform = /obj/item/clothing/under/unathi
