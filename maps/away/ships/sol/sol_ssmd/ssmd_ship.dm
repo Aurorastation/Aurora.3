@@ -6,7 +6,7 @@
 	prefix = "ships/sol/sol_ssmd/"
 	suffix = "ssmd_ship.dmm"
 
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ssmd_corvette"
