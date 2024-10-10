@@ -200,3 +200,43 @@
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
+
+/obj/item/melee/dinograbber
+	name = "dino grabber"
+	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string links the jaw and a trigger, allowing you to grab \
+	objects with it. Perfect for annoying your friends!"
+	icon = 'icons/obj/dinograbber.dmi'
+	icon_state = "dinograbber"
+	item_state = "dinograbber"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_NORMAL
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("grabbed at")
+
+/obj/item/melee/dinograbber/attack(mob/living/target_mob, mob/living/user, target_zone)
+	..()
+
+	if(!ishuman(target_mob))
+		return
+
+	//20% chance to disarm someone, per hit
+	if(prob(20))
+
+		//If hit in a valid zone, check and drop the item held in the respective hand
+		var/drop_result = FALSE
+		switch(target_zone)
+			if(BP_L_HAND, BP_L_ARM)
+				if(target_mob.l_hand && (target_mob.l_hand != src))
+					drop_result = target_mob.drop_l_hand()
+
+			if(BP_R_HAND, BP_R_ARM)
+				if(target_mob.r_hand && (target_mob.r_hand != src))
+					drop_result = target_mob.drop_r_hand()
+
+		//If we dropped anything, show a message
+		if(drop_result)
+			user?.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"))
