@@ -224,7 +224,7 @@
 	if(!pressure)
 		return
 	throw_amount += pressure
-	throw_amount = Clamp(50, throw_amount, 5000)
+	throw_amount = clamp(50, throw_amount, 5000)
 	if(ismob(user))
 		to_chat(user, SPAN_NOTICE("Pressure has been adjusted to [throw_amount] kPa."))
 

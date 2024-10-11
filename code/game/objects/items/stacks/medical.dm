@@ -29,9 +29,9 @@ Contains:
 	var/apply_sounds
 	var/applied_sounds
 
-/obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
-	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
-		to_chat(user, SPAN_WARNING("\The [src] cannot be applied to [M]!"))
+/obj/item/stack/medical/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (!istype(target_mob) || istype(target_mob, /mob/living/silicon) || istype(target_mob, /mob/living/simple_animal/spiderbot))
+		to_chat(user, SPAN_WARNING("\The [src] cannot be applied to [target_mob]!"))
 		return 1
 
 	if ( ! (istype(user, /mob/living/carbon/human) || \
@@ -39,8 +39,8 @@ Contains:
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.name == BP_HEAD)
@@ -54,17 +54,17 @@ Contains:
 
 		if(affecting.status & ORGAN_LIFELIKE)
 			if(!(affecting.brute_dam || affecting.burn_dam))
-				to_chat(user, SPAN_NOTICE("[M] seems healthy, there are no wounds to treat! "))
+				to_chat(user, SPAN_NOTICE("[target_mob] seems healthy, there are no wounds to treat! "))
 				return 1
 
 			user.visible_message( \
-					SPAN_NOTICE("[user] starts applying \the [src] to [M]."), \
-					SPAN_NOTICE("You start applying \the [src] to [M].")\
+					SPAN_NOTICE("[user] starts applying \the [src] to [target_mob]."), \
+					SPAN_NOTICE("You start applying \the [src] to [target_mob].")\
 				)
-			if (do_mob(user, M, 30))
+			if (do_mob(user, target_mob, 30))
 				user.visible_message( \
-					SPAN_NOTICE("[M] has been applied with [src] by [user]."), \
-					SPAN_NOTICE("You apply \the [src] to [M].")\
+					SPAN_NOTICE("[target_mob] has been applied with [src] by [user]."), \
+					SPAN_NOTICE("You apply \the [src] to [target_mob].")\
 				)
 				use(1)
 			return 1
@@ -76,23 +76,23 @@ Contains:
 		H.UpdateDamageIcon()
 
 	else
-		if (!M.getBruteLoss() && !M.getFireLoss())
-			to_chat(user, SPAN_NOTICE("[M] seems healthy, there are no wounds to treat! "))
+		if (!target_mob.getBruteLoss() && !target_mob.getFireLoss())
+			to_chat(user, SPAN_NOTICE("[target_mob] seems healthy, there are no wounds to treat! "))
 			return 1
 
 		user.visible_message( \
-				SPAN_NOTICE("[user] starts applying \the [src] to [M]."), \
-				SPAN_NOTICE("You start applying \the [src] to [M].")\
+				SPAN_NOTICE("[user] starts applying \the [src] to [target_mob]."), \
+				SPAN_NOTICE("You start applying \the [src] to [target_mob].")\
 			)
-		if (do_mob(user, M, 30))
-			M.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
+		if (do_mob(user, target_mob, 30))
+			target_mob.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 			user.visible_message( \
-				SPAN_NOTICE("[M] has been applied with [src] by [user]."), \
-				SPAN_NOTICE("You apply \the [src] to [M].")\
+				SPAN_NOTICE("[target_mob] has been applied with [src] by [user]."), \
+				SPAN_NOTICE("You apply \the [src] to [target_mob].")\
 			)
 			use(1)
 
-	M.updatehealth()
+	target_mob.updatehealth()
 
 /obj/item/stack/medical/use()
 	. = ..()
@@ -134,44 +134,44 @@ Contains:
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/bruise_pack/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..())
 		return 1
 
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
 			if(affecting.is_bandaged())
-				to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been bandaged."))
+				to_chat(user, SPAN_WARNING("The wounds on [target_mob]'s [affecting.name] have already been bandaged."))
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
-										SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
+				user.visible_message(SPAN_NOTICE("\The [user] starts treating [target_mob]'s [affecting.name]."), \
+										SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
 					if(W.bandaged)
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, M, W.damage/5))
+					if(!do_mob(user, target_mob, W.damage/5))
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
-						user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name]."), \
-															SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [target_mob]'s [affecting.name]."), \
+															SPAN_NOTICE("You bandage \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == BRUISE)
-						user.visible_message(SPAN_NOTICE("\The [user] places a bruise patch over \a [W.desc] on [M]'s [affecting.name]."), \
-															SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] places a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
+															SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
-						user.visible_message(SPAN_NOTICE("\The [user] places a bandaid over \a [W.desc] on [M]'s [affecting.name]."), \
-															SPAN_NOTICE("You place a bandaid over \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] places a bandaid over \a [W.desc] on [target_mob]'s [affecting.name]."), \
+															SPAN_NOTICE("You place a bandaid over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					W.bandage()
 					playsound(src, apply_sounds, 25)
 					used++
@@ -209,31 +209,31 @@ Contains:
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/ointment/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..())
 		return 1
 
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
 			if(affecting.is_salved())
-				to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been salved."))
+				to_chat(user, SPAN_WARNING("The wounds on [target_mob]'s [affecting.name] have already been salved."))
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
-										SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
+				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
+										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, M, 10))
+				if(!do_mob(user, target_mob, 10))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
-				user.visible_message(SPAN_NOTICE("[user] salved wounds on [M]'s [affecting.name]."), \
-										SPAN_NOTICE("You salved wounds on [M]'s [affecting.name]."))
+				user.visible_message(SPAN_NOTICE("[user] salved wounds on [target_mob]'s [affecting.name]."), \
+										SPAN_NOTICE("You salved wounds on [target_mob]'s [affecting.name]."))
 				use(1)
 				affecting.salve()
 		else
@@ -260,44 +260,44 @@ Contains:
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..())
 		return 1
 
 	if (!can_use(1, user))
 		return 0
 
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if (ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
 			if(affecting.is_bandaged() && affecting.is_disinfected())
-				to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been treated."))
+				to_chat(user, SPAN_WARNING("The wounds on [target_mob]'s [affecting.name] have already been treated."))
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
-										SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
+				user.visible_message(SPAN_NOTICE("\The [user] starts treating [target_mob]'s [affecting.name]."), \
+										SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
 					if (W.bandaged && W.disinfected)
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, M, W.damage/5))
+					if(!do_mob(user, target_mob, W.damage/5))
 						to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
-						user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [M]'s [affecting.name] and seals the edges with bioglue."), \
-												SPAN_NOTICE("You clean and seal \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [target_mob]'s [affecting.name] and seals the edges with bioglue."), \
+												SPAN_NOTICE("You clean and seal \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == BRUISE)
-						user.visible_message(SPAN_NOTICE("\The [user] places a medical patch over \a [W.desc] on [M]'s [affecting.name]."), \
-												SPAN_NOTICE("You place a medical patch over \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] places a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
+												SPAN_NOTICE("You place a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
-						user.visible_message(SPAN_NOTICE("\The [user] smears some bioglue over \a [W.desc] on [M]'s [affecting.name]."), \
-												SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [M]'s [affecting.name]."))
+						user.visible_message(SPAN_NOTICE("\The [user] smears some bioglue over \a [W.desc] on [target_mob]'s [affecting.name]."), \
+												SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					playsound(src, pick(apply_sounds), 25)
 					W.bandage()
 					W.disinfect()
@@ -335,28 +335,28 @@ Contains:
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/advanced/ointment/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..())
 		return 1
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
 			if(affecting.is_salved())
-				to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been salved."))
+				to_chat(user, SPAN_WARNING("The wounds on [target_mob]'s [affecting.name] have already been salved."))
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
-										SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
+				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
+										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, M, 10))
+				if(!do_mob(user, target_mob, 10))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
-				user.visible_message(SPAN_NOTICE("[user] covers wounds on [M]'s [affecting.name] with regenerative membrane."), \
-										SPAN_NOTICE("You cover wounds on [M]'s [affecting.name] with regenerative membrane."))
+				user.visible_message(SPAN_NOTICE("[user] covers wounds on [target_mob]'s [affecting.name] with regenerative membrane."), \
+										SPAN_NOTICE("You cover wounds on [target_mob]'s [affecting.name] with regenerative membrane."))
 				affecting.heal_damage(0,heal_burn)
 				use(1)
 				affecting.salve()
@@ -383,33 +383,33 @@ Contains:
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/splint/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..())
 		return 1
 
 	if (!can_use(1, user))
 		return 0
 
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
+	if (istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 		var/limb = affecting.name
 		if(!(affecting.limb_name in splintable_organs))
 			to_chat(user, SPAN_DANGER("You can't apply a splint there!"))
 			return
 		if(affecting.status & ORGAN_SPLINTED)
-			to_chat(user, SPAN_DANGER("[M]'s [limb] is already splinted!"))
+			to_chat(user, SPAN_DANGER("[target_mob]'s [limb] is already splinted!"))
 			return
-		if (M != user)
-			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [M]'s [limb]."), SPAN_DANGER("You start to apply \the [src] to [M]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
+		if (target_mob != user)
+			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You start to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		else
 			if((!user.hand && affecting.limb_name == BP_R_ARM) || (user.hand && affecting.limb_name == BP_L_ARM))
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
 				return
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
-		if(do_after(user, 5 SECONDS, M))
-			if (M != user)
-				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [M]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [M]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
+		if(do_after(user, 5 SECONDS, target_mob))
+			if (target_mob != user)
+				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 			else
 				if(prob(25))
 					user.visible_message(SPAN_DANGER("[user] successfully applies \the [src] to their [limb]."), SPAN_DANGER("You successfully apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))

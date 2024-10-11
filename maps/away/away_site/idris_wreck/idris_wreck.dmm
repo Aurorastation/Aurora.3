@@ -132,9 +132,7 @@
 /obj/structure/closet/crate/rad,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/idris_wreck/vault)
 "bp" = (

@@ -87,22 +87,22 @@
 	QDEL_IN(animation, 5)
 
 //attack_as_weapon
-/obj/item/device/flash/attack(mob/living/L, mob/living/user, target_zone)
+/obj/item/device/flash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	// Single-target flash
-	if(!L || !user || !clumsy_check(user) || !cooldown())
+	if(!target_mob || !user || !clumsy_check(user) || !cooldown())
 		return
 
-	if(L == user)
+	if(target_mob == user)
 		if(user.a_intent == I_HURT)
 			attack_self(user)
 		return
 
-	L.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [L.name] ([L.ckey])</span>"
-	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [L.name] ([L.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(L))
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [target_mob.name] ([target_mob.ckey])</span>"
+	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(L)
+	user.do_attack_animation(target_mob)
 	if(broken)
 		to_chat(user, SPAN_WARNING("\The [src] is broken."))
 		return
@@ -115,13 +115,13 @@
 	if(isrobot(user))
 		robot_flash(user)
 
-	if(flash(L))
-		if(issilicon(L))
-			user.visible_message(SPAN_WARNING("[user] overloads [L]'s sensors with \the [src]!"))
+	if(flash(target_mob))
+		if(issilicon(target_mob))
+			user.visible_message(SPAN_WARNING("[user] overloads [target_mob]'s sensors with \the [src]!"))
 		else
-			user.visible_message(SPAN_WARNING("[user] blinds [L] with \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] blinds [target_mob] with \the [src]!"))
 	else
-		user.visible_message(SPAN_NOTICE("[user] fails to blind [L] with \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] fails to blind [target_mob] with \the [src]."))
 
 /obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	// AOE flash

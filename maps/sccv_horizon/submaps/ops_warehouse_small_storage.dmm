@@ -463,14 +463,6 @@
 /obj/structure/closet/crate/rad/gear,
 /turf/template_noop,
 /area/template_noop)
-"Sm" = (
-/obj/structure/bed/stool/bar/padded{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = -8
-	},
-/turf/template_noop,
-/area/template_noop)
 "SE" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/circuitboard/rdtechprocessor,
@@ -2163,7 +2155,7 @@ Gz
 Gz
 Gz
 Gz
-Sm
+go
 go
 Gz
 Gz

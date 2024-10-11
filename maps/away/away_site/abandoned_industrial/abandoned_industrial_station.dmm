@@ -8654,9 +8654,7 @@
 "Bi" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/safe/cash{
-	pixel_y = 0
-	},
+/obj/structure/safe/cash,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/operations)
 "Bj" = (

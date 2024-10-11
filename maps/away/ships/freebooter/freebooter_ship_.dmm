@@ -105,8 +105,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -760,8 +759,7 @@
 /area/shuttle/freebooter_shuttle)
 "caS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
@@ -848,7 +846,6 @@
 "cCu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -1478,9 +1475,7 @@
 	icon_state = "lattice";
 	name = "lattice"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 2
-	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "fro" = (
@@ -1648,8 +1643,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2954,8 +2948,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3376,8 +3369,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallwayport)
@@ -3769,8 +3761,7 @@
 /area/ship/freebooter_ship/thruster2)
 "oIl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -4100,8 +4091,7 @@
 "pQc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4332,8 +4322,7 @@
 /area/ship/freebooter_ship/thruster1)
 "qHK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -4432,7 +4421,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "freebooter_thrust_in"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -4585,8 +4573,7 @@
 /area/shuttle/freebooter_shuttle)
 "rzB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -4710,8 +4697,7 @@
 "rMx" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -4931,8 +4917,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/bridge)
@@ -5635,8 +5620,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5758,7 +5742,6 @@
 	master_tag = "freebooter_port_2"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -5904,8 +5887,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "junker_bridge";
-	name = "blast door"
+	id = "junker_bridge"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -6473,8 +6455,7 @@
 	pixel_x = -1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10

@@ -836,7 +836,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	icon_state = "ore_glass"
 
-/obj/item/shapesand/attack() //can't be used to actually bludgeon things
+/obj/item/shapesand/attack(mob/living/target_mob, mob/living/user, target_zone) //can't be used to actually bludgeon things
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)

@@ -146,8 +146,16 @@
 /obj/item/clothing/head/helmet/pilot/scc
 	name = "conglomerate flight helmet"
 	desc = "A pilot helmet with the deep colors of the Stellar Corporate Conglomerate. The highlight is a navy blue, and the mounted visor a striking, opaque cyan. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
 	icon_state = "scc_pilot"
 	item_state = "scc_pilot"
+
+/obj/item/clothing/head/helmet/pilot/tcaf
+	name = "\improper TCAF flight helmet"
+	desc = "A pilot's helmet marked all over with the imagery of the Republic of Biesel, worn by the pilots of the Tau Ceti Armed Forces. It looks a little scuffed."
+	sprite_sheets = null // Can be filled in with unique species-specific sprites for races with snouts, see parent type. Keep null until sprites are implemented.
+	icon_state = "tcaf_pilot"
+	item_state = "tcaf_pilot"
 
 /obj/item/clothing/head/helmet/pilot/legion
 	name = "foreign legion flight helmet"

@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -1151,8 +1150,7 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1003;

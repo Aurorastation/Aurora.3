@@ -583,8 +583,7 @@
 /area/shuttle/mining_jack/engines)
 "hl" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -762,8 +761,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -794,8 +792,7 @@
 /area/mining_jack_outpost/smelter)
 "kR" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -980,8 +977,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1110,8 +1106,7 @@
 "pQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1232,7 +1227,6 @@
 /area/shuttle/mining_jack/engines)
 "sJ" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1310,8 +1304,7 @@
 /area/mining_jack_outpost/quarters)
 "ug" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1772,8 +1765,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "mining_jack_bridge";
 	name = "Bridge Shutters";
-	req_access = list(202);
-	req_one_access = null
+	req_access = list(202)
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -1809,8 +1801,7 @@
 /area/shuttle/mining_jack/engines)
 "Du" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2165,7 +2156,6 @@
 /area/mining_jack_outpost/hangar)
 "LK" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -2209,8 +2199,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2435,7 +2424,6 @@
 "SQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -2491,8 +2479,7 @@
 /area/shuttle/mining_jack/bridge)
 "UJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2623,7 +2610,6 @@
 /area/mining_jack_outpost/smelter)
 "Xq" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -2707,7 +2693,6 @@
 "YK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},

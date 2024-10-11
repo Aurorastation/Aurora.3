@@ -563,8 +563,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1067,8 +1066,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/floor_decal/industrial/warning{
@@ -1206,8 +1204,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1765,9 +1762,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/starboarddocking)
 "dqq" = (
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/orange,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "drX" = (
@@ -2047,8 +2042,7 @@
 /area/ship/iac_rescue_ship/starboarddocking)
 "egU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2356,8 +2350,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -2454,8 +2447,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/power/apc/super/west{
 	req_access = list(211)
@@ -2520,7 +2512,6 @@
 /area/shuttle/iac_shuttle)
 "eZa" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "iac_starboard_co2_out";
 	dir = 1
 	},
@@ -2999,7 +2990,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_command{
-	id_tag = null;
 	name = "Bridge";
 	req_access = list(211);
 	dir = 1
@@ -3110,8 +3100,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -3382,7 +3371,6 @@
 /area/ship/iac_rescue_ship/bridge)
 "gQH" = (
 /obj/machinery/door/airlock/glass_command{
-	id_tag = null;
 	name = "Bridge";
 	req_access = list(211);
 	dir = 1
@@ -3789,8 +3777,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer,
@@ -4167,8 +4154,7 @@
 /area/ship/iac_rescue_ship/engineering)
 "iDd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5706,8 +5692,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
@@ -5746,8 +5731,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -5777,7 +5761,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_command{
-	id_tag = null;
 	name = "Bridge";
 	req_access = list(211);
 	dir = 1
@@ -6322,7 +6305,6 @@
 /area/ship/iac_rescue_ship/engineering)
 "opV" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "iac_port_co2_out";
 	dir = 1
 	},
@@ -6559,8 +6541,7 @@
 /area/ship/iac_rescue_ship/portdocking)
 "oVD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -7748,8 +7729,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/portdocking)
@@ -9072,9 +9052,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/bridge)
 "vad" = (
@@ -9576,8 +9554,7 @@
 "wnA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4

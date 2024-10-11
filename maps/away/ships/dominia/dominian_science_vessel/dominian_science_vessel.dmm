@@ -51,9 +51,7 @@
 /turf/template_noop,
 /area/ship/dominian_science_vessel/armory)
 "alp" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "portext"
 	},
@@ -491,8 +489,7 @@
 /area/ship/dominian_science_vessel/center_hall)
 "bpq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -810,8 +807,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -853,8 +849,7 @@
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
@@ -1056,9 +1051,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "dnN" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "portext"
 	},
@@ -1370,8 +1363,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/table/steel,
 /obj/item/wrench{
@@ -1764,8 +1756,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -1827,8 +1818,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -2197,9 +2187,7 @@
 /turf/simulated/floor/wood,
 /area/ship/dominian_science_vessel/officer)
 "hcG" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "portext"
 	},
@@ -2228,8 +2216,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -2835,8 +2822,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2997,8 +2983,7 @@
 /area/ship/dominian_science_vessel/engineering)
 "jzp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/atmospherics)
@@ -3093,7 +3078,6 @@
 "kam" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 21;
 	name = "surgical sink"
 	},
@@ -3184,7 +3168,6 @@
 	name = "airlock_dominian_science_dock_port"
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 20;
 	pixel_x = -6
 	},
@@ -3403,9 +3386,7 @@
 "kXV" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/structure/table/steel,
-/obj/machinery/cell_charger{
-	pixel_y = 0
-	},
+/obj/machinery/cell_charger,
 /obj/item/blueprints,
 /obj/item/pen/drafting,
 /turf/simulated/floor/tiled/dark,
@@ -3733,8 +3714,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4251,8 +4231,7 @@
 /area/shuttle/dominian_science_shuttle)
 "oiZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4408,8 +4387,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -4591,8 +4569,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
@@ -4651,8 +4628,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -4707,8 +4683,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/armory)
@@ -4733,9 +4708,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "pNy" = (
-/obj/machinery/cryopod{
-	dir = 8
-	},
+/obj/machinery/cryopod,
 /obj/machinery/computer/cryopod{
 	pixel_x = 28;
 	pixel_y = -6
@@ -4904,8 +4877,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -5993,9 +5965,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
 "uDy" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "portext"
 	},
@@ -6026,8 +5996,7 @@
 /area/ship/dominian_science_vessel/atmospherics)
 "uGG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -6044,7 +6013,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	dir = 2;
 	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
@@ -7176,8 +7144,7 @@
 "xXN" = (
 /obj/machinery/door/window/northleft,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
