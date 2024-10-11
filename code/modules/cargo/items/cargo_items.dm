@@ -15,5 +15,10 @@
 	var/item_mul = 1
 
 /singleton/cargo_item/proc/get_adjusted_price()
-	//TODO: make this actually adjust the price
-	adjusted_price = price
+	var/return_price = price
+	for(var/category in SScargo.cargo_categories)
+		var/singleton/cargo_category/cc = SScargo.get_category_by_name(category)
+		if(cc)
+			return_price *= cc.price_modifier
+
+	adjusted_price = return_price

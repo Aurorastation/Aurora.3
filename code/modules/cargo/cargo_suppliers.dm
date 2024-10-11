@@ -1,7 +1,7 @@
 /singleton/cargo_supplier
 	var/short_name = "generic_supplier" //Short name of the cargo supplier
 	var/name = "Generic Supplies Ltd." //Long name of the cargo supplier
-	var/description = "The generic company, for generic supplies." //Description of the supplier
+	var/description = "You're not supposed to see this. File a bug report." //Description of the supplier
 	var/tag_line = "You're not supposed to see this." //Tag line of the supplier
 	var/shuttle_time = 100 //Time the shuttle takes to get to the supplier
 	var/shuttle_price = 100 //Price to call the shuttle
@@ -28,6 +28,7 @@
 		if(short_name in SSatlas.current_sector.cargo_price_coef)
 			final_coef = SSatlas.current_sector.cargo_price_coef[short_name] * price_modifier
 
+	log_subsystem_cargo("get_total_price_coefficient() called on suppliers '[name]' is multiplying original value [price_modifier] to [final_coef].")
 	return final_coef
 
 /singleton/cargo_supplier/generic_supplier
