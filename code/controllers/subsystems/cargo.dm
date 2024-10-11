@@ -107,19 +107,6 @@ SUBSYSTEM_DEF(cargo)
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
 		SScargo.cargo_suppliers[S.short_name] = S
 
-/*
-/singleton/cargo_supplier
-	var/short_name = "Generic" //Short name of the cargo supplier
-	var/name = "Generic Supplies Ltd." //Long name of the cargo supplier
-	var/description = "The generic company, for generic supplies." //Description of the supplier
-	var/tag_line = "Our favorite color is gray!" //Tag line of the supplier
-	var/shuttle_time = 0 //Time the shuttle takes to get to the supplier
-	var/shuttle_price = 0 //Price to call the shuttle
-	var/available = 1 //If the supplier is available
-	var/price_modifier = 1 //Price modifier for the supplier
-	var/list/items = list() //List of items of the supplier
-*/
-
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
 	log_subsystem_cargo("Loading cargo items.")
 	var/id = 1
@@ -140,6 +127,9 @@ SUBSYSTEM_DEF(cargo)
 				item_category.items = list()
 			item_category.items += I
 			log_subsystem_cargo("Inserted item '[I.name]' into category '[I.category]' with ID '[I.id]'.")
+		else
+			log_subsystem_cargo("Error: Unable to find category '[I.category]' for item '[I.name]. Skipping.")
+			continue
 
 		if (I.supplier && SScargo.cargo_suppliers[I.supplier])
 			var/singleton/cargo_supplier/item_supplier = SScargo.cargo_suppliers[I.supplier]
@@ -148,16 +138,9 @@ SUBSYSTEM_DEF(cargo)
 			item_supplier.items += I
 			I.supplier_data = item_supplier
 			log_subsystem_cargo("Inserted item '[I.name]' into supplier '[I.supplier]'.")
-
-		/*
 		else
-			if (!SScargo.cargo_categories[I.category])
-				log_subsystem_cargo("Warning: Creating missing category '[I.category]' for item '[I.name]'.")
-				var/singleton/cargo_category/new_category = new()
-				new_category.name = I.category
-				new_category.items = list(I) // Initialize the new category's item list with the current item
-				SScargo.cargo_categories[I.category] = new_category
-		*/
+			log_subsystem_cargo("Error: Unable to find supplier '[I.supplier]' for item '[I.name]. Skipping.")
+			continue
 
 	log_subsystem_cargo("Finished loading cargo items.")
 
@@ -193,18 +176,6 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/get_next_item_id()
 	last_item_id++
 	return last_item_id
-//Gets the items from a category
-
-/*
-/datum/controller/subsystem/cargo/proc/get_items_for_category(var/category)
-	var/singleton/cargo_category/cc = cargo_categories[category]
-	if(cc)
-		log_subsystem_cargo("get_item_list() called.")
-		return cc.get_item_list()
-	else
-		log_subsystem_cargo("Warning: get_item_list() called, but returned an empty list.")
-		return list()
-*/
 
 /datum/controller/subsystem/cargo/proc/get_supplier_data(var/supplier_short_name)
 	var/list/supplier_data = list()
@@ -226,17 +197,6 @@ SUBSYSTEM_DEF(cargo)
 	)
 
 	return supplier_data
-
-/*
-  short_name: string;
-  name: string;
-  description: string;
-  tag_line: string;
-  shuttle_time: number;
-  shuttle_price: number;
-  available: BooleanLike;
-  price_modifier: number;
-*/
 
 //Gets items for a category. To be used for cargo consoles.
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category_name)
@@ -279,14 +239,6 @@ SUBSYSTEM_DEF(cargo)
 		))
 
 	return category_list
-
-	/*
-	name: string;
-	display_name: string;
-	description: string;
-	icon: string;
-	price_modifier: number;
-	*/
 
 //Get category names
 /datum/controller/subsystem/cargo/proc/get_category_by_name(var/name)
@@ -435,7 +387,7 @@ SUBSYSTEM_DEF(cargo)
 	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/price = 0
 	for(var/supplier in suppliers)
-		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+		var/singleton/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
 			price += cs.shuttle_price
 	return price
@@ -445,7 +397,7 @@ SUBSYSTEM_DEF(cargo)
 	var/list/suppliers = get_order_suppliers_by_status(status)
 	var/time = 0
 	for(var/supplier in suppliers)
-		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+		var/singleton/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
 			time += cs.shuttle_time
 	return time
