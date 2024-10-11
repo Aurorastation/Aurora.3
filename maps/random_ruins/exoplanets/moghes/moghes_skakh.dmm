@@ -86,9 +86,7 @@
 	},
 /area/moghes_skakh)
 "lQ" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/yellow,
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},

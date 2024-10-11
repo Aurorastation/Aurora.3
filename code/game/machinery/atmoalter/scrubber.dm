@@ -146,7 +146,7 @@
 		. = TRUE
 		update_icon()
 	if(action=="setVolume")
-		volume_rate = Clamp(text2num(params["targetVolume"]), minrate, maxrate)
+		volume_rate = clamp(text2num(params["targetVolume"]), minrate, maxrate)
 		. = TRUE
 		update_icon()
 

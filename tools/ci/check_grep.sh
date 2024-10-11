@@ -153,6 +153,51 @@ else
     echo "PASS: No builtin calls to the text proc were found" >> code_error.log
 fi
 
+# Check that only the expected amount of raw ref proc calls are present
+echo "Verifying no raw ref proc calls are being added" >> code_error.log
+RAW_REF_BUILTIN_PROCS=`grep -r --include \*.dm -P --regexp='[^\w_]ref[\(\[]' | wc -l`
+if [[ $RAW_REF_BUILTIN_PROCS -ne 3 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found new raw ref proc calls in code" >> code_error.log
+else
+    echo "PASS: Only the expected number of raw ref proc calls were found" >> code_error.log
+fi
+
+# Check that the text proc is not being used
+echo "Verifying no built in text proc calls are being added" >> code_error.log
+BUILTIN_TEXT_PROC_CALLS=`grep -r --include \*.dm -P --regexp='[^\w_\/\.]text\('`
+if [[ $BUILTIN_TEXT_PROC_CALLS != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found builtin calls to the text proc, use string interpolation instead:" >> code_error.log
+	echo $BUILTIN_TEXT_PROC_CALLS >> code_error.log
+else
+    echo "PASS: No builtin calls to the text proc were found" >> code_error.log
+fi
+
+##########################################################
+#	Proc signatures are respected, for general procs
+##########################################################
+echo "Verifying proc signatures are respected" >> code_error.log
+
+SIGNATURES_TO_LOOK_FOR='\/attackby\((?!\))(?!obj\/item\/attacking_item,\s*mob\/user(?!,(?!\s*params))).*\)'
+
+# Append the signatures like this after the first one: SIGNATURES_TO_LOOK_FOR+='|/proc/ref2'
+SIGNATURES_TO_LOOK_FOR+='|\/attack\((?!\))(?!mob\/living\/target_mob,\s*mob\/living\/user(?!,(?!\s*target_zone))).*\)'
+
+PROC_SIGNATURES_NOT_RESPECTED=`grep -r --include \*.dm -P --regexp=$SIGNATURES_TO_LOOK_FOR`
+PROC_SIGNATURES_NOT_RESPECTED_COUNT=`echo -n $PROC_SIGNATURES_NOT_RESPECTED | wc -l`
+if [[ $PROC_SIGNATURES_NOT_RESPECTED_COUNT -ne 0 ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Proc signatures are not respected in code!" >> code_error.log
+	echo $PROC_SIGNATURES_NOT_RESPECTED >> code_error.log
+else
+    echo "PASS: All proc signatures are respected in code" >> code_error.log
+fi
+
+
+#######################################
+#	Output the result of the checks
+#######################################
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

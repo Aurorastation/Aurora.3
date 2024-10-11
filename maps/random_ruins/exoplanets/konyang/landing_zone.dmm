@@ -3396,7 +3396,6 @@
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "lz_air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3682,7 +3681,6 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "Tm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "lz_co2_out";
 	dir = 1
 	},
@@ -3904,10 +3902,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
-"Wa" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
-/area/konyang_landing_zone)
 "WB" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
@@ -5339,7 +5333,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 xT
 PD
 dK
@@ -5396,7 +5390,7 @@ zh
 qc
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -5453,7 +5447,7 @@ zh
 zh
 UB
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -5510,7 +5504,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -5567,7 +5561,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 MK
 dK
@@ -5624,7 +5618,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -5681,7 +5675,7 @@ zh
 zh
 UB
 dK
-Wa
+gk
 jr
 Ql
 dK
@@ -5738,7 +5732,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 Ql
 dK
@@ -5795,7 +5789,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 Ql
 dK
@@ -5852,7 +5846,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -5909,7 +5903,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 Oe
 zA
 dK
@@ -5966,7 +5960,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 Oe
 zA
 dK
@@ -6023,7 +6017,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 Oe
 zA
 dK
@@ -6080,7 +6074,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -6137,7 +6131,7 @@ zh
 zh
 wj
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -6194,7 +6188,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -6251,7 +6245,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -6308,7 +6302,7 @@ zh
 qc
 Rh
 dK
-Wa
+gk
 jr
 zA
 dK
@@ -6365,7 +6359,7 @@ zh
 zh
 wj
 dK
-Wa
+gk
 jr
 MK
 Mf
@@ -6422,7 +6416,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 Az
 mi
@@ -6479,7 +6473,7 @@ zh
 zh
 Rh
 dK
-Wa
+gk
 jr
 ND
 KV
@@ -6536,7 +6530,7 @@ cw
 Ly
 tc
 dK
-Wa
+gk
 jr
 ND
 KV
@@ -6593,7 +6587,7 @@ gB
 gB
 gB
 dK
-Wa
+gk
 jr
 KV
 KV

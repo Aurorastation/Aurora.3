@@ -17,6 +17,8 @@
 	slot_flags = SLOT_BELT
 	var/name_label
 	var/spent = FALSE
+	/// Define to false if overlays aren't wanted, such as if the sprite isn't designed for them.
+	var/has_overlays = TRUE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
@@ -107,13 +109,13 @@
 	if(!proximity)
 		return
 
-/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(is_open_container())
 		to_chat(user,SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
 
 	else
-		inject(M, user, M.Adjacent(user))
+		inject(target_mob, user, target_mob.Adjacent(user))
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
@@ -138,18 +140,19 @@
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	ClearOverlays()
-	if(!is_open_container())
-		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
-		AddOverlays(backing_overlay)
-
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
 
-	if(reagents.total_volume)
-		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
-		reagent_overlay.color = reagents.get_color()
-		AddOverlays(reagent_overlay)
+	if(has_overlays)
+		ClearOverlays()
+		if(!is_open_container())
+			var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
+			AddOverlays(backing_overlay)
+		if(reagents.total_volume)
+			var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
+			reagent_overlay.color = reagents.get_color()
+			AddOverlays(reagent_overlay)
+
 	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -217,10 +220,10 @@
 /obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
-	icon_state = "anthaler1"
+	icon_state = "anthaler"
 	atom_flags = 0
 	volume = 10
-	var/empty_state = "anthaler0"
+	has_overlays = FALSE
 
 /obj/item/reagent_containers/inhaler/phoron_special/Initialize()
 	. =..()

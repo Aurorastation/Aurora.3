@@ -23,14 +23,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
-"aad" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/glass_security{
-	dir = 1
-	},
-/obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "aae" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -46,9 +38,7 @@
 	name = "VR Suite";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "aag" = (
 /obj/effect/decal/fake_object/light_source{
@@ -76,14 +66,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"aai" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/escort)
 "aaj" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 1
@@ -91,22 +73,6 @@
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
-	},
-/area/cruise/escort)
-"aak" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/escort)
-"aal" = (
-/obj/machinery/door/airlock/centcom{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
 "aas" = (
@@ -143,9 +109,7 @@
 	},
 /area/cruise/jungle)
 "aaR" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "aaU" = (
 /obj/machinery/door/firedoor,
@@ -189,9 +153,7 @@
 /area/cruise/main_bar)
 "abL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "acC" = (
 /obj/machinery/button/remote/blast_door{
@@ -199,9 +161,7 @@
 	pixel_x = 22;
 	pixel_y = -23
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "adi" = (
 /obj/machinery/light/small,
@@ -221,9 +181,7 @@
 "aek" = (
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "aet" = (
 /obj/structure/closet/athletic_mixed,
@@ -374,9 +332,7 @@
 	icon_state = "purple-1";
 	name = "ruptured canister"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "akd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -427,9 +383,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "amx" = (
 /obj/machinery/door/airlock/centcom{
@@ -447,9 +401,7 @@
 	icon_state = "open";
 	opacity = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "anj" = (
 /obj/machinery/door/window/southright,
@@ -493,9 +445,7 @@
 /area/cruise/virtual_reality)
 "apD" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "apU" = (
 /obj/structure/lattice,
@@ -803,9 +753,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "aBo" = (
 /obj/structure/toilet{
@@ -939,9 +887,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "aET" = (
 /obj/effect/floor_decal/corner/blue{
@@ -1127,9 +1073,7 @@
 /obj/structure/flora/grass/jungle{
 	pixel_y = 20
 	},
-/obj/structure/flora/rock/pile{
-	anchored = 1
-	},
+/obj/structure/flora/rock/pile,
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
@@ -1158,7 +1102,6 @@
 "aMt" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -1396,9 +1339,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "aVo" = (
 /obj/machinery/telecomms/server/presets/command,
@@ -1562,9 +1503,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "bbl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1791,9 +1730,7 @@
 	dir = 1
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "biv" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -1809,9 +1746,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "bjA" = (
 /obj/item/device/radio/intercom/east,
@@ -1934,9 +1869,7 @@
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "bog" = (
 /obj/random/pottedplant,
@@ -2026,16 +1959,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
-"bqt" = (
-/obj/structure/flora/tree/jungle{
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "bqz" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -2074,9 +1997,7 @@
 /obj/random/arcade,
 /obj/random/arcade,
 /obj/random/arcade,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "brk" = (
 /obj/machinery/bluespace_beacon,
@@ -2186,9 +2107,7 @@
 /area/cruise/fore_s)
 "bwx" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_p)
 "bwy" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -2280,9 +2199,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "bAB" = (
 /obj/structure/railing/mapped{
@@ -2574,9 +2491,7 @@
 /area/cruise/pool/sauna2)
 "bPI" = (
 /obj/structure/table/reinforced/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "bPJ" = (
 /obj/structure/railing/mapped{
@@ -2627,9 +2542,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "bRV" = (
 /obj/machinery/door/firedoor,
@@ -2810,9 +2723,7 @@
 /area/cruise/escort)
 "cei" = (
 /obj/machinery/smartfridge/secure,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "ceB" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -2936,9 +2847,7 @@
 	},
 /area/cruise/security)
 "chC" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "ciB" = (
 /turf/unsimulated/beach/sand{
@@ -3063,9 +2972,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "coV" = (
 /obj/structure/railing/mapped{
@@ -3077,9 +2984,7 @@
 /area/cruise/hangar)
 "cpe" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "cpr" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -3177,9 +3082,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "crT" = (
 /obj/structure/railing/mapped{
@@ -3217,9 +3120,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "cua" = (
 /obj/machinery/light/small{
@@ -3460,9 +3361,7 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom/south,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "cFP" = (
 /obj/item/device/radio/intercom/west,
@@ -3489,9 +3388,7 @@
 /area/cruise/virtual_reality)
 "cGI" = (
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "cGS" = (
 /obj/structure/window/reinforced,
@@ -3509,9 +3406,7 @@
 	pixel_y = -3
 	},
 /obj/item/device/megaphone/stagemicrophone,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "cIz" = (
 /obj/structure/table/wood,
@@ -3527,9 +3422,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "cIW" = (
 /obj/machinery/light{
@@ -3546,7 +3439,6 @@
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
 	name = "starslinger thruster";
-	opacity = 0;
 	pixel_y = -128
 	},
 /turf/template_noop,
@@ -3641,9 +3533,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/aft_s)
 "cMg" = (
 /obj/structure/railing/mapped,
@@ -3678,9 +3568,7 @@
 	icon_state = "open";
 	opacity = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "cNV" = (
 /obj/structure/bed/stool/chair/sofa/right/red,
@@ -3748,7 +3636,7 @@
 "cPE" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle{
-	icon_state = "tree2";
+	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -3802,9 +3690,7 @@
 	name = "Centerline Entertainment Suites"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "cSb" = (
 /obj/structure/railing/mapped{
@@ -3824,9 +3710,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "cSx" = (
 /obj/structure/closet/secure_closet/brig{
@@ -3877,9 +3761,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "cVN" = (
 /obj/structure/closet/walllocker/firecloset{
@@ -4010,9 +3892,7 @@
 	},
 /area/cruise/pool)
 "daI" = (
-/obj/structure/flora/rock/pile{
-	anchored = 1
-	},
+/obj/structure/flora/rock/pile,
 /obj/structure/railing/mapped{
 	color = "#6e472b"
 	},
@@ -4071,9 +3951,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "dds" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4114,9 +3992,7 @@
 	name = "elevator button";
 	pixel_y = -22
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "dek" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -4228,9 +4104,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "div" = (
 /obj/machinery/vending/zora,
@@ -4263,7 +4137,6 @@
 /area/cruise/hangar)
 "dje" = (
 /obj/structure/flora/rock/pile{
-	anchored = 1;
 	icon_state = "lavarocks2"
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
@@ -4296,9 +4169,7 @@
 /area/cruise/beach)
 "dkH" = (
 /obj/structure/sign/flag/idris/large/north,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "dlh" = (
 /obj/machinery/hologram/holopad,
@@ -4317,7 +4188,6 @@
 /area/template_noop)
 "dlE" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	desc = "A big, sad derelict hovercar!";
 	icon = 'icons/effects/64x64.dmi';
 	icon_state = "derelict_hovercar";
@@ -4434,9 +4304,7 @@
 /area/cruise/pool)
 "dsS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "dty" = (
 /obj/item/tape_roll,
@@ -4487,9 +4355,7 @@
 /area/cruise/beach)
 "dxi" = (
 /obj/structure/closet/crate/freezer/rations,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "dxK" = (
 /turf/unsimulated/floor{
@@ -4524,9 +4390,7 @@
 /area/cruise/library)
 "dxW" = (
 /obj/structure/bed/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "dyf" = (
 /obj/effect/floor_decal/corner/blue{
@@ -4557,9 +4421,7 @@
 /area/cruise/hydroponics)
 "dzo" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "dzw" = (
 /turf/simulated/floor/reinforced,
@@ -4578,9 +4440,7 @@
 /area/cruise/pool/sauna3)
 "dzW" = (
 /obj/structure/closet/crate/loot,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "dAe" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -4612,22 +4472,8 @@
 	name = "Beach"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
-"dBm" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2";
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dBx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/unsimulated/floor{
@@ -4675,9 +4521,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "dEu" = (
 /obj/structure/table/standard,
@@ -4717,9 +4561,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "dFH" = (
 /obj/structure/flora/grass/jungle,
@@ -4802,9 +4644,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "dJH" = (
 /obj/structure/bed/stool/padded/red,
@@ -4832,9 +4672,7 @@
 	name = "Coalitioner retrofitted powerloader"
 	},
 /obj/machinery/mech_recharger,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "dMa" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -4904,9 +4742,7 @@
 	dir = 1;
 	id = "private_office"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "dSf" = (
 /obj/machinery/door/firedoor,
@@ -4922,9 +4758,7 @@
 	name = "Secure Storage";
 	req_access = list(101)
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "dTa" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -4941,9 +4775,7 @@
 	},
 /area/cruise/hangar)
 "dUV" = (
-/obj/structure/flora/rock{
-	anchored = 1
-	},
+/obj/structure/flora/rock,
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
@@ -5006,9 +4838,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/clothing/head/cone,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "dXx" = (
 /obj/structure/railing/mapped{
@@ -5043,9 +4873,7 @@
 	},
 /area/cruise/fore)
 "dYf" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_p)
 "dYl" = (
 /obj/structure/table/rack,
@@ -5131,9 +4959,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "efG" = (
 /obj/structure/bed/stool/chair/wood,
@@ -5145,9 +4971,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "egl" = (
 /obj/structure/railing/mapped{
@@ -5181,9 +5005,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "ehQ" = (
 /turf/unsimulated/floor{
@@ -5323,9 +5145,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced/crescent,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "enw" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -5420,9 +5240,7 @@
 "era" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "erg" = (
 /obj/structure/flora/grass/jungle{
@@ -5586,9 +5404,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "ewg" = (
 /obj/effect/floor_decal/corner/blue{
@@ -5649,9 +5465,7 @@
 /area/cruise/medical)
 "ext" = (
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "exy" = (
 /obj/machinery/reagentgrinder{
@@ -5831,9 +5645,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -24
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "eFF" = (
 /obj/effect/floor_decal/corner/blue{
@@ -5902,11 +5714,6 @@
 	icon_state = "freezer"
 	},
 /area/cruise/washroom_aft)
-"eKe" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/main_bar)
 "eKq" = (
 /obj/structure/flora/grass/jungle{
 	icon_state = "bushb2";
@@ -5992,9 +5799,7 @@
 /area/cruise/dining_hall)
 "eNY" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "eOl" = (
 /obj/structure/railing/mapped,
@@ -6089,11 +5894,6 @@
 	icon_state = "carpet"
 	},
 /area/cruise/security)
-"eVv" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/template_noop)
 "eVC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -6118,9 +5918,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "eWe" = (
 /obj/structure/bed/stool/padded/red,
@@ -6135,9 +5933,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "eWp" = (
 /obj/structure/railing/mapped{
@@ -6276,9 +6072,7 @@
 "fbU" = (
 /obj/structure/closet/emcloset,
 /obj/structure/closet/emcloset,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "fcd" = (
 /obj/structure/window/reinforced/crescent{
@@ -6298,9 +6092,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "fcA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6353,9 +6145,7 @@
 	dir = 1
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "feC" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -6401,9 +6191,7 @@
 /obj/item/flame/candle{
 	pixel_x = -5
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "ffL" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -6448,9 +6236,7 @@
 "fgV" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "fhF" = (
 /obj/machinery/door/firedoor,
@@ -6468,9 +6254,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "fij" = (
 /obj/effect/engine_exhaust{
@@ -6600,9 +6384,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fmf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6701,9 +6483,7 @@
 /area/cruise/jungle)
 "fqV" = (
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "frp" = (
 /obj/structure/flora/grass/jungle{
@@ -6730,8 +6510,7 @@
 	},
 /area/cruise/central)
 "fsh" = (
-/obj/structure/flora/tree/jungle/small{
-	},
+/obj/structure/flora/tree/jungle/small,
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
@@ -6826,9 +6605,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fvC" = (
 /obj/machinery/light{
@@ -6872,9 +6649,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "fxO" = (
 /obj/effect/decal/fake_object{
@@ -6911,9 +6686,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "fAw" = (
 /obj/structure/railing/mapped,
@@ -7041,9 +6814,7 @@
 /area/cruise/main_bar)
 "fDY" = (
 /obj/machinery/light,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "fEy" = (
 /obj/item/towel_flat{
@@ -7159,9 +6930,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "fIx" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -7182,9 +6951,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "fJY" = (
 /obj/structure/flora/grass/jungle{
@@ -7214,9 +6981,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fKG" = (
 /obj/machinery/door/firedoor,
@@ -7324,19 +7089,12 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"fQJ" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/main_bar/aft)
 "fQQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/dropper,
@@ -7358,9 +7116,7 @@
 	icon_state = "1-2";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fRt" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -7430,9 +7186,7 @@
 "fTa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/cigarette,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/aft_s)
 "fTq" = (
 /obj/structure/sign/flag/coalition,
@@ -7518,9 +7272,7 @@
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "fXe" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -7557,15 +7309,11 @@
 	icon_state = "1-2";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fXP" = (
 /obj/item/device/radio/intercom/north,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "fYO" = (
 /turf/unsimulated/beach/coastline{
@@ -7607,24 +7355,8 @@
 /area/cruise/pool)
 "gbh" = (
 /obj/machinery/washing_machine,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
-"gbk" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	desc = "Gloomy, depressing grass...";
-	icon_state = "grass_stalk_dark";
-	name = "gloomy grass"
-	},
-/area/cruise/virtual_reality)
 "gbr" = (
 /obj/machinery/light{
 	dir = 1
@@ -7646,9 +7378,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "gbQ" = (
 /obj/structure/railing/mapped{
@@ -7774,9 +7504,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "gfJ" = (
 /mob/living/simple_animal/cosmozoan,
@@ -7805,9 +7533,7 @@
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "ggH" = (
 /obj/structure/table/rack,
@@ -7889,9 +7615,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "gjp" = (
 /obj/structure/window/reinforced/crescent{
@@ -7994,9 +7718,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-2"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "gmY" = (
 /obj/machinery/sleeper{
@@ -8064,9 +7786,7 @@
 /area/cruise/jungle)
 "god" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "gox" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8075,9 +7795,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "goJ" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -8293,15 +8011,11 @@
 	},
 /area/cruise/beach)
 "gwk" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/security)
 "gxb" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "gxB" = (
 /obj/structure/flora/grass/jungle{
@@ -8370,24 +8084,11 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_p)
 "gBq" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
-"gBO" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2";
-	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
@@ -8414,9 +8115,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "gDZ" = (
 /turf/unsimulated/floor{
@@ -8544,11 +8243,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
-"gJa" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/main_bar/aft)
 "gJx" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -8683,9 +8377,7 @@
 /area/cruise/centerline)
 "gMP" = (
 /obj/machinery/mech_recharger,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "gMU" = (
 /obj/machinery/telecomms/processor/preset_one,
@@ -8738,9 +8430,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "gPK" = (
 /obj/item/modular_computer/console/preset/security{
@@ -8756,9 +8446,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "gQp" = (
 /obj/item/towel,
@@ -8840,8 +8528,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
 	icon_state = "sign_beach";
-	name = "Beach Dome directional indicator";
-	pixel_y = 0
+	name = "Beach Dome directional indicator"
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/beach)
@@ -8883,20 +8570,13 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/library)
-"gWM" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/template_noop)
 "gWQ" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "gXu" = (
 /obj/machinery/light,
@@ -9010,16 +8690,6 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
-"hbr" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
-	},
-/turf/unsimulated/floor{
-	desc = "Gloomy, depressing grass...";
-	icon_state = "grass_stalk_dark";
-	name = "gloomy grass"
-	},
-/area/cruise/virtual_reality)
 "hbv" = (
 /obj/structure/table/wood,
 /obj/item/flame/lighter/zippo/gold{
@@ -9067,9 +8737,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "hdk" = (
 /obj/structure/table/stone/marble,
@@ -9112,9 +8780,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "hfT" = (
 /turf/unsimulated/beach/sand{
@@ -9215,9 +8881,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "hlV" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -9369,9 +9033,7 @@
 /obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/item/paper/fluff/idris_cruise/medal_of_valor,
 /obj/structure/table/standard,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "hrv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -9425,9 +9087,7 @@
 /obj/structure/window/reinforced/polarized{
 	id = "private_office"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "hto" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -9582,9 +9242,7 @@
 	},
 /area/cruise/arcade)
 "hAl" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "hAn" = (
 /obj/machinery/light{
@@ -9867,16 +9525,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cruise/e_supplies)
-"hQs" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2";
-	},
-/turf/unsimulated/floor{
-	desc = "Gloomy, depressing grass...";
-	icon_state = "grass_stalk_dark";
-	name = "gloomy grass"
-	},
-/area/cruise/virtual_reality)
 "hRm" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -9970,9 +9618,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "hVw" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -10010,9 +9656,7 @@
 /area/cruise/virtual_reality)
 "hXh" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "hXy" = (
 /obj/machinery/computer/cryopod{
@@ -10032,8 +9676,7 @@
 	pixel_x = 13
 	},
 /turf/unsimulated/floor{
-	dir = 1;
-	icon_state = "tiled_preview"
+	dir = 1
 	},
 /area/cruise/virtual_reality)
 "hXW" = (
@@ -10097,9 +9740,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "ibE" = (
 /obj/structure/railing/mapped{
@@ -10120,16 +9761,12 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "icW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/coffee,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/aft_s)
 "ida" = (
 /obj/machinery/chemical_dispenser,
@@ -10168,9 +9805,7 @@
 	name = "Pool"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "ieK" = (
 /obj/effect/decal/fake_object{
@@ -10195,7 +9830,7 @@
 /area/cruise/main_bar/aft)
 "ieV" = (
 /obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2";
+	icon_state = "tree2"
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
@@ -10254,9 +9889,7 @@
 /obj/structure/window/reinforced/polarized{
 	id = "reading_room"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "igM" = (
 /obj/machinery/door/firedoor,
@@ -10272,9 +9905,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "iiE" = (
 /turf/unsimulated/floor{
@@ -10386,20 +10017,8 @@
 "ilW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
-"imp" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
-	},
-/turf/unsimulated/floor{
-	desc = "Gloomy, depressing grass...";
-	icon_state = "grass_stalk_dark";
-	name = "gloomy grass"
-	},
-/area/cruise/virtual_reality)
 "imw" = (
 /obj/machinery/power/solar/fake,
 /obj/effect/floor_decal/industrial/warning{
@@ -10487,9 +10106,7 @@
 /area/cruise/main_bar)
 "ioT" = (
 /obj/machinery/hologram/holopad,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "ipv" = (
 /obj/structure/table/standard,
@@ -10588,7 +10205,7 @@
 /area/cruise/fore)
 "isP" = (
 /obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
+	icon_state = "tree3"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
@@ -10617,9 +10234,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-13"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "iue" = (
 /obj/item/storage/firstaid/trauma,
@@ -10654,9 +10269,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "iuV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -10699,9 +10312,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-7"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "iwM" = (
 /obj/machinery/light{
@@ -10829,9 +10440,7 @@
 	pixel_x = 7;
 	pixel_y = 16
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "iCX" = (
 /obj/structure/bed/stool/chair/wood{
@@ -10851,9 +10460,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "iFe" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
@@ -10915,9 +10522,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-16"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "iJb" = (
 /obj/structure/table/wood,
@@ -10943,9 +10548,7 @@
 	icon_state = "1-2";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "iKg" = (
 /obj/structure/railing/mapped,
@@ -10999,15 +10602,12 @@
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
 	name = "starslinger thruster";
-	opacity = 0;
 	pixel_y = -128
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "iNp" = (
 /obj/structure/table/standard,
@@ -11083,9 +10683,7 @@
 	dir = 1
 	},
 /obj/structure/tank_wall/carbon_dioxide,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "iPq" = (
 /obj/effect/floor_decal/corner/blue{
@@ -11180,9 +10778,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "iTi" = (
 /obj/effect/floor_decal/corner/blue{
@@ -11399,9 +10995,7 @@
 	dir = 1;
 	id = "private_office"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "jbm" = (
 /obj/structure/window/reinforced/crescent{
@@ -11419,9 +11013,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "jct" = (
 /obj/machinery/computer/robotics{
@@ -11463,9 +11055,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "jdi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -11519,16 +11109,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "jfO" = (
 /obj/random/pottedplant,
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "jgm" = (
 /obj/effect/decal/fake_object{
@@ -11673,9 +11259,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "jli" = (
 /obj/structure/closet/emcloset,
@@ -11764,7 +11348,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
@@ -11786,9 +11369,7 @@
 	icon_state = "intact-scrubbers";
 	name = "pipe"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "jqa" = (
 /obj/structure/bed/stool/chair/remote/human,
@@ -11841,11 +11422,9 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
@@ -11977,9 +11556,7 @@
 	dir = 1;
 	name = "Main Bar Suite Entry"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "jxS" = (
 /obj/machinery/door/airlock/glass{
@@ -11993,9 +11570,7 @@
 /area/cruise/dining_hall)
 "jyd" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/central)
 "jyn" = (
 /obj/structure{
@@ -12004,15 +11579,12 @@
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
 	name = "starslinger thruster";
-	opacity = 0;
 	pixel_y = -128
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "jzd" = (
 /turf/unsimulated/floor{
@@ -12070,9 +11642,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "jBz" = (
 /obj/machinery/recharge_station,
@@ -12134,9 +11704,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "jJg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -12187,9 +11755,7 @@
 	name = "Main Bar Suite Entry"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "jMW" = (
 /obj/structure/railing/mapped{
@@ -12262,9 +11828,7 @@
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "jQV" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -12295,9 +11859,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_s)
 "jSa" = (
 /obj/structure/window/reinforced{
@@ -12428,9 +11990,7 @@
 "jXQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "jYi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -12546,9 +12106,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "kdk" = (
 /obj/machinery/door/airlock{
@@ -12599,9 +12157,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "kfl" = (
 /obj/machinery/cryopod,
@@ -12683,9 +12239,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "kjL" = (
 /obj/structure/table/stone/marble,
@@ -12752,9 +12306,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "klH" = (
 /obj/machinery/door/firedoor,
@@ -12919,19 +12471,6 @@
 "kpO" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/hydroponics)
-"kpV" = (
-/obj/effect/floor_decal/spline/fancy{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/main_bar)
-"kqe" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/template_noop)
 "kqC" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -13010,21 +12549,6 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/aft_p)
-"kup" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "kuq" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -13039,7 +12563,7 @@
 /area/cruise/beach)
 "kuu" = (
 /obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2";
+	icon_state = "tree2"
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
@@ -13119,9 +12643,7 @@
 /area/cruise/main_bar)
 "kvJ" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "kvO" = (
 /obj/structure/closet/emcloset,
@@ -13137,9 +12659,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "kyu" = (
 /obj/machinery/light/small,
@@ -13233,9 +12753,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "kCw" = (
 /obj/structure/table/rack,
@@ -13340,9 +12858,7 @@
 /area/cruise/virtual_reality)
 "kGs" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "kGH" = (
 /obj/machinery/telecomms/server/presets/security,
@@ -13517,9 +13033,7 @@
 "kPk" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "kPB" = (
 /turf/template_noop,
@@ -13527,9 +13041,7 @@
 "kQc" = (
 /obj/structure/railing/mapped,
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "kQi" = (
 /obj/structure/curtain/black{
@@ -13555,9 +13067,7 @@
 /area/cruise/pool)
 "kQx" = (
 /obj/structure/table/rack,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "kQz" = (
 /obj/structure/railing/mapped,
@@ -13720,9 +13230,7 @@
 /area/cruise/beach)
 "kXA" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "kYm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -13791,8 +13299,7 @@
 	pixel_x = -14
 	},
 /turf/unsimulated/floor{
-	dir = 1;
-	icon_state = "tiled_preview"
+	dir = 1
 	},
 /area/cruise/virtual_reality)
 "lbj" = (
@@ -13878,9 +13385,7 @@
 /area/cruise/jungle)
 "ldq" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "leB" = (
 /turf/unsimulated/floor{
@@ -14008,9 +13513,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "ljm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -14061,17 +13564,13 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "llz" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "llM" = (
 /obj/effect/decal/fake_object{
@@ -14090,9 +13589,7 @@
 	name = "VR Suite";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "lnT" = (
 /obj/structure/railing/mapped,
@@ -14130,28 +13627,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
-"lpP" = (
-/obj/structure/flora/tree/jungle/small{
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "lpS" = (
 /obj/structure/flora/tree/jungle/small{
 	desc = "A lush and healthy bush.";
@@ -14227,9 +13704,7 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/hangar)
 "lux" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "luH" = (
 /obj/structure/bed/roller,
@@ -14263,9 +13738,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "lvA" = (
 /obj/structure/closet/crate/bin,
@@ -14550,9 +14023,7 @@
 "lDf" = (
 /obj/structure/bed/stool/padded/red,
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "lDu" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -14600,8 +14071,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
 	icon_state = "sign_beach";
-	name = "Beach Dome directional indicator";
-	pixel_y = 0
+	name = "Beach Dome directional indicator"
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/pool)
@@ -14710,7 +14180,6 @@
 /area/cruise/beach)
 "lJJ" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
@@ -14722,9 +14191,7 @@
 /area/cruise/jungle)
 "lJU" = (
 /obj/machinery/recharge_station,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "lKb" = (
 /turf/simulated/floor/tiled/ramp{
@@ -14778,9 +14245,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "lMW" = (
 /turf/simulated/wall/shuttle/idris,
@@ -14822,9 +14287,7 @@
 "lNp" = (
 /obj/machinery/computer/arcade/battle,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "lNz" = (
 /obj/machinery/status_display,
@@ -15009,9 +14472,7 @@
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "lTe" = (
-/obj/structure/flora/rock{
-	anchored = 1
-	},
+/obj/structure/flora/rock,
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon_state = "asteroid";
@@ -15129,9 +14590,7 @@
 	pixel_y = 6
 	},
 /obj/structure/table/stone/marble,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "lXU" = (
 /obj/effect/decal/fake_object{
@@ -15231,9 +14690,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "mes" = (
 /obj/structure/sign/goldenplaque{
@@ -15357,9 +14814,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "mjc" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -15460,9 +14915,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/dinnerware/plastic,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "mmt" = (
 /obj/machinery/light{
@@ -15690,9 +15143,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "myB" = (
 /obj/item/clothing/under/rank/security/idris/idrissec/alt,
@@ -15862,18 +15313,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "mEq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "mEF" = (
 /obj/structure/flora/grass/jungle{
@@ -15906,9 +15353,7 @@
 /area/cruise/beach_cave)
 "mFr" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "mFL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -16056,11 +15501,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
-"mNt" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/escort)
 "mNx" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive arrow connected to the adjacent sign.";
@@ -16073,9 +15513,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "mOa" = (
 /obj/structure/bed/stool/padded/red,
@@ -16169,16 +15607,6 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool)
-"mOx" = (
-/obj/structure/flora/tree/jungle/small{
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "mOC" = (
 /obj/structure/bed/stool/chair/remote/human,
 /turf/simulated/floor/bluegrid,
@@ -16233,9 +15661,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "mPU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -16266,9 +15692,7 @@
 /area/cruise/beach)
 "mRr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "mRD" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
@@ -16385,9 +15809,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "mXr" = (
 /obj/structure/window/reinforced/crescent{
@@ -16417,9 +15839,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "mXZ" = (
 /obj/structure/railing/mapped{
@@ -16430,7 +15850,7 @@
 /area/cruise/jungle)
 "mYa" = (
 /obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
+	icon_state = "tree3"
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
@@ -16451,8 +15871,7 @@
 /area/cruise/security)
 "mZW" = (
 /obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle{
-	},
+/obj/structure/flora/tree/jungle,
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
@@ -16488,9 +15907,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "nbP" = (
 /obj/structure/table/reinforced,
@@ -16604,9 +16021,7 @@
 	name = "Secure Storage";
 	req_access = list(101)
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "ngO" = (
 /obj/effect/floor_decal/corner/blue{
@@ -16712,11 +16127,6 @@
 	name = "extranet"
 	},
 /area/cruise/virtual_reality)
-"noJ" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/virtual_reality)
 "noU" = (
 /turf/template_noop,
 /area/cruise/escort)
@@ -16759,12 +16169,6 @@
 	icon_state = "white"
 	},
 /area/cruise/pool)
-"nqY" = (
-/obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "carpet"
-	},
-/area/cruise/centerline)
 "nrB" = (
 /turf/unsimulated/beach/coastline{
 	icon = 'icons/misc/beach.dmi';
@@ -16870,9 +16274,7 @@
 	desc = "A sleek, modern combat exosuit. It's Solarian! Run!";
 	name = "solarian combat exosuit"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "nxB" = (
 /obj/structure/flora/tree/jungle{
@@ -16990,9 +16392,7 @@
 	icon_state = "1-2";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "nAc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -17023,9 +16423,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "nBB" = (
 /obj/effect/decal/fake_object{
@@ -17170,18 +16568,14 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "nJp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "nJz" = (
 /obj/machinery/status_display,
@@ -17227,9 +16621,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool/sauna1)
 "nLx" = (
 /turf/unsimulated/floor{
@@ -17249,9 +16641,7 @@
 /obj/structure/cryofeed{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "nMJ" = (
 /obj/item/reagent_containers/glass/beaker/bluespace,
@@ -17304,9 +16694,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "nOZ" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -17388,7 +16776,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/door/window/eastleft{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/item/reagent_containers/glass/beaker/large,
@@ -17398,7 +16785,6 @@
 /area/cruise/medical)
 "nRv" = (
 /obj/structure/flora/rock/pile{
-	anchored = 1;
 	icon_state = "lavarocks2"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -17407,9 +16793,7 @@
 	},
 /area/cruise/jungle)
 "nRX" = (
-/obj/structure/flora/rock/pile{
-	anchored = 1
-	},
+/obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/jungle)
 "nSH" = (
@@ -17457,9 +16841,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "nTq" = (
 /obj/structure/blocker,
@@ -17487,14 +16869,10 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "nTu" = (
-/obj/structure/flora/rock{
-	anchored = 1
-	},
+/obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/jungle)
 "nUk" = (
@@ -17515,9 +16893,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "nXK" = (
 /obj/structure/railing/mapped{
@@ -17552,9 +16928,7 @@
 	},
 /area/cruise/escort)
 "nYS" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "nZf" = (
 /obj/machinery/telecomms/server/presets/supply,
@@ -17563,9 +16937,7 @@
 	},
 /area/cruise/tcomms_sat)
 "nZk" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_s)
 "nZN" = (
 /obj/structure/railing/mapped,
@@ -17588,9 +16960,7 @@
 	dir = 1;
 	id = "private_office"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "oax" = (
 /obj/machinery/vending/coffee,
@@ -17613,9 +16983,7 @@
 /area/cruise/centerline)
 "oaK" = (
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "oaW" = (
 /obj/machinery/light{
@@ -17673,9 +17041,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "odB" = (
 /obj/machinery/light{
@@ -17751,8 +17117,7 @@
 /area/cruise/security)
 "ogR" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray{
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -17790,9 +17155,7 @@
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_s)
 "ojz" = (
 /obj/effect/decal/fake_object/light_source{
@@ -17907,23 +17270,18 @@
 "omp" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "tiled_preview"
+	dir = 4
 	},
 /area/cruise/virtual_reality)
 "omN" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "omS" = (
 /obj/random/pottedplant,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_p)
 "onn" = (
 /turf/simulated/wall/shuttle/idris,
@@ -17986,9 +17344,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "oqZ" = (
 /obj/item/flame/candle,
@@ -18105,9 +17461,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-8"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "ouv" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -18123,9 +17477,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "ouM" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -18133,9 +17485,7 @@
 	name = "Main Bar Suite Entry"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "ouY" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -18285,9 +17635,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "oDr" = (
 /obj/structure/barricade/plasteel/wired{
@@ -18325,11 +17673,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
-"oEG" = (
-/turf/unsimulated/floor{
-	icon_state = "wood_preview"
-	},
-/area/cruise/beach)
 "oES" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -18372,15 +17715,11 @@
 /obj/structure/cryofeed{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "oHF" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "oIe" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -18410,9 +17749,7 @@
 	name = "code firewall point defense"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "oJY" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -18507,9 +17844,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "oOK" = (
 /turf/unsimulated/floor{
@@ -18529,9 +17864,7 @@
 "oPB" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "oQb" = (
 /obj/random/pottedplant,
@@ -18541,9 +17874,7 @@
 /area/cruise/aft)
 "oRe" = (
 /obj/structure/closet/emcloset,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "oRk" = (
 /obj/structure/window/reinforced/crescent{
@@ -18638,9 +17969,7 @@
 "oVJ" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "oVS" = (
 /obj/structure/window/reinforced/crescent{
@@ -18714,9 +18043,7 @@
 "oXB" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "oXD" = (
 /obj/structure/railing/mapped{
@@ -18725,9 +18052,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "oXT" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -18749,9 +18074,7 @@
 /area/cruise/dining_hall)
 "oXX" = (
 /obj/item/poppet,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/washroom_aft)
 "oYb" = (
 /turf/unsimulated/floor{
@@ -18808,9 +18131,7 @@
 /obj/structure/cryofeed{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "paO" = (
 /obj/item/modular_computer/console/preset/civilian{
@@ -18986,9 +18307,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "pkf" = (
 /obj/structure/railing/mapped,
@@ -19014,9 +18333,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "plL" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -19030,9 +18347,7 @@
 /area/cruise/fore)
 "pmh" = (
 /obj/structure/undies_wardrobe,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "pmv" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -19053,9 +18368,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "pmN" = (
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -19107,9 +18420,7 @@
 	dir = 8;
 	id = "reading_room"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "pod" = (
 /obj/effect/floor_decal/spline/fancy/corner{
@@ -19144,9 +18455,7 @@
 	pixel_y = 17
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "poz" = (
 /obj/structure/table/standard,
@@ -19216,9 +18525,7 @@
 	icon_state = "4-8";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "pqv" = (
 /obj/machinery/light/small{
@@ -19393,9 +18700,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "pxV" = (
 /obj/structure/railing/mapped{
@@ -19511,9 +18816,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "pCv" = (
 /obj/structure/foamedmetal,
@@ -19534,9 +18837,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "pCW" = (
 /obj/structure/table/standard,
@@ -19600,9 +18901,7 @@
 	icon_state = "door_as_ext0";
 	name = "damaged airlock"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "pFR" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -19616,9 +18915,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "pHh" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -19672,9 +18969,7 @@
 	},
 /area/cruise/aft)
 "pMK" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "pOp" = (
 /obj/structure/table/stone/marble,
@@ -19716,9 +19011,7 @@
 	icon_state = "1-2";
 	name = "cable"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "pPg" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -19794,9 +19087,7 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "pRX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -19979,9 +19270,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "pZN" = (
 /turf/unsimulated/wall/fakeairlock{
@@ -20007,9 +19296,7 @@
 "qbE" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "qbQ" = (
 /obj/structure/window/reinforced,
@@ -20025,9 +19312,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-14"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "qcE" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -20042,9 +19327,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "qdk" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -20076,9 +19359,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "qfG" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -20101,9 +19382,7 @@
 /area/cruise/dining_hall)
 "qgb" = (
 /obj/structure/table/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "qgk" = (
 /obj/structure/table/wood,
@@ -20158,9 +19437,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "qjQ" = (
 /turf/unsimulated/floor/concrete,
@@ -20212,9 +19489,7 @@
 /area/cruise/escort)
 "qmJ" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "qmT" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -20302,9 +19577,7 @@
 /area/cruise/medical)
 "qqm" = (
 /obj/structure/curtain/open/privacy,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "qqE" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -20518,9 +19791,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "qAF" = (
 /turf/unsimulated/floor{
@@ -20615,9 +19886,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_west"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "qEt" = (
 /obj/structure/window/reinforced/crescent,
@@ -20637,8 +19906,7 @@
 	},
 /area/cruise/hydroponics)
 "qEZ" = (
-/obj/structure/flora/tree/jungle{
-	},
+/obj/structure/flora/tree/jungle,
 /turf/unsimulated/floor{
 	footstep_sound = /singleton/sound_category/grass_footstep;
 	icon = 'icons/jungle.dmi';
@@ -20669,9 +19937,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "qGc" = (
 /obj/structure/window/reinforced/crescent{
@@ -20712,9 +19978,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "qHA" = (
 /obj/structure/table/wood,
@@ -20734,8 +19998,7 @@
 /area/cruise/security)
 "qIH" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray{
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -20762,9 +20025,7 @@
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "qLX" = (
 /turf/unsimulated/floor{
@@ -20851,7 +20112,6 @@
 	icon = 'icons/effects/160x160.dmi';
 	icon_state = "idris_ship_engine";
 	name = "starslinger thruster";
-	opacity = 0;
 	pixel_y = -128
 	},
 /turf/unsimulated/floor/plating,
@@ -20908,17 +20168,6 @@
 "qQX" = (
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool/sauna3)
-"qRu" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "qRy" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -20930,7 +20179,7 @@
 /area/cruise/main_bar)
 "qSc" = (
 /obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
+	icon_state = "tree3"
 	},
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
@@ -21151,9 +20400,7 @@
 /area/cruise/escort)
 "rdY" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "rei" = (
 /obj/structure/table/wood,
@@ -21203,9 +20450,7 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/hangar)
 "rfF" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "rgm" = (
 /obj/machinery/door/airlock/service{
@@ -21225,11 +20470,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/security)
-"rgO" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/arcade)
 "rhb" = (
 /obj/structure/sign/flag/scc{
 	pixel_y = 32
@@ -21265,9 +20505,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "rkI" = (
 /obj/effect/floor_decal/corner/blue{
@@ -21278,9 +20516,7 @@
 	},
 /area/cruise/arcade)
 "rkR" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "rlv" = (
 /turf/unsimulated/beach/coastline{
@@ -21303,15 +20539,11 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "rmw" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "rnb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -21319,9 +20551,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "rnP" = (
 /obj/item/towel_flat{
@@ -21377,9 +20607,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "rph" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -21404,11 +20632,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
-"rqe" = (
-/turf/unsimulated/floor{
-	icon_state = "carpet"
-	},
-/area/cruise/escort)
 "rqB" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/e_supplies)
@@ -21522,9 +20745,7 @@
 	name = "garden indicator";
 	pixel_y = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "rtq" = (
 /obj/structure/railing/mapped,
@@ -21761,7 +20982,6 @@
 	name = "Door Bolt Control";
 	pixel_x = 5;
 	pixel_y = 25;
-	req_access = null;
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
@@ -21881,9 +21101,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "rJK" = (
 /turf/unsimulated/floor{
@@ -21913,9 +21131,7 @@
 /mob/living/heavy_vehicle/premade/combatripley{
 	name = "Coalitioner retrofitted powerloader"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "rLN" = (
 /obj/structure/bed/stool/chair/wood,
@@ -21932,9 +21148,7 @@
 /area/cruise/aft)
 "rLT" = (
 /obj/structure/table/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "rMe" = (
 /obj/machinery/light{
@@ -21974,9 +21188,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "rNg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22066,9 +21278,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "rUv" = (
 /obj/effect/landmark/force_spawnpoint{
@@ -22326,7 +21536,7 @@
 /area/cruise/e_supplies)
 "ses" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
@@ -22374,9 +21584,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/clothing/head/chicken,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "sfD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -22427,9 +21635,7 @@
 	},
 /area/cruise/aft_p)
 "shs" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "sht" = (
 /obj/structure/closet/crate/bin,
@@ -22510,9 +21716,7 @@
 "slK" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "smT" = (
 /obj/structure/table/standard,
@@ -22593,15 +21797,11 @@
 	name = "Pool"
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "sqW" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "sra" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -22637,9 +21837,7 @@
 	dir = 2;
 	name = "Main Bar Suite Entry"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore_p)
 "ssH" = (
 /obj/structure/table/wood,
@@ -22776,9 +21974,7 @@
 /area/cruise/main_bar/aft)
 "sCx" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "sCG" = (
 /obj/structure/bed/stool/padded,
@@ -22895,9 +22091,7 @@
 "sGr" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "sGy" = (
 /obj/structure/flora/grass/jungle{
@@ -22958,9 +22152,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "sIH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22970,11 +22162,6 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/dining_hall)
-"sIS" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/main_bar)
 "sIV" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -23072,9 +22259,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "sOP" = (
 /obj/effect/floor_decal/corner/lime{
@@ -23090,16 +22275,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "sPo" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "sPq" = (
 /turf/unsimulated/floor{
@@ -23230,9 +22411,7 @@
 	},
 /area/cruise/library)
 "sUg" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "sUv" = (
 /obj/structure/railing/mapped{
@@ -23246,9 +22425,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "sUS" = (
 /obj/effect/decal/fake_object{
@@ -23258,9 +22435,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "sVA" = (
 /obj/effect/decal/fake_object/light_source{
@@ -23325,9 +22500,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-4"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "sWZ" = (
 /obj/effect/decal/fake_object{
@@ -23396,9 +22569,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/security)
 "sYw" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -23415,11 +22586,6 @@
 	dir = 4
 	},
 /area/cruise/hangar)
-"sZf" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/hangar)
 "sZg" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
@@ -23434,9 +22600,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "sZE" = (
 /obj/structure/railing/mapped,
@@ -23471,9 +22635,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "tbe" = (
 /obj/effect/floor_decal/corner/blue{
@@ -23488,7 +22650,6 @@
 /area/cruise/escort)
 "tbF" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	desc = "A true to life depiction of a Jotun main battle tank, once used to kill quite a lot of people in a war a really long time ago! Wow! Horrifying. It's beached and immobile.";
 	icon = 'icons/mecha/mecha_114x59.dmi';
 	icon_state = "jotun-broken";
@@ -23557,9 +22718,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_west"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "tdJ" = (
 /obj/structure/railing/mapped{
@@ -23588,14 +22747,6 @@
 "tec" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/tcomms_sat)
-"teH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "tfW" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -23614,9 +22765,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "tfY" = (
 /obj/machinery/atm{
@@ -23642,9 +22791,7 @@
 "tjk" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "tjm" = (
 /obj/structure/flora/grass/jungle,
@@ -23654,20 +22801,6 @@
 	icon_state = "beachcorner"
 	},
 /area/cruise/virtual_reality)
-"tjo" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "tjE" = (
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 6;
@@ -23686,9 +22819,7 @@
 	name = "hyperefficient thruster";
 	pixel_y = -128
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "tkp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23737,14 +22868,12 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23774,9 +22903,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "tmV" = (
 /obj/machinery/computer/telecomms/traffic,
@@ -23807,11 +22934,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
 /area/cruise/escort)
-"tnF" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
-/area/cruise/centerline)
 "tpr" = (
 /turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
@@ -23941,9 +23063,7 @@
 	},
 /area/cruise/jungle)
 "tua" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "tul" = (
 /obj/random/pottedplant,
@@ -24137,9 +23257,7 @@
 /area/cruise/library)
 "tyZ" = (
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "tzc" = (
 /obj/structure/window/reinforced/crescent{
@@ -24208,7 +23326,6 @@
 "tAO" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = null;
 	req_one_access = list(33,104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -24218,9 +23335,7 @@
 /area/cruise/medical)
 "tAP" = (
 /obj/machinery/hologram/holopad,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "tBD" = (
 /turf/unsimulated/beach/coastline{
@@ -24243,9 +23358,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "tCI" = (
 /obj/structure/table/standard,
@@ -24255,14 +23368,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"tDy" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/virtual_reality)
 "tDB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small{
@@ -24272,9 +23377,7 @@
 /area/cruise/arcade)
 "tEy" = (
 /obj/structure/closet/firecloset/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "tFr" = (
 /obj/effect/decal/fake_object{
@@ -24430,9 +23533,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-10"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "tMe" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -24504,9 +23605,7 @@
 	name = "service ladder";
 	pixel_y = 24
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "tPq" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -24634,7 +23733,6 @@
 /area/cruise/aft)
 "tVr" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	desc = "A true to life depiction of a Jotun main battle tank, once used to kill quite a lot of people in a war a really long time ago! Wow! Horrifying. It's beached and immobile.";
 	icon = 'icons/mecha/mecha_114x59.dmi';
 	icon_state = "jotun-broken";
@@ -24657,21 +23755,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
-"tWe" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3";
-	},
-/turf/unsimulated/floor{
-	footstep_sound = /singleton/sound_category/grass_footstep;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "tWB" = (
 /obj/machinery/door/airlock/service{
 	id_tag = "reading_room_bolts";
@@ -24724,9 +23809,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "tXr" = (
 /obj/structure/table/reinforced,
@@ -24783,9 +23866,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "tZP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -24814,9 +23895,7 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/scc,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "uav" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -24951,9 +24030,7 @@
 	dir = 1;
 	pixel_x = -48
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "udZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -25001,9 +24078,7 @@
 	name = "holographic directional indicator";
 	pixel_x = 13
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "ugL" = (
 /obj/item/towel,
@@ -25051,9 +24126,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "uha" = (
 /obj/structure/bed/stool/chair/wood{
@@ -25207,9 +24280,7 @@
 	dir = 4;
 	id = "private_office"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "uoE" = (
 /obj/structure/table/rack,
@@ -25287,9 +24358,7 @@
 /area/cruise/aft_s)
 "urH" = (
 /obj/machinery/recharge_station,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "usp" = (
 /obj/structure/table/wood/gamblingtable,
@@ -25297,9 +24366,7 @@
 	pixel_x = 9;
 	pixel_y = 17
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "usu" = (
 /obj/effect/decal/fake_object{
@@ -25309,9 +24376,7 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "usz" = (
 /turf/simulated/floor/tiled/ramp{
@@ -25321,9 +24386,7 @@
 "usO" = (
 /obj/machinery/bluespace_beacon,
 /obj/item/device/radio/beacon,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "usR" = (
 /obj/structure/table/steel,
@@ -25346,9 +24409,7 @@
 /area/cruise/arcade)
 "uti" = (
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "utD" = (
 /obj/structure/bed/stool/chair/wood{
@@ -25366,9 +24427,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "utI" = (
 /obj/machinery/blackbox_recorder,
@@ -25378,9 +24437,7 @@
 /area/cruise/tcomms_sat)
 "utV" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool/sauna1)
 "uum" = (
 /obj/machinery/shieldgen,
@@ -25391,9 +24448,7 @@
 /area/cruise/escort)
 "uvq" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "uvG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -25452,9 +24507,7 @@
 /area/cruise/pool)
 "uwx" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "uwX" = (
 /obj/structure/railing/mapped{
@@ -25485,9 +24538,7 @@
 /area/cruise/main_bar/aft)
 "uxb" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "uAd" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -25597,9 +24648,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "uDX" = (
 /obj/machinery/door/airlock/freezer{
@@ -25640,18 +24689,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "uFn" = (
 /obj/structure/holohoop{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "uGE" = (
 /obj/effect/overlay/palmtree_r,
@@ -25800,9 +24845,7 @@
 /area/cruise/jungle)
 "uMB" = (
 /obj/structure/table/stone/marble,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "uMH" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -25839,9 +24882,7 @@
 	pixel_y = 11
 	},
 /obj/item/storage/box/drinkingglasses,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "uNI" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -25913,9 +24954,7 @@
 	opacity = 0
 	},
 /obj/machinery/vending/dinnerware,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "uSS" = (
 /obj/structure/railing/mapped{
@@ -25975,8 +25014,7 @@
 "uUn" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "tiled_preview"
+	dir = 8
 	},
 /area/cruise/virtual_reality)
 "uUO" = (
@@ -25992,9 +25030,7 @@
 	name = "solarian combat exosuit"
 	},
 /obj/machinery/mech_recharger,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "uUW" = (
 /obj/structure/window/reinforced/crescent{
@@ -26223,9 +25259,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "vfC" = (
 /obj/structure/table/reinforced,
@@ -26431,9 +25465,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/jungle)
 "vqt" = (
 /obj/structure/window/reinforced,
@@ -26511,9 +25543,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/pool)
 "vuo" = (
 /obj/structure/flora/tree/jungle/small{
@@ -26659,8 +25689,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
 	icon_state = "sign_beach";
-	name = "Beach Dome directional indicator";
-	pixel_y = 0
+	name = "Beach Dome directional indicator"
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar)
@@ -26693,9 +25722,7 @@
 /area/cruise/beach)
 "vAW" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "vBz" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -26715,9 +25742,7 @@
 /area/cruise/escort)
 "vBE" = (
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "vBJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26755,9 +25780,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-15"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/fore)
 "vFk" = (
 /obj/machinery/light{
@@ -26783,9 +25806,7 @@
 	name = "Main Bar";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "vHp" = (
 /obj/structure/railing/mapped,
@@ -26814,9 +25835,7 @@
 	icon_state = "cover_0";
 	name = "turret"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "vIP" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -26915,15 +25934,11 @@
 /area/cruise/aft_s)
 "vPu" = (
 /obj/machinery/floor_light/dance,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "vPU" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "vQu" = (
 /turf/simulated/floor/greengrid,
@@ -26977,7 +25992,6 @@
 /area/cruise/centerline)
 "vRC" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	desc = "A big, scary derelict mech!";
 	icon = 'icons/effects/96x96.dmi';
 	icon_state = "derelict_mech";
@@ -27114,9 +26128,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "vYa" = (
 /obj/structure/railing/mapped,
@@ -27215,9 +26227,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "waL" = (
 /obj/machinery/vending/cigarette,
@@ -27248,9 +26258,7 @@
 /area/cruise/pool)
 "wcC" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "wdg" = (
 /obj/effect/decal/fake_object/light_source{
@@ -27268,7 +26276,6 @@
 /area/cruise/jungle)
 "wdh" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
@@ -27326,8 +26333,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
 	icon_state = "sign_beach";
-	name = "Beach Dome directional indicator";
-	pixel_y = 0
+	name = "Beach Dome directional indicator"
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_p)
@@ -27340,9 +26346,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "wgm" = (
 /obj/effect/floor_decal/corner/blue{
@@ -27424,15 +26428,11 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "whR" = (
 /obj/item/device/radio/intercom/east,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "whY" = (
 /obj/item/beach_ball,
@@ -27517,9 +26517,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "wjD" = (
 /obj/machinery/door/firedoor,
@@ -27565,9 +26563,7 @@
 	pixel_x = -9
 	},
 /obj/structure/table/wood/gamblingtable,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "wli" = (
 /obj/structure/railing/mapped{
@@ -27622,8 +26618,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
 	icon_state = "sign_beach";
-	name = "Beach Dome directional indicator";
-	pixel_y = 0
+	name = "Beach Dome directional indicator"
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_p)
@@ -27661,9 +26656,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "wsh" = (
 /obj/structure/closet/crate/coffin,
@@ -27753,9 +26746,7 @@
 	name = "holographic directional indicator";
 	pixel_x = -14
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/virtual_reality)
 "wyy" = (
 /obj/machinery/door/airlock{
@@ -27830,9 +26821,7 @@
 	icon_state = "intact-supply";
 	name = "pipe"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/central)
 "wBK" = (
 /obj/structure/table/wood,
@@ -27889,9 +26878,7 @@
 /obj/machinery/atm{
 	pixel_y = 28
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "wFi" = (
 /obj/item/device/radio/intercom/east,
@@ -27914,9 +26901,7 @@
 "wFX" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/aft_s)
 "wGn" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -28141,9 +27126,7 @@
 "wNo" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/camera,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "wON" = (
 /obj/structure/table/wood/gamblingtable,
@@ -28166,13 +27149,10 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach_bar)
 "wQN" = (
-/obj/structure/flora/tree/jungle{
-	},
+/obj/structure/flora/tree/jungle,
 /obj/structure/flora/tree/jungle/small{
 	desc = "A pile of unassuming rocks.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
@@ -28217,9 +27197,7 @@
 /turf/template_noop,
 /area/template_noop)
 "wSB" = (
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/e_supplies)
 "wSF" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -28244,9 +27222,7 @@
 /obj/structure/cryofeed{
 	dir = 2
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "wTb" = (
 /obj/structure/flora/grass/jungle/b,
@@ -28362,9 +27338,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "wYE" = (
 /obj/effect/decal/fake_object{
@@ -28384,9 +27358,7 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar)
 "wYV" = (
 /obj/effect/decal/fake_object/light_source{
@@ -28509,9 +27481,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xdC" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -28528,9 +27498,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "xeN" = (
 /turf/simulated/wall/shuttle/scc,
@@ -28696,9 +27664,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xmg" = (
 /obj/structure/blocker,
@@ -28802,9 +27768,7 @@
 "xpD" = (
 /obj/structure/window/reinforced/crescent,
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "xpJ" = (
 /obj/item/device/radio/intercom/west,
@@ -28851,7 +27815,6 @@
 /area/cruise/main_bar)
 "xqn" = (
 /obj/structure/flora/rock{
-	anchored = 1;
 	icon_state = "basalt3"
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
@@ -28908,9 +27871,7 @@
 	pixel_y = 11
 	},
 /obj/item/storage/box/drinkingglasses,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "xrg" = (
 /obj/structure/railing/mapped{
@@ -28930,18 +27891,14 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "xsd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xsl" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -29049,9 +28006,7 @@
 /area/cruise/medical)
 "xyh" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "xyu" = (
 /turf/unsimulated/floor{
@@ -29165,9 +28120,7 @@
 /area/cruise/central)
 "xBh" = (
 /obj/structure/closet/emcloset,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/beach)
 "xBm" = (
 /obj/structure/closet/walllocker/emerglocker/north{
@@ -29190,9 +28143,7 @@
 /area/cruise/fore_p)
 "xBV" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "xCq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -29217,9 +28168,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/hangar)
 "xDq" = (
 /obj/item/card/id/all_access,
@@ -29255,7 +28204,7 @@
 /area/cruise/virtual_reality)
 "xEM" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
@@ -29296,9 +28245,7 @@
 /area/cruise/jungle)
 "xGA" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xHc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -29320,9 +28267,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_west"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
 "xHn" = (
 /obj/structure/flora/tree/jungle/small{
@@ -29351,9 +28296,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "xIc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -29388,9 +28331,7 @@
 /obj/structure/cryofeed{
 	dir = 2
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xJS" = (
 /obj/machinery/telecomms/bus/preset_two,
@@ -29480,9 +28421,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/centerline)
 "xOJ" = (
 /obj/structure/table/rack,
@@ -29624,9 +28563,7 @@
 	dir = 2;
 	name = "VR Suite"
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/arcade)
 "xXz" = (
 /obj/structure{
@@ -29687,17 +28624,13 @@
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/escort)
 "yaB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
 "yaR" = (
 /obj/structure/barricade/metal{
@@ -29710,14 +28643,6 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
-"ybG" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/medical)
 "ych" = (
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -29790,9 +28715,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/template_noop)
 "yeJ" = (
 /obj/machinery/door/window/southleft,
@@ -29845,9 +28768,7 @@
 /area/cruise/library)
 "yhk" = (
 /obj/item/hullbeacon/red,
-/turf/unsimulated/floor{
-	icon_state = "tiled_preview"
-	},
+/turf/unsimulated/floor,
 /area/cruise/security)
 "yhl" = (
 /obj/effect/decal/fake_object/light_source{
@@ -32519,7 +31440,7 @@ oSt
 oSt
 oSt
 oSt
-kqe
+omN
 oSt
 oSt
 oSt
@@ -33033,7 +31954,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -33547,7 +32468,7 @@ oSt
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -34061,7 +32982,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -34575,7 +33496,7 @@ oSt
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -35089,7 +34010,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -35603,7 +34524,7 @@ oSt
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -36117,7 +35038,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -41257,7 +40178,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -41771,7 +40692,7 @@ uee
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -42285,7 +41206,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -42799,7 +41720,7 @@ oSt
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -43313,7 +42234,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -43827,7 +42748,7 @@ oSt
 oSt
 oSt
 oSt
-eVv
+omN
 oSt
 oSt
 oSt
@@ -44341,7 +43262,7 @@ tzV
 imw
 tzV
 imw
-eVv
+omN
 wKK
 bGs
 wKK
@@ -52224,9 +51145,9 @@ pbo
 pbo
 tlN
 sRC
-oEG
-oEG
-oEG
+flZ
+flZ
+flZ
 leQ
 pbo
 pbo
@@ -52483,7 +51404,7 @@ ixF
 qKO
 sGG
 dkj
-oEG
+flZ
 leQ
 roq
 roq
@@ -52740,7 +51661,7 @@ pbo
 wdG
 vzp
 dkj
-oEG
+flZ
 mRm
 ibE
 ibE
@@ -53507,8 +52428,8 @@ hfT
 eFA
 pbo
 dkj
-oEG
-oEG
+flZ
+flZ
 leQ
 sUg
 sUg
@@ -55652,7 +54573,7 @@ wym
 mOH
 fgt
 qPz
-eVv
+omN
 oSt
 oSt
 oSt
@@ -59962,9 +58883,9 @@ xAP
 xAP
 xAP
 cNG
-gJa
-gJa
-gJa
+lux
+lux
+lux
 cNG
 ezk
 ezk
@@ -60007,9 +58928,9 @@ nhW
 cYi
 cYi
 phj
-tnF
+aaR
 eWm
-tnF
+aaR
 hde
 uti
 jHC
@@ -60219,9 +59140,9 @@ xAP
 xAP
 xAP
 cNG
-gJa
-gJa
-gJa
+lux
+lux
+lux
 cNG
 ezk
 ezk
@@ -60264,8 +59185,8 @@ nhW
 nhW
 nhW
 phj
-tnF
-tnF
+aaR
+aaR
 fqV
 vHO
 dwA
@@ -60733,7 +59654,7 @@ qRy
 iKO
 iUS
 kxc
-fQJ
+hXh
 hXh
 hXh
 kxc
@@ -60767,7 +59688,7 @@ oRC
 dwA
 mWW
 qWZ
-nqY
+pRn
 vzm
 xyh
 qWZ
@@ -61248,7 +60169,7 @@ aiT
 gtd
 fWV
 lXO
-gWM
+omN
 apD
 uSu
 mHB
@@ -61505,7 +60426,7 @@ aiT
 aiT
 xHK
 gPo
-gWM
+omN
 acC
 amX
 oMh
@@ -61751,8 +60672,8 @@ qNr
 cYc
 hMx
 kcP
-sIS
-sIS
+shs
+shs
 iUS
 lvA
 aiT
@@ -62007,9 +60928,9 @@ cfr
 cfr
 nCO
 hMx
-kpV
-sIS
-sIS
+sIE
+shs
+shs
 byz
 aiT
 aiT
@@ -62265,8 +61186,8 @@ qNr
 iUP
 hMx
 pxT
-sIS
-sIS
+shs
+shs
 cei
 lQi
 aiT
@@ -64119,10 +63040,10 @@ sPq
 sPq
 sPq
 nkY
-tnF
-tnF
-tnF
-tnF
+aaR
+aaR
+aaR
+aaR
 iXD
 oUL
 qWZ
@@ -64278,7 +63199,7 @@ pfD
 soG
 hUO
 dEl
-kup
+lpS
 tpO
 cLb
 sDZ
@@ -64378,8 +63299,8 @@ sPq
 dwA
 wzV
 mOa
-tnF
-tnF
+aaR
+aaR
 qWZ
 srP
 qWZ
@@ -64578,7 +63499,7 @@ vac
 vVA
 asj
 iUS
-eKe
+shs
 vBE
 uHY
 esE
@@ -64635,7 +63556,7 @@ dwA
 dwA
 xLj
 cbC
-tnF
+aaR
 xNY
 dwA
 sQm
@@ -64833,7 +63754,7 @@ hto
 ych
 rNg
 bio
-eVv
+omN
 iUS
 wEX
 shs
@@ -65058,7 +63979,7 @@ jlw
 qQP
 qQP
 qQP
-qRu
+isP
 kfK
 qQP
 qQP
@@ -65566,7 +64487,7 @@ qQP
 qQP
 qQP
 qQP
-kup
+lpS
 kCY
 cLb
 sGy
@@ -66074,7 +64995,7 @@ vdS
 qQP
 qQP
 dEl
-dBm
+wSg
 dEl
 qQP
 qQP
@@ -66343,7 +65264,7 @@ hUO
 hUO
 aaC
 qQP
-mOx
+pfY
 cLb
 cLb
 cLb
@@ -66446,7 +65367,7 @@ nWh
 goT
 vlW
 iXJ
-eVv
+omN
 oSt
 oSt
 oSt
@@ -66622,7 +65543,7 @@ hBy
 hBy
 kCY
 qQP
-kup
+lpS
 omf
 onn
 omf
@@ -67103,7 +66024,7 @@ uQJ
 qQP
 dEl
 dEl
-dBm
+wSg
 cLb
 vZg
 cLb
@@ -67115,7 +66036,7 @@ hUO
 hUO
 hUO
 qQP
-gBO
+uQJ
 dlP
 cLb
 cLb
@@ -67614,9 +66535,9 @@ xHn
 cLb
 kBn
 qQP
-kup
+lpS
 qQP
-gBO
+uQJ
 dFf
 kCY
 iHu
@@ -67886,7 +66807,7 @@ sGy
 dou
 cLb
 qQP
-kup
+lpS
 qQP
 qQP
 jlw
@@ -68699,12 +67620,12 @@ soC
 soC
 mUi
 soC
-eVv
+omN
 asj
-eVv
-eVv
+omN
+omN
 asj
-eVv
+omN
 soC
 mUi
 soC
@@ -68924,7 +67845,7 @@ cLb
 kBn
 kCY
 kBn
-tjo
+upB
 aaC
 joZ
 hUO
@@ -68981,7 +67902,7 @@ cKw
 cKw
 sjz
 cNV
-rgO
+chC
 gQK
 yeJ
 qOc
@@ -69438,7 +68359,7 @@ cLb
 qQP
 dEl
 dEl
-kup
+lpS
 hUO
 hUO
 hUO
@@ -69959,7 +68880,7 @@ hUO
 hUO
 hUO
 uQJ
-tWe
+isP
 qQP
 qQP
 lpS
@@ -70477,7 +69398,7 @@ xni
 cLb
 hBy
 aLK
-kup
+lpS
 hUO
 hUO
 hUO
@@ -70720,7 +69641,7 @@ cun
 cPE
 cLb
 qQP
-kup
+lpS
 kBn
 cLb
 hUO
@@ -70804,7 +69725,7 @@ ogR
 oNG
 kBq
 poz
-ybG
+ogR
 vlW
 vlW
 pez
@@ -71223,7 +70144,7 @@ kBn
 qQP
 qQP
 qQP
-bqt
+qEZ
 jlw
 ave
 cun
@@ -71830,7 +70751,7 @@ fLY
 sjz
 sjz
 sjz
-kqe
+omN
 jgm
 oSt
 oSt
@@ -72285,36 +71206,36 @@ oSt
 oSt
 hFF
 cWB
-sZf
+rfF
 dui
 dui
 dui
 dui
 dui
 dui
-sZf
+rfF
 cWB
 eWy
 cWB
-sZf
+rfF
 dui
 dui
 dui
 dui
 dui
 dui
-sZf
+rfF
 cWB
 eWy
 cWB
-sZf
+rfF
 dui
 dui
 dui
 dui
 dui
 dui
-sZf
+rfF
 cWB
 hFF
 wSN
@@ -72781,7 +71702,7 @@ voy
 tJO
 jlw
 qQP
-mOx
+pfY
 hUO
 hUO
 cLb
@@ -73531,13 +72452,13 @@ jlw
 cLb
 kBn
 qQP
-bqt
+qEZ
 hUO
 cLb
 cLb
 hUO
 qQP
-mOx
+pfY
 dXc
 xGq
 cLb
@@ -74577,7 +73498,7 @@ dQM
 qQP
 qQP
 qQP
-mOx
+pfY
 qQP
 erg
 hUO
@@ -74821,7 +73742,7 @@ qQP
 qQP
 qQP
 qQP
-lpP
+jwi
 qQP
 qQP
 qQP
@@ -74829,7 +73750,7 @@ qQP
 qQP
 qQP
 qQP
-mOx
+pfY
 qQP
 lpS
 qQP
@@ -74841,7 +73762,7 @@ hUO
 hUO
 xXH
 cLb
-tjo
+upB
 hUO
 onn
 qsn
@@ -79095,7 +78016,7 @@ aHv
 dWy
 dWy
 dWy
-hQs
+lPx
 dWy
 dWy
 dWy
@@ -79356,7 +78277,7 @@ wid
 wid
 dWy
 dWy
-hQs
+lPx
 api
 suK
 iRW
@@ -80105,7 +79026,7 @@ dWy
 dWy
 dWy
 dWy
-imp
+tBL
 dWy
 dWy
 mhT
@@ -80124,7 +79045,7 @@ dWy
 cGz
 dWy
 dWy
-hQs
+lPx
 wid
 wid
 wid
@@ -80325,7 +79246,7 @@ iiE
 iiE
 iiE
 xeN
-mNt
+hAl
 noU
 noU
 noU
@@ -80359,7 +79280,7 @@ ddu
 dWy
 dWy
 dWy
-hbr
+tBL
 dWy
 dWy
 dWy
@@ -81412,7 +80333,7 @@ wid
 dWy
 dWy
 dWy
-hQs
+lPx
 ddu
 oog
 oog
@@ -81611,7 +80532,7 @@ sDv
 sDv
 mQr
 xeN
-mNt
+hAl
 noU
 noU
 oSt
@@ -81905,15 +80826,15 @@ wIc
 dWy
 dWy
 dWy
-gbk
+mhT
 ddu
 ddu
 mhT
-gbk
+mhT
 ddu
 ddu
 mhT
-gbk
+mhT
 ddu
 ddu
 ddu
@@ -81923,8 +80844,8 @@ ooN
 dWy
 dWy
 dWy
-noJ
-noJ
+tua
+tua
 dWy
 ooN
 ddu
@@ -82457,7 +81378,7 @@ qIH
 nGD
 fEQ
 cDg
-tDy
+qIH
 oog
 ddu
 jSp
@@ -82900,7 +81821,7 @@ xeN
 xeN
 pCv
 xeN
-mNt
+hAl
 noU
 noU
 oSt
@@ -82950,7 +81871,7 @@ ddu
 dWy
 uUT
 uUT
-noJ
+tua
 hGy
 qjQ
 qjQ
@@ -82959,7 +81880,7 @@ hXO
 kPa
 dzw
 dzw
-teH
+aab
 dzw
 dzw
 kPa
@@ -83379,7 +82300,7 @@ xla
 xHt
 qZL
 nMY
-aai
+aah
 jTE
 lHZ
 lHZ
@@ -83473,7 +82394,7 @@ ddu
 oog
 dzw
 dzw
-teH
+aab
 dzw
 dzw
 kPa
@@ -83903,7 +82824,7 @@ mTw
 xla
 fSf
 daT
-rqe
+mwN
 jjt
 aaj
 iTi
@@ -83978,7 +82899,7 @@ ddu
 dWy
 nxg
 uUT
-noJ
+tua
 hGy
 qjQ
 qjQ
@@ -84227,7 +83148,7 @@ dWy
 dWy
 dWy
 dWy
-gbk
+mhT
 dWy
 wid
 dWy
@@ -84431,7 +83352,7 @@ dzW
 xeN
 arG
 nMY
-aak
+aah
 iTi
 nsg
 nsg
@@ -84682,10 +83603,10 @@ xeN
 arG
 arG
 xeN
-mNt
+hAl
 arG
 nMY
-aal
+aah
 iTi
 arG
 xeN
@@ -84956,7 +83877,7 @@ xeN
 xZL
 xZL
 xeN
-mNt
+hAl
 noU
 noU
 oSt
@@ -86237,7 +85158,7 @@ xla
 kyB
 xeN
 xeN
-mNt
+hAl
 noU
 noU
 oSt
@@ -86548,7 +85469,7 @@ ddu
 dWy
 dLZ
 dLZ
-noJ
+tua
 hGy
 qjQ
 qjQ
@@ -86792,7 +85713,7 @@ dWy
 dWy
 dWy
 bQA
-gbk
+mhT
 nSV
 mVh
 dWy
@@ -87055,7 +85976,7 @@ dWy
 qgK
 dWy
 dWy
-hQs
+lPx
 dWy
 dWy
 ddu
@@ -87328,7 +86249,7 @@ fTq
 oog
 dzw
 dzw
-aad
+aAR
 dzw
 dzw
 kPa
@@ -87576,7 +86497,7 @@ ddu
 dWy
 rLb
 rLb
-noJ
+tua
 hGy
 qjQ
 qjQ
@@ -88586,14 +87507,14 @@ dWy
 dWy
 dWy
 dWy
-gbk
+mhT
 ddu
 qwv
-gbk
+mhT
 ddu
 ddu
 ddu
-gbk
+mhT
 qwv
 ddu
 ddu
@@ -88860,8 +87781,8 @@ dWy
 cGz
 dWy
 dWy
-noJ
-noJ
+tua
+tua
 dWy
 dWy
 dWy
@@ -88882,7 +87803,7 @@ qIH
 nGD
 fEQ
 cDg
-tDy
+qIH
 oog
 ddu
 jSp
@@ -89097,7 +88018,7 @@ ddu
 dWy
 dWy
 dWy
-gbk
+mhT
 dWy
 dWy
 dWy
@@ -89122,7 +88043,7 @@ dWy
 dWy
 dWy
 dWy
-hQs
+lPx
 ddu
 oog
 oog
@@ -89871,7 +88792,7 @@ igv
 igv
 igv
 dWy
-gbk
+mhT
 dWy
 dWy
 dWy
@@ -90388,7 +89309,7 @@ wid
 wid
 dWy
 dWy
-gbk
+mhT
 dWy
 wid
 wid
@@ -90405,7 +89326,7 @@ cGz
 dWy
 dWy
 dWy
-hQs
+lPx
 wid
 wid
 api
@@ -90638,12 +89559,12 @@ jSp
 ddu
 dWy
 dWy
-gbk
+mhT
 dWy
 dWy
 dWy
 dWy
-hbr
+tBL
 dWy
 dWy
 dWy
@@ -91159,7 +90080,7 @@ igv
 igv
 igv
 dWy
-gbk
+mhT
 dWy
 dWy
 igv

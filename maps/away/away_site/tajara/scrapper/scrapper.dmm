@@ -279,8 +279,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -394,9 +393,7 @@
 	},
 /area/shuttle/scrapper_ship/workshop)
 "er" = (
-/obj/machinery/vending/tool{
-	req_access = null
-	},
+/obj/machinery/vending/tool,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -424,8 +421,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "scrapper_bridge";
 	name = "Bridge Shutters";
-	req_access = list(202);
-	req_one_access = null
+	req_access = list(202)
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -492,8 +488,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -930,8 +925,7 @@
 "la" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /turf/simulated/floor/plating{
@@ -1260,8 +1254,7 @@
 /area/scrapper_base/quarters)
 "ov" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1520,8 +1513,7 @@
 "sr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1744,8 +1736,7 @@
 /area/scrapper_base/quarters)
 "us" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -1861,8 +1852,7 @@
 /area/shuttle/scrapper_ship/bridge)
 "vI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1891,8 +1881,7 @@
 /area/scrapper_base)
 "vQ" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1930,8 +1919,7 @@
 /area/scrapper_base)
 "wk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2106,8 +2094,7 @@
 /area/scrapper_base)
 "yH" = (
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -2240,8 +2227,7 @@
 /area/scrapper_base/solars)
 "zU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2343,7 +2329,6 @@
 "Cb" = (
 /obj/structure/sink{
 	dir = 8;
-	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -2372,8 +2357,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
@@ -2768,9 +2752,7 @@
 	},
 /area/shuttle/scrapper_ship/power_station)
 "Hp" = (
-/obj/machinery/vending/tool{
-	req_access = null
-	},
+/obj/machinery/vending/tool,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2789,7 +2771,6 @@
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -2973,8 +2954,7 @@
 /area/scrapper_base/quarters)
 "JM" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/plating{
@@ -3074,8 +3054,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3164,8 +3143,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3393,8 +3371,7 @@
 /area/scrapper_base)
 "OX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4328,8 +4305,7 @@
 /area/shuttle/scrapper_ship/storage)
 "ZF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating{

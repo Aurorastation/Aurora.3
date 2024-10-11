@@ -1125,9 +1125,7 @@
 /area/racers)
 "fnY" = (
 /obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 2
-	},
+/obj/structure/disposalpipe/trunk,
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/diamond,
 /area/racers)
@@ -1475,7 +1473,6 @@
 /area/racers)
 "hiw" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1948,7 +1945,6 @@
 /area/racers)
 "jmo" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/item/trash/ramen,
@@ -4022,9 +4018,7 @@
 /area/racers)
 "tmd" = (
 /obj/machinery/disposal/small/west,
-/obj/structure/disposalpipe/trunk{
-	dir = 2
-	},
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/wood,
 /area/racers)
 "tmG" = (
@@ -4266,9 +4260,7 @@
 /area/racers)
 "uwM" = (
 /obj/machinery/disposal/small/south,
-/obj/structure/disposalpipe/trunk{
-	dir = 2
-	},
+/obj/structure/disposalpipe/trunk,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
 /area/racers)
