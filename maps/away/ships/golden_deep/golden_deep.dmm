@@ -1,18 +1,41 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
 "ar" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/golden_deep/portprop)
 "aB" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/space)
+"aC" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/central_hallway)
 "aN" = (
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
+"aS" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portprop)
+"aT" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"bd" = (
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/aft_hallway)
 "bi" = (
 /turf/simulated/floor/tiled/techfloor,
-/area/space)
+/area/golden_deep/owned_storage)
 "by" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6d6133";
@@ -21,19 +44,60 @@
 	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/private_lounge)
 "bC" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/wood/yew,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"bK" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
 /area/space)
+"bO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/engineering)
+"bS" = (
+/obj/machinery/power/portgen/basic/fusion,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/reactor)
+"cJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/guest)
+"cK" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "de" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/lounge)
+"dr" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/bar/padded/purple{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"dA" = (
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
+"dU" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
 "ej" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -42,153 +106,623 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/bridge)
+"em" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/starboardprop)
+"en" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/engineering)
 "eE" = (
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
 "eI" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	dir = 1
+/obj/machinery/stargazer{
+	pixel_x = 15;
+	pixel_y = -5
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
 "eJ" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
 "eK" = (
 /turf/simulated/floor/plating,
 /area/space)
+"eO" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/lounge)
+"eQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
+"eR" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "eW" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
 "fd" = (
 /turf/simulated/floor/marble,
-/area/space)
+/area/golden_deep/guest)
+"fk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
 "ft" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
+"fz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
+"fC" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/warehouse)
+"fD" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"fE" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "fG" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/lounge)
+"fL" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
 "fN" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"fP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "fX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+	dir = 6
 	},
-/turf/simulated/floor/wood/yew,
-/area/space)
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "gs" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "gA" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/floor/wood/yew,
-/area/space)
+/turf/simulated/floor/plating,
+/area/golden_deep/owned_lounge)
 "gW" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
+"gZ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/guest)
 "he" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
 "hh" = (
 /turf/simulated/floor/carpet/red,
-/area/space)
+/area/golden_deep/owned_lounge)
+"ht" = (
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/portprop)
+"hy" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
 "il" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
+"iq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"iA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
+"iB" = (
+/obj/effect/floor_decal/industrial/hatch/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"iG" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/merchant)
+"iW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/random/pottedplant,
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/merchant)
+"iX" = (
+/obj/structure/safe/cash,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/secure)
+"jf" = (
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/engineering)
+"jk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"jl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
+"jq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"js" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"jK" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/owned_lounge)
+"jO" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/owned_lounge)
+"jQ" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/ammo)
 "ka" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/hoplan)
+"kd" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "kh" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "ko" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"ku" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "kB" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
+"kK" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
 "kY" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"lg" = (
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
+/turf/simulated/floor/lino,
+/area/golden_deep/lounge)
+"lh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"lt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"lw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/guest)
+"lI" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/hoplan)
+"lJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/central_hallway)
+"lP" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
+"lR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
 "lY" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/space)
+"mk" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/custodial)
+"mr" = (
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
+"mA" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/lounge)
+"mD" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
+"mH" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
+"mP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/reactor)
+"mS" = (
+/turf/simulated/floor/carpet/red,
+/area/golden_deep/lounge)
+"nb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/reactor)
+"nj" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"nC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"nI" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
 "nY" = (
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "Freebooter Francisca Rotary Gun"
+	weapon_id = "golden_deep_rotary"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/space)
+/area/golden_deep/starboard_dock)
+"ok" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "ow" = (
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/lounge)
+"oA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/guest)
+"oQ" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_y = 18;
+	pixel_x = 2
+	},
+/turf/simulated/floor/lino,
+/area/golden_deep/lounge)
 "oT" = (
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
+"oX" = (
+/obj/item/gun/projectile/automatic/rifle/minigun,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
+"oY" = (
+/turf/simulated/floor/carpet/red,
+/area/golden_deep/private_lounge)
+"pe" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"pi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"pj" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"pm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"ps" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
+"pA" = (
+/obj/machinery/door/airlock/multi_tile/flipped/glass{
+	color = "#8c792e"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
+"pC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"pE" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
+"qa" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"qe" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"qo" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/bar/padded/purple{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/red,
-/area/space)
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "qp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
+"qJ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"qY" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
+"ra" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"rL" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/bar/padded/purple{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"rP" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
 "sg" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
+"si" = (
+/obj/effect/shuttle_landmark/golden_deep_shuttle/transit,
+/turf/space/transit/east,
 /area/space)
+"sn" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
 "sq" = (
 /obj/structure/bed/stool/chair/sofa/right/purple,
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
+"sr" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
+"ss" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/central_hallway)
+"su" = (
+/obj/effect/floor_decal/corner_wide/brown,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "sx" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/golden_deep/owned_lounge)
+"sy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"sD" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/central_hallway)
+"sG" = (
+/turf/simulated/open,
+/area/golden_deep/central_hallway)
+"sO" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
+"sS" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/starboard_dock)
+"sY" = (
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/owned_lounge)
+"ti" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"tk" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
+"tu" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"tw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"tx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/bar/padded/purple{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"tz" = (
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/eva)
 "tX" = (
 /turf/simulated/floor/carpet/darkblue,
-/area/space)
+/area/golden_deep/hoplan)
 "uf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -198,48 +732,125 @@
 	dir = 9
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
+"uG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/reactor)
 "uI" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
 "uK" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/golden_deep/owned_lounge)
 "uS" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/bridge)
+"uZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
 "vd" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/bridge)
 "ve" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
+"vh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
+"vn" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/owned_lounge)
 "vu" = (
 /turf/simulated/floor/carpet/magenta,
-/area/space)
+/area/golden_deep/private_lounge)
+"vZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
 "wc" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/aft_hallway)
+"wu" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"wv" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
+"wy" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/portprop)
+"wA" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
+"wC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/central_hallway)
+"wE" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "wK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
+"xa" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"xD" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
+"xH" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/starboardprop)
 "xI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6d6133";
@@ -249,76 +860,207 @@
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/lounge)
+"xJ" = (
+/obj/machinery/smartfridge/drinks{
+	opacity = 1
+	},
+/turf/simulated/floor/lino,
+/area/golden_deep/lounge)
+"xP" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/portprop)
 "xT" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/bridge)
+"yp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
 "yt" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
+"yz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
+"yE" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
+"yF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
 "yT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/private_lounge)
+"yX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
+"za" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/golden_deep/reactor)
 "zi" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
+"zG" = (
+/turf/simulated/floor/carpet/red,
+/area/golden_deep/aft_hallway)
+"zH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "Ac" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/bridge)
 "Af" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/structure/platform,
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/bridge)
+"As" = (
+/obj/machinery/door/airlock/multi_tile/flipped/glass{
+	color = "#8c792e"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/central_hallway)
+"Ax" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"Bd" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "Bl" = (
 /obj/structure/bed/stool/chair/sofa/left/purple,
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
 "Bo" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/turf/simulated/floor/carpet/red,
-/area/space)
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "Bq" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
+"Bu" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
 "By" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Ck" = (
-/obj/effect/floor_decal/corner/dark_green/full{
-	dir = 1
+/area/golden_deep/ammo)
+"BA" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"BQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/turf/simulated/floor/marble/dark,
-/area/space)
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
+"BX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"Ck" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Co" = (
+/turf/simulated/floor/carpet/rubber,
+/area/golden_deep/workshop)
+"Cz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
+"CK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/aft_hallway)
+"CT" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
+/turf/simulated/floor/lino,
+/area/golden_deep/lounge)
 "CV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/owned_lounge)
+"Dx" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/private_lounge)
 "DG" = (
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/merchant)
+"DM" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/atmos)
+"DW" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/reactor)
+"DX" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/lounge)
 "Ee" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
@@ -327,43 +1069,112 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
 "Ey" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
 "ED" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"EK" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
+"ER" = (
+/turf/simulated/open,
+/area/golden_deep/aft_hallway)
 "EV" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
+"EW" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "EY" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"Fk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
 "Ft" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/guest)
+"Fu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"FA" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"FE" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/central_hallway)
+"FN" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/eva)
+"FQ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"FW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Ga" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Go" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
 "Gw" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/bridge)
+"GH" = (
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#686868"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"GJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
 "GP" = (
 /turf/template_noop{
 	name = dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -374,10 +1185,31 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/bridge)
 "Hg" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/space)
+"Hj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"Hm" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
+"Hn" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
 "Hu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -386,13 +1218,70 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/bridge)
+"Hv" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/secure)
+"Hy" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
+"HD" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"HL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"HQ" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/starboard_dock)
+"Ic" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/ammo)
+"Il" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"IX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/port_dock)
+"Jc" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"Jf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
 "Jp" = (
-/obj/effect/floor_decal/corner/dark_green/full{
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/platform{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
-/area/space)
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Jq" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -401,170 +1290,500 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/bridge)
 "JF" = (
-/obj/effect/floor_decal/corner/yellow/full,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"JP" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/turf/simulated/floor/carpet/red,
-/area/space)
+/turf/simulated/floor/plating,
+/area/golden_deep/owned_lounge)
+"JH" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/aft_hallway)
+"JP" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
+"JV" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
+"JW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboard_dock)
+"Kc" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/hoplan)
+"Kf" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
+"Kh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"Kp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
 "KH" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
 "KK" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/merchant)
+"KZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Lc" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/reactor)
+"Lg" = (
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/starboardprop)
 "Ln" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
-"MM" = (
+/area/golden_deep/hoplan)
+"Lt" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/port_dock)
+"LA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"LK" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/atmos)
+"LN" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/yew,
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
+"LP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"LQ" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"LU" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
+"LZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/starboard_dock)
+"Mw" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/bridge)
+"MD" = (
+/obj/structure/bed/stool/bar/padded/purple{
+	dir = 4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/lounge)
+"MM" = (
+/turf/space/transit/east,
 /area/space)
+"MQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Nh" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
 "No" = (
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/hoplan)
 "Ns" = (
-/obj/effect/floor_decal/corner/dark_green/full,
-/turf/simulated/floor/marble/dark,
-/area/space)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/platform_deco{
+	icon_state = "ledge_deco"
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Nx" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
+"NJ" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/eva)
 "NK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/guest)
+"NO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Oe" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portprop)
 "Oo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
+"Oq" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"Ot" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
+"OD" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/private_lounge)
+"OI" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "Pj" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"Py" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
 "PV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/lino/diamond,
-/area/space)
+/area/golden_deep/hoplan)
 "PW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/structure/platform_stairs/full/south_north_cap,
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/bridge)
+"PY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/eva)
+"Ql" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Qr" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
+"QB" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/ammo)
+"QI" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"QP" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
+"QW" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/golden_deep_shuttle/hangar,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"Ra" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/port_dock)
+"Rb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Re" = (
+/obj/machinery/door/window,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/lounge)
+"Rn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
 "Rt" = (
 /turf/template_noop,
 /area/space)
 "Ry" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/hoplan)
 "RA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/central_hallway)
 "RE" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 18;
+	pixel_x = -4
+	},
 /turf/simulated/floor/lino,
-/area/space)
+/area/golden_deep/lounge)
+"RG" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/owned_storage)
+"RV" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
 "Se" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/owned_lounge)
 "Si" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
-/area/space)
-"SS" = (
-/obj/effect/floor_decal/corner/yellow/full{
-	dir = 4
-	},
+/area/golden_deep/bridge)
+"SA" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/golden_deep/warehouse)
+"SC" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/central_hallway)
+"SR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
+"SS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"SZ" = (
+/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"Tk" = (
+/turf/simulated/floor/carpet/magenta,
+/area/golden_deep/merchant)
 "Tt" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/yew,
-/area/space)
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
 "Tw" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"TC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
 "Ud" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
-/area/space)
+/area/golden_deep/port_dock)
+"Ue" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/private_lounge)
+"Uq" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/engineering)
 "Uw" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
-/area/space)
+/area/golden_deep/owned_lounge)
 "UI" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
+"UM" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/guest)
 "UQ" = (
-/obj/effect/floor_decal/corner/dark_green/full{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
-"Vb" = (
-/obj/machinery/stargazer{
-	pixel_x = 15;
-	pixel_y = -5
+/area/golden_deep/lounge)
+"UR" = (
+/obj/machinery/door/airlock/external{
+	dir = 8
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"Vb" = (
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/marble/dark,
-/area/space)
+/area/golden_deep/lounge)
 "Vv" = (
 /obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Freebooter Francisca Rotary Gun"
+	weapon_id = "golden_deep_rotary"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/starboard_dock)
 "VJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/portprop)
 "VR" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"Wa" = (
+/turf/simulated/floor/carpet/magenta,
+/area/golden_deep/port_dock)
+"Wv" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
+"WF" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/workshop)
+"WJ" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate"
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/secure)
+"WL" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/reactor)
+"WP" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portprop)
+"WW" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portprop)
+"Xl" = (
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/secure)
+"Xp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"Xu" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
+"Xx" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/hoplan)
+"XD" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/port_dock)
+"XG" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/owned_lounge)
+"Yc" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	color = "#8c792e";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"Yf" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/custodial)
 "Yh" = (
 /obj/machinery/papershredder{
 	pixel_x = 8
@@ -574,15 +1793,71 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/golden_deep/bridge)
+"Ys" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "Yu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+	dir = 10
 	},
-/turf/simulated/floor/wood/yew,
-/area/space)
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
+"YG" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "YI" = (
 /obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
+"YK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"YT" = (
+/obj/machinery/vending/dinnerware/bar,
+/turf/simulated/floor/lino,
+/area/golden_deep/lounge)
+"YV" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/custodial)
+"YX" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardprop)
+"Zc" = (
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/golden_deep/starboardprop)
+"Zh" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/minigunpack,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/merchant)
+"Zj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"Zm" = (
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Zo" = (
@@ -591,12 +1866,28 @@
 	},
 /turf/template_noop,
 /area/space)
+"Zs" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/private_lounge)
+"ZC" = (
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/secure)
+"ZI" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/golden_deep/reactor)
+"ZS" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portprop)
 "ZX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/golden_deep/guest)
 
 (1,1,1) = {"
 Rt
@@ -831,29 +2122,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (2,1,1) = {"
 Rt
@@ -1088,29 +2379,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (3,1,1) = {"
 Rt
@@ -1345,29 +2636,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (4,1,1) = {"
 Rt
@@ -1602,29 +2893,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (5,1,1) = {"
 Rt
@@ -1859,29 +3150,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (6,1,1) = {"
 Rt
@@ -2116,29 +3407,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (7,1,1) = {"
 Rt
@@ -2373,29 +3664,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (8,1,1) = {"
 Rt
@@ -2630,29 +3921,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (9,1,1) = {"
 Rt
@@ -2887,29 +4178,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (10,1,1) = {"
 Rt
@@ -3144,29 +4435,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (11,1,1) = {"
 Rt
@@ -3401,29 +4692,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (12,1,1) = {"
 Rt
@@ -3658,29 +4949,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (13,1,1) = {"
 Rt
@@ -3915,29 +5206,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+si
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (14,1,1) = {"
 Rt
@@ -4172,29 +5463,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (15,1,1) = {"
 Rt
@@ -4429,29 +5720,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (16,1,1) = {"
 Rt
@@ -4686,29 +5977,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (17,1,1) = {"
 Rt
@@ -4943,29 +6234,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (18,1,1) = {"
 Rt
@@ -5200,29 +6491,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (19,1,1) = {"
 Rt
@@ -5457,29 +6748,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (20,1,1) = {"
 Rt
@@ -5714,29 +7005,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (21,1,1) = {"
 Rt
@@ -5971,29 +7262,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (22,1,1) = {"
 Rt
@@ -6228,29 +7519,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (23,1,1) = {"
 Rt
@@ -6485,29 +7776,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (24,1,1) = {"
 Rt
@@ -6742,29 +8033,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (25,1,1) = {"
 Rt
@@ -6999,29 +8290,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (26,1,1) = {"
 Rt
@@ -7256,29 +8547,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
+MM
 "}
 (27,1,1) = {"
 Rt
@@ -7513,29 +8804,29 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
 "}
 (28,1,1) = {"
 Rt
@@ -29512,11 +30803,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
+Lc
+Lc
+Lc
+Lc
+Lc
 Rt
 Rt
 Rt
@@ -29769,11 +31060,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-gs
-gs
-Uw
+Lc
+DW
+bS
+DW
+Lc
 Rt
 Rt
 Rt
@@ -30026,11 +31317,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-gs
-gs
-Uw
+Lc
+DW
+DW
+DW
+Lc
 Rt
 Rt
 Rt
@@ -30283,11 +31574,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-eK
-uf
-eK
-Uw
+Lc
+nb
+ZI
+mP
+Lc
 Rt
 Rt
 Rt
@@ -30540,11 +31831,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-eK
-uf
-eK
-Uw
+Lc
+za
+ZI
+uG
+Lc
 Rt
 Rt
 Rt
@@ -30793,15 +32084,15 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-Uw
-Uw
+fC
+fC
+fC
+fC
+fC
+fC
+WL
+Lc
+Lc
 Rt
 Rt
 Rt
@@ -31050,14 +32341,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-gs
-gs
-gs
-Uw
-uf
-Uw
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+ZI
+Lc
 Rt
 Rt
 Rt
@@ -31293,31 +32584,31 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+UR
+fC
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+WL
+Lc
+Uq
+Uq
+Uq
 Rt
 Rt
 Rt
@@ -31550,38 +32841,38 @@ Hg
 Rt
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+js
+FQ
+js
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+jf
+bO
+bO
+bO
+Uq
+Uq
+vn
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-uf
-gs
-uf
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-Uw
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-Uw
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -31807,38 +33098,38 @@ Hg
 Hg
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+js
+FQ
+js
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+jf
+jf
+jf
+jf
+Jf
+Uq
+jO
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-uf
-gs
-uf
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-eK
-Uw
-gs
-eK
-gs
-Uw
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -32064,39 +33355,39 @@ Rt
 Hg
 Rt
 Rt
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-gs
-Uw
-Uw
-gs
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+fC
+UR
+fC
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+bO
+jf
+jf
+jf
+Jf
+Uq
+vn
 Uw
 Uw
-Rt
+Uw
+Uw
+Uw
+Uw
 Rt
 Rt
 Rt
@@ -32321,39 +33612,39 @@ Rt
 Hg
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+pm
+FQ
+Bo
+fC
+fC
+iB
+iB
+fC
+fC
+bO
+jf
+jf
+jf
+Jf
+Uq
+CV
+JF
+sx
+sx
+sx
+sx
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-Rt
 Rt
 Rt
 Rt
@@ -32578,43 +33869,43 @@ Rt
 Hg
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+Bd
+fE
+fE
+fE
+fE
+fE
+SA
+Ga
+fC
+bO
+jf
+jf
+bO
+Jf
+Uq
+XG
+uK
+sx
+hh
+hh
+sx
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-gs
-sx
-Uw
-Uw
-Uw
-Uw
-Uw
-Rt
+RG
+RG
+RG
+RG
 Rt
 Rt
 Rt
@@ -32834,44 +34125,44 @@ Hg
 Hg
 Hg
 Hg
-Uw
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-Uw
-gs
-gs
+fC
+fC
+fC
+iB
+iB
+fC
+fC
+fC
+iB
+iB
+fC
+fC
+sO
+su
+pE
+pE
+QP
+FQ
+xD
+fC
+fC
+Uq
+en
+en
+Uq
+Uq
+Uq
 Uw
 Uw
 sx
-sx
-sx
-sx
-sx
-sx
-Uw
-Uw
-Uw
-Uw
-gs
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-sx
-gs
-sx
+hh
+hh
 sx
 Uw
 bi
+RG
 bi
-Uw
-Rt
+RG
 Rt
 Rt
 Rt
@@ -33087,48 +34378,48 @@ Rt
 Rt
 Rt
 Rt
-gs
-eK
-eK
-gs
-gs
-eK
-gs
+Zm
+uf
+uf
+Zm
+QW
+js
+ok
+fE
+fE
+fE
+fE
+fE
+fE
+fE
+fE
+GH
+sO
+xD
+Fu
+YK
+sO
+FQ
+xD
+GH
+fE
+fE
+fE
+fE
+fE
+fE
+GH
 sx
 sx
 sx
+jK
+jK
 sx
-sx
-sx
-sx
-sx
-gs
-sx
-sx
-gs
-gs
-sx
-sx
-gs
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-gs
-sx
-gs
-gs
-sx
-gs
+jK
 bi
 bi
-Uw
-Rt
+bi
+RG
 Rt
 Rt
 Rt
@@ -33344,48 +34635,48 @@ Rt
 Rt
 Rt
 Rt
-gs
-eK
-eK
-gs
-gs
-eK
-gs
+Zm
+uf
+uf
+Zm
+ok
+js
+ok
+pE
+pE
+pE
+pE
+pE
+pE
+pE
+pE
+iB
+sO
+xD
+LP
+nC
+sO
+FQ
+xD
+iB
+pE
+pE
+pE
+pE
+pE
+pE
+iB
 sx
 sx
 sx
+jK
+jK
 sx
-sx
-sx
-sx
-sx
-gs
-sx
-sx
-gs
-gs
-sx
-sx
-gs
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-gs
-sx
-gs
-gs
-sx
-gs
+jK
 bi
 bi
-Uw
-Rt
+bi
+RG
 Rt
 Rt
 Rt
@@ -33605,44 +34896,44 @@ Hg
 Hg
 Hg
 Hg
+fC
+fC
+fC
+iB
+iB
+fC
+fC
+fC
+iB
+iB
+fC
+fC
+sO
+lP
+fE
+fE
+wE
+FQ
+xD
+fC
+fC
+NJ
+FN
+FN
+NJ
+NJ
+NJ
 Uw
 Uw
-Uw
-gs
-gs
-Uw
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-sx
-sx
-sx
-sx
-sx
-sx
-Uw
-Uw
-Uw
-Uw
-gs
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-sx
-gs
-sx
+sY
+jK
+jK
 sx
 Uw
 bi
+RG
 bi
-Uw
-Rt
+RG
 Rt
 Rt
 Rt
@@ -33863,43 +35154,43 @@ Rt
 Hg
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+EW
+pE
+pE
+pE
+pE
+pE
+kd
+Ga
+fC
+PY
+tz
+tz
+PY
+zH
+NJ
+XG
+uK
+sx
+jK
+jK
+sx
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-gs
-sx
-Uw
-Uw
-Uw
-Uw
-Uw
-Rt
+RG
+RG
+RG
+RG
 Rt
 Rt
 Rt
@@ -34120,39 +35411,39 @@ Rt
 Hg
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+KZ
+FQ
+bC
+fC
+fC
+iB
+iB
+fC
+fC
+PY
+tz
+tz
+tz
+zH
+NJ
+Se
+gA
+sx
+sx
+sx
+sx
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-Rt
 Rt
 Rt
 Rt
@@ -34377,39 +35668,39 @@ Hg
 Hg
 Rt
 Rt
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-gs
-Uw
-Uw
-gs
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+fC
+UR
+fC
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+PY
+tz
+tz
+tz
+zH
+NJ
+vn
 Uw
 Uw
-Rt
+Uw
+Uw
+Uw
+Uw
 Rt
 Rt
 Rt
@@ -34634,38 +35925,38 @@ Hg
 Rt
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+js
+FQ
+js
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+tz
+tz
+tz
+tz
+zH
+NJ
+jO
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-uf
-gs
-uf
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-sx
-Uw
-eK
-Uw
-gs
-eK
-gs
-Uw
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -34891,38 +36182,38 @@ Rt
 Rt
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+js
+FQ
+js
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+tz
+PY
+PY
+PY
+NJ
+NJ
+vn
 Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-gs
-gs
-Uw
-uf
-gs
-uf
-Uw
-gs
-gs
-gs
-gs
-Uw
-sx
-sx
-sx
-sx
-Uw
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-Uw
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -35148,31 +36439,31 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-gs
-gs
-gs
-Uw
-Uw
-gs
-Uw
-Uw
-Uw
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+fC
+SZ
+fC
+fC
+fC
+UR
+fC
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+DM
+LK
+NJ
+NJ
+NJ
 Rt
 Rt
 Rt
@@ -35412,22 +36703,22 @@ Rt
 Rt
 Rt
 Rt
+fC
+tu
+fC
 Rt
 Rt
 Rt
 Rt
+fC
+FQ
+FQ
+FQ
+FQ
+fC
+lR
+LK
 Rt
-Rt
-Rt
-Uw
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-Uw
 Rt
 Rt
 Rt
@@ -35669,23 +36960,23 @@ Rt
 Rt
 Rt
 Rt
+fC
+tu
+fC
 Rt
 Rt
 Rt
 Rt
+fC
+fC
+fC
+fC
+fC
+fC
+DM
+LK
+LK
 Rt
-Rt
-Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-gs
-Uw
-Uw
 Rt
 Rt
 Rt
@@ -35926,6 +37217,9 @@ Rt
 Rt
 Rt
 Rt
+fC
+fC
+fC
 Rt
 Rt
 Rt
@@ -35934,15 +37228,12 @@ Rt
 Rt
 Rt
 Rt
+LK
+Ql
+lR
+ED
+LK
 Rt
-Rt
-Rt
-Uw
-eK
-eK
-eK
-eK
-Uw
 Rt
 Rt
 Rt
@@ -36194,12 +37485,12 @@ Rt
 Rt
 Rt
 Rt
-Uw
-eK
-eK
-eK
-eK
-Uw
+LK
+Ql
+lR
+ED
+LK
+Rt
 Rt
 Rt
 Rt
@@ -36451,12 +37742,12 @@ Rt
 Rt
 Rt
 Rt
-Uw
-eK
-eK
-eK
-eK
-Uw
+LK
+Ql
+lR
+ED
+LK
+Rt
 Rt
 Rt
 Rt
@@ -36708,12 +37999,12 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
+LK
+Ql
+lR
+ED
+LK
+Rt
 Rt
 Rt
 Rt
@@ -36965,11 +38256,11 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
-Rt
+LK
+LK
+LK
+LK
+LK
 Rt
 Rt
 Rt
@@ -93505,11 +94796,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
+sS
 Vv
-Uw
-Uw
-Uw
+Jc
+Jc
+Jc
 Rt
 Rt
 Rt
@@ -93762,11 +95053,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-gs
-gs
-Uw
+sS
+rP
+rP
+rP
+Jc
 Rt
 Rt
 gW
@@ -94019,14 +95310,14 @@ Rt
 Rt
 gW
 Rt
-Uw
-gs
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
+sS
+rP
+sS
+fD
+sS
+sS
+sS
+sS
 Rt
 Rt
 Rt
@@ -94248,11 +95539,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
+em
+em
+em
+em
+em
 Rt
 Rt
 Rt
@@ -94276,14 +95567,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Ft
-RA
-gs
-uf
-gs
+sS
+sS
+sS
+LZ
+jl
+wu
+JW
+wu
 Rt
 Rt
 Rt
@@ -94502,14 +95793,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-ar
-ar
-ar
-Uw
+em
+em
+em
+em
+Zc
+Zc
+Zc
+em
 Rt
 Rt
 Rt
@@ -94533,14 +95824,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-Uw
-kB
-zi
-gs
-uf
-gs
+sS
+rP
+sS
+LN
+Kf
+wu
+JW
+wu
 Rt
 Rt
 Rt
@@ -94755,19 +96046,19 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-VJ
-VJ
-Uw
-by
-by
-by
-Uw
-Ud
+em
+em
+em
+em
+em
+pC
+pC
+em
+YX
+YX
+YX
+em
+xH
 Rt
 Rt
 Rt
@@ -94790,14 +96081,14 @@ Rt
 Rt
 gW
 Rt
-Uw
-uf
-gs
-kB
-zi
-Uw
-Uw
-Uw
+sS
+JW
+BA
+LN
+Kf
+sS
+sS
+sS
 Rt
 Rt
 Rt
@@ -95012,21 +96303,19 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Uw
-Se
-Se
-Uw
-kh
-ED
-ED
-ED
-ED
-ED
-JF
-Uw
-Rt
-Rt
+FA
+em
+jq
+jq
+em
+Lg
+Lg
+Lg
+Lg
+Lg
+Lg
+Lg
+em
 Rt
 Rt
 Rt
@@ -95047,13 +96336,15 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-Uw
-kB
-zi
-wc
-Uw
+Rt
+Rt
+sS
+rP
+sS
+LN
+Kf
+pj
+sS
 gW
 Rt
 Rt
@@ -95269,31 +96560,20 @@ Rt
 Rt
 Rt
 Rt
+FA
+em
+Il
+Il
+ra
+Lg
+Il
+Il
+Il
+Il
+Il
+Lg
+em
 Rt
-Uw
-uf
-uf
-gs
-Ry
-uf
-uf
-uf
-uf
-uf
-ko
-Uw
-Rt
-Zo
-Rt
-Rt
-Zo
-Rt
-Rt
-Zo
-Uw
-gs
-gs
-Uw
 Zo
 Rt
 Rt
@@ -95301,16 +96581,27 @@ Zo
 Rt
 Rt
 Zo
+JH
+RV
+RV
+JH
+Zo
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-kB
-zi
-wc
-Uw
+Rt
+Zo
+Rt
+Rt
+Zo
+Rt
+ZC
+ZC
+ZC
+ZC
+ZC
+LN
+Kf
+pj
+sS
 Rt
 Rt
 Rt
@@ -95526,48 +96817,48 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Uw
-CV
-CV
-Uw
-eI
-uK
-uK
-uK
-uK
-uK
-SS
-Uw
-Rt
-Rt
-Rt
-by
-by
-by
-by
-Rt
-Uw
-uf
-uf
-Uw
+FA
+em
+Rb
+Rb
+em
+Lg
+Lg
+Lg
+Lg
+Lg
+Lg
+Lg
+em
 Rt
 Rt
-by
-by
-by
-by
-Uw
-Uw
-Uw
-gs
-gs
-gs
-Uw
-qp
-NK
-wc
-Uw
+Rt
+Ot
+Ot
+Ot
+Ot
+Rt
+JH
+CK
+CK
+JH
+Rt
+Rt
+yF
+yF
+yF
+yF
+iG
+iG
+ZC
+iX
+iX
+iX
+ZC
+GJ
+nI
+pj
+sS
 Rt
 Rt
 Rt
@@ -95783,49 +97074,49 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-gs
-Uw
+em
+em
+em
+em
+em
+em
+em
+em
+em
+em
+Oq
+em
+em
 Rt
 Rt
 Rt
-by
-vu
-vu
-by
+Ot
+ku
+LA
+Ot
 Rt
-Uw
-gs
-gs
-Uw
+JH
+RV
+RV
+JH
 Rt
 Rt
-by
+yF
 DG
 DG
 DG
-Uw
-gs
-gs
-gs
-gs
-gs
-Uw
-gs
-gs
-Uw
-Uw
-Ud
+iG
+hy
+Xl
+Hv
+Hv
+Hv
+ZC
+rP
+Yc
+sS
+sS
+HQ
 Rt
 Rt
 Rt
@@ -96016,8 +97307,6 @@ Rt
 Rt
 Rt
 Rt
-Zo
-Rt
 Rt
 Zo
 Rt
@@ -96046,43 +97335,45 @@ Rt
 Zo
 Rt
 Rt
+Zo
 Rt
-gs
-uf
-gs
-sx
-sx
-Uw
-Uw
-Uw
-Uw
-Uw
-vu
-vu
-Uw
-Uw
-Uw
-eE
-eE
-Uw
-Uw
-Uw
-Uw
+Rt
+QI
+Il
+QI
+Lg
+ra
+jQ
+jQ
+jQ
+WF
+WF
+iq
+eR
+WF
+WF
+JH
+bd
+bd
+JH
+iG
+iG
+iG
 DG
 DG
 DG
-Uw
-gs
-Uw
-gs
-gs
-gs
-Uw
-hh
-hh
-Ft
-RA
-by
+iG
+hy
+ZC
+WJ
+WJ
+WJ
+ZC
+mS
+mS
+lh
+Ck
+eO
 Rt
 Rt
 Rt
@@ -96304,42 +97595,42 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-sx
-sx
-Uw
+em
+em
+em
+Il
+ra
+jQ
+QB
 By
-sx
-Uw
-Ft
-wK
-wK
-RA
-Uw
+WF
+ku
+Ys
+YG
+LA
+WF
 wc
-hh
-hh
+zG
+zG
 wc
-Uw
-gs
-Uw
-Ft
-wK
-wK
-wK
-RA
-Uw
-Uw
-Uw
-Uw
-Uw
-hh
-hh
-kB
-zi
-by
+iG
+oX
+iG
+SR
+yE
+yE
+yE
+aq
+ZC
+ZC
+ZC
+ZC
+ZC
+mS
+mS
+MQ
+aT
+eO
 Rt
 Rt
 Rt
@@ -96559,43 +97850,43 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
-gs
-Uw
-sx
-sx
-Uw
+gW
+em
+ra
+em
+Il
+ra
+Ic
+QB
 By
-sx
-Uw
-kB
-hh
-hh
-zi
-Uw
+WF
+qe
+Co
+Co
+eR
+WF
 wc
-hh
-hh
+zG
+zG
 wc
-Uw
-gs
-Uw
-qp
-yT
-yT
+iG
+wA
+dA
+iW
+vh
+vh
 KK
-ZX
-Uw
-Ft
-wK
-wK
-RA
-hh
-hh
-kB
-zi
+Hm
+iG
+lh
+Zj
+Zj
+FW
+mS
+mS
+MQ
+aT
 xI
 Rt
 Rt
@@ -96818,42 +98109,42 @@ Rt
 Rt
 Rt
 Rt
-Uw
-uf
-gs
-sx
-sx
-Uw
+em
+Il
+LQ
+Il
+ra
+jQ
+QB
 By
-sx
-Uw
-kB
-hh
-hh
-zi
-Uw
-RA
-hh
-hh
-Ft
-Uw
-gs
-Uw
-vu
-vu
-vu
-kB
-ZX
-Uw
-kB
+WF
+qe
+Co
+Co
+eR
+WF
+BQ
+zG
+zG
+eQ
+iG
+Zh
+iG
+Tk
+Tk
+Tk
+iA
+Hm
+iG
+MQ
 ow
 ow
-ZX
-hh
-hh
-kB
-zi
-by
+cK
+mS
+mS
+MQ
+aT
+eO
 Rt
 Rt
 Rt
@@ -97075,49 +98366,49 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-Uw
-sx
-sx
-Uw
-Uw
-ka
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-Uw
-Uw
-vu
-vu
-vu
-kB
-ZX
-gs
-kB
+em
+ra
+em
+Lg
+ra
+mk
+mk
+mk
+WF
+qe
+Co
+Co
+eR
+WF
+Bu
+zG
+zG
+TC
+iG
+iG
+iG
+Tk
+Tk
+Tk
+iA
+Hm
+hy
+MQ
 ow
 ow
-ZX
-hh
-hh
-kB
-zi
-Uw
-Uw
+cK
+mS
+mS
+MQ
+aT
+Mw
+Mw
 Si
-Uw
-Uw
+Mw
+Mw
 Si
-Uw
-Uw
+Mw
+Mw
 Si
 Rt
 Rt
@@ -97330,52 +98621,52 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-sx
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
-vu
-vu
-vu
-qp
-NK
-Uw
-kB
-ow
-ow
-ZX
-hh
-hh
-qp
-NK
-Uw
+gW
+JH
+JH
+JH
+EK
+JH
+mk
+Yf
+Yf
+WF
+qe
+Co
+Co
+eR
+WF
+Bu
+zG
+zG
+TC
+JH
+LU
+Go
+Tk
+Tk
+Tk
+iW
+uZ
+iG
+NO
+tw
+tw
+fP
+mS
+mS
+NO
+fP
+Mw
 eE
 eE
 eE
 eE
-Uw
+Mw
 Ee
 YI
-Uw
+Mw
 Rt
 Rt
 Rt
@@ -97589,52 +98880,52 @@ Rt
 Rt
 Rt
 Rt
-Uw
+JH
 wc
-zi
-hh
-kB
-Uw
-gs
-sx
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-qp
-yT
-yT
-NK
-hh
-hh
-hh
-hh
-gs
-Ft
-wK
-wK
-RA
-gs
-gs
-gs
-Uw
-by
-by
+Bu
+zG
+TC
+mk
+Yf
+Yf
+WF
+qe
+Co
+Co
+eR
+WF
+Bu
+zG
+zG
+TC
+JV
+LU
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+DX
+DX
+DX
+DX
+mS
+mS
+mS
+mS
+kK
+Rn
+Fk
+Fk
+wv
+kK
+Wv
+Wv
+Mw
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -97846,53 +99137,53 @@ Rt
 Rt
 Rt
 Rt
-Uw
+JH
 wc
-zi
-hh
-kB
-Uw
-gs
-sx
-Uw
-qp
-yT
-yT
-NK
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
-Ft
+Bu
+zG
+TC
+mk
+Yf
+Yf
+WF
+Hj
+ti
+ti
+OI
+WF
+Bu
+zG
+zG
+TC
+JH
+LU
+SC
+sD
 wK
 wK
 wK
 RA
-gs
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-gs
-qp
-yT
-yT
-NK
-gs
+aC
+mS
+mS
+mS
+mS
+mS
+mS
+mS
+mS
+Wv
+vZ
+Kp
+Kp
+mH
+Wv
 vd
 vd
 Gw
 KH
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -98101,56 +99392,56 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
+gW
+JH
 wc
-zi
-hh
-kB
-Uw
-Uw
-ka
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-zi
-hh
-hh
-kB
-Uw
-Uw
-Uw
+Bu
+zG
+TC
+mk
+mk
+YV
+WF
+WF
+qJ
+nj
+WF
+WF
+Bu
+zG
+zG
+TC
+JH
+JH
+SC
 kB
 eJ
-yT
-yT
-NK
-gs
-oT
-oT
-oT
-oT
-hh
-hh
-Ft
-RA
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
+wC
+wC
+lJ
+FE
+mS
+mS
+mS
+mS
+mS
+mS
+Ns
+Jp
+Mw
+Mw
+Mw
+Mw
+Mw
+Mw
 ej
-RA
+wv
 uS
 EY
 sg
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -98359,56 +99650,56 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-NK
-hh
-qp
-Uw
-NK
-hh
-qp
-NK
-hh
-hh
-qp
-yT
-NK
-hh
-hh
-qp
-yT
-yT
-Uw
+JH
+JH
+JH
+fz
+zG
+ps
+tk
+fz
+zG
+ps
+fz
+zG
+zG
+ps
+yp
+fz
+zG
+zG
+ps
+yp
+yp
+ss
 kB
 zi
-Uw
-by
-by
-Uw
-Jp
-Ac
+SC
+ss
+ss
+SC
+lt
+Zj
+Zj
+FW
+mS
+mS
+ko
 Vb
-Ns
-JP
-hh
-kB
-zi
-DG
-DG
-DG
-by
+oT
+eI
+Yu
+Nx
 aN
 He
 Af
-zi
+Qr
 uS
-gs
+Wv
 sg
 VR
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -98616,56 +99907,56 @@ Rt
 Rt
 Rt
 Rt
-gs
-uf
-gs
-hh
-hh
-hh
-gs
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-gs
+mD
+CK
+mD
+zG
+zG
+zG
+dU
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+aC
 kB
 zi
-gs
-gs
-gs
-by
-uS
-DG
-DG
-de
+FE
+sG
+sG
+ss
+MQ
+ow
+ow
+cK
+mS
+mS
+ko
+il
+mr
+mr
 JP
-hh
-kB
-zi
-DG
-DG
-DG
-by
+Nx
 sq
 eE
 PW
-zi
+Qr
 uS
-gs
-gs
+Wv
+Wv
 Tw
 Pj
-by
+Nx
 Rt
 Rt
 Rt
@@ -98873,56 +100164,56 @@ Rt
 Rt
 Rt
 Rt
-gs
-uf
-gs
-hh
-hh
-hh
-gs
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-gs
+mD
+CK
+mD
+zG
+zG
+zG
+LU
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+zG
+FE
 kB
 zi
-gs
-gs
-gs
-by
-uS
-DG
-DG
-de
+FE
+sG
+sG
+ss
+MQ
+ow
+ow
+cK
+mS
+mS
+ko
+il
+mr
+mr
 JP
-hh
-kB
-zi
-DG
-DG
-DG
-by
+Nx
 Bl
 eE
 Hu
-zi
+Qr
 uS
-gs
-gs
+Wv
+Wv
 Tw
 kY
-by
+Nx
 Rt
 Rt
 Rt
@@ -99130,56 +100421,56 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-RA
-hh
-Ft
-Uw
-RA
-hh
-Ft
-RA
-hh
-hh
-Ft
-wK
-RA
-hh
-hh
-Ft
-wK
-wK
-Uw
+JH
+JH
+JH
+BQ
+zG
+eQ
+tk
+BQ
+zG
+eQ
+BQ
+zG
+zG
+eQ
+yz
+BQ
+zG
+zG
+eQ
+yz
+yz
+ss
 kB
 zi
-Uw
-by
-by
-Uw
-Ck
-vd
-vd
+SC
+ss
+ss
+SC
+NO
+tw
+tw
+fP
+mS
+mS
+ko
+Tt
 UQ
-JP
-hh
-kB
-zi
-DG
-DG
-DG
-by
+UQ
+de
+Nx
 aN
 EV
 Af
-zi
+Qr
 uS
-gs
+Wv
 sg
 fN
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -99386,56 +100677,56 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
+gW
+JH
 wc
-zi
-hh
-kB
-Uw
-Uw
-gs
-Uw
-Uw
-gs
-gs
-Uw
-Uw
-zi
-hh
-hh
-kB
-Uw
-Uw
-Uw
+Bu
+zG
+TC
+UM
+UM
+gZ
+Ue
+Ue
+Dx
+OD
+Ue
+Ue
+Bu
+zG
+zG
+TC
+JH
+JH
+SC
 kB
 he
 wK
 wK
 RA
-gs
-Bo
-Bo
-Bo
-Bo
-hh
-hh
-qp
-NK
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
+As
+mS
+mS
+mS
+mS
+mS
+mS
+kh
+fX
+Mw
+Mw
+Mw
+Mw
+Mw
+Mw
 Jq
-NK
+mH
 uS
 Tw
 sg
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -99645,53 +100936,53 @@ Rt
 Rt
 Rt
 Rt
-Uw
+JH
 wc
-zi
-hh
-kB
-Uw
-bC
-gA
-Uw
+Bu
+zG
+TC
+UM
 Ft
-wK
-wK
-RA
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
+lw
+Ue
+Zs
+pi
+pi
+pe
+Ue
+Bu
+zG
+zG
+TC
+JH
+LU
+SC
 qp
-yT
-yT
-yT
-NK
-gs
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-hh
-gs
-Ft
-wK
-wK
-RA
-gs
+wC
+wC
+wC
+lJ
+FE
+mS
+mS
+mS
+mS
+mS
+mS
+mS
+mS
+pA
+Rn
+Fk
+Fk
+wv
+pA
 Ac
 Ac
 xT
 eW
-by
-by
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -99902,52 +101193,52 @@ Rt
 Rt
 Rt
 Rt
-Uw
+JH
 wc
-zi
-hh
-kB
-Uw
-MM
-fX
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Ft
-wK
-wK
-RA
-hh
-hh
-hh
-hh
-gs
-qp
-yT
-yT
-NK
-gs
-gs
-gs
-Uw
-by
-by
+Bu
+zG
+TC
+UM
+oA
+ZX
+Ue
+Ax
+oY
+oY
+Py
+Ue
+Bu
+zG
+zG
+TC
+JV
+LU
+lI
+lI
+lI
+lI
+lI
+lI
+lI
+lt
+Zj
+Zj
+FW
+mS
+mS
+mS
+mS
+Wv
+vZ
+Kp
+Kp
+mH
+Wv
+Wv
+Wv
+Mw
+Nx
+Nx
 Rt
 Rt
 Rt
@@ -100157,52 +101448,52 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
-Uw
-Uw
-gs
-Uw
-Uw
-MM
-fX
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-gs
-Uw
+gW
+JH
+JH
+JH
+EK
+JH
+UM
+oA
+ZX
+Ue
+Ax
+oY
+oY
+Py
+Ue
+Bu
+zG
+zG
+TC
+JH
+LU
+Xx
 tX
 tX
 tX
 uw
 ft
-Uw
-kB
+lI
+MQ
 ow
 ow
-ZX
-hh
-hh
-Ft
-RA
-Uw
+cK
+mS
+mS
+lt
+FW
+Mw
 eE
 eE
 eE
 eE
-Uw
+Mw
 sg
 Yh
-Uw
+Mw
 Rt
 Rt
 Rt
@@ -100416,49 +101707,49 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-Uw
-sx
-sx
-Uw
-Tt
-Yu
-Uw
-kB
-hh
-hh
-zi
-Uw
-zi
-hh
-hh
-kB
-Uw
-Uw
-Uw
+xP
+ZS
+xP
+ht
+ZS
+UM
+cJ
+NK
+Ue
+Ax
+oY
+oY
+Py
+Ue
+Bu
+zG
+zG
+TC
+JH
+JH
+lI
 tX
 tX
 tX
 Ln
 uI
-gs
-kB
+Kc
+MQ
 ow
 ow
-ZX
-hh
-hh
-kB
-zi
-Uw
-Uw
+cK
+mS
+mS
+qo
+rL
+Mw
+Mw
 Si
-Uw
-Uw
+Mw
+Mw
 Si
-Uw
-Uw
+Mw
+Mw
 Si
 Rt
 Rt
@@ -100673,42 +101964,42 @@ Rt
 Rt
 Rt
 Rt
-Uw
-uf
-gs
-sx
-sx
-Uw
-Uw
-gs
-Uw
-kB
-hh
-hh
-zi
-Uw
-NK
-hh
-hh
-qp
-Uw
-gs
-Uw
+xP
+Xp
+aS
+Xp
+ZS
+UM
+UM
+gZ
+Ue
+Ax
+oY
+oY
+Py
+Ue
+fz
+zG
+zG
+ps
+JV
+LU
+lI
 tX
 tX
 tX
 Ln
 uI
-Uw
-qp
-yT
-yT
-NK
-hh
-hh
-kB
-zi
-by
+lI
+NO
+tw
+tw
+fP
+mS
+mS
+xa
+qa
+eO
 Rt
 Rt
 Rt
@@ -100928,43 +102219,43 @@ Rt
 Rt
 Rt
 Rt
-gW
 Rt
-Uw
-gs
-Uw
-sx
-sx
-Uw
+gW
+xP
+ZS
+xP
+Xp
+ZS
+UM
 fd
 fd
-Uw
-kB
-hh
-hh
-zi
-Uw
+Ue
+Ax
+oY
+oY
+Py
+Ue
 wc
-hh
-hh
+zG
+zG
 wc
-Uw
-gs
-Uw
+JH
+LU
+lI
 uw
 Ey
 Ey
 Oo
 uI
-Uw
-eE
-eE
-eE
-eE
-hh
-hh
-kB
-zi
+lI
+MD
+MD
+MD
+MD
+mS
+mS
+tx
+dr
 xI
 Rt
 Rt
@@ -101187,42 +102478,42 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-sx
-sx
-Uw
+xP
+xP
+xP
+Xp
+ZS
+UM
 fd
 fd
-Uw
-qp
+Ue
+BX
 yT
 yT
-NK
-Uw
+Kh
+Ue
 wc
-hh
-hh
+zG
+zG
 wc
-Uw
-gs
-Uw
+JH
+ER
+lI
 ve
 Bq
 Bq
 Bq
 PV
-Uw
+lI
 fG
 fG
 fG
 fG
-hh
-hh
-kB
-zi
-by
+mS
+mS
+MQ
+aT
+eO
 Rt
 Rt
 Rt
@@ -101413,8 +102704,6 @@ Rt
 Rt
 Rt
 Rt
-Zo
-Rt
 Rt
 Zo
 Rt
@@ -101443,43 +102732,45 @@ Rt
 Zo
 Rt
 Rt
+Zo
 Rt
-gs
-uf
-gs
-sx
-sx
-Uw
-Uw
-Uw
-Uw
-Uw
+Rt
+WP
+Xp
+WP
+ht
+ZS
+UM
+UM
+UM
+Ue
+Ue
 vu
 vu
-Uw
-Uw
-Uw
-eE
-eE
-Uw
-Uw
-Uw
-Uw
+Ue
+Ue
+JH
+bd
+bd
+JH
+JH
+JH
+lI
 ka
 ka
 ka
-Uw
-Uw
-Uw
-RE
-Ft
-RA
-gs
-hh
-hh
-qp
-NK
-by
+lI
+lI
+lI
+YT
+sy
+FW
+Re
+mS
+mS
+HD
+SS
+eO
 Rt
 Rt
 Rt
@@ -101694,19 +102985,19 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-gs
-gs
-Uw
+xP
+xP
+xP
+xP
+xP
+xP
+xP
+xP
+xP
+xP
+WW
+xP
+xP
 Rt
 Rt
 Rt
@@ -101715,27 +103006,27 @@ vu
 vu
 by
 Rt
-Uw
-gs
-gs
-Uw
+JH
+RV
+RV
+JH
 Rt
 Rt
-Uw
+lI
 No
-gs
+Kc
 No
-Uw
+lI
 Rt
-Uw
-RE
-kB
-zi
-Uw
-gs
-gs
-Uw
-Uw
+mA
+oQ
+MQ
+aT
+mA
+sn
+XD
+Lt
+Lt
 Ud
 Rt
 Rt
@@ -101951,19 +103242,19 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Uw
-Se
-Se
-Uw
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-Uw
+Nh
+xP
+HL
+HL
+xP
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+xP
 Rt
 Rt
 Rt
@@ -101972,27 +103263,27 @@ by
 by
 by
 Rt
-Uw
-uf
-uf
-Uw
+JH
+CK
+CK
+JH
 Rt
 Rt
-Uw
+lI
 No
-gs
+Kc
 No
-Uw
+lI
 Rt
-Uw
+mA
 RE
-qp
-NK
-Uw
-Ft
-RA
-wc
-Uw
+NO
+fP
+mA
+fk
+sr
+Hy
+Lt
 Rt
 Rt
 Rt
@@ -102208,48 +103499,48 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Uw
-uf
-uf
-gs
-sx
-uf
-uf
-uf
-uf
-uf
-sx
-Uw
-Rt
-Zo
-Rt
+Nh
+xP
+Xp
+Xp
+ZS
+ht
+Xp
+Xp
+Xp
+Xp
+Xp
+ht
+xP
 Rt
 Zo
 Rt
 Rt
 Zo
-Uw
-gs
-gs
-Uw
+Rt
+Rt
+Zo
+JH
+RV
+RV
+JH
 Zo
 Rt
-Uw
-Si
-Uw
-Uw
-Si
+lI
+Ry
+lI
+lI
+Ry
 Rt
-Uw
-RE
-RE
-RE
-Uw
-kB
-zi
-wc
-Uw
+mA
+lg
+CT
+xJ
+mA
+yX
+fL
+Hy
+Lt
 Rt
 Rt
 Rt
@@ -102465,21 +103756,19 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Uw
-CV
-CV
-Uw
-sx
-sx
-sx
-sx
-sx
-sx
-sx
-Uw
-Rt
-Rt
+Nh
+xP
+jk
+jk
+xP
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+xP
 Rt
 Rt
 Rt
@@ -102498,15 +103787,17 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-kB
-zi
-wc
-Uw
+Rt
+Rt
+mA
+mA
+mA
+mA
+mA
+yX
+fL
+Hy
+Lt
 gW
 Rt
 Rt
@@ -102722,19 +104013,19 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
+xP
+xP
+xP
+xP
+xP
 VJ
 VJ
-Uw
-by
-by
-by
-Uw
-Ud
+xP
+Oe
+Oe
+Oe
+xP
+wy
 Rt
 Rt
 Rt
@@ -102757,14 +104048,14 @@ Rt
 Rt
 gW
 Rt
-Uw
-gs
-Uw
-kB
-zi
-Uw
-Uw
-Uw
+Lt
+sn
+Lt
+yX
+fL
+Lt
+Lt
+Lt
 Rt
 Rt
 Rt
@@ -102983,14 +104274,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
+xP
+xP
+xP
+xP
 ar
 ar
 ar
-Uw
+xP
 Rt
 Rt
 Rt
@@ -103014,14 +104305,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-uf
-gs
-kB
-zi
-gs
-uf
-gs
+Lt
+Ra
+qY
+yX
+fL
+Xu
+Ra
+Xu
 Rt
 Rt
 Rt
@@ -103243,11 +104534,11 @@ Rt
 Rt
 Rt
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
+xP
+xP
+xP
+xP
+xP
 Rt
 Rt
 Rt
@@ -103271,14 +104562,14 @@ Rt
 Rt
 Rt
 Rt
-Uw
-gs
-Uw
-il
-NK
-gs
-uf
-gs
+Lt
+sn
+Lt
+Cz
+IX
+Xu
+Ra
+Xu
 Rt
 Rt
 Rt
@@ -103528,14 +104819,14 @@ Rt
 Rt
 gW
 Rt
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
-Uw
+Lt
+Lt
+Lt
+sn
+sn
+Lt
+Lt
+Lt
 Rt
 Rt
 Rt
@@ -103787,10 +105078,10 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
+Lt
+Wa
+Wa
+Lt
 Rt
 gW
 Rt
@@ -104044,10 +105335,10 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
+Hn
+Wa
+Wa
+Hn
 Rt
 Rt
 Rt
@@ -104301,10 +105592,10 @@ gW
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
-Rt
+Hn
+Hn
+Hn
+Hn
 Rt
 Rt
 Rt
