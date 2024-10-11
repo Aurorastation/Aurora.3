@@ -1240,11 +1240,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/starboard_dock)
-"GP" = (
-/turf/template_noop{
-	name = dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-	},
-/area/space)
 "He" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -102391,7 +102386,7 @@ Rt
 Rt
 Rt
 Rt
-GP
+Rt
 Rt
 Rt
 Rt
