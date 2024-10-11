@@ -126,6 +126,24 @@
 	icon_state = "zavod_corp_jacket_alt"
 	item_state = "zavod_corp_jacket_alt"
 
+/obj/item/clothing/suit/storage/toggle/corp/zavod/great
+	name = "zavodskoi greatcoat"
+	desc = "TODO"
+	icon_state = "zavod_corp_greatcoat"
+	item_state = "zavod_corp_greatcoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+	siemens_coefficient = 0.75
+	protects_against_weather = TRUE
+
+/obj/item/clothing/suit/storage/toggle/corp/zavod/great/alt
+	icon_state = "zavod_corp_greatcoat_alt"
+	item_state = "zavod_corp_greatcoat_alt"
+
 /obj/item/clothing/suit/storage/toggle/corp/pmc
 	name = "pmcg corporate jacket"
 	desc = "A cozy jacket in PMCG's colors, made out of military grade material."
