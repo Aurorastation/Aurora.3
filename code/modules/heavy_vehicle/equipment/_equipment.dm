@@ -26,7 +26,7 @@
 		var/software = english_list(restricted_software, and_text = ", ")
 		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
 
-/obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
+/obj/item/mecha_equipment/attack(mob/living/target_mob, mob/living/user, target_zone) //Generally it's not desired to be able to attack with items
 	return 0
 
 /obj/item/mecha_equipment/proc/get_effective_obj()

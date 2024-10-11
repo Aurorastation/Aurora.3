@@ -52,7 +52,7 @@
 	linkedServer = null
 	return ..()
 
-/obj/machinery/computer/message_monitor/attackby(obj/item/attacking_item, mob/living/user)
+/obj/machinery/computer/message_monitor/attackby(obj/item/attacking_item, mob/user, params)
 	if(stat & (NOPOWER|BROKEN))
 		return ..()
 	if(!istype(user))

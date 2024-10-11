@@ -474,8 +474,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2515,8 +2514,7 @@
 	},
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /obj/structure/mirror{
 	pixel_x = -28
@@ -2684,8 +2682,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)

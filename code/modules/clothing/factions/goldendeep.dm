@@ -56,6 +56,23 @@
 	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
 	contained_sprite = TRUE
 
+// Hoplan
+/obj/item/clothing/under/goldendeep/hoplan
+	name = "hoplan uniform"
+	desc = "A standard issued uniform for a Hoplan house, often provided to represent a particular merchant or merchant organization who is funding the group."
+	icon_state = "hoplan_uniform"
+	item_state = "hoplan_uniform"
+	icon = 'icons/clothing/under/uniforms/goldendeep_hoplan.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/goldendeep/hoplan
+	name = "hoplan combat hat"
+	desc = "A large poofy and floppy hat with a golden antennae sticking out its top where typically feathers would protrude. If you wanted to be historically accurate."
+	icon_state = "hoplan_combat_hat"
+	item_state = "hoplan_combat_hat"
+	icon = 'icons/clothing/head/hoplan_combat_hat.dmi'
+	contained_sprite = TRUE
+
 //colorable items go under here
 
 //shirts

@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -434,8 +433,7 @@
 /area/tajaran_smuggler/engine)
 "bzW" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -681,7 +679,6 @@
 /area/tajaran_smuggler)
 "dhp" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art{
@@ -1066,7 +1063,6 @@
 /area/tajaran_smuggler/atmos)
 "fjf" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -1177,8 +1173,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/firealarm/north,
 /obj/machinery/light/small{
@@ -1235,7 +1230,6 @@
 /area/shuttle/tajaran_smuggler)
 "fVv" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -1270,28 +1264,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
-/area/tajaran_smuggler)
-"fYB" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
-	},
-/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/tajaran_smuggler)
@@ -1549,8 +1521,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2103,8 +2074,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2531,8 +2501,7 @@
 /area/shuttle/tajaran_smuggler_cargo)
 "lOJ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2592,8 +2561,7 @@
 /area/tajaran_smuggler)
 "lXE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2731,8 +2699,7 @@
 "mEc" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2847,8 +2814,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3031,8 +2997,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3167,7 +3132,6 @@
 /area/tajaran_smuggler)
 "pGP" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -3191,8 +3155,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -3484,8 +3447,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3722,8 +3684,7 @@
 /area/tajaran_smuggler/atmos)
 "tgZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3747,9 +3708,7 @@
 	},
 /area/tajaran_smuggler/power)
 "ttw" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/produce{
 	pixel_x = 3;
 	pixel_y = -11
@@ -4444,7 +4403,6 @@
 /area/tajaran_smuggler/power)
 "xQL" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -4487,8 +4445,7 @@
 /area/tajaran_smuggler)
 "xYA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -35728,7 +35685,7 @@ aaJ
 oPT
 oPT
 oPT
-fYB
+pVt
 oPT
 oPT
 oPT

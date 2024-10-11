@@ -52,7 +52,7 @@
 	if (reagents && reagents.total_volume)
 		var/ratio = reagents.total_volume / size
 		scale = sqrt(ratio) //Scaling factor is square root of desired area
-		scale = Clamp(scale, min_scale, max_scale)
+		scale = clamp(scale, min_scale, max_scale)
 	else
 		scale = min_scale
 	w_class = round(initial(w_class) * scale)

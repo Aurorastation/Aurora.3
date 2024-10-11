@@ -136,7 +136,7 @@
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)

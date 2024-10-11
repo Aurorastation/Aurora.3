@@ -20,7 +20,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 
-/obj/item/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/classic_baton/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_WARNING("You club yourself over the head."))
 		user.Weaken(3 * force)
@@ -88,9 +88,9 @@
 
 	return
 
-/obj/item/melee/telebaton/attack(mob/target, mob/living/user, var/target_zone)
+/obj/item/melee/telebaton/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(on)
-		do_special_effects(target)
+		do_special_effects(target_mob)
 		if(user.is_clumsy() && prob(50))
 			to_chat(user, SPAN_WARNING("You club yourself over the head."))
 			user.Weaken(3 * force)
@@ -101,8 +101,8 @@
 				user.take_organ_damage(2 * force)
 			return
 		if(..() && user.a_intent == I_DISARM)
-			if(ishuman(target))
-				var/mob/living/carbon/human/T = target
+			if(ishuman(target_mob))
+				var/mob/living/carbon/human/T = target_mob
 				T.apply_damage(40, DAMAGE_PAIN, target_zone)
 		return
 	return ..()

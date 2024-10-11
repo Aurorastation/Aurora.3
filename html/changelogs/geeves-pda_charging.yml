@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "PDAs and other modular devices now charge from APCs even when turned off."

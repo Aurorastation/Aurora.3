@@ -77,6 +77,12 @@
 	key = "clack"
 	emote_message_3p = "USER clacks USER_THEIR mandibles together."
 	emote_sound = 'sound/voice/bugclack.ogg'
+
+/singleton/emote/audible/rattle
+	key = "rattle"
+	emote_message_3p = "USER rattles USER_THEIR gaster."
+	emote_sound = 'sound/voice/bugrattle.ogg'
+
 /singleton/emote/audible/shriek
 	key = "shriek"
 	emote_message_3p = "USER shrieks!"

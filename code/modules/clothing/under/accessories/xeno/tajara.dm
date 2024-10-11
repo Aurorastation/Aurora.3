@@ -349,14 +349,14 @@
 /obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
-	if(user.a_intent != I_HURT && M != user)
-		if(target_zone == BP_HEAD | M.lying)
-			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user.a_intent != I_HURT && target_mob != user)
+		if(target_zone == BP_HEAD | target_mob.lying)
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>")
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>")
 		else
-			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>")
 	else
 		return ..()
 

@@ -537,9 +537,7 @@
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "js" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -1984,20 +1982,16 @@
 	pixel_y = 16
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -2192,43 +2186,33 @@
 	pixel_x = 6
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3044,35 +3028,27 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /turf/simulated/floor/tiled/steel,
@@ -3407,11 +3383,9 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/lead/full{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/stack/material/aluminium/full{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/steel,

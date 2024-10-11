@@ -91,11 +91,10 @@ var/list/global/random_stock_large = list()
 	admin_notice(SPAN_DANGER("Cargo Stock generation completed in [round(0.1*(world.timeofday-start_time),0.1)] seconds."), R_DEBUG)
 
 /datum/cargospawner
-	var/list/containers = list()
-	var/list/tables = list()
+	var/list/turf/simulated/floor/warehouseturfs = list()
+	var/list/obj/structure/closet/crate/containers = list()
+	var/list/obj/structure/table/tables = list()
 	var/list/full_containers = list()//Used to hold references to crates we filled up
-	var/area/warehouse
-	var/list/warehouseturfs = list()
 
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
@@ -112,19 +111,18 @@ var/list/global/random_stock_large = list()
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
 	for(var/areapath in typesof(SSatlas.current_map.warehouse_basearea))
-		warehouse = locate(areapath)
-		if (warehouse)
-			for (var/turf/simulated/floor/T in warehouse)
-				warehouseturfs += T
-			for (var/obj/structure/closet/crate/C in warehouse)
-				containers |= C
-			for (var/obj/structure/table/B in warehouse)
-				if(B.no_cargo)
-					continue
-				tables |= B
+		for(var/atom/A in locate(areapath))
+			if(istype(A, /turf/simulated/floor))
+				warehouseturfs += A
+			else if(istype(A, /obj/structure/closet/crate))
+				containers |= A
+			else if(istype(A, /obj/structure/table))
+				var/obj/structure/table/B = A
+				if(!B.no_cargo)
+					tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !length(warehouseturfs))
 		admin_notice(SPAN_DANGER("ERROR: Cargo spawner failed to locate warehouse. Terminating."), R_DEBUG)
 		qdel(src)
 		return
@@ -157,7 +155,7 @@ var/list/global/random_stock_large = list()
 		var/minweight = 1000000000 //We will distribute items somewhat evenly among crates
 		//by selecting the least-filled one for each spawn
 
-		for (var/obj/structure/closet/crate/C in containers)
+		for (var/obj/structure/closet/crate/C as anything in containers)
 			if (C.stored_weight() < minweight && C.stored_weight() < C.storage_capacity)
 				minweight = C.stored_weight()
 				emptiest = C
@@ -202,18 +200,18 @@ var/list/global/random_stock_large = list()
 #define INFEST_PROB_SEVERE	3//Severe is once per round, not per crate
 
 /datum/cargospawner/proc/handle_infestation()
-	for (var/obj/O in containers)
+	for (var/obj/structure/closet/crate/C as anything in containers)
 		if(prob(INFEST_PROB_MODERATE))
 			var/ctype = pickweight(infest_mobs_moderate)
-			new ctype(O)
-			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [O.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>)")
+			new ctype(C)
+			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [C.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[C.x];Y=[C.y];Z=[C.z]'>JMP</a>)")
 
 	//This is checked only once per round. ~3% chance to spawn a scary monster infesting the warehouse
 	if (prob(INFEST_PROB_SEVERE))
 		//Find a tile to spawn the thing
 		var/list/turfs = list()
 		var/turf/T
-		for (var/turf/t in warehouseturfs)
+		for (var/turf/t as anything in warehouseturfs)
 			T = t//Failsafe incase none are clear
 			if (turf_clear(T))
 				turfs |= t
@@ -228,11 +226,11 @@ var/list/global/random_stock_large = list()
 			return
 
 /datum/cargospawner/proc/shuffle_items()
-	for (var/obj/O in containers)
-		O.contents = shuffle(O.contents)
+	for (var/obj/structure/closet/crate/C as anything in containers)
+		C.contents = shuffle(C.contents)
 
-	for (var/obj/a in tables)
-		var/turf/T = get_turf(a)
+	for (var/obj/structure/table/table as anything in tables)
+		var/turf/T = get_turf(table)
 		T.contents = shuffle(T.contents)
 
 GLOBAL_LIST_EMPTY_TYPED(large_stock_markers, /obj/effect/large_stock_marker)

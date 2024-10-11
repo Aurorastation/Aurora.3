@@ -23,38 +23,38 @@
 	if(!icon_state)
 		icon_state = "pill[rand(1, 20)]"
 
-/obj/item/reagent_containers/pill/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/pill/attack(mob/living/target_mob, mob/living/user, target_zone)
 	//TODO: replace with standard_feed_mob() call.
 
-	if(M == user)
-		if(!M.can_eat(src))
+	if(target_mob == user)
+		if(!target_mob.can_eat(src))
 			return
 
-		M.visible_message("<b>[M]</b> swallows a pill.", SPAN_NOTICE("You swallow \the [src]."), null, 2)
+		target_mob.visible_message("<b>[target_mob]</b> swallows a pill.", SPAN_NOTICE("You swallow \the [src]."), null, 2)
 		if(reagents.total_volume)
-			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
+			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
 		return 1
 
-	else if(istype(M, /mob/living/carbon/human))
-		if(!M.can_force_feed(user, src))
+	else if(istype(target_mob, /mob/living/carbon/human))
+		if(!target_mob.can_force_feed(user, src))
 			return
 
-		user.visible_message(SPAN_WARNING("[user] attempts to force [M] to swallow \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] attempts to force [target_mob] to swallow \the [src]!"))
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(!do_mob(user, M))
+		if(!do_mob(user, target_mob))
 			return
 
-		user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
+		user.visible_message(SPAN_WARNING("[user] forces [target_mob] to swallow \the [src]."))
 
 		var/contained = reagentlist()
-		M.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
-		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(M)] Reagents: [contained]</span>"
-		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+		target_mob.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target_mob)] Reagents: [contained]</span>"
+		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 		if(reagents.total_volume)
-			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
+			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
 
 		return 1

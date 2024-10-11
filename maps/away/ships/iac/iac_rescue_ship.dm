@@ -265,3 +265,51 @@
 	landmark_tag = "nav_transit_iac_shuttle"
 
 	base_turf = /turf/space/transit/north
+
+// airlocks
+
+/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port
+	name = "Port Airlock"
+	master_tag = "airlock_iac_rescue_port"
+
+/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard
+	name = "Starboard Airlock"
+	master_tag = "airlock_iac_rescue_stbd"
+
+// docks
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_berth
+	name = "Dock, Port Berth"
+	landmark_tag = "nav_iac_rescue_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_fore
+	name = "Dock, Port Fore"
+	landmark_tag = "nav_iac_rescue_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/port_aft
+	name = "Dock, Port Aft"
+	landmark_tag = "nav_iac_rescue_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_berth
+	name = "Dock, Starboard Berth"
+	landmark_tag = "nav_iac_rescue_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_fore
+	name = "Dock, Starboard Fore"
+	landmark_tag = "nav_iac_rescue_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore"
+
+/obj/effect/map_effect/marker/airlock/docking/iac_rescue_ship/dock/starboard_aft
+	name = "Dock, Starboard Aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft"
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
+
+/obj/effect/map_effect/marker/airlock/shuttle/iac_rescue_ship/shuttle
+	name = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle"
+	master_tag = "airlock_iac_rescue_shuttle"
+	cycle_to_external_air = TRUE

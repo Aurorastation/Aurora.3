@@ -132,7 +132,7 @@
 /singleton/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.adjustNutritionLoss(-nutriment_factor * removed)
-	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
+	M.nutrition_attrition_rate = clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	M.intoxication -= min(M.intoxication,nutriment_factor*removed*0.05) //Nutrients can absorb alcohol.
 
@@ -155,7 +155,7 @@
 	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.adjustNutritionLoss(-nut_fact * removed)
-	M.nutrition_attrition_rate = Clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
+	M.nutrition_attrition_rate = clamp(M.nutrition_attrition_rate + attrition_factor, 1, 2)
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	M.intoxication -= min(M.intoxication,nut_fact*removed*0.05) //Nutrients can absorb alcohol.
 
@@ -1485,9 +1485,9 @@
 	description = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
 	taste_description = "sweet fatty yogurt"
 
-	glass_icon_state = "mutthir_glass"
 	glass_name = "glass of mutthir"
 	glass_desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
+	glass_icon_state = "mutthir_glass"
 
 /singleton/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
@@ -1502,7 +1502,7 @@
 /singleton/reagent/drink/milk/schlorrgo
 	name = "Schlorrgo Milk"
 	description = "An opaque white liquid produced by the mammary glands of the Schlorrgo."
-	taste_description = "fatty milk"
+	taste_description = "bitter and fatty milk"
 
 /singleton/reagent/drink/milk/schlorrgo/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()

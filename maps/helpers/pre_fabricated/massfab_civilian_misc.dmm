@@ -709,8 +709,7 @@
 	pixel_y = 14
 	},
 /obj/item/material/ashtray/bronze{
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
@@ -1382,12 +1381,10 @@
 	pixel_x = -7
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = -3;

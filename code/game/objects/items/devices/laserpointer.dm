@@ -38,8 +38,8 @@
 
 
 
-/obj/item/device/laser_pointer/attack(mob/living/M, mob/user)
-	laser_act(M, user)
+/obj/item/device/laser_pointer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	laser_act(target_mob, user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 /obj/item/device/laser_pointer/attackby(obj/item/attacking_item, mob/user)

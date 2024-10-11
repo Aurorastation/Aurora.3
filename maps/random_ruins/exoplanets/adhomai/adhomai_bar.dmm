@@ -813,9 +813,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "TJ" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,

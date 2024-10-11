@@ -111,13 +111,15 @@
 	open = !open
 	update_icon()
 
-/obj/item/lipstick/attack(mob/M as mob, mob/user as mob)
-	if(!open)	return
+/obj/item/lipstick/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!open)
+		return
 
-	if(!istype(M, /mob))	return
+	if(!istype(target_mob))
+		return
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		if(H.lipstick_color)	//if they already have lipstick on
 			to_chat(user, SPAN_NOTICE("You need to wipe off the old lipstick first!"))
 			return
@@ -173,11 +175,11 @@
 	playsound(H, 'sound/items/welder_pry.ogg', 20, 1)
 
 
-/obj/item/razor/attack(mob/M, mob/user, var/target_zone)
-	if(!ishuman(M))
+/obj/item/razor/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ishuman(target_mob))
 		return ..()
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/human/H = target_mob
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
 	if(!E || E.is_stump())
