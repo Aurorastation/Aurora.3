@@ -68,6 +68,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/proc/handle_verbs()
+	verbs += /obj/item/modular_computer/proc/force_shutdown
 	if(card_slot)
 		if(card_slot.stored_card)
 			verbs += /obj/item/modular_computer/proc/eject_id
