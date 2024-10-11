@@ -128,7 +128,7 @@
 
 /obj/item/clothing/suit/storage/toggle/corp/zavod/great
 	name = "zavodskoi greatcoat"
-	desc = "TODO"
+	desc = "A greatcoat in Zavodskoi Interstellar colors. It looks warmer, if a bit heavier, than most other clothing."
 	icon_state = "zavod_corp_greatcoat"
 	item_state = "zavod_corp_greatcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
