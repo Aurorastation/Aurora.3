@@ -320,7 +320,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/mining
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -334,7 +334,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/mining
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -562,7 +562,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -632,7 +632,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

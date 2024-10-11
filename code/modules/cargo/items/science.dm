@@ -7,7 +7,7 @@
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -329,7 +329,7 @@
 	items = list(
 		/obj/item/circuitboard/mecha/odysseus/main
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -343,7 +343,7 @@
 	items = list(
 		/obj/item/circuitboard/mecha/odysseus/peripherals
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -357,7 +357,7 @@
 	items = list(
 		/obj/item/circuitboard/mecha/ripley/main
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -371,7 +371,7 @@
 	items = list(
 		/obj/item/circuitboard/mecha/ripley/peripherals
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -427,7 +427,7 @@
 	items = list(
 		/obj/item/device/firing_pin/implant/loyalty
 	)
-	access = 19
+	access = ACCESS_HEADS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -441,7 +441,7 @@
 	items = list(
 		/obj/item/device/mmi/digital/posibrain
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -455,7 +455,7 @@
 	items = list(
 		/mob/living/carbon/human
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -469,7 +469,7 @@
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -483,7 +483,7 @@
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -497,7 +497,7 @@
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -525,7 +525,7 @@
 	items = list(
 		/obj/item/device/firing_pin/test_range
 	)
-	access = 47
+	access = ACCESS_RESEARCH
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -553,7 +553,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/bishop
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -567,7 +567,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/industrial
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -581,7 +581,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/hephaestus
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -595,7 +595,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -609,7 +609,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/synthskin
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -623,7 +623,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/xion
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -637,7 +637,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/zenghu
 	)
-	access = 29
+	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

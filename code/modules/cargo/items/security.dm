@@ -9,7 +9,7 @@
 	items = list(
 		/obj/item/melee/baton
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -23,7 +23,7 @@
 	items = list(
 		/obj/item/device/flash
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -37,7 +37,7 @@
 	items = list(
 		/obj/item/device/uv_light
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -50,7 +50,7 @@
 	items = list(
 		/obj/item/implanter/ipc_tag
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -64,7 +64,7 @@
 	items = list(
 		/obj/item/device/flashlight/maglight
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -78,7 +78,7 @@
 	items = list(
 		/obj/item/device/magnetic_lock/security
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -92,7 +92,7 @@
 	items = list(
 		/obj/item/storage/box/zipties
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -106,7 +106,7 @@
 	items = list(
 		/obj/machinery/shieldwallgen
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -120,7 +120,7 @@
 	items = list(
 		/obj/item/storage/box/teargas
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -134,7 +134,7 @@
 	items = list(
 		/obj/item/storage/box/flashbangs
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -148,7 +148,7 @@
 	items = list(
 		/obj/item/storage/box/emps
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -162,7 +162,7 @@
 	items = list(
 		/obj/machinery/deployable/barrier
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -178,7 +178,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/vest
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -192,7 +192,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/tactical
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -206,7 +206,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/tactical
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -220,7 +220,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/ablative
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -234,7 +234,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ablative
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -248,7 +248,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/ballistic
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -262,7 +262,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ballistic
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -276,7 +276,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/riot
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -290,7 +290,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/riot
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -304,7 +304,7 @@
 	items = list(
 		/obj/item/shield/riot
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -318,7 +318,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/security
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -332,7 +332,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/security
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -346,7 +346,7 @@
 	items = list(
 		/obj/item/clothing/glasses/sunglasses/sechud/tactical
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -359,7 +359,7 @@
 	items = list(
 		/obj/item/clothing/gloves/black
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -373,7 +373,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/bandolier
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -387,7 +387,7 @@
 	items = list(
 		/obj/item/storage/belt/security/tactical
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -401,7 +401,7 @@
 	items = list(
 		/obj/item/clothing/under/tactical
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -415,7 +415,7 @@
 	items = list(
 		/obj/item/clothing/shoes/jackboots
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -429,7 +429,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/bayonet
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -445,7 +445,7 @@
 	items = list(
 		/obj/item/gun/projectile/sec
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -459,7 +459,7 @@
 	items = list(
 		/obj/item/gun/energy/disruptorpistol
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -472,7 +472,7 @@
 	items = list(
 		/obj/item/gun/energy/taser
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -486,7 +486,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/mini_uzi
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -500,7 +500,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/carbine
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -514,7 +514,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/z8
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -528,7 +528,7 @@
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -542,7 +542,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/wt550
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -556,7 +556,7 @@
 	items = list(
 		/obj/item/gun/energy/gun
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -570,7 +570,7 @@
 	items = list(
 		/obj/item/gun/energy/pistol
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -584,7 +584,7 @@
 	items = list(
 		/obj/item/gun/energy/rifle/ionrifle
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -597,7 +597,7 @@
 	items = list(
 		/obj/item/gun/energy/sniperrifle
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -611,7 +611,7 @@
 	items = list(
 		/obj/item/gun/energy/rifle/laser
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -626,7 +626,7 @@
 	items = list(
 		/obj/item/gun/energy/retro
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -640,7 +640,7 @@
 	items = list(
 		/obj/item/gun/projectile/peac
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -654,7 +654,7 @@
 	items = list(
 		/obj/item/gun/projectile/recoilless_rifle
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -668,7 +668,7 @@
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -682,7 +682,7 @@
 	items = list(
 		/obj/item/gun/projectile/revolver/derringer
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -696,7 +696,7 @@
 	items = list(
 		/obj/item/gun/projectile/silenced
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -710,7 +710,7 @@
 	items = list(
 		/obj/item/gun/projectile/pirate
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -726,7 +726,7 @@
 	items = list(
 		/obj/item/storage/box/beanbags
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -740,7 +740,7 @@
 	items = list(
 		/obj/item/storage/box/haywireshells
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -754,7 +754,7 @@
 	items = list(
 		/obj/item/storage/box/incendiaryshells
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -768,7 +768,7 @@
 	items = list(
 		/obj/item/storage/box/shotgunshells
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -782,7 +782,7 @@
 	items = list(
 		/obj/item/storage/box/shotgunammo
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -796,7 +796,7 @@
 	items = list(
 		/obj/item/storage/box/flashshells
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -810,7 +810,7 @@
 	items = list(
 		/obj/item/ammo_casing/peac
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -824,7 +824,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine/ap
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -838,7 +838,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -852,7 +852,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -866,7 +866,7 @@
 	items = list(
 		/obj/item/ammo_magazine/d762
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -880,7 +880,7 @@
 	items = list(
 		/obj/item/ammo_magazine/mc9mm
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -894,7 +894,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45m
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -908,7 +908,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45m/flash
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -922,7 +922,7 @@
 	items = list(
 		/obj/item/storage/box/tungstenslugs
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -936,7 +936,7 @@
 	items = list(
 		/obj/item/device/firing_pin
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -950,7 +950,7 @@
 	items = list(
 		/obj/item/ammo_display
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -964,7 +964,7 @@
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt/rubber
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -978,7 +978,7 @@
 	items = list(
 		/obj/item/storage/box/tranquilizer
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -994,7 +994,7 @@
 	items = list(
 		/obj/item/storage/briefcase/crimekit
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1008,7 +1008,7 @@
 	items = list(
 		/obj/item/reagent_containers/spray/luminol
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1022,7 +1022,7 @@
 	items = list(
 		/obj/item/storage/box/slides
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1036,7 +1036,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1050,7 +1050,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit/powder
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1064,7 +1064,7 @@
 	items = list(
 		/obj/item/storage/box/swabs
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

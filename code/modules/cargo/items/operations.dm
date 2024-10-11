@@ -107,7 +107,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -121,7 +121,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -535,7 +535,7 @@
 	items = list(
 		/obj/item/clothing/accessory/holster
 	)
-	access = 2
+	access = ACCESS_BRIG
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -661,7 +661,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame05/prebuilt
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -675,7 +675,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame04/prebuilt
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -689,7 +689,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -703,7 +703,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame02/prebuilt
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -717,7 +717,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -733,7 +733,7 @@
 		/obj/machinery/mining/brace,
 		/obj/machinery/mining/brace
 	)
-	access = 48
+	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -747,7 +747,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle/ap
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -761,7 +761,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -775,7 +775,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle/ap
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -789,7 +789,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -803,7 +803,7 @@
 	items = list(
 		/obj/item/warhead/longbow/ap
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -817,7 +817,7 @@
 	items = list(
 		/obj/item/ship_ammunition/longbow
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -831,7 +831,7 @@
 	items = list(
 		/obj/item/warhead/longbow/bunker
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -845,7 +845,7 @@
 	items = list(
 		/obj/item/warhead/longbow
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -859,7 +859,7 @@
 	items = list(
 		/obj/item/primer/high
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -873,7 +873,7 @@
 	items = list(
 		/obj/item/primer
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -887,7 +887,7 @@
 	items = list(
 		/obj/item/primer/low
 	)
-	access = 31
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

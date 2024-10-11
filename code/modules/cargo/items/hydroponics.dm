@@ -385,7 +385,7 @@
 	items = list(
 		/obj/item/seeds/libertymycelium
 	)
-	access = 35
+	access = ACCESS_HYDROPONICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -399,7 +399,7 @@
 	items = list(
 		/obj/item/seeds/reishimycelium
 	)
-	access = 35
+	access = ACCESS_HYDROPONICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

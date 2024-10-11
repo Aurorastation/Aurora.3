@@ -90,7 +90,7 @@
 	items = list(
 		/obj/item/tank/phoron
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -104,7 +104,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -118,7 +118,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/atmos
 	)
-	access = 24
+	access = ACCESS_ATMOSPHERICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -132,7 +132,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/atmos
 	)
-	access = 24
+	access = ACCESS_ATMOSPHERICS
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -146,7 +146,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -160,7 +160,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/air
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -174,7 +174,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/boron
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -188,7 +188,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -202,7 +202,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/hydrogen
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -216,7 +216,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/helium
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -230,7 +230,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/nitrogen
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -244,7 +244,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/sleeping_agent
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -258,7 +258,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/oxygen
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -272,7 +272,7 @@
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/phoron
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -370,7 +370,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/coolanttank
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 1
 	item_mul = 1
@@ -384,7 +384,7 @@
 	items = list(
 		/obj/machinery/pipedispenser/disposal/orderable
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -398,7 +398,7 @@
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -412,7 +412,7 @@
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -426,7 +426,7 @@
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -440,7 +440,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -454,7 +454,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -468,7 +468,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -482,7 +482,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -496,7 +496,7 @@
 	items = list(
 		/obj/item/circuitboard/bluespacerelay
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -510,7 +510,7 @@
 	items = list(
 		/obj/machinery/power/emitter
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -524,7 +524,7 @@
 	items = list(
 		/obj/item/device/magnetic_lock/engineering
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -538,7 +538,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -552,7 +552,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -566,7 +566,7 @@
 	items = list(
 		/obj/machinery/field_generator
 	)
-	access = 3
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -580,7 +580,7 @@
 	items = list(
 		/obj/item/material/twohanded/fireaxe
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -594,7 +594,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 1
 	item_mul = 1
@@ -624,7 +624,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -652,7 +652,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -694,7 +694,7 @@
 	items = list(
 		/obj/item/hoist_kit
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -722,7 +722,7 @@
 	items = list(
 		/obj/item/storage/bag/inflatable
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -736,7 +736,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -750,7 +750,7 @@
 	items = list(
 		/obj/item/device/am_shielding_container
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -778,7 +778,7 @@
 	items = list(
 		/obj/item/device/paint_sprayer
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -792,7 +792,7 @@
 	items = list(
 		/obj/machinery/particle_accelerator/control_box
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -806,7 +806,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -820,7 +820,7 @@
 	items = list(
 		/obj/machinery/pipedispenser/orderable
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -834,7 +834,7 @@
 	items = list(
 		/obj/item/device/pipe_painter
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -848,7 +848,7 @@
 	items = list(
 		/obj/item/ladder_mobile
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -862,7 +862,7 @@
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -876,7 +876,7 @@
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -890,7 +890,7 @@
 	items = list(
 		/obj/item/circuitboard/research_shuttle
 	)
-	access = 1
+	access = ACCESS_SECURITY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -904,7 +904,7 @@
 	items = list(
 		/obj/machinery/the_singularitygen
 	)
-	access = 19
+	access = ACCESS_HEADS
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -932,7 +932,7 @@
 	items = list(
 		/obj/machinery/power/supermatter
 	)
-	access = 19
+	access = ACCESS_HEADS
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -948,7 +948,7 @@
 		/obj/machinery/atmospherics/binary/circulator,
 		/obj/machinery/atmospherics/binary/circulator
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 0
 	item_mul = 1
@@ -963,7 +963,7 @@
 	items = list(
 		/obj/item/solar_assembly
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 5
@@ -991,7 +991,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/watertank
 	)
-	access = 10
+	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = 1
 	item_mul = 1
@@ -1019,7 +1019,7 @@
 	items = list(
 		/obj/item/am_containment
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1033,7 +1033,7 @@
 	items = list(
 		/obj/machinery/power/am_control_unit
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -1047,7 +1047,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)
-	access = 56
+	access = ACCESS_CE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1

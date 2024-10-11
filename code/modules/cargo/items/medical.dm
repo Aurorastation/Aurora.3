@@ -7,7 +7,7 @@
 	items = list(
 		/obj/item/storage/firstaid/adv
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -21,7 +21,7 @@
 	items = list(
 		/obj/item/tank/anesthetic
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -49,7 +49,7 @@
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/storage/box/bloodpacks
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -77,7 +77,7 @@
 	items = list(
 		/obj/item/storage/box/bodybags
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -91,7 +91,7 @@
 	items = list(
 		/obj/item/surgery/bone_gel
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -105,7 +105,7 @@
 	items = list(
 		/obj/item/surgery/bonesetter
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -133,7 +133,7 @@
 	items = list(
 		/obj/item/storage/box/gloves
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -175,7 +175,7 @@
 	items = list(
 		/obj/item/surgery/cautery
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -189,7 +189,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -203,7 +203,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -217,7 +217,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -231,7 +231,7 @@
 	items = list(
 		/obj/item/surgery/circular_saw
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -259,7 +259,7 @@
 	items = list(
 		/obj/item/storage/firstaid/fire
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -273,7 +273,7 @@
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -287,7 +287,7 @@
 	items = list(
 		/obj/item/surgery/fix_o_vein
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -301,7 +301,7 @@
 	items = list(
 		/obj/item/surgery/hemostat
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -375,7 +375,7 @@
 	items = list(
 		/obj/item/storage/belt/medical
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -389,7 +389,7 @@
 	items = list(
 		/obj/item/clothing/mask/breath/medical
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -403,7 +403,7 @@
 	items = list(
 		/obj/item/clothing/under/rank/medical/surgeon/zeng
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -417,7 +417,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/medical
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -431,7 +431,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -459,7 +459,7 @@
 	items = list(
 		/obj/item/storage/firstaid/o2
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -487,7 +487,7 @@
 	items = list(
 		/obj/item/storage/pill_bottle
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -501,7 +501,7 @@
 	items = list(
 		/obj/item/surgery/retractor
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -515,7 +515,7 @@
 	items = list(
 		/obj/item/surgery/scalpel
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -543,7 +543,7 @@
 	items = list(
 		/obj/item/bodybag/cryobag
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -566,7 +566,7 @@
 		/obj/item/surgery/fix_o_vein,
 		/obj/item/stack/medical/advanced/bruise_pack
 	)
-	access = 45
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -580,7 +580,7 @@
 	items = list(
 		/obj/item/clothing/head/surgery/zeng
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -594,7 +594,7 @@
 	items = list(
 		/obj/item/surgery/surgicaldrill
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -608,7 +608,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/tajara
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -636,7 +636,7 @@
 	items = list(
 		/obj/item/storage/firstaid/toxin
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
@@ -650,7 +650,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/unathi
 	)
-	access = 5
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
