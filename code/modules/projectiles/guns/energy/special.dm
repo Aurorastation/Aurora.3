@@ -280,7 +280,8 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	w_class = WEIGHT_CLASS_NORMAL
+	self_recharge = 1
+	recharge_time = 7
 	accuracy = 1
 	recoil = 1
 	force = 15

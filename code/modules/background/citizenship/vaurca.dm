@@ -30,7 +30,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
-			SPECIES_VAURCA_ATTENDANT,
+			SPECIES_VAURCA_ATTENDANT
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = ALL_SPECIES
@@ -143,7 +143,7 @@
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -217,7 +217,7 @@
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/gun/energy/fedpistol/nopsi(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
