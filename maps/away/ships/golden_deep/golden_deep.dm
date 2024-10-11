@@ -1,10 +1,10 @@
 /datum/map_template/ruin/away_site/golden_deep
-	name = "Golden Deep Merchant Vessel"
+	name = "Golden Deep Merchantile Vessel"
 	id = "golden_deep"
 	description = "A mercantile transport vessel, registered to the Golden Deep."
 
 	prefix = "ships/golden_deep/"
-	suffix = "golden_deep_merchant.dmm"
+	suffix = "golden_deep.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1
@@ -15,12 +15,12 @@
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/golden_deep
-	map = "Golden Deep Merchant Vessel"
+	map = "Golden Deep Merchantile Vessel"
 	descriptor = "A mercantile transport vessel, registered to the Golden Deep."
 
 /obj/effect/overmap/visitable/ship/golden_deep
-	name = "Golden Deep Merchant Ship"
-	desc = "The Anchurus-class mercantile vessel is a common sight in the possession of Golden Deep traders - a high-speed vessel, designed in the shipyards of Midaion by the brightest minds of the Grand Camarilla Estriconian. They are frequently plated in gold and other rare metals, in order to easily distinguish them as Golden Deep property."
+	name = "Golden Deep Merchantile Vessel"
+	desc = "FILL THIS"
 	class = "GDMV" //Golden Deep Mercantile Vessel
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
@@ -32,9 +32,9 @@
 	vessel_size = SHIP_SIZE_SMALL
 	invisible_until_ghostrole_spawn = TRUE
 	designer = "Grand Camarilla Estriconian, Midaion Anchorage"
-	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
+	volume = "55 meters length, 43 meters beam/width, 22 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Not apparent, aft obscured flight craft bay"
+	weapons = "Small starboard ballistic mount, obscured flight craft hangar aft underside"
 	sizeclass = "Anchurus-class mercantile freighter"
 	shiptype = "Long-term shipping utilities"
 	initial_restricted_waypoints = list(
@@ -136,7 +136,7 @@
 	base_turf = /turf/space/transit/east
 
 //Fluff items
-/obj/item/storage/secure/safe/golden_deep
+/obj/item/storage/secure/safe/golden_deep // Placed in merchant's quarters.
 	starts_with = list(
 	/obj/item/clothing/accessory/badge/passport = 1,
 	/obj/item/clothing/accessory/badge/passport/coc = 1,

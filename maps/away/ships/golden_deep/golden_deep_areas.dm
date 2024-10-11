@@ -44,7 +44,7 @@
 
 /area/golden_deep/hoplan
 	name = "Collective Mercantile Vessel - Hoplan's Quarters"
-	icon_state = "crew_quarters"
+	icon_state = "armory"
 
 /area/golden_deep/merchant
 	name = "Collective Mercantile Vessel - Merchant's Quarters"
@@ -56,7 +56,7 @@
 
 /area/golden_deep/secure
 	name = "Collective Mercantile Vessel - Secure Storage"
-	icon_state = "armory"
+	icon_state = "storage"
 
 /area/golden_deep/ammo
 	name = "Collective Mercantile Vessel - Ammunition Storage"
