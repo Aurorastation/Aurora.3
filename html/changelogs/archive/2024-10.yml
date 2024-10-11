@@ -133,3 +133,23 @@
   - bugfix: Generic attacks below 15 damage were being ignored due to a logic error
       in how the shields are handled, now they aren't anymore, fixes gremorian nurses
       doing no damage and possibly other things.
+2024-10-11:
+  Ben10083:
+  - bugfix: Only Fat Schlorrgos (or wider) can now lay eggs.
+  - rscadd: Adds new Golden Deep Hoplan uniform and armor. Thanks to NobleRow for
+      lore and sprites.
+  - rscadd: Hoplan assets added to traitor uplink.
+  FluffyGhost:
+  - bugfix: Fixes exosuit sleeper TGUI runtime due to invalid parameter.
+  - bugfix: Fixed monkey cubes under showers from turning the game into Doom.
+  - bugfix: Fixed showers not showering you because of an improper early return on
+      wet floors.
+  - bugfix: Fixed blood overlays being wrongly cleared when you shower.
+  - code_imp: Sonme code improvements.
+  SimpleMaroon:
+  - rscadd: Added a Burzsian banner and flagpatch to the loadout.
+  hazelmouse:
+  - rscadd: Added the rattle audible emote, available exclusively to Vaurca Attendants.
+  - bugfix: Solarian Navy utility covers are no longer invisible.
+  notagonk:
+  - rscadd: Adds the Himean vendor foods & drink to the lunchbox selection.
