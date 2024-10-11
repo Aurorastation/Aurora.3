@@ -522,7 +522,7 @@
 /singleton/cargo_item/combatshotgun
 	category = "security"
 	name = "combat shotgun"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders"
 	price = 8250
 	items = list(
@@ -591,7 +591,7 @@
 /singleton/cargo_item/marksmanenergyrifle
 	category = "security"
 	name = "marksman energy rifle"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized b愀猀琀猀"
 	price = 9600
 	items = list(

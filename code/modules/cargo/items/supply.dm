@@ -1,19 +1,3 @@
-/singleton/cargo_item/bluelasertagequipmentset
-	category = "supply"
-	name = "blue laser tag equipment set"
-	supplier = "nanotrasen"
-	description = "A set of red laser blue equipment consisting of helmet, armor and gun"
-	price = 200
-	items = list(
-		/obj/item/clothing/head/helmet/riot/laser_tag/blue,
-		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
-		/obj/item/gun/energy/lasertag/blue
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/box
 	category = "supply"
 	name = "box"
@@ -98,20 +82,6 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/eggcarton
-	category = "supply"
-	name = "egg carton"
-	supplier = "getmore"
-	description = "Eggs from mostly chicken."
-	price = 15
-	items = list(
-		/obj/item/storage/box/fancy/egg_box
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/electronicblinktoygame
 	category = "supply"
 	name = "electronic blink toy game"
@@ -126,28 +96,18 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/floursack
-	category = "supply"
-	name = "flour sack"
-	supplier = "getmore"
-	description = "A big bag of flour. Good for baking!"
-	price = 2
-	items = list(
-		/obj/item/reagent_containers/food/condiment/flour
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/foamdart
 	category = "supply"
-	name = "foam dart"
+	name = "foam darts (x5)"
 	supplier = "nanotrasen"
-	description = "It's nerf or nothing! Ages 8 and up."
-	price = 100
+	description = "It's some foam darts, for use in foam weaponry. Ages 8 and up."
+	price = 20
 	items = list(
-		/obj/item/toy/ammo/crossbow
+		/obj/item/toy/ammo/crossbow,
+		/obj/item/toy/ammo/crossbow,
+		/obj/item/toy/ammo/crossbow,
+		/obj/item/toy/ammo/crossbow,
+		/obj/item/toy/ammo/crossbow,
 	)
 	access = 0
 	container_type = "crate"
@@ -199,7 +159,7 @@
 /singleton/cargo_item/folderred
 	category = "supply"
 	name = "red folder"
-	supplier = "nanotrasen"
+	supplier = "orion"
 	description = "A red folder."
 	price = 8
 	items = list(
@@ -213,7 +173,7 @@
 /singleton/cargo_item/gravitationalsingularitytoy
 	category = "supply"
 	name = "gravitational singularity toy"
-	supplier = "nanotrasen"
+	supplier = "getmore"
 	description = "'Singulo' brand spinning toy."
 	price = 200
 	items = list(
@@ -224,11 +184,26 @@
 	groupable = 1
 	item_mul = 1
 
+/singleton/cargo_item/trumpet
+	category = "supply"
+	name = "trumpet"
+	supplier = "virgo"
+	description = "A trumpet for those triumphant tooting sessions."
+	price = 300
+	items = list(
+		/obj/item/device/synthesized_instrument/trumpet
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+
 /singleton/cargo_item/guitar
 	category = "supply"
 	name = "guitar"
-	supplier = "nanotrasen"
-	description = "A plain guitar."
+	supplier = "virgo"
+	description = "An acoustic guitar for those balcony serenades."
 	price = 190
 	items = list(
 		/obj/item/device/synthesized_instrument/guitar
@@ -236,6 +211,62 @@
 	access = 0
 	container_type = "crate"
 	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/violin
+	category = "supply"
+	name = "violin"
+	supplier = "virgo"
+	description = "A wooden musical instrument with four strings and a bow."
+	price = 250
+	items = list(
+		/obj/item/device/synthesized_instrument/violin
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/polyguitar
+	category = "supply"
+	name = "polyguitar"
+	supplier = "virgo"
+	description = "An electric polyguitar. 100% digital audio."
+	price = 250
+	items = list(
+		/obj/item/device/synthesized_instrument/guitar/multi
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/piano
+	category = "supply"
+	name = "piano"
+	supplier = "virgo"
+	description = "Like a regular piano, but always in tune! Even if the musician isn't."
+	price = 1200
+	items = list(
+		/obj/structure/synthesized_instrument/synthesizer/piano
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
+	item_mul = 1
+
+/singleton/cargo_item/pianosoundsynthesizer
+	category = "supply"
+	name = "synthesizer 3.0"
+	supplier = "virgo"
+	description = "An expensive sound synthesizer. Great for those orchestra-of-one performances."
+	price = 1900
+	items = list(
+		/obj/structure/synthesized_instrument/synthesizer
+	)
+	access = 0
+	container_type = "box"
+	groupable = 0
 	item_mul = 1
 
 /singleton/cargo_item/handlabeler
@@ -340,8 +371,8 @@
 	category = "supply"
 	name = "paper bin"
 	supplier = "nanotrasen"
-	description = "A bin filled with paper"
-	price = 8
+	description = "A bin filled with paper - a paper bin!"
+	price = 12
 	items = list(
 		/obj/item/paper_bin
 	)
@@ -354,7 +385,21 @@
 	category = "supply"
 	name = "pen"
 	supplier = "nanotrasen"
-	description = "It's a normal blue ink pen."
+	description = "It's a normal black ink ballpen."
+	price = 8
+	items = list(
+		/obj/item/pen
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/penblue
+	category = "supply"
+	name = "blue pen"
+	supplier = "nanotrasen"
+	description = "It's a normal blue ink ballpen."
 	price = 8
 	items = list(
 		/obj/item/pen/blue
@@ -368,7 +413,7 @@
 	category = "supply"
 	name = "pen red"
 	supplier = "nanotrasen"
-	description = "It's a normal red ink pen."
+	description = "It's a normal red ink ballpen."
 	price = 8
 	items = list(
 		/obj/item/pen/red
@@ -378,28 +423,14 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/peppermill
+/singleton/cargo_item/penfountain
 	category = "supply"
-	name = "pepper mill"
-	supplier = "getmore"
-	description = "Often used to flavor food or make people sneeze."
-	price = 1
-	items = list(
-		/obj/item/reagent_containers/food/condiment/shaker/peppermill
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/polyguitar
-	category = "supply"
-	name = "polyguitar"
+	name = "pen red"
 	supplier = "nanotrasen"
-	description = "A polyguitar, better than a plain guitar."
-	price = 200
+	description = "It's an expensive fountain pen."
+	price = 15
 	items = list(
-		/obj/item/device/synthesized_instrument/guitar/multi
+		/obj/item/pen/fountain
 	)
 	access = 0
 	container_type = "crate"
@@ -438,12 +469,28 @@
 	category = "supply"
 	name = "red laser tag equipment set"
 	supplier = "nanotrasen"
-	description = "A set of red laser tag equipment consisting of helmet, armor and gun"
+	description = "A set of red laser tag equipment consisting of helmet, armor and gun."
 	price = 200
 	items = list(
 		/obj/item/clothing/head/helmet/riot/laser_tag,
 		/obj/item/clothing/suit/armor/riot/laser_tag,
 		/obj/item/gun/energy/lasertag/red
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/bluelasertagequipmentset
+	category = "supply"
+	name = "blue laser tag equipment set"
+	supplier = "nanotrasen"
+	description = "A set of red laser blue equipment consisting of helmet, armor and gun"
+	price = 200
+	items = list(
+		/obj/item/clothing/head/helmet/riot/laser_tag/blue,
+		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
+		/obj/item/gun/energy/lasertag/blue
 	)
 	access = 0
 	container_type = "crate"
@@ -464,20 +511,6 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/saltshaker
-	category = "supply"
-	name = "salt shaker"
-	supplier = "getmore"
-	description = "Salt. From space oceans, presumably."
-	price = 1
-	items = list(
-		/obj/item/reagent_containers/food/condiment/shaker/salt
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/snappop
 	category = "supply"
 	name = "snap pop"
@@ -492,20 +525,6 @@
 	groupable = 1
 	item_mul = 5
 
-/singleton/cargo_item/soymilk
-	category = "supply"
-	name = "soymilk"
-	supplier = "getmore"
-	description = "It's soy milk. White and nutritious goodness!"
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/food/drinks/carton/soymilk
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/spacecleaner
 	category = "supply"
 	name = "space cleaner"
@@ -517,20 +536,6 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/spacemilk
-	category = "supply"
-	name = "space milk"
-	supplier = "getmore"
-	description = "It's milk. White and nutritious goodness!"
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/food/drinks/carton/milk
-	)
-	access = 0
-	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
 
@@ -618,20 +623,6 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/trumpet
-	category = "supply"
-	name = "trumpet"
-	supplier = "nanotrasen"
-	description = "An old trumpet."
-	price = 300
-	items = list(
-		/obj/item/device/synthesized_instrument/trumpet
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/unathielectricalgloves
 	category = "supply"
 	name = "unathi electrical gloves"
@@ -646,39 +637,11 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/universalenzyme
-	category = "supply"
-	name = "universal enzyme"
-	supplier = "getmore"
-	description = "Used in cooking various dishes."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/food/condiment/enzyme
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/violin
-	category = "supply"
-	name = "violin"
-	supplier = "nanotrasen"
-	description = "A wooden musical instrument with four strings and a bow."
-	price = 250
-	items = list(
-		/obj/item/device/synthesized_instrument/violin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
 /singleton/cargo_item/waterballoons
 	category = "supply"
 	name = "water balloons"
 	supplier = "nanotrasen"
-	description = "Five Empty translucent balloons"
+	description = "Five empty water balloons."
 	price = 200
 	items = list(
 		/obj/item/toy/balloon
@@ -701,4 +664,28 @@
 	container_type = "crate"
 	groupable = 1
 	item_mul = 1
+
+/singleton/cargo_item/crayonbox
+	category = "supply"
+	name = "box of crayons"
+	supplier = "getmore"
+	description = "Nontoxic crayons! For drawing, writing, painting. Warranty void if consumed."
+	price = 12
+	items = list(
+		/obj/item/storage/box/fancy/crayons
+	)
+
+/singleton/cargo_item/painting_kit
+	category = "supply"
+	name = "painting kit"
+	supplier = "virgo"
+	description = "A painter's kit containing an easel, canvas, and some paints. Additional canvases sold separately."
+	price = 150
+	items = list(
+		/obj/structure/easel,
+		/obj/item/canvas,
+		/obj/item/storage/box/fancy/crayons,
+		/obj/item/reagent_containers/glass/rag,
+	)
+	amount = 3
 

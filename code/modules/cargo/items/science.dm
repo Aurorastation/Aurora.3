@@ -323,7 +323,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_central
 	category = "science"
 	name = "exosuit module circuit board (Odysseus central control)"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -337,7 +337,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_peripheral
 	category = "science"
 	name = "exosuit module circuit board (Odysseus peripherals control)"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -351,7 +351,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_central
 	category = "science"
 	name = "exosuit module circuit board (Ripley central control)"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -365,7 +365,7 @@
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_peripheral
 	category = "science"
 	name = "exosuit module circuit board (Ripley peripherals control)"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Looks like a circuit. Probably is."
 	price = 1500
 	items = list(
@@ -435,7 +435,7 @@
 /singleton/cargo_item/positronicbrain
 	category = "science"
 	name = "positronic brain"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A cube of shining metal, four inches to a side and covered in shallow grooves."
 	price = 2000
 	items = list(
@@ -561,7 +561,7 @@
 /singleton/cargo_item/torso_g1
 	category = "science"
 	name = "Torso - Hephaestus G1 Industrial Frame"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A torso for a Hephaestus G1 Industrial Frame"
 	price = 3500
 	items = list(
@@ -575,7 +575,7 @@
 /singleton/cargo_item/torso_g2
 	category = "science"
 	name = "Torso - Hephaestus G2 Industrial Frame"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A torso for a Hephaestus G2 Industrial Frame"
 	price = 5000
 	items = list(
@@ -589,7 +589,7 @@
 /singleton/cargo_item/torso_heph
 	category = "science"
 	name = "Torso - Hephaestus Integrated"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A torso for a Hephaestus Integrated Frame"
 	price = 3000
 	items = list(

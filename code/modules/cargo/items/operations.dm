@@ -1,7 +1,7 @@
 /singleton/cargo_item/autakhlimbs
 	category = "operations"
 	name = "autakh limbs"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A box with various autakh limbs"
 	price = 3000
 	items = list(
@@ -45,7 +45,7 @@
 /singleton/cargo_item/blackpaint
 	category = "operations"
 	name = "black paint"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Black paint, the color of space."
 	price = 10
 	items = list(
@@ -59,7 +59,7 @@
 /singleton/cargo_item/bluepaint
 	category = "operations"
 	name = "blue paint"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Blue paint, for when you're on a mission from god."
 	price = 10
 	items = list(
@@ -241,7 +241,7 @@
 /singleton/cargo_item/flare
 	category = "operations"
 	name = "flare"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Good for illuminating dark areas or burning someones face off."
 	price = 80
 	items = list(
@@ -585,7 +585,7 @@
 /singleton/cargo_item/toolsresupplycanister
 	category = "operations"
 	name = "tools resupply canister"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "A vending machine restock cart."
 	price = 500
 	items = list(
@@ -655,7 +655,7 @@
 /singleton/cargo_item/classakineticaccelerator
 	category = "operations"
 	name = "Class A Kinetic Accelerator"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Contains a tactical KA frame, an experimental core KA power converter, a recoil reloading KA cell, and a upgrade chip - damage increase."
 	price = 7999
 	items = list(
@@ -669,7 +669,7 @@
 /singleton/cargo_item/classbkineticaccelerator
 	category = "operations"
 	name = "Class B Kinetic Accelerator"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Contains a heavy KA frame, a planet core KA power converter, a uranium recharging KA cell, and a upgrade chip - efficiency increase."
 	price = 5599
 	items = list(
@@ -683,7 +683,7 @@
 /singleton/cargo_item/classckineticaccelerator
 	category = "operations"
 	name = "Class C Kinetic Accelerator"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing"
 	price = 3299
 	items = list(
@@ -697,7 +697,7 @@
 /singleton/cargo_item/classdkineticaccelerator
 	category = "operations"
 	name = "Class D Kinetic Accelerator"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Contains a light KA frame, a professional core KA power converter, an advanced pump recharging KA cell, and a upgrade chip - firedelay increase."
 	price = 2299
 	items = list(
@@ -711,7 +711,7 @@
 /singleton/cargo_item/classekineticaccelerator
 	category = "operations"
 	name = "Class E Kinetic Accelerator"
-	supplier = "heph"
+	supplier = "hephaestus"
 	description = "Contains a compact KA frame, a standard core KA power converter, a pump recharging KA cell, and a upgrade chip - focusing."
 	price = 1499
 	items = list(

@@ -69,7 +69,7 @@
 	tag_line = "Get more with Getmore!"
 
 /singleton/cargo_supplier/heph
-	short_name = "heph"
+	short_name = "hephaestus"
 	name = "Hephaestus Industries"
 	description = "An industrial giant, Hephaestus Industries specializes in all things from mining, to robotics, to manufacturing everything under the stars."
 	tag_line = "The anvil on which the world is shaped."
@@ -107,8 +107,8 @@
 /singleton/cargo_supplier/virgo
 	short_name = "virgo"
 	name = "Virgo Freight Carriers"
-	description = "A Xanan shipping company that operates across the Spur. It's carved a niche in small-volume, high-priority deliveries."
-	tag_line = "Go quick, go Virgo."
+	description = "A Xanan shipping company that operates across the Spur. It's carved a niche in making small-volume, high-priority deliveries from smaller manufacturers and suppliers."
+	tag_line = "Virgo: There when you need us, and not a moment too late."
 
 /singleton/cargo_supplier/vysoka
 	short_name = "vysoka"
@@ -119,7 +119,7 @@
 /singleton/cargo_supplier/xion
 	short_name = "xion"
 	name = "Xion Manufacturing Group"
-	description = "A robotics company primarily focused on building synthetics and prosthetics intended for durable, hard-labor tasks that focus on function above all else - looks be damned."
+	description = "A Hephaestus-owned robotics company primarily focused on building synthetics and prosthetics intended for durable, hard-labor tasks that focus on function above all else - looks be damned."
 	tag_line = "Advancing the fields of robotics, one step at a time."
 
 /singleton/cargo_supplier/zavodskoi
@@ -131,7 +131,7 @@
 /singleton/cargo_supplier/zeng_hu
 	short_name = "zeng_hu"
 	name = "Zeng-Hu Pharmaceuticals"
-	description = "A trans-stellar medical research and pharmaceutical conglomerate who has a hand in almost every form of medicine throughout the Orion Spur."
+	description = "A trans-stellar medical, research, and pharmaceutical conglomerate who has a hand in almost every form of medicine and science throughout the Orion Spur."
 	tag_line = "Building a brighter future."
 
 /singleton/cargo_supplier/zharkov

@@ -3,7 +3,7 @@
 	name = "adhomian meat (x5)"
 	supplier = "zharkov"
 	description = "A handful of meat slices from Adhomian animals."
-	price = 200
+	price = 130
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -76,12 +76,16 @@
 
 /singleton/cargo_item/squidmeat
 	category = "hospitality"
-	name = "squid meat"
+	name = "squid meat (x5)"
 	supplier = "getmore"
 	description = "Soylent squid is (not) people!"
-	price = 15
+	price = 150
 	items = list(
-		/obj/item/reagent_containers/food/snacks/squidmeat
+		/obj/item/reagent_containers/food/snacks/squidmeat,
+		/obj/item/reagent_containers/food/snacks/squidmeat,
+		/obj/item/reagent_containers/food/snacks/squidmeat,
+		/obj/item/reagent_containers/food/snacks/squidmeat,
+		/obj/item/reagent_containers/food/snacks/squidmeat,
 	)
 	access = 0
 	container_type = "freezer"
@@ -90,14 +94,60 @@
 
 /singleton/cargo_item/wormfillet
 	category = "hospitality"
-	name = "worm fillet"
+	name = "worm fillet (x1)"
 	supplier = "nanotrasen"
-	description = "Meat from a cavern Dweller. Mildly toxic if prepared improperly."
-	price = 16
+	description = "Meat from a Cavern Dweller. Mildly toxic if prepared improperly."
+	price = 25
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
 	access = 28
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/roesack
+	category = "hospitality"
+	name = "roe sack (x5)"
+	supplier = "getmore"
+	description = "A fleshy organ filled with fish eggs."
+	price = 160
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe,
+	)
+	access = 0
+	container_type = "crate"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/peppermill
+	category = "hospitality"
+	name = "pepper mill"
+	supplier = "getmore"
+	description = "Often used to flavor food or make people sneeze."
+	price = 1
+	items = list(
+		/obj/item/reagent_containers/food/condiment/shaker/peppermill
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/saltshaker
+	category = "hospitality"
+	name = "salt shaker"
+	supplier = "getmore"
+	description = "Salt. From space oceans, presumably."
+	price = 1
+	items = list(
+		/obj/item/reagent_containers/food/condiment/shaker/salt
+	)
+	access = 0
 	container_type = "freezer"
 	groupable = 1
 	item_mul = 1
@@ -152,6 +202,104 @@
 	price = 200
 	items = list(
 		/obj/item/storage/box/clams
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/eggcarton
+	category = "hospitality"
+	name = "egg carton"
+	supplier = "vysoka"
+	description = "Eggs from mostly chicken."
+	price = 40
+	items = list(
+		/obj/item/storage/box/fancy/egg_box
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/floursack
+	category = "hospitality"
+	name = "flour sack"
+	supplier = "getmore"
+	description = "A big bag of flour. Good for baking!"
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/flour
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/sugarsack
+	category = "hospitality"
+	name = "sugar sack"
+	supplier = "getmore"
+	description = "A big bag of sugar. Highly addictive."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/food/condiment/sugar
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/ricesack
+	category = "hospitality"
+	name = "rice sack"
+	supplier = "vysoka"
+	description = "A big bag of rice. For all your rice needs."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/rice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/universalenzyme
+	category = "hospitality"
+	name = "universal enzyme"
+	supplier = "getmore"
+	description = "Used in cooking various dishes."
+	price = 30
+	items = list(
+		/obj/item/reagent_containers/food/condiment/enzyme
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/milk
+	category = "hospitality"
+	name = "milk carton"
+	supplier = "getmore"
+	description = "It's milk. White and nutritious goodness!"
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/milk
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = 1
+	item_mul = 1
+
+/singleton/cargo_item/soymilk
+	category = "hospitality"
+	name = "soymilk carton"
+	supplier = "getmore"
+	description = "It's soy milk. White and nutritious vegan goodness!"
+	price = 15
+	items = list(
+		/obj/item/reagent_containers/food/drinks/carton/soymilk
 	)
 	access = 0
 	container_type = "freezer"
@@ -644,39 +792,11 @@
 	groupable = 1
 	item_mul = 1
 
-/singleton/cargo_item/piano
-	category = "hospitality"
-	name = "piano"
-	supplier = "nanotrasen"
-	description = "Like a regular piano, but always in tune! Even if the musician isn't."
-	price = 1200
-	items = list(
-		/obj/structure/synthesized_instrument/synthesizer/piano
-	)
-	access = 0
-	container_type = "box"
-	groupable = 0
-	item_mul = 1
-
-/singleton/cargo_item/pianosoundsynthesizer
-	category = "hospitality"
-	name = "synthesizer 3.0"
-	supplier = "nanotrasen"
-	description = "An expensive sound synthesizer. Great for those orchestra-of-one performances."
-	price = 1900
-	items = list(
-		/obj/structure/synthesized_instrument/synthesizer
-	)
-	access = 0
-	container_type = "box"
-	groupable = 0
-	item_mul = 1
-
 /singleton/cargo_item/pizzabox_margherita
 	category = "hospitality"
 	name = "pizza box, margherita"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Classic Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 50
 	items = list(
 		/obj/item/pizzabox/margherita
@@ -690,7 +810,7 @@
 	category = "hospitality"
 	name = "pizza box, meat"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Meaty Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 50
 	items = list(
 		/obj/item/pizzabox/meat
@@ -704,7 +824,7 @@
 	category = "hospitality"
 	name = "pizza box, mushroom"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Earthy Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 50
 	items = list(
 		/obj/item/pizzabox/mushroom
@@ -718,7 +838,7 @@
 	category = "hospitality"
 	name = "pizza box, pineapple"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Tropical Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 50
 	items = list(
 		/obj/item/pizzabox/pineapple
@@ -732,7 +852,7 @@
 	category = "hospitality"
 	name = "pizza box, random"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Mysterious Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 40
 	items = list(
 		/obj/random/pizzabox
@@ -746,7 +866,7 @@
 	category = "hospitality"
 	name = "pizza box, vegetable"
 	supplier = "orion"
-	description = "A box suited for pizzas."
+	description = "Vegetarian Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
 	price = 50
 	items = list(
 		/obj/item/pizzabox/vegetable
@@ -764,24 +884,6 @@
 	price = 8
 	items = list(
 		/obj/item/lipstick/random
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/roesack
-	category = "hospitality"
-	name = "roe sack (x5)"
-	supplier = "getmore"
-	description = "A fleshy organ filled with fish eggs."
-	price = 160
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
 	)
 	access = 0
 	container_type = "crate"
