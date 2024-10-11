@@ -32,7 +32,7 @@
 
 /datum/category_item/player_setup_item/skills/gather_save_parameters()
 	return list(
-		"skills" = pref.culture,
+		"skills" = pref.skills,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -53,16 +53,25 @@
 
 /datum/category_item/player_setup_item/skills/content(var/mob/user)
 	var/list/dat = list()
+	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
 	for(var/category in SSskills.skill_tree)
 		var/singleton/skill_category/skill_category = category
 		dat += "<b><font size=5>[skill_category.name]</font></b><br>"
 		for(var/subcategory in SSskills.skill_tree[skill_category])
 			dat += "<font size=4>[subcategory]</font><br><table><tr style='text-align:left;'>"
 			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
-				dat += "<tr><a href='?src=\ref[src];skillinfo=[skill.type]'><font color='red'>[skill.name]</font></a>: "
-				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.maximum_level)
-					dat += "<a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'>[SSskills.skill_level_map[skill_level]]</a>"
-				dat += "</tr><br>"
+				dat += "<tr><a href='?src=\ref[src];skillinfo=[skill.type]'>[skill.name]</a>: "
+				var/current_skill_level = 0
+				if(skill.type in pref.skills)
+					current_skill_level = pref.skills[skill.type]
+				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.get_maximum_level(education))
+					if(current_skill_level == skill_level)
+						dat += "<b><a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='green'>\[[SSskills.skill_level_map[skill_level]]\]</font></a></b>"
+					if(current_skill_level > skill_level)
+						dat += "<b><a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='green'>[SSskills.skill_level_map[skill_level]]</font></a></b>"
+					if(current_skill_level < skill_level)
+						dat += "<a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='red'>[SSskills.skill_level_map[skill_level]]</font></a>"
+				dat += "</tr><br><br>"
 		dat += "</table><hr>"
 	. = dat.Join()
 
@@ -80,12 +89,18 @@
 		dat += "</html>"
 		skill_window.set_content(dat)
 		skill_window.open()
+
 	else if(href_list["setskill"])
 		var/singleton/skill/new_skill = GET_SINGLETON(text2path(href_list["setskill"]))
 		if(!new_skill)
 			log_debug("SKILLS: Invalid skill selected for [user]: [new_skill]")
 			return
-		// check if you can actually pick it...
-		pref.skills[new_skill.type] = text2num(href_list["newvalue"])
+
+		var/new_skill_value = text2num(href_list["newvalue"])
+		if(new_skill_value == SKILL_LEVEL_UNFAMILIAR)
+			pref.skills -= new_skill.type
+		else
+			pref.skills[new_skill.type] = text2num(new_skill_value)
+			return TOPIC_REFRESH
 
 	return ..()

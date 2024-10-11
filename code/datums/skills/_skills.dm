@@ -12,3 +12,18 @@
 	var/category
 	/// The sub-category of this skill. Used to better sort skills.
 	var/subcategory
+
+/singleton/skill/proc/get_maximum_level(var/singleton/education/education)
+	if(!istype(education))
+		crash_with("SKILL: Invalid [education] fed to get_maximum_level!")
+
+	// If there is no uneducated skill cap, it means we can always pick the maximum level.
+	if(!uneducated_skill_cap)
+		return maximum_level
+
+	// Otherwise, we need to check the education...
+	if(type in education.skills)
+		return education.skills[type]
+
+
+	return uneducated_skill_cap

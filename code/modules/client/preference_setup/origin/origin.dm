@@ -276,7 +276,13 @@
 /datum/category_item/player_setup_item/origin/proc/show_education_window(var/singleton/education/ED, var/topic_data, var/mob/user)
 	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
 	var/dat = "<html><center><b>[ED.name]</center></b>"
-	dat += "<hr>[ED.description]<br>"
+	dat += "<hr>[ED.description]<hr>"
+	dat += "This education gives you the following skills:"
+	var/list/skills_to_show = list()
+	for(var/skill in ED.skills)
+		var/singleton/skill/S = GET_SINGLETON(skill)
+		skills_to_show += S.name
+	dat +=  "<b>[english_list(skills_to_show)]</b><br>"
 	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	education_win.set_content(dat)
