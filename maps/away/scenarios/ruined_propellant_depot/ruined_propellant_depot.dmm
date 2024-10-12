@@ -5755,6 +5755,19 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
+"tf" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint)
 "tg" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -6140,7 +6153,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "up" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "ur" = (
@@ -6276,6 +6289,16 @@
 "uS" = (
 /turf/simulated/wall/r_wall,
 /area/ruined_propellant_depot/crew_quarters)
+"uT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint)
 "uU" = (
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/docks_north_west)
@@ -7813,6 +7836,15 @@
 	pixel_y = 17
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "zV" = (
@@ -7900,6 +7932,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
+"Ad" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/engineering)
 "Ae" = (
 /obj/random/junk{
 	pixel_x = -6;
@@ -7989,6 +8025,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/atmos_air)
+"Ao" = (
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/engineering)
 "Ap" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -8322,6 +8365,10 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tool,
+/obj/machinery/power/apc/empty/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "Bu" = (
@@ -9728,6 +9775,7 @@
 	pixel_x = -7
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "FT" = (
@@ -9827,6 +9875,16 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/security)
+"Gf" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/engineering)
 "Gh" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
@@ -10789,6 +10847,9 @@
 /obj/machinery/portable_atmospherics/powered/pump,
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "Jr" = (
@@ -15115,6 +15176,7 @@
 "Xr" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "Xt" = (
@@ -15400,6 +15462,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
+"Yr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint)
 "Ys" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -43307,11 +43384,11 @@ En
 En
 En
 Bq
-ZN
+Ao
 zU
-In
-Wn
-Zz
+tf
+uT
+Yr
 cj
 ba
 bP
@@ -43565,7 +43642,7 @@ CF
 Mn
 ea
 FS
-up
+Gf
 Ul
 JU
 KX
@@ -44849,7 +44926,7 @@ IA
 eI
 ZR
 hw
-ip
+Ad
 Ul
 yG
 gZ
