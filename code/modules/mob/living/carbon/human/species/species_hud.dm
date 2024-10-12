@@ -72,8 +72,8 @@
 		"suit storage" = list("loc" = ui_sstore1,   "name" = "suit storage", "slot" = slot_s_store,   "state" = "suitstore"),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back"),
 		"id" =           list("loc" = ui_id,        "name" = "id",           "slot" = slot_wear_id,   "state" = "id"),
-		"storage1" =     list("loc" = ui_storage1,  "name" = "left pocket",  "slot" = slot_l_store,   "state" = "pocket"),
-		"storage2" =     list("loc" = ui_storage2,  "name" = "right pocket", "slot" = slot_r_store,   "state" = "pocket"),
+		"storage1" =     list("loc" = ui_storage1,  "name" = "left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
+		"storage2" =     list("loc" = ui_storage2,  "name" = "right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		"belt" =         list("loc" = ui_belt,      "name" = "belt",         "slot" = slot_belt,      "state" = "belt"),
 		"mask" =         list("loc" = ui_oclothing,	"name" = "mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
 		"eyes" =         list("loc" = ui_gloves,   	"name" = "glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1)
