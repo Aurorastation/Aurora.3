@@ -50,13 +50,14 @@ SUBSYSTEM_DEF(odyssey)
 	if(!length(possible_scenarios))
 		log_debug("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
 		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
-		return
+		return FALSE
 
 	scenario = pickweight(possible_scenarios)
 	gamemode_setup()
 	/// Now that we actually have an odyssey, the subsystem can fire!
 	flags &= ~SS_NO_FIRE
 	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	return TRUE
 
 /**
  * This proc overrides the gamemode variables for the amount of actors.
@@ -65,10 +66,6 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/proc/gamemode_setup()
 	SHOULD_CALL_PARENT(TRUE)
 	var/datum/game_mode/odyssey/ody_gamemode = GLOB.gamemode_cache["odyssey"]
-	/// There's a bit of an issue with this: essentially, due to the fact that odyssey map loading is done after voting, you can load a map and end up
-	/// not having enough actors for it, so it boots you back to the voting screen. Now you have an useless zlevel and an extra storyteller spawner.
-	/// The fix for this is, currently, making odyssey force itself to start by adding antag drafting for it. Not ideal, but deleting a zlevel is an even
-	// worse solution, probably.
 	if(scenario)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount

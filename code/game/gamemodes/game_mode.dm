@@ -493,9 +493,13 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/check_victory()
 	return
 
-/// This proc is called once the vote for the gamemode finishes and this gamemode is picked.
-/datum/game_mode/proc/post_finalize_vote()
-	return
+/**
+ * This proc runs immediately after the gamemode datum is created, right before the jobs and antag roles are divvied out.
+ * Essentially, in the lobby right before game start.
+ * This proc should always return TRUE on a success and FALSE if something went wrong, so that if the initialization failed, the game can reset to lobby state.
+ */
+/datum/game_mode/proc/pre_game_setup()
+	return TRUE
 
 //////////////////////////
 //Reports player logouts//

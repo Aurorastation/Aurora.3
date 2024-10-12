@@ -79,7 +79,6 @@
 				var/datum/game_mode/M = GLOB.gamemode_cache[votable_mode_name]
 				if(M.name && M.name == winning_option)
 					GLOB.master_mode = M.config_tag
-					M.post_finalize_vote()
 					break
 
 /datum/vote/gamemode/reset()

@@ -57,7 +57,7 @@
 		setup_away_site()
 		to_world(FONT_LARGE(SPAN_DANGER("Your Odyssey is ready!")))
 	else
-		log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: SCENARIO DOES NOT HAVE A VALID SITE!"))
+		log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: SCENARIO [name] DOES NOT HAVE A VALID SITE!"))
 		return FALSE
 	return TRUE
 

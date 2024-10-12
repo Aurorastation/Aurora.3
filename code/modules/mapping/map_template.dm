@@ -215,16 +215,6 @@
 		bounds_to_combine[max_bound] = max(existing_bounds[max_bound], new_bounds[max_bound])
 	return bounds_to_combine
 
-/datum/map_template/proc/after_load(z)
-	for(var/obj/effect/landmark/map_load_mark/mark in subtemplates_to_spawn)
-		subtemplates_to_spawn -= mark
-		if(LAZYLEN(mark.templates))
-			var/template = pick(mark.templates)
-			var/datum/map_template/M = new template()
-			M.load(get_turf(mark), TRUE)
-			qdel(mark)
-	LAZYCLEARLIST(subtemplates_to_spawn)
-
 /**
  * In case the away site spawns with an exoplanet, use this proc to handle any post-generation.
  * For example, turning market turfs into exoplanet turfs with themes.

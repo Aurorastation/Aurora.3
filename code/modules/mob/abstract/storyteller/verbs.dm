@@ -321,3 +321,27 @@
 		return
 
 	M.mind.edit_memory()
+
+/mob/abstract/storyteller/proc/drop_bomb()
+	set name = "Drop Bomb"
+	set category = "Storyteller"
+
+	var/turf/epicenter = loc
+	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
+	switch(choice)
+		if(null)
+			return 0
+		if("Small Bomb")
+			explosion(epicenter, 1, 2, 3, 3)
+		if("Medium Bomb")
+			explosion(epicenter, 2, 3, 4, 4)
+		if("Big Bomb")
+			explosion(epicenter, 3, 5, 7, 5)
+		if("Custom Bomb")
+			var/devastation_range = tgui_input_number(usr, "Set the devastation range (in tiles).", "Devastation")
+			var/heavy_impact_range = tgui_input_number(usr, "Set the heavy impact range (in tiles).", "Heavy")
+			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
+			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
+			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
+	message_admins(SPAN_NOTICE("[ckey] creating an explosion at [epicenter.loc]."))
