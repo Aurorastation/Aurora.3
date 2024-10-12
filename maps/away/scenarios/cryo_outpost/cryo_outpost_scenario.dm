@@ -9,8 +9,8 @@
 	recently tracked down to a planet, Juliett-Enderly, located in your current sector. You are the closest to this planet, and should investigate and \
 	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here."
 
-	min_player_amount = 0
-	min_actor_amount = 0 //should be 4 todomatt
+	min_player_amount = 99 // disabled like this for the ruined propellant depot test
+	min_actor_amount = 99 //should be 4 todomatt
 
 	roles = list(
 		/singleton/role/cryo_outpost,

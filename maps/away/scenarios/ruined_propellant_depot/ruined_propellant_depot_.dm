@@ -3,10 +3,10 @@
 	description = "Ruined Propellant Depot."
 	id = "ruined_propellant_depot"
 
-	prefix = "away_site/ruined_propellant_depot/"
+	prefix = "scenarios/ruined_propellant_depot/"
 	suffix = "ruined_propellant_depot.dmm"
 
-	spawn_cost = 1
+	spawn_cost = 0 // so it does not spawn as ordinary away site
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)

@@ -7,7 +7,7 @@
 	prefix = "scenarios/cryo_outpost/"
 	suffix = "cryo_outpost.dmm"
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 1
+	spawn_weight = 0 // so it does not spawn as ordinary away site
 	spawn_cost = 1
 	id = "cryo_outpost"
 	exoplanet_theme_base = /datum/exoplanet_theme/desert/cryo_outpost

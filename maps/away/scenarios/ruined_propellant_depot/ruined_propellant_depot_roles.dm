@@ -23,7 +23,7 @@
 	l_ear = /obj/item/device/radio/headset/ship
 	id = /obj/item/card/id/silver
 	l_pocket = /obj/item/device/radio/hailing
-	r_pocket = /obj/item/device/radio/headset/syndicate
+	r_pocket = /obj/item/portable_map_reader
 
 /obj/outfit/admin/generic/ruined_propellant_depot_crew/get_id_access()
 	return list(

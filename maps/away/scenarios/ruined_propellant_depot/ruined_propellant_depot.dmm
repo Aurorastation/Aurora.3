@@ -202,6 +202,10 @@
 	pixel_x = -2;
 	pixel_y = -5
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint{
+	pixel_y = 6;
+	pixel_x = 5
+	},
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "aE" = (
@@ -2382,6 +2386,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "hu" = (
@@ -5121,7 +5126,8 @@
 "qW" = (
 /obj/structure/table/steel,
 /obj/item/trash/coffee{
-	pixel_x = 4
+	pixel_x = 5;
+	pixel_y = 3
 	},
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
@@ -7253,6 +7259,10 @@
 /area/ruined_propellant_depot/medbay)
 "xQ" = (
 /obj/structure/table/wood,
+/obj/item/portable_map_reader{
+	pixel_y = 3;
+	pixel_x = 1
+	},
 /turf/simulated/floor/carpet/aquablue,
 /area/ruined_propellant_depot/chiefs_quarters)
 "xR" = (
@@ -8298,6 +8308,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/mob/abstract/storyteller,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/mess)
 "Bp" = (
@@ -9166,6 +9177,10 @@
 /area/ruined_propellant_depot/hallways_east)
 "Ef" = (
 /obj/structure/table/wood,
+/obj/item/portable_map_reader{
+	pixel_y = 4;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/security)
 "Eg" = (
@@ -10614,11 +10629,11 @@
 /area/ruined_propellant_depot/docks_north_west)
 "IQ" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint{
-	pixel_y = 6;
-	pixel_x = 5
-	},
 /obj/random/dirt_75,
+/obj/item/portable_map_reader{
+	pixel_x = 1;
+	pixel_y = 3
+	},
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "IR" = (
@@ -12160,6 +12175,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "NL" = (
@@ -13193,6 +13209,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "Rd" = (
@@ -13577,6 +13594,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "SG" = (
@@ -14648,6 +14666,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "VX" = (
@@ -14924,11 +14943,15 @@
 	pixel_y = -7;
 	pixel_x = 1
 	},
+/obj/random/dirt_75,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint{
-	pixel_y = 11;
+	pixel_y = 19;
 	pixel_x = -8
 	},
-/obj/random/dirt_75,
+/obj/item/portable_map_reader{
+	pixel_x = 1;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "WP" = (
