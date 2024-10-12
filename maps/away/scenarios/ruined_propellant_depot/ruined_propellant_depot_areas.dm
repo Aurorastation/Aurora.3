@@ -58,8 +58,8 @@
 	icon_state = "crew_quarters"
 	holomap_color = "#0011ff"
 
-/area/ruined_propellant_depot/chiefs_quarters
-	name = "Ruined Propellant Depot Chief's Quarters"
+/area/ruined_propellant_depot/directors_quarters
+	name = "Ruined Propellant Depot Director's Quarters"
 	icon_state = "crew_quarters"
 	holomap_color = "#0011ff"
 
