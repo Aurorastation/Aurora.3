@@ -397,9 +397,9 @@
 	master = null
 	. = ..()
 
-/atom/movable/overlay/attackby(a, b)
+/atom/movable/overlay/attackby(obj/item/attacking_item, mob/user, params)
 	if (src.master)
-		return src.master.attackby(a, b)
+		return src.master.attackby(arglist(args))
 	return
 
 /atom/movable/overlay/attack_hand(a, b, c)

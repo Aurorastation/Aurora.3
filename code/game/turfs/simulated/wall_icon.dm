@@ -105,7 +105,7 @@
 
 	AddOverlays(overlays_to_add, ATOM_ICON_CACHE_PROTECTED)
 	UNSETEMPTY(reinforcement_images)
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 	if(smoothing_flags & SMOOTH_UNDERLAYS)
 		get_underlays(cached_adjacency)
 

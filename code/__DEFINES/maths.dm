@@ -19,6 +19,11 @@
 // Real modulus that handles decimals
 #define MODULUS(x, y) ( (x) - FLOOR(x, y))
 
+
+// Similar to clamp but the bottom rolls around to the top and vice versa. min is inclusive, max is exclusive
+#define WRAP(val, min, max) clamp(( min == max ? min : (val) - (round(((val) - (min))/((max) - (min))) * ((max) - (min))) ),min,max)
+
+
 #define ATAN2(x, y) ( !(x) && !(y) ? 0 : (y) >= 0 ? arccos((x) / sqrt((x)*(x) + (y)*(y))) : -arccos((x) / sqrt((x)*(x) + (y)*(y))) )
 
 // Will filter out extra rotations and negative rotations

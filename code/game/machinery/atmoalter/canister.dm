@@ -169,7 +169,7 @@
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/air/airlock
-	start_pressure = 3 * ONE_ATMOSPHERE
+	start_pressure = 6 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0

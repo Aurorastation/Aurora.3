@@ -76,8 +76,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -122,6 +121,13 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/head/helmet/space,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "aC" = (
@@ -170,8 +176,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/power/apc/west{
 	req_access = list(243)
@@ -253,8 +258,7 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -323,8 +327,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -434,8 +437,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -530,8 +532,7 @@
 /area/shuttle/lone_spacer/fore_hall)
 "fF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/disposal/small/east,
@@ -675,6 +676,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
+"hE" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/lone_spacer_dimmed{
+	dir = 8
+	},
+/obj/vehicle/bike{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
 "hH" = (
 /obj/item/device/paicard,
 /obj/structure/closet/cabinet,
@@ -758,6 +769,16 @@
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/accessory/wcoat_rec{
 	color = "#494949"
+	},
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/accessory/dressshirt{
+	color = "#bbbbbb"
+	},
+/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/head/sidecap{
+	color = "#2E2E2E";
+	desc = "A simple cap, often worn by pilots. This one is faded with age."
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -893,12 +914,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/fore_hall)
 "kx" = (
-/obj/structure/dispenser/oxygen,
 /obj/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cargo_receptacle{
+	desc = "An Orion Express automated cargo acceptance device. This one appears to be configured to receive cargo packages intended for the ship it's on.";
+	name = "ship cargo delivery point"
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/lone_spacer/port_storage)
 "kG" = (
@@ -922,11 +946,22 @@
 /area/shuttle/lone_spacer/port_nacelle)
 "ly" = (
 /obj/structure/table/wood,
-/obj/random/plushie{
-	pixel_y = 2
+/obj/effect/decal/cleanable/dirt,
+/obj/item/spacecash/c1000{
+	pixel_y = 11
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 7
+	},
+/obj/item/spacecash/c1000{
+	pixel_y = 3
 	},
 /obj/structure/sign/poster{
 	pixel_x = -32
+	},
+/obj/item/storage/wallet{
+	pixel_y = -1;
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
@@ -942,6 +977,11 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/tank/hydrogen/shuttle,
+/obj/item/tank/hydrogen/shuttle{
+	pixel_y = 5;
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "mj" = (
@@ -1077,6 +1117,7 @@
 /obj/item/melee/baton/loaded,
 /obj/item/material/hatchet/lumber,
 /obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/suit/armor/carrier/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge_foyer)
@@ -1092,8 +1133,7 @@
 "pe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /obj/machinery/alarm/west{
 	req_one_access = list(243)
@@ -1536,6 +1576,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/cell_charger,
+/obj/item/storage/firstaid/empty{
+	pixel_y = 14;
+	pixel_x = 15
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "wT" = (
@@ -1638,8 +1682,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
@@ -1868,8 +1911,7 @@
 /area/shuttle/lone_spacer/port_nacelle)
 "CV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/power/apc/north{
 	req_access = list(243)
@@ -1934,8 +1976,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = -29;
-	pixel_y = -6;
-	dir = 2
+	pixel_y = -6
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	pixel_x = -30
@@ -2143,6 +2184,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Ie" = (
@@ -2182,8 +2226,7 @@
 /area/shuttle/lone_spacer/storage)
 "IH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/lone_spacer/storage)
@@ -2226,8 +2269,7 @@
 "Jk" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -2377,7 +2419,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2467,9 +2508,6 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/console_screen,
 /obj/item/circuitboard/autolathe,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
-/obj/item/tank/hydrogen/shuttle,
 /obj/item/cane/crutch,
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/circuitboard/biogenerator,
@@ -2487,6 +2525,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/circuitboard/oven,
+/obj/item/circuitboard/stove,
+/obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/lone_spacer/fore_hall)
 "Os" = (
@@ -2532,6 +2573,13 @@
 "Pk" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/hypospray/autoinjector/stimpack,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/storage/pill_bottle/smart,
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene,
 /turf/simulated/floor/plating,
 /area/shuttle/lone_spacer/fore_hall)
 "PC" = (
@@ -2819,9 +2867,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -2863,8 +2909,7 @@
 /area/shuttle/lone_spacer/fore_hall)
 "Tg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/meter,
@@ -2920,10 +2965,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
-"UO" = (
-/obj/item/clothing/accessory/scarf/lone_spacer_green,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/lone_spacer/fore_hall)
 "UQ" = (
 /obj/effect/map_effect/marker/airlock/shuttle/lone_spacer,
 /obj/machinery/airlock_sensor/airlock_exterior{
@@ -3084,15 +3125,20 @@
 /area/shuttle/lone_spacer/washroom)
 "XJ" = (
 /obj/structure/table/wood,
+/obj/item/gamehelm/pink{
+	icon_state = "closed_pink";
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/dirt,
 /obj/item/device/flashlight/lamp/green{
 	pixel_y = 15;
 	pixel_x = 8
 	},
-/obj/item/gamehelm/pink{
-	icon_state = "closed_pink";
-	pixel_x = -1
+/obj/random/plushie{
+	pixel_y = 7;
+	pixel_x = -9
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "XU" = (
@@ -3184,8 +3230,7 @@
 /area/shuttle/lone_spacer/storage)
 "Zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -35755,7 +35800,7 @@ YV
 YV
 yc
 Bl
-yc
+hE
 YV
 YV
 NY
@@ -38072,7 +38117,7 @@ Wu
 Pg
 Wu
 IB
-UO
+Xn
 ks
 XE
 lB

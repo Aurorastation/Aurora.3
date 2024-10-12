@@ -1,8 +1,7 @@
 /obj/random/medical
 	name = "random medical item"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/item/stacks/medical.dmi'
-	icon_state = "brutepack"
+	icon_state = "medpack"
 	spawn_nothing_percentage = 25
 	problist = list(
 		/obj/item/stack/medical/bruise_pack = 4,
@@ -36,7 +35,6 @@
 /obj/random/firstaid
 	name = "random first aid kit"
 	desc = "This is a random first aid kit."
-	icon = 'icons/obj/storage/firstaid.dmi'
 	icon_state = "firstaid"
 	problist = list(
 		/obj/item/storage/firstaid/regular = 4,

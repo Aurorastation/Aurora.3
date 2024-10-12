@@ -69,6 +69,6 @@
 	sharp = FALSE
 	edge = FALSE
 
-/obj/item/crowbar/robotic/jawsoflife/attack(mob/living/carbon/M, mob/living/carbon/user)
-	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [M] with \the [src]")
+/obj/item/crowbar/robotic/jawsoflife/attack(mob/living/target_mob, mob/living/user, target_zone)
+	user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [target_mob] with \the [src]")
 	return FALSE
