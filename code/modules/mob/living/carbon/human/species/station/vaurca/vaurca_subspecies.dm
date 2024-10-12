@@ -104,6 +104,10 @@
 	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
 	selectable_tails = list("Gaster")
 
+/datum/species/bug/type_b/type_bb/New()
+	..()
+	default_emotes += /singleton/emote/audible/rattle // Appends an emote unique to Attendants.
+
 /datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
 	if(I.w_class <= WEIGHT_CLASS_NORMAL)
 		return TRUE

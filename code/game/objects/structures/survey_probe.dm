@@ -33,21 +33,21 @@
 	if(start_deployed)
 		deploy()
 
-/obj/structure/survey_probe/attackby(obj/item/item, mob/living/user)
-	if(!timer_id && item.iswrench())
+/obj/structure/survey_probe/attackby(obj/item/attacking_item, mob/user, params)
+	if(!timer_id && attacking_item.iswrench())
 		if(!anchored)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),
 				SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
 				)
-			item.play_tool_sound(user, 30)
+			attacking_item.play_tool_sound(user, 30)
 			deploy()
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
 				SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
 				)
-			item.play_tool_sound(user, 30)
+			attacking_item.play_tool_sound(user, 30)
 			undeploy()
 
 /obj/structure/survey_probe/attack_hand(mob/user as mob)

@@ -2712,9 +2712,7 @@
 /turf/template_noop,
 /area/exoplanet/barren/raskara)
 "Ic" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/produce{
 	pixel_x = 3;
 	pixel_y = -11

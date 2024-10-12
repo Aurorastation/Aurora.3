@@ -31,7 +31,9 @@
 		src.pixel_y = rand(0, 4)
 	create_reagents(5)
 
-/obj/item/material/kitchen/utensil/attack(mob/living/carbon/M, mob/user, var/target_zone)
+/obj/item/material/kitchen/utensil/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M))
 		return ..()
 
@@ -154,7 +156,7 @@
 	applies_material_colour = 0
 	unbreakable = 1
 
-/obj/item/material/kitchen/utensil/knife/attack(mob/target, mob/living/user, var/target_zone)
+/obj/item/material/kitchen/utensil/knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_WARNING("You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(20)
@@ -182,7 +184,7 @@
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 
-/obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/material/kitchen/rollingpin/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_WARNING("\The [src] slips out of your hand and hits your head."))
 		user.drop_from_inventory(src)

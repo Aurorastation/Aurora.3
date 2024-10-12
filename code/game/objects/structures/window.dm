@@ -57,7 +57,7 @@
 			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window/update_icon()
 	if(!full)
@@ -65,7 +65,7 @@
 			layer = ABOVE_HUMAN_LAYER
 		else
 			layer = SIDE_WINDOW_LAYER
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -802,10 +802,10 @@
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window_frame/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window_frame/update_icon()
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()

@@ -125,7 +125,7 @@
 	if(.) //We moved
 		handle_leg_damage()
 
-	var/turf/T = loc
+	var/turf/T = get_turf(loc)
 	var/footsound
 	var/top_layer = 0
 	if(istype(T))

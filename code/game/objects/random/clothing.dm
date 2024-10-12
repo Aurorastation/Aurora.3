@@ -1,5 +1,6 @@
 /obj/random/belt
 	name = "random belt"
+	icon_state = "toolbelt"
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
@@ -14,6 +15,7 @@
 // Novelty and rare backpacks have lower weights.
 /obj/random/backpack
 	name = "random backpack"
+	icon_state = "backpack"
 	problist = list(
 		/obj/item/storage/backpack = 3,
 		/obj/item/storage/backpack/cultpack = 2,
@@ -63,8 +65,7 @@
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
 	desc = "This is a random colored jumpsuit."
-	icon = 'icons/obj/clothing/uniforms.dmi'
-	icon_state = "black"
+	icon_state = "uniform"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
 		/obj/item/clothing/under/color/blue,
@@ -91,8 +92,7 @@
 /obj/random/suit
 	name = "random suit"
 	desc = "This is a random suit."
-	icon = 'icons/obj/clothing/uniforms.dmi'
-	icon_state = "checkered_suit"
+	icon_state = "uniform"
 	spawnlist = list(
 		/obj/item/clothing/under/suit_jacket/charcoal,
 		/obj/item/clothing/under/suit_jacket/navy,
@@ -109,8 +109,7 @@
 /obj/random/chameleon
 	name = "random possible chameleon item"
 	desc = "A random possible chameleon item. What could possibly go wrong?"
-	icon = 'icons/obj/clothing/gloves.dmi'
-	icon_state = "yellow"
+	icon_state = "uniform"
 	problist = list(
 
 		/obj/item/clothing/gloves/chameleon = 1,
@@ -143,8 +142,7 @@
 /obj/random/gloves
 	name = "random gloves"
 	desc = "Random gloves, assorted usefulness."
-	icon = 'icons/obj/clothing/gloves.dmi'
-	icon_state = "yellow"
+	icon_state = "gloves"
 	problist = list(
 		/obj/item/clothing/gloves/black = 1,
 		/obj/item/clothing/gloves/black_leather = 0.5,
@@ -162,7 +160,6 @@
 /obj/random/watches
 	name = "random watches"
 	desc = "Random watches, probably able to tell the time."
-	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
 		/obj/item/clothing/wrists/watch = 1,
@@ -174,8 +171,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/clothing/hoodies.dmi'
-	icon_state = "coatwinter"
+	icon_state = "wintercoat"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 3,
@@ -192,7 +188,6 @@
 /obj/random/bandana
 	name = "random bandana"
 	desc = "This is a random bandana."
-	icon = 'icons/obj/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
 	problist = list(
 		/obj/item/clothing/head/bandana/colorable/random = 5,
@@ -210,7 +205,6 @@
 /obj/random/softcap
 	name = "random softcap"
 	desc = "This is a random softcap."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	problist = list(
 		/obj/item/clothing/head/softcap/colorable/random = 5,
@@ -228,7 +222,6 @@
 /obj/random/beret
 	name = "random beret"
 	desc = "This is a random beret."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	problist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,
@@ -247,8 +240,7 @@
 /obj/random/hardhat
 	name = "random hardhat"
 	desc = "This is a random hardhat."
-	icon = 'icons/obj/clothing/hats/hardhats.dmi'
-	icon_state = "hardhat_yellow"
+	icon_state = "hardhat"
 	problist = list(
 		/obj/item/clothing/head/hardhat = 1,
 		/obj/item/clothing/head/hardhat/orange = 1,
@@ -264,8 +256,7 @@
 /obj/random/wizard_dressup
 	name = "random wizard clothes"
 	desc = "This is a random piece of fake wizard clothing."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "staff"
+	icon_state = "wizardstaff"
 	has_postspawn = TRUE
 
 /obj/random/wizard_dressup/spawn_item()

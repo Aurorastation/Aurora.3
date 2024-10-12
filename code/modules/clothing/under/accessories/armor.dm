@@ -139,6 +139,30 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/hoplan
+	name = "hoplan thigh protector"
+	desc = "Ablative plating fashioned to sit around the thigh from the hips, \
+	made to link together with an adjoining breastplate. This ancient style is reinvigorated with ablative metals and ballistic padding."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_thigh_protector"
+	item_state = "hoplan_thigh_protector"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/leg_guard/hoplan/skirt
+	name = "hoplan ballistic skirt"
+	desc = "A long skirt that falls down to one's ankles with an outer layer of ballistic padding, and woven in pouches featuring ablative plates."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_ballistic_skirt"
+	item_state = "hoplan_ballistic_skirt"
+	contained_sprite = TRUE
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -284,3 +308,19 @@
 	name = "striped TCAF carapace arm guards"
 	icon_state = "tcaf_armguards_stripe"
 	item_state = "tcaf_armguards_stripe"
+
+/obj/item/clothing/accessory/arm_guard/hoplan
+	name = "hoplan sleeves"
+	desc = "Big and poofy and reminiscent of an era more enlightened. \
+	These are lined with special fabric woven in the laboratories of Pactolus to provide armor to an otherwise gaudy fashion piece."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_sleeves"
+	item_state = "hoplan_sleeves"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)

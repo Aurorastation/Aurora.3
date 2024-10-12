@@ -28,8 +28,8 @@
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
 
-/obj/item/device/orbital_dropper/attack(mob/living/M, mob/user)
-	laser_act(M, user)
+/obj/item/device/orbital_dropper/attack(mob/living/target_mob, mob/living/user, target_zone)
+	laser_act(target_mob, user)
 
 /obj/item/device/orbital_dropper/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the targetter on a table or in backpack

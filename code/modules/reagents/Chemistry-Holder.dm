@@ -333,29 +333,38 @@
 	for(var/rtype in rtypes)
 		. += src.trans_type_to(target, rtype, amounteach)
 
-// When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
-// This does not handle transferring reagents to things.
-// For example, splashing someone with water will get them wet and extinguish them if they are on fire,
-// even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
-/datum/reagents/proc/touch(var/atom/target)
+/**
+ * When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent
+ *
+ * This does not handle transferring reagents to things
+ *
+ * For example, splashing someone with water will get them wet and extinguish them if they are on fire,
+ * even if they are wearing an impermeable suit that prevents the reagents from contacting the skin
+ */
+/datum/reagents/proc/touch(atom/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//No point if it's getting deleted
+	if(QDELETED(target))
+		return
+
 	if(ismob(target))
 		touch_mob(target)
-	if(isturf(target))
+	else if(isturf(target))
 		touch_turf(target)
-	if(isobj(target))
+	else if(isobj(target))
 		touch_obj(target)
-	return
 
 /datum/reagents/proc/touch_mob(var/mob/living/target)
 	if(!target || !istype(target) || !target.simulated)
 		return
 	var/temperature = src.get_temperature()
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
-		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP))
+		var/burn_damage = clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(SPAN_DANGER("The hot liquid burns [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
-		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP))
+		var/burn_damage = clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
 		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"))
 

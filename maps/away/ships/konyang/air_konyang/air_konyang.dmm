@@ -1659,8 +1659,7 @@
 /area/shuttle/air_konyang/atmos)
 "Qa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)

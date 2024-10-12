@@ -4196,7 +4196,6 @@
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "px" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/carpet/green,
@@ -12652,7 +12651,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14181,7 +14179,6 @@
 	icon_state = "1-8"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
