@@ -14,7 +14,7 @@
 #define PHORON_IMMUNE       BITFLAG(13)   // species doesn't suffer the negative effects of phoron contamination
 #define CAN_SWEAT           BITFLAG(14)   // Forgive me.
 #define NO_COLD_SLOWDOWN	BITFLAG(15)	  //Doesn't slow down in the cold.
-#define NO_EQUIP_SLOWDOWN	BITFLAG(16)	  //Doesn't get slowed down by carrying certain things or equipping some clothing
+#define NO_EQUIP_SPEEDMODS	BITFLAG(16)	  //Doesn't get affected by carrying certain things or equipping some clothing
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.

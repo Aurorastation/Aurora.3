@@ -1532,7 +1532,7 @@
 		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
 
 /mob/living/carbon/human/update_equipment_speed_mods()
-	if(species && (species.flags & NO_EQUIP_SLOWDOWN))
+	if(species && (species.flags & NO_EQUIP_SPEEDMODS))
 		return
 	else
 		. = ..()

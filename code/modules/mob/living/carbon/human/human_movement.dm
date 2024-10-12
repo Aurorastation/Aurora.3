@@ -9,7 +9,7 @@
 	if(lying) //Crawling, it's slower
 		tally += (8 + ((weakened * 3) + (confused * 2)))
 
-	if (!(species.flags & NO_EQUIP_SLOWDOWN))
+	if (!(species.flags & NO_EQUIP_SPEEDMODS))
 		tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
@@ -51,7 +51,7 @@
 	if((mutations & mRun))
 		tally = 0
 
-	if(isitem(pulling) && !(species.flags & NO_EQUIP_SLOWDOWN))
+	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
 		var/obj/item/P = pulling
 		tally += P.slowdown
 
