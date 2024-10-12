@@ -223,13 +223,15 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 	if(!player_ckey)
 		player_ckey = target_mob.ckey
 
+	var/glob_character_id_key = "[player_ckey]-[character_id]"
+
 	//Fetch the custom items for the mob
 	if(GLOB.config.sql_enabled)
 		if(!establish_db_connection(GLOB.dbcon))
 			log_module_customitems("Unable to establish database connection while loading item. - Aborting")
 			return
 
-		if(!GLOB.character_id_to_custom_items_mapping[character_id])
+		if(!GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
 			var/list/custom_items_list = list()
 
 			var/DBQuery/char_item_query = GLOB.dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")
@@ -248,19 +250,24 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 
 				custom_items_list += ci
 
-			GLOB.character_id_to_custom_items_mapping[character_id] = custom_items_list
-
-		for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[character_id])
-			equip_custom_item_to_mob(ci, target_mob)
+			GLOB.character_id_to_custom_items_mapping[glob_character_id_key] = custom_items_list
 	else
-		for(var/item in custom_items)
-			CHECK_TICK
-			var/datum/custom_item/ci = item
-			if(lowertext(ci.usr_ckey) != lowertext(player_ckey))
-				continue
-			if(lowertext(ci.usr_charname) != lowertext(target_mob.real_name))
-				continue
-			equip_custom_item_to_mob(ci, target_mob)
+		if(!GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
+			var/list/custom_items_list = list()
+
+			for(var/item in custom_items)
+				CHECK_TICK
+				var/datum/custom_item/ci = item
+				if(lowertext(ci.usr_ckey) != lowertext(player_ckey))
+					continue
+				if(lowertext(ci.usr_charname) != lowertext(target_mob.real_name))
+					continue
+				custom_items_list += ci
+
+			GLOB.character_id_to_custom_items_mapping[glob_character_id_key] = custom_items_list
+
+	for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
+		equip_custom_item_to_mob(ci, target_mob)
 
 
 /proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/target_mob)
