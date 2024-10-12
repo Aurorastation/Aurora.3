@@ -28,7 +28,7 @@
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if(magpulse)
 		slowdown += slowdown_active
-	user.update_equipment_speed_mods(user)
+	user.update_equipment_speed_mods()
 
 /obj/item/clothing/shoes/magboots/proc/update_wearer()
 	if(QDELETED(wearer))

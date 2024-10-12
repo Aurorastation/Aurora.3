@@ -53,7 +53,7 @@
 	else
 		slowdown = 0
 	update_icon()
-	user.update_equipment_speed_mods(user)
+	user.update_equipment_speed_mods()
 
 /obj/item/cargo_backpack/update_icon()
 	if(LAZYLEN(contained_packages))
