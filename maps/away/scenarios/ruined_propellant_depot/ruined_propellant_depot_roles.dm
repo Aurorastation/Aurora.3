@@ -85,12 +85,12 @@
 /obj/outfit/admin/generic/ruined_propellant_depot_crew/director
 	name = "Propellant Depot Director Uniform"
 
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
+	uniform = /obj/random/suit
 	suit = null
 	shoes = /obj/item/clothing/shoes/laceup
 
 	back = list(
-		/obj/item/storage/backpack/satchel/leather/withwallet,
+		/obj/item/storage/backpack/satchel/leather,
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,

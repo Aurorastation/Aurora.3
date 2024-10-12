@@ -3216,6 +3216,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/eva)
+"ka" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Propellant Tanks"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ruined_propellant_depot/propellant_tanks)
 "kb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3352,6 +3363,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
+"kw" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Bridge"
+	},
+/turf/simulated/wall/r_wall,
+/area/ruined_propellant_depot/bridge)
 "kx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3519,16 +3536,6 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/carpet/purple,
 /area/ruined_propellant_depot/crew_quarters)
-"kZ" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Atmos Propellant"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ruined_propellant_depot/atmos_propellant)
 "la" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -3582,6 +3589,19 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
+"lm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/hallways_east)
 "ln" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3948,6 +3968,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_east)
+"mK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint_storage)
 "mL" = (
 /obj/item/trash/cigbutt/cigarbutt{
 	pixel_x = -4
@@ -4010,6 +4043,14 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/crew_quarters)
+"mW" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/crew_quarters)
 "mX" = (
@@ -6057,13 +6098,6 @@
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
-"tO" = (
-/obj/structure/lattice/catwalk/indoor/planks,
-/obj/effect/landmark/minimap_poi{
-	name = "Office"
-	},
-/turf/simulated/floor/wood,
-/area/ruined_propellant_depot/chiefs_quarters)
 "tR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -6107,13 +6141,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
-"tY" = (
-/obj/item/storage/box/lights/mixed{
-	pixel_y = 5;
-	pixel_x = -2
-	},
-/turf/simulated/floor/tiled,
-/area/ruined_propellant_depot/engineering)
 "ua" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7210,19 +7237,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
-"xl" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled,
-/area/ruined_propellant_depot/hallways_east)
 "xm" = (
 /obj/structure/toilet{
 	pixel_y = 13
@@ -7771,6 +7785,13 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
+"zn" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Storage"
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint_storage)
 "zp" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -8307,6 +8328,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
+"AJ" = (
+/obj/item/storage/box/lights/mixed{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/engineering)
 "AK" = (
 /obj/structure/bed/padded,
 /obj/effect/floor_decal/corner/grey{
@@ -9369,17 +9397,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
-"Ec" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Propellant Tanks"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ruined_propellant_depot/propellant_tanks)
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -10027,9 +10044,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Storage"
-	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "Gb" = (
@@ -10161,14 +10175,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/gym)
-"Gy" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/silver{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ruined_propellant_depot/crew_quarters)
 "GC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -11556,6 +11562,16 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_east)
+"KW" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/crew_quarters)
 "KX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11873,16 +11889,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_east)
-"LT" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Quarters"
-	},
-/turf/simulated/floor/tiled,
-/area/ruined_propellant_depot/crew_quarters)
 "LU" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -12103,6 +12109,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
+"MG" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Canteen"
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/mess)
 "MH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -14546,12 +14559,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
-"Uv" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Bridge"
-	},
-/turf/simulated/wall/r_wall,
-/area/ruined_propellant_depot/bridge)
 "Ux" = (
 /obj/item/cell/crap{
 	pixel_x = -7;
@@ -14670,6 +14677,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air_aux_fill)
+"UP" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Atmos Propellant"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ruined_propellant_depot/atmos_propellant)
 "UQ" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/light/broken,
@@ -14933,19 +14950,6 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ruined_propellant_depot/crew_quarters)
-"VG" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/turf/simulated/floor/plating,
-/area/ruined_propellant_depot/maint_storage)
 "VK" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
@@ -15279,13 +15283,6 @@
 /obj/random/suit,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/chiefs_quarters)
-"WN" = (
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Canteen"
-	},
-/turf/simulated/floor/tiled,
-/area/ruined_propellant_depot/mess)
 "WO" = (
 /obj/structure/table/steel,
 /obj/item/trash/snacktray{
@@ -16220,6 +16217,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
+"ZD" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/effect/landmark/minimap_poi{
+	name = "Office"
+	},
+/turf/simulated/floor/wood,
+/area/ruined_propellant_depot/chiefs_quarters)
 "ZE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -38039,7 +38043,7 @@ Wl
 mr
 mr
 PO
-Wu
+zn
 KH
 Mt
 qe
@@ -40094,7 +40098,7 @@ Kd
 PO
 aH
 DU
-VG
+mK
 qe
 Qu
 ZW
@@ -45485,7 +45489,7 @@ LV
 wC
 aE
 DI
-tY
+AJ
 ig
 AA
 Qt
@@ -46528,7 +46532,7 @@ oP
 CW
 GG
 LZ
-kZ
+UP
 YR
 dL
 Ut
@@ -48604,7 +48608,7 @@ bh
 JX
 sv
 rZ
-Ec
+ka
 bh
 bh
 JX
@@ -49335,7 +49339,7 @@ IC
 rh
 TS
 LX
-tO
+ZD
 KO
 ck
 qb
@@ -49835,7 +49839,7 @@ Fg
 bq
 iQ
 aT
-WN
+MG
 PN
 Bo
 ln
@@ -52426,7 +52430,7 @@ LO
 QM
 KJ
 Dg
-Gy
+mW
 DV
 qt
 sK
@@ -53175,7 +53179,7 @@ Zi
 Zi
 Wl
 Zi
-Uv
+kw
 cR
 cR
 cR
@@ -53705,7 +53709,7 @@ Si
 dg
 uS
 KJ
-LT
+KW
 uS
 uS
 uS
@@ -55764,7 +55768,7 @@ wo
 hV
 TY
 wT
-xl
+lm
 wf
 TY
 KX
