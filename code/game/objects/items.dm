@@ -853,7 +853,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		CutOverlays(blood_overlay, TRUE)
+		CutOverlays(blood_overlay, ATOM_ICON_CACHE_ALL)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0

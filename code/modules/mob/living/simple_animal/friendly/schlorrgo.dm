@@ -126,7 +126,7 @@
 
 /mob/living/simple_animal/schlorrgo/process_food()
 	..()
-	if(prob(6) && eggs_left < max_eggs) // Change to add egg when fat
+	if(prob(4) && eggs_left < max_eggs && current_size >= FAT_SCHLORRGO) // Change to add egg when fat
 		eggs_left += 1 // only +1 since this can proc often
 	check_wideness_change()
 
@@ -136,7 +136,6 @@
 
 /mob/living/simple_animal/schlorrgo/proc/increase_wideness()
 	switch(current_size)
-
 		if(EGG_SCHLORRGO)
 			if(!named)
 				name = "schlorrgo hatchling"
