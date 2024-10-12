@@ -209,6 +209,10 @@
 
 /atom/movable/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
+	if(SSticker.prevent_unready && player.ready)
+		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
+		return
+
 	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
@@ -287,11 +291,15 @@
 			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
+		if(SSticker.prevent_unready && !readying)
+			tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")
+			return
+
 		ready = readying
 		if(ready)
 			last_ready_name = client.prefs.real_name
 		SSticker.update_ready_list(src)
-	else
+	else if(!SSticker.prevent_unready)
 		ready = FALSE
 
 /mob/abstract/new_player/proc/join_game(href, href_list)

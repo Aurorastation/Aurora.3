@@ -10,6 +10,8 @@
 	antag_scaling_coeff = 1
 
 /datum/game_mode/odyssey/pre_game_setup()
+	SSticker.prevent_unready = TRUE
+
 	if(!SSodyssey.pick_odyssey())
 		return FALSE
 

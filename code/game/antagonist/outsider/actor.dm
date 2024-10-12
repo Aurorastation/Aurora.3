@@ -12,6 +12,7 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	hard_cap = 10
 	hard_cap_round = 15
+	initial_spawn_req = 2 // Needs to be set to 2 to allow it to show as a group antag on the lobby setup screen.
 
 	bantype = "actor"
 
