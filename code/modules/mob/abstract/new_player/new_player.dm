@@ -107,11 +107,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
-			if(SSticker.prevent_ready)
-				tgui_alert(src, "You may not ready or unready during Odyssey setup!", "Odyssey")
+			var/new_ready_state = text2num(href_list["ready"])
+
+			if(SSticker.prevent_unready && new_ready_state == FALSE)
+				tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")
 				return
 
-			ready = text2num(href_list["ready"])
+			ready = new_ready_state
 		else
 			ready = 0
 

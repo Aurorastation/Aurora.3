@@ -65,7 +65,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/list/roundstart_callbacks
 
 	/// Used to prevent players from readying or unreadying, such as for Odyssey's setup.
-	var/prevent_ready = FALSE
+	var/prevent_unready = FALSE
 
 	// Pre-game ready menu handling
 	var/total_players = 0
@@ -537,10 +537,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(!mode.pre_game_setup())
 		current_state = GAME_STATE_PREGAME
 		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
-		prevent_ready = FALSE
+		prevent_unready = FALSE
 		return SETUP_REVOTE
 
-	prevent_ready = FALSE
+	prevent_unready = FALSE
 
 	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()
