@@ -637,6 +637,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	flagpatch_national["flagpatch, zo'ra"] = /obj/item/clothing/accessory/flagpatch/zora
 	flagpatch_national["flagpatch, k'lax"] = /obj/item/clothing/accessory/flagpatch/klax
 	flagpatch_national["flagpatch, c'thur"] = /obj/item/clothing/accessory/flagpatch/cthur
+	flagpatch_national["flagpatch, burzsia"] = /obj/item/clothing/accessory/flagpatch/burzsia
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai

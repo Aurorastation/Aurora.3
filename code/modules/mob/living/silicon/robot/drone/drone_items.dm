@@ -13,7 +13,7 @@
 	var/datum/matter_synth/wood
 	var/datum/matter_synth/plastic
 
-/obj/item/matter_decompiler/attack(mob/living/M, mob/living/user)
+/obj/item/matter_decompiler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)

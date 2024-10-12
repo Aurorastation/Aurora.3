@@ -215,14 +215,14 @@
 		else if(action == "add")
 			if(params["amount"])
 				var/rtype = text2path(params["add"])
-				var/amount = Clamp((text2num(params["amount"])), 0, 200)
+				var/amount = clamp((text2num(params["amount"])), 0, 200)
 				beaker.reagents.trans_type_to(src, rtype, amount)
 			return TRUE
 
 		else if (action == "remove")
 			if(params["amount"])
 				var/rtype = text2path(params["remove"])
-				var/amount = Clamp((text2num(params["amount"])), 0, 200)
+				var/amount = clamp((text2num(params["amount"])), 0, 200)
 				if(mode)
 					reagents.trans_type_to(beaker, rtype, amount)
 				else
@@ -263,7 +263,7 @@
 
 		if (action == "createpill_multiple")
 			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, max_pill_count, 1)
-			count = Clamp(count, 1, max_pill_count)
+			count = clamp(count, 1, max_pill_count)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE

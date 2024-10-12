@@ -128,7 +128,7 @@
 /obj/item/syndie/teleporter/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
 
-/obj/item/syndie/teleporter/attack()
+/obj/item/syndie/teleporter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/syndie/teleporter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

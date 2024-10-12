@@ -302,18 +302,18 @@
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
-/obj/item/gun/attack(atom/A, mob/living/user, def_zone)
-	if (A == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
+/obj/item/gun/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (target_mob == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
 		handle_suicide(user)
 	else if(user.a_intent != I_HURT && user.aiming && user.aiming.active) //if aim mode, don't pistol whip
-		if (user.aiming.aiming_at != A)
-			PreFire(A, user)
+		if (user.aiming.aiming_at != target_mob)
+			PreFire(target_mob, user)
 		else
-			Fire(A, user, pointblank=1)
+			Fire(target_mob, user, pointblank=1)
 	else if(user.a_intent == I_HURT) //point blank shooting
-		Fire(A, user, pointblank=1)
+		Fire(target_mob, user, pointblank=1)
 	else if(bayonet)
-		bayonet.attack(A, user, def_zone)
+		bayonet.attack(target_mob, user, target_zone)
 	else
 		return ..() //Pistolwhippin'
 

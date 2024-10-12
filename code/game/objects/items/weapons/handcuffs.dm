@@ -25,7 +25,11 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
+/obj/item/handcuffs/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/C = target_mob
+	if(!istype(C))
+		return
+
 	if(!user.IsAdvancedToolUser())
 		return
 

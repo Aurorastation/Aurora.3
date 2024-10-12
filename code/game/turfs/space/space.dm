@@ -17,6 +17,8 @@
 	permit_ao = FALSE
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
+	explosion_resistance = 3
+
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 

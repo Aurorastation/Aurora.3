@@ -137,21 +137,21 @@
 					qdel(src)
 	return
 
-/obj/item/pen/crayon/attack(mob/user, var/target_zone)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+/obj/item/pen/crayon/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		if(H.check_has_mouth())
-			user.visible_message(SPAN_NOTICE("[user] takes a bite of their crayon and swallows it."),
+			target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of their crayon and swallows it."),
 									SPAN_NOTICE("You take a bite of your crayon and swallow it."))
 
-			user.adjustNutritionLoss(-1)
-			reagents.trans_to_mob(user, 2, CHEM_INGEST)
+			target_mob.adjustNutritionLoss(-1)
+			reagents.trans_to_mob(target_mob, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				user.visible_message(SPAN_NOTICE("[user] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else
-		..(user, target_zone)
+		return ..()
 
 /obj/item/pen/crayon/attack_self(var/mob/user)
 	return

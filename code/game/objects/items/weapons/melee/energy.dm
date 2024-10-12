@@ -163,7 +163,7 @@
 	icon_state = initial(icon_state)
 	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
-/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/glaive/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

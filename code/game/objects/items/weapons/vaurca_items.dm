@@ -400,7 +400,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

@@ -5,7 +5,7 @@
 	desc = "A simple power outlet. You can charge your PDA or other modular computer device here."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "outlet"
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
 	use_power = POWER_USE_OFF // doesn't use power by default, only when drawing power
 

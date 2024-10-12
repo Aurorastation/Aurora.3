@@ -62,7 +62,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	. = ..()
 	update_icon()
 
-/obj/item/rfd/attack()
+/obj/item/rfd/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return FALSE
 
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
