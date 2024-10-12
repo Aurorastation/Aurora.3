@@ -59,6 +59,7 @@
 	uniform = /obj/item/clothing/under/gearharness
 	accessory = /obj/item/clothing/accessory/storage/webbing
 
+// Owned tag includes the Hoplan, which are owned by the government and assigned preferentially to merchants that donate to their house.
 /obj/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
@@ -66,7 +67,7 @@
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
-		tag.citizenship_info = CITIZENSHIP_NONE
+		tag.citizenship_info = CITIZENSHIP_GOLDEN // Even owned Golden Deep synthetics are counted as citizens.
 
 /obj/outfit/admin/golden_deep/boss
 	name = "Golden Deep Collective, Accredited Merchant"
@@ -87,6 +88,7 @@
 
 /obj/outfit/admin/golden_deep/hoplan
 	name = "Golden Deep Collective, House Hoplan"
+	uniform = /obj/item/clothing/under/goldendeep/hoplan
 
 /obj/outfit/admin/golden_deep/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)

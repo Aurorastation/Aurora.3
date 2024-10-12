@@ -126,8 +126,8 @@
 	name = "Golden Deep Mercantile Vessel - Hangar"
 	landmark_tag = "gd_nav_hangar"
 	docking_controller = "golden_deep_hangar"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/golden_deep/hangar
+	base_turf = /turf/space
+	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/golden_deep_shuttle/transit
@@ -142,6 +142,5 @@
 	/obj/item/clothing/accessory/badge/passport/coc = 1,
 	/obj/item/spacecash/c1000 = 2,
 	/obj/item/spacecash/c200 = 1,
-	/obj/item/spacecash/c20 = 1,
-	/obj/item/stack/nanopaste = 3
+	/obj/item/spacecash/c20 = 1
 	)

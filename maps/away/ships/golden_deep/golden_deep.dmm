@@ -272,6 +272,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/reactor)
 "gV" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
@@ -309,6 +312,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/golden_deep/workshop)
+"hU" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/hoplan)
 "il" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -319,7 +331,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/optable,
+/obj/machinery/mecha_part_fabricator,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "iA" = (
@@ -555,12 +567,11 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/lounge)
 "oX" = (
-/obj/item/gun/projectile/automatic/rifle/minigun,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "!!! EMERGENCY ONLY !!!"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/minigunpack,
+/obj/item/gun/energy/vaurca/gatlinglaser,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/merchant)
 "oY" = (
@@ -595,7 +606,8 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "pz" = (
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "pA" = (
 /obj/machinery/door/airlock/multi_tile/flipped/glass{
@@ -665,6 +677,13 @@
 "rP" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
+"rR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "sg" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
@@ -790,6 +809,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "vd" = (
@@ -992,6 +1012,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
+"zU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/cabinet{
+	name = "Hoplan Attire"
+	},
+/obj/item/clothing/suit/armor/carrier/hoplan,
+/obj/item/clothing/suit/armor/carrier/hoplan,
+/obj/item/clothing/accessory/leg_guard/hoplan/skirt,
+/obj/item/clothing/accessory/leg_guard/hoplan/skirt,
+/obj/item/clothing/head/helmet/hoplan,
+/obj/item/clothing/head/helmet/hoplan,
+/obj/item/clothing/head/goldendeep/hoplan,
+/obj/item/clothing/head/goldendeep/hoplan,
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/hoplan)
 "Ac" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -1023,6 +1060,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
+"Bd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/padded/red,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Bl" = (
 /obj/structure/bed/stool/chair/sofa/left/purple,
 /turf/simulated/floor/lino/diamond,
@@ -1045,7 +1089,6 @@
 /area/golden_deep/aft_hallway)
 "By" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/ammo)
 "BA" = (
@@ -1113,6 +1156,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
+"Do" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "Dw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1123,6 +1173,13 @@
 "Dx" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/private_lounge)
+"DA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "DG" = (
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/merchant)
@@ -1201,6 +1258,13 @@
 "FE" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/central_hallway)
+"FL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/cabinet,
+/turf/simulated/floor/wood,
+/area/golden_deep/merchant)
 "FN" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
@@ -1225,9 +1289,25 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/golden_deep/workshop)
+"Gk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Go" = (
 /turf/template_noop,
 /area/shuttle/golden_deep)
+"Gt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Gw" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
@@ -1253,6 +1333,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "Hm" = (
@@ -1270,6 +1351,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/port_dock)
+"Ht" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/magenta,
+/area/golden_deep/merchant)
 "Hu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1310,6 +1395,12 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/starboard_dock)
+"HY" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "Ic" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/vault/bolted,
@@ -1411,6 +1502,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
+"KG" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/workshop)
 "KH" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -1445,9 +1541,15 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/optable,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
+"Lb" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/hoplan)
 "Lg" = (
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
@@ -1473,6 +1575,17 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
+"LH" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/rifle/laser,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/melee/energy/glaive,
+/obj/item/melee/energy/glaive,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/hoplan)
 "LK" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/atmos)
@@ -1520,6 +1633,13 @@
 "No" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/storage/belt/security/full/alt,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/handcuffs,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/hoplan)
 "Ns" = (
@@ -1620,10 +1740,20 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
+"PU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "PV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "PW" = (
@@ -1759,6 +1889,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
+"TS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/padded/red,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Ud" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
@@ -1820,6 +1957,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge)
+"VT" = (
+/obj/structure/table/wood,
+/obj/item/gun/energy/pistol/goldendeep,
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/merchant)
 "Wa" = (
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/port_dock)
@@ -1984,6 +2126,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/golden_deep/reactor)
+"ZJ" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
 "ZS" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
@@ -32183,7 +32330,7 @@ Rt
 Rt
 Rt
 fC
-FQ
+js
 fC
 Rt
 Rt
@@ -32440,7 +32587,7 @@ Rt
 Rt
 Rt
 fC
-FQ
+js
 fC
 Rt
 Rt
@@ -32697,7 +32844,7 @@ fC
 fC
 fC
 fC
-FQ
+HY
 fC
 fC
 fC
@@ -96449,7 +96596,7 @@ sS
 LN
 Kf
 pj
-sS
+Jc
 gW
 Rt
 Rt
@@ -96706,7 +96853,7 @@ ZC
 LN
 Kf
 pj
-sS
+Jc
 Rt
 Rt
 Rt
@@ -96963,7 +97110,7 @@ ZC
 GJ
 nI
 pj
-sS
+Jc
 Rt
 Rt
 Rt
@@ -97208,7 +97355,7 @@ Rt
 Rt
 yF
 EF
-EF
+VT
 EF
 iG
 hy
@@ -97966,10 +98113,10 @@ Ic
 QB
 By
 WF
-Dw
+Do
 vv
 Gd
-Xx
+KG
 WF
 wc
 zG
@@ -97984,10 +98131,10 @@ vh
 KK
 Hm
 iG
-lh
-Zj
-Zj
-FW
+DX
+DX
+DX
+DX
 mS
 mS
 MQ
@@ -98223,10 +98370,10 @@ jQ
 QB
 By
 WF
-qe
+Dw
 hF
 or
-eR
+Xx
 WF
 BQ
 zG
@@ -98235,16 +98382,16 @@ eQ
 iG
 Zh
 iG
-Tk
-Tk
+Ht
+Ht
 Tk
 iA
 Hm
 iG
-MQ
-ow
-ow
-cK
+lt
+Zj
+Zj
+FW
 mS
 mS
 MQ
@@ -98752,13 +98899,13 @@ iG
 Tk
 Tk
 Tk
-iW
+FL
 uZ
 iG
-NO
-tw
-tw
-fP
+MQ
+ow
+ow
+cK
 mS
 mS
 NO
@@ -98985,7 +99132,7 @@ Rt
 Rt
 Rt
 Rt
-JH
+tk
 wc
 Bu
 zG
@@ -99012,10 +99159,10 @@ iG
 iG
 iG
 iG
-DX
-DX
-DX
-DX
+DA
+tw
+tw
+fP
 mS
 mS
 mS
@@ -99242,7 +99389,7 @@ Rt
 Rt
 Rt
 Rt
-JH
+tk
 wc
 Bu
 zG
@@ -99499,7 +99646,7 @@ Rt
 Rt
 Rt
 gW
-JH
+tk
 wc
 Bu
 zG
@@ -99785,8 +99932,8 @@ ss
 SC
 aO
 aO
-lt
-FW
+aO
+aO
 mS
 mS
 ko
@@ -100040,10 +100187,10 @@ FE
 sG
 sG
 ss
+Bd
+Gt
+PU
 aO
-aO
-MQ
-cK
 mS
 mS
 ko
@@ -100297,10 +100444,10 @@ FE
 sG
 sG
 ss
+TS
+rR
+Gk
 aO
-aO
-MQ
-cK
 mS
 mS
 ko
@@ -100556,8 +100703,8 @@ ss
 SC
 aO
 aO
-NO
-fP
+aO
+aO
 mS
 mS
 ko
@@ -100571,7 +100718,7 @@ EV
 Af
 Qr
 uS
-Wv
+ZJ
 sg
 fN
 Nx
@@ -100784,7 +100931,7 @@ Rt
 Rt
 Rt
 gW
-JH
+tk
 wc
 Bu
 zG
@@ -101041,7 +101188,7 @@ Rt
 Rt
 Rt
 Rt
-JH
+tk
 wc
 Bu
 zG
@@ -101298,7 +101445,7 @@ Rt
 Rt
 Rt
 Rt
-JH
+tk
 wc
 Bu
 zG
@@ -101325,7 +101472,7 @@ lI
 lI
 lI
 lI
-lt
+lh
 Zj
 Zj
 FW
@@ -102607,7 +102754,7 @@ lI
 ve
 Bq
 Bq
-Bq
+zU
 PV
 lI
 fG
@@ -103118,7 +103265,7 @@ JH
 Rt
 Rt
 lI
-No
+LH
 Kc
 No
 lI
@@ -103375,9 +103522,9 @@ JH
 Rt
 Rt
 lI
-No
+Lb
 Kc
-No
+hU
 lI
 Rt
 mA
@@ -103388,7 +103535,7 @@ mA
 fk
 sr
 Hy
-Lt
+Hn
 Rt
 Rt
 Rt
@@ -103645,7 +103792,7 @@ mA
 yX
 fL
 Hy
-Lt
+Hn
 Rt
 Rt
 Rt
@@ -103902,7 +104049,7 @@ mA
 yX
 fL
 Hy
-Lt
+Hn
 gW
 Rt
 Rt
