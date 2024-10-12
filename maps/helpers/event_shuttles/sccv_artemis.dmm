@@ -301,7 +301,8 @@
 /area/scc_event_shuttle)
 "eX" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 2"
+	name = "Stall 2";
+	id_tag = "shuttle_stall_2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -536,9 +537,7 @@
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "js" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -802,60 +801,9 @@
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
 "oi" = (
-/obj/structure/closet/crate/secure{
-	name = "encryption keys crate";
-	req_access = list(19)
+/obj/machinery/vending/encryption{
+	pixel_y = 29
 	},
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "ov" = (
@@ -1149,7 +1097,8 @@
 /area/scc_event_shuttle)
 "th" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 3"
+	name = "Stall 3";
+	id_tag = "shuttle_stall_3"
 	},
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -1592,6 +1541,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/device/vending_refill/encryption,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "zX" = (
@@ -2032,20 +1982,16 @@
 	pixel_y = 16
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -2240,43 +2186,33 @@
 	pixel_x = 6
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /obj/item/device/radio/off{
-	pixel_y = 0;
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3092,35 +3028,27 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /turf/simulated/floor/tiled/steel,
@@ -3278,7 +3206,8 @@
 /area/scc_event_shuttle)
 "WC" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 1"
+	name = "Stall 1";
+	id_tag = "shuttle_stall_1"
 	},
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -3454,11 +3383,9 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/lead/full{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/stack/material/aluminium/full{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/steel,

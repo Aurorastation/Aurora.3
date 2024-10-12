@@ -38,7 +38,7 @@
 		if(drone_only && !isDrone(S))
 			continue
 		else if(isAI(S))
-			message_start = "<i><span class='game say'>[name], <a href='byond://?src=\ref[S];track2=\ref[S];track=\ref[speaker];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
+			message_start = "<i><span class='game say'>[name], <a href='byond://?src=[REF(S)];track2=[REF(S)];track=[REF(speaker)];trackname=[html_encode(speaker.name)]'><span class='name'>[get_speaker_name(speaker)]</span></a></span></i>"
 		else if (!S.binarycheck() || !can_hear(speaker, S))
 			continue
 

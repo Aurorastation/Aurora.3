@@ -142,8 +142,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //////////////////
 //FINE SMOKABLES//
 //////////////////
-/obj/item/clothing/mask/smokable
-	abstract_type = /obj/item/clothing/mask/smokable
+ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/obj/smokables.dmi'
@@ -334,7 +333,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		die(TRUE)
 
-/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
+
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
@@ -584,6 +585,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "pipeoff"
 	w_class = WEIGHT_CLASS_TINY
 	chem_volume = 30
+	burn_rate = 0.003
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
 	zippomes = SPAN_NOTICE("With much care, USER lights their NAME with their FLAME.")
@@ -972,8 +974,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
 	handle_lighting()
 
-/obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!istype(M, /mob))
+/obj/item/flame/lighter/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
 		return
 
 	if(lit && M.IgniteMob())

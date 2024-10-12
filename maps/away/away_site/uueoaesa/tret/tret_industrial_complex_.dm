@@ -29,6 +29,7 @@
 /obj/effect/overmap/visitable/sector/tret_industrial_complex
 	name = "Tret"
 	desc = "A large and inhospitable planet, now covered in mines, forges and factories - the new homeworld of the K'lax Hive."
+	alignment = "Izweski Hegemony"
 	icon_state = "globe3"
 	color = "#d69200"
 	initial_generic_waypoints = list(

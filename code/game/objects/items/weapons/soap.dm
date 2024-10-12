@@ -98,9 +98,9 @@
 	return
 
 //attack_as_weapon
-/obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
-	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
-		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
+/obj/item/soap/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(target_mob && user && ishuman(target_mob) && ishuman(user) && !target_mob.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
+		user.visible_message(SPAN_DANGER("\The [user] washes \the [target_mob]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()

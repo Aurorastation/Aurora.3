@@ -176,7 +176,11 @@
 	else if(attacking_item.force > 10 && deployed)
 		trigger(user)
 
-/obj/item/landmine/bullet_act()
+/obj/item/landmine/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(deployed)
 		trigger()
 
@@ -367,7 +371,7 @@
 /obj/item/landmine/standstill/trigger(mob/living/triggerer)
 	if(!engaged_by && !deactivated)
 		to_chat(triggerer, SPAN_HIGHDANGER("Something clicks below your feet, a sense of dread permeates your skin, better not move..."))
-		engaged_by = ref(triggerer)
+		engaged_by = REF(triggerer)
 
 		//Because mobs can bump and swap with one another, and we use forcemove that doesn't call Crossed/Uncrossed/Entered/Exited, we have to
 		//keep looking if the victim is still on the mine, and otherwise explode the mine

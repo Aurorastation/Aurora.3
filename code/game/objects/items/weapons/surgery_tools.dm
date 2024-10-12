@@ -287,11 +287,11 @@
 
 	return
 
-/obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/box/fancy/tray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..() && contents.len)
-		spill(3, get_turf(M))
-		playsound(M, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
-		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
+		spill(3, get_turf(target_mob))
+		playsound(target_mob, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
 	..()

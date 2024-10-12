@@ -12,6 +12,7 @@
 	massvolume = "0.89/0.99"
 	surfacegravity = "0.93"
 	charted = "Charted 2305, Sol Alliance Department of Colonization."
+	alignment = "Coalition of Colonies"
 	geology = "Low-energy tectonic heat signature, minimal surface disruption"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority potable, 88% surface water. Significant tidal forces from natural satellite"

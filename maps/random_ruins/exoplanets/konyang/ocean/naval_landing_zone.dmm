@@ -289,10 +289,6 @@
 "de" = (
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
-"dg" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
-/area/konyang_landing_zone)
 "di" = (
 /turf/simulated/wall,
 /area/konyang_landing_zone/command_center/living)
@@ -1837,7 +1833,6 @@
 /area/konyang_landing_zone/command_center/living)
 "yJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "lz_co2_out";
 	dir = 1
 	},
@@ -2113,15 +2108,6 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
-"Dy" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/konyang_landing_zone)
 "DB" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -2949,7 +2935,6 @@
 "PO" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "lz_air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -6117,7 +6102,7 @@ FU
 FU
 lb
 FU
-dg
+kx
 ae
 ae
 gF
@@ -6219,13 +6204,13 @@ ae
 Lr
 Lr
 Lr
-Dy
-Dy
-Dy
-Dy
-Dy
-Dy
-Dy
+MH
+MH
+MH
+MH
+MH
+MH
+MH
 eS
 eS
 eS

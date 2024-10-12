@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bn" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "dA" = (
@@ -60,9 +58,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "qD" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/engine,
 /turf/template_noop,
 /area/template_noop)
 "sw" = (
@@ -123,9 +119,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
 "KX" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lt" = (
@@ -145,9 +139,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "ZA" = (
-/obj/effect/shuttle_landmark{
-	dir = 2
-	},
+/obj/effect/shuttle_landmark,
 /turf/template_noop,
 /area/template_noop)
 

@@ -71,7 +71,7 @@
 	var/obj/item/card/id/held_card = get_held_card()
 
 	data["has_printer"] = !!computer.nano_printer
-	data["id_card"] = held_card ? text("[held_card.registered_name], [held_card.assignment]") : null
+	data["id_card"] = held_card ? "[held_card.registered_name], [held_card.assignment]" : null
 	data["access_level"] = get_access_level()
 	data["machine_id"] = machine_id
 	data["station_account_number"] = "[SSeconomy.station_account.account_number]"
@@ -85,7 +85,7 @@
 			var/account_number = "[M]"
 			var/list/transactions = list()
 			for(var/datum/transaction/T in D.transactions)
-				var/Tref = ref(T)
+				var/Tref = REF(T)
 				transactions += list(list(
 					"ref" = Tref,
 					"date" = T.date,
@@ -121,7 +121,7 @@
 			var/account_name = params["name"]
 			var/starting_funds = max(params["funds"], 0)
 
-			starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
+			starting_funds = clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
 			starting_funds = min(starting_funds, FUND_CAP)								// Not authorized to give more than the fund cap.
 
 			SSeconomy.create_account(account_name, starting_funds, src)

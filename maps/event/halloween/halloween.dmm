@@ -3523,20 +3523,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/city/bar)
-"oQ" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6;
-	color = "#400000"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10;
-	color = "#400000"
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "oT" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -6435,15 +6421,6 @@
 /obj/item/clothing/head/pumpkin/lantern,
 /turf/simulated/floor/grass,
 /area/city/outside)
-"AH" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape"
-	},
-/turf/simulated/abyss{
-	name = "distant cityscape"
-	},
-/area/city/nouvelle)
 "AI" = (
 /obj/effect/map_effect/perma_light/brighter,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -6638,16 +6615,6 @@
 	name = "distant cityscape"
 	},
 /area/city/nouvelle)
-"Bx" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6;
-	color = "#400000"
-	},
-/turf/simulated/floor/marble/dark,
-/area/city/bar)
 "Bz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -6684,13 +6651,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
-"BM" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/1152x544.dmi';
-	icon_state = "cityscape"
-	},
-/turf/simulated/wall,
-/area/city/nouvelle)
 "BP" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/dress/stripeddress{
@@ -13392,26 +13352,6 @@
 	},
 /turf/simulated/floor/grass,
 /area/city/outside)
-"Zl" = (
-/obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	name = "expensive flatscreen holovision";
-	pixel_y = 25
-	},
-/obj/effect/decal/fake_object{
-	desc = "A Hephaestus Industries Z-Cube! This state-of-the-art gaming console is the premium of the premium. It's almost VR!";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "gamer_console";
-	name = "gaming console"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood/mahogany,
-/area/city/dining)
 "Zp" = (
 /obj/structure/platform{
 	dir = 1
@@ -13897,7 +13837,7 @@ Fo
 Fo
 Fo
 Fo
-AH
+PM
 Bb
 "}
 (3,1,1) = {"
@@ -15618,7 +15558,7 @@ Fo
 Fo
 tu
 Fo
-AH
+PM
 Nj
 wF
 vb
@@ -16732,7 +16672,7 @@ Fo
 Fo
 Fo
 Fo
-AH
+PM
 Bb
 "}
 (38,1,1) = {"
@@ -16948,7 +16888,7 @@ Jg
 Jg
 bq
 rI
-oQ
+Vl
 Ha
 bq
 lg
@@ -16956,7 +16896,7 @@ hY
 NF
 fV
 Vl
-Bx
+hY
 bq
 jL
 Ge
@@ -20996,7 +20936,7 @@ bk
 CM
 Yq
 Nf
-Zl
+dQ
 If
 Kq
 KE
@@ -21482,7 +21422,7 @@ Nr
 RW
 RW
 BI
-Zl
+dQ
 Pv
 Kq
 ZV
@@ -26129,7 +26069,7 @@ Fo
 Fo
 Fo
 Fo
-BM
+Fj
 "}
 (154,1,1) = {"
 Bb
@@ -26291,7 +26231,7 @@ Fo
 Fo
 Fo
 Fo
-BM
+Fj
 "}
 (156,1,1) = {"
 Bb

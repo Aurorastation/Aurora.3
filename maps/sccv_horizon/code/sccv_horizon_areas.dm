@@ -19,6 +19,9 @@
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 
+/area/engineering/engine_room/turbine
+	name = "Engineering - Combustion Turbine"
+
 /area/engineering/smes
 	name = "Engineering - SM SMES"
 	icon_state = "engine_smes"
@@ -638,6 +641,9 @@
 
 /area/horizon/holodeck/source_cafe
 	name = "Horizon - Holodeck - Animal Cafe"
+
+/area/horizon/holodeck/source_lasertag
+	name = "Horizon - Holodeck - Laser Tag Arena"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

@@ -16,9 +16,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain/corner/green{
-	dir = 2
-	},
+/obj/effect/floor_decal/spline/plain/corner/green,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "aJ" = (
@@ -432,7 +430,6 @@
 /area/scc_event_shuttle)
 "gd" = (
 /obj/structure/sign/directions/civ{
-	pixel_y = 0;
 	dir = 4;
 	pixel_x = 32
 	},
@@ -723,20 +720,16 @@
 	pixel_y = 16
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/device/gps/medical{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/device/gps/medical{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -816,35 +809,27 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /turf/simulated/floor/tiled,
@@ -901,60 +886,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
 "mo" = (
-/obj/structure/closet/crate/secure{
-	name = "encryption keys crate";
-	req_access = list(19)
+/obj/machinery/vending/encryption{
+	pixel_y = 29
 	},
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/cargo_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/sci_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/med_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/sec_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
-/obj/item/device/encryptionkey/service_spare,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "mp" = (
@@ -1044,7 +978,6 @@
 "nC" = (
 /obj/structure/sign/directions/engineering{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -1191,11 +1124,9 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/lead/full{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/stack/material/aluminium/full{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2312,9 +2243,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "HG" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -3326,6 +3255,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/device/vending_refill/encryption,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "XU" = (

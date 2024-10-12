@@ -60,7 +60,6 @@
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/summer,
 				/obj/item/clothing/under/pants/tajaran,
-				/obj/item/clothing/under/pants,
 				/obj/item/clothing/under/pants/track
 	)
 

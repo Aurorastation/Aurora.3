@@ -254,10 +254,10 @@
 	qdel(src)
 	user.put_in_hands(chosenitem)
 
-/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(target_mob)
 
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
@@ -275,8 +275,8 @@
 		user.Paralyse(20)
 		return
 
-	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
-		var/mob/living/K = M
+	if(target_mob.stat != DEAD && ishuman(target_mob) && user.a_intent != I_HURT)
+		var/mob/living/K = target_mob
 		var/datum/vampire/vampire = K.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire)
 			if(vampire.status & VAMP_ISTHRALL)
@@ -288,12 +288,12 @@
 						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
-						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
 						thralls.remove_antagonist(K.mind)
-						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else if (vampire.status & VAMP_FRENZIED)
 				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
 				K.adjust_fire_stacks(10)
@@ -307,19 +307,19 @@
 						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to the Geometer!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
-						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
 						cult.remove_antagonist(K.mind)
-						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
 
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
-			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
+			target_mob.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [target_mob]'s head."))
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
 		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))

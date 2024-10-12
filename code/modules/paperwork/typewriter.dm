@@ -100,8 +100,14 @@
 			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
 		. = ..()
 
-/obj/item/portable_typewriter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/portable_typewriter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
+
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
+		return
+
 	user.visible_message(SPAN_ALERT("\The [src] shatters into metal pieces!"))
 	M.Weaken(2)
 	playsound(loc, 'sound/effects/metalhit.ogg', 50, 1)

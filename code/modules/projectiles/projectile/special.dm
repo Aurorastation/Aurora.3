@@ -7,12 +7,16 @@
 	check_armor = "energy"
 	var/pulse_range = 1
 
-/obj/projectile/ion/on_impact(var/atom/A)
-	empulse(A, pulse_range, pulse_range)
+/obj/projectile/ion/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 
-/obj/projectile/ion/stun/on_impact(var/atom/A)
-	if(isipc(A))
-		var/mob/living/carbon/human/H = A
+	empulse(target, pulse_range, pulse_range)
+
+/obj/projectile/ion/stun/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	if(isipc(target))
+		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
@@ -28,8 +32,8 @@
 				return
 			else
 				to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
-	if (isrobot(A))
-		var/mob/living/silicon/robot/R = A
+	if (isrobot(target))
+		var/mob/living/silicon/robot/R = target
 		var/datum/robot_component/surge/C = R.components["surge"]
 		if(C && C.installed)
 			if(C.surge_left >= 0.5)
@@ -48,7 +52,7 @@
 
 		R.emp_act(EMP_LIGHT) // Borgs emp_act is 1-2
 	else
-		A.emp_act(EMP_LIGHT)
+		target.emp_act(EMP_LIGHT)
 	return
 
 /obj/projectile/ion/small
@@ -71,16 +75,18 @@
 	sharp = 1
 	edge = TRUE
 
-/obj/projectile/bullet/gyro/on_impact(var/atom/A)
-	explosion(A, -1, 0, 2)
-	..()
+/obj/projectile/bullet/gyro/on_hit(atom/target, blocked, def_zone)
+	explosion(target, -1, 0, 2)
+	. = ..()
 
 /obj/projectile/bullet/gyro/law
 	name ="high-ex round"
 	icon_state= "bolter"
 	damage = 15
 
-/obj/projectile/bullet/gyro/law/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/bullet/gyro/law/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
 	explosion(target, -1, 0, 2)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
@@ -92,12 +98,12 @@
 	icon_state = "ice_2"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	nodamage = 1
 	check_armor = "energy"
 	//var/temperature = 300
 
 
-/obj/projectile/temp/on_hit(var/atom/target, var/blocked = 0)//These two could likely check temp protection on the mob
+/obj/projectile/temp/on_hit(atom/target, blocked, def_zone)//These two could likely check temp protection on the mob
+	. = ..()
 	if(istype(target, /mob/living))
 		var/mob/M = target
 		M.bodytemperature = -273
@@ -109,7 +115,6 @@
 	icon_state = "small1"
 	damage = 0
 	damage_type = DAMAGE_BRUTE
-	nodamage = 1
 	check_armor = "bullet"
 
 /obj/projectile/meteor/Collide(atom/A)
@@ -136,7 +141,6 @@
 	icon_state = "energy"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	nodamage = 1
 	check_armor = "energy"
 
 /obj/projectile/energy/floramut/gene
@@ -144,10 +148,10 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	nodamage = TRUE
 	var/singleton/plantgene/gene = null
 
-/obj/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/energy/floramut/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	var/mob/living/M = target
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = M
@@ -177,10 +181,10 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	nodamage = 1
 	check_armor = "energy"
 
-/obj/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/energy/florayield/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	var/mob/M = target
 	if(ishuman(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
@@ -195,7 +199,8 @@
 /obj/projectile/beam/mindflayer
 	name = "flayer ray"
 
-/obj/projectile/beam/mindflayer/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/mindflayer/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
 		M.adjustBrainLoss(5)
@@ -209,16 +214,15 @@
 	sharp = 1
 	edge = TRUE
 
-/obj/projectile/bullet/trod/on_impact(var/atom/A)
-	explosion(A, 0, 0, 4)
-	..()
+/obj/projectile/bullet/trod/on_hit(atom/target, blocked, def_zone)
+	explosion(target, 0, 0, 4)
+	. = ..()
 
 /obj/projectile/chameleon
 	name = "bullet"
 	icon_state = "bullet"
-	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
+	damage = 0 // stop trying to murderbone with a fake gun dumbass!!!
 	embed = 0 // nope
-	nodamage = 1
 	damage_type = DAMAGE_PAIN
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
@@ -230,9 +234,9 @@
 	armor_penetration = 80
 	penetrating = 1
 
-/obj/projectile/bullet/cannon/on_impact(var/atom/A)
-	explosion(A, 1, 2, 3, 3)
-	..()
+/obj/projectile/bullet/cannon/on_hit(atom/target, blocked, def_zone)
+	explosion(target, 1, 2, 3, 3)
+	. = ..()
 
 //magic
 
@@ -251,9 +255,9 @@
 	damage = 20
 	damage_type = DAMAGE_BURN
 
-/obj/projectile/magic/fireball/on_impact(var/atom/A)
-	explosion(A, 0, 0, 4)
-	..()
+/obj/projectile/magic/fireball/on_hit(atom/target, blocked, def_zone)
+	explosion(target, 0, 0, 4)
+	. = ..()
 
 /obj/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
 	name = "bolt of teleportation"
@@ -261,12 +265,12 @@
 	icon_state = "energy2"
 	var/blink_range = 8
 
-/obj/projectile/magic/teleport/on_hit(var/atom/hit_atom)
-	var/turf/T = get_turf(hit_atom)
+/obj/projectile/magic/teleport/on_hit(atom/target, blocked, def_zone)
+	var/turf/T = get_turf(target)
 	single_spark(T)
 	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
-	if(isliving(hit_atom))
-		blink_mob(hit_atom)
+	if(isliving(target))
+		blink_mob(target)
 	return ..()
 
 /obj/projectile/magic/teleport/proc/blink_mob(mob/living/L)
@@ -316,7 +320,6 @@
 	damage = 35
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
-	nodamage = FALSE
 	check_armor = "melee"
 	embed = TRUE
 	sharp = TRUE

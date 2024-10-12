@@ -26,15 +26,16 @@ If the spell_projectile is seeking, it will update its target every process and 
 		if(!projectile)
 			return
 
-
-		projectile.shot_from = user //fired from the user
 		projectile.hitscan = !proj_step_delay
 		projectile.speed = proj_step_delay
 		if(istype(projectile, /obj/projectile/spell_projectile))
 			var/obj/projectile/spell_projectile/SP = projectile
 			SP.carried = src //casting is magical
-		projectile.launch_projectile(target, target_zone=BP_CHEST)
-	return
+
+		projectile.preparePixelProjectile(target, user)
+		projectile.firer = user
+		projectile.fired_from = user
+		projectile.fire()
 
 /spell/targeted/projectile/proc/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
 	var/list/targets = list()

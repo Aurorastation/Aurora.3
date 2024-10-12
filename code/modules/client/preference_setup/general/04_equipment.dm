@@ -149,24 +149,24 @@
 	. += "<b>Equipment:</b><br>"
 	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
 		var/item_name = pref.all_underwear[UWC.name] ? pref.all_underwear[UWC.name] : "None"
-		. += "[UWC.name]: <a href='?src=\ref[src];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
+		. += "[UWC.name]: <a href='?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
-				. += " <a href='?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
+				. += " <a href='?src=[REF(src)];underwear=[UWC.name];tweak=[REF(gt)]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
 
 		. += "<br>"
 
-	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
-	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
+	. += "Backpack Type: <a href='?src=[REF(src)];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
+	. += "Backpack Style: <a href='?src=[REF(src)];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
 	if(pref.backbag == OUTFIT_SATCHEL_ALT || pref.backbag == OUTFIT_RUCKSACK || pref.backbag == OUTFIT_POCKETBOOK) // Hardcoded. Sucks, I know.
-		. += "Backpack Color: <a href='?src=\ref[src];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
-	. += "Backpack Strap: <a href='?src=\ref[src];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
-	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
-	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
-	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
-	. += "Suit Sensor Setting: <a href='?src=\ref[src];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
+		. += "Backpack Color: <a href='?src=[REF(src)];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
+	. += "Backpack Strap: <a href='?src=[REF(src)];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
+	. += "PDA Type: <a href='?src=[REF(src)];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
+	. += "Headset Type: <a href='?src=[REF(src)];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
+	. += "Primary Radio Slot: <a href='?src=[REF(src)];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
+	. += "Suit Sensor Setting: <a href='?src=[REF(src)];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
 
 	return jointext(., null)
 

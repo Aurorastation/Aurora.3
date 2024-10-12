@@ -97,15 +97,16 @@
 		qdel(src)
 	return uses
 
-/obj/item/dnainjector/attack(mob/M as mob, mob/user as mob)
-	if (!istype(M, /mob))
+/obj/item/dnainjector/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (!istype(target_mob))
 		return
+
 	if (!usr.IsAdvancedToolUser())
 		return
 	if(inuse)
 		return 0
 
-	user.visible_message(SPAN_DANGER("\The [user] is trying to inject \the [M] with \the [src]!"))
+	user.visible_message(SPAN_DANGER("\The [user] is trying to inject \the [target_mob] with \the [src]!"))
 	inuse = 1
 	s_time = world.time
 	spawn(50)
@@ -115,11 +116,11 @@
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(target_mob)
 
-	M.visible_message(SPAN_DANGER("\The [M] has been injected with \the [src] by \the [user]."))
+	target_mob.visible_message(SPAN_DANGER("\The [target_mob] has been injected with \the [src] by \the [user]."))
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/human/H = target_mob
 	if(!istype(H))
 		to_chat(user, SPAN_WARNING("Apparently it didn't work..."))
 		return
@@ -132,13 +133,13 @@
 	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == MONKEYBLOCK) : GetState(MONKEYBLOCK)))
 		injected_with_monkey = SPAN_DANGER(" (MONKEY)")
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [M.name] ([M.ckey])</span>")
-	log_attack("[user.name] ([user.ckey]) used the [name] to inject [M.name] ([M.ckey])")
-	message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with \the [src][injected_with_monkey]")
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [target_mob.name] ([target_mob.ckey])</span>"
+	log_attack("[user.name] ([user.ckey]) used the [name] to inject [target_mob.name] ([target_mob.ckey])")
+	message_admins("[key_name_admin(user)] injected [key_name_admin(target_mob)] with \the [src][injected_with_monkey]")
 
 	// Apply the DNA shit.
-	inject(M, user)
+	inject(target_mob, user)
 	return
 
 /obj/item/dnainjector/hulkmut

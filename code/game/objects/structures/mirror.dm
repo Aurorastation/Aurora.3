@@ -57,13 +57,16 @@
 		reflection.update_mirror_filters()
 
 
-/obj/structure/mirror/bullet_act(var/obj/projectile/Proj)
-	if(prob(Proj.get_structure_damage() * 2))
+/obj/structure/mirror/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(prob(hitting_projectile.get_structure_damage() * 2))
 		if(!shattered)
 			shatter()
 		else
 			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
-	..()
 
 /obj/structure/mirror/attackby(obj/item/attacking_item, mob/user)
 	if(shattered)

@@ -186,7 +186,7 @@
 	if(bee_count < 1)
 		return
 
-	severity = Clamp(severity, 0, 1)
+	severity = clamp(severity, 0, 1)
 	var/bees_to_release = bee_count * severity
 	bees_to_release = round(bees_to_release, 1)
 	bee_count -= bees_to_release

@@ -150,7 +150,8 @@
 	return content_size
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0 || wall_mounted)) return 1
+	if(air_group || (height==0 || wall_mounted))
+		return TRUE
 	return ..()
 
 /obj/structure/closet/proc/can_open()
@@ -316,17 +317,19 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/structure/closet/bullet_act(var/obj/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+/obj/structure/closet/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	if(!proj_damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	if(Proj.penetrating || istype(Proj, /obj/projectile/bullet))
-		var/distance = get_dist(Proj.starting, get_turf(loc))
+	if(hitting_projectile.penetrating || istype(hitting_projectile, /obj/projectile/bullet))
 		for(var/mob/living/L in contents)
-			Proj.attack_mob(L, distance)
+			hitting_projectile.Impact(L)
 
-	..()
 	damage(proj_damage)
 
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
@@ -515,7 +518,7 @@
 
 /obj/structure/closet/MouseDrop_T(atom/dropping, mob/user)
 	var/atom/movable/O = dropping
-	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
+	if(istype(O, /atom/movable/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)
 		return

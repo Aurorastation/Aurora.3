@@ -8,18 +8,18 @@
 //Movable Screen Object
 //Not tied to the grid, places it's center where the cursor is
 
-/obj/screen/movable
+/atom/movable/screen/movable
 	var/snap2grid = FALSE
 	var/moved = FALSE
 
 //Snap Screen Object
 //Tied to the grid, snaps to the nearest turf
 
-/obj/screen/movable/snap
+/atom/movable/screen/movable/snap
 	snap2grid = TRUE
 
 
-/obj/screen/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
+/atom/movable/screen/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
 	var/list/PM = params2list(params)
 
 	//No screen-loc information? abort.
@@ -44,7 +44,7 @@
 		var/pix_Y = text2num(screen_loc_Y[2]) - 16
 		screen_loc = "[screen_loc_X[1]]:[pix_X],[screen_loc_Y[1]]:[pix_Y]"
 
-/obj/screen/movable/proc/encode_screen_X(X, var/mob/user = usr)
+/atom/movable/screen/movable/proc/encode_screen_X(X, var/mob/user = usr)
 	if(X > user?.client?.view+1)
 		. = "EAST-[user?.client?.view*2 + 1-X]"
 	else if(X < user?.client?.view+1)
@@ -52,7 +52,7 @@
 	else
 		. = "CENTER"
 
-/obj/screen/movable/proc/decode_screen_X(X, var/mob/user = usr)
+/atom/movable/screen/movable/proc/decode_screen_X(X, var/mob/user = usr)
 	//Find EAST/WEST implementations
 	if(findtext(X,"EAST-"))
 		var/num = text2num(copytext(X,6)) //Trim EAST-
@@ -67,7 +67,7 @@
 	else if(findtext(X,"CENTER"))
 		. = user?.client?.view+1
 
-/obj/screen/movable/proc/encode_screen_Y(Y, var/mob/user = usr)
+/atom/movable/screen/movable/proc/encode_screen_Y(Y, var/mob/user = usr)
 	if(Y > user?.client?.view+1)
 		. = "NORTH-[user?.client?.view*2 + 1-Y]"
 	else if(Y < user?.client?.view+1)
@@ -75,7 +75,7 @@
 	else
 		. = "CENTER"
 
-/obj/screen/movable/proc/decode_screen_Y(Y, var/mob/user = usr)
+/atom/movable/screen/movable/proc/decode_screen_Y(Y, var/mob/user = usr)
 	if(findtext(Y,"NORTH-"))
 		var/num = text2num(copytext(Y,7)) //Trim NORTH-
 		if(!num)
@@ -94,7 +94,7 @@
 	set category = "Debug"
 	set name = "Spawn Movable UI Object"
 
-	var/obj/screen/movable/M = new()
+	var/atom/movable/screen/movable/M = new()
 	M.name = "Movable UI Object"
 	M.icon_state = "block"
 	M.maptext = "Movable"
@@ -113,7 +113,7 @@
 	set category = "Debug"
 	set name = "Spawn Snap UI Object"
 
-	var/obj/screen/movable/snap/S = new()
+	var/atom/movable/screen/movable/snap/S = new()
 	S.name = "Snap UI Object"
 	S.icon_state = "block"
 	S.maptext = "Snap"

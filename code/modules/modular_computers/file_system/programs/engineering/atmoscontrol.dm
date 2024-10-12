@@ -62,7 +62,7 @@
 	for(var/obj/machinery/alarm/alarm in monitored_alarms)
 		alarms += list(list(
 			"name" = sanitize(alarm.name),
-			"ref"= "\ref[alarm]",
+			"ref"= "[REF(alarm)]",
 			"danger" = max(alarm.danger_level, alarm.alarm_area.atmosalm)
 		))
 	data["alarms"] = alarms
