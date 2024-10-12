@@ -284,7 +284,7 @@
 	description = "A sheet of cardboard."
 	price = 50
 	items = list(
-		/obj/item/stack/material/cardboard
+		/obj/item/stack/material/cardboard/full
 	)
 	access = 0
 	container_type = "crate"
@@ -293,12 +293,21 @@
 
 /singleton/cargo_item/carpet
 	category = "engineering"
-	name = "carpet"
+	name = "carpet (x10)"
 	supplier = "hephaestus"
-	description = "A piece of carpet. It is the same size as a normal floor tile!"
-	price = 8
+	description = "Ten carpet sheets. It is the same size as a normal floor tile!"
+	price = 100
 	items = list(
-		/obj/item/stack/tile/carpet
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
+		/obj/item/stack/tile/carpet,
 	)
 	access = 0
 	container_type = "crate"
@@ -764,7 +773,7 @@
 	items = list(
 		/obj/item/device/debugger
 	)
-	access = 0
+	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = 1
 	item_mul = 2
