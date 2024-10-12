@@ -23,6 +23,7 @@
 		"
 	static_vessel = TRUE
 	generic_object = FALSE
+	comms_support = TRUE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#bbb186"

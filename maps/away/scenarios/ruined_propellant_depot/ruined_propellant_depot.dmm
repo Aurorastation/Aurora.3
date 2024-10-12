@@ -2686,6 +2686,10 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "ip" = (
+/obj/item/storage/bag/inflatable{
+	pixel_x = -12;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/engineering)
 "iq" = (
@@ -7538,6 +7542,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/storage/bag/inflatable{
+	pixel_x = -12;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "yc" = (
@@ -15130,6 +15138,15 @@
 /obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
+"VW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/bag/inflatable{
+	pixel_x = -12;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/atmos_propellant)
 "VX" = (
 /obj/random/junk{
 	pixel_x = 11
@@ -46407,7 +46424,7 @@ pz
 cA
 EO
 NP
-qO
+VW
 rJ
 fl
 Uo
