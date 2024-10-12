@@ -216,27 +216,31 @@
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("grabbed at")
+	var/drop_result = FALSE
 
 /obj/item/melee/dinograbber/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
 
 	if(!ishuman(target_mob))
 		return
+	drop_result = FALSE
 
-	//20% chance to disarm someone, per hit
+	// 20% chance to disarm someone per hit, not including the chance to miss with the weapon
 	if(prob(20))
-
-		//If hit in a valid zone, check and drop the item held in the respective hand
-		var/drop_result = FALSE
+		// If hit in a valid zone, check and drop the item held in the respective hand, only working for items that are weight class small or below
 		switch(target_zone)
 			if(BP_L_HAND, BP_L_ARM)
-				if(target_mob.l_hand && (target_mob.l_hand != src))
-					drop_result = target_mob.drop_l_hand()
+				if(target_mob.l_hand && (target_mob.l_hand != src) && target_mob.l_hand.w_class <= WEIGHT_CLASS_SMALL)
+					target_mob.drop_l_hand()
+					drop_result = TRUE
 
 			if(BP_R_HAND, BP_R_ARM)
-				if(target_mob.r_hand && (target_mob.r_hand != src))
-					drop_result = target_mob.drop_r_hand()
+				if(target_mob.r_hand && (target_mob.r_hand != src) && target_mob.r_hand.w_class <= WEIGHT_CLASS_SMALL)
+					target_mob.drop_r_hand()
+					drop_result = TRUE
 
-		//If we dropped anything, show a message
-		if(drop_result)
-			user?.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"))
+	// Visible messages for either result.
+	if(drop_result)
+		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"))
+	else
+		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"))
