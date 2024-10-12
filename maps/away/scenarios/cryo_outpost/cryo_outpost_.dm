@@ -36,6 +36,7 @@
 		"
 	icon_state = "globe1"
 	color = "#f1c86f"
+	comms_support = TRUE
 	initial_generic_waypoints = list(
 		"nav_cryo_outpost_surface_close_1a",
 		"nav_cryo_outpost_surface_close_1b",
