@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - qol: "Gives all Vaurca Ta representatives the thermic blaster as their firearm."
   - balance: "Gives the thermic blaster a slow self-recharge."
+  - qol: "Updates the thermic blaster description and extended description."
