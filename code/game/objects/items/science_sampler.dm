@@ -75,7 +75,7 @@
 	if(I)
 		AddOverlays(I)
 
-/obj/item/sampler/attack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/sampler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!vial || vial.reagents.total_volume)
 		return ..()
 	else

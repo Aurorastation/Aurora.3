@@ -220,3 +220,38 @@
 2024-09-29:
   Geeves:
   - rscadd: PDAs and other modular devices now charge from APCs even when turned off.
+2024-09-30:
+  Ben10083:
+  - qol: Various tweaks to Schlorrgos to have better responses and increased density.
+  - rscadd: Schlorrgos now lay eggs.
+  - bugfix: Schlorrgos no longer overwrite their given name when grown.
+  - bugfix: Eggs now should be able to hatch animals if fertilized.
+  - code_imp: DMdoc'd simple animals code.
+  FabianK3:
+  - bugfix: Fixed power-monitoring sensors for D1 engineering and the command subgrid.
+  - bugfix: Updated command substation camera name.
+  FluffyGhost:
+  - bugfix: Fixed a bug where lists with number-only elements were not displaying
+      in VV.
+  - bugfix: Fixed an issue with extended list viewer mishandling special lists and
+      giving runtimes.
+  - code_imp: VV list unwrapping is now faster.
+  - code_imp: Some code comments and cleanup.
+  Furrycactus:
+  - qol: Tweaked some pipe layouts around Propulsion to make them a tiny bit less
+      spaghetti.
+  - qol: Adjusted some areas and walkways around the combustion turbine radiator so
+      it plays nicer with shields.
+  - rscadd: Made some minor updates and tweaks to the Gadpathur Patrol Corvette, to
+      give it some slightly more modern mapping elements.
+  ShimmerIsTaken:
+  - balance: Rebalanced the SFA ship, moved a few items around, added armor, a double
+      barreled shotgun, a mech plasmacutter if you hatecrime the spacefish.
+  - bugfix: Removed several bugs present with the SFA ship, including invisible tape,
+      holofloors used instead of proper floors, etc.
+  Snowy1237:
+  - bugfix: Fixes the Sol recon ship exterior airlocks not closing (and the doubled
+      windoor).
+  - bugfix: Fixes the Sol recon ship stabilization locker being locked.
+  hazelmouse:
+  - rscadd: Adds unique sprites for the Voice of Temple versebook.

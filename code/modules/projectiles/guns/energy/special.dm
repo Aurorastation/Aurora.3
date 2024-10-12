@@ -328,7 +328,7 @@
 
 	is_wieldable = TRUE
 
-/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

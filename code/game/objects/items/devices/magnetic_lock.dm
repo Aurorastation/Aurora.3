@@ -2,7 +2,6 @@
 #define STATUS_ACTIVE 1
 #define STATUS_BROKEN -1
 
-#define LAYER_ATTACHED 3.2
 #define LAYER_NORMAL 3
 
 /obj/item/device/magnetic_lock
@@ -371,7 +370,7 @@
 		last_process_time = 0
 
 /obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
-	layer = LAYER_ATTACHED
+	layer = ABOVE_DOOR_LAYER
 
 	newtarget.bracer = src
 	target = newtarget
@@ -518,5 +517,4 @@
 #undef STATUS_ACTIVE
 #undef STATUS_BROKEN
 
-#undef LAYER_ATTACHED
 #undef LAYER_NORMAL

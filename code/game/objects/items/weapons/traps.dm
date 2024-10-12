@@ -726,15 +726,15 @@
 	if(captured)
 		release(user, user.loc)
 
-/obj/item/trap/animal/attack(var/target, mob/living/user)
+/obj/item/trap/animal/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!deployed)
 		return
 
 	if(captured) // It is full
 		return
 
-	if(isliving(target))
-		var/mob/living/capturing_mob = target
+	if(isliving(target_mob))
+		var/mob/living/capturing_mob = target_mob
 		if(capturing_mob.mob_size > max_mob_size)
 			to_chat(user, SPAN_WARNING("\The [capturing_mob] doesn't fit in \the [src]!"))
 			return

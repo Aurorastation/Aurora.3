@@ -21,7 +21,7 @@
 	. = ..()
 	doomblade = new /obj/item/melee/cultblade/mounted(src)
 
-/obj/item/mecha_equipment/doomblade/attack(mob/living/M, mob/living/user)
+/obj/item/mecha_equipment/doomblade/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!owner)
 		return
-	doomblade.attack(M, user, user.zone_sel.selecting)
+	doomblade.attack(target_mob, user, user.zone_sel.selecting)

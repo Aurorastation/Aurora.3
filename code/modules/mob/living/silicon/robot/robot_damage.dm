@@ -11,7 +11,7 @@
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
 		if(C.installed)
-			amount += Clamp(C.brute_damage, 0, C.max_damage)
+			amount += clamp(C.brute_damage, 0, C.max_damage)
 		else if(C.installed == -1)
 			amount += C.max_damage / 2
 	return amount
@@ -21,7 +21,7 @@
 	for(var/V in components)
 		var/datum/robot_component/C = components[V]
 		if(C.installed)
-			amount += Clamp(C.electronics_damage, 0, C.max_damage)
+			amount += clamp(C.electronics_damage, 0, C.max_damage)
 		else if(C.installed == -1)
 			amount += C.max_damage / 2
 	return amount

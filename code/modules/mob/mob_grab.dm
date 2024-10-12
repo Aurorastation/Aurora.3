@@ -345,7 +345,7 @@
 
 	return 1
 
-/obj/item/grab/attack(mob/M, mob/living/user, var/target_zone)
+/obj/item/grab/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!affecting)
 		return
 
@@ -355,7 +355,7 @@
 	last_action = world.time
 	reset_kill_state() //using special grab moves will interrupt choking them
 
-	if(M == affecting) //clicking on the victim while grabbing them
+	if(target_mob == affecting) //clicking on the victim while grabbing them
 		if(ishuman(affecting))
 			var/hit_zone = target_zone
 			flick(hud.icon_state, hud)
@@ -385,7 +385,7 @@
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
-	else if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
+	else if(target_mob == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()

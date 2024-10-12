@@ -29,17 +29,17 @@
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/item/ipc_tag_scanner/attack(mob/living/M, mob/living/user)
+/obj/item/ipc_tag_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
 	add_fingerprint(user)
 	if(!powered)
 		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [target_mob] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [target_mob] with \the [src]..."))
 	if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
-		if(!isipc(M))
-			to_chat(user, SPAN_WARNING("You analyze \the [M], but find that they're not an IPC at all!"))
+		if(!isipc(target_mob))
+			to_chat(user, SPAN_WARNING("You analyze \the [target_mob], but find that they're not an IPC at all!"))
 			return
-		var/mob/living/carbon/human/IPC = M
+		var/mob/living/carbon/human/IPC = target_mob
 		var/obj/item/organ/internal/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
 		if(isnull(tag) || !tag)
 			to_chat(user, SPAN_WARNING("Error: Serial Identification Missing."))

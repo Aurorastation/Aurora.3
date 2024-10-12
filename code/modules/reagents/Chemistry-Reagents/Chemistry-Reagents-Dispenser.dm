@@ -184,10 +184,6 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 
 		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
 			M.adjustToxLoss(3 * removed * (strength / 100))
-			if(!M.lastpuke)
-				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))//Make it clear that you should not be drinking this.
-			var/mob/living/carbon/human/H = M
-			H.delayed_vomit()
 
 		if (has_valid_aug | alien != IS_UNATHI)
 			M.intoxication += (strength / 100) * removed * 6

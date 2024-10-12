@@ -18,6 +18,12 @@
 ///from base of obj/item/pickup(): (mob/user)
 #define COMSIG_ITEM_PICKUP "item_pickup"
 
+///from base of /obj/item/attack(): (mob/living, mob/living, params)
+#define COMSIG_ITEM_ATTACK "item_attack"
+
+///from base of [obj/item/attack()]: (atom/target, mob/user, proximity_flag, click_parameters)
+#define COMSIG_ITEM_AFTERATTACK "item_afterattack"
+
 // /obj/projectile signals (sent to the firer)
 
 ///from base of /obj/projectile/proc/on_hit(), like COMSIG_PROJECTILE_ON_HIT but on the projectile itself and with the hit limb (if any): (atom/movable/firer, atom/target, angle, hit_limb, blocked)

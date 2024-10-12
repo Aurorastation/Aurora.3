@@ -179,6 +179,7 @@
 /obj/item/robot_parts/r_arm,
 /obj/item/robot_parts/r_arm,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (

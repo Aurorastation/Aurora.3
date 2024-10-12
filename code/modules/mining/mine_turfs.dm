@@ -38,6 +38,8 @@ var/list/mineral_can_smooth_with = list(
 	density = TRUE
 	blocks_air = TRUE
 	temperature = T0C
+	explosion_resistance = 2
+
 	var/mined_turf = /turf/unsimulated/floor/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
@@ -127,7 +129,7 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/simulated/mineral/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	SHOULD_CALL_PARENT(FALSE) //Fucking snowflake stack of procs
@@ -1003,5 +1005,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 	. = ..()

@@ -263,6 +263,7 @@ SUBSYSTEM_DEF(atlas)
 		. = "sccv_horizon"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
+	SHOULD_NOT_SLEEP(TRUE)
 	// This needs to be done after current_map is set, but before mapload.
 
 	admin_departments = list(
@@ -278,10 +279,8 @@ SUBSYSTEM_DEF(atlas)
 	for (var/thing in mapload_callbacks)
 		var/datum/callback/cb = thing
 		cb.InvokeAsync()
-		CHECK_TICK
 
 	mapload_callbacks.Cut()
-	mapload_callbacks = null
 
 /datum/controller/subsystem/atlas/proc/OnMapload(datum/callback/callback)
 	if (!istype(callback))
@@ -290,11 +289,15 @@ SUBSYSTEM_DEF(atlas)
 	mapload_callbacks += callback
 
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in current_map.spawn_types)
 		var/datum/spawnpoint/S = new type
 		spawn_locations[S.display_name] = S
 
 /datum/controller/subsystem/atlas/proc/InitializeSectors()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for (var/type in subtypesof(/datum/space_sector))
 		var/datum/space_sector/space_sector = new type()
 
