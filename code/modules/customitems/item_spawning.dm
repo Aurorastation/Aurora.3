@@ -215,7 +215,7 @@
 
 GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 
-//gets the relevant list for the key from the listlist if it exists, check to make sure they are meant to have it and then calls the giving function
+/// Gets the relevant custom items for the given target_mob, character_id, and player_ckey, and equips the target_mob with those custom items
 /proc/equip_custom_items(var/mob/living/carbon/human/target_mob, var/character_id, var/player_ckey)
 	if(!character_id)
 		character_id = target_mob.character_id
@@ -250,8 +250,7 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 
 			GLOB.character_id_to_custom_items_mapping[character_id] = custom_items_list
 
-		var/list/cached_custom_items = GLOB.character_id_to_custom_items_mapping[character_id]
-		for(var/datum/custom_item/ci as anything in cached_custom_items)
+		for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[character_id])
 			equip_custom_item_to_mob(ci, target_mob)
 	else
 		for(var/item in custom_items)

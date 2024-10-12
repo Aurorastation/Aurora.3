@@ -1256,8 +1256,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	unmutate()
 	if(robotize_children)
 		for (var/obj/item/organ/external/T in children)
-			if(T)
-				T.robotize(company)
+			T.robotize(company)
 
 /obj/item/organ/external/mechassist()
 	..()
