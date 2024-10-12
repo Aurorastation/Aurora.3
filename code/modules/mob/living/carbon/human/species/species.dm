@@ -247,6 +247,8 @@
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
 	var/taste_sensitivity = TASTE_NORMAL // How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
+	/// Whether the species' body can produce adrenaline (for example, when in pain).
+	var/produces_adrenaline = FALSE
 
 	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc

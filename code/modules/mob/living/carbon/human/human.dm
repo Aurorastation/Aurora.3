@@ -2089,7 +2089,7 @@
 		return TRUE
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
-	if(stat == CONSCIOUS)
+	if(stat == CONSCIOUS && species?.produces_adrenaline)
 		reagents.add_reagent(/singleton/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()

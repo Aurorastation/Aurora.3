@@ -36,6 +36,7 @@
 	remains_type = /obj/effect/decal/remains/human
 	dust_remains_type = /obj/effect/decal/remains/human/burned
 
+	produces_adrenaline = TRUE
 	stamina = 130	// Humans can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
