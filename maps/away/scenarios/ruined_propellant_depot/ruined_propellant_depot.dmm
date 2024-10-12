@@ -74,7 +74,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
 "am" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -179,7 +179,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "aA" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -762,7 +762,7 @@
 /turf/template_noop,
 /area/ruined_propellant_depot/propellant_tanks)
 "cj" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -1111,11 +1111,12 @@
 "di" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/flour,
+/obj/random/condiment,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/kitchen)
 "dl" = (
@@ -1206,7 +1207,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/maint_storage)
 "dt" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -1567,6 +1568,9 @@
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/gym)
 "ez" = (
@@ -2109,7 +2113,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "gn" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -2226,7 +2230,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2537,7 +2541,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2602,7 +2606,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "ic" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -2875,6 +2879,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/structure/sign/flag/old_xanu{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "iL" = (
@@ -3006,8 +3013,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
-	dir = 4
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	req_one_access = list(245)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3290,7 +3298,7 @@
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/hallways_east)
 "kh" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -3364,7 +3372,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "kt" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -3481,7 +3489,7 @@
 /turf/template_noop,
 /area/space)
 "kL" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -3547,17 +3555,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
-"kT" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 30
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ruined_propellant_depot/atmos_propellant)
 "kU" = (
 /obj/machinery/iff_beacon,
 /obj/effect/floor_decal/industrial/warning{
@@ -4393,7 +4390,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4833,8 +4830,9 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/bridge)
 "pz" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -4941,13 +4939,13 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air_aux_fill)
 "pU" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -4991,8 +4989,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "qf" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -5755,7 +5754,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "sC" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -5826,8 +5825,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/crew_quarters)
 "sP" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -5935,7 +5935,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "tf" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -7191,8 +7191,9 @@
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "wO" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -7742,7 +7743,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -7787,7 +7788,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "yQ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -7930,6 +7931,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_east)
+"zx" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/airless,
+/area/ruined_propellant_depot/gym)
 "zy" = (
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -8672,7 +8677,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -9273,8 +9278,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "Dt" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -10023,14 +10029,19 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/gym)
 "FL" = (
-/obj/structure/weightlifter,
-/obj/machinery/alarm/north{
-	req_one_access = null
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/ruined_propellant_depot/gym)
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/atmos_propellant)
 "FM" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -10063,8 +10074,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "FR" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -10300,7 +10312,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "GI" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -10469,7 +10481,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/gym)
 "Ho" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -10782,7 +10794,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_north_west)
 "Im" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -10790,7 +10802,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/eva)
 "In" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -11600,8 +11612,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "KO" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -11623,7 +11636,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ruined_propellant_depot/propellant_tanks)
 "KR" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -12486,7 +12499,7 @@
 /turf/template_noop,
 /area/ruined_propellant_depot/exterior_catwalks)
 "Nw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -12892,7 +12905,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "OR" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -12904,8 +12917,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
-	dir = 4
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	req_one_access = list(245)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13165,8 +13179,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air_aux_fill)
 "PF" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -14537,7 +14552,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14748,6 +14763,9 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 30
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "UE" = (
@@ -15269,7 +15287,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "Wo" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -15789,7 +15807,7 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_west)
 "XX" = (
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -15995,8 +16013,9 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_west)
 "YH" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
+	req_one_access = list(245)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -16302,7 +16321,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -45652,7 +45671,7 @@ GG
 jR
 HR
 Xt
-pU
+FL
 aI
 Sk
 oE
@@ -46917,8 +46936,8 @@ lQ
 lQ
 mT
 TR
-qU
-FL
+zx
+Au
 rG
 Au
 Ha
@@ -47445,8 +47464,8 @@ Ul
 qr
 ki
 qV
-GG
-kT
+BY
+sm
 sm
 sm
 dJ
@@ -47959,7 +47978,7 @@ Ul
 qr
 PX
 qV
-GG
+BY
 sm
 sm
 sm
@@ -56703,7 +56722,7 @@ Fr
 Ke
 QY
 Et
-Ls
+MZ
 RJ
 OM
 Pu
