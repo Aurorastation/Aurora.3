@@ -24,6 +24,12 @@
 	id = /obj/item/card/id/silver
 	l_pocket = /obj/item/device/radio/hailing
 	r_pocket = /obj/item/portable_map_reader
+	r_hand = list(
+		/obj/item/device/flashlight/on,
+		/obj/item/device/flashlight/lantern/on,
+		/obj/item/device/flashlight/maglight/on,
+		/obj/item/device/flashlight/heavy/on,
+	)
 
 /obj/outfit/admin/generic/ruined_propellant_depot_crew/get_id_access()
 	return list(

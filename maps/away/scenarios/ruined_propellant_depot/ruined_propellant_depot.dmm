@@ -405,7 +405,9 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/medbay)
@@ -420,7 +422,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/eva)
 "bl" = (
@@ -578,9 +582,6 @@
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/hallways_east)
 "bJ" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -588,6 +589,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/blue,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/crew_quarters)
 "bO" = (
@@ -627,7 +629,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -689,7 +693,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
 "cb" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -827,7 +833,9 @@
 /area/ruined_propellant_depot/maint)
 "cx" = (
 /obj/structure/closet/crate/bin/filled,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
@@ -1055,6 +1063,9 @@
 "de" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "EVA"
+	},
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/eva)
 "df" = (
@@ -1071,7 +1082,9 @@
 "dh" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "di" = (
@@ -1443,7 +1456,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1490,7 +1505,9 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_east)
 "eu" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_north)
 "ev" = (
@@ -1699,7 +1716,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_north)
 "fe" = (
@@ -1802,7 +1821,9 @@
 	icon_state = "0-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_west)
 "fv" = (
@@ -1848,7 +1869,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "fG" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/crew_quarters)
@@ -2044,7 +2067,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "gj" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_west)
 "gl" = (
@@ -2331,7 +2356,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "hh" = (
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2345,7 +2372,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -2518,7 +2547,9 @@
 /area/ruined_propellant_depot/atmos_air)
 "hS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_west)
@@ -2626,7 +2657,9 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "ip" = (
@@ -2693,7 +2726,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
@@ -3255,7 +3290,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
@@ -3482,6 +3519,16 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/carpet/purple,
 /area/ruined_propellant_depot/crew_quarters)
+"kZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Atmos Propellant"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ruined_propellant_depot/atmos_propellant)
 "la" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -3563,7 +3610,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "lw" = (
@@ -3640,7 +3689,9 @@
 /area/ruined_propellant_depot/eva)
 "lH" = (
 /obj/structure/flora/pottedplant/dead2,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
 "lI" = (
@@ -3737,7 +3788,9 @@
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/medbay)
 "lY" = (
@@ -3756,7 +3809,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "md" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_west)
 "mg" = (
@@ -3877,7 +3932,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "mB" = (
@@ -3909,7 +3966,9 @@
 "mM" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_north_east)
 "mO" = (
@@ -4063,7 +4122,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
@@ -4352,7 +4413,9 @@
 /area/ruined_propellant_depot/reactor)
 "on" = (
 /obj/structure/flora/pottedplant/dead2,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/chiefs_quarters)
@@ -4606,7 +4669,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/crew_quarters)
@@ -4859,7 +4924,9 @@
 /area/ruined_propellant_depot/chiefs_quarters)
 "qi" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
 "qj" = (
@@ -4896,7 +4963,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "qm" = (
@@ -5291,7 +5360,9 @@
 "rH" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
 "rI" = (
@@ -5445,7 +5516,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -5642,7 +5715,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -5778,7 +5853,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -5903,7 +5980,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
 "tB" = (
@@ -5917,7 +5996,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_east)
 "tE" = (
@@ -5976,6 +6057,13 @@
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
+"tO" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/effect/landmark/minimap_poi{
+	name = "Office"
+	},
+/turf/simulated/floor/wood,
+/area/ruined_propellant_depot/chiefs_quarters)
 "tR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -6019,6 +6107,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
+"tY" = (
+/obj/item/storage/box/lights/mixed{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/engineering)
 "ua" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6371,6 +6466,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Atmos Air"
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "vk" = (
@@ -6392,9 +6490,6 @@
 /obj/item/spacecash/c500,
 /obj/item/spacecash/c500,
 /obj/item/spacecash/c1000,
-/obj/random/spacecash,
-/obj/random/spacecash,
-/obj/random/spacecash,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/chiefs_quarters)
 "vp" = (
@@ -6507,7 +6602,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "vA" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/loot{
@@ -6531,7 +6628,9 @@
 "vD" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -6557,7 +6656,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -6743,11 +6844,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
 "wh" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/blue,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/crew_quarters)
 "wi" = (
@@ -6901,7 +7000,9 @@
 /area/ruined_propellant_depot/hallways_west)
 "wB" = (
 /obj/random/dirt_75,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "wC" = (
@@ -7032,7 +7133,9 @@
 /obj/structure/mopbucket,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/item/mop,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7066,7 +7169,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/security)
@@ -7105,6 +7210,19 @@
 	},
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
+"xl" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/hallways_east)
 "xm" = (
 /obj/structure/toilet{
 	pixel_y = 13
@@ -7181,6 +7299,9 @@
 	pixel_y = -12
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Engineering"
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/engineering)
 "xx" = (
@@ -7318,7 +7439,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/blue{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -7414,7 +7535,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
@@ -7450,7 +7573,9 @@
 /turf/simulated/floor/carpet/purple,
 /area/ruined_propellant_depot/crew_quarters)
 "yw" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7538,7 +7663,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
@@ -7607,7 +7734,9 @@
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/chiefs_quarters)
 "zf" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/crew_quarters)
 "zi" = (
@@ -7620,7 +7749,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_west)
@@ -7694,7 +7825,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_east)
 "zy" = (
@@ -8152,7 +8285,9 @@
 	pixel_x = 12;
 	pixel_y = 7
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -8278,11 +8413,15 @@
 "Bd" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/heavy{
+	pixel_x = 2;
+	pixel_y = 5
+	},
 /obj/item/pen/black{
-	pixel_x = -2;
+	pixel_x = -16;
 	pixel_y = 4
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/security)
 "Bf" = (
@@ -8352,6 +8491,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /mob/abstract/storyteller,
+/obj/item/device/flashlight/lantern/on{
+	pixel_y = -3;
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/mess)
 "Bp" = (
@@ -8365,7 +8508,9 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tool,
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -8490,7 +8635,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_north_east)
 "BT" = (
@@ -8757,7 +8904,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
@@ -8801,7 +8950,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_west)
@@ -8913,7 +9064,9 @@
 /obj/item/device/flashlight/lamp/off{
 	pixel_y = 4
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/crew_quarters)
 "Dj" = (
@@ -9075,7 +9228,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east,
+/obj/machinery/power/apc/high/east{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "DC" = (
@@ -9083,6 +9238,9 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Medbay"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ruined_propellant_depot/medbay)
 "DE" = (
@@ -9166,7 +9324,9 @@
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "DR" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
@@ -9201,12 +9361,25 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
+"Ec" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Propellant Tanks"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ruined_propellant_depot/propellant_tanks)
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -9663,7 +9836,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/empty/east,
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/bridge)
@@ -9678,7 +9853,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
@@ -9698,7 +9875,9 @@
 /obj/structure/cable,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
-/obj/machinery/power/apc/empty/east,
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "FE" = (
@@ -9727,7 +9906,9 @@
 /area/ruined_propellant_depot/gym)
 "FL" = (
 /obj/structure/weightlifter,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -9816,7 +9997,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "FY" = (
@@ -9844,6 +10027,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Storage"
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "Gb" = (
@@ -9975,6 +10161,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/gym)
+"Gy" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/crew_quarters)
 "GC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -10096,13 +10290,19 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/item/device/flashlight{
+	pixel_x = -13;
+	pixel_y = 3
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_west)
 "Hg" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -10117,7 +10317,9 @@
 "Hj" = (
 /obj/item/clothing/suit/space/emergency,
 /obj/structure/table/rack,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
@@ -10250,7 +10452,9 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_east)
 "HE" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -10705,7 +10909,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/hallways_north)
 "IU" = (
@@ -10726,7 +10932,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/atmos_air)
@@ -10828,7 +11036,9 @@
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/engineering)
 "Jn" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_north_east)
@@ -10874,7 +11084,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air_aux_fill)
@@ -10989,7 +11201,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
 "JU" = (
@@ -11321,7 +11535,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ruined_propellant_depot/atmos_air)
@@ -11476,7 +11692,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "Lm" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_north_west)
 "Lo" = (
@@ -11655,6 +11873,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_east)
+"LT" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/crew_quarters)
 "LU" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -11804,7 +12032,9 @@
 "Mt" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
@@ -12409,7 +12639,9 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -12785,7 +13017,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12801,7 +13035,9 @@
 /area/ruined_propellant_depot/security)
 "PH" = (
 /obj/structure/chemkit,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12813,7 +13049,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -12921,7 +13159,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/west,
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -13021,7 +13261,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "Qu" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
@@ -13708,7 +13950,9 @@
 	pixel_x = 4;
 	pixel_y = -3
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -13818,7 +14062,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/north,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/chiefs_quarters)
@@ -13912,7 +14158,9 @@
 	pixel_x = 12;
 	pixel_y = -4
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/item/pipe{
 	pixel_x = 17;
 	pixel_y = -2
@@ -13948,7 +14196,9 @@
 /area/ruined_propellant_depot/gym)
 "Tu" = (
 /obj/structure/flora/pottedplant/dead2,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/bridge)
@@ -14085,7 +14335,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_east)
 "TQ" = (
@@ -14160,7 +14412,9 @@
 	icon_state = "0-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_west)
 "Uc" = (
@@ -14270,7 +14524,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_north_west)
 "Ut" = (
@@ -14290,6 +14546,12 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint)
+"Uv" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Bridge"
+	},
+/turf/simulated/wall/r_wall,
+/area/ruined_propellant_depot/bridge)
 "Ux" = (
 /obj/item/cell/crap{
 	pixel_x = -7;
@@ -14373,7 +14635,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
 "UM" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/hallways_west)
 "UN" = (
@@ -14669,8 +14933,23 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/ruined_propellant_depot/crew_quarters)
+"VG" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/plating,
+/area/ruined_propellant_depot/maint_storage)
 "VK" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/chiefs_quarters)
@@ -14918,7 +15197,9 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/reactor)
 "Wz" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -14998,6 +15279,13 @@
 /obj/random/suit,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/chiefs_quarters)
+"WN" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Canteen"
+	},
+/turf/simulated/floor/tiled,
+/area/ruined_propellant_depot/mess)
 "WO" = (
 /obj/structure/table/steel,
 /obj/item/trash/snacktray{
@@ -15066,7 +15354,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/docks_south_east)
 "WX" = (
@@ -15269,7 +15559,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
@@ -15305,6 +15597,9 @@
 	req_one_access = null
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Security"
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/security)
 "XO" = (
@@ -15392,6 +15687,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
+/obj/item/storage/box/lights/mixed{
+	pixel_y = 5;
+	pixel_x = -2
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "Yc" = (
@@ -15413,7 +15712,9 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/hallways_south)
 "Yh" = (
@@ -15501,7 +15802,9 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/reactor)
@@ -15829,7 +16132,9 @@
 /area/ruined_propellant_depot/eva)
 "Zv" = (
 /obj/structure/table/steel,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
@@ -39789,7 +40094,7 @@ Kd
 PO
 aH
 DU
-qe
+VG
 qe
 Qu
 ZW
@@ -45180,7 +45485,7 @@ LV
 wC
 aE
 DI
-ip
+tY
 ig
 AA
 Qt
@@ -46223,7 +46528,7 @@ oP
 CW
 GG
 LZ
-YR
+kZ
 YR
 dL
 Ut
@@ -48299,7 +48604,7 @@ bh
 JX
 sv
 rZ
-rZ
+Ec
 bh
 bh
 JX
@@ -49030,7 +49335,7 @@ IC
 rh
 TS
 LX
-LX
+tO
 KO
 ck
 qb
@@ -49530,7 +49835,7 @@ Fg
 bq
 iQ
 aT
-iQ
+WN
 PN
 Bo
 ln
@@ -52121,7 +52426,7 @@ LO
 QM
 KJ
 Dg
-wh
+Gy
 DV
 qt
 sK
@@ -52870,7 +53175,7 @@ Zi
 Zi
 Wl
 Zi
-cR
+Uv
 cR
 cR
 cR
@@ -53400,7 +53705,7 @@ Si
 dg
 uS
 KJ
-RD
+LT
 uS
 uS
 uS
@@ -55459,7 +55764,7 @@ wo
 hV
 TY
 wT
-wf
+xl
 wf
 TY
 KX
