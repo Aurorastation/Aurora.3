@@ -29,30 +29,30 @@
 
 		href_list["datumrefresh"] = href_list["rename"]
 
-	else if(href_list["varnameedit"] && href_list["datumedit"])
+	else if(href_list["varnameedit"] && href_list[VV_HK_BASIC_EDIT])
 		if(!check_rights(R_VAREDIT|R_DEV))	return
 
-		var/D = locate(href_list["datumedit"])
+		var/D = locate(href_list[VV_HK_BASIC_EDIT])
 		if(!istype(D,/datum) && !istype(D,/client))
 			to_chat(usr, "This can only be used on instances of types /client or /datum")
 			return
 
 		modify_variables(D, href_list["varnameedit"], 1)
 
-	else if(href_list["varnamechange"] && href_list["datumchange"])
+	else if(href_list["varnamechange"] && href_list[VV_HK_BASIC_CHANGE])
 		if(!check_rights(R_VAREDIT|R_DEV))	return
 
-		var/D = locate(href_list["datumchange"])
+		var/D = locate(href_list[VV_HK_BASIC_CHANGE])
 		if(!istype(D,/datum) && !istype(D,/client))
 			to_chat(usr, "This can only be used on instances of types /client or /datum")
 			return
 
 		modify_variables(D, href_list["varnamechange"], 0)
 
-	else if(href_list["varnamemass"] && href_list["datummass"])
+	else if(href_list["varnamemass"] && href_list[VV_HK_BASIC_MASSEDIT])
 		if(!check_rights(R_VAREDIT|R_DEV))	return
 
-		var/atom/A = locate(href_list["datummass"])
+		var/atom/A = locate(href_list[VV_HK_BASIC_MASSEDIT])
 		if(!istype(A))
 			to_chat(usr, "This can only be used on instances of type /atom")
 			return
@@ -230,16 +230,16 @@
 		src.cmd_admin_emp(A)
 		href_list["datumrefresh"] = href_list["emp"]
 
-	else if(href_list["mark_object"])
+	else if(href_list[VV_HK_MARK])
 		if(!check_rights(0))	return
 
-		var/datum/D = locate(href_list["mark_object"])
+		var/datum/D = locate(href_list[VV_HK_MARK])
 		if(!istype(D))
 			to_chat(usr, "This can only be done to instances of type /datum")
 			return
 
 		src.holder.marked_datum = D
-		href_list["datumrefresh"] = href_list["mark_object"]
+		href_list["datumrefresh"] = href_list[VV_HK_MARK]
 
 	else if(href_list["rotatedatum"])
 		if(!check_rights(0))	return
@@ -395,7 +395,7 @@
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/robot/proc,/mob/living/silicon/robot/verb)
 			if(/mob/living/silicon/ai)
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/ai/proc,/mob/living/silicon/ai/verb)
-		remove_verb(H, H.verbs)
+		possibleverbs -= H.verbs
 		possibleverbs += "Cancel" 								// ...And one for the bottom
 
 		var/verb = input("Select a verb!", "Verbs",null) as anything in possibleverbs
@@ -507,8 +507,8 @@
 			message_admins(SPAN_NOTICE("[key_name(usr)] dealt [amount] amount of [Text] damage to [L]"))
 			href_list["datumrefresh"] = href_list["mobToDamage"]
 
-	else if(href_list["call_proc"])
-		var/datum/D = locate(href_list["call_proc"])
+	else if(href_list[VV_HK_CALLPROC])
+		var/datum/D = locate(href_list[VV_HK_CALLPROC])
 		if(istype(D) || istype(D, /client)) // can call on clients too, not just datums
 			callproc_targetpicked(1, D)
 

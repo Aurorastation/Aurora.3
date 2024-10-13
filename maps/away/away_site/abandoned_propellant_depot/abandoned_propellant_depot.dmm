@@ -880,8 +880,7 @@
 	pixel_y = -3
 	},
 /obj/item/pipe{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/pipe{
 	pixel_x = 10;
@@ -1106,9 +1105,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/access_button{
 	pixel_x = -12;
 	pixel_y = -28;
@@ -2399,8 +2396,7 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_west,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -2579,9 +2575,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_abandoned_propellant_depot_dock_north_east";
@@ -2670,8 +2664,7 @@
 "iu" = (
 /obj/structure/bed/padded,
 /obj/item/towel_flat{
-	pixel_x = -2;
-	pixel_y = 0
+	pixel_x = -2
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/crew_quarters)
@@ -2890,7 +2883,6 @@
 /area/abandoned_propellant_depot/docks_south_west)
 "jb" = (
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/random/dirt_75,
@@ -3045,7 +3037,6 @@
 	pixel_x = -3
 	},
 /obj/structure/barricade/metal{
-	pixel_y = 0;
 	dir = 8
 	},
 /obj/item/ammo_casing/a762/spent{
@@ -3980,8 +3971,7 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_mid,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -4415,8 +4405,7 @@
 /area/abandoned_propellant_depot/hallways_south)
 "oD" = (
 /obj/item/clothing/shoes/workboots{
-	pixel_x = 13;
-	pixel_y = 0
+	pixel_x = 13
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5462,9 +5451,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
 "sn" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt_75,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -5502,7 +5489,6 @@
 /obj/random/dirt_75,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5519,8 +5505,7 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/dock/south_east,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -5662,9 +5647,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_propellant_depot/hallways_east)
 "sR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_abandoned_propellant_depot_dock_north_east";
@@ -6088,8 +6071,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
@@ -6115,8 +6097,7 @@
 	dir = 8
 	},
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -6408,8 +6389,7 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -7815,7 +7795,6 @@
 	pixel_y = -6
 	},
 /obj/structure/barricade/metal{
-	pixel_y = 0;
 	dir = 8
 	},
 /obj/item/ammo_casing/a762/spent{
@@ -7869,9 +7848,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_abandoned_propellant_depot_dock_west";
@@ -8582,8 +8559,7 @@
 	dir = 8
 	},
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -8816,11 +8792,9 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 0;
 	pixel_x = 2
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
@@ -8857,12 +8831,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/item/cell/super{
-	pixel_x = -6;
-	pixel_y = 0
+	pixel_x = -6
 	},
 /obj/item/cell/super{
-	pixel_x = -6;
-	pixel_y = 0
+	pixel_x = -6
 	},
 /obj/item/cell/high{
 	pixel_x = 6
@@ -8897,7 +8869,6 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -10101,8 +10072,7 @@
 	dir = 8
 	},
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -10523,8 +10493,7 @@
 	pixel_y = 1
 	},
 /obj/item/pipe_meter{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/item/pipe_meter{
 	pixel_x = 2;
@@ -11050,8 +11019,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
@@ -11128,8 +11096,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
@@ -11480,7 +11447,6 @@
 	},
 /obj/random/dirt_75,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -12150,9 +12116,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
 "NK" = (
-/obj/structure/bed/stool/chair/folding{
-	dir = 2
-	},
+/obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
@@ -15578,9 +15542,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -20;

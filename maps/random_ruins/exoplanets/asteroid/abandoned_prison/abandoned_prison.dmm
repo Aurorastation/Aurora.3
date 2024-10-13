@@ -16,8 +16,7 @@
 "av" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -382,8 +381,7 @@
 /area/space)
 "fa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -734,8 +732,7 @@
 /area/abandoned_prison/wardenoffice)
 "ks" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6;
-	icon_state = "spline_fancy"
+	dir = 6
 	},
 /obj/structure/table/wood,
 /obj/item/toy/desk/officetoy,
@@ -814,8 +811,7 @@
 	},
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1009,8 +1005,7 @@
 "ni" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -1066,9 +1061,7 @@
 	pixel_y = 8;
 	pixel_x = -28
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "og" = (
@@ -1507,8 +1500,7 @@
 /area/space)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1532,13 +1524,10 @@
 	},
 /area/abandoned_prison/exterior)
 "sZ" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock{
@@ -2336,8 +2325,7 @@
 /obj/machinery/power/apc/south,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10;
-	icon_state = "spline_fancy"
+	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
@@ -2435,8 +2423,7 @@
 /area/abandoned_prison/eva_prep)
 "Gx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2861,13 +2848,6 @@
 /obj/structure/sign/securearea,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
-"LK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
-	},
-/turf/simulated/floor/airless,
-/area/abandoned_prison/exterior)
 "LL" = (
 /obj/effect/decal/fake_object{
 	icon_state = "processor";
@@ -3224,9 +3204,7 @@
 /area/space)
 "RM" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
@@ -3254,8 +3232,7 @@
 /area/abandoned_prison/eva_prep)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/cable/green{
@@ -3372,8 +3349,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -3480,9 +3456,7 @@
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/abandoned_prison/eva_prep)
 "Xh" = (
@@ -3565,7 +3539,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 20
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5603,7 +5576,7 @@ Sg
 Sg
 Sg
 Sg
-LK
+Vt
 KY
 Zg
 hH

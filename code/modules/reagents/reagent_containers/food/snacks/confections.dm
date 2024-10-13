@@ -214,10 +214,10 @@
 	is_liquid = TRUE
 
 //Custard + blowtorch = creme brulee
-/obj/item/reagent_containers/food/snacks/custard/attackby(obj/item/W, mob/living/user)
+/obj/item/reagent_containers/food/snacks/custard/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(W.iswelder())
-		var/obj/item/weldingtool/welder = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.isOn())
 			new /obj/item/reagent_containers/food/snacks/creme_brulee(src)
 			to_chat(user, "You apply the flame to the sugary custard, caramelizing it.")

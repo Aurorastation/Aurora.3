@@ -80,19 +80,18 @@
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
-	maiming = TRUE
 	maim_rate = 1
 
 /obj/projectile/beam/plasmacutter/proc/pass_check(var/turf/simulated/mineral/mine_turf)
 	if(mineral_passes <= 0)
 		return list(null, FALSE) // the projectile stops
 	mineral_passes--
-	var/mineral_destroyed = on_impact(mine_turf)
-	return list(PROJECTILE_CONTINUE, mineral_destroyed) // the projectile tunnels deeper
+	var/mineral_destroyed = on_hit(mine_turf)
+	return list(BULLET_ACT_HIT, mineral_destroyed) // the projectile tunnels deeper
 
-/obj/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	if(istype(A, /turf/simulated/mineral))
-		var/turf/simulated/mineral/M = A
+/obj/projectile/beam/plasmacutter/on_hit(atom/target, blocked, def_zone)
+	if(istype(target, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = target
 		if(prob(33))
 			M.GetDrilled(1)
 			return TRUE

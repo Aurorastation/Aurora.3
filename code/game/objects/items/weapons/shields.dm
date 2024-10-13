@@ -43,12 +43,12 @@
 	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
-		return FALSE
+		return BULLET_ACT_HIT
 
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
 		user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/shield/can_shield_back()
 	return TRUE
@@ -74,7 +74,8 @@
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/projectile))
@@ -113,7 +114,8 @@
 
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/projectile))
@@ -178,9 +180,7 @@
 	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
-		return FALSE
-	if(.)
-		spark(user.loc, 5)
+		return BULLET_ACT_HIT
 
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
 		spark(user.loc, 5)
@@ -214,13 +214,13 @@
 					new_angle_s -= 360
 				P.set_angle(new_angle_s)
 
-				return PROJECTILE_CONTINUE // complete projectile permutation
+				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 			else
 				user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-				return PROJECTILE_STOPPED
+				return BULLET_ACT_BLOCK
 		else
 			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-			return PROJECTILE_STOPPED
+			return BULLET_ACT_BLOCK
 
 
 /obj/item/shield/energy/get_block_chance(mob/user, damage, atom/damage_source = null, mob/attacker = null)
@@ -323,11 +323,11 @@
 
 /obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
-		return FALSE //turn it on first!
+		return BULLET_ACT_HIT //turn it on first!
 
 	. = ..()
-	if(.)
-		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(. != BULLET_ACT_HIT)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active

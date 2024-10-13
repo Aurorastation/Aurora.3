@@ -5,6 +5,8 @@
 	icon_state = "plating"
 	is_outside = OUTSIDE_AREA
 
+	explosion_resistance = 1
+
 	// Damage to flooring.
 	var/broken
 	var/burnt

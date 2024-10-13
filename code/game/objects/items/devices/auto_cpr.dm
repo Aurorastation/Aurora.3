@@ -140,7 +140,8 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/H, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H) && user.a_intent == I_HELP)
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("You must screw \the [src]'s panel closed before fitting it onto anyone!"))

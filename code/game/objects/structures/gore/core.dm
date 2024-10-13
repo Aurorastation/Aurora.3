@@ -31,10 +31,13 @@
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
 
-/obj/structure/gore/bullet_act(var/obj/projectile/Proj)
-	health -= Proj.damage
+/obj/structure/gore/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.damage
 	healthcheck()
-	return ..()
 
 /obj/structure/gore/ex_act(severity)
 	switch(severity)
@@ -78,6 +81,8 @@
 /obj/structure/gore/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group)
 		return FALSE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return !opacity
 	return !density

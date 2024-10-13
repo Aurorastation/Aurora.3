@@ -58,7 +58,7 @@
 	var/armor = 100 * affecting.get_blocked_ratio(target, DAMAGE_BRUTE, damage = 30)
 	if(armor < 70)
 		to_chat(target, SPAN_DANGER("You feel extreme pain!"))
-		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
+		affecting.adjustHalLoss(clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
@@ -113,8 +113,8 @@
 		attacker.visible_message(SPAN_DANGER("[attacker] [attacker.species.knockout_message]"))
 
 	playsound(attacker.loc, /singleton/sound_category/swing_hit_sound, 25, 1, -1)
-	attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>")
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>")
+	attacker.attack_log += "\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>"
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>"
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))
 
 	qdel(src)

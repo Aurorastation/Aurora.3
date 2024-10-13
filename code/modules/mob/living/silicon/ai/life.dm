@@ -167,7 +167,7 @@
 /mob/living/silicon/ai/update_sight()
 	if(is_blind())
 		update_icon()
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 	else if(stat == DEAD)

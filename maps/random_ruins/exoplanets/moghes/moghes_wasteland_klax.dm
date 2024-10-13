@@ -52,7 +52,7 @@
 	outfit = /obj/outfit/admin/moghes_wasteland_klax/warrior
 	max_count = 2
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 
 	assigned_role = "K'laxan Warrior"

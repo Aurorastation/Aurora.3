@@ -130,10 +130,10 @@
 	damage = 45
 	armor_penetration = 40
 
-/obj/projectile/beam/pulse/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/pulse/on_hit(atom/target, blocked, def_zone)
 	if(isturf(target))
 		target.ex_act(2)
-	..()
+	. = ..()
 
 /obj/projectile/beam/pulse/heavy
 	name = "heavy pulse laser"
@@ -168,7 +168,8 @@
 	tracer_type = /obj/effect/projectile/tracer/laser
 	impact_type = /obj/effect/projectile/impact/laser
 
-/obj/projectile/beam/laser_tag/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/laser_tag/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		var/obj/item/clothing/suit/armor/riot/laser_tag/LT = H.wear_suit
@@ -234,7 +235,7 @@
 	tracer_type = /obj/effect/projectile/tracer/disabler
 	impact_type = /obj/effect/projectile/impact/disabler
 
-/obj/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/disorient/on_hit(atom/target, blocked, def_zone)
 	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
 		var/mob/living/carbon/human/H = target
 		H.druggy = min(H.druggy + 15, 75)
@@ -268,9 +269,9 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
-/obj/projectile/beam/mousegun/on_impact(var/atom/A)
-	mousepulse(A, 1)
-	..()
+/obj/projectile/beam/mousegun/on_hit(atom/target, blocked, def_zone)
+	mousepulse(target, 1)
+	. = ..()
 
 /obj/projectile/beam/mousegun/proc/mousepulse(turf/epicenter, range, log=0)
 	if(!epicenter)
@@ -309,8 +310,6 @@
 
 /obj/projectile/beam/mousegun/emag
 	name = "diffuse electrical arc"
-
-	nodamage = FALSE
 	damage_type = DAMAGE_BURN
 	damage = 15
 	agony = 30
@@ -349,7 +348,6 @@
 	return TRUE
 
 /obj/projectile/beam/mousegun/xenofauna
-	nodamage = FALSE
 	damage = 10
 
 /obj/projectile/beam/mousegun/xenofauna/mousepulse(atom/target, range, log)
@@ -376,22 +374,22 @@
 	tracer_type = /obj/effect/projectile/tracer/solar
 	impact_type = /obj/effect/projectile/impact/solar
 
-/obj/projectile/beam/megaglaive/on_impact(var/atom/A)
-	if(isturf(A))
-		if(istype(A, /turf/simulated/mineral))
+/obj/projectile/beam/megaglaive/on_hit(atom/target, blocked, def_zone)
+	if(isturf(target))
+		if(istype(target, /turf/simulated/mineral))
 			if(prob(75)) //likely because its a mining tool
-				var/turf/simulated/mineral/M = A
+				var/turf/simulated/mineral/M = target
 				if(prob(10))
 					M.GetDrilled(1)
 				else if(!M.emitter_blasts_taken)
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	if(ismob(A))
-		var/mob/living/M = A
+	if(ismob(target))
+		var/mob/living/M = target
 		M.apply_effect(1, INCINERATE, 0)
-	explosion(A, -1, 0, 2)
-	..()
+	explosion(target, -1, 0, 2)
+	. = ..()
 
 /obj/projectile/beam/thermaldrill
 	name = "thermal drill"
@@ -402,9 +400,9 @@
 	tracer_type = /obj/effect/projectile/tracer/solar
 	impact_type = /obj/effect/projectile/impact/solar
 
-/obj/projectile/beam/thermaldrill/on_impact(var/atom/hit_atom)
-	if(istype(hit_atom, /turf/simulated/mineral))
-		var/turf/simulated/mineral/mineral = hit_atom
+/obj/projectile/beam/thermaldrill/on_hit(atom/target, blocked, def_zone)
+	if(istype(target, /turf/simulated/mineral))
+		var/turf/simulated/mineral/mineral = target
 		mineral.GetDrilled(TRUE)
 	return ..()
 
@@ -426,11 +424,11 @@
 	tracer_type = /obj/effect/projectile/tracer/cult
 	impact_type = /obj/effect/projectile/impact/cult
 
-/obj/projectile/beam/cult/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/projectile/beam/cult/on_hit(atom/target, blocked, def_zone)
 	//Harmlessly passes through cultists and constructs
-	if (target_mob == ignore)
+	if (target == ignore)
 		return 0
-	if (iscultist(target_mob))
+	if (iscultist(target))
 		return 0
 
 	return ..()
@@ -447,16 +445,16 @@
 /obj/projectile/beam/energy_net
 	name = "energy net projection"
 	icon_state = "xray"
-	nodamage = 1
+	damage = 0
 	damage_type = DAMAGE_PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
 	impact_type = /obj/effect/projectile/impact/xray
 
-/obj/projectile/beam/energy_net/on_hit(var/atom/netted)
-	do_net(netted)
-	..()
+/obj/projectile/beam/energy_net/on_hit(atom/target, blocked, def_zone)
+	do_net(target)
+	. = ..()
 
 /obj/projectile/beam/energy_net/proc/do_net(var/mob/M)
 	var/obj/item/energy_net/net = new (get_turf(M))
@@ -468,10 +466,7 @@
 	damage = 25
 	armor_penetration = 65
 	penetrating = 1
-	maiming = 1
 	maim_rate = 5
-	clean_cut = 1
-	maim_type = DROPLIMB_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/tachyon
 	tracer_type = /obj/effect/projectile/tracer/tachyon
@@ -490,7 +485,7 @@
 	tracer_type = /obj/effect/projectile/tracer/tesla
 	impact_type = /obj/effect/projectile/impact/tesla
 
-/obj/projectile/beam/tesla/on_impact(atom/target)
+/obj/projectile/beam/tesla/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
 		tesla_zap(target, 5, 5000)
@@ -507,7 +502,7 @@
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue
 
-/obj/projectile/beam/freezer/on_impact(atom/target)
+/obj/projectile/beam/freezer/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target

@@ -238,8 +238,7 @@
 /area/moghes_guild_mining)
 "uX" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -370,8 +369,7 @@
 /area/moghes_guild_mining)
 "Gy" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/structure/railing/mapped{
 	dir = 8

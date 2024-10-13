@@ -338,6 +338,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
@@ -390,6 +392,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "guard_top_end"
 
 /obj/structure/road_barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
@@ -420,6 +424,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	can_be_unanchored = FALSE
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || (height==0))
 		return TRUE
 	if(istype(mover, /obj/projectile))
@@ -455,6 +461,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	can_be_unanchored = FALSE
 
 /obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)

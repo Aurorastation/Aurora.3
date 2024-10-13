@@ -422,3 +422,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			to_chat(usr, "Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+
+#ifdef TESTING
+GLOBAL_LIST_EMPTY(dirty_vars)
+#endif

@@ -68,11 +68,15 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
 	..()
-
-	if(hovering)
+	if(stat == DEAD)
+		icon_state = icon_dead
+	else if(hovering)
 		icon_state = "spider_queen_shadow"
+	else if (stat == UNCONSCIOUS || resting)
+		icon_state = icon_rest
 	else
-		icon_state = initial(icon_state)
+		icon_state = icon_living
+
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
@@ -127,4 +131,6 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
+	if (stat == DEAD)
+		return 0
 	adjustBruteLoss(-3)

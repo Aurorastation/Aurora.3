@@ -499,9 +499,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "kL" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -776,7 +774,6 @@
 /area/scc_event_shuttle)
 "rU" = (
 /obj/machinery/door/airlock/glass{
-	dir = 2;
 	name = "Cryogenic Storage"
 	},
 /turf/simulated/floor,
@@ -2163,35 +2160,27 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/plasteel/full{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/item/stack/material/cardboard/full{
-	pixel_y = 0;
 	pixel_x = 12
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -2216,11 +2205,9 @@
 	name = "shelves"
 	},
 /obj/item/stack/material/lead/full{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/item/stack/material/aluminium/full{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/outline/operations,

@@ -8,7 +8,7 @@
 	name = "glass pane"
 	desc = "A glass pane."
 	icon = 'icons/obj/structure/window/window_panes.dmi'
-	icon_state = "pane"
+	icon_state = "window"
 	alpha = 196
 	density = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -57,7 +57,7 @@
 			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window/update_icon()
 	if(!full)
@@ -65,7 +65,7 @@
 			layer = ABOVE_HUMAN_LAYER
 		else
 			layer = SIDE_WINDOW_LAYER
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -138,12 +138,15 @@
 	qdel(src)
 	return
 
-/obj/structure/window/bullet_act(var/obj/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+/obj/structure/window/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	if(!proj_damage)
-		return
+		return BULLET_ACT_BLOCK
 
-	..()
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	take_damage(proj_damage)
 	return
 
@@ -167,6 +170,8 @@
 	return (dir == SOUTHWEST || dir == SOUTHEAST || dir == NORTHWEST || dir == NORTHEAST)
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(is_full_window())
@@ -797,10 +802,10 @@
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window_frame/proc/update_nearby_icons()
-	SSicon_smooth.add_to_queue_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/window_frame/update_icon()
-	SSicon_smooth.add_to_queue(src)
+	QUEUE_SMOOTH(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()

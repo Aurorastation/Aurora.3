@@ -111,3 +111,7 @@ ATTRIBUTIONS SECTION END
 ATTRIBUTIONS SECTOR START
 sound/items/metal_shutter.ogg - https://freesound.org/people/bruno.auzet/sounds/524695/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/voice/bugrattle.ogg - https://pixabay.com/sound-effects/snake-rattle-sound-hq-240150/
+ATTRIBUTIONS SECTION END
