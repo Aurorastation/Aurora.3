@@ -10,7 +10,7 @@
 /obj/structure/automobile/random/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
-	name = "[pick("deluxe Shibata Sport automotive","beat-up Poplar Auto Group automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
+	name = "[pick("deluxe Shibata Sport automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
 	desc = "A [name] vehicle of working condition."
 	icon_state = "car[rand(1, 10)]"
 	return
@@ -20,33 +20,60 @@
 	desc = "A police vehicle with all the bells and whistles you'd expect from a decently-funded agency."
 	icon_state = "copcar"
 
-/obj/structure/automobile/car1
-	name = "blue car"
-	desc = "A boxy blue car. Cars in this style are found everywhere in the spur."
+/obj/structure/automobile/poplar_boxvan_blue
+	name = "blue poplar auto group van"
+	desc = "A boxy blue van. Cars in this style are found everywhere in the spur."
 	icon_state = "car1"
 
-/obj/structure/automobile/car2
-	name = "green car"
-	desc = "A boxy green car. Cars in this style are found everywhere in the spur."
+/obj/structure/automobile/poplar_boxvan_blue/deluxe
+	name = "deluxe poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_blue/weathered
+	name = "weathered poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_blue/beat_up
+	name = "beat-up poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green
+	name = "green poplar auto group van"
+	desc = "A boxy green van. Cars in this style are found everywhere in the spur."
 	icon_state = "car2"
 
-/obj/structure/automobile/car3
-	name = "white compact"
+/obj/structure/automobile/poplar_boxvan_green/deluxe
+	name = "deluxe poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green/weathered
+	name = "weathered poplar auto group van"
+
+/obj/structure/automobile/poplar_boxvan_green/beat_up
+	name = "beat-up poplar auto group van"
+
+/obj/structure/automobile/shibata_compact_white
+	name = "white shibata sport compact"
 	desc = "A compact electric car with a light cream paint job."
 	icon_state = "car3"
 
-/obj/structure/automobile/car4
-	name = "teal compact"
+/obj/structure/automobile/shibata_compact_white/deluxe
+	name = "deluxe shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_white/weathered
+	name = "weathered shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_white/beat_up
+	name = "beat-up shibata sport compact"
+
+/obj/structure/automobile/shibata_compact_teal
+	name = "teal shibata sport compact"
 	desc = "A compact electric car with a teal paint job."
 	icon_state = "car4"
 
-/obj/structure/automobile/car5
-	name = "cyan compact"
+/obj/structure/automobile/shibata_compact_cyan
+	name = "cyan shibata sport compact"
 	desc = "A compact electric car with a cyan paint job."
 	icon_state = "car5"
 
-/obj/structure/automobile/car6
-	name = "yellow compact"
+/obj/structure/automobile/shibata_compact_yellow
+	name = "yellow shibata sport compact"
 	desc = "A compact electric car with a yellow paint job."
 	icon_state = "car6"
 
