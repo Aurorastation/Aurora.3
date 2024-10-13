@@ -2,7 +2,7 @@
 	category = "operations"
 	name = "autakh limbs"
 	supplier = "hephaestus"
-	description = "A box with various autakh limbs"
+	description = "A box with various autakh limbs."
 	price = 3000
 	items = list(
 		/obj/item/organ/external/hand/right/autakh/tool,
@@ -11,8 +11,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 2
+	groupable = TRUE
+	spawn_multiplier = 2
 
 /singleton/cargo_item/auto_chisel
 	category = "operations"
@@ -25,8 +25,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/battlemonstersresupplycanister
 	category = "operations"
@@ -39,8 +39,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/blackpaint
 	category = "operations"
@@ -53,8 +53,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/bluepaint
 	category = "operations"
@@ -67,8 +67,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/boozeresupplycanister
 	category = "operations"
@@ -81,8 +81,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/camera
 	category = "operations"
@@ -95,8 +95,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/cargotraintrolley
 	category = "operations"
@@ -109,8 +109,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/cargotraintug
 	category = "operations"
@@ -123,22 +123,22 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/coathanger
 	category = "operations"
 	name = "Coat Hanger"
 	supplier = "nanotrasen"
-	description = "To hang your coat"
+	description = "To hang your coat."
 	price = 150
 	items = list(
 		/obj/structure/coatrack
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/coffeeresupplycanister
 	category = "operations"
@@ -151,8 +151,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/colaresupplycanister
 	category = "operations"
@@ -165,8 +165,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/cutleryresupplycanister
 	category = "operations"
@@ -179,8 +179,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/eftposscanner
 	category = "operations"
@@ -193,36 +193,36 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/emptyspraybottle
 	category = "operations"
 	name = "empty spray bottle"
 	supplier = "blam"
-	description = "A empty spray bottle"
+	description = "A empty spray bottle."
 	price = 50
 	items = list(
 		/obj/item/reagent_containers/spray
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/faxmachine
 	category = "operations"
 	name = "fax machine"
 	supplier = "nanotrasen"
-	description = "Needed office equipment for any space based corporation to function"
+	description = "Needed office equipment for any space based corporation to function."
 	price = 300
 	items = list(
 		/obj/machinery/photocopier/faxmachine
 	)
 	access = 0
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/filmcartridge
 	category = "operations"
@@ -235,8 +235,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/flare
 	category = "operations"
@@ -249,8 +249,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/formalwearcrate
 	category = "operations"
@@ -273,8 +273,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/giftwrappingpaper
 	category = "operations"
@@ -287,8 +287,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/greenpaint
 	category = "operations"
@@ -301,8 +301,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/hmatrrafillet
 	category = "operations"
@@ -315,8 +315,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/hydroresupplycanister
 	category = "operations"
@@ -329,14 +329,14 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/janitorialresupplyset
 	category = "operations"
 	name = "janitorial resupply set"
 	supplier = "blam"
-	description = "A set of items to restock the janitors closet"
+	description = "A set of items to restock the janitors closet."
 	price = 2000
 	items = list(
 		/obj/structure/janitorialcart,
@@ -355,8 +355,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/jukebox
 	category = "operations"
@@ -369,8 +369,8 @@
 	)
 	access = 0
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/loadbearingequipment
 	category = "operations"
@@ -383,8 +383,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/medsresupplycanister
 	category = "operations"
@@ -397,8 +397,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/packagewrapper
 	category = "operations"
@@ -411,8 +411,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pda
 	category = "operations"
@@ -425,36 +425,36 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/photoalbum
 	category = "operations"
 	name = "Photo album"
 	supplier = "nanotrasen"
-	description = "A place to store fond memories you made in space"
+	description = "A place to store fond memories you made in space."
 	price = 45
 	items = list(
 		/obj/item/storage/photo_album
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/photocopier
 	category = "operations"
 	name = "photo copier"
 	supplier = "nanotrasen"
-	description = "When you're too lazy to write a copy yourself"
+	description = "When you're too lazy to write a copy yourself."
 	price = 300
 	items = list(
 		/obj/machinery/photocopier
 	)
 	access = 0
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/purplepaint
 	category = "operations"
@@ -467,8 +467,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/redpaint
 	category = "operations"
@@ -481,8 +481,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/robotoolsresupplycanister
 	category = "operations"
@@ -495,8 +495,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/poster19
 	category = "operations"
@@ -509,8 +509,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/securityresupplycanister
 	category = "operations"
@@ -523,8 +523,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/shoulderholster
 	category = "operations"
@@ -537,8 +537,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/smokesresupplycanister
 	category = "operations"
@@ -551,8 +551,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/snacksresupplycanister
 	category = "operations"
@@ -565,8 +565,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/space_bike
 	category = "operations"
@@ -579,8 +579,8 @@
 	)
 	access = 0
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/toolsresupplycanister
 	category = "operations"
@@ -593,8 +593,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/webbing
 	category = "operations"
@@ -607,8 +607,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/whitepaint
 	category = "operations"
@@ -621,8 +621,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/yellowpaint
 	category = "operations"
@@ -635,8 +635,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/zorasodaresupplycanister
 	category = "operations"
@@ -649,8 +649,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/classakineticaccelerator
 	category = "operations"
@@ -663,8 +663,8 @@
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/classbkineticaccelerator
 	category = "operations"
@@ -677,22 +677,22 @@
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/classckineticaccelerator
 	category = "operations"
 	name = "Class C Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing"
+	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing."
 	price = 3299
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/classdkineticaccelerator
 	category = "operations"
@@ -705,8 +705,8 @@
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/classekineticaccelerator
 	category = "operations"
@@ -719,8 +719,8 @@
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/industrialminingdrill
 	category = "operations"
@@ -735,8 +735,8 @@
 	)
 	access = ACCESS_MINING
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/franciscaapammo
 	category = "operations"
@@ -749,8 +749,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/franciscafmjammo
 	category = "operations"
@@ -763,8 +763,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/grauwolfapflak
 	category = "operations"
@@ -777,8 +777,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/grauwolfheflak
 	category = "operations"
@@ -791,8 +791,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/longbowapwarhead
 	category = "operations"
@@ -805,8 +805,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/longbowcasing
 	category = "operations"
@@ -819,8 +819,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/longbowepwarhead
 	category = "operations"
@@ -833,8 +833,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/longbowhewarhead
 	category = "operations"
@@ -847,8 +847,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/highpowerlongbowprimer
 	category = "operations"
@@ -861,8 +861,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/longbowwarheadprimer
 	category = "operations"
@@ -875,8 +875,8 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/lowpowerlongbowprimer
 	category = "operations"
@@ -889,5 +889,5 @@
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1

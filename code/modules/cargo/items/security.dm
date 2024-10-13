@@ -11,8 +11,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/flash
 	category = "security"
@@ -25,8 +25,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/uvlight
 	category = "security"
@@ -39,8 +39,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 /singleton/cargo_item/shelltagimplanter
 	category = "security"
 	name = "IPC tag implanter"
@@ -52,8 +52,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/maglight
 	category = "security"
@@ -66,8 +66,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/doorlock_security
 	category = "security"
@@ -80,8 +80,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/zipties_box
 	category = "security"
@@ -94,8 +94,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/shieldgenerator
 	category = "security"
@@ -108,50 +108,50 @@
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pepperspraygrenades_box
 	category = "security"
 	name = "box of pepperspray grenades"
 	supplier = "nanotrasen"
-	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING:</br> Exposure carries risk of serious injuries"
+	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING:</br> Exposure carries risk of serious injuries."
 	price = 1050
 	items = list(
 		/obj/item/storage/box/teargas
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/flashbangs_box
 	category = "security"
 	name = "box of flashbangs"
 	supplier = "nanotrasen"
-	description = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING:</br> These devices are extremely dangerous and can cause blindness"
+	description = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING:</br> These devices are extremely dangerous and can cause blindness."
 	price = 520
 	items = list(
 		/obj/item/storage/box/flashbangs
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/empgrenades_box
 	category = "security"
 	name = "box of emp grenades"
 	supplier = "nanotrasen"
-	description = "A box containing 5 military grade EMP grenades.<br> WARNING:</br> Do not use near unshielded electronics or biomechanical augmentations"
+	description = "A box containing 5 military grade EMP grenades.<br> WARNING:</br> Do not use near unshielded electronics or biomechanical augmentations."
 	price = 4395
 	items = list(
 		/obj/item/storage/box/emps
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/deployablebarrier
 	category = "security"
@@ -164,8 +164,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 //Armor and clothing
 
@@ -180,8 +180,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/tacticalhelmet
 	category = "security"
@@ -194,8 +194,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/tacticalarmor
 	category = "security"
@@ -208,8 +208,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ablativehelmet
 	category = "security"
@@ -222,22 +222,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/platecarrier_ablative
 	category = "security"
 	name = "plate carrier - ablative"
 	supplier = "zavodskoi"
-	description = "A plate carrier equipped with ablative armor plates"
+	description = "A plate carrier equipped with ablative armor plates."
 	price = 1550
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ablative
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ballistichelmet
 	category = "security"
@@ -250,22 +250,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/platecarrier_ballistic
 	category = "security"
 	name = "plate carrier - ballistic"
 	supplier = "zavodskoi"
-	description = "A plate carrier equipped with ballistic armor plates"
+	description = "A plate carrier equipped with ballistic armor plates."
 	price = 1450
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ballistic
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/riothelmet
 	category = "security"
@@ -278,22 +278,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/platecarrier_riot
 	category = "security"
 	name = "plate carrier - riot"
 	supplier = "zavodskoi"
-	description = "A plate carrier equipped with riot armor plates"
+	description = "A plate carrier equipped with riot armor plates."
 	price = 1050
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/riot
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/riotshield
 	category = "security"
@@ -306,8 +306,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/securityvoidsuit
 	category = "security"
@@ -320,8 +320,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/securityvoidsuithelmet
 	category = "security"
@@ -334,8 +334,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/tacticalhud
 	category = "security"
@@ -348,8 +348,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 /singleton/cargo_item/blackgloves
 	category = "security"
 	name = "black gloves"
@@ -361,8 +361,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/bandolier
 	category = "security"
@@ -375,8 +375,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/combatbelt
 	category = "security"
@@ -389,22 +389,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/tacticaljumpsuit
 	category = "security"
 	name = "tactical jumpsuit"
 	supplier = "zharkov"
-	description = "Tactical fatigues guaranteed to bring out the space marine in you"
+	description = "Tactical fatigues guaranteed to bring out the space marine in you."
 	price = 200
 	items = list(
 		/obj/item/clothing/under/tactical
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/jackboots
 	category = "security"
@@ -417,8 +417,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/bayonet
 	category = "security"
@@ -431,8 +431,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 //Weapons//
 
@@ -447,8 +447,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/disruptorpistol
 	category = "security"
@@ -461,8 +461,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 /singleton/cargo_item/tasergun
 	category = "security"
 	name = "taser gun"
@@ -474,8 +474,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/machinepistol45
 	category = "security"
@@ -488,8 +488,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ballisticcarbine
 	category = "security"
@@ -502,8 +502,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/bullpupassaultcarbine
 	category = "security"
@@ -516,22 +516,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/combatshotgun
 	category = "security"
 	name = "combat shotgun"
 	supplier = "hephaestus"
-	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders"
+	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
 	price = 8250
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/machinepistol
 	category = "security"
@@ -544,8 +544,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/energycarbine
 	category = "security"
@@ -558,8 +558,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/energypistol
 	category = "security"
@@ -572,8 +572,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ionrifle
 	category = "security"
@@ -586,21 +586,21 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 /singleton/cargo_item/marksmanenergyrifle
 	category = "security"
 	name = "marksman energy rifle"
 	supplier = "hephaestus"
-	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized b愀猀琀猀"
+	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized b愀猀琀猀."
 	price = 9600
 	items = list(
 		/obj/item/gun/energy/sniperrifle
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/laserrifle
 	category = "security"
@@ -613,8 +613,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 
 /singleton/cargo_item/retrolaser
@@ -628,8 +628,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/peac
 	category = "security"
@@ -642,8 +642,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/adhomianrecoillessrifle
 	category = "security"
@@ -656,8 +656,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/boltactionrifle
 	category = "security"
@@ -670,8 +670,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/derringer
 	category = "security"
@@ -684,8 +684,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/silencedpistol
 	category = "security"
@@ -698,8 +698,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/zipgun
 	category = "security"
@@ -712,8 +712,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 //Ammunition
 
@@ -728,8 +728,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ammunitionbox_haywire
 	category = "security"
@@ -742,8 +742,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ammunitionbox_incendiary
 	category = "security"
@@ -756,8 +756,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ammunitionbox_shells
 	category = "security"
@@ -770,8 +770,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ammunitionbox_slugs
 	category = "security"
@@ -784,22 +784,22 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/illuminationshells_box
 	category = "security"
 	name = "box of illumination shells"
 	supplier = "zavodskoi"
-	description = "It has a picture of a gun and several warning symbols on the front.<br>WARNING:</br> Live ammunition. Misuse may result in serious injury and death"
+	description = "It has a picture of a gun and several warning symbols on the front.<br>WARNING:</br> Live ammunition. Misuse may result in serious injury and death."
 	price = 97
 	items = list(
 		/obj/item/storage/box/flashshells
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/anti_materiel_cannon_cartridge
 	category = "security"
@@ -812,8 +812,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/apcarbinemagazine_556
 	category = "security"
@@ -826,8 +826,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/carbinemagazine_556
 	category = "security"
@@ -840,8 +840,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/magazine_556
 	category = "security"
@@ -854,8 +854,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/magazine_762
 	category = "security"
@@ -868,8 +868,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/magazine_9
 	category = "security"
@@ -882,8 +882,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/magazine_45
 	category = "security"
@@ -896,8 +896,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/magazine_45flash
 	category = "security"
@@ -910,8 +910,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/compacttungstenslug
 	category = "security"
@@ -924,8 +924,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/electronicfiringpin
 	category = "security"
@@ -938,8 +938,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/holographicammodisplay
 	category = "security"
@@ -952,8 +952,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/topmountedmagazine_9mmrubber
 	category = "security"
@@ -966,8 +966,8 @@
 	)
 	access = ACCESS_BRIG
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/tranquilizerdarts_50cal_pps
 	category = "security"
@@ -980,8 +980,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 //Forensics
 
@@ -996,8 +996,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/luminolbottle
 	category = "security"
@@ -1010,8 +1010,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/microscopeslidebox
 	category = "security"
@@ -1024,8 +1024,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/fibercollectionkit
 	category = "security"
@@ -1038,8 +1038,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/fingerprintpowder
 	category = "security"
@@ -1052,8 +1052,8 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/swabkits_box
 	category = "security"
@@ -1066,5 +1066,5 @@
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1

@@ -1,15 +1,32 @@
 /singleton/cargo_supplier
-	var/short_name = "generic_supplier" //Short name of the cargo supplier
-	var/name = "Generic Supplies Ltd." //Long name of the cargo supplier
-	var/description = "You're not supposed to see this. File a bug report." //Description of the supplier
-	var/tag_line = "You're not supposed to see this." //Tag line of the supplier
-	var/shuttle_time = 100 //Time the shuttle takes to get to the supplier
-	var/shuttle_price = 100 //Price to call the shuttle
-	var/available = 1 //If the supplier is available
-	var/price_modifier = 1 //Price modifier for the supplier
-	var/list/items = list() //List of items of the supplier
+	/// The short name (ID name) of the supplier. Used to denote the "supplier" of individual cargo items. These MUST match exactly.
+	var/short_name = "generic_supplier"
 
-//Gets a list of supplier - to be json encoded
+	/// The display name of the supplier, shown in cargo orders as the "Shipped By" entity.
+	var/name = "Generic Supplies Ltd."
+
+	/// The description of the supplier. Shows up when mousing over a supplier entry in the Cargo Order console.
+	var/description = "You're not supposed to see this. File a bug report."
+
+	/// The catchphrase of the supplier.
+	var/tag_line = "You're not supposed to see this."
+
+	/// Time, in ticks, it takes for a shuttle carrying orders from this supplier to arrive.
+	var/shuttle_time = 100
+
+	/// The additional price an order incurs for ordering a shuttle from this supplier.
+	var/shuttle_price = 100
+
+	/// Whether or not this supplier is available or not.
+	var/available = TRUE
+
+	/// The price multiplier for all items this supplier sells.
+	var/price_modifier = 1
+
+
+	var/list/items = list()
+
+/// Returns a string-formatted list of the cargo supplier's properties, to be used in TGUI.
 /singleton/cargo_supplier/proc/get_list()
 	var/list/data = list()
 	data["short_name"] = short_name
@@ -22,6 +39,7 @@
 	data["price_modifier"] = price_modifier
 	return data
 
+/// Multiplies the price modifier by any sector-dependent price modifier this supplier has and returns it. Used for sectors in which a certain supplier might be more expensive or cheaper due to regional influences, tariffs, etc.
 /singleton/cargo_supplier/proc/get_total_price_coefficient()
 	var/final_coef = price_modifier
 	if(SSatlas.current_sector)

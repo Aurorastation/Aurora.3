@@ -2,15 +2,15 @@
 	category = "science"
 	name = "Blank Vaurca Drone"
 	supplier = "nanotrasen"
-	description = "A brain dead, generic vaucra drone"
+	description = "A brain dead, generic vaucra drone."
 	price = 300
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
 	access = ACCESS_RESEARCH
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge
 	category = "science"
@@ -23,8 +23,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_acetone
 	category = "science"
@@ -37,8 +37,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_aluminum
 	category = "science"
@@ -51,8 +51,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_ammonia
 	category = "science"
@@ -65,8 +65,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_carbon
 	category = "science"
@@ -79,8 +79,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_copper
 	category = "science"
@@ -93,8 +93,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_ethanol
 	category = "science"
@@ -107,8 +107,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_hydrazine
 	category = "science"
@@ -121,8 +121,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_hydrochloricacid
 	category = "science"
@@ -135,8 +135,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_iron
 	category = "science"
@@ -149,8 +149,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_lithium
 	category = "science"
@@ -163,8 +163,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_mercury
 	category = "science"
@@ -177,8 +177,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_phosphorus
 	category = "science"
@@ -191,8 +191,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_potassium
 	category = "science"
@@ -205,8 +205,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_radium
 	category = "science"
@@ -219,8 +219,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_silicon
 	category = "science"
@@ -233,8 +233,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_sodium
 	category = "science"
@@ -247,8 +247,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_sugar
 	category = "science"
@@ -261,8 +261,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_sulfur
 	category = "science"
@@ -275,8 +275,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_sulfuricacid
 	category = "science"
@@ -289,8 +289,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_tungsten
 	category = "science"
@@ -303,8 +303,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_water
 	category = "science"
@@ -317,8 +317,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_central
 	category = "science"
@@ -331,8 +331,8 @@
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_peripheral
 	category = "science"
@@ -345,8 +345,8 @@
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_central
 	category = "science"
@@ -359,8 +359,8 @@
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_peripheral
 	category = "science"
@@ -373,8 +373,8 @@
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/hazmathood
 	category = "science"
@@ -387,8 +387,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/hazmatsuit
 	category = "science"
@@ -401,8 +401,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/igniter
 	category = "science"
@@ -415,8 +415,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/mindshieldfiringpin
 	category = "science"
@@ -429,8 +429,8 @@
 	)
 	access = ACCESS_HEADS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/positronicbrain
 	category = "science"
@@ -443,8 +443,8 @@
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/protohuman
 	category = "science"
@@ -457,8 +457,8 @@
 	)
 	access = ACCESS_RESEARCH
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/proto_skrell
 	category = "science"
@@ -471,8 +471,8 @@
 	)
 	access = ACCESS_RESEARCH
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/proto_tajara
 	category = "science"
@@ -485,8 +485,8 @@
 	)
 	access = ACCESS_RESEARCH
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/proto_unathi
 	category = "science"
@@ -499,8 +499,8 @@
 	)
 	access = ACCESS_RESEARCH
 	container_type = "box"
-	groupable = 0
-	item_mul = 1
+	groupable = FALSE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/proximitysensor
 	category = "science"
@@ -513,8 +513,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/testrange_firingpin
 	category = "science"
@@ -527,8 +527,8 @@
 	)
 	access = ACCESS_RESEARCH
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/timer
 	category = "science"
@@ -541,104 +541,104 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_bishop
 	category = "science"
 	name = "Torso - Bishop Cybernetics"
 	supplier = "bishop"
-	description = "A bishop cybernetics torso"
+	description = "A bishop cybernetics torso."
 	price = 4000
 	items = list(
 		/obj/item/robot_parts/chest/bishop
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_g1
 	category = "science"
 	name = "Torso - Hephaestus G1 Industrial Frame"
 	supplier = "hephaestus"
-	description = "A torso for a Hephaestus G1 Industrial Frame"
+	description = "A torso for a Hephaestus G1 Industrial Frame."
 	price = 3500
 	items = list(
 		/obj/item/robot_parts/chest/industrial
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_g2
 	category = "science"
 	name = "Torso - Hephaestus G2 Industrial Frame"
 	supplier = "hephaestus"
-	description = "A torso for a Hephaestus G2 Industrial Frame"
+	description = "A torso for a Hephaestus G2 Industrial Frame."
 	price = 5000
 	items = list(
 		/obj/item/robot_parts/chest/hephaestus
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_heph
 	category = "science"
 	name = "Torso - Hephaestus Integrated"
 	supplier = "hephaestus"
-	description = "A torso for a Hephaestus Integrated Frame"
+	description = "A torso for a Hephaestus Integrated Frame."
 	price = 3000
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_synthskin
 	category = "science"
 	name = "Torso - Synthskin"
 	supplier = "zeng_hu"
-	description = "A synthskin torso"
+	description = "A synthskin torso."
 	price = 9000
 	items = list(
 		/obj/item/robot_parts/chest/synthskin
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_xion
 	category = "science"
 	name = "Torso - Xion Manufacturing"
 	supplier = "xion"
-	description = "A Xion Manufacturing torso"
+	description = "A Xion Manufacturing torso."
 	price = 4500
 	items = list(
 		/obj/item/robot_parts/chest/xion
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/torso_zenghu
 	category = "science"
 	name = "Torso - Zeng - Hu Pharmaceuticals"
 	supplier = "zeng_hu"
-	description = "A Zeng - Hu Pharmaceuticals torso"
+	description = "A Zeng - Hu Pharmaceuticals torso."
 	price = 3000
 	items = list(
 		/obj/item/robot_parts/chest/zenghu
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 

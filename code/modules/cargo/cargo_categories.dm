@@ -1,11 +1,24 @@
 /singleton/cargo_category
+
+	/// The internal name of the category. Items belonging to the category must have their "category" name match this exactly.
 	var/name = "category"
+
+	/// The display name of this category. Displayed as the "category" on user interfaces such as the Cargo Order console.
 	var/display_name = "Generic Category"
+
+	/// The description of the category.
 	var/description = "A generic category."
+
+	/// The FontAwesome icon of this category.
 	var/icon = "box"
+
+	/// Items belonging to this category will have their prices multiplied by this factor. Default 1.
 	var/price_modifier = 1
+
+	/// AUTO-POPULATED: The list of items in this category.
 	var/list/items = list()
 
+	/// The shipment data of this category.
 	var/list/shipment_data = list(
 		"shipment_num" = 0,
 		"shipment_cost_sell" = 0,
@@ -18,6 +31,7 @@
 		"completed" = 0
 	)
 
+/// Returns a string-formatted list of the cargo category's properties, to be used in TGUI.
 /singleton/cargo_category/proc/get_list()
 	var/list/data = list()
 	data["name"] = src.name

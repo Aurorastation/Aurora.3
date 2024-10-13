@@ -5,16 +5,12 @@
 	description = "A handful of meat slices from Adhomian animals."
 	price = 130
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
-		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 	amount = 5
 
 /singleton/cargo_item/meat
@@ -24,16 +20,12 @@
 	description = "Slabs of real meat, from real animals. Freshly frozen and extremely not-vegan."
 	price = 120
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 	amount = 5
 
 /singleton/cargo_item/fishfillet
@@ -43,16 +35,12 @@
 	description = "Raw fish fillets, sourced from an aquaponics farm."
 	price = 100
 	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 	amount = 5
 
 /singleton/cargo_item/moghresianmeat
@@ -62,16 +50,12 @@
 	description = "Slabs of meat from animals native to Moghes."
 	price = 130
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/moghes,
-		/obj/item/reagent_containers/food/snacks/meat/moghes,
-		/obj/item/reagent_containers/food/snacks/meat/moghes,
-		/obj/item/reagent_containers/food/snacks/meat/moghes,
-		/obj/item/reagent_containers/food/snacks/meat/moghes,
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 	amount = 5
 
 /singleton/cargo_item/squidmeat
@@ -81,30 +65,26 @@
 	description = "Soylent squid is (not) people!"
 	price = 150
 	items = list(
-		/obj/item/reagent_containers/food/snacks/squidmeat,
-		/obj/item/reagent_containers/food/snacks/squidmeat,
-		/obj/item/reagent_containers/food/snacks/squidmeat,
-		/obj/item/reagent_containers/food/snacks/squidmeat,
-		/obj/item/reagent_containers/food/snacks/squidmeat,
+		/obj/item/reagent_containers/food/snacks/squidmeat
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 
 /singleton/cargo_item/wormfillet
 	category = "hospitality"
 	name = "worm fillet (x1)"
 	supplier = "nanotrasen"
 	description = "Meat from a Cavern Dweller. Mildly toxic if prepared improperly."
-	price = 25
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
 	access = ACCESS_KITCHEN
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/roesack
 	category = "hospitality"
@@ -113,16 +93,12 @@
 	description = "A fleshy organ filled with fish eggs."
 	price = 160
 	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
-		/obj/item/reagent_containers/food/snacks/fish/roe,
+		/obj/item/reagent_containers/food/snacks/fish/roe
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 
 /singleton/cargo_item/peppermill
 	category = "hospitality"
@@ -135,8 +111,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/saltshaker
 	category = "hospitality"
@@ -149,22 +125,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/beerkeg
-	category = "hospitality"
-	name = "beer keg"
-	supplier = "virgo"
-	description = "A keg of refreshing, intoxicating beer."
-	price = 500
-	items = list(
-		/obj/structure/reagent_dispensers/keg/beerkeg
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"
@@ -177,8 +139,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/drinkingglasses_box
 	category = "hospitality"
@@ -191,8 +153,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/rasvalclams_box
 	category = "hospitality"
@@ -205,8 +167,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/eggcarton
 	category = "hospitality"
@@ -219,8 +181,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/floursack
 	category = "hospitality"
@@ -233,8 +195,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/sugarsack
 	category = "hospitality"
@@ -247,8 +209,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/ricesack
 	category = "hospitality"
@@ -261,8 +223,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/universalenzyme
 	category = "hospitality"
@@ -275,8 +237,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/milk
 	category = "hospitality"
@@ -289,8 +251,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/soymilk
 	category = "hospitality"
@@ -303,8 +265,8 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_ale
 	category = "hospitality"
@@ -317,8 +279,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_beer
 	category = "hospitality"
@@ -331,8 +293,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_champagne
 	category = "hospitality"
@@ -345,8 +307,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_coffee
 	category = "hospitality"
@@ -359,8 +321,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_cognac
 	category = "hospitality"
@@ -373,8 +335,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_cola
 	category = "hospitality"
@@ -387,8 +349,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_cream
 	category = "hospitality"
@@ -401,8 +363,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_drgibb
 	category = "hospitality"
@@ -415,8 +377,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_gin
 	category = "hospitality"
@@ -429,8 +391,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_ice
 	category = "hospitality"
@@ -443,8 +405,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_icetea
 	category = "hospitality"
@@ -457,8 +419,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_kahlua
 	category = "hospitality"
@@ -471,8 +433,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_lemonlime
 	category = "hospitality"
@@ -485,8 +447,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_lime
 	category = "hospitality"
@@ -499,8 +461,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_mead
 	category = "hospitality"
@@ -513,8 +475,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_orange
 	category = "hospitality"
@@ -527,8 +489,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_rum
 	category = "hospitality"
@@ -541,8 +503,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_smw
 	category = "hospitality"
@@ -555,8 +517,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_sodawater
 	category = "hospitality"
@@ -569,8 +531,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_spaceup
 	category = "hospitality"
@@ -583,8 +545,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_tea
 	category = "hospitality"
@@ -597,8 +559,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_tequila
 	category = "hospitality"
@@ -611,8 +573,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_tonic
 	category = "hospitality"
@@ -625,8 +587,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_vermouth
 	category = "hospitality"
@@ -639,8 +601,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_vodka
 	category = "hospitality"
@@ -653,8 +615,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_watermelon
 	category = "hospitality"
@@ -667,8 +629,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_whiskey
 	category = "hospitality"
@@ -681,8 +643,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge_wine
 	category = "hospitality"
@@ -695,8 +657,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
@@ -714,8 +676,9 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
+	amount = 5
 
 /singleton/cargo_item/dryrag
 	category = "hospitality"
@@ -725,15 +688,11 @@
 	price = 20
 	items = list(
 		/obj/item/reagent_containers/glass/rag,
-		/obj/item/reagent_containers/glass/rag,
-		/obj/item/reagent_containers/glass/rag,
-		/obj/item/reagent_containers/glass/rag,
-		/obj/item/reagent_containers/glass/rag
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 5
 	amount = 5
 
 /singleton/cargo_item/flask
@@ -741,56 +700,112 @@
 	name = "flask"
 	supplier = "virgo"
 	description = "For those who can't be bothered to hang out at the bar to drink."
-	price = 25
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/food/drinks/flask/barflask
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/goldschlager
 	category = "hospitality"
-	name = "Gold Schlager"
+	name = "Goldschlager"
 	supplier = "zharkov"
 	description = "A gold laced drink imported from noble houses within S'rand'marr."
-	price = 46
+	price = 460
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 2
+	groupable = TRUE
+	spawn_multiplier = 1
 
-/singleton/cargo_item/magmale
+/singleton/cargo_item/burszi_ale
 	category = "hospitality"
-	name = "Magm - ale"
-	supplier = "virgo"
-	description = "A true dorf's drink of choice."
-	price = 12
+	name = "Burszi-ale"
+	supplier = "getmore"
+	description = "A half-dozen crate of Burszi-ale bottles, for cracking open a cold one."
+	price = 220
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/small/ale
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 6
 
-/singleton/cargo_item/meadbarrel
+/singleton/cargo_item/beer
 	category = "hospitality"
-	name = "mead barrel"
-	supplier = "virgo"
-	description = "A wooden mead barrel."
-	price = 200
+	name = "Virklunder beer (x6)"
+	supplier = "getmore"
+	description = "A half-dozen crate of Virklunder beers, for cracking open a cold one."
+	price = 220
 	items = list(
-		/obj/structure/reagent_dispensers/keg/mead
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 6
+
+/singleton/cargo_item/champagne
+	category = "hospitality"
+	name = "Silverport champagne"
+	supplier = "idris"
+	description = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
+	price = 450
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/champagne
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/wrappartistepatron
+	category = "hospitality"
+	name = "Wrapp Artiste patron"
+	supplier = "idris"
+	description = "Silver laced tequilla, served in space night clubs across the galaxy."
+	price = 510
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/patron
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/sarezhiwine
+	category = "hospitality"
+	name = "Sarezhi Wine"
+	supplier = "arizi"
+	description = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
+	price = 360
+	items = list(
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/shaker
+	category = "hospitality"
+	name = "shaker"
+	supplier = "virgo"
+	description = "A metal shaker to mix drinks in."
+	price = 85
+	items = list(
+		/obj/item/reagent_containers/food/drinks/shaker
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_margherita
 	category = "hospitality"
@@ -803,8 +818,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_meat
 	category = "hospitality"
@@ -817,8 +832,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_mushroom
 	category = "hospitality"
@@ -831,8 +846,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_pineapple
 	category = "hospitality"
@@ -845,8 +860,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_random
 	category = "hospitality"
@@ -859,8 +874,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
@@ -873,8 +888,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/redlipstick
 	category = "hospitality"
@@ -887,78 +902,8 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/sarezhiwine
-	category = "hospitality"
-	name = "Sarezhi Wine"
-	supplier = "arizi"
-	description = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
-	price = 60
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/shaker
-	category = "hospitality"
-	name = "shaker"
-	supplier = "virgo"
-	description = "A metal shaker to mix drinks in."
-	price = 22
-	items = list(
-		/obj/item/reagent_containers/food/drinks/shaker
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/spacebeer
-	category = "hospitality"
-	name = "space beer"
-	supplier = "nanotrasen"
-	description = "Contains only water, malt and hops."
-	price = 40
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/small/beer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/wrappartistepatron
-	category = "hospitality"
-	name = "Wrapp Artiste patron"
-	supplier = "virgo"
-	description = "Silver laced tequilla, served in space night clubs across the galaxy."
-	price = 41
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/patron
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
-
-/singleton/cargo_item/xuizijuicekeg
-	category = "hospitality"
-	name = "xuizi juice keg"
-	supplier = "virgo"
-	description = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
-	price = 200
-	items = list(
-		/obj/structure/reagent_dispensers/keg/xuizikeg
-	)
-	access = 0
-	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
 
 /singleton/cargo_item/triglyceridebottle
 	category = "hospitality"
@@ -971,5 +916,47 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = 1
-	item_mul = 1
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/xuizijuicekeg
+	category = "hospitality"
+	name = "xuizi juice keg"
+	supplier = "virgo"
+	description = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
+	price = 200
+	items = list(
+		/obj/structure/reagent_dispensers/keg/xuizikeg
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/beerkeg
+	category = "hospitality"
+	name = "beer keg"
+	supplier = "virgo"
+	description = "A keg of refreshing, intoxicating beer."
+	price = 500
+	items = list(
+		/obj/structure/reagent_dispensers/keg/beerkeg
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1
+
+/singleton/cargo_item/meadbarrel
+	category = "hospitality"
+	name = "mead barrel"
+	supplier = "virgo"
+	description = "A wooden mead barrel."
+	price = 650
+	items = list(
+		/obj/structure/reagent_dispensers/keg/mead
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_multiplier = 1

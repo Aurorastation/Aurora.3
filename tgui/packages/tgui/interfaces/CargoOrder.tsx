@@ -34,6 +34,7 @@ type Item = {
   id: number;
   supplier: string;
   supplier_data: Supplier;
+  access: number;
 };
 
 type Supplier = {
@@ -186,6 +187,11 @@ export const MainPage = (props, context) => {
                   {item.supplier_data.name}
                 </LabeledList.Item>
               </Tooltip>
+              {item.access !== 0 && (
+                <LabeledList.Item label="Restricted Item: ">
+                  <Icon name="exclamation-triangle" /> Restricted Access
+                </LabeledList.Item>
+              )}
             </LabeledList>
           </Section>
         ))}

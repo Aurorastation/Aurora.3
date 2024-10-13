@@ -218,6 +218,7 @@ SUBSYSTEM_DEF(cargo)
 			"price_adjusted" = ci.adjusted_price,
 			"supplier" = ci.supplier,
 			"supplier_data" = get_supplier_data(ci.supplier),
+			"access" = ci.access,
 		))
 
 	return item_list
@@ -259,7 +260,7 @@ SUBSYSTEM_DEF(cargo)
 
 //Gets a supplier by name
 /datum/controller/subsystem/cargo/proc/get_supplier_by_name(var/name)
-	return cargo_suppliers[name] ? cargo_suppliers[name] : null
+	return cargo_suppliers[name]
 
 //Gets all the shipments sent to / from the station
 /datum/controller/subsystem/cargo/proc/get_shipment_list()
@@ -598,7 +599,7 @@ SUBSYSTEM_DEF(cargo)
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
-			for(var/j = 1; j <= coi.ci.item_mul; j++)
+			for(var/j = 1; j <= coi.ci.spawn_multiplier; j++)
 				for(var/item in coi.ci.items)
 					new item(crate)
 
