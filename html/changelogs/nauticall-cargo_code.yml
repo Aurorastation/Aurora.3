@@ -59,4 +59,4 @@ changes:
   - refactor: "Refactors cargo items to use singletons instead of datums for cargo_supplier, cargo_category, and cargo_item. Multiple-instnace things like cargo_orders, etc. still use datums."
   - bugfix: "Fixed a bunch of strange discrepancies in categories, suppliers, and pricing for various cargo items."
   - bugfix: "Clicking the 'Details' button on the Cargo Order app now actually gives you details instead of bluescreening."
-  - qol: "Added some UI elements to the Cargo Order app to make it prettier and show tooltips on suppliers."
+  - qol: "Added some UI elements to the Cargo Order app to make it prettier and show tooltips on suppliers. Also now has search functionality."
