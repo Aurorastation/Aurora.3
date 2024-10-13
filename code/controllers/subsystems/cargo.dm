@@ -597,7 +597,7 @@ SUBSYSTEM_DEF(cargo)
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
-			for(var/_ in 1 to coi.ci.spawn_multiplier)
+			for(var/_ in 1 to coi.ci.spawn_amount)
 				for(var/item_typepath in coi.ci.items)
 					new item_typepath(crate)
 

@@ -10,7 +10,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 	amount = 5
 
 /singleton/cargo_item/meat
@@ -25,7 +25,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 	amount = 5
 
 /singleton/cargo_item/fishfillet
@@ -40,7 +40,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 	amount = 5
 
 /singleton/cargo_item/moghresianmeat
@@ -55,7 +55,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 	amount = 5
 
 /singleton/cargo_item/squidmeat
@@ -70,7 +70,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/wormfillet
 	category = "hospitality"
@@ -84,7 +84,7 @@
 	access = ACCESS_KITCHEN
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/roesack
 	category = "hospitality"
@@ -98,7 +98,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/peppermill
 	category = "hospitality"
@@ -112,7 +112,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/saltshaker
 	category = "hospitality"
@@ -126,7 +126,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"
@@ -140,7 +140,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/drinkingglasses_box
 	category = "hospitality"
@@ -154,7 +154,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/rasvalclams_box
 	category = "hospitality"
@@ -168,7 +168,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/eggcarton
 	category = "hospitality"
@@ -182,7 +182,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/floursack
 	category = "hospitality"
@@ -196,7 +196,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sugarsack
 	category = "hospitality"
@@ -210,7 +210,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/ricesack
 	category = "hospitality"
@@ -224,7 +224,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/universalenzyme
 	category = "hospitality"
@@ -238,7 +238,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/milk
 	category = "hospitality"
@@ -252,7 +252,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/soymilk
 	category = "hospitality"
@@ -266,7 +266,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_ale
 	category = "hospitality"
@@ -280,7 +280,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_beer
 	category = "hospitality"
@@ -294,7 +294,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_champagne
 	category = "hospitality"
@@ -308,7 +308,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_coffee
 	category = "hospitality"
@@ -322,7 +322,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_cognac
 	category = "hospitality"
@@ -336,7 +336,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_cola
 	category = "hospitality"
@@ -350,7 +350,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_cream
 	category = "hospitality"
@@ -364,7 +364,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_drgibb
 	category = "hospitality"
@@ -378,7 +378,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_gin
 	category = "hospitality"
@@ -392,7 +392,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_ice
 	category = "hospitality"
@@ -406,7 +406,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_icetea
 	category = "hospitality"
@@ -420,7 +420,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_kahlua
 	category = "hospitality"
@@ -434,7 +434,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_lemonlime
 	category = "hospitality"
@@ -448,7 +448,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_lime
 	category = "hospitality"
@@ -462,7 +462,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_mead
 	category = "hospitality"
@@ -476,7 +476,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_orange
 	category = "hospitality"
@@ -490,7 +490,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_rum
 	category = "hospitality"
@@ -504,7 +504,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_smw
 	category = "hospitality"
@@ -518,7 +518,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_sodawater
 	category = "hospitality"
@@ -532,7 +532,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_spaceup
 	category = "hospitality"
@@ -546,7 +546,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_tea
 	category = "hospitality"
@@ -560,7 +560,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_tequila
 	category = "hospitality"
@@ -574,7 +574,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_tonic
 	category = "hospitality"
@@ -588,7 +588,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_vermouth
 	category = "hospitality"
@@ -602,7 +602,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_vodka
 	category = "hospitality"
@@ -616,7 +616,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_watermelon
 	category = "hospitality"
@@ -630,7 +630,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_whiskey
 	category = "hospitality"
@@ -644,7 +644,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_wine
 	category = "hospitality"
@@ -658,7 +658,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
@@ -677,7 +677,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 	amount = 5
 
 /singleton/cargo_item/dryrag
@@ -692,7 +692,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 	amount = 5
 
 /singleton/cargo_item/flask
@@ -707,7 +707,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/goldschlager
 	category = "hospitality"
@@ -721,7 +721,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/burszi_ale
 	category = "hospitality"
@@ -735,7 +735,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 6
+	spawn_amount = 6
 
 /singleton/cargo_item/beer
 	category = "hospitality"
@@ -749,7 +749,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 6
+	spawn_amount = 6
 
 /singleton/cargo_item/champagne
 	category = "hospitality"
@@ -763,7 +763,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/wrappartistepatron
 	category = "hospitality"
@@ -777,7 +777,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sarezhiwine
 	category = "hospitality"
@@ -791,7 +791,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/shaker
 	category = "hospitality"
@@ -805,7 +805,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_margherita
 	category = "hospitality"
@@ -819,7 +819,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_meat
 	category = "hospitality"
@@ -833,7 +833,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_mushroom
 	category = "hospitality"
@@ -847,7 +847,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_pineapple
 	category = "hospitality"
@@ -861,7 +861,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_random
 	category = "hospitality"
@@ -875,7 +875,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
@@ -889,7 +889,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/redlipstick
 	category = "hospitality"
@@ -903,7 +903,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/triglyceridebottle
 	category = "hospitality"
@@ -917,7 +917,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/xuizijuicekeg
 	category = "hospitality"
@@ -931,7 +931,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/beerkeg
 	category = "hospitality"
@@ -945,7 +945,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/meadbarrel
 	category = "hospitality"
@@ -959,4 +959,4 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1

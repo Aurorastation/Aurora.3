@@ -14,78 +14,77 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
-
-/singleton/cargo_item/advancedfirstaidkit
-	category = "medical"
-	name = "advanced first-aid kit"
-	supplier = "nanotrasen"
-	description = "Contains advanced medical treatments."
-	price = 605
-	items = list(
-		/obj/item/storage/firstaid/adv
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_multiplier = 1
-
-/singleton/cargo_item/firefirstaidkit
-	category = "medical"
-	name = "fire first-aid kit"
-	supplier = "nanotrasen"
-	description = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
-	price = 167
-	items = list(
-		/obj/item/storage/firstaid/fire
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/firstaidkit
 	category = "medical"
 	name = "first-aid kit"
 	supplier = "nanotrasen"
 	description = "It's an emergency medical kit for those serious boo-boos."
-	price = 157
+	price = 150
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
+
+/singleton/cargo_item/advancedfirstaidkit
+	category = "medical"
+	name = "advanced first-aid kit"
+	supplier = "nanotrasen"
+	description = "Contains advanced medical treatments."
+	price = 500
+	items = list(
+		/obj/item/storage/firstaid/adv
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/firefirstaidkit
+	category = "medical"
+	name = "fire first-aid kit"
+	supplier = "nanotrasen"
+	description = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	price = 450
+	items = list(
+		/obj/item/storage/firstaid/fire
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/oxygendeprivationfirstaid
 	category = "medical"
 	name = "oxygen deprivation first aid"
 	supplier = "nanotrasen"
 	description = "A box full of oxygen goodies."
-	price = 242
+	price = 450
 	items = list(
 		/obj/item/storage/firstaid/o2
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
-
+	spawn_amount = 1
 
 /singleton/cargo_item/toxinfirstaid
 	category = "medical"
 	name = "toxin first aid"
 	supplier = "nanotrasen"
 	description = "Used to treat when you have a high amount of toxins in your body."
-	price = 212
+	price = 250
 	items = list(
 		/obj/item/storage/firstaid/toxin
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bloodpack_ominus
 	category = "medical"
@@ -99,21 +98,21 @@
 	access = ACCESS_MEDICAL
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
-/singleton/cargo_item/bloodpack_ominus
+/singleton/cargo_item/bloodpack_sbs
 	category = "medical"
 	name = "SBS blood pack (x1)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with Synthetic Blood Substitute. WARNING: Not compatible with organic blood!"
-	price = 300
+	price = 270
 	items = list(
-		/obj/item/reagent_containers/blood/OMinus
+		/obj/item/reagent_containers/blood/sbs
 	)
 	access = ACCESS_MEDICAL
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bloodpacksbags
 	category = "medical"
@@ -127,63 +126,49 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
-
-/singleton/cargo_item/anesthetictank
-	category = "medical"
-	name = "anesthetic tank"
-	supplier = "nanotrasen"
-	description = "A tank with an N2O/O2 gas mix."
-	price = 200
-	items = list(
-		/obj/item/tank/anesthetic
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/butazoline_autoinjector
 	category = "medical"
 	name = "butazoline autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat severe physical trauma."
-	price = 200
+	price = 150
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/trauma
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/dermaline_autoinjector
 	category = "medical"
 	name = "dermaline autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat severe burns."
-	price = 200
+	price = 150
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/burn
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/dexplus_autoinjector
 	category = "medical"
 	name = "dexalin plus autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat oxygen deprivation."
-	price = 450
+	price = 350
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/oxygen
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/peridaxonautoinjector
 	category = "medical"
@@ -197,7 +182,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bodybags
 	category = "medical"
@@ -211,7 +196,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/injectors_box
 	category = "medical"
@@ -225,7 +210,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sterilegloves_box
 	category = "medical"
@@ -239,7 +224,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sterilemasks_box
 	category = "medical"
@@ -253,7 +238,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/syringes_box
 	category = "medical"
@@ -267,7 +252,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_dylovene
 	category = "medical"
@@ -281,7 +266,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_inaprovaline
 	category = "medical"
@@ -295,7 +280,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_thetamycin
 	category = "medical"
@@ -309,7 +294,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/dylovenebottle
 	category = "medical"
@@ -323,7 +308,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hyronalinbottle
 	category = "medical"
@@ -337,7 +322,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/inaprovalinebottle
 	category = "medical"
@@ -351,7 +336,21 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
+
+/singleton/cargo_item/soporificbottle
+	category = "medical"
+	name = "soporific bottle"
+	supplier = "nanotrasen"
+	description = "A small bottle of soporific. Just the fumes make you sleepy."
+	price = 55
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/stoxin
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/medicalbelt
 	category = "medical"
@@ -365,7 +364,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/medicalmask
 	category = "medical"
@@ -379,7 +378,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/medicalscrubs
 	category = "medical"
@@ -393,7 +392,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/medicalvoidsuit
 	category = "medical"
@@ -407,7 +406,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/medicalvoidsuithelmet
 	category = "medical"
@@ -421,7 +420,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/nanopaste
 	category = "medical"
@@ -435,7 +434,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pillbottles
 	category = "medical"
@@ -449,27 +448,13 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
-
-/singleton/cargo_item/soporificbottle
-	category = "medical"
-	name = "soporific bottle"
-	supplier = "nanotrasen"
-	description = "A small bottle of soporific. Just the fumes make you sleepy."
-	price = 55
-	items = list(
-		/obj/item/reagent_containers/glass/bottle/stoxin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/stasisbag
 	category = "medical"
 	name = "stasis bag"
-	supplier = "nanotrasen"
-	description = "A folded, non-reusable bag designed to prevent additional damage to an occupant at the cost of genetic damage."
+	supplier = "zeng_hu"
+	description = "A folded, non-reusable bag designed to keep patients in stasis for transport."
 	price = 900
 	items = list(
 		/obj/item/bodybag/cryobag
@@ -477,7 +462,21 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
+
+/singleton/cargo_item/stabilizer_harness
+	category = "medical"
+	name = "stabilizer harness"
+	supplier = "nanotrasen"
+	description = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency artificial respirator for cases of urgent lung issues."
+	price = 300
+	items = list(
+		/obj/item/auto_cpr
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 //Surgery stuff
 
@@ -502,7 +501,21 @@
 	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
+
+/singleton/cargo_item/anesthetictank
+	category = "medical"
+	name = "anesthetic tank"
+	supplier = "nanotrasen"
+	description = "A tank with an N2O/O2 gas mix."
+	price = 200
+	items = list(
+		/obj/item/tank/anesthetic
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/scalpel
 	category = "medical"
@@ -516,7 +529,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/retractor
 	category = "medical"
@@ -530,7 +543,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hemostat
 	category = "medical"
@@ -544,7 +557,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/circularsaw
 	category = "medical"
@@ -558,7 +571,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/fix_o_vein
 	category = "medical"
@@ -572,7 +585,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/cautery
 	category = "medical"
@@ -586,7 +599,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/surgicaldrill
 	category = "medical"
@@ -600,7 +613,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/surgicalcap
 	category = "medical"
@@ -614,7 +627,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bonegel
 	category = "medical"
@@ -628,7 +641,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bonesetter
 	category = "medical"
@@ -642,7 +655,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/tajaranlatexgloves
 	category = "medical"
@@ -656,7 +669,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/therapydoll
 	category = "medical"
@@ -670,7 +683,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/unathilatexgloves
 	category = "medical"
@@ -684,5 +697,5 @@
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 

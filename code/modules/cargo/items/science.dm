@@ -1,20 +1,7 @@
-/singleton/cargo_item/blankvaurcadrone
-	category = "science"
-	name = "Blank Vaurca Drone"
-	supplier = "nanotrasen"
-	description = "A brain dead, generic vaucra drone."
-	price = 300
-	items = list(
-		/mob/living/carbon/human/type_a/cargo
-	)
-	access = ACCESS_RESEARCH
-	container_type = "box"
-	groupable = FALSE
-	spawn_multiplier = 1
 
 /singleton/cargo_item/chemicalcartridge
 	category = "science"
-	name = "chemical cartridge"
+	name = "empty chemical cartridge"
 	supplier = "zeng_hu"
 	description = "A square plastic cartridge, this one is empty and thus, boring."
 	price = 25
@@ -24,7 +11,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_acetone
 	category = "science"
@@ -38,7 +25,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_aluminum
 	category = "science"
@@ -52,7 +39,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_ammonia
 	category = "science"
@@ -66,7 +53,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_carbon
 	category = "science"
@@ -80,7 +67,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_copper
 	category = "science"
@@ -94,7 +81,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_ethanol
 	category = "science"
@@ -108,7 +95,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_hydrazine
 	category = "science"
@@ -122,7 +109,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_hydrochloricacid
 	category = "science"
@@ -136,7 +123,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_iron
 	category = "science"
@@ -150,7 +137,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_lithium
 	category = "science"
@@ -164,7 +151,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_mercury
 	category = "science"
@@ -178,7 +165,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_phosphorus
 	category = "science"
@@ -192,7 +179,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_potassium
 	category = "science"
@@ -206,7 +193,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_radium
 	category = "science"
@@ -220,7 +207,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_silicon
 	category = "science"
@@ -234,7 +221,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_sodium
 	category = "science"
@@ -248,7 +235,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_sugar
 	category = "science"
@@ -262,7 +249,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_sulfur
 	category = "science"
@@ -276,7 +263,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_sulfuricacid
 	category = "science"
@@ -290,7 +277,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_tungsten
 	category = "science"
@@ -304,7 +291,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chemicalcartridge_water
 	category = "science"
@@ -318,7 +305,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_central
 	category = "science"
@@ -332,7 +319,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_odysseus_peripheral
 	category = "science"
@@ -346,7 +333,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_central
 	category = "science"
@@ -360,7 +347,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/exosuitmodulecircuitboard_ripley_peripheral
 	category = "science"
@@ -374,7 +361,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hazmathood
 	category = "science"
@@ -388,7 +375,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hazmatsuit
 	category = "science"
@@ -402,7 +389,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/igniter
 	category = "science"
@@ -416,7 +403,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/mindshieldfiringpin
 	category = "science"
@@ -430,21 +417,21 @@
 	access = ACCESS_HEADS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/positronicbrain
 	category = "science"
 	name = "positronic brain"
 	supplier = "hephaestus"
-	description = "A cube of shining metal, four inches to a side and covered in shallow grooves."
-	price = 2000
+	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of synthetics across the galaxy."
+	price = 7500
 	items = list(
 		/obj/item/device/mmi/digital/posibrain
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/protohuman
 	category = "science"
@@ -458,7 +445,7 @@
 	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/proto_skrell
 	category = "science"
@@ -472,7 +459,7 @@
 	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/proto_tajara
 	category = "science"
@@ -486,7 +473,7 @@
 	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/proto_unathi
 	category = "science"
@@ -500,7 +487,21 @@
 	access = ACCESS_RESEARCH
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
+
+/singleton/cargo_item/blankvaurcadrone
+	category = "science"
+	name = "Blank Vaurca Drone"
+	supplier = "zora"
+	description = "A surplus Vaurca drone body. Thousands of these are thrown at the wayside every day. The everyman's relatively-ethical solution to organ harvesting."
+	price = 300
+	items = list(
+		/mob/living/carbon/human/type_a/cargo
+	)
+	access = ACCESS_RESEARCH
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
 
 /singleton/cargo_item/proximitysensor
 	category = "science"
@@ -514,7 +515,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/testrange_firingpin
 	category = "science"
@@ -528,7 +529,7 @@
 	access = ACCESS_RESEARCH
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/timer
 	category = "science"
@@ -542,7 +543,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_bishop
 	category = "science"
@@ -556,7 +557,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_g1
 	category = "science"
@@ -570,7 +571,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_g2
 	category = "science"
@@ -584,7 +585,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_heph
 	category = "science"
@@ -598,7 +599,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_synthskin
 	category = "science"
@@ -612,7 +613,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_xion
 	category = "science"
@@ -626,7 +627,7 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/torso_zenghu
 	category = "science"
@@ -640,5 +641,5 @@
 	access = ACCESS_ROBOTICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 

@@ -20,7 +20,7 @@
 	/// The base price of the item, in credits.
 	var/price = 1
 
-	/// The list of objects this item has. Duplicate items are handled by the "spawn_multiplier" variable.
+	/// The list of objects this item has. Duplicate items are handled by the "spawn_amount" variable.
 	var/list/items = list()
 
 	/// The req_access level required to order/open the crate.
@@ -33,7 +33,7 @@
 	var/groupable = TRUE
 
 	/// How many of the given items to spawn. A value of 2 spawns double the items, 5 spawns 5x, etc. Applied to EVERYTHING in the "items" list.
-	var/spawn_multiplier = 1
+	var/spawn_amount = 1
 
 	/// The numerical ID of this item. Assigned automatically during initialization. DO NOT MANUALLY MODIFY.
 	var/id = 0

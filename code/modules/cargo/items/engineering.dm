@@ -23,7 +23,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/plasticsheets
 	category = "engineering"
@@ -37,7 +37,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/steelsheets
 	category = "engineering"
@@ -51,7 +51,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/woodplanks
 	category = "engineering"
@@ -65,7 +65,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/oxygentank
 	category = "engineering"
@@ -79,7 +79,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/phorontank
 	category = "engineering"
@@ -93,7 +93,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/antifuelgrenade
 	category = "engineering"
@@ -107,7 +107,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/atmosvoidsuit
 	category = "engineering"
@@ -121,7 +121,7 @@
 	access = ACCESS_ATMOSPHERICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/atmosphericsvoidsuithelmet
 	category = "engineering"
@@ -135,7 +135,7 @@
 	access = ACCESS_ATMOSPHERICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/brownwebbingvest
 	category = "engineering"
@@ -149,7 +149,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_air
 	category = "engineering"
@@ -163,7 +163,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_bo
 	category = "engineering"
@@ -177,7 +177,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_co2
 	category = "engineering"
@@ -191,7 +191,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_h2
 	category = "engineering"
@@ -205,7 +205,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_he
 	category = "engineering"
@@ -219,7 +219,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_n2
 	category = "engineering"
@@ -233,7 +233,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_n2o
 	category = "engineering"
@@ -247,7 +247,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_o2
 	category = "engineering"
@@ -261,7 +261,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/canister_phoron
 	category = "engineering"
@@ -275,7 +275,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/cardboardsheet
 	category = "engineering"
@@ -289,7 +289,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/carpet
 	category = "engineering"
@@ -312,7 +312,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/circuitboard_bubbleshield
 	category = "engineering"
@@ -326,7 +326,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/circuitboard_hullshield
 	category = "engineering"
@@ -340,7 +340,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/circuitboard_shieldcapacitor
 	category = "engineering"
@@ -354,7 +354,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/circuitboard_solarcontrol
 	category = "engineering"
@@ -368,7 +368,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/coolanttank
 	category = "engineering"
@@ -382,7 +382,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/disposalpipedispenser
 	category = "engineering"
@@ -396,7 +396,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/toolbox
 	category = "engineering"
@@ -410,7 +410,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/electricaltoolbox
 	category = "engineering"
@@ -424,7 +424,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emergencytoolbox
 	category = "engineering"
@@ -438,7 +438,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emaccelerationchamber
 	category = "engineering"
@@ -452,7 +452,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emcontainmentgridcenter
 	category = "engineering"
@@ -466,7 +466,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emcontainmentgridleft
 	category = "engineering"
@@ -480,7 +480,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emcontainmentgridright
 	category = "engineering"
@@ -494,7 +494,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emergencybluespacerelaycircuit
 	category = "engineering"
@@ -508,7 +508,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/emitter
 	category = "engineering"
@@ -522,7 +522,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/doorlock_engineering
 	category = "engineering"
@@ -536,7 +536,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/engineeringvoidsuit
 	category = "engineering"
@@ -550,7 +550,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/engineeringvoidsuithelmet
 	category = "engineering"
@@ -564,7 +564,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/fieldgenerator
 	category = "engineering"
@@ -578,7 +578,7 @@
 	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/fireaxe
 	category = "engineering"
@@ -592,7 +592,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/fueltank
 	category = "engineering"
@@ -606,7 +606,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/gasmask
 	category = "engineering"
@@ -620,9 +620,9 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hardhat
 	category = "engineering"
@@ -636,7 +636,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hazardvest
 	category = "engineering"
@@ -650,7 +650,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/toolbelt
 	category = "engineering"
@@ -664,7 +664,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/highcapacitypowercell
 	category = "engineering"
@@ -678,7 +678,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/powercell
 	category = "engineering"
@@ -692,7 +692,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hoistkit
 	category = "engineering"
@@ -706,7 +706,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hydrogentank
 	category = "engineering"
@@ -720,7 +720,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/inflatablebarrierbox
 	category = "engineering"
@@ -734,7 +734,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/insulatedgloves
 	category = "engineering"
@@ -748,7 +748,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/packagedantimatterreactorsection
 	category = "engineering"
@@ -762,7 +762,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/debugger
 	category = "engineering"
@@ -776,7 +776,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 2
+	spawn_amount = 2
 
 /singleton/cargo_item/paintgun
 	category = "engineering"
@@ -790,7 +790,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/particleacceleratorcontrolcomputer
 	category = "engineering"
@@ -804,7 +804,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/particlefocusingemlens
 	category = "engineering"
@@ -818,7 +818,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pipedispenser
 	category = "engineering"
@@ -832,7 +832,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pipepainter
 	category = "engineering"
@@ -846,7 +846,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/portableladder
 	category = "engineering"
@@ -860,7 +860,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/radiationhood
 	category = "engineering"
@@ -874,7 +874,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/radiationsuit
 	category = "engineering"
@@ -888,7 +888,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/researchshuttleconsoleboard
 	category = "engineering"
@@ -902,7 +902,7 @@
 	access = ACCESS_SECURITY
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/singularitygenerator
 	category = "engineering"
@@ -916,7 +916,7 @@
 	access = ACCESS_HEADS
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/superconductivemagneticcoil
 	category = "engineering"
@@ -930,7 +930,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/supermattercore
 	category = "engineering"
@@ -944,7 +944,7 @@
 	access = ACCESS_HEADS
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/thermoelectricgenerator
 	category = "engineering"
@@ -960,7 +960,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 	amount = 3
 
 /singleton/cargo_item/solarpanelassembly
@@ -975,7 +975,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/trackerelectronics
 	category = "engineering"
@@ -989,7 +989,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/watertank
 	category = "engineering"
@@ -1003,7 +1003,7 @@
 	access = ACCESS_ENGINE
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/weldinghelmet
 	category = "engineering"
@@ -1017,7 +1017,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/antimattercontainmentjar
 	category = "engineering"
@@ -1031,7 +1031,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/antimattercontrolunit
 	category = "engineering"
@@ -1045,7 +1045,7 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/alphaparticlegenerationarray
 	category = "engineering"
@@ -1059,4 +1059,4 @@
 	access = ACCESS_CE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1

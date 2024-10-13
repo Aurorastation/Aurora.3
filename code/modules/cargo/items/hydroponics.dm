@@ -10,7 +10,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/apron
 	category = "hydroponics"
@@ -24,7 +24,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/beenet
 	category = "hydroponics"
@@ -38,7 +38,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/beesmoker
 	category = "hydroponics"
@@ -52,7 +52,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/beehiveassembly
 	category = "hydroponics"
@@ -66,7 +66,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 2
+	spawn_amount = 2
 
 /singleton/cargo_item/cat
 	category = "hydroponics"
@@ -80,7 +80,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chainsaw
 	category = "hydroponics"
@@ -94,7 +94,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chicken
 	category = "hydroponics"
@@ -108,7 +108,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/corgi
 	category = "hydroponics"
@@ -122,7 +122,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/cow
 	category = "hydroponics"
@@ -136,7 +136,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/farwacubebox
 	category = "hydroponics"
@@ -150,7 +150,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/fatshouter
 	category = "hydroponics"
@@ -164,7 +164,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/floradiskbox
 	category = "hydroponics"
@@ -178,7 +178,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/goat
 	category = "hydroponics"
@@ -192,7 +192,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hakhma
 	category = "hydroponics"
@@ -206,7 +206,7 @@
 	access = 0
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/honeyextractor
 	category = "hydroponics"
@@ -220,7 +220,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/hydroponicstray
 	category = "hydroponics"
@@ -234,7 +234,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/icetunneler
 	category = "hydroponics"
@@ -248,7 +248,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/leathergloves
 	category = "hydroponics"
@@ -262,7 +262,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/monkeycubebox
 	category = "hydroponics"
@@ -276,7 +276,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/neaeracubebox
 	category = "hydroponics"
@@ -290,7 +290,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/packetofdionanodes
 	category = "hydroponics"
@@ -304,7 +304,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/packetofkudzuseeds
 	category = "hydroponics"
@@ -318,7 +318,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/packetofstrangeplantnodes
 	category = "hydroponics"
@@ -332,7 +332,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/plantanalyzer
 	category = "hydroponics"
@@ -346,7 +346,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/plant_b_gone
 	category = "hydroponics"
@@ -360,7 +360,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/queenbeepack
 	category = "hydroponics"
@@ -374,7 +374,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sampleoflibertycapspores
 	category = "hydroponics"
@@ -388,7 +388,7 @@
 	access = ACCESS_HYDROPONICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sampleofreishispores
 	category = "hydroponics"
@@ -402,7 +402,7 @@
 	access = ACCESS_HYDROPONICS
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/wulumunushaseed
 	category = "hydroponics"
@@ -416,7 +416,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/schlorrgoegg
 	category = "hydroponics"
@@ -430,7 +430,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/steelhatchet
 	category = "hydroponics"
@@ -444,7 +444,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/steelminihoe
 	category = "hydroponics"
@@ -458,7 +458,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/stokcubebox
 	category = "hydroponics"
@@ -472,7 +472,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/vkrexicubebox
 	category = "hydroponics"
@@ -486,7 +486,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/weedkillergrenade
 	category = "hydroponics"
@@ -500,5 +500,5 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 

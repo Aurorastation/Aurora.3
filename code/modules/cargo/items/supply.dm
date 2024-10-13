@@ -10,7 +10,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/replacementlights_box
 	category = "supply"
@@ -24,7 +24,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bucket
 	category = "supply"
@@ -38,7 +38,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/chestdrawer
 	category = "supply"
@@ -52,7 +52,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/cleanergrenade
 	category = "supply"
@@ -66,7 +66,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/clipboard
 	category = "supply"
@@ -80,7 +80,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/electronicblinktoygame
 	category = "supply"
@@ -94,7 +94,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/foamdart
 	category = "supply"
@@ -108,7 +108,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/foamdartcrossbow
 	category = "supply"
@@ -122,7 +122,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/folderblue
 	category = "supply"
@@ -136,7 +136,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/folderblue
 	category = "supply"
@@ -150,7 +150,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/folderred
 	category = "supply"
@@ -164,7 +164,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/gravitationalsingularitytoy
 	category = "supply"
@@ -178,7 +178,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/trumpet
 	category = "supply"
@@ -192,7 +192,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 
 /singleton/cargo_item/guitar
@@ -207,7 +207,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/violin
 	category = "supply"
@@ -221,7 +221,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/polyguitar
 	category = "supply"
@@ -235,7 +235,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/piano
 	category = "supply"
@@ -249,7 +249,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pianosoundsynthesizer
 	category = "supply"
@@ -263,7 +263,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/handlabeler
 	category = "supply"
@@ -277,7 +277,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/inflatableduck
 	category = "supply"
@@ -291,7 +291,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/lightreplacer
 	category = "supply"
@@ -305,7 +305,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/miningvoidsuit
 	category = "supply"
@@ -319,7 +319,7 @@
 	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/miningvoidsuithelmet
 	category = "supply"
@@ -333,7 +333,7 @@
 	access = ACCESS_MINING
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/mop
 	category = "supply"
@@ -347,7 +347,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/mopbucket
 	category = "supply"
@@ -361,7 +361,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/paperbin
 	category = "supply"
@@ -375,7 +375,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/pen
 	category = "supply"
@@ -389,7 +389,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/penblue
 	category = "supply"
@@ -403,7 +403,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/penred
 	category = "supply"
@@ -417,7 +417,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/penfountain
 	category = "supply"
@@ -431,7 +431,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/producebox
 	category = "supply"
@@ -445,7 +445,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/randomplushies
 	category = "supply"
@@ -459,7 +459,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 4
+	spawn_amount = 4
 
 /singleton/cargo_item/redlasertagequipmentset
 	category = "supply"
@@ -475,7 +475,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/bluelasertagequipmentset
 	category = "supply"
@@ -491,7 +491,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/replicakatana
 	category = "supply"
@@ -505,7 +505,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/snappop
 	category = "supply"
@@ -519,7 +519,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/spacecleaner
 	category = "supply"
@@ -533,7 +533,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/spacespices
 	category = "supply"
@@ -547,7 +547,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/tajaranelectricalgloves
 	category = "supply"
@@ -561,7 +561,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/taperoll
 	category = "supply"
@@ -575,7 +575,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/tonercartridge
 	category = "supply"
@@ -589,7 +589,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 2
+	spawn_amount = 2
 
 /singleton/cargo_item/toysword
 	category = "supply"
@@ -603,7 +603,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/trashbag
 	category = "supply"
@@ -617,7 +617,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/unathielectricalgloves
 	category = "supply"
@@ -631,7 +631,7 @@
 	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/waterballoons
 	category = "supply"
@@ -645,7 +645,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 5
+	spawn_amount = 5
 
 /singleton/cargo_item/wetfloorsign
 	category = "supply"
@@ -659,7 +659,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/crayonbox
 	category = "supply"

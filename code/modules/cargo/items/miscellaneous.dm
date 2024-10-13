@@ -10,7 +10,7 @@
 	access = 0
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/sculptingblock
 	category = "miscellaneous"
@@ -24,7 +24,7 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_multiplier = 1
+	spawn_amount = 1
 
 /singleton/cargo_item/spaceac
 	name = "space air conditioner"
@@ -37,5 +37,5 @@
 	access = 0
 	container_type = "box"
 	groupable = TRUE
-	spawn_multiplier = 1
+	spawn_amount = 1
 

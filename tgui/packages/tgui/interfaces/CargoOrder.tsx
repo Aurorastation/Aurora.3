@@ -188,9 +188,11 @@ export const MainPage = (props, context) => {
                 </LabeledList.Item>
               </Tooltip>
               {item.access !== 0 && (
-                <LabeledList.Item label="Restricted Item: ">
-                  <Icon name="exclamation-triangle" /> Restricted Access
-                </LabeledList.Item>
+                <Tooltip content="This item requires special access.">
+                  <LabeledList.Item label="Access">
+                    <Icon name="exclamation-triangle" /> Restricted
+                  </LabeledList.Item>
+                </Tooltip>
               )}
             </LabeledList>
           </Section>
