@@ -1532,10 +1532,11 @@
 		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
 
 /mob/living/carbon/human/update_equipment_speed_mods()
-	if(species && (species.flags & NO_EQUIP_SPEEDMODS))
+	//Do not apply the equipment mods if the specie is not affected by them
+	if(species?.flags & NO_EQUIP_SPEEDMODS)
 		return
-	else
-		. = ..()
+
+	. = ..()
 
 
 ///Get all items in our possession that should affect our movespeed
