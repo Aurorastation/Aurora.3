@@ -120,26 +120,26 @@ SUBSYSTEM_DEF(cargo)
 		I.get_adjusted_price()
 
 		// Check if the category exists in SScargo.cargo_categories
-		if (I.category && SScargo.cargo_categories[I.category])
+		if (!(I.category && SScargo.cargo_categories[I.category]))
+			log_subsystem_cargo("Error: Unable to find category '[I.category]' for item '[I.name]. Skipping.")
+			continue
+		else
 			var/singleton/cargo_category/item_category = SScargo.cargo_categories[I.category]
 			if (!item_category.items)
 				item_category.items = list()
 			item_category.items += I
 			log_subsystem_cargo("Inserted item '[I.name]' into category '[I.category]' with ID '[I.id]'.")
-		else
-			log_subsystem_cargo("Error: Unable to find category '[I.category]' for item '[I.name]. Skipping.")
-			continue
 
-		if (I.supplier && SScargo.cargo_suppliers[I.supplier])
+		if (!(I.supplier && SScargo.cargo_suppliers[I.supplier]))
+			log_subsystem_cargo("Error: Unable to find supplier '[I.supplier]' for item '[I.name]. Skipping.")
+			continue
+		else
 			var/singleton/cargo_supplier/item_supplier = SScargo.cargo_suppliers[I.supplier]
 			if (!item_supplier.items)
 				item_supplier.items = list()
 			item_supplier.items += I
 			I.supplier_data = item_supplier
 			log_subsystem_cargo("Inserted item '[I.name]' into supplier '[I.supplier]'.")
-		else
-			log_subsystem_cargo("Error: Unable to find supplier '[I.supplier]' for item '[I.name]. Skipping.")
-			continue
 
 	log_subsystem_cargo("Finished loading cargo items.")
 
@@ -597,7 +597,7 @@ SUBSYSTEM_DEF(cargo)
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
-			for(var/j = 1; j <= coi.ci.spawn_multiplier; j++)
+			for(var/_ in 1 to coi.ci.spawn_multiplier)
 				for(var/item_typepath in coi.ci.items)
 					new item_typepath(crate)
 

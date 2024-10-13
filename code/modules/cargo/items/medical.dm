@@ -147,10 +147,10 @@
 	category = "medical"
 	name = "butazoline autoinjector"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat physical trauma."
+	description = "An autoinjector designed to treat severe physical trauma."
 	price = 200
 	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/butazoline
+		/obj/item/reagent_containers/hypospray/autoinjector/trauma
 	)
 	access = 0
 	container_type = "crate"
@@ -161,10 +161,10 @@
 	category = "medical"
 	name = "dermaline autoinjector"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat burns."
+	description = "An autoinjector designed to treat severe burns."
 	price = 200
 	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/dermaline
+		/obj/item/reagent_containers/hypospray/autoinjector/burn
 	)
 	access = 0
 	container_type = "crate"
