@@ -4,12 +4,12 @@
 	description = "A merchant ship of the New Kingdom's Mercantile Flotilla."
 
 	prefix = "ships/nka/nka_merchant/"
-	suffixes = list("nka_merchant.dmm")
+	suffix = "nka_merchant.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
-	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
 	unit_test_groups = list(3)

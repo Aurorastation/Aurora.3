@@ -122,7 +122,7 @@
 	in_use = null	//release lock
 
 /datum/shuttle/autodock/proc/get_travel_time()
-	if(isStationLevel(current_location.loc.z) && isStationLevel(next_location.loc.z) && move_time > minimum_move_time)
+	if(is_station_level(current_location.loc.z) && is_station_level(next_location.loc.z) && move_time > minimum_move_time)
 		return minimum_move_time
 	else
 		return move_time

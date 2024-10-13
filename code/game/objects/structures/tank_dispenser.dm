@@ -5,7 +5,7 @@
 	icon_state = "dispenser"
 	density = TRUE
 	anchored = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/max_tanks = 20
 	var/oxygen_tanks = 10
 	var/phoron_tanks = 10
@@ -48,8 +48,8 @@
 /obj/structure/dispenser/attack_hand(mob/user)
 	user.set_machine(src)
 	var/dat = "<br>"
-	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<a href='?src=\ref[src];oxygen=1'>Dispense</a>" : "empty"]<br>"
-	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<a href='?src=\ref[src];phoron=1'>Dispense</a>" : "empty"]"
+	dat += "Oxygen Tanks: [oxygen_tanks] - [oxygen_tanks ? "<a href='?src=[REF(src)];oxygen=1'>Dispense</a>" : "empty"]<br>"
+	dat += "Phoron Tanks: [phoron_tanks] - [phoron_tanks ? "<a href='?src=[REF(src)];phoron=1'>Dispense</a>" : "empty"]"
 
 	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
 	dispenser_win.set_content(dat)

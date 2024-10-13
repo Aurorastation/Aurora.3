@@ -16,7 +16,7 @@
 	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000)
-	projectile_type = /obj/item/projectile/beam/plasmacutter
+	projectile_type = /obj/projectile/beam/plasmacutter
 	cell_type = /obj/item/cell/high
 	charge_cost = 666.66 // 15 shots on a high cap cell
 	needspin = FALSE
@@ -66,7 +66,7 @@
 	cell_type = null
 	max_shots = 15
 
-/obj/item/projectile/beam/plasmacutter
+/obj/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
 	damage = 20
@@ -80,19 +80,18 @@
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
-	maiming = TRUE
 	maim_rate = 1
 
-/obj/item/projectile/beam/plasmacutter/proc/pass_check(var/turf/simulated/mineral/mine_turf)
+/obj/projectile/beam/plasmacutter/proc/pass_check(var/turf/simulated/mineral/mine_turf)
 	if(mineral_passes <= 0)
 		return list(null, FALSE) // the projectile stops
 	mineral_passes--
-	var/mineral_destroyed = on_impact(mine_turf)
-	return list(PROJECTILE_CONTINUE, mineral_destroyed) // the projectile tunnels deeper
+	var/mineral_destroyed = on_hit(mine_turf)
+	return list(BULLET_ACT_HIT, mineral_destroyed) // the projectile tunnels deeper
 
-/obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	if(istype(A, /turf/simulated/mineral))
-		var/turf/simulated/mineral/M = A
+/obj/projectile/beam/plasmacutter/on_hit(atom/target, blocked, def_zone)
+	if(istype(target, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = target
 		if(prob(33))
 			M.GetDrilled(1)
 			return TRUE

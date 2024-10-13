@@ -121,7 +121,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -539,15 +539,6 @@
 	icon_state = "tauceti_pilot"
 	item_state = "tauceti_pilot"
 	worn_state = "tauceti_pilot"
-
-/obj/item/clothing/under/legion/tcaf
-	name = "\improper TCAF armsman uniform"
-	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
-	contained_sprite = TRUE
-	icon_state = "tcaf_armsman_uniform"
-	item_state = "tcaf_armsman_uniform"
-	worn_state = "tcaf_armsman_uniform"
 
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"

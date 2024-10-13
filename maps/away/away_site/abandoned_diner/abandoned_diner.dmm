@@ -2627,7 +2627,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	dir = 2;
 	icon_state = "pipe-j2"
 	},
 /obj/structure/cable/green{
@@ -2826,7 +2825,6 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/bed/stool/chair/folding{
@@ -3114,7 +3112,6 @@
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
@@ -3491,7 +3488,6 @@
 	id = "diner_a"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3691,7 +3687,6 @@
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
@@ -4209,7 +4204,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,

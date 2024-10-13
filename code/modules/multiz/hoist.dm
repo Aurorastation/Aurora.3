@@ -229,7 +229,8 @@
 	collapse_kit()
 
 /obj/structure/hoist/proc/can_move_dir(direction)
-	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	switch(direction)
 		if (UP)
 			if (!isopenturf(dest)) // can't move into a solid tile
@@ -247,7 +248,8 @@
 /obj/structure/hoist/proc/move_dir(direction)
 	if (!can_move_dir(direction))
 		return FALSE
-	var/turf/move_dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/move_dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	source_hook.forceMove(move_dest)
 	if (hoistee)
 		hoistee.hoist_act(move_dest)

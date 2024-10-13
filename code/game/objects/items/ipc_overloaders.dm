@@ -3,10 +3,10 @@
 	desc_extended = "An overloader is a small disposable stick drive, commonly loaded with a program designed to temporarily reconfigure an IPC's priorities or inputs."
 	icon = 'icons/obj/item/ipc_overloaders.dmi'
 	icon_state = "classic"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	var/uses = 2
-	var/effect_time = 30 SECONDS
+	var/effect_time = 90 SECONDS
 	var/effects = 4
 
 	var/static/list/step_up_effects = list(
@@ -258,8 +258,8 @@
 	icon_state = "box"
 	update_icon_on_init = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_TINY
 	storage_slots = 1
 	can_hold = list(/obj/item/ipc_overloader)
 	use_sound = 'sound/items/storage/briefcase.ogg'

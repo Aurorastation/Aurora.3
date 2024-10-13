@@ -8,8 +8,7 @@
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_LEG_GUARDS
-	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -140,6 +139,30 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/hoplan
+	name = "hoplan thigh protector"
+	desc = "Ablative plating fashioned to sit around the thigh from the hips, \
+	made to link together with an adjoining breastplate. This ancient style is reinvigorated with ablative metals and ballistic padding."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_thigh_protector"
+	item_state = "hoplan_thigh_protector"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/leg_guard/hoplan/skirt
+	name = "hoplan ballistic skirt"
+	desc = "A long skirt that falls down to one's ankles with an outer layer of ballistic padding, and woven in pouches featuring ablative plates."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_ballistic_skirt"
+	item_state = "hoplan_ballistic_skirt"
+	contained_sprite = TRUE
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -149,7 +172,6 @@
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARM_GUARDS
-	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	body_parts_covered = HANDS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -158,7 +180,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
@@ -286,3 +308,19 @@
 	name = "striped TCAF carapace arm guards"
 	icon_state = "tcaf_armguards_stripe"
 	item_state = "tcaf_armguards_stripe"
+
+/obj/item/clothing/accessory/arm_guard/hoplan
+	name = "hoplan sleeves"
+	desc = "Big and poofy and reminiscent of an era more enlightened. \
+	These are lined with special fabric woven in the laboratories of Pactolus to provide armor to an otherwise gaudy fashion piece."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_sleeves"
+	item_state = "hoplan_sleeves"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)

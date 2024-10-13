@@ -140,8 +140,7 @@
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
 
-/datum/gear/augment/machine
-	abstract_type = /datum/gear/augment/machine
+ABSTRACT_TYPE(/datum/gear/augment/machine)
 
 /datum/gear/augment/machine/gustatorial
 	display_name = "gustatorial centre (tongue)"

@@ -1,7 +1,7 @@
 /obj/item/device/suit_cooling_unit
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/item/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
@@ -166,8 +166,8 @@
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
-				if(attacking_item.w_class != ITEMSIZE_NORMAL)
-					to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here."))
+				if(attacking_item.w_class != WEIGHT_CLASS_NORMAL)
+					to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < WEIGHT_CLASS_NORMAL ? "small" : "large"] to fit here."))
 					return
 				user.drop_from_inventory(attacking_item,src)
 				cell = attacking_item

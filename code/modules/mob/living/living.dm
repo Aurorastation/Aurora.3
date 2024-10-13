@@ -282,7 +282,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = Clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxHealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -909,7 +909,13 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+	ability_master = new /atom/movable/screen/movable/ability_master(FALSE, src)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
 
@@ -953,11 +959,12 @@ default behaviour is:
 	var/test_types = test.find_type()
 	. = (eat_types & test_types) == test_types
 
-/mob/living/Crossed(var/atom/movable/AM)
-	if(istype(AM, /mob/living/heavy_vehicle))
-		var/mob/living/heavy_vehicle/MB = AM
+/mob/living/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/MB = arrived
 		MB.trample(src)
-	..()
 
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()
@@ -1060,3 +1067,7 @@ default behaviour is:
 
 /mob/living/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "robot" : ..()
+
+///Performs the aftereffects of blocking a projectile.
+/mob/living/proc/block_projectile_effects()
+	return

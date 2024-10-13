@@ -215,7 +215,7 @@
 		setup_for_overmap(overmap_ship, overmap_hazard)
 
 	if(!affecting_z)
-		affecting_z = SSatlas.current_map.station_levels
+		affecting_z = SSmapping.levels_by_trait(ZTRAIT_STATION)
 
 	// event needs to be responsible for this, as stuff like APLUs currently make their own events for curious reasons
 	SSevents.active_events += src

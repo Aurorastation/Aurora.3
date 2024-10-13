@@ -13,7 +13,7 @@
 	icon_state = "sampler"
 	item_state = "sampler"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	/**
 	 * Which attachment we are using
 	 */
@@ -75,7 +75,7 @@
 	if(I)
 		AddOverlays(I)
 
-/obj/item/sampler/attack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/sampler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!vial || vial.reagents.total_volume)
 		return ..()
 	else

@@ -25,6 +25,7 @@
 /datum/gear/utility/purse
 	display_name = "purse"
 	description = "A small, fashionable bag typically worn over the shoulder."
+	slot = slot_back
 	path = /obj/item/storage/backpack/satchel/pocketbook/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -46,6 +47,12 @@
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
 	path = /obj/item/journal
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/notepad
+	display_name = "notepad"
+	description = "A notepad for jotting down notes in meetings or interrogations."
+	path = /obj/item/journal/notepad
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen

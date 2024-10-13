@@ -1,5 +1,5 @@
 use crate::mapmanip::GridMap;
-use dmmtools::dmm::{self, Coord2};
+use dmmtools::dmm::{self, Coord3};
 use eyre::ContextCompat;
 use fxhash::FxHashMap;
 use std::collections::BTreeSet;
@@ -52,13 +52,15 @@ pub fn to_dict_map(grid_map: &GridMap) -> eyre::Result<dmm::Map> {
 
     for x in 1..(grid_map.size.x + 1) {
         for y in 1..(grid_map.size.y + 1) {
-            let coord = Coord2::new(x, y);
-            if let Some(tile) = grid_map.grid.get(&coord) {
-                let key = dictionary_reverse.get(&tile.prefabs).unwrap().clone();
-                dict_map.dictionary.insert(key, tile.prefabs.clone());
-                dict_map.grid[coord3_to_index(coord.z(1), grid_map.size)] = key;
-            } else {
-                panic!();
+            for z in 1..(grid_map.size.z + 1) {
+                let coord = Coord3::new(x, y, z);
+                if let Some(tile) = grid_map.grid.get(&coord) {
+                    let key = dictionary_reverse.get(&tile.prefabs).unwrap().clone();
+                    dict_map.dictionary.insert(key, tile.prefabs.clone());
+                    dict_map.grid[coord3_to_index(coord, grid_map.size)] = key;
+                } else {
+                    eyre::bail!("to_dict_map fail; grid map has no coord: {coord:?}");
+                }
             }
         }
     }

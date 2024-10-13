@@ -1,7 +1,7 @@
 var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
-#define SANITIZE_SPEED(speed) SIGN(speed) * Clamp(abs(speed), 0, max_speed)
+#define SANITIZE_SPEED(speed) SIGN(speed) * clamp(abs(speed), 0, max_speed)
 #define CHANGE_SPEED_BY(speed_var, v_diff) \
 	v_diff = SANITIZE_SPEED(v_diff);\
 	if(!MOVING(speed_var + v_diff)) \
@@ -31,28 +31,37 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/list/known_ships = list()		//List of ships known at roundstart - put types here.
 	var/base_sensor_visibility
 
-	vessel_mass = 10000             	//tonnes, arbitrary number, affects acceleration provided by engines
-	var/vessel_size = SHIP_SIZE_LARGE	//arbitrary number, affects how likely are we to evade meteors
-	var/max_speed = 1/(1 SECOND)        //"speed of light" for the ship, in turfs/tick.
-	var/min_speed = 1/(2 MINUTES)       // Below this, we round speed to 0 to avoid math errors.
+	/// Tonnes, arbitrary number, affects acceleration provided by engines. Will help determine the speed of the ship.
+	vessel_mass = 10000
+	/// Arbitrary number, affects how likely the ship is to evade meteors.
+	var/vessel_size = SHIP_SIZE_LARGE
+	/// The "speed of light" for the ship, in turfs/tick.
+	var/max_speed = 1/(1 SECOND)
+	/// Below this, we round speed to 0 to avoid math errors.
+	var/min_speed = 1/(2 MINUTES)
 
-	var/list/speed = list(0,0)          //speed in x,y direction
-	var/list/position = list(0,0)       // position within a tile.
-	var/last_burn = 0                   // worldtime when ship last acceleated
-	var/burn_delay = 1 SECOND           // how often ship can do burns
-	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
+	/// Ship speed in x,y direction
+	var/list/speed = list(0,0)
+	/// The ship's position within a tile.
+	var/list/position = list(0,0)
+	/// The worldtime when ship last accelerated
+	var/last_burn = 0
+	/// Determines how often the ship can accelerate or decelerate.
+	var/burn_delay = 1 SECOND
+	/// The direction ships fly towards. Make sure this is correct or else entry points will not work correctly.
+	var/fore_dir = NORTH
 	var/last_combat_roll = 0
 	var/last_turn = 0
 	var/last_combat_turn = 0
 
 	var/list/engines = list()
-	var/engines_state = 0 //global on/off toggle for all engines
-	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
-	var/halted = 0        //admin halt or other stop.
+	var/engines_state = 0 // Global on/off toggle for all engines.
+	var/thrust_limit = 1  // Global thrust limit for all engines, 0..1
+	var/halted = 0        // Admin halt or other stop.
 
 	comms_support = TRUE
 
-	var/list/colors = list() //Pick a color from this list on init
+	var/list/colors = list() // Pick a color from this list on init.
 
 /obj/effect/overmap/visitable/ship/Initialize()
 	. = ..()

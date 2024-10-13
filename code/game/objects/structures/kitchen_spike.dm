@@ -67,7 +67,10 @@
 	if (!mover)
 		return 1
 
-	if(istype(mover,/obj/item/projectile) && density)
+	if(mover.movement_type & PHASING)
+		return TRUE
+
+	if(istype(mover,/obj/projectile) && density)
 		if (!occupied && prob(80))
 		//Wiry frame, usually wont be cover
 			return 1

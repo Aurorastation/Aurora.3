@@ -56,7 +56,7 @@ SUBSYSTEM_DEF(icon_smooth)
 			continue
 
 		if((smoothing_atom.flags_1 & INITIALIZED_1) && !(smoothing_atom.icon_update_queued))
-			smooth_icon(smoothing_atom)
+			smoothing_atom.smooth_icon()
 		else
 			deferred += smoothing_atom
 
@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(icon_smooth)
 
 /datum/controller/subsystem/icon_smooth/Initialize()
 	for (var/zlevel = 1 to world.maxz)
-		smooth_zlevel(zlevel, FALSE)
+		smooth_zlevel(zlevel)
 
 	if (GLOB.config.fastboot)
 		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
@@ -94,7 +94,7 @@ SUBSYSTEM_DEF(icon_smooth)
 		if(QDELETED(smoothing_atom) || !(smoothing_atom.smoothing_flags & SMOOTH_QUEUED) || !smoothing_atom.z)
 			continue
 
-		smooth_icon(smoothing_atom)
+		smoothing_atom.smooth_icon()
 
 		CHECK_TICK
 

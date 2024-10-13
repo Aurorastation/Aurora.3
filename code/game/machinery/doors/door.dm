@@ -207,8 +207,11 @@
 
 
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group) return !block_air_zones
+	if(air_group)
+		return !block_air_zones
 	if (istype(mover))
+		if(mover.movement_type & PHASING)
+			return TRUE
 		if(mover.pass_flags & PASSGLASS)
 			return !opacity
 		if(density && hashatch && mover.pass_flags & PASSDOORHATCH)
@@ -236,17 +239,19 @@
 		else				do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
-	..()
+/obj/machinery/door/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	var/damage = Proj.get_structure_damage()
+	var/damage = hitting_projectile.get_structure_damage()
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
-			switch (Proj.damage_type)
+			switch (hitting_projectile.damage_type)
 				if(DAMAGE_BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
 					new /obj/item/stack/rods(src.loc, 3)
@@ -259,13 +264,17 @@
 		take_damage(min(damage, 100))
 
 
-/obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
+/obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		tforce = 15 * (speed/5)
-	else
-		tforce = AM:throwforce * (speed/5)
+	if(!throwingdatum)
+		return
+
+	if(ismob(hitting_atom))
+		tforce = 15 * (throwingdatum.speed/5)
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce * (throwingdatum.speed/5)
 
 	if (tforce > 0)
 		var/volume = 100
@@ -273,7 +282,6 @@
 			volume *= (tforce / 20)
 		playsound(src.loc, hitsound, volume, TRUE)
 		take_damage(tforce)
-		return
 
 /obj/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))

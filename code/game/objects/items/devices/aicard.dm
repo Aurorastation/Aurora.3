@@ -3,7 +3,7 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
 	var/flush = 0
@@ -22,8 +22,9 @@
 		message += SPAN_WARNING("inactive.")
 	. += message
 
-/obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
-	if (!istype (M, /mob/living/silicon/decoy))
+/obj/item/aicard/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/silicon/decoy/M = target_mob
+	if (!istype(M))
 		return ..()
 	else
 		M.death()

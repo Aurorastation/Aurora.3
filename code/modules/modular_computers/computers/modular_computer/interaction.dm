@@ -146,13 +146,13 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
-	sound_scan = FALSE
+/obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -321,7 +321,7 @@
 		return
 	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
 		return over_object.attackby(src, M)
-	if(!istype(over_object, /obj/screen) && !(over_object == src))
+	if(!istype(over_object, /atom/movable/screen) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()

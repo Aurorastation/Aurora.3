@@ -84,6 +84,7 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	item_flags =         ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT
+	allow_hair_covering = FALSE
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"

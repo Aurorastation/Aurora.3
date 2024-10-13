@@ -35,8 +35,8 @@
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
 	var/turf/T = get_step(src, pdir)
-	var/turf/A = GetAbove(T)
-	var/turf/B = GetBelow(T)
+	var/turf/A = GET_TURF_ABOVE(T)
+	var/turf/B = GET_TURF_BELOW(T)
 
 	// EXPAND
 	if(!istype(T,type))
@@ -88,7 +88,7 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/living/user)
+/turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/user)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")

@@ -1,9 +1,9 @@
-/obj/screen/internals
+/atom/movable/screen/internals
 	name = "internal"
 	screen_loc = ui_internal
 	icon_state = "internal0"
 
-/obj/screen/internals/Click()
+/atom/movable/screen/internals/Click()
 	if(!iscarbon(usr))
 		return
 	var/mob/living/carbon/C = usr
@@ -144,11 +144,11 @@
 				else
 					to_chat(C, SPAN_NOTICE("You don't have a[breathes==GAS_OXYGEN ? "n oxygen" : addtext(" ",breathes)] tank."))
 
-/obj/screen/internals/proc/lose_internals(var/mob/living/carbon/human/user)
+/atom/movable/screen/internals/proc/lose_internals(var/mob/living/carbon/human/user)
 	icon_state = "internal0"
 	user.internal = null
 
-/obj/screen/internals/proc/has_internals_mask(var/mob/living/carbon/human/user)
+/atom/movable/screen/internals/proc/has_internals_mask(var/mob/living/carbon/human/user)
 	if(user.wear_mask && (user.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 		return TRUE
 	if(user.head && (user.head.item_flags & ITEM_FLAG_AIRTIGHT))

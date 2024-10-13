@@ -14,7 +14,7 @@
 	icon = 'icons/obj/device.dmi'
 	force = 25
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
@@ -100,8 +100,14 @@
 			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
 		. = ..()
 
-/obj/item/portable_typewriter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/portable_typewriter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	..()
+
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
+		return
+
 	user.visible_message(SPAN_ALERT("\The [src] shatters into metal pieces!"))
 	M.Weaken(2)
 	playsound(loc, 'sound/effects/metalhit.ogg', 50, 1)
@@ -125,7 +131,7 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 

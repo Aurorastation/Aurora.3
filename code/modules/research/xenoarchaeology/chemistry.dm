@@ -7,13 +7,13 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "solution_tray"
 	matter = list(MATERIAL_GLASS = 5)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)
 	volume = 2
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/attacking_item, mob/living/user)
+/obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.ispen())
 		var/new_label = sanitizeSafe( tgui_input_text(user, "What should the new label be?", "Label solution tray", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(new_label)

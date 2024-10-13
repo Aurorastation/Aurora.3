@@ -132,7 +132,7 @@
 	icon_state = "tent"
 	item_state = "tent"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	color = "#58a178"
 	var/width = 2
 	var/length = 3
@@ -142,7 +142,7 @@
 
 /obj/item/tent/Initialize()
 	. = ..()
-	w_class = min(ceil(width * length / 1.5), ITEMSIZE_IMMENSE) // 2x2 = ITEMSIZE_NORMAL
+	w_class = min(ceil(width * length / 1.5), WEIGHT_CLASS_GIGANTIC) // 2x2 = WEIGHT_CLASS_NORMAL
 	desc += "\nThis one is [width] x [length] in size."
 
 /obj/item/tent/Destroy()
@@ -307,7 +307,7 @@
 	icon_state = "sleepingbag"
 	item_state = "sleepingbag"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/sleeping_bag/Initialize(mapload, ...)
 	. = ..()
@@ -406,7 +406,8 @@
 	deploy(get_turf(user), user.dir, user)
 
 /obj/item/material/folding_table/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(use_check(user) || !Adjacent(user))
+	if(use_check(user) || !user.Adjacent(target))
+		to_chat(usr, SPAN_WARNING("You fail to set up \the [src] in that location."))
 		return
 	if(isturf(target))
 		deploy(target, user.dir, user)

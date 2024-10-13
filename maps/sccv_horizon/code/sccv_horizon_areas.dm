@@ -19,6 +19,9 @@
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 
+/area/engineering/engine_room/turbine
+	name = "Engineering - Combustion Turbine"
+
 /area/engineering/smes
 	name = "Engineering - SM SMES"
 	icon_state = "engine_smes"
@@ -337,7 +340,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
+	name = "Horizon - Exterior"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
@@ -346,6 +349,7 @@
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -637,6 +641,9 @@
 
 /area/horizon/holodeck/source_cafe
 	name = "Horizon - Holodeck - Animal Cafe"
+
+/area/horizon/holodeck/source_lasertag
+	name = "Horizon - Holodeck - Laser Tag Arena"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

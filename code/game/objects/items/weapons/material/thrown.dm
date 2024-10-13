@@ -9,7 +9,8 @@
 	throw_range = 15
 	sharp = 1
 	edge = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	worth_multiplier = 25
 
 /obj/item/material/star/Initialize(newloc, material_key)
 	. = ..()

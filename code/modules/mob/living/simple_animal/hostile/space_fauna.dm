@@ -22,6 +22,11 @@
 	health = 25
 	mob_size = 10
 
+	can_be_milked = TRUE
+	udder_size = 3
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 2)
+
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 4
 	melee_damage_lower = 15
@@ -222,7 +227,11 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
 
-/mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/carp/bloater/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(!has_exploded)
 		has_exploded = TRUE
 		explode()

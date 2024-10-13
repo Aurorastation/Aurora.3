@@ -19,7 +19,7 @@
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
 	filling_states = "-10;10;25;50;75;80;100"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	volume = 200
 
 	amount_per_transfer_from_this = 0.2
@@ -39,7 +39,7 @@
 	if(blood_type != null)
 		name = "\improper IV bag - [blood_type] blood"
 		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		update_icon()
 
 /obj/item/reagent_containers/blood/Destroy()
@@ -50,9 +50,9 @@
 /obj/item/reagent_containers/blood/on_reagent_change()
 	update_icon()
 	if(reagents.total_volume > volume / 2)
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
 	ClearOverlays()
@@ -66,8 +66,8 @@
 	if(reagents && reagents.total_volume)
 		AddOverlays(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
-/obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
+/obj/item/reagent_containers/blood/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user == target_mob && (MODE_VAMPIRE in user.mind?.antag_datums))
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
 			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
@@ -77,7 +77,7 @@
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
-				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
+				LAZYADD(src.other_DNA, target_mob.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
 			while (do_after(user, 25, 5))

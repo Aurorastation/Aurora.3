@@ -17,7 +17,7 @@
 	anchored = 0
 	density = 0
 	dir = NORTH
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/obj/item/airlock_electronics/electronics = null
@@ -49,6 +49,8 @@
 	icon_state = "[facing]_[secure]windoor_assembly[state]"
 
 /obj/structure/windoor_assembly/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border

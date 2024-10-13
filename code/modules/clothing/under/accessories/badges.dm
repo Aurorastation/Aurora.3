@@ -26,7 +26,7 @@
 	item_state = "pbadge"
 	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
@@ -42,7 +42,7 @@
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
 	badge_string = "Sicurity Journelist"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
@@ -79,10 +79,10 @@
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
 										SPAN_NOTICE("You display your [src.name]."))
 
-/obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/badge/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isliving(user))
-		user.visible_message(SPAN_DANGER("[user] invades [M]'s personal space, thrusting [src] into their face insistently."),
-								SPAN_DANGER("You invade [M]'s personal space, thrusting [src] into their face insistently."))
+		user.visible_message(SPAN_DANGER("[user] invades [target_mob]'s personal space, thrusting [src] into their face insistently."),
+								SPAN_DANGER("You invade [target_mob]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
 	set category = "Object"
@@ -265,7 +265,7 @@
 	icon_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/badge/idbadge/nt
 	name = "\improper NT ID badge"
@@ -301,7 +301,7 @@
 	item_state = "passcard_ceti"
 	contained_sprite = TRUE
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
@@ -468,7 +468,7 @@
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	slot_flags = SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
@@ -533,7 +533,7 @@
 	item_state = "passport_ceti"
 	contained_sprite = TRUE
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null

@@ -481,3 +481,25 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/paneer_gadpathur
+
+//Galatea
+
+/singleton/recipe/baked_golden_apple
+	appliance = OVEN
+	fruit = list("goldapple" = 1)
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/no_raisin
+	)
+	result = /obj/item/reagent_containers/food/snacks/baked_golden_apple
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/fire_loaf
+	appliance = OVEN
+	fruit = list ("onion" = 1, "chili" = 3)
+	reagents = list(/singleton/reagent/kelotane = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/fire_loaf

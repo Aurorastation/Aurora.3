@@ -4,7 +4,13 @@
 	var/description // Basic info about the map. Shows up in the new player options.
 	var/path
 
-	var/list/station_levels = list() // Z-levels the station exists on
+	/**
+	 * A list of traits for the zlevels of the map
+	 *
+	 * Each element is one zlevel, starting from the bottom one up
+	 */
+	var/list/traits = list()
+
 	var/list/admin_levels = list()   // Z-levels for admin functionality (Centcom, shuttle transit, etc)
 	var/list/contact_levels = list() // Z-levels that can be contacted from the station, for eg announcements
 	var/list/player_levels = list()  // Z-levels a character can typically reach
@@ -136,7 +142,8 @@
 
 /datum/map/New()
 	if(!map_levels)
-		map_levels = station_levels.Copy()
+		map_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
 		for(var/thing in EVENT_ROLES) //ideally this should prevent event roles from being open on the horizon
@@ -164,9 +171,8 @@
 
 /datum/map/proc/get_empty_zlevel()
 	if(empty_levels == null)
-		world.maxz++
-		empty_levels = list(world.maxz)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+		var/datum/space_level/empty_level = SSmapping.add_new_zlevel("Empty Level", ZTRAITS_AWAY, contain_turfs = FALSE)
+		empty_levels = list(empty_level.z_value)
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
@@ -315,15 +321,17 @@
 
 	log_admin("Finished selecting away sites ([english_list(selected)]) for [totalbudget - (points + shippoints)] cost of [totalbudget] budget.")
 
-	for (var/datum/map_template/template in selected)
-		if (template.load_new_z())
+	for(var/datum/map_template/template in selected)
+		var/bounds = template.load_new_z()
+		if(bounds)
 			// do away site exoplanet generation, if needed
 			var/datum/map_template/ruin/away_site/away_site = template
 			if(istype(away_site) && away_site.exoplanet_themes)
-				for(var/marker_turf_type in away_site.exoplanet_themes)
-					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
-					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
-					exoplanet_theme.generate_map(world.maxz-1, 1, 1, 254, 254, marker_turf_type)
+				for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+					for(var/marker_turf_type in away_site.exoplanet_themes)
+						var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+						var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+						exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
 			// fin
 			log_admin("Loaded away site [template]!")
 		else

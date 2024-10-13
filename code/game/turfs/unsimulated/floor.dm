@@ -28,11 +28,11 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
 
-/turf/unsimulated/mask/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	if (!N)
+/turf/unsimulated/mask/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+	if(!path)
 		return
 
-	new N(src)
+	new path(src)
 
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"

@@ -15,7 +15,7 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_WINDOW_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
 	pass_flags_self = PASSDOORS
 
@@ -198,6 +198,7 @@
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
 /obj/machinery/door/blast/regular
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -207,6 +208,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = FALSE
 	opacity = FALSE
@@ -221,6 +223,7 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
+	closed_layer = CLOSED_DOOR_LAYER
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
@@ -239,6 +242,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

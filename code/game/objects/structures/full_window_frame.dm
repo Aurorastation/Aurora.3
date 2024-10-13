@@ -48,6 +48,8 @@
 /obj/structure/window_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height == 0))
 		return TRUE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
@@ -168,11 +170,11 @@
 		has_grille_installed = TRUE
 		return
 
-/obj/structure/window_frame/hitby(atom/movable/AM, speed)
+/obj/structure/window_frame/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	var/obj/structure/window/W = locate() in get_turf(src)
 	if(istype(W))
-		W.hitby(AM)
+		W.hitby(arglist(args))
 
 /obj/structure/window_frame/wood
 	color = "#8f5847"

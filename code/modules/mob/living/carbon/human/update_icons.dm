@@ -397,8 +397,7 @@ There are several things that need to be remembered:
 
 		SSicon_cache.human_icon_cache[icon_key] = base_icon
 
-	for(var/thing in organs)
-		var/obj/item/organ/external/part = thing
+	for(var/obj/item/organ/external/part in organs)
 		part.cut_additional_images(src)
 		var/list/add_images = part.get_additional_images(src)
 		if(add_images)

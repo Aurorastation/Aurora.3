@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_tunneler_nest.dmm")
+	suffix = "adhomai_tunneler_nest.dmm"
 
 	unit_test_groups = list(1)
 
@@ -33,7 +33,8 @@
 		return
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src))
+		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/E = new/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers (get_turf(src), TRUE)
 		H.put_in_hands(E)
+		E.fertilize()
 		eggs--
 		update_icon()

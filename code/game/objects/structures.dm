@@ -1,6 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
@@ -25,15 +25,15 @@
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
 	if (smoothing_flags)
-		SSicon_smooth.add_to_queue(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
 		SSicon_smooth.remove_from_queues(src)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
 
@@ -78,9 +78,12 @@
 		dismantle_material.place_sheet(loc)
 	qdel(src)
 
-/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	bullet_ping(P)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
 
 /obj/structure/proc/climb_on()
 
@@ -107,7 +110,11 @@
 		return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
-	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
+	if (!climbable)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
+		return FALSE
+
+	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))

@@ -6,7 +6,7 @@
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
 	var/detonate_time = 0
@@ -38,7 +38,7 @@
 /obj/item/plastique/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
 	if(user.get_active_hand() == src)
-		newtime = Clamp(newtime, 10, 60000)
+		newtime = clamp(newtime, 10, 60000)
 		timer = newtime
 		to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
 
@@ -90,7 +90,7 @@
 
 	qdel(src)
 
-/obj/item/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/plastique/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/plastique/cyborg
@@ -147,7 +147,7 @@
 /obj/item/plastique/dirty/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
 	if(user.get_active_hand() == src)
-		newtime = Clamp(newtime, 300, 60000)
+		newtime = clamp(newtime, 300, 60000)
 		timer = newtime
 		to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
 

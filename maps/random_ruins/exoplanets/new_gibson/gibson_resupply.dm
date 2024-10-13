@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_TAU_CETI)
 
 	prefix = "new_gibson/"
-	suffixes = list("gibson_resupply.dmm")
+	suffix = "gibson_resupply.dmm"
 
 	unit_test_groups = list(2)
 

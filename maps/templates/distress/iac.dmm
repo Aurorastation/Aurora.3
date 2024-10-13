@@ -89,8 +89,7 @@
 	},
 /area/centcom/distress_prep)
 "f" = (
-/obj/structure/closet/crate/medical{
-	},
+/obj/structure/closet/crate/medical,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,

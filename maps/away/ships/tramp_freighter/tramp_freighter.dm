@@ -3,7 +3,7 @@
 	description = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 
 	prefix = "ships/tramp_freighter/"
-	suffixes = list("tramp_freighter.dmm")
+	suffix = "tramp_freighter.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1

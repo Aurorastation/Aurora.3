@@ -13,7 +13,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	item_state = "pen"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
 	var/fail_message = SPAN_WARNING("INVALID USER.")
@@ -234,7 +234,7 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
-	return !isStationLevel(T.z)
+	return !is_station_level(T.z)
 
 var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
 

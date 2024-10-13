@@ -6,7 +6,7 @@
 	item_state = "flamethrower_0"
 	contained_sprite = TRUE
 
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 3
 	throwforce = 10
@@ -224,7 +224,7 @@
 	if(!pressure)
 		return
 	throw_amount += pressure
-	throw_amount = Clamp(50, throw_amount, 5000)
+	throw_amount = clamp(50, throw_amount, 5000)
 	if(ismob(user))
 		to_chat(user, SPAN_NOTICE("Pressure has been adjusted to [throw_amount] kPa."))
 

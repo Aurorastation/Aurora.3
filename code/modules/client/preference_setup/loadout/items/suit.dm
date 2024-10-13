@@ -350,18 +350,19 @@
 	coat["long fisanduhian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber/long
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/tcfl
-	display_name = "Tau Ceti Foreign Legion jacket selection"
-	description = "A selection of fine, surplus jackets of the Foreign Legion."
+/datum/gear/suit/tcaf
+	display_name = "Tau Ceti Armed Forces jacket selection"
+	description = "A selection of fine, surplus jackets of the Armed Forces."
 	path = /obj/item/clothing/suit/storage/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/tcfl/New()
+/datum/gear/suit/tcaf/New()
 	..()
-	var/list/tcfljac = list()
-	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	gear_tweaks += new /datum/gear_tweak/path(tcfljac)
+	var/list/tcafjacket = list()
+	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/legion/tcaf
+	tcafjacket ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
+	tcafjacket ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gear_tweaks += new /datum/gear_tweak/path(tcafjacket)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
@@ -379,8 +380,7 @@
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
-/datum/gear/suit/miscellaneous
-	abstract_type = /datum/gear/suit/miscellaneous
+ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
@@ -582,3 +582,15 @@
 	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)

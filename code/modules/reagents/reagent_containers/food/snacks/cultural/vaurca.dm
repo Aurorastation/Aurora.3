@@ -46,12 +46,12 @@
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/kois = 12, /singleton/reagent/toxin/phoron = 16)
 
-/obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
+/obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item,/obj/item/reagent_containers/food/snacks/friedkois))
 		new /obj/item/reagent_containers/food/snacks/koiskebab3(src)
 		to_chat(user, "You add fried K'ois to the kebab.")
 		qdel(src)
-		qdel(W)
+		qdel(attacking_item)
 
 /obj/item/reagent_containers/food/snacks/koiskebab3
 	name = "k'ois on a stick"
@@ -203,6 +203,10 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#E6E600"
 	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/koisrouladeslice/filled
+	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 4)
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 5, "party" = 2))
 
 /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 	name = "meat v'krexi wrap"
