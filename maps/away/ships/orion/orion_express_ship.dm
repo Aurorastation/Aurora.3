@@ -5,7 +5,7 @@
 	prefix = "ships/orion/"
 	suffix = "orion_express_ship.dmm"
 
-	sectors = list(ALL_CORPORATE_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(ALL_CORPORATE_SECTORS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "orion_express_ship"
