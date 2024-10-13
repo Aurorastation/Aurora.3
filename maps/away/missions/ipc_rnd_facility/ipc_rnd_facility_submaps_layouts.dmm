@@ -442,6 +442,17 @@
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"jm" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jn" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -618,6 +629,15 @@
 /obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/workshop,
 /turf/simulated/wall,
 /area/template_noop)
+"mV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "mW" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -634,6 +654,12 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/toolbox,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"nH" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "nK" = (
@@ -678,6 +704,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"oC" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/department,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oP" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
@@ -700,6 +730,12 @@
 "pD" = (
 /obj/structure/mech_wreckage,
 /obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"pP" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "pR" = (
@@ -929,6 +965,12 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"uX" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vS" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -965,6 +1007,21 @@
 "wF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"wJ" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "wY" = (
 /turf/simulated/floor/plating,
@@ -1064,6 +1121,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"yy" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "yD" = (
 /obj/structure/bed/stool/chair/folding,
@@ -1315,6 +1378,12 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"CY" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "De" = (
 /obj/machinery/door/airlock/glass,
@@ -1657,6 +1726,12 @@
 /obj/item/stack/medical/ointment,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"JA" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "JC" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -1889,6 +1964,15 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"Pm" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Pq" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -1984,6 +2068,15 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"Sl" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Sq" = (
 /obj/item/mop,
@@ -2090,6 +2183,15 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"UD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "UF" = (
 /obj/structure/bed/stool/chair{
@@ -12892,14 +12994,14 @@ fj
 SW
 mt
 oZ
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+nH
+uX
+uX
+uX
+uX
+uX
+uX
+JA
 EM
 EM
 Ow
@@ -13149,14 +13251,14 @@ fj
 SW
 mt
 oZ
+pP
 wY
 wY
 wY
 wY
 wY
 wY
-wY
-wY
+pP
 oZ
 EM
 EM
@@ -13406,14 +13508,14 @@ fj
 SW
 mt
 oZ
-Uq
+wJ
 oZ
 oZ
 oZ
 oZ
 oZ
 wY
-wY
+pP
 oZ
 oZ
 EM
@@ -13663,14 +13765,14 @@ fj
 SW
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
 mt
 oZ
 wY
-wY
+pP
 oZ
 oZ
 oZ
@@ -13920,14 +14022,14 @@ fj
 SW
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -14177,14 +14279,14 @@ fj
 SW
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -14434,14 +14536,14 @@ fj
 SW
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -14691,25 +14793,25 @@ fj
 SW
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
 mt
 oZ
 wY
-wY
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-wY
-wY
+yy
+uX
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
+uX
+JA
 EM
 EM
 EM
@@ -14719,18 +14821,18 @@ IC
 EM
 EM
 EM
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
+nH
+uX
+uX
+uX
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
 wY
 Oh
 un
@@ -14948,7 +15050,7 @@ fj
 SW
 oZ
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -14966,17 +15068,17 @@ wY
 wY
 wY
 wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+yy
+uX
+uX
+uX
+uX
+uX
+uX
+uX
+uX
+uX
+CY
 wY
 wY
 wY
@@ -15205,7 +15307,7 @@ fj
 SW
 oZ
 wY
-wY
+pP
 oZ
 zJ
 Me
@@ -15462,7 +15564,7 @@ fj
 SW
 oZ
 wY
-wY
+pP
 zF
 mt
 mt
@@ -15719,7 +15821,7 @@ fj
 SW
 oZ
 wY
-wY
+pP
 zF
 mt
 mt
@@ -15976,7 +16078,7 @@ fj
 SW
 oZ
 wY
-wY
+pP
 zF
 mt
 mt
@@ -16233,7 +16335,7 @@ fj
 SW
 oZ
 wY
-wY
+yy
 YV
 mt
 mt
@@ -24214,10 +24316,10 @@ mt
 mt
 oZ
 wY
-wY
-wY
-wY
-wY
+uX
+uX
+uX
+JA
 wY
 oZ
 mt
@@ -24474,7 +24576,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 wY
 oZ
 mt
@@ -24731,7 +24833,7 @@ oZ
 oZ
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 mt
@@ -24740,7 +24842,7 @@ mt
 mt
 oZ
 wY
-wY
+nH
 YV
 mt
 mt
@@ -24988,7 +25090,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 wY
 oZ
 mt
@@ -24997,7 +25099,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 zF
 mt
 mt
@@ -25245,8 +25347,8 @@ mt
 oZ
 wY
 wY
+pP
 wY
-wY
 oZ
 oZ
 oZ
@@ -25254,7 +25356,7 @@ oZ
 oZ
 oZ
 wY
-wY
+pP
 zF
 mt
 mt
@@ -25500,18 +25602,18 @@ mt
 mt
 mt
 oZ
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
+nH
+uX
+mV
+uX
+jm
+uX
+uX
+uX
+uX
+jm
+uX
+CY
 zF
 mt
 mt
@@ -25757,7 +25859,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 wY
@@ -26014,7 +26116,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 wY
@@ -26271,7 +26373,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 wY
@@ -26528,7 +26630,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 oZ
@@ -26785,7 +26887,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 wY
@@ -27042,12 +27144,12 @@ mt
 mt
 mt
 oZ
-wY
-wY
-Oh
-wY
-wY
-wY
+yy
+uX
+jm
+uX
+uX
+JA
 oZ
 wY
 wY
@@ -27304,7 +27406,7 @@ wY
 oZ
 wY
 wY
-wY
+pP
 Oh
 wY
 wY
@@ -27561,7 +27663,7 @@ wY
 oZ
 wY
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -27818,7 +27920,7 @@ oZ
 oZ
 wY
 wY
-wY
+pP
 oZ
 oZ
 oZ
@@ -28075,7 +28177,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 oZ
 mt
 oZ
@@ -28332,7 +28434,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 oZ
 mt
 oZ
@@ -28589,7 +28691,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 oZ
 mt
 mt
@@ -28846,7 +28948,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 oZ
 mt
 mt
@@ -29103,7 +29205,7 @@ mt
 oZ
 wY
 wY
-wY
+pP
 oZ
 mt
 mt
@@ -29360,7 +29462,7 @@ mt
 oZ
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 mt
@@ -29617,7 +29719,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -29874,7 +29976,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -30131,7 +30233,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -30388,7 +30490,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -30645,7 +30747,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -30902,7 +31004,7 @@ mt
 mt
 mt
 oZ
-Uq
+wJ
 oZ
 oZ
 mt
@@ -31159,7 +31261,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -31416,7 +31518,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -31673,7 +31775,7 @@ mt
 mt
 oZ
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -31930,7 +32032,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 oZ
@@ -32187,7 +32289,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 wY
@@ -32444,7 +32546,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 wY
@@ -32701,7 +32803,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 wY
@@ -32958,7 +33060,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 oZ
@@ -33215,7 +33317,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -33471,12 +33573,12 @@ mt
 mt
 mt
 oZ
-wY
-wY
-wY
-wY
-wY
-wY
+nH
+Pm
+uX
+uX
+uX
+CY
 oZ
 mt
 mt
@@ -33728,7 +33830,7 @@ mt
 mt
 oZ
 oZ
-wY
+pP
 wY
 wY
 oZ
@@ -33985,7 +34087,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 oZ
@@ -34242,7 +34344,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -34499,7 +34601,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 wY
 wY
@@ -34756,7 +34858,7 @@ mt
 mt
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 oZ
@@ -35013,7 +35115,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 mt
@@ -35270,7 +35372,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 mt
@@ -35527,7 +35629,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 mt
@@ -35784,7 +35886,7 @@ mt
 mt
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 oZ
@@ -36041,7 +36143,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 oZ
 wY
@@ -36298,7 +36400,7 @@ oZ
 oZ
 oZ
 wY
-wY
+pP
 wY
 oZ
 wY
@@ -36555,7 +36657,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 wY
 wY
 wY
@@ -36809,10 +36911,10 @@ mt
 mt
 oZ
 wY
-wY
-wY
-wY
-wY
+nH
+uX
+uX
+CY
 wY
 wY
 wY
@@ -37066,7 +37168,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -37323,7 +37425,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -37580,7 +37682,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -37837,7 +37939,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -38094,7 +38196,7 @@ mt
 mt
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 oZ
@@ -38351,7 +38453,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -38608,7 +38710,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -38865,7 +38967,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -39122,7 +39224,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 mt
@@ -39379,7 +39481,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 oZ
@@ -39636,7 +39738,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 oZ
@@ -39893,7 +39995,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 oZ
@@ -40150,8 +40252,8 @@ mt
 mt
 mt
 oZ
-wY
-wY
+yy
+JA
 wY
 oZ
 mt
@@ -40408,7 +40510,7 @@ mt
 mt
 oZ
 oZ
-Uq
+wJ
 oZ
 oZ
 oZ
@@ -40665,7 +40767,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 wY
@@ -40922,7 +41024,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 oZ
 wY
@@ -41179,7 +41281,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 wY
 wY
 wY
@@ -41436,14 +41538,14 @@ mt
 mt
 mt
 oZ
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+yy
+uX
+uX
+uX
+uX
+uX
+uX
+JA
 oZ
 mt
 mt
@@ -41700,7 +41802,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 oZ
 mt
 mt
@@ -41957,7 +42059,7 @@ wY
 wY
 oZ
 wY
-wY
+pP
 oZ
 oZ
 oZ
@@ -42214,18 +42316,18 @@ wY
 wY
 oZ
 wY
-wY
-Oh
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-wY
+yy
+jm
+uX
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
+JA
 oZ
 oZ
 EM
@@ -42482,7 +42584,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -42739,36 +42841,36 @@ oZ
 oZ
 wY
 wY
-wY
-Oh
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+UD
+jm
+uX
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
+jm
+uX
+uX
 wY
 wY
 wY
 wY
 wY
 wY
+wY
+oZ
 wY
 wY
 wY
@@ -42996,7 +43098,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 oZ
 wY
 wY
@@ -43253,7 +43355,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 oZ
 zJ
 zJ
@@ -43290,8 +43392,8 @@ iX
 zJ
 zJ
 zJ
-oZ
-Bo
+wY
+oC
 wY
 wY
 oZ
@@ -43510,7 +43612,7 @@ oZ
 oZ
 wY
 wY
-wY
+pP
 zF
 mt
 mt
@@ -43546,8 +43648,8 @@ mt
 mt
 mt
 mt
-mt
-mt
+oZ
+oZ
 oZ
 oZ
 oZ
@@ -43767,7 +43869,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 zF
 mt
 mt
@@ -44016,15 +44118,15 @@ mt
 mt
 oZ
 wY
-wY
-wY
-wY
-Oh
-wY
-wY
-wY
-wY
-wY
+uX
+uX
+uX
+jm
+uX
+uX
+uX
+uX
+Sl
 zF
 mt
 mt
@@ -44281,7 +44383,7 @@ wY
 wY
 wY
 wY
-wY
+UD
 YV
 mt
 mt
@@ -44537,8 +44639,8 @@ oZ
 oZ
 oZ
 wY
-wY
-wY
+nH
+CY
 zF
 mt
 mt
@@ -44794,7 +44896,7 @@ oZ
 mt
 oZ
 oZ
-Uq
+wJ
 oZ
 zF
 mt
@@ -45051,7 +45153,7 @@ oZ
 mt
 oZ
 wY
-wY
+pP
 wY
 zF
 mt
@@ -45308,7 +45410,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 zF
 mt
@@ -45565,7 +45667,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 zF
 mt
@@ -45822,7 +45924,7 @@ mt
 mt
 oZ
 wY
-wY
+pP
 wY
 zF
 mt
@@ -46078,8 +46180,8 @@ mt
 mt
 mt
 oZ
-wY
-wY
+nH
+CY
 wY
 zF
 mt
@@ -46335,7 +46437,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 oZ
 oZ
 zF
@@ -46592,7 +46694,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 oZ
 mt
 vS
@@ -46849,7 +46951,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 oZ
 mt
 vS
@@ -47106,7 +47208,7 @@ mt
 mt
 mt
 oZ
-wY
+pP
 oZ
 mt
 vS
@@ -47363,7 +47465,7 @@ oZ
 oZ
 oZ
 oZ
-wY
+pP
 oZ
 oZ
 zF
@@ -47620,7 +47722,7 @@ wY
 wY
 wY
 wY
-wY
+pP
 wY
 wY
 zF
