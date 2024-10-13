@@ -82,20 +82,6 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/chainsaw
-	category = "hydroponics"
-	name = "chainsaw"
-	supplier = "nanotrasen"
-	description = "A portable mechanical saw commonly used to fell trees."
-	price = 600
-	items = list(
-		/obj/item/material/twohanded/chainsaw
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/chicken
 	category = "hydroponics"
 	name = "chicken"
@@ -138,17 +124,17 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/farwacubebox
+/singleton/cargo_item/schlorrgoegg
 	category = "hydroponics"
-	name = "farwa cube box"
-	supplier = "nanotrasen"
-	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
-	price = 55
+	name = "schlorrgo egg"
+	supplier = "zharkov"
+	description = "A large egg that will eventually grow into a Schlorrgo."
+	price = 700
 	items = list(
-		/obj/item/storage/box/monkeycubes/farwacubes
+		/obj/item/reagent_containers/food/snacks/egg/schlorrgo
 	)
 	access = 0
-	container_type = "crate"
+	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -156,7 +142,7 @@
 	category = "hydroponics"
 	name = "fatshouter"
 	supplier = "zharkov"
-	description = "A crate containing a fatshouter."
+	description = "A crate containing a fatshouter, an Adhomian animal."
 	price = 500
 	items = list(
 		/obj/structure/largecrate/animal/adhomai/fatshouter
@@ -258,34 +244,6 @@
 	price = 9
 	items = list(
 		/obj/item/clothing/gloves/botanic_leather
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/monkeycubebox
-	category = "hydroponics"
-	name = "monkey cube box"
-	supplier = "nanotrasen"
-	description = "Drymate brand monkey cubes. Just add water!"
-	price = 60
-	items = list(
-		/obj/item/storage/box/monkeycubes
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/neaeracubebox
-	category = "hydroponics"
-	name = "neaera cube box"
-	supplier = "nanotrasen"
-	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
-	price = 65
-	items = list(
-		/obj/item/storage/box/monkeycubes/neaeracubes
 	)
 	access = 0
 	container_type = "crate"
@@ -413,22 +371,22 @@
 	items = list(
 		/obj/item/seeds/wulumunushaseed
 	)
-	access = 0
+	access = ACCESS_HYDROPONICS
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/schlorrgoegg
+/singleton/cargo_item/chainsaw
 	category = "hydroponics"
-	name = "schlorrgo egg"
-	supplier = "zharkov"
-	description = "A large egg that will eventually grow into a Schlorrgo."
-	price = 700
+	name = "chainsaw"
+	supplier = "nanotrasen"
+	description = "A portable mechanical saw commonly used to fell trees."
+	price = 600
 	items = list(
-		/obj/item/reagent_containers/food/snacks/egg/schlorrgo
+		/obj/item/material/twohanded/chainsaw
 	)
 	access = 0
-	container_type = "freezer"
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -454,34 +412,6 @@
 	price = 15
 	items = list(
 		/obj/item/material/minihoe
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/stokcubebox
-	category = "hydroponics"
-	name = "stok cube box"
-	supplier = "nanotrasen"
-	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
-	price = 60
-	items = list(
-		/obj/item/storage/box/monkeycubes/stokcubes
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/vkrexicubebox
-	category = "hydroponics"
-	name = "vkrexi cube box"
-	supplier = "nanotrasen"
-	description = "Drymate brand vkrexi cubes. Just add water!"
-	price = 60
-	items = list(
-		/obj/item/storage/box/monkeycubes/vkrexicubes
 	)
 	access = 0
 	container_type = "crate"

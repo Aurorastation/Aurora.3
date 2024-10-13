@@ -174,7 +174,7 @@
 	category = "medical"
 	name = "peridaxon autoinjector"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat minor organ damage. NOTICE: Restricted substance."
+	description = "An autoinjector designed to treat minor organ damage."
 	price = 800
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
@@ -193,7 +193,7 @@
 	items = list(
 		/obj/item/storage/box/bodybags
 	)
-	access = ACCESS_MEDICAL
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -249,7 +249,7 @@
 	items = list(
 		/obj/item/storage/box/syringes
 	)
-	access = 0
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -338,14 +338,42 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/surgicalcap
+	category = "medical"
+	name = "surgical cap"
+	supplier = "nanotrasen"
+	description = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
+	price = 200
+	items = list(
+		/obj/item/clothing/head/surgery
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/medicalscrubs
 	category = "medical"
 	name = "medical scrubs"
-	supplier = "zeng_hu"
-	description = "It's made of a special fiber that provides minor protection against biohazards. This one is in dark green."
-	price = 75
+	supplier = "nanotrasen"
+	description = "It's made of a special fiber that provides minor protection against biohazards."
+	price = 200
 	items = list(
-		/obj/item/clothing/under/rank/medical/surgeon/zeng
+		/obj/item/clothing/under/rank/medical/surgeon
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/medicalgown
+	category = "medical"
+	name = "medical gown"
+	supplier = "nanotrasen"
+	description = "A loose-fitting gown for medical patients."
+	price = 60
+	items = list(
+		/obj/item/clothing/under/medical_gown
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
@@ -438,23 +466,14 @@
 
 //Surgery stuff
 
-/singleton/cargo_item/surgeryresupplyset
+/singleton/cargo_item/surgerykit
 	category = "medical"
-	name = "surgery resupply set"
+	name = "surgery kit"
 	supplier = "zeng_hu"
-	description = "A set of surgical tools in case the original ones have been lost or misplaced."
+	description = "A kit containing surgical tools, either for resupply or for use on-the-go."
 	price = 2000
 	items = list(
-		/obj/item/surgery/scalpel,
-		/obj/item/surgery/hemostat,
-		/obj/item/surgery/retractor,
-		/obj/item/surgery/circular_saw,
-		/obj/item/surgery/cautery,
-		/obj/item/surgery/surgicaldrill,
-		/obj/item/surgery/bone_gel,
-		/obj/item/surgery/bonesetter,
-		/obj/item/surgery/fix_o_vein,
-		/obj/item/stack/medical/advanced/bruise_pack
+		/obj/item/storage/firstaid/surgery
 	)
 	access = ACCESS_SURGERY
 	container_type = "crate"
@@ -484,7 +503,7 @@
 	items = list(
 		/obj/item/surgery/scalpel
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -498,7 +517,7 @@
 	items = list(
 		/obj/item/surgery/retractor
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -512,7 +531,7 @@
 	items = list(
 		/obj/item/surgery/hemostat
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -526,7 +545,7 @@
 	items = list(
 		/obj/item/surgery/circular_saw
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -540,7 +559,7 @@
 	items = list(
 		/obj/item/surgery/fix_o_vein
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -554,7 +573,7 @@
 	items = list(
 		/obj/item/surgery/cautery
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -568,21 +587,7 @@
 	items = list(
 		/obj/item/surgery/surgicaldrill
 	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/surgicalcap
-	category = "medical"
-	name = "surgical cap"
-	supplier = "nanotrasen"
-	description = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
-	price = 75
-	items = list(
-		/obj/item/clothing/head/surgery
-	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

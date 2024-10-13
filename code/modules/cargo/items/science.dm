@@ -1,3 +1,72 @@
+/singleton/cargo_item/stokcubebox
+	category = "science"
+	name = "stok cube box"
+	supplier = "nanotrasen"
+	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
+	price = 60
+	items = list(
+		/obj/item/storage/box/monkeycubes/stokcubes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/vkrexicubebox
+	category = "science"
+	name = "vkrexi cube box"
+	supplier = "nanotrasen"
+	description = "Drymate brand vkrexi cubes. Just add water!"
+	price = 60
+	items = list(
+		/obj/item/storage/box/monkeycubes/vkrexicubes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/farwacubebox
+	category = "science"
+	name = "farwa cube box"
+	supplier = "nanotrasen"
+	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
+	price = 55
+	items = list(
+		/obj/item/storage/box/monkeycubes/farwacubes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/monkeycubebox
+	category = "science"
+	name = "monkey cube box"
+	supplier = "nanotrasen"
+	description = "Drymate brand monkey cubes. Just add water!"
+	price = 60
+	items = list(
+		/obj/item/storage/box/monkeycubes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/neaeracubebox
+	category = "science"
+	name = "neaera cube box"
+	supplier = "nanotrasen"
+	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
+	price = 65
+	items = list(
+		/obj/item/storage/box/monkeycubes/neaeracubes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 /singleton/cargo_item/hazmathood
 	category = "science"
 	name = "hazmat hood"
