@@ -67,30 +67,16 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/oxygentank
+/singleton/cargo_item/cardboardsheet
 	category = "engineering"
-	name = "oxygen tank"
-	supplier = "hephaestus"
-	description = "A man-portable tank containing oxygen, the precious gas of life. Unless you're Vaurca, in which case it's pure poison."
-	price = 85
+	name = "cardboard sheets"
+	supplier = "orion"
+	description = "50 sheets of cardboard."
+	price = 50
 	items = list(
-		/obj/item/tank/oxygen
+		/obj/item/stack/material/cardboard/full
 	)
 	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/phorontank
-	category = "engineering"
-	name = "phoron tank"
-	supplier = "nanotrasen"
-	description = "A man-portable tank containing phoron, pure poison. Unless you're Vaurca, in which case it's the precious gas of life."
-	price = 450
-	items = list(
-		/obj/item/tank/phoron
-	)
-	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -109,34 +95,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/atmosvoidsuit
-	category = "engineering"
-	name = "atmos voidsuit"
-	supplier = "hephaestus"
-	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation."
-	price = 4200
-	items = list(
-		/obj/item/clothing/suit/space/void/atmos
-	)
-	access = ACCESS_ATMOSPHERICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/atmosphericsvoidsuithelmet
-	category = "engineering"
-	name = "atmospherics voidsuit helmet"
-	supplier = "hephaestus"
-	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protect."
-	price = 2850
-	items = list(
-		/obj/item/clothing/head/helmet/space/void/atmos
-	)
-	access = ACCESS_ATMOSPHERICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/brownwebbingvest
 	category = "engineering"
 	name = "brown webbing vest"
@@ -147,146 +105,6 @@
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_air
-	category = "engineering"
-	name = "Canister (Air)"
-	supplier = "hephaestus"
-	description = "Holds nitrogen-oxygen breatheable air. Has a built-in valve to allow for filling portable tanks."
-	price = 1100
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/air
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_bo
-	category = "engineering"
-	name = "Canister (Boron)"
-	supplier = "hephaestus"
-	description = "Holds boron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 1500
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/boron
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_co2
-	category = "engineering"
-	name = "Canister (CO2)"
-	supplier = "hephaestus"
-	description = "Holds heavy CO2 gas. Has a built-in valve to allow for filling portable tanks."
-	price = 800
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_h2
-	category = "engineering"
-	name = "Canister (Hydrogen)"
-	supplier = "hephaestus"
-	description = "Holds flammable hydrogen. Has a built-in valve to allow for filling portable tanks."
-	price = 800
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/hydrogen
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_he
-	category = "engineering"
-	name = "Canister (Helium)"
-	supplier = "hephaestus"
-	description = "Holds voice-changing helium. Has a built-in valve to allow for filling portable tanks."
-	price = 800
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/helium
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_n2
-	category = "engineering"
-	name = "Canister (Nitrogen)"
-	supplier = "hephaestus"
-	description = "Holds inert nitrogen. Has a built-in valve to allow for filling portable tanks."
-	price = 1000
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/nitrogen
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_n2o
-	category = "engineering"
-	name = "Canister (Nitrous Oxide)"
-	supplier = "hephaestus"
-	description = "Holds sleepy nitrous oxide. Has a built-in valve to allow for filling portable tanks."
-	price = 1500
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/sleeping_agent
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_o2
-	category = "engineering"
-	name = "Canister (Oxygen)"
-	supplier = "hephaestus"
-	description = "Holds precious oxygen. Has a built-in valve to allow for filling portable tanks."
-	price = 1500
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/oxygen
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/canister_phoron
-	category = "engineering"
-	name = "Canister (Phoron)"
-	supplier = "nanotrasen"
-	description = "Holds valuable phoron. Has a built-in valve to allow for filling portable tanks."
-	price = 5000
-	items = list(
-		/obj/machinery/portable_atmospherics/canister/phoron
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/cardboardsheet
-	category = "engineering"
-	name = "cardboard sheet"
-	supplier = "orion"
-	description = "A sheet of cardboard."
-	price = 50
-	items = list(
-		/obj/item/stack/material/cardboard/full
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -708,20 +526,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/hydrogentank
-	category = "engineering"
-	name = "hydrogen tank"
-	supplier = "hephaestus"
-	description = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
-	price = 500
-	items = list(
-		/obj/item/tank/hydrogen
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/inflatablebarrierbox
 	category = "engineering"
 	name = "inflatable barrier box"
@@ -816,34 +620,6 @@
 		/obj/structure/particle_accelerator/power_box
 	)
 	access = ACCESS_CE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/pipedispenser
-	category = "engineering"
-	name = "Pipe Dispenser"
-	supplier = "hephaestus"
-	description = "It dispenses pipes, no idea how though."
-	price = 150
-	items = list(
-		/obj/machinery/pipedispenser/orderable
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/pipepainter
-	category = "engineering"
-	name = "pipe painter"
-	supplier = "hephaestus"
-	description = "Its said that green pipes are safe to travel through."
-	price = 135
-	items = list(
-		/obj/item/device/pipe_painter
-	)
-	access = ACCESS_ENGINE
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -961,7 +737,6 @@
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
-	amount = 3
 
 /singleton/cargo_item/solarpanelassembly
 	category = "engineering"

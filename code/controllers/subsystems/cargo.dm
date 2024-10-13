@@ -216,7 +216,7 @@ SUBSYSTEM_DEF(cargo)
 			"price_adjusted" = ci.adjusted_price,
 			"supplier" = ci.supplier,
 			"supplier_data" = get_supplier_data(ci.supplier),
-			"access" = ci.access,
+			"access" = ci.access != 0 ? get_access_desc(ci.access) : "none",
 		))
 
 	return item_list

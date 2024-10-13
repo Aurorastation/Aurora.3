@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip } from '../components';
+import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -34,7 +34,7 @@ type Item = {
   id: number;
   supplier: string;
   supplier_data: Supplier;
-  access: number;
+  access: string;
 };
 
 type Supplier = {
@@ -113,10 +113,10 @@ export const MainPage = (props, context) => {
   );
 
   return (
-    <Section>
+    <Stack vertical>
       <Section title={'Welcome, ' + data.username}>
         <Box fontSize={1.3} bold>
-          Order
+          Your Basket
         </Box>
         <LabeledList>
           <LabeledList.Item label="Items">
@@ -151,54 +151,67 @@ export const MainPage = (props, context) => {
         </Box>
         {details && <ShowDetails />}
       </Section>
-      <Section title="Catalog">
-        <Tabs fluid>
-          {data.cargo_categories.map((category) => (
-            <Tabs.Tab
-              key={category.name}
-              selected={data.selected_category === category.name}
-              onClick={() =>
-                act('select_category', { select_category: category.name })
+      <Stack>
+        {/* Left Side: Tabs Section */}
+        <Stack.Item width={'175px'}>
+          <Tabs vertical>
+            {data.cargo_categories.map((category) => (
+              <Tabs.Tab
+                key={category.name}
+                selected={data.selected_category === category.name}
+                onClick={() =>
+                  act('select_category', { select_category: category.name })
+                }>
+                <Icon name={category.icon} /> {category.display_name}
+              </Tabs.Tab>
+            ))}
+          </Tabs>
+        </Stack.Item>
+
+        {/* Right Side: Content Section */}
+        <Stack.Item grow>
+          <Section title="Catalog" />
+          {data.category_items.map((item) => (
+            <Section
+              title={item.name}
+              key={item.name}
+              buttons={
+                <Button
+                  content={item.price_adjusted + '电'}
+                  disabled={
+                    !item.supplier_data.available && item.price_adjusted <= 0
+                  }
+                  tooltip="Add to basket"
+                  icon="shopping-basket"
+                  onClick={() =>
+                    act('add_item', { add_item: item.name.toString() })
+                  }
+                />
               }>
-              <Icon name={category.icon} /> {category.display_name}
-            </Tabs.Tab>
+              <Stack vertical>
+                <Stack.Item>{item.description}</Stack.Item>
+                <Stack.Item>
+                  <LabeledList>
+                    <Tooltip content={item.supplier_data.description}>
+                      <LabeledList.Item label="Shipped By">
+                        {item.supplier_data.name}
+                      </LabeledList.Item>
+                    </Tooltip>
+                    {item.access !== 'none' && (
+                      <Tooltip content="This item requires special access.">
+                        <LabeledList.Item label="Required Access">
+                          <Icon name="exclamation-triangle" /> {item.access}
+                        </LabeledList.Item>
+                      </Tooltip>
+                    )}
+                  </LabeledList>
+                </Stack.Item>
+              </Stack>
+            </Section>
           ))}
-        </Tabs>
-        {data.category_items.map((item) => (
-          <Section
-            title={item.name}
-            key={item.name}
-            buttons={
-              <Button
-                content={item.price_adjusted + '电'}
-                disabled={
-                  !item.supplier_data.available && item.price_adjusted <= 0
-                }
-                icon="shopping-basket"
-                onClick={
-                  () => act('add_item', { add_item: item.name.toString() }) // don't ask why this is the way it is
-                }
-              />
-            }>
-            {item.description}
-            <LabeledList>
-              <Tooltip content={item.supplier_data.description}>
-                <LabeledList.Item label="Shipped By">
-                  {item.supplier_data.name}
-                </LabeledList.Item>
-              </Tooltip>
-              {item.access !== 0 && (
-                <Tooltip content="This item requires special access.">
-                  <LabeledList.Item label="Access">
-                    <Icon name="exclamation-triangle" /> Restricted
-                  </LabeledList.Item>
-                </Tooltip>
-              )}
-            </LabeledList>
-          </Section>
-        ))}
-      </Section>
-    </Section>
+        </Stack.Item>
+      </Stack>
+    </Stack>
   );
 };
 

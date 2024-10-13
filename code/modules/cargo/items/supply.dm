@@ -307,34 +307,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/miningvoidsuit
-	category = "supply"
-	name = "mining voidsuit"
-	supplier = "nanotrasen"
-	description = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
-	price = 4200
-	items = list(
-		/obj/item/clothing/suit/space/void/mining
-	)
-	access = ACCESS_MINING
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/miningvoidsuithelmet
-	category = "supply"
-	name = "mining voidsuit helmet"
-	supplier = "nanotrasen"
-	description = "A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating."
-	price = 2850
-	items = list(
-		/obj/item/clothing/head/helmet/space/void/mining
-	)
-	access = ACCESS_MINING
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/mop
 	category = "supply"
 	name = "mop"
@@ -683,5 +655,4 @@
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/reagent_containers/glass/rag,
 	)
-	amount = 3
 

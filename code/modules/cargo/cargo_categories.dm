@@ -41,39 +41,13 @@
 	data["price_modifier"] = src.price_modifier
 	return data
 
-/singleton/cargo_category/security
-	name = "security"
-	display_name = "Security"
-	description = "Weaponry, tools, and supplies for the Security department."
-	icon = "shield"
-	price_modifier = 1
+// Categories are displayed in the console in the order below.
 
-/singleton/cargo_category/engineering
-	name = "engineering"
-	display_name = "Engineering"
-	description = "Tools, machinery, and supplies for the Engineering department."
-	icon = "wrench"
-	price_modifier = 1
-
-/singleton/cargo_category/hospitality
-	name = "hospitality"
-	display_name = "Hospitality"
-	description = "Food, beverage, and supplies for hospitality establishments like the bar or kitchen."
-	icon = "utensils"
-	price_modifier = 1
-
-/singleton/cargo_category/medical
-	name = "medical"
-	display_name = "Medical"
-	description = "Medicine, chemicals, and supplies for the Medical department."
-	icon = "heart"
-	price_modifier = 1
-
-/singleton/cargo_category/hydroponics
-	name = "hydroponics"
-	display_name = "Hydroponics"
-	description = "Seeds, fertilizers, and supplies for the hydroponics bay."
-	icon = "leaf"
+/singleton/cargo_category/supply
+	name = "supply"
+	display_name = "Supply"
+	description = "Supplies, supplies, and supplies for the Supply department."
+	icon = "box"
 	price_modifier = 1
 
 /singleton/cargo_category/operations
@@ -83,6 +57,55 @@
 	icon = "clipboard"
 	price_modifier = 1
 
+/singleton/cargo_category/mining
+	name = "mining"
+	display_name = "Mining"
+	description = "Equipment for miners."
+	icon = "gem"
+	price_modifier = 1
+
+/singleton/cargo_category/engineering
+	name = "engineering"
+	display_name = "Engineering"
+	description = "Tools, machinery, and supplies for the Engineering department."
+	icon = "wrench"
+	price_modifier = 1
+
+/singleton/cargo_category/atmos
+	name = "atmos"
+	display_name = "Atmospherics"
+	description = "Canisters and tanks for Atmospherics."
+	icon = "gauge-high"
+	price_modifier = 1
+
+/singleton/cargo_category/hospitality
+	name = "hospitality"
+	display_name = "Hospitality"
+	description = "Food, beverage, and supplies for hospitality establishments like the bar or kitchen."
+	icon = "utensils"
+	price_modifier = 1
+
+/singleton/cargo_category/hydroponics
+	name = "hydroponics"
+	display_name = "Hydroponics"
+	description = "Seeds, fertilizers, and supplies for the hydroponics bay."
+	icon = "leaf"
+	price_modifier = 1
+
+/singleton/cargo_category/medical
+	name = "medical"
+	display_name = "Medical"
+	description = "Medicine, chemicals, and supplies for the Medical department."
+	icon = "heart"
+	price_modifier = 1
+
+/singleton/cargo_category/cartridges
+	name = "cartridges"
+	display_name = "Cartridges"
+	description = "Chemical cartridges for reagent dispensers."
+	icon = "flask"
+	price_modifier = 1
+
 /singleton/cargo_category/science
 	name = "science"
 	display_name = "Science"
@@ -90,11 +113,18 @@
 	icon = "atom"
 	price_modifier = 1
 
-/singleton/cargo_category/supply
-	name = "supply"
-	display_name = "Supply"
-	description = "Supplies, supplies, and supplies for the Supply department."
-	icon = "box"
+/singleton/cargo_category/security
+	name = "security"
+	display_name = "Security"
+	description = "Tools, and supplies for the Security department."
+	icon = "shield"
+	price_modifier = 1
+
+/singleton/cargo_category/weaponry
+	name = "weaponry"
+	display_name = "Weaponry"
+	description = "Arms and ammunition."
+	icon = "gun"
 	price_modifier = 1
 
 /singleton/cargo_category/miscellaneous

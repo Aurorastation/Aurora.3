@@ -154,7 +154,7 @@
 		if("select_category")
 			selected_category = params["select_category"]
 			if(!selected_category)
-				selected_category = "security"
+				selected_category = "supply"
 			return TRUE
 
 		if("clear_message")

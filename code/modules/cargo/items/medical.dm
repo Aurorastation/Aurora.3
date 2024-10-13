@@ -254,48 +254,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/chemicalcartridge_dylovene
-	category = "medical"
-	name = "chemical cartridge-dylovene"
-	supplier = "iac"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 200
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_inaprovaline
-	category = "medical"
-	name = "chemical cartridge-inaprovaline"
-	supplier = "iac"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 200
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_thetamycin
-	category = "medical"
-	name = "chemical cartridge-thetamycin"
-	supplier = "iac"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 800
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/dylovenebottle
 	category = "medical"
 	name = "dylovene bottle"

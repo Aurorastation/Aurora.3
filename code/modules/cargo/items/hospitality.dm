@@ -11,7 +11,6 @@
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
-	amount = 5
 
 /singleton/cargo_item/meat
 	category = "hospitality"
@@ -26,7 +25,6 @@
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
-	amount = 5
 
 /singleton/cargo_item/fishfillet
 	category = "hospitality"
@@ -41,7 +39,6 @@
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
-	amount = 5
 
 /singleton/cargo_item/moghresianmeat
 	category = "hospitality"
@@ -56,7 +53,6 @@
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
-	amount = 5
 
 /singleton/cargo_item/squidmeat
 	category = "hospitality"
@@ -105,7 +101,7 @@
 	name = "pepper mill"
 	supplier = "getmore"
 	description = "Often used to flavor food or make people sneeze."
-	price = 1
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill
 	)
@@ -119,7 +115,7 @@
 	name = "salt shaker"
 	supplier = "getmore"
 	description = "Salt. From space oceans, presumably."
-	price = 1
+	price = 10
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/salt
 	)
@@ -127,6 +123,160 @@
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/barbecuesauce
+    category = "hospitality"
+    name = "barbecue sauce"
+    supplier = "getmore"
+    description = "A bottle of tangy barbecue sauce."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/barbecue
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/hotsauce
+    category = "hospitality"
+    name = "hot sauce"
+    supplier = "getmore"
+    description = "A bottle of spicy hot sauce."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/hot_sauce
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/garlicsauce
+    category = "hospitality"
+    name = "garlic sauce"
+    supplier = "getmore"
+    description = "A bottle of pungent garlic sauce."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/garlicsauce
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/honey
+    category = "hospitality"
+    name = "honey"
+    supplier = "vysoka"
+    description = "A premium bottle of bee honey."
+    price = 200
+    items = list(
+        /obj/item/reagent_containers/food/condiment/honey
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/soy_sauce
+    category = "hospitality"
+    name = "soy sauce"
+    supplier = "getmore"
+    description = "Savory, savory soy sauce."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/soysauce
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/ketchup
+    category = "hospitality"
+    name = "ketchup"
+    supplier = "getmore"
+    description = "Tomato ketchup. The condiment that needs no introduction."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/ketchup
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/mayonnaise
+    category = "hospitality"
+    name = "mayonnaise"
+    supplier = "getmore"
+    description = "A bottle of creamy mayonnaise."
+    price = 50
+    items = list(
+        /obj/item/reagent_containers/food/condiment/mayonnaise
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/NTella_jar
+    category = "hospitality"
+    name = "NTella jar"
+    supplier = "getmore"
+    description = "A jar of popular NTella-brand hazelnut chocolate spread."
+    price = 40
+    items = list(
+        /obj/item/reagent_containers/food/condiment/ntella
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/peanutbutterjar
+    category = "hospitality"
+    name = "peanut butter jar"
+    supplier = "getmore"
+    description = "Simultaneously smooth and chunky."
+    price = 40
+    items = list(
+        /obj/item/reagent_containers/food/condiment/peanut_butter
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/cherryjellyjar
+    category = "hospitality"
+    name = "cherry jelly jar"
+    supplier = "getmore"
+    description = "A cherry jelly jar."
+    price = 40
+    items = list(
+        /obj/item/reagent_containers/food/condiment/cherry_jelly
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
+
+/singleton/cargo_item/grapejellyjar
+    category = "hospitality"
+    name = "grape jelly jar"
+    supplier = "getmore"
+    description = "A grape jelly jar."
+    price = 40
+    items = list(
+        /obj/item/reagent_containers/food/condiment/grape_jelly
+    )
+    access = 0
+    container_type = "freezer"
+    groupable = TRUE
+    spawn_amount = 1
 
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"
@@ -268,398 +418,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/chemicalcartridge_ale
-	category = "hospitality"
-	name = "chemical cartridge - ale"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/ale
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_beer
-	category = "hospitality"
-	name = "chemical cartridge - beer"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/beer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_champagne
-	category = "hospitality"
-	name = "chemical cartridge - champagne"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/champagne
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_coffee
-	category = "hospitality"
-	name = "chemical cartridge - coffee"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/coffee
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_cognac
-	category = "hospitality"
-	name = "chemical cartridge - cognac"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/cognac
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_cola
-	category = "hospitality"
-	name = "chemical cartridge - cola"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/cola
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_cream
-	category = "hospitality"
-	name = "chemical cartridge - cream"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/cream
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_drgibb
-	category = "hospitality"
-	name = "chemical cartridge - dr gibb"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/dr_gibb
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_gin
-	category = "hospitality"
-	name = "chemical cartridge - gin"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/gin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_ice
-	category = "hospitality"
-	name = "chemical cartridge - ice"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/ice
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_icetea
-	category = "hospitality"
-	name = "chemical cartridge - iced tea"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/icetea
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_kahlua
-	category = "hospitality"
-	name = "chemical cartridge - kahlua"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/kahlua
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_lemonlime
-	category = "hospitality"
-	name = "chemical cartridge - lemon lime"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_lime
-	category = "hospitality"
-	name = "chemical cartridge - lime juice"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/lime
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_mead
-	category = "hospitality"
-	name = "chemical cartridge - mead"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/mead
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_orange
-	category = "hospitality"
-	name = "chemical cartridge - orange juice"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/orange
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_rum
-	category = "hospitality"
-	name = "chemical cartridge - rum"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/rum
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_smw
-	category = "hospitality"
-	name = "chemical cartridge - Stellar Jolt"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/smw
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_sodawater
-	category = "hospitality"
-	name = "chemical cartridge - soda water"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/sodawater
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_spaceup
-	category = "hospitality"
-	name = "chemical cartridge - Vacuum Fizz"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/spaceup
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_tea
-	category = "hospitality"
-	name = "chemical cartridge - tea"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/tea
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_tequila
-	category = "hospitality"
-	name = "chemical cartridge - tequila"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/tequila
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_tonic
-	category = "hospitality"
-	name = "chemical cartridge - tonic"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/tonic
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_vermouth
-	category = "hospitality"
-	name = "chemical cartridge - vermouth"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/vermouth
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_vodka
-	category = "hospitality"
-	name = "chemical cartridge - vodka"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/vodka
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_watermelon
-	category = "hospitality"
-	name = "chemical cartridge - watermelon"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/watermelon
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_whiskey
-	category = "hospitality"
-	name = "chemical cartridge - whiskey"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/whiskey
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/chemicalcartridge_wine
-	category = "hospitality"
-	name = "chemical cartridge - wine"
-	supplier = "getmore"
-	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
-	price = 35
-	items = list(
-		/obj/item/reagent_containers/chem_disp_cartridge/wine
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/chipmultipackcrate
 	category = "hospitality"
 	name = "chip multipack crate"
@@ -678,7 +436,6 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-	amount = 5
 
 /singleton/cargo_item/dryrag
 	category = "hospitality"
@@ -693,7 +450,6 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
-	amount = 5
 
 /singleton/cargo_item/flask
 	category = "hospitality"
