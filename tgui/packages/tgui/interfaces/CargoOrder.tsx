@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack } from '../components';
+import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack, Input } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -111,46 +111,70 @@ export const MainPage = (props, context) => {
     'details',
     false
   );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
 
   return (
     <Stack vertical>
       <Section title={'Welcome, ' + data.username}>
-        <Box fontSize={1.3} bold>
-          Your Basket
-        </Box>
-        <LabeledList>
-          <LabeledList.Item label="Items">
-            {data.order_item_count}
-          </LabeledList.Item>
-          <LabeledList.Item label="Price">
-            {data.order_value} 电
-          </LabeledList.Item>
-          {data.status_message && (
-            <LabeledList.Item label="Status">
-              {data.status_message}
-            </LabeledList.Item>
-          )}
-        </LabeledList>
-        <Box py={1}>
-          <Button
-            content="Details"
-            icon="shopping-cart"
-            onClick={() => setDetails(!details)}
-          />
-          <Button
-            content="Clear"
-            color="red"
-            icon="stop"
-            onClick={() => act('clear_order')}
-          />
-          <Button
-            content="Submit Order"
-            icon="check"
-            onClick={() => act('submit_order')}
-          />
-        </Box>
-        {details && <ShowDetails />}
+        <Stack vertical>
+          <Stack.Item fontSize={1.4} bold>
+            Your Basket
+          </Stack.Item>
+          <Stack.Item>
+            <LabeledList>
+              <LabeledList.Item label="Items">
+                {data.order_item_count}
+              </LabeledList.Item>
+              <LabeledList.Item label="Price">
+                {data.order_value} 电
+              </LabeledList.Item>
+              {data.status_message && (
+                <LabeledList.Item label="Status">
+                  {data.status_message}
+                </LabeledList.Item>
+              )}
+            </LabeledList>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              content="Details"
+              icon="shopping-cart"
+              onClick={() => setDetails(!details)}
+            />
+            <Button
+              content="Clear"
+              color="red"
+              icon="stop"
+              onClick={() => act('clear_order')}
+            />
+            <Button
+              content="Submit Order"
+              icon="check"
+              onClick={() => act('submit_order')}
+            />
+          </Stack.Item>
+          {details && <ShowDetails />}
+        </Stack>
       </Section>
+      <Section
+        title="Catalog"
+        buttons={
+          <Input
+            autoFocus
+            autoSelect
+            placeholder="Search by name"
+            maxLength={512}
+            onInput={(e, value) => {
+              setSearchTerm(value);
+            }}
+            value={searchTerm}
+          />
+        }
+      />
       <Stack>
         {/* Left Side: Tabs Section */}
         <Stack.Item width={'175px'}>
@@ -170,45 +194,49 @@ export const MainPage = (props, context) => {
 
         {/* Right Side: Content Section */}
         <Stack.Item grow>
-          <Section title="Catalog" />
-          {data.category_items.map((item) => (
-            <Section
-              title={item.name}
-              key={item.name}
-              buttons={
-                <Button
-                  content={item.price_adjusted + '电'}
-                  disabled={
-                    !item.supplier_data.available && item.price_adjusted <= 0
-                  }
-                  tooltip="Add to basket"
-                  icon="shopping-basket"
-                  onClick={() =>
-                    act('add_item', { add_item: item.name.toString() })
-                  }
-                />
-              }>
-              <Stack vertical>
-                <Stack.Item>{item.description}</Stack.Item>
-                <Stack.Item>
-                  <LabeledList>
-                    <Tooltip content={item.supplier_data.description}>
-                      <LabeledList.Item label="Shipped By">
-                        {item.supplier_data.name}
-                      </LabeledList.Item>
-                    </Tooltip>
-                    {item.access !== 'none' && (
-                      <Tooltip content="This item requires special access.">
-                        <LabeledList.Item label="Required Access">
-                          <Icon name="exclamation-triangle" /> {item.access}
+          {data.category_items
+            .filter(
+              (c) =>
+                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            )
+            .map((item) => (
+              <Section
+                title={item.name}
+                key={item.name}
+                buttons={
+                  <Button
+                    content={item.price_adjusted + '电'}
+                    disabled={
+                      !item.supplier_data.available && item.price_adjusted <= 0
+                    }
+                    tooltip="Add to basket"
+                    icon="shopping-basket"
+                    onClick={() =>
+                      act('add_item', { add_item: item.name.toString() })
+                    }
+                  />
+                }>
+                <Stack vertical>
+                  <Stack.Item>{item.description}</Stack.Item>
+                  <Stack.Item>
+                    <LabeledList>
+                      <Tooltip content={item.supplier_data.description}>
+                        <LabeledList.Item label="Shipped By">
+                          {item.supplier_data.name}
                         </LabeledList.Item>
                       </Tooltip>
-                    )}
-                  </LabeledList>
-                </Stack.Item>
-              </Stack>
-            </Section>
-          ))}
+                      {item.access !== 'none' && (
+                        <Tooltip content="This item has restricted access.">
+                          <LabeledList.Item label="Required Access">
+                            <Icon name="exclamation-triangle" /> {item.access}
+                          </LabeledList.Item>
+                        </Tooltip>
+                      )}
+                    </LabeledList>
+                  </Stack.Item>
+                </Stack>
+              </Section>
+            ))}
         </Stack.Item>
       </Stack>
     </Stack>

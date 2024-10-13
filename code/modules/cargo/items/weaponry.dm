@@ -1,19 +1,5 @@
 //Weapons//
 
-/singleton/cargo_item/pistol45
-	category = "weaponry"
-	name = ".45 pistol"
-	supplier = "nanotrasen"
-	description = "NanoTrasen Mk58 .45-caliber pistol. Inexpensive, reliable, and ubiquitous among security forces galaxy-wide."
-	price = 400
-	items = list(
-		/obj/item/gun/projectile/sec
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/disruptorpistol
 	category = "weaponry"
 	name = "disruptor pistol"
@@ -41,14 +27,28 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/machinepistol45
+/singleton/cargo_item/pistol45
 	category = "weaponry"
-	name = ".45 machine pistol"
-	supplier = "zavodskoi"
-	description = "A lightweight, fast firing gun."
-	price = 1150
+	name = ".45 pistol"
+	supplier = "nanotrasen"
+	description = "The NanoTrasen Mk58 .45-caliber pistol. Inexpensive, reliable, and ubiquitous among security forces galaxy-wide."
+	price = 1100
 	items = list(
-		/obj/item/gun/projectile/automatic/mini_uzi
+		/obj/item/gun/projectile/sec
+	)
+	access = ACCESS_ARMORY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/machinepistol
+	category = "weaponry"
+	name = "machine pistol"
+	supplier = "zavodskoi"
+	description = "The ZI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
+	price = 1600
+	items = list(
+		/obj/item/gun/projectile/automatic/wt550
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -60,7 +60,7 @@
 	name = "ballistic carbine"
 	supplier = "virgo"
 	description = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds."
-	price = 5800
+	price = 4700
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/carbine
 	)
@@ -74,7 +74,7 @@
 	name = "Z8 bullpup assault carbine"
 	supplier = "zavodskoi"
 	description = "The ZI Bulldog 5.56mm bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
-	price = 8650
+	price = 5650
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/z8
 	)
@@ -88,23 +88,9 @@
 	name = "combat shotgun"
 	supplier = "hephaestus"
 	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
-	price = 8250
+	price = 5250
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/machinepistol
-	category = "weaponry"
-	name = "machine pistol"
-	supplier = "zavodskoi"
-	description = "The ZI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use."
-	price = 1300
-	items = list(
-		/obj/item/gun/projectile/automatic/wt550
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -116,7 +102,7 @@
 	name = "energy carbine"
 	supplier = "nanotrasen"
 	description = "An energy-based carbine with two settings: Stun and kill."
-	price = 2250
+	price = 3200
 	items = list(
 		/obj/item/gun/energy/gun
 	)
@@ -130,7 +116,7 @@
 	name = "energy pistol"
 	supplier = "nanotrasen"
 	description = "A basic energy-based pistol gun with two settings: Stun and kill."
-	price = 1800
+	price = 2200
 	items = list(
 		/obj/item/gun/energy/pistol
 	)
@@ -143,8 +129,8 @@
 	category = "weaponry"
 	name = "ion rifle"
 	supplier = "nanotrasen"
-	description = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT."
-	price = 3000
+	description = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats."
+	price = 4500
 	items = list(
 		/obj/item/gun/energy/rifle/ionrifle
 	)
@@ -156,8 +142,8 @@
 	category = "weaponry"
 	name = "marksman energy rifle"
 	supplier = "hephaestus"
-	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized b愀猀琀猀."
-	price = 9600
+	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized bolts."
+	price = 6600
 	items = list(
 		/obj/item/gun/energy/sniperrifle
 	)
@@ -171,24 +157,9 @@
 	name = "laser rifle"
 	supplier = "nanotrasen"
 	description = "A common laser weapon, designed to kill with concentrated energy blasts."
-	price = 2250
+	price = 5200
 	items = list(
 		/obj/item/gun/energy/rifle/laser
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-
-/singleton/cargo_item/retrolaser
-	category = "weaponry"
-	name = "retro laser"
-	supplier = "zharkov"
-	description = "Popular with space pirates and people who think they are space pirates."
-	price = 1000
-	items = list(
-		/obj/item/gun/energy/retro
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -199,8 +170,8 @@
 	category = "weaponry"
 	name = "point entry anti-materiel cannon"
 	supplier = "nanotrasen"
-	description = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats."
-	price = 1200
+	description = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats. Spectacularly effective, though equally spectacularly unwieldy."
+	price = 7200
 	items = list(
 		/obj/item/gun/projectile/peac
 	)
@@ -213,8 +184,8 @@
 	category = "weaponry"
 	name = "adhomian recoilless rifle"
 	supplier = "zharkov"
-	description = "An inexpensive, one use anti-tank weapon."
-	price = 500
+	description = "Shoulder-fired man-portable anti-tank recoilless rifle with a single shot. Relatively inexpensive and does its job."
+	price = 2200
 	items = list(
 		/obj/item/gun/projectile/recoilless_rifle
 	)
@@ -227,8 +198,8 @@
 	category = "weaponry"
 	name = "bolt action rifle"
 	supplier = "zharkov"
-	description = "If only it came with a scope."
-	price = 850
+	description = "An Adhomian bolt-action rifle."
+	price = 1850
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle
 	)
@@ -256,23 +227,9 @@
 	name = "silenced pistol"
 	supplier = "zharkov"
 	description = "Internally silenced for stealthy operations."
-	price = 950
+	price = 2950
 	items = list(
 		/obj/item/gun/projectile/silenced
-	)
-	access = ACCESS_ARMORY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/zipgun
-	category = "weaponry"
-	name = "zip gun"
-	supplier = "zharkov"
-	description = "Recommended for raiders 12 and up."
-	price = 550
-	items = list(
-		/obj/item/gun/projectile/pirate
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -381,7 +338,7 @@
 
 /singleton/cargo_item/apcarbinemagazine_556
 	category = "weaponry"
-	name = "ap carbine magazine (5.56mm)"
+	name = "AP carbine magazine (5.56mm)"
 	supplier = "zavodskoi"
 	description = "An AP 5.56 ammo magazine fit for a carbine, not an assault rifle."
 	price = 450
@@ -409,7 +366,7 @@
 
 /singleton/cargo_item/magazine_556
 	category = "weaponry"
-	name = "magazine (5.56mm)"
+	name = "rifle magazine (5.56mm)"
 	supplier = "nanotrasen"
 	description = "A 5.56 ammo magazine for assault rifles."
 	price = 65
@@ -423,9 +380,9 @@
 
 /singleton/cargo_item/magazine_762
 	category = "weaponry"
-	name = "magazine (7.62mm)"
+	name = "rifle magazine (7.62mm)"
 	supplier = "zharkov"
-	description = "A magazine for some kind of gun."
+	description = "A 7.62mm rifle magazine."
 	price = 70
 	items = list(
 		/obj/item/ammo_magazine/d762
@@ -437,9 +394,9 @@
 
 /singleton/cargo_item/magazine_9
 	category = "weaponry"
-	name = "magazine (9mm)"
-	supplier = "nanotrasen"
-	description = "A magazine for some kind of gun."
+	name = "pistol magazine (9mm)"
+	supplier = "zharkov"
+	description = "A 9mm pistol magazine."
 	price = 40
 	items = list(
 		/obj/item/ammo_magazine/mc9mm
@@ -451,9 +408,9 @@
 
 /singleton/cargo_item/magazine_45
 	category = "weaponry"
-	name = "magazine (.45)"
+	name = "pistol magazine (.45)"
 	supplier = "nanotrasen"
-	description = "A magazine for some kind of gun."
+	description = "A .45-caliber pistol magazine."
 	price = 200
 	items = list(
 		/obj/item/ammo_magazine/c45m
@@ -465,9 +422,9 @@
 
 /singleton/cargo_item/magazine_45flash
 	category = "weaponry"
-	name = "magazine (.45 flash)"
+	name = "pistol magazine (.45 flash)"
 	supplier = "nanotrasen"
-	description = "A magazine for some kind of gun."
+	description = "A .45-caliber less-lethal flash magazine."
 	price = 10
 	items = list(
 		/obj/item/ammo_magazine/c45m/flash
@@ -479,9 +436,9 @@
 
 /singleton/cargo_item/topmounted_9mm
 	category = "weaponry"
-	name = "top mounted magazine (9mm rubber)"
-	supplier = "nanotrasen"
-	description = "A magazine for some kind of gun."
+	name = "top mounted magazine (9mm)"
+	supplier = "zavodskoi"
+	description = "A top-mounted 9mm magazine designed for the ZI 550 machine pistol. Contains lethal rounds."
 	price = 25
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt
@@ -494,8 +451,8 @@
 /singleton/cargo_item/topmounted_9mmrubber
 	category = "weaponry"
 	name = "top mounted magazine (9mm rubber)"
-	supplier = "nanotrasen"
-	description = "A magazine for some kind of gun."
+	supplier = "zavodskoi"
+	description = "A top-mounted 9mm magazine designed for the ZI 550 machine pistol. Contains less-lethal rubber rounds."
 	price = 25
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt/rubber
@@ -535,9 +492,9 @@
 
 /singleton/cargo_item/franciscaapammo
 	category = "weaponry"
-	name = "francisca AP ammo"
+	name = "francisca rotary cannon AP ammunition box"
 	supplier = "zavodskoi"
-	description = "A box of 40mm AP ammo."
+	description = "A box of 40mm AP ammo for the francisca rotary cannon."
 	price = 1200
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle/ap
@@ -549,9 +506,9 @@
 
 /singleton/cargo_item/franciscafmjammo
 	category = "weaponry"
-	name = "francisca FMJ ammo"
+	name = "francisca rotary cannon FMJ ammunition box"
 	supplier = "zavodskoi"
-	description = "A box of 40mm FMJ ammo."
+	description = "A box of 40mm FMJ ammo for the francisca rotary cannon."
 	price = 1000
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
@@ -589,20 +546,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/longbowapwarhead
-	category = "weaponry"
-	name = "longbow AP warhead"
-	supplier = "zavodskoi"
-	description = "An armor-piercing 406mm warhead."
-	price = 3500
-	items = list(
-		/obj/item/warhead/longbow/ap
-	)
-	access = ACCESS_CARGO
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/longbowcasing
 	category = "weaponry"
 	name = "longbow casing"
@@ -611,6 +554,20 @@
 	price = 2000
 	items = list(
 		/obj/item/ship_ammunition/longbow
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/longbowapwarhead
+	category = "weaponry"
+	name = "longbow AP warhead"
+	supplier = "zavodskoi"
+	description = "An armor-piercing 406mm warhead."
+	price = 3500
+	items = list(
+		/obj/item/warhead/longbow/ap
 	)
 	access = ACCESS_CARGO
 	container_type = "crate"
@@ -650,7 +607,7 @@
 	name = "high-power longbow primer"
 	supplier = "zavodskoi"
 	description = "A high-power primer for a 406mm warhead."
-	price = 1500
+	price = 2000
 	items = list(
 		/obj/item/primer/high
 	)
@@ -678,7 +635,7 @@
 	name = "low-power longbow primer"
 	supplier = "zavodskoi"
 	description = "A low-power primer for a 406mm warhead."
-	price = 1000
+	price = 800
 	items = list(
 		/obj/item/primer/low
 	)

@@ -3,9 +3,9 @@
 	name = "glass sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of glass."
-	price = 75
+	price = 275
 	items = list(
-		/obj/item/stack/material/glass
+		/obj/item/stack/material/glass/full
 	)
 	access = 0
 	container_type = "crate"
@@ -16,9 +16,9 @@
 	name = "plasteel sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of plasteel."
-	price = 75
+	price = 700
 	items = list(
-		/obj/item/stack/material/plasteel
+		/obj/item/stack/material/plasteel/full
 	)
 	access = 0
 	container_type = "crate"
@@ -30,9 +30,9 @@
 	name = "plastic sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of plastic."
-	price = 50
+	price = 250
 	items = list(
-		/obj/item/stack/material/plastic
+		/obj/item/stack/material/plastic/full
 	)
 	access = 0
 	container_type = "crate"
@@ -44,9 +44,9 @@
 	name = "steel sheets"
 	supplier = "hephaestus"
 	description = "50 sheets of steel."
-	price = 75
+	price = 400
 	items = list(
-		/obj/item/stack/material/steel
+		/obj/item/stack/material/steel/full
 	)
 	access = 0
 	container_type = "crate"
@@ -58,16 +58,16 @@
 	name = "wood planks"
 	supplier = "hephaestus"
 	description = "50 planks of wood."
-	price = 80
+	price = 350
 	items = list(
-		/obj/item/stack/material/wood
+		/obj/item/stack/material/wood/full
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/cardboardsheet
+/singleton/cargo_item/cardboardsheets
 	category = "engineering"
 	name = "cardboard sheets"
 	supplier = "orion"
@@ -81,12 +81,26 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/carpet
+	category = "engineering"
+	name = "carpet (x10)"
+	supplier = "hephaestus"
+	description = "Ten carpet sheets. It is the same size as a normal floor tile!"
+	price = 350
+	items = list(
+		/obj/item/stack/tile/carpet
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 10
+
 /singleton/cargo_item/antifuelgrenade
 	category = "engineering"
 	name = "antifuel grenade"
 	supplier = "hephaestus"
 	description = "This grenade is loaded with a foaming antifuel compound -- the twenty-fifth century standard for eliminating industrial spills."
-	price = 62
+	price = 250
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
@@ -105,29 +119,6 @@
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/carpet
-	category = "engineering"
-	name = "carpet (x10)"
-	supplier = "hephaestus"
-	description = "Ten carpet sheets. It is the same size as a normal floor tile!"
-	price = 100
-	items = list(
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-		/obj/item/stack/tile/carpet,
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

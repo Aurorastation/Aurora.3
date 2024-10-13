@@ -17,7 +17,7 @@
 	name = "phoron tank"
 	supplier = "nanotrasen"
 	description = "A man-portable tank containing phoron, pure poison. Unless you're Vaurca, in which case it's the precious gas of life."
-	price = 450
+	price = 750
 	items = list(
 		/obj/item/tank/phoron
 	)
@@ -30,13 +30,41 @@
 	category = "atmos"
 	name = "hydrogen tank"
 	supplier = "hephaestus"
-	description = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
-	price = 500
+	description = "A man-portable tank containing hydrogen. Do not inhale. Warning: extremely flammable."
+	price = 150
 	items = list(
 		/obj/item/tank/hydrogen
 	)
-	access = 0
+	access = ACCESS_ENGINE
 	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/portable_air_pump
+	category = "atmos"
+	name = "portable air pump"
+	supplier = "hephaestus"
+	description = "Used to fill or drain rooms without differentiating between gasses. NOTE: Does not come pre-filled. Air sold separately."
+	price = 750
+	items = list(
+		/obj/machinery/portable_atmospherics/powered/pump
+	)
+	access = ACCESS_ENGINE
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/portable_air_scrubber
+	category = "atmos"
+	name = "portable air scrubber"
+	supplier = "hephaestus"
+	description = "Scrubs contaminants from the local atmosphere or the connected portable tank."
+	price = 850
+	items = list(
+		/obj/machinery/portable_atmospherics/powered/scrubber
+	)
+	access = ACCESS_ENGINE
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -168,10 +196,10 @@
 
 /singleton/cargo_item/pipedispenser
 	category = "atmos"
-	name = "Pipe Dispenser"
+	name = "pipe dispenser"
 	supplier = "hephaestus"
 	description = "It dispenses pipes, no idea how though."
-	price = 150
+	price = 500
 	items = list(
 		/obj/machinery/pipedispenser/orderable
 	)
@@ -188,6 +216,20 @@
 	price = 135
 	items = list(
 		/obj/item/device/pipe_painter
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/rpd
+	category = "atmos"
+	name = "Rapid Fabrication Device P-Class"
+	supplier = "hephaestus"
+	description = "A heavily modified RFD, modified to construct pipes and piping accessories."
+	price = 255
+	items = list(
+		/obj/item/rfd/piping
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

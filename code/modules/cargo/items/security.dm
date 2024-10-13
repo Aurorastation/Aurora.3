@@ -37,11 +37,12 @@
 	items = list(
 		/obj/item/device/uv_light
 	)
-	access = ACCESS_ARMORY
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-/singleton/cargo_item/shelltagimplanter
+
+/singleton/cargo_item/ipcimplanter
 	category = "security"
 	name = "IPC tag implanter"
 	supplier = "nanotrasen"
@@ -50,7 +51,7 @@
 	items = list(
 		/obj/item/implanter/ipc_tag
 	)
-	access = ACCESS_ARMORY
+	access = ACCESS_SECURITY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -114,9 +115,9 @@
 /singleton/cargo_item/pepperspraygrenades_box
 	category = "security"
 	name = "box of pepperspray grenades"
-	supplier = "nanotrasen"
-	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING:</br> Exposure carries risk of serious injuries."
-	price = 1050
+	supplier = "zavodskoi"
+	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label. WARNING: Exposure carries risk of serious injuries."
+	price = 750
 	items = list(
 		/obj/item/storage/box/teargas
 	)
@@ -128,8 +129,8 @@
 /singleton/cargo_item/flashbangs_box
 	category = "security"
 	name = "box of flashbangs"
-	supplier = "nanotrasen"
-	description = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING:</br> These devices are extremely dangerous and can cause blindness."
+	supplier = "zavodskoi"
+	description = "A box containing 7 antipersonnel flashbang grenades. WARNING: Can cause permanent vision or hearing loss. Use with caution."
 	price = 520
 	items = list(
 		/obj/item/storage/box/flashbangs
@@ -141,9 +142,9 @@
 
 /singleton/cargo_item/empgrenades_box
 	category = "security"
-	name = "box of emp grenades"
-	supplier = "nanotrasen"
-	description = "A box containing 5 military grade EMP grenades.<br> WARNING:</br> Do not use near unshielded electronics or biomechanical augmentations."
+	name = "box of EMP grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 5 military grade EMP grenades. WARNING: Do not use near unshielded electronics or biomechanical augmentations."
 	price = 4395
 	items = list(
 		/obj/item/storage/box/emps
@@ -185,12 +186,12 @@
 
 /singleton/cargo_item/tacticalhelmet
 	category = "security"
-	name = "tactical helmet"
+	name = "standard helmet"
 	supplier = "zavodskoi"
-	description = "A surplus tactical helmet."
-	price = 3000
+	description = "An armored helmet, for keeping that head of yours intact."
+	price = 380
 	items = list(
-		/obj/item/clothing/head/helmet/tactical
+		/obj/item/clothing/head/helmet
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -199,12 +200,12 @@
 
 /singleton/cargo_item/tacticalarmor
 	category = "security"
-	name = "tactical armor"
+	name = "standard plate carrier"
 	supplier = "zavodskoi"
-	description = "Surplus tactical armor."
-	price = 6000
+	description = "A plate carrier with basic accessories and an armor plate."
+	price = 1100
 	items = list(
-		/obj/item/clothing/suit/armor/tactical
+		/obj/item/clothing/suit/armor/carrier/officer
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
