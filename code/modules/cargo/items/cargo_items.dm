@@ -47,8 +47,8 @@
 /// Sets the item's adjusted_price according to different price modifiers. Returns nothing.
 /singleton/cargo_item/proc/get_adjusted_price()
 	var/return_price = price
-	for(var/category in SScargo.cargo_categories)
-		var/singleton/cargo_category/cc = SScargo.get_category_by_name(category)
+	for(var/category_name in SScargo.cargo_categories)
+		var/singleton/cargo_category/cc = SScargo.get_category_by_name(category_name)
 		if(cc)
 			return_price *= cc.price_modifier
 

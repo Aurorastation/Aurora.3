@@ -97,13 +97,13 @@ SUBSYSTEM_DEF(cargo)
 
 //Load categories
 /datum/controller/subsystem/cargo/proc/load_cargo_categories()
-	for(var/singleton/cargo_category/C in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)))
+	for(var/singleton/cargo_category/C as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)))
 		log_subsystem_cargo("Loading category '[C.name]'.")
 		SScargo.cargo_categories[C.name] = C
 
 //Load Suppliers
 /datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
-	for(var/singleton/cargo_supplier/S in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
+	for(var/singleton/cargo_supplier/S as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
 		SScargo.cargo_suppliers[S.short_name] = S
 
@@ -114,8 +114,7 @@ SUBSYSTEM_DEF(cargo)
 	//reset_cargo()
 
 	// Get the list of all valid cargo items
-	for (var/item in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
-		var/singleton/cargo_item/I = item
+	for (var/singleton/cargo_item/I as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
 		cargo_items[I.name] = I
 		I.id = id++
 		I.get_adjusted_price()
@@ -207,8 +206,7 @@ SUBSYSTEM_DEF(cargo)
 		log_subsystem_cargo("Error: get_items_for_category() was unable to find category '[category_name]'.")
 		return
 
-	for(var/item in C.items)
-		var/singleton/cargo_item/ci = item
+	for(var/singleton/cargo_item/ci as anything in C.items)
 
 		item_list += list(list(
 			"name" = ci.name,
@@ -600,8 +598,8 @@ SUBSYSTEM_DEF(cargo)
 			if(!coi)
 				continue
 			for(var/j = 1; j <= coi.ci.spawn_multiplier; j++)
-				for(var/item in coi.ci.items)
-					new item(crate)
+				for(var/item_typepath in coi.ci.items)
+					new item_typepath(crate)
 
 		//Spawn the Paper Inside
 		var/obj/item/paper/P = new(crate)
