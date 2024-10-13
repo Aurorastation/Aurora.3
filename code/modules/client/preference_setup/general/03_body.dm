@@ -300,6 +300,7 @@ var/global/list/valid_bloodtypes = list(
 	out += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide job hat" : "Show job hat"]</a>"
 	out += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide job uniform" : "Show job uniform"]</a>"
 	out += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide job suit" : "Show job suit"]</a>"
+	out += "<br><a href='?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_CUSTOM_ITEMS]'>[pref.equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS ? "Hide custom items" : "Show custom items"]</a>"
 	out += "</td></tr></table>"
 
 	var/tail_spacing = FALSE
