@@ -5,8 +5,8 @@
 	prefix = "ships/coc/coc_surveyor/"
 	suffix = "coc_surveyor.dmm"
 
-	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
-	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
+	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, SECTOR_VALLEY_HALE)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.3, SECTOR_VALLEY_HALE = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
