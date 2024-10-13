@@ -89,9 +89,6 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/reset_cargo()
 	cargo_shipments = list() //List of the shipments to the station
 	current_shipment = null //The current cargo shipment
-	cargo_items = list() //The list of items
-	//cargo_categories = list() //The list of categories
-	//cargo_suppliers = list() //The list of suppliers
 	all_orders = list() //All orders
 	last_item_id = 0
 
@@ -176,6 +173,15 @@ SUBSYSTEM_DEF(cargo)
 	last_item_id++
 	return last_item_id
 
+
+/// Returns a "default" cargo_category for usage in situations where one is needed.
+/datum/controller/subsystem/cargo/proc/get_default_category()
+	var/list/categories = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)
+	var/singleton/cargo_category/default_cat = categories[1]
+	log_subsystem_cargo("Default category set to '[initial(default_cat.name)]'.")
+	return initial(default_cat.name)
+
+/// Returns a string-formatted list of data for all suppliers and their information for use in TGUI.
 /datum/controller/subsystem/cargo/proc/get_supplier_data(var/supplier_short_name)
 	var/list/supplier_data = list()
 	var/singleton/cargo_supplier/S = cargo_suppliers[supplier_short_name]
@@ -197,7 +203,7 @@ SUBSYSTEM_DEF(cargo)
 
 	return supplier_data
 
-//Gets items for a category. To be used for cargo consoles.
+/// Returns a string-formatted list of every item in each category and their information for use in TGUI.
 /datum/controller/subsystem/cargo/proc/get_items_for_category(var/category_name)
 	var/list/item_list = list()
 	var/singleton/cargo_category/C = cargo_categories[category_name]
@@ -221,7 +227,7 @@ SUBSYSTEM_DEF(cargo)
 
 	return item_list
 
-//Gets the categories
+/// Returns a string-formatted list of categories for use in TGUI.
 /datum/controller/subsystem/cargo/proc/get_category_list()
 	var/list/category_list = list()
 
@@ -244,7 +250,7 @@ SUBSYSTEM_DEF(cargo)
 	// Check if the category exists in cargo_categories
 	if (!cargo_categories[name])
 		log_subsystem_cargo("Error: Requested category '[name]' does not exist.")
-		return null
+		return
 
 	// Return the category if it exists
 	return cargo_categories[name]

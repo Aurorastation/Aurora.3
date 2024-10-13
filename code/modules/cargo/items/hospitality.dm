@@ -125,158 +125,158 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/barbecuesauce
-    category = "hospitality"
-    name = "barbecue sauce"
-    supplier = "getmore"
-    description = "A bottle of tangy barbecue sauce."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/barbecue
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "barbecue sauce"
+	supplier = "getmore"
+	description = "A bottle of tangy barbecue sauce."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/barbecue
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/hotsauce
-    category = "hospitality"
-    name = "hot sauce"
-    supplier = "getmore"
-    description = "A bottle of spicy hot sauce."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/hot_sauce
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "hot sauce"
+	supplier = "getmore"
+	description = "A bottle of spicy hot sauce."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/hot_sauce
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/garlicsauce
-    category = "hospitality"
-    name = "garlic sauce"
-    supplier = "getmore"
-    description = "A bottle of pungent garlic sauce."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/garlicsauce
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "garlic sauce"
+	supplier = "getmore"
+	description = "A bottle of pungent garlic sauce."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/garlicsauce
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/honey
-    category = "hospitality"
-    name = "honey"
-    supplier = "vysoka"
-    description = "A premium bottle of bee honey."
-    price = 200
-    items = list(
-        /obj/item/reagent_containers/food/condiment/honey
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "honey"
+	supplier = "vysoka"
+	description = "A premium bottle of bee honey."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/condiment/honey
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/soy_sauce
-    category = "hospitality"
-    name = "soy sauce"
-    supplier = "getmore"
-    description = "Savory, savory soy sauce."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/soysauce
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "soy sauce"
+	supplier = "getmore"
+	description = "Savory, savory soy sauce."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/soysauce
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/ketchup
-    category = "hospitality"
-    name = "ketchup"
-    supplier = "getmore"
-    description = "Tomato ketchup. The condiment that needs no introduction."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/ketchup
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "ketchup"
+	supplier = "getmore"
+	description = "Tomato ketchup. The condiment that needs no introduction."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/ketchup
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/mayonnaise
-    category = "hospitality"
-    name = "mayonnaise"
-    supplier = "getmore"
-    description = "A bottle of creamy mayonnaise."
-    price = 50
-    items = list(
-        /obj/item/reagent_containers/food/condiment/mayonnaise
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "mayonnaise"
+	supplier = "getmore"
+	description = "A bottle of creamy mayonnaise."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/food/condiment/mayonnaise
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/NTella_jar
-    category = "hospitality"
-    name = "NTella jar"
-    supplier = "getmore"
-    description = "A jar of popular NTella-brand hazelnut chocolate spread."
-    price = 40
-    items = list(
-        /obj/item/reagent_containers/food/condiment/ntella
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "NTella jar"
+	supplier = "getmore"
+	description = "A jar of popular NTella-brand hazelnut chocolate spread."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/food/condiment/ntella
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/peanutbutterjar
-    category = "hospitality"
-    name = "peanut butter jar"
-    supplier = "getmore"
-    description = "Simultaneously smooth and chunky."
-    price = 40
-    items = list(
-        /obj/item/reagent_containers/food/condiment/peanut_butter
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "peanut butter jar"
+	supplier = "getmore"
+	description = "Simultaneously smooth and chunky."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/food/condiment/peanut_butter
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/cherryjellyjar
-    category = "hospitality"
-    name = "cherry jelly jar"
-    supplier = "getmore"
-    description = "A cherry jelly jar."
-    price = 40
-    items = list(
-        /obj/item/reagent_containers/food/condiment/cherry_jelly
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "cherry jelly jar"
+	supplier = "getmore"
+	description = "A cherry jelly jar."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/food/condiment/cherry_jelly
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/grapejellyjar
-    category = "hospitality"
-    name = "grape jelly jar"
-    supplier = "getmore"
-    description = "A grape jelly jar."
-    price = 40
-    items = list(
-        /obj/item/reagent_containers/food/condiment/grape_jelly
-    )
-    access = 0
-    container_type = "freezer"
-    groupable = TRUE
-    spawn_amount = 1
+	category = "hospitality"
+	name = "grape jelly jar"
+	supplier = "getmore"
+	description = "A grape jelly jar."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/food/condiment/grape_jelly
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/crablegs_box
 	category = "hospitality"

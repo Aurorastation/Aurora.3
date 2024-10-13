@@ -12,7 +12,7 @@
 	ui_auto_update = FALSE
 
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
-	var/selected_category = "security" // Category that is currently selected
+	var/selected_category = null // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
 	var/status_message //Status Message to be displayed to the user
@@ -33,6 +33,9 @@
 	data["order_items"] = co.get_item_list()
 	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
+
+	if(!selected_category)
+		selected_category = SScargo.get_default_category()
 
 	//Pass Data for Main page
 	if(page == "main")
@@ -153,8 +156,6 @@
 		//Change the displayed item category
 		if("select_category")
 			selected_category = params["select_category"]
-			if(!selected_category)
-				selected_category = "supply"
 			return TRUE
 
 		if("clear_message")
