@@ -1,25 +1,39 @@
-/singleton/cargo_item/adhomianmeat
+/singleton/cargo_item/meat
 	category = "hospitality"
-	name = "adhomian meat (x5)"
-	supplier = "zharkov"
-	description = "A handful of meat slices from Adhomian animals."
-	price = 130
+	name = "meat (x5)"
+	supplier = "getmore"
+	description = "Slabs of real meat, from real animals. Freshly frozen and extremely not-vegan."
+	price = 160
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/adhomai
+		/obj/item/reagent_containers/food/snacks/meat
 	)
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
 
-/singleton/cargo_item/meat
+/singleton/cargo_item/synthmeat
 	category = "hospitality"
-	name = "meat (x5)"
+	name = "synthetic meat (x5)"
 	supplier = "getmore"
-	description = "Slabs of real meat, from real animals. Freshly frozen and extremely not-vegan."
-	price = 120
+	description = "Slabs of synthetic meat, grown in a factory. More or less identical to the real thing, but without the animal sacrifice."
+	price = 140
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 5
+
+/singleton/cargo_item/adhomianmeat
+	category = "hospitality"
+	name = "adhomian meat (x5)"
+	supplier = "zharkov"
+	description = "A handful of meat slices from Adhomian animals. Freshly frozen."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
 	access = 0
 	container_type = "freezer"
@@ -30,8 +44,8 @@
 	category = "hospitality"
 	name = "fish fillet (x5)"
 	supplier = "getmore"
-	description = "Raw fish fillets, sourced from an aquaponics farm."
-	price = 100
+	description = "Raw fish fillets, sourced from an aquaponics farm. Freshly frozen."
+	price = 130
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet
 	)
@@ -44,8 +58,8 @@
 	category = "hospitality"
 	name = "moghresian meat (x5)"
 	supplier = "arizi"
-	description = "Slabs of meat from animals native to Moghes."
-	price = 130
+	description = "Slabs of meat from animals native to Moghes. Freshly frozen."
+	price = 200
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
@@ -58,7 +72,7 @@
 	category = "hospitality"
 	name = "squid meat (x5)"
 	supplier = "getmore"
-	description = "Soylent squid is (not) people!"
+	description = "Squid meat, meat from squid. Makes for some tasty calamari."
 	price = 150
 	items = list(
 		/obj/item/reagent_containers/food/snacks/squidmeat
@@ -70,17 +84,17 @@
 
 /singleton/cargo_item/wormfillet
 	category = "hospitality"
-	name = "worm fillet (x1)"
+	name = "worm fillet (x5)"
 	supplier = "nanotrasen"
 	description = "Meat from a Cavern Dweller. Mildly toxic if prepared improperly."
-	price = 35
+	price = 350
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
 	access = ACCESS_KITCHEN
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 5
 
 /singleton/cargo_item/roesack
 	category = "hospitality"
@@ -95,6 +109,34 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
+
+/singleton/cargo_item/crablegs_box
+	category = "hospitality"
+	name = "box of Silversun crab legs"
+	supplier = "idris"
+	description = "A box filled with high-quality crab legs from Silversun. Shipped by popular demand!"
+	price = 200
+	items = list(
+		/obj/item/storage/box/crabmeat
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/rasvalclams_box
+	category = "hospitality"
+	name = "box of Ras'val clams"
+	supplier = "zharkov"
+	description = "A box filled with clams from the Ras'val sea, imported from Adhomai."
+	price = 200
+	items = list(
+		/obj/item/storage/box/clams
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/peppermill
 	category = "hospitality"
@@ -278,20 +320,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/crablegs_box
-	category = "hospitality"
-	name = "box of Silversun crab legs"
-	supplier = "idris"
-	description = "A box filled with high-quality crab legs from Silversun. Shipped by popular demand!"
-	price = 200
-	items = list(
-		/obj/item/storage/box/crabmeat
-	)
-	access = 0
-	container_type = "freezer"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/drinkingglasses_box
 	category = "hospitality"
 	name = "box of drinking glasses"
@@ -303,20 +331,6 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/rasvalclams_box
-	category = "hospitality"
-	name = "box of Ras'val clams"
-	supplier = "zharkov"
-	description = "A box filled with clams from the Ras'val sea, imported from Adhomai."
-	price = 200
-	items = list(
-		/obj/item/storage/box/clams
-	)
-	access = 0
-	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
 
