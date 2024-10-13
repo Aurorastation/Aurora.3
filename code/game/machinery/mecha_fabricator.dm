@@ -62,6 +62,10 @@
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
 		eject_materials(f, -1)
+
+	//Stop the queue building if you're dismantling
+	deltimer(build_callback_timer)
+
 	..()
 
 /obj/machinery/mecha_part_fabricator/RefreshParts()
@@ -190,6 +194,9 @@
 				M.use(1)
 				count++
 			to_chat(user, SPAN_NOTICE("You insert [count] [sname] into \the [src]."))
+
+			//Wake up, we have things to do (maybe)
+			handle_queue()
 
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
