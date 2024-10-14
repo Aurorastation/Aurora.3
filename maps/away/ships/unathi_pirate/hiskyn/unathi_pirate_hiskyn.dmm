@@ -62,7 +62,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "aaf" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/hiskyn_ship/cic)
 "aag" = (
@@ -238,24 +246,11 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "aau" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/blast/regular/open{
-	name = "blast door";
-	master_tag = "hiskyn_cic_lockdown"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/gunmetal,
-/area/hiskyn_ship/cic)
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "aav" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
@@ -780,11 +775,6 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "ach" = (
-/obj/machinery/power/apc/high/east{
-	req_access = list(210)
-	},
-/obj/structure/cable/green,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "aci" = (
@@ -1494,22 +1484,9 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/engineering)
 "ayf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/platform,
+/obj/structure/platform{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/external{
-	name = "Battle Bridge";
-	dir = 4;
-	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
@@ -1520,10 +1497,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "ayM" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, CIC"
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "hiskyn_bridge";
+	name = "Vessel Window Shields";
+	master_tag = "hiskyn_window_shields";
+	pixel_x = -5;
+	pixel_y = 8
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/button/remote/blast_door{
+	dir = 2;
+	pixel_x = 6;
+	pixel_y = 0;
+	name = "Battle Bridge Lockdown";
+	master_tag = "hiskyn_cic_lockdown"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 2;
+	pixel_x = -5;
+	pixel_y = 0;
+	name = "Docking Lockdown";
+	master_tag = "hiskyn_airlock_lockdown"
+	},
+/obj/machinery/button/distress{
+	dir = 1;
+	pixel_y = 7;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "azA" = (
 /turf/simulated/floor/tiled/dark,
@@ -1826,11 +1827,11 @@
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/hallc)
 "aFN" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/platform{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "aFO" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2127,20 +2128,14 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "aPk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/power/apc/high/east{
+	req_access = list(210)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "aPt" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/shuttle/raider,
 /area/space)
 "aPv" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
@@ -2262,7 +2257,8 @@
 	},
 /obj/item/storage/box/gloves{
 	pixel_x = -5;
-	pixel_y = 2
+	pixel_y = 2;
+	starts_with = list(/obj/item/clothing/gloves/latex/nitrile/unathi = 7)
 	},
 /obj/item/storage/box/masks{
 	pixel_y = 2;
@@ -2287,6 +2283,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
+"aSo" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "aSr" = (
 /obj/machinery/light{
 	dir = 4
@@ -2462,12 +2465,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "aWD" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/gunmetal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gunmetal/full,
 /area/hiskyn_ship/cic)
 "aWM" = (
 /obj/effect/floor_decal/corner/red{
@@ -2909,10 +2908,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "dzU" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -28;
+	pixel_x = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -38;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "dJB" = (
@@ -3042,6 +3046,17 @@
 	dir = 4;
 	req_access = list(210)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "eHB" = (
@@ -3098,6 +3113,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
+"eTp" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/closet/walllocker/secure{
+	pixel_y = 31;
+	req_access = list(210);
+	name = "Battle Bridge Equipment"
+	},
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/clothing/head/helmet/pilot,
+/obj/item/storage/firstaid/light{
+	starts_with = list(/obj/item/clothing/gloves/latex/nitrile/unathi = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 1, /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1, /obj/item/stack/medical/bruise_pack = 1)
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "eUD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3404,6 +3433,15 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
+"glK" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "got" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/bathroom)
@@ -3533,15 +3571,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "gTn" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, CIC"
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/hallc)
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "gTA" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(210);
@@ -3984,17 +4018,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/thrustp)
 "iBy" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -23;
-	pixel_y = 3
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -23;
-	pixel_y = -7
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/gunmetal,
-/area/hiskyn_ship/cic)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "iLW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -4266,6 +4292,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/cargobay)
+"kcS" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"kds" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "kkY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5150,6 +5187,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
+"obw" = (
+/obj/machinery/computer/ship/targeting/terminal,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "odb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5441,20 +5483,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "pLF" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -21;
-	pixel_y = -6;
-	name = "Battle Bridge Lockdown";
-	master_tag = "hiskyn_cic_lockdown"
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -21;
-	pixel_y = 8;
-	name = "Docking Lockdown";
-	master_tag = "hiskyn_airlock_lockdown"
-	},
+/obj/structure/platform,
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
+"pNB" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "pOV" = (
@@ -5603,6 +5640,12 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/thrustp)
+"qpv" = (
+/obj/structure/platform_deco{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "qqD" = (
 /turf/simulated/wall,
 /area/hiskyn_ship/captain)
@@ -5942,6 +5985,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
+"scW" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "sfn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6158,6 +6208,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallf)
+"sWD" = (
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/obj/structure/platform/cutout,
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "taf" = (
 /turf/simulated/wall/shuttle/scc,
 /area/hiskyn_ship/trophy)
@@ -6193,6 +6250,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
+"tdx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "teF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -6216,11 +6282,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/francisca)
 "tmk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/hiskyn_ship/cic)
@@ -6346,8 +6409,12 @@
 /turf/simulated/floor/lino,
 /area/hiskyn_ship/crew)
 "tMA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/hiskyn_ship/cic)
 "tQs" = (
@@ -6422,14 +6489,11 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/francisca)
 "ulW" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
+/obj/structure/platform_deco/ledge{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/hallc)
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "unQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6671,7 +6735,17 @@
 	master_tag = "hiskyn_cic_lockdown"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "vrf" = (
@@ -7088,7 +7162,7 @@
 /area/hiskyn_ship/bridge)
 "xOm" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "xPJ" = (
@@ -36588,19 +36662,19 @@ aOr
 aOr
 aOr
 aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aPB
+aGf
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aEA
+aSF
 acj
 aOr
 aOr
@@ -36845,19 +36919,19 @@ aOr
 aOr
 aOr
 aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
-aOr
 aPB
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+gTn
+aPt
+aPt
+aPt
+aPt
+aSF
 aSF
 aEA
 aEA
@@ -37102,20 +37176,20 @@ aEA
 aEA
 aEA
 aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
-aEA
 aSF
-aSF
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aPt
+aZT
+aZT
 taf
 taf
 taf
@@ -37359,20 +37433,20 @@ aaW
 aME
 ezW
 aZT
-aZT
+kcS
 aPt
 aQX
-aQX
-aQX
-aQX
-aQX
+pNB
+glK
+xOm
+aSo
 ayM
+pLF
+kds
 aQX
 aQX
-aQX
-aQX
-aZT
-aZT
+aOI
+aOI
 taf
 pGy
 vDV
@@ -37616,16 +37690,16 @@ aAD
 asF
 aUG
 aOI
-aOI
+iBy
+aPt
+aQX
+eTp
+ulW
 aFN
-aQX
-aQX
-aQX
-aQX
-aQX
-aQX
-aQX
-aQX
+sWD
+ayf
+qpv
+dzU
 aQX
 aQX
 aOI
@@ -37873,15 +37947,15 @@ amS
 aAD
 aem
 aOI
-aOI
-aFN
-aQX
+iBy
+aPt
 aQX
 uqN
-dzU
-pLF
-iBy
-dzU
+ach
+ach
+ach
+ach
+ach
 pvA
 aQX
 aQX
@@ -38130,11 +38204,11 @@ aUc
 hDA
 afH
 aOI
-aOI
-aFN
-aQX
+iBy
+aPt
 aQX
 rKq
+scW
 aWD
 tMA
 tmk
@@ -38387,11 +38461,11 @@ arx
 arP
 ezW
 are
-are
+aau
 aPt
 aQX
-aQX
-xOm
+obw
+ach
 arb
 aaf
 aPk
@@ -38645,13 +38719,13 @@ uvH
 aNl
 aNl
 aNl
-aNl
+aPt
 aQX
 aQX
 aQX
 aQX
 vqN
-aau
+aQX
 aQX
 aQX
 aQX
@@ -38908,9 +38982,9 @@ tyk
 tyk
 tyk
 eGh
-ayf
-aQX
-aQX
+tyk
+tyk
+tyk
 sFp
 dXJ
 agC
@@ -39164,9 +39238,9 @@ aCg
 tUH
 oUs
 xnF
-gTn
 fJg
-ulW
+tdx
+aCg
 aCg
 tHh
 qvt
@@ -39421,8 +39495,8 @@ acg
 jkb
 aba
 acg
-acg
 aal
+acg
 acg
 acg
 acg
