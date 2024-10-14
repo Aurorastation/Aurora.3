@@ -71,8 +71,12 @@
 			energy += round((rand(20,60)/2),1)
 			return
 
-/obj/singularity/bullet_act(obj/projectile/P)
-	return 0 //Will there be an impact? Who knows. Will we see it? No.
+/obj/singularity/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	return BULLET_ACT_BLOCK //Will there be an impact? Who knows. Will we see it? No.
 
 /obj/singularity/Collide(atom/A)
 	. = ..()

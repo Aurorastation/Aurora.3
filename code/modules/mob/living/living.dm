@@ -282,7 +282,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = Clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxHealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -909,7 +909,7 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+	ability_master = new /atom/movable/screen/movable/ability_master(FALSE, src)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
@@ -1067,3 +1067,7 @@ default behaviour is:
 
 /mob/living/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "robot" : ..()
+
+///Performs the aftereffects of blocking a projectile.
+/mob/living/proc/block_projectile_effects()
+	return

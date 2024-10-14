@@ -1,3 +1,5 @@
+//I would have rewritten this whole thing, but it requires to change half a million systems for it to be proper, therefore
+//i declare this shit legacy code, to be slowly phased out as things get updated
 /mob/living/carbon/human/movement_delay()
 
 	var/tally = 0
@@ -7,7 +9,8 @@
 	if(lying) //Crawling, it's slower
 		tally += (8 + ((weakened * 3) + (confused * 2)))
 
-	tally += get_pulling_movement_delay()
+	if (!(species.flags & NO_EQUIP_SPEEDMODS))
+		tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
@@ -24,8 +27,6 @@
 	if(shock >= 10)
 		tally += (shock / 30) //get_shock checks if we can feel pain
 
-	tally += ClothesSlowdown()
-
 	if(species)
 		tally += species.get_species_tally(src)
 
@@ -34,7 +35,7 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at)
+	if(aiming?.aiming_at)
 		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
 	if (is_drowsy())
@@ -50,22 +51,9 @@
 	if((mutations & mRun))
 		tally = 0
 
-	tally = max(-2, tally + move_delay_mod)
-
-	var/obj/item/AH = get_active_hand()
-	if(istype(AH))
-		tally += AH.slowdown
-
-	var/obj/item/IH = get_inactive_hand()
-	if(istype(IH))
-		tally += IH.slowdown
-
-	if(isitem(pulling))
+	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
 		var/obj/item/P = pulling
 		tally += P.slowdown
-
-	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(-2, tally - 3)
 
 	var/turf/T = get_turf(src)
 	if(T) // changelings don't get movement costs
@@ -138,7 +126,7 @@
 	if(.) //We moved
 		handle_leg_damage()
 
-	var/turf/T = loc
+	var/turf/T = get_turf(loc)
 	var/footsound
 	var/top_layer = 0
 	if(istype(T))
@@ -193,11 +181,6 @@
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
 
-/mob/living/carbon/human/proc/ClothesSlowdown()
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
-		. += I.slowdown
-		. += I.slowdown_accessory
-
 /mob/living/carbon/human/get_pulling_movement_delay()
 	. = ..()
 
@@ -205,4 +188,4 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
-		. += H.ClothesSlowdown()
+		// . += H.ClothesSlowdown()

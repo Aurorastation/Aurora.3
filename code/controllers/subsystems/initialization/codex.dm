@@ -12,9 +12,15 @@ SUBSYSTEM_DEF(codex)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
 /datum/controller/subsystem/codex/Initialize()
-	generate_cooking_codex()
-	generate_chemistry_codex()
-	log_subsystem_codex("SScodex: [cooking_codex_data.len] cooking recipes; [chemistry_codex_data.len] chemistry recipes.")
+	//We don't build the codex in fastboot, it's slow and kind of pointless for tests
+	if(GLOB.config.fastboot)
+		log_subsystem_codex("SScodex: Fastboot detected, skipping codex generation.")
+
+	else
+		generate_cooking_codex()
+		generate_chemistry_codex()
+		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(chemistry_codex_data)] chemistry recipes.")
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/codex/proc/generate_cooking_codex()

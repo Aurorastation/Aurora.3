@@ -24,6 +24,8 @@
 		/obj/machinery/door/airlock
 	)
 
+	explosion_resistance = 10
+
 	var/damage = 0
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]
@@ -84,23 +86,25 @@
 		return TRUE
 	return ..()
 
-/turf/simulated/wall/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj,/obj/projectile/beam))
+/turf/simulated/wall/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(istype(hitting_projectile,/obj/projectile/beam))
 		burn(2500)
-	else if(istype(Proj,/obj/projectile/ion))
+	else if(istype(hitting_projectile,/obj/projectile/ion))
 		burn(500)
 
-	bullet_ping(Proj)
-	create_bullethole(Proj)
+	bullet_ping(hitting_projectile)
+	create_bullethole(hitting_projectile)
 
-	var/proj_damage = Proj.get_structure_damage()
+	var/proj_damage = hitting_projectile.get_structure_damage()
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(Proj.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential > 1)
 		damage = min(proj_damage, 100)
-
-	Proj.on_hit(src)
 
 	take_damage(damage)
 

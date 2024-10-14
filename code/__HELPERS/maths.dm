@@ -129,12 +129,6 @@
 // round() acts like floor(x, 1) by default but can't handle other values
 #define FLOOR_FLOAT(x, y) ( round((x) / (y)) * (y) )
 
-// min is inclusive, max is exclusive
-/proc/Wrap(val, min, max)
-	var/d = max - min
-	var/t = FLOOR((val - min) / d, 1)
-	return val - (t * d)
-
 /proc/Default(a, b)
 	return a ? a : b
 
@@ -161,9 +155,6 @@
 
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
-
-// Real modulus that handles decimals
-#define MODULUS(x, y) ( (x) - FLOOR_FLOAT(x, y))
 
 /proc/Percent(current_value, max_value, rounding = 1)
 	return round((current_value / max_value) * 100, rounding)
@@ -290,10 +281,6 @@
 /proc/n_inrange(var/num, var/min=-1, var/max=1)
 	if(isnum(num)&&isnum(min)&&isnum(max))
 		return ((min <= num) && (num <= max))
-
-// Will filter out extra rotations and negative rotations
-// E.g: 540 becomes 180. -180 becomes 180.
-#define SIMPLIFY_DEGREES(degrees) (MODULUS((degrees), 360))
 
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )

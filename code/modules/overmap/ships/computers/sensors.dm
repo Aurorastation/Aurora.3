@@ -110,18 +110,22 @@
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
 
-	data["grid_x"] = linked.x
-	data["grid_y"] = linked.y
-	data["direction"] = dir2angle(linked.dir)
-	var/linked_x = linked.x
-	var/linked_y = linked.y
-	var/obj/effect/overmap/visitable/ship/linked_ship = linked
-	if(istype(linked_ship))
-		linked_x += linked_ship.position[1] / 2.0
-		linked_y += linked_ship.position[2] / 2.0
-		data["is_ship"] = TRUE
-	data["x"] = linked_x
-	data["y"] = linked_y
+
+	var/linked_x
+	var/linked_y
+	if(linked)
+		data["grid_x"] = linked.x
+		data["grid_y"] = linked.y
+		data["direction"] = dir2angle(linked.dir)
+		linked_x = linked.x
+		linked_y = linked.y
+		var/obj/effect/overmap/visitable/ship/linked_ship = linked
+		if(istype(linked_ship))
+			linked_x += linked_ship.position[1] / 2.0
+			linked_y += linked_ship.position[2] / 2.0
+			data["is_ship"] = TRUE
+		data["x"] = linked_x
+		data["y"] = linked_y
 
 	if(sensors)
 		data["on"] = sensors.use_power
@@ -197,7 +201,7 @@
 
 			contacts.Add(list(list(
 				"name"=contact.name,
-				"ref"="\ref[contact]",
+				"ref"="[REF(contact)]",
 				"bearing"=bearing,
 				"can_datalink"=(!(contact in connected.datalinked)),
 				"distance"=distance,
@@ -212,13 +216,13 @@
 		if(length(connected.datalink_requests))
 			var/list/local_datalink_requests = list()
 			for(var/obj/effect/overmap/visitable/requestor in connected.datalink_requests)
-				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="\ref[requestor]")))
+				local_datalink_requests.Add(list(list("name"=requestor.name, "ref"="[REF(requestor)]")))
 			data["datalink_requests"]  = local_datalink_requests
 
 		if(length(connected.datalinked))
 			var/list/local_datalinked = list()
 			for(var/obj/effect/overmap/visitable/datalinked_ship in connected.datalinked)
-				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="\ref[datalinked_ship]")))
+				local_datalinked.Add(list(list("name"=datalinked_ship.name, "ref"="[REF(datalinked_ship)]")))
 			data["datalinked"]  = local_datalinked
 
 		data["last_scan"] = last_scan
@@ -268,14 +272,14 @@
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if (nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if(action == "range_choice")
 			var/nrange = text2num(params["range_choice"])
 			if(!CanInteract(usr, GLOB.default_state))
 				return FALSE
 			if(nrange)
-				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
+				sensors.set_desired_range(clamp(nrange, 1, sensors.max_range))
 			return TRUE
 		if (action == "toggle")
 			sensors.toggle()
@@ -503,9 +507,12 @@
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
-/obj/machinery/shipsensors/bullet_act(var/obj/projectile/Proj)
-	take_damage(Proj.get_structure_damage())
-	..()
+/obj/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	take_damage(hitting_projectile.get_structure_damage())
 
 /obj/machinery/shipsensors/proc/toggle()
 	if(use_power) // reset desired range when turning off

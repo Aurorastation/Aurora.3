@@ -51,7 +51,7 @@
 				var/mob/living/M = AM
 				M.Weaken(2)
 				to_chat(M, SPAN_DANGER("You're thrown back by a mystical force!"))
-				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)
+				AM.throw_at(throwtarget, ((clamp((5 - (clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)
 
 	log_and_message_admins("used tornado sweep(Plasma Fist)", "[A]")
 	return

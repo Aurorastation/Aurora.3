@@ -110,3 +110,23 @@
 	icon_state = "amapola_ftg"
 	item_state = "amapola_ftg"
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/security/pmc/nexus
+	name = "Nexus Corporate Security uniform"
+	desc= "A uniform used by employees of Nexus Corporate Security, a subsidiary of NanoTrasen. Despite being technically a separate entity, Nexus's security uniforms still bare resemblance to its parent company's now largely defunct security division."
+	icon_state = "nexus_officer"
+	item_state = "nexus_officer"
+
+/obj/item/clothing/under/rank/medical/paramedic/pmc/nexus
+	name = "Nexus Corporate Security paramedic uniform"
+	desc= "A uniform used by employees of Nexus Corporate Security, a subsidiary of NanoTrasen. The predominantly black colour identifies the wearer as a member of Nexus's medical division, with the leg cuffs further specifying them being a paramedic."
+	desc_extended = "More rugged than traditional medical attire, Nexus's uniforms are designed to be comfortable in every environment, be it the sterile hallways of a Mendell clinic or the battered roads of Mictlan."
+	icon_state = "nexus_emt"
+	item_state = "nexus_emt"
+
+/obj/item/clothing/under/rank/medical/pmc/nexus
+	name = "Nexus Corporate Security medic uniform"
+	desc= "A uniform used by employees of Nexus Corporate Security, a subsidiary of NanoTrasen. The predominantly black colour identifies the wearer as a member of Nexus's medical division."
+	desc_extended = "More rugged than traditional medical attire, Nexus's uniforms are designed to be comfortable in every environment, be it the sterile hallways of a Mendell clinic or the battered roads of Mictlan."
+	icon_state = "nexus_med"
+	item_state = "nexus_med"

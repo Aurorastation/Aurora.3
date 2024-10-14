@@ -94,9 +94,13 @@
 
 /obj/machinery/bot/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	health -= Proj.damage
-	..()
 	healthcheck()
 
 /obj/machinery/bot/ex_act(severity)

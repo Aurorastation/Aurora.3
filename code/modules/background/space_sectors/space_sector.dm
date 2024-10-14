@@ -135,6 +135,7 @@
 /// When SSAtlas chooses us as the current sector, this function is called, which will set us up to start processing
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(SSatlas.current_map.ports_of_call && length(SSatlas.current_sector.scheduled_port_visits))
 		var/current_day_index = GLOB.all_days.Find(time2text(world.realtime, "Day"))

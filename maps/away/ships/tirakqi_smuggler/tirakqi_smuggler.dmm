@@ -2125,8 +2125,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -3814,8 +3813,7 @@
 /area/ship/tirakqi_smuggler/capt)
 "xu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/spline/plain{
@@ -3860,7 +3858,6 @@
 /area/ship/tirakqi_smuggler/bridge)
 "xJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tirakqi_co2_out_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -4355,8 +4352,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -4;
-	dir = 2
+	pixel_y = -4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -4496,7 +4492,6 @@
 /area/ship/tirakqi_smuggler/bridge)
 "Bf" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null;
 	anchored = 1
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4587,7 +4582,6 @@
 /area/ship/tirakqi_smuggler/bridge)
 "BH" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tirakqi_co2_out_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5117,8 +5111,7 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -4;
-	dir = 2
+	pixel_y = -4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -5412,8 +5405,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/crew)
@@ -5908,8 +5900,7 @@
 /area/ship/tirakqi_smuggler/bridge)
 "JN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -6164,7 +6155,6 @@
 	dir = 1
 	},
 /obj/item/coin/phoron{
-	pixel_y = 8;
 	pixel_x = -6
 	},
 /obj/item/stack/material/phoron{
@@ -7651,8 +7641,7 @@
 /area/ship/tirakqi_smuggler/hall)
 "UZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9

@@ -182,7 +182,6 @@
 	. = ..()
 	if(.)
 		return
-
 	if(action == "login")
 		if(can_run(usr, TRUE))
 			authenticated = TRUE

@@ -189,8 +189,7 @@
 	},
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark,
@@ -399,19 +398,15 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/machinery/door/window{
-	dir = 2;
 	name = "KLAXAN ONLY!!"
 	},
 /obj/item/reagent_containers/food/snacks/koissteak,
@@ -1251,8 +1246,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window{
 	name = "Hazardous Specimen";
@@ -1268,8 +1262,7 @@
 /area/ihss_reclamation/envirosim)
 "gs" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/structure/bed/handrail{
 	dir = 8
@@ -2107,8 +2100,7 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/effect/shuttle_landmark/nav_ihss_reclamation/dock1{
 	dir = 1
@@ -2229,8 +2221,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/red/diagonal{
@@ -2269,7 +2260,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/item/stamp/ce{
@@ -2401,8 +2391,7 @@
 /area/ihss_reclamation/westhall)
 "mh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2578,8 +2567,7 @@
 /obj/item/clothing/shoes/magboots/hegemony,
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/window{
@@ -2740,12 +2728,10 @@
 /area/ihss_reclamation/mess)
 "nH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -3109,8 +3095,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
@@ -3226,7 +3211,6 @@
 "pP" = (
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/structure/window/reinforced,
@@ -3317,7 +3301,6 @@
 /area/ihss_reclamation/equipment)
 "qc" = (
 /obj/machinery/vending/tool{
-	req_access = null;
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -3411,8 +3394,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
+	dir = 8
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -3522,7 +3504,6 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -3648,7 +3629,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/structure/table/standard,
@@ -3790,8 +3770,7 @@
 /area/ihss_reclamation/plantroom)
 "sK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
@@ -4710,8 +4689,7 @@
 /area/ihss_reclamation/fuel)
 "wQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
@@ -4786,8 +4764,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/northleft,
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -5063,7 +5040,6 @@
 /area/ihss_reclamation/hangarhall)
 "yi" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
-	input_tag = null;
 	name = "Hydrogen Supply Monitor";
 	output_tag = "ihss_h2_out";
 	sensors = list("h_sensor"="Tank")
@@ -5423,8 +5399,7 @@
 /area/ihss_reclamation/crew)
 "Ac" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -5501,8 +5476,7 @@
 /area/ihss_reclamation/plantroom)
 "At" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -5547,8 +5521,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
+	dir = 8
 	},
 /obj/machinery/door/window{
 	dir = 4;
@@ -5789,7 +5762,6 @@
 /area/ihss_reclamation/solars)
 "Bt" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "ihss_co2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -6222,8 +6194,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
@@ -6925,8 +6896,7 @@
 	},
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/item/stamp/warden,
 /obj/machinery/firealarm/west,
@@ -7040,7 +7010,6 @@
 /area/ihss_reclamation/hangar1)
 "Im" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "ihss_h2_out"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -7084,8 +7053,7 @@
 	color = "#941307"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -7301,8 +7269,7 @@
 	color = "#ba9122"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/southhall)
@@ -7858,8 +7825,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -8258,7 +8224,6 @@
 "Of" = (
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/structure/filingcabinet/chestdrawer,
@@ -8643,8 +8608,7 @@
 /area/ihss_reclamation/atmos)
 "Qd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/ihss_reclamation/envirosim)
@@ -8718,8 +8682,7 @@
 /area/shuttle/ihss_reclamation)
 "Qu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor,
@@ -8862,8 +8825,7 @@
 	},
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/item/pen/black,
 /turf/simulated/floor/tiled/dark,
@@ -8900,8 +8862,7 @@
 	color = "#ba9122"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -9346,8 +9307,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -9436,8 +9396,7 @@
 /area/ihss_reclamation/northhall)
 "Ty" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
@@ -9470,7 +9429,6 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -9575,7 +9533,6 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 4;
-	icon_state = "rwindow";
 	maxhealth = 80
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony,
@@ -9591,8 +9548,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/northright,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -10123,8 +10079,7 @@
 /area/ihss_reclamation/mess)
 "WF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/westhall)
@@ -10446,8 +10401,7 @@
 "XX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "2-8"

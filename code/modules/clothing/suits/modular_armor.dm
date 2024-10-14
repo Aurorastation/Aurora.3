@@ -122,6 +122,14 @@
 		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
+/obj/item/clothing/suit/armor/carrier/hoplan
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/hoplan,
+		/obj/item/clothing/accessory/leg_guard/hoplan,
+		/obj/item/clothing/accessory/arm_guard/hoplan,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -244,6 +252,14 @@
 	icon_state = "dom_plate"
 	item_state = "dom_plate"
 
+/obj/item/clothing/accessory/armor_plate/heavy/hoplan
+	name = "hoplan breastplate"
+	desc = "What looks to you like a medieval relic, is actually ablative plating backed by ballistic padding! Have at thee!"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_breastplate"
+	item_state = "hoplan_breastplate"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/armor_plate/tcaf
 	name = "\improper TCAF legionnaire carapace"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
@@ -297,7 +313,7 @@
 
 /obj/item/clothing/accessory/storage/chest_gear
 	name = "standard vest equipment"
-	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	desc = "The standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
@@ -445,6 +461,21 @@
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"
+
+/obj/item/clothing/head/helmet/hoplan
+	name = "hoplan helm"
+	desc = "A modern combat helmet with a stylish outer shell to make it appear from another era entirely. What these robots do for fashion..."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
 
 //Cosmetic Accessories
 
@@ -754,6 +785,13 @@
 	icon_state = "flagpatch_sedantis"
 	item_state = "flagpatch_sedantis"
 
+/obj/item/clothing/accessory/flagpatch/burzsia
+	name = "burzsia flagpatch"
+	desc = "A patch bearing the sigil of Burzsia. While mainly worn by workers and natives loyal to Hephaestus alike, \
+	there are still those who don this item in a more patriotic sense."
+	icon_state = "flagpatch_burzsia"
+	item_state = "flagpatch_burzsia"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf
@@ -865,23 +903,3 @@
 	Szalai and MacPherson sought to undo."
 	icon_state = "flagpatch_ssmd"
 	item_state = "flagpatch_ssmd"
-
-/obj/item/clothing/accessory/tcaf_prefect_pauldron
-	name = "\improper TCAF prefect pauldron"
-	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_prefect_pauldron"
-	item_state = "tcaf_prefect_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
-
-/obj/item/clothing/accessory/tcaf_senior_legion_pauldron
-	name = "\improper TCAF senior legionnaire pauldron"
-	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
-	icon_state = "tcaf_senior_legion_pauldron"
-	item_state = "tcaf_senior_legion_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE

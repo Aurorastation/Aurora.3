@@ -42,7 +42,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.name = "data disk- '[t]'"
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -185,16 +185,16 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []<br>", registered_name)
-	dat += text("Age: []<br>\n", age)
-	dat += text("Sex: []<br>\n", sex)
-	dat += text("Citizenship: []<br>\n", citizenship)
-	dat += text("Assignment and Employer: []<br>\n", assignment)
-	dat += text("Blood Type: []<br>\n", blood_type)
-	dat += text("Fingerprint Hash: []<br>\n", fingerprint_hash)
-	dat += text("DNA Hash: []\n", dna_hash)
+	dat += "Name: [registered_name]<br>"
+	dat += "Age: [age]<br>\n"
+	dat += "Sex: [sex]<br>\n"
+	dat += "Citizenship: [citizenship]<br>\n"
+	dat += "Assignment and Employer: [assignment]<br>\n"
+	dat += "Blood Type: [blood_type]<br>\n"
+	dat += "Fingerprint Hash: [fingerprint_hash]<br>\n"
+	dat += "DNA Hash: [dna_hash]\n"
 	if(mining_points)
-		dat += text("<br>Ore Redemption Points: []\n", mining_points)
+		dat += "<br>Ore Redemption Points: [mining_points]\n"
 	if(front && side)
 		dat +="<td align = center valign = top>Front and Side Photograph<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
@@ -234,22 +234,22 @@ var/const/NO_EMAG_ACT = -50
 		blind_message += " [blind_add_text]"
 	user.visible_message(message, blind_message)
 
-/obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
-		if(!ishuman(M))
+		if(!ishuman(target_mob))
 			return ..()
 
 		if (dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
 
-				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
+				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
 					return
 
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/human/H = target_mob
 
 				if(H.gloves)
 					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
@@ -648,6 +648,12 @@ var/const/NO_EMAG_ACT = -50
 	name = "\improper coalition identification card"
 	desc = "A rugged ID card denoting the wearer as a member of a Coalition of Colonies government organization."
 	icon_state = "coalition_card"
+	overlay_state = "nothing"
+
+/obj/item/card/id/tcaf // For ghostroles, rather than ERTs.
+	name = "\improper Tau Ceti Armed Forces identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
+	icon_state = "legion"
 	overlay_state = "nothing"
 
 /obj/item/card/id/bluespace

@@ -361,7 +361,7 @@
 /obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
-	nodamage = TRUE
+	damage = 0
 	agony = 20
 	check_armor = "energy"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -391,10 +391,10 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/projectile/energy/thoughtbubble/on_impact(var/atom/A)
-	..()
-	if(istype(A, /mob/living))
-		var/mob/living/L = A
+/obj/projectile/energy/thoughtbubble/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living))
+		var/mob/living/L = target
 		if(L.reagents)
 			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
