@@ -594,7 +594,8 @@
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
-	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	/// In case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	var/allow_hair_covering = TRUE
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
