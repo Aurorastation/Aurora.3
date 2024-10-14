@@ -282,7 +282,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(forced)
-		playsound(src, "sound/effects/supermatter.ogg", 100, TRUE)
+		playsound(src, 'sound/effects/supermatter.ogg', 100, TRUE)
 
 		for(var/mob/living/carbon/human/H in get_hearers_in_LOS(world.view, src))
 			H.flash_act(FLASH_PROTECTION_MAJOR)
