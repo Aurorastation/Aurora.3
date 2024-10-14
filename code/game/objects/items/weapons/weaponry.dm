@@ -149,3 +149,4 @@
 	to_chat(target_mob, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
 	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [target_mob]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
+
