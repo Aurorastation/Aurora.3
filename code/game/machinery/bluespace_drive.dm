@@ -122,9 +122,11 @@
 		//Stacktrace only outside unit tests
 		#if !defined(UNIT_TEST)
 		stack_trace("Bluespace drives must be linked to a ship!")
+		qdel(src)
 		#endif
 
-		qdel(src)
+		return
+
 
 
 /obj/machinery/bluespacedrive/Destroy()
@@ -498,8 +500,13 @@
 	linked_bluespace_drive = locate() in get_area(src)
 
 	if(!linked_bluespace_drive)
+
+		//Stacktrace only outside unit tests
+		#if !defined(UNIT_TEST)
 		stack_trace("Bluespace drive not found!")
 		qdel(src)
+		#endif
+
 		return
 
 	RegisterSignal(linked_bluespace_drive, COMSIG_QDELETING, PROC_REF(handle_drive_deletion))
