@@ -137,7 +137,7 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.8
 	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/storage/toggle/corp/zavod/great/alt
