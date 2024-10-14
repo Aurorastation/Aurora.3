@@ -57,3 +57,6 @@ delete-after: True
 changes:
   - rscadd: "Added all of the other cars.dmi sprites as automobile objects."
   - rscadd: "Moved around and changed some of the names of sprites in the cars.dmi file."
+  - rscadd: "Reworked how the random car spawning works. Now instead of initializing a structure with a random name/sprite, its a random subtype selecting to spawn structure with a preset name and sprite."
+  - rscdel: "Replaced the previous random car initialize with the random subtype."
+  - imageadd: "Added a random car sprite to the car.dmi file, since the random.dmi file doesnt support 96x64 pixel sprites"

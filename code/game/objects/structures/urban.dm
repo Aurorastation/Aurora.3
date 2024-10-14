@@ -10,6 +10,8 @@
 /obj/random/automobile
 	name = "random civilian automobile"
 	desc = "A random make/model/color of a civilian vehicle"
+	icon = 'icons/obj/structure/urban/cars.dmi'
+	icon_state = "random_car"
 	spawnlist = list(
 		/obj/structure/automobile/poplar_boxvan_blue/deluxe = 1,
 		/obj/structure/automobile/poplar_boxvan_blue/weathered = 3,
