@@ -119,7 +119,11 @@
 			attempt_hook_up(my_sector)
 
 	if(!linked)
+		//Stacktrace only outside unit tests
+		#if !defined(UNIT_TEST)
 		stack_trace("Bluespace drives must be linked to a ship!")
+		#endif
+
 		qdel(src)
 
 
