@@ -7,7 +7,7 @@
 	density = TRUE
 	layer = 7
 
-obj/random/automobile
+/obj/random/automobile
 	name = "random civilian automobile"
 	desc = "A random make/model/color of a civilian vehicle"
 	spawnlist = list(
