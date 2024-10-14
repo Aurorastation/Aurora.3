@@ -14,20 +14,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/auto_chisel
-	category = "operations"
-	name = "auto-chisel"
-	supplier = "nanotrasen"
-	description = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	price = 500
-	items = list(
-		/obj/item/autochisel
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/battlemonstersresupplycanister
 	category = "operations"
 	name = "battlemonsters resupply canister"

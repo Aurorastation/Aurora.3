@@ -225,13 +225,15 @@ export const MainPage = (props, context) => {
                           {item.supplier_data.name}
                         </LabeledList.Item>
                       </Tooltip>
-                      {item.access !== 'none' && (
-                        <Tooltip content="This item has restricted access.">
-                          <LabeledList.Item label="Required Access">
-                            <Icon name="exclamation-triangle" /> {item.access}
-                          </LabeledList.Item>
-                        </Tooltip>
-                      )}
+                      <LabeledList.Item label="Required Access">
+                        {item.access !== 'none' ? (
+                          <Tooltip content="This item has restricted access.">
+                            <Icon name="lock" /> {item.access}
+                          </Tooltip>
+                        ) : (
+                          <>None</>
+                        )}
+                      </LabeledList.Item>
                     </LabeledList>
                   </Stack.Item>
                 </Stack>

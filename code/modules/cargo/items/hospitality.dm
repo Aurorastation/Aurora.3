@@ -320,6 +320,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/triglyceridebottle
+	category = "hospitality"
+	name = "triglyceride bottle"
+	supplier = "virgo"
+	description = "A small bottle. Contains triglyceride."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/triglyceride
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/drinkingglasses_box
 	category = "hospitality"
 	name = "box of drinking glasses"
@@ -669,20 +683,6 @@
 	price = 8
 	items = list(
 		/obj/item/lipstick/random
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/triglyceridebottle
-	category = "hospitality"
-	name = "triglyceride bottle"
-	supplier = "virgo"
-	description = "A small bottle. Contains triglyceride."
-	price = 50
-	items = list(
-		/obj/item/reagent_containers/glass/bottle/triglyceride
 	)
 	access = 0
 	container_type = "crate"

@@ -1,61 +1,5 @@
-/singleton/cargo_item/exosuitmodulecircuitboard_odysseus_central
-	category = "science"
-	name = "exosuit module circuit board (Odysseus central control)"
-	supplier = "hephaestus"
-	description = "Looks like a circuit. Probably is."
-	price = 1500
-	items = list(
-		/obj/item/circuitboard/mecha/odysseus/main
-	)
-	access = ACCESS_ROBOTICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/exosuitmodulecircuitboard_odysseus_peripheral
-	category = "science"
-	name = "exosuit module circuit board (Odysseus peripherals control)"
-	supplier = "hephaestus"
-	description = "Looks like a circuit. Probably is."
-	price = 1500
-	items = list(
-		/obj/item/circuitboard/mecha/odysseus/peripherals
-	)
-	access = ACCESS_ROBOTICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/exosuitmodulecircuitboard_ripley_central
-	category = "science"
-	name = "exosuit module circuit board (Ripley central control)"
-	supplier = "hephaestus"
-	description = "Looks like a circuit. Probably is."
-	price = 1500
-	items = list(
-		/obj/item/circuitboard/mecha/ripley/main
-	)
-	access = ACCESS_ROBOTICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/exosuitmodulecircuitboard_ripley_peripheral
-	category = "science"
-	name = "exosuit module circuit board (Ripley peripherals control)"
-	supplier = "hephaestus"
-	description = "Looks like a circuit. Probably is."
-	price = 1500
-	items = list(
-		/obj/item/circuitboard/mecha/ripley/peripherals
-	)
-	access = ACCESS_ROBOTICS
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/positronicbrain
-	category = "science"
+	category = "robotics"
 	name = "positronic brain"
 	supplier = "hephaestus"
 	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of synthetics across the galaxy."
@@ -68,8 +12,23 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/torso_baseline
+	category = "robotics"
+	name = "Torso - Baseline"
+	supplier = "hephaestus"
+	description = "A torso for a baseline frame IPC."
+	price = 3200
+	items = list(
+		/obj/item/robot_parts/chest/ipc
+	)
+	access = ACCESS_ROBOTICS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+
 /singleton/cargo_item/torso_bishop
-	category = "science"
+	category = "robotics"
 	name = "Torso - Bishop Cybernetics"
 	supplier = "bishop"
 	description = "A bishop cybernetics torso."
@@ -83,7 +42,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_g1
-	category = "science"
+	category = "robotics"
 	name = "Torso - Hephaestus G1 Industrial Frame"
 	supplier = "hephaestus"
 	description = "A torso for a Hephaestus G1 Industrial Frame."
@@ -97,7 +56,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_g2
-	category = "science"
+	category = "robotics"
 	name = "Torso - Hephaestus G2 Industrial Frame"
 	supplier = "hephaestus"
 	description = "A torso for a Hephaestus G2 Industrial Frame."
@@ -111,7 +70,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_heph
-	category = "science"
+	category = "robotics"
 	name = "Torso - Hephaestus Integrated"
 	supplier = "hephaestus"
 	description = "A torso for a Hephaestus Integrated Frame."
@@ -125,7 +84,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_synthskin
-	category = "science"
+	category = "robotics"
 	name = "Torso - Synthskin"
 	supplier = "zeng_hu"
 	description = "A synthskin torso."
@@ -139,7 +98,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_xion
-	category = "science"
+	category = "robotics"
 	name = "Torso - Xion Manufacturing"
 	supplier = "xion"
 	description = "A Xion Manufacturing torso."
@@ -153,7 +112,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/torso_zenghu
-	category = "science"
+	category = "robotics"
 	name = "Torso - Zeng - Hu Pharmaceuticals"
 	supplier = "zeng_hu"
 	description = "A Zeng - Hu Pharmaceuticals torso."

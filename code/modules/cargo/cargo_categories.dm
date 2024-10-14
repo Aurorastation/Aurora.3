@@ -64,6 +64,13 @@
 	icon = "gem"
 	price_modifier = 1
 
+/singleton/cargo_category/robotics
+	name = "robotics"
+	display_name = "Robotics"
+	description = "Equipment for robots, and the people that make them."
+	icon = "robot"
+	price_modifier = 1
+
 /singleton/cargo_category/engineering
 	name = "engineering"
 	display_name = "Engineering"
