@@ -6,11 +6,17 @@
 	prefix = "ships/golden_deep/"
 	suffix = "golden_deep.dmm"
 
+	traits = list(
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	ship_cost = 1
 	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 

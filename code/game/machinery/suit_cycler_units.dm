@@ -337,3 +337,23 @@
 /obj/machinery/suit_cycler/offship/tarwa/captain
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain
+
+/obj/machinery/suit_cycler/offship/golden_deep // For owned Golden Deep synthetics.
+	model_text = "Golden Deep"
+	req_access = list(ACCESS_GOLDEN_DEEP_OWNED)
+	departments = list("Golden Deep")
+	species = list(BODYTYPE_IPC)
+	suit = /obj/item/clothing/suit/space/void/engineering // PLACEHOLDER, MUST CHANGE
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering // PLACEHOLDER, MUST CHANGE
+
+/obj/machinery/suit_cycler/offship/golden_deep/hoplan // For the Hoplan, armed guards of the ships of the Golden Deep.
+	model_text = "Golden Deep, House Hoplan"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/engineering // PLACEHOLDER, MUST CHANGE
+	helmet = /obj/item/clothing/head/helmet/space/void/engineering // PLACEHOLDER, MUST CHANGE
+
+/obj/machinery/suit_cycler/offship/golden_deep/merchant // For merchants of the Golden Deep.
+	model_text = "Golden Deep, Vessel Merchant"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/golden_deep
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep

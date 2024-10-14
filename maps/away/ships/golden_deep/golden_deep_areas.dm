@@ -26,10 +26,6 @@
 	name = "Collective Mercantile Vessel - Engineering Storage"
 	icon_state = "engineering"
 
-/area/golden_deep/reactor
-	name = "Collective Mercantile Vessel - Reactor"
-	icon_state = "engine"
-
 /area/golden_deep/eva
 	name = "Collective Mercantile Vessel - EVA Storage"
 	icon_state = "eva"
