@@ -124,9 +124,6 @@
 #####################*/
 
 // round() acts like floor(x, 1) by default but can't handle other values
-#define FLOOR(x, y) ( round((x) / (y)) * (y) )
-
-// round() acts like floor(x, 1) by default but can't handle other values
 #define FLOOR_FLOAT(x, y) ( round((x) / (y)) * (y) )
 
 /proc/Default(a, b)

@@ -5,8 +5,10 @@
 	vary = TRUE
 
 /obj/machinery/bluespacedrive
-	name = "bluespace drive"
-	desc = "A bluespace HAMMER drive, Hephaestus' invention."
+	name = "C-Goliath Drive"
+	desc = "Developed by NanoTrasen, the C-Goliath Drive is a complex piece of machinery designed to fold space using the physics of the Bluespace Dimension and powered by Phoron. \
+			As one of the greatest pieces of technology invented in the Orion Spur, the bluespace drive changed history twice. \
+			Once after its discovery, and again during the phoron shortage."
 	icon = 'icons/obj/machinery/bluespace-drive.dmi'
 	icon_state = "drive_base"
 	init_flags = EMPTY_BITFIELD
@@ -59,8 +61,15 @@
 		GAS_BORON = 1.69
 	)
 
+	/**
+	 * How many phoron moles we need to jump, anything more is useless
+	 *
+	 * Encourages atmos techs to be precise with their calculations
+	 */
+	var/static/minimum_phoron_moles_per_jump = 1000 //About half of a full canister
+
 	///The power given to the drive, due to gasses
-	// var/power_from_gas
+	var/power_from_gas
 
 	///The rotation we'll be using to jump
 	var/rotation = 0
@@ -80,6 +89,9 @@
 	///The singularity that this drive made
 	var/obj/singularity/bluespace_drive/our_singularity
 
+	///Our bluespace jump event
+	var/datum/event/bluespace_jump/bluespace_jump_event
+
 
 /obj/machinery/bluespacedrive/Initialize()
 	..()
@@ -96,7 +108,7 @@
 
 	fuel_interface = locate(/obj/machinery/atmospherics/portables_connector) in get_step(src, WEST)
 	if(fuel_interface)
-		RegisterSignal(atmos_interface, COMSIG_QDELETING, PROC_REF(handle_fuel_interface_qdeleting))
+		RegisterSignal(fuel_interface, COMSIG_QDELETING, PROC_REF(handle_fuel_interface_qdeleting))
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -121,9 +133,9 @@
 	. = ..()
 
 /obj/machinery/bluespacedrive/update_icon()
-	. = ..()
-
 	ClearOverlays()
+
+	. = ..()
 
 	//We're energized (on)
 	if(energized)
@@ -146,7 +158,9 @@
 		var/datum/gas_mixture/node_gas_mixture = fuel_interface.node.return_air()
 		scrub_gas(src, list(GAS_PHORON), node_gas_mixture, fuel_gas)
 
-	if(internal_gas.total_moles && fuel_gas.total_moles)
+	consume_internal_gasses()
+
+	if(power_from_gas && fuel_gas.total_moles)
 		if(!our_singularity)
 			our_singularity = new(get_turf(src), 100, FALSE, FALSE, src)
 			RegisterSignal(our_singularity, COMSIG_QDELETING, PROC_REF(handle_singularity_deletion))
@@ -168,13 +182,11 @@
 /obj/machinery/bluespacedrive/proc/consume_internal_gasses()
 	SHOULD_NOT_SLEEP(TRUE)
 
-	// for(var/gas_type in internal_gas.gas)
-	// 	power_from_gas += internal_gas.get_gas(gas_type) * (gas_mole_to_power_factor[gas_type] * log(max(internal_gas.temperature, 1.1)))
+	for(var/gas_type in internal_gas.gas)
+		power_from_gas += internal_gas.get_gas(gas_type) * (gas_mole_to_power_factor[gas_type] * log(max(internal_gas.temperature, 1.1)))
 
 	//Reset the internal gasses, we have "consumed" them
-	internal_gas.gas = list()
-	internal_gas.temperature = 0
-	internal_gas.total_moles = 0
+	internal_gas = new()
 
 /**
  * Moves the ship to the target location, depending on the drive charge and configuration
@@ -199,12 +211,12 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//No fuel, no jump
-	if(!fuel_gas.total_moles)
+	if(!fuel_gas.total_moles || !power_from_gas)
 		return FALSE
 
 	var/turf/ship_turf = get_turf(linked)
 
-	var/datum/projectile_data/proj_data = projectile_trajectory(linked.x, linked.y, rotation, angle, (fuel_gas.total_moles + internal_gas.total_moles / (10 KILO)))
+	var/datum/projectile_data/proj_data = projectile_trajectory(linked.x, linked.y, rotation, angle, (power_from_gas / (10 KILO)))
 
 	var/turf/target_turf = locate(proj_data.dest_x, proj_data.dest_y, linked.z)
 
@@ -276,8 +288,12 @@
 			H.flash_act(FLASH_PROTECTION_MAJOR)
 			H.noise_act(EAR_PROTECTION_MAJOR, 0, 1)
 
-	fuel_gas.remove(fuel_gas.total_moles)
-	internal_gas.remove(internal_gas.total_moles)
+	//Dump the power
+	power_from_gas = 0
+
+	//No point computing the removal of all the content since we're purging, just make a new gas mixture
+	fuel_gas = new()
+	internal_gas = new() //Technically this is reset on every processing and shouldn't be necessary, neverthless...
 
 	if(our_singularity)
 		QDEL_NULL(our_singularity)
@@ -311,13 +327,19 @@
 	if(initiate_jump_timer_id)
 		return FALSE
 
+	//We don't have enough power to jump
+	if(fuel_gas.total_moles < minimum_phoron_moles_per_jump)
+		return FALSE
+
 	if(!get_jump_destination())
 		return FALSE
 
-	command_announcement.Announce("Attention all hands, Tigard-Galler field generation warp arrays are being energized, assume bluespace jump action stations; \
+	activate_bluespace_jump_event()
+
+	command_announcement.Announce("Attention all hands, Tigard-Alasdair field generation warp arrays are being energized, assume bluespace jump action stations; \
 									bluespace transition procedures are now in effect. Severe risk of death or serious injury to all personnel outside of the vessel. \
 									30 seconds to space warping.",
-									"HAMMER Bluespace Drive Jump Sequence Initiated")//, 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+									"C-Goliath Bluespace Drive Jump Sequence Initiated")//, 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 
 	for(var/mob/living/affected_mob in GLOB.player_list)
 		//Skip all mobs that are not in a connected z level to the drive
@@ -386,6 +408,8 @@
 		remove_bluespace_effect(affected_mob)
 		affected_mob.playsound_local(affected_mob, 'sound/magic/Ethereal_Exit.ogg', 60)
 
+	deactivate_bluespace_jump_event()
+
 	initiate_jump_timer_id = null
 	purge_charge(forced = FALSE)
 	update_icon()
@@ -413,7 +437,7 @@
 /obj/machinery/bluespacedrive/proc/apply_bluespace_effect(mob/living/M)
 	if(M.client)
 		to_chat(M,SPAN_NOTICE("You feel oddly light, and somewhat disoriented as everything around you shimmers and warps ever so slightly."))
-		M.overlay_fullscreen("bluespace", /obj/screen/fullscreen/bluespace_overlay)
+		M.overlay_fullscreen("bluespace", /atom/movable/screen/fullscreen/bluespace_overlay)
 	M.confused = 20
 
 /obj/machinery/bluespacedrive/proc/remove_bluespace_effect(mob/living/M)
@@ -421,6 +445,25 @@
 		to_chat(M,SPAN_NOTICE("You feel rooted in the material world again."))
 		M.clear_fullscreen("bluespace")
 
+///Activates the bluespace jump event, mainly to give the skybox image
+/obj/machinery/bluespacedrive/proc/activate_bluespace_jump_event()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(istype(bluespace_jump_event))
+		stack_trace("Bluespace jump event already active, but somehow is being triggered again!")
+
+	bluespace_jump_event = new()
+
+///Deactivates the bluespace jump event, mainly to return the skybox image to normal
+/obj/machinery/bluespacedrive/proc/deactivate_bluespace_jump_event()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(bluespace_jump_event))
+		return
+
+	bluespace_jump_event.end()
+	bluespace_jump_event.kill()
+	QDEL_NULL(bluespace_jump_event)
 
 
 /*######################
@@ -599,3 +642,35 @@
 	SIGNAL_HANDLER
 
 	beam_to_drive = null
+
+
+/*####################
+	BSD JUMP EVENT
+####################*/
+
+/**
+ * Bluespace Jump event, never triggers autonomously, only the BSD Drive can trigger it
+ *
+ * Mainly exist for the skybox shenanigans
+ */
+/datum/event/bluespace_jump
+	event_meta = new /datum/event_meta/bluespace_jump()
+	has_skybox_image = TRUE
+	no_fake = TRUE
+	endWhen = INFINITY //Event stopped manually
+
+/datum/event/bluespace_jump/get_skybox_image()
+	var/image/res = overlay_image('icons/skybox/ionbox.dmi', "ions", color_matrix_rotate_hue(rand(-3,3)*5), RESET_COLOR|KEEP_TOGETHER)
+	res.blend_mode = BLEND_INSET_OVERLAY
+	res.add_filter("displace", 1, list("icon" = icon('icons/skybox/ionbox.dmi', "ions")))
+	res.alpha = 0
+	animate(res, alpha = 255, time = (5 SECONDS), easing = (CIRCULAR_EASING|EASE_OUT))
+	return res
+
+
+/**
+ * Bluespace Jump event metadata
+ */
+/datum/event_meta/bluespace_jump
+	enabled = FALSE
+	weight = 0
