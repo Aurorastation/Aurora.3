@@ -759,6 +759,8 @@
 		<h4><i>Dr. Marivek's notes:</i></h3><BR>
 		The [/obj/machinery/bluespacedrive::name] will create the bluespace-field-driver singularity only when energized and fed with any valid gas in the moderator circuit and the Phoron line.<BR>
 		Any quantity above [/obj/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron is wasted, precise calculation is therefore encourage for efficiency.<BR>
+		Various gasses can be used for the moderation mix, any gas that is not valid will simply be absorbed without contributing to the bluespace effect.<BR>
+		Temperature of the moderation gas mixture is also influential, in my observations, ontop of the specific gas and the amount. Higher temperatures seems to increase the effect per mole.<BR>
 		The field-driver singularity is not self-sustaining, and can be destroyed by depowering the [/obj/machinery/bluespacedrive::name].<BR>
 		Should the field-driver singularity become loose from the quantum entanglement tunnel, unless fed, it won't destroy more than its size and won't move.<BR>
 		It has been noted that, at times, it has been observed to escape the first shield ring. It is extremely important to ensure both shield rings are engaged for maximum safety.
