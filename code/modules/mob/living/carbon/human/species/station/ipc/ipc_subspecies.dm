@@ -350,6 +350,8 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc/industrial/hephaestus)
 	)
 
+	flags = IS_IPC | ACCEPTS_COOLER | NO_EQUIP_SPEEDMODS
+
 
 /datum/species/machine/industrial/hephaestus/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

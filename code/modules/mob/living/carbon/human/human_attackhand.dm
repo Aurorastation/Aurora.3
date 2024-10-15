@@ -549,7 +549,7 @@
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>"
 	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
 	user.do_attack_animation(src)
-	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") == BULLET_ACT_HIT))
+	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") != BULLET_ACT_HIT))
 		return
 
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))

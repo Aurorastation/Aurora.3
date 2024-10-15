@@ -272,6 +272,7 @@
 	banners["banner, Pluto"] = /obj/item/flag/pluto
 	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
+	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard

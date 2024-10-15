@@ -134,15 +134,19 @@
 	update_icon()
 
 /obj/structure/bookcase/libraryspawn/fiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Fiction"
 
 /obj/structure/bookcase/libraryspawn/nonfiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Non-Fiction"
 
 /obj/structure/bookcase/libraryspawn/reference
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Reference"
 
 /obj/structure/bookcase/libraryspawn/religion
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Religion"
 
 /obj/structure/bookcase/manuals/medical

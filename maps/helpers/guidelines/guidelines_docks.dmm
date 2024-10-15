@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "cB" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark{
 	dir = 1
 	},
@@ -43,9 +41,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
 "lO" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/map_helper/mark_good,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -53,16 +49,12 @@
 /turf/simulated/wall,
 /area/template_noop)
 "pS" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "qS" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_pump,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "sX" = (
@@ -87,9 +79,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "AE" = (
-/obj/effect/shuttle_landmark{
-	dir = 2
-	},
+/obj/effect/shuttle_landmark,
 /turf/template_noop,
 /area/template_noop)
 "AS" = (
@@ -117,9 +107,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "KX" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lt" = (
@@ -132,12 +120,8 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Nh" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/effect/shuttle_landmark{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qa" = (
@@ -159,9 +143,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Zz" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/map_helper/mark_acceptable,
 /turf/simulated/floor/plating,
 /area/template_noop)

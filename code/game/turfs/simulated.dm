@@ -34,18 +34,17 @@
 			dirtoverlay = new/obj/effect/decal/cleanable/dirt(src)
 		dirtoverlay.alpha = min((dirt - 50) * 5, 255)
 
-/turf/simulated/Entered(atom/A, atom/OL)
+/turf/simulated/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
 		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
-	if(istype(A,/mob/living))
-		var/mob/living/M = A
-		if(src.wet_type && src.wet_amount)
-			if(M.buckled_to || (src.wet_type == 1 && M.m_intent == M_WALK))
-				return
+	if(istype(arrived, /mob/living))
+		var/mob/living/M = arrived
+		//if the turf is wet, the mob is not buckled, and either it's not wet with water or the mob is running, slip it
+		if(src.wet_type && src.wet_amount && !M.buckled_to && (src.wet_type != WET_TYPE_WATER || M.m_intent != M_WALK))
 
-			//Water
+			//Defaults to a water slip
 			var/slip_dist = 1
 			var/slip_stun = 6
 			var/floor_type = "wet"
@@ -67,14 +66,15 @@
 
 		// Ugly hack :c Should never have multiple plants in the same tile.
 		var/obj/effect/plant/plant = locate() in contents
-		if(plant) plant.trodden_on(M)
+		if(plant)
+			plant.trodden_on(M)
 
 		// Dirt overlays.
 		update_dirt()
 
 		M.inertia_dir = 0
 
-	..(A, OL)
+	..()
 
 /**
  * Slips a mob, moving it for N tiles
