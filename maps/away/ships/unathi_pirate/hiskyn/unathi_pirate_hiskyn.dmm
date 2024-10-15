@@ -1176,7 +1176,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
 	req_access = list(210)
