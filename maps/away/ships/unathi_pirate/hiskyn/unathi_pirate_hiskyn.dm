@@ -30,7 +30,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	designer = "Zhurong Naval Arsenal, Empire of Dominia"
+	designer = "Imperial Engineering & Shipbuilding Conglomerate"
 	volume = "65 meters length, 25 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual wingtip-mounted heavy ballistic, starboard obscured flight craft bay"
