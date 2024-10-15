@@ -42,6 +42,24 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
+"aad" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/hallc)
 "aae" = (
 /obj/structure/sign/flag/hiskyn{
 	stand_icon = "banner";
@@ -84,18 +102,18 @@
 	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "aai" = (
@@ -835,7 +853,7 @@
 	},
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/effect/overmap/visitable/ship/landable/sadar_shuttle,
+/obj/effect/overmap/visitable/ship/landable/hiskyn_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/hiskyn_revanchists)
 "acn" = (
@@ -1094,19 +1112,18 @@
 /area/hiskyn_ship/captain)
 "ahn" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /turf/simulated/floor/reinforced,
 /area/hiskyn_ship/engineering)
 "aht" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
-/obj/machinery/iff_beacon{
-	pixel_y = 4
-	},
-/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/shuttle/hiskyn_revanchists)
 "ahv" = (
@@ -1143,11 +1160,17 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "ajL" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 5
+	dir = 8
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hiskyn_revanchists)
 "ajS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1783,9 +1806,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -1986,13 +2006,21 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "aID" = (
-/obj/machinery/power/apc/high/west{
-	req_access = list(210)
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -21
 	},
-/obj/structure/cable/green,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "aIE" = (
@@ -2124,13 +2152,12 @@
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/hallc)
 "aOe" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
 	},
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/hiskyn_revanchists)
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "aOr" = (
 /turf/template_noop,
 /area/space)
@@ -2246,6 +2273,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
+"aQp" = (
+/obj/machinery/door/blast/regular/open{
+	id = "sadar_shuttle_shutters"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hiskyn_revanchists)
 "aQF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2275,25 +2312,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "aRA" = (
-/obj/machinery/ship_weapon/francisca{
-	pixel_y = -160;
-	pixel_x = -32;
-	dir = 8;
-	weapon_id = "Raiding Skiff Francisca Rotary Gun"
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/window_frame{
-	color = "#ac8b78";
-	name = "francisca mount frame"
-	},
-/obj/structure/window/full/reinforced{
-	name = "francisca viewport window"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters"
-	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/hiskyn_revanchists)
 "aRN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2608,15 +2628,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "beV" = (
-/obj/machinery/computer/shuttle_control/explore/sadar_shuttle{
-	dir = 4
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors/weak{
+	pixel_y = 4;
+	pixel_x = -1
 	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/hailing{
-	pixel_x = -6;
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
 /area/shuttle/hiskyn_revanchists)
 "bqp" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -2939,6 +2957,16 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
+"diM" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "dkw" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light,
@@ -3069,6 +3097,16 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
+"elA" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, weaponry"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/hiskyn_revanchists)
 "eoo" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -3085,6 +3123,11 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "eyC" = (
@@ -3400,11 +3443,21 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/francisca)
 "fHR" = (
-/obj/effect/floor_decal/corner_wide/red{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/hiskyn_ship/cic)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/hallc)
 "fJg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3595,6 +3648,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/marble,
 /area/hiskyn_ship/bathroom)
+"gKb" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "gKz" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hiskyn_aft_port";
@@ -3732,6 +3794,19 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
+"hbH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "hdI" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -3964,15 +4039,8 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "hKG" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, weaponry"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/hiskyn_revanchists)
+/turf/simulated/wall/r_wall,
+/area/hiskyn_ship/cic)
 "hMN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -4106,9 +4174,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "izj" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/hiskyn_revanchists)
+/obj/structure/ship_weapon_dummy,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/blaster)
 "iBb" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/thrustp)
@@ -4356,22 +4425,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/hallc)
 "jUT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/hiskyn_revanchists)
-"jWh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/hiskyn_revanchists)
 "jYc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4402,24 +4461,10 @@
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "kme" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_hiskyn_shuttle";
-	name = "airlock_hiskyn_shuttle";
-	req_one_access = list(210);
-	shuttle_tag = "Hiskyn Revanchist Shuttle"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
+/obj/structure/lattice,
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
-/area/shuttle/hiskyn_revanchists)
+/area/space)
 "krl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4455,9 +4500,6 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
 "kwT" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -4557,7 +4599,10 @@
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "lbu" = (
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 2
+	},
 /turf/template_noop,
 /area/space)
 "lcH" = (
@@ -4661,6 +4706,10 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/thrusts)
+"lqM" = (
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/template_noop,
+/area/space)
 "lsz" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
@@ -4682,13 +4731,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
-"lxQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 2
-	},
-/turf/template_noop,
-/area/space)
 "lyb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -4737,19 +4779,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/cargobay)
 "lMG" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/hiskyn_revanchists)
-"lPx" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	color = "#c24f4f";
 	frame_color = "#c24f4f"
 	},
-/turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
+"lPx" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/hiskyn_ship/cic)
 "lPL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -4761,9 +4801,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4847,7 +4884,7 @@
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "mgV" = (
-/obj/machinery/light/colored/decayed/dimmed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5085,16 +5122,9 @@
 /area/hiskyn_ship/francisca)
 "nnB" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8
+	dir = 6
 	},
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mech_recharger,
-/obj/effect/decal/cleanable/dirt,
-/mob/living/heavy_vehicle/premade/ripley/loader,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/hiskyn_revanchists)
 "npR" = (
 /obj/structure/platform_deco/ledge{
@@ -5107,11 +5137,12 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 2
+/obj/machinery/iff_beacon{
+	pixel_y = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/shuttle/hiskyn_revanchists)
 "nub" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -5344,6 +5375,9 @@
 	master_tag = "hiskyn_tank_co2"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "osR" = (
@@ -5417,9 +5451,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -5457,6 +5488,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "oZO" = (
@@ -5478,31 +5512,32 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "pgR" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/obj/machinery/ship_weapon/francisca{
+	pixel_y = -160;
+	pixel_x = -32;
+	dir = 8;
+	weapon_id = "Raiding Skiff Francisca Rotary Gun"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/machinery/door/firedoor/noid,
+/obj/structure/window_frame{
+	color = "#ac8b78";
+	name = "francisca mount frame"
 	},
-/obj/effect/floor_decal/corner_wide/red{
-	dir = 6
+/obj/structure/window/full/reinforced{
+	name = "francisca viewport window"
 	},
-/obj/machinery/vending/wallmed1{
-	req_access = null;
-	pixel_x = 24
+/obj/machinery/door/blast/regular/open{
+	id = "sadar_shuttle_shutters"
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
 "prp" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/power/apc/west{
-	req_access = null;
-	night_mode = 1
+	req_access = list(210)
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/cable/yellow,
@@ -5945,6 +5980,12 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
+"qZu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/hiskyn_revanchists)
 "raO" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -6095,7 +6136,7 @@
 "rRW" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/colored/decayed/dimmed{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/computer/ship/targeting/terminal{
@@ -6118,6 +6159,9 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "sfn" = (
@@ -6140,10 +6184,6 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
-"sgc" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/hiskyn_revanchists)
 "skG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -6159,6 +6199,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
+"srL" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/hiskyn_revanchists)
 "ssi" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -6366,27 +6413,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "tcX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/hiskyn_revanchists)
 "teF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "tjg" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/hallc)
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hiskyn_revanchists)
 "tjR" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -6401,6 +6451,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/hiskyn_ship/cic)
+"tnv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/shuttle/hiskyn_revanchists)
 "tsf" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
@@ -6431,16 +6488,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallf)
-"ttg" = (
-/obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters"
-	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#ac8b78";
-	frame_color = "#ac8b78"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/hiskyn_revanchists)
 "tue" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -6513,14 +6560,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "tKa" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/hiskyn_revanchists)
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/template_noop,
+/area/hiskyn_ship/blaster)
 "tLm" = (
-/turf/simulated/wall/r_wall,
-/area/hiskyn_ship/cic)
+/obj/machinery/computer/shuttle_control/explore/sadar_shuttle{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/device/radio/intercom/hailing{
+	pixel_x = -6;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hiskyn_revanchists)
 "tMx" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
@@ -6695,12 +6749,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "uvH" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/shipsensors/weak{
-	pixel_y = 4;
-	pixel_x = -1
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_hiskyn_shuttle";
+	name = "airlock_hiskyn_shuttle";
+	req_one_access = list(210);
+	shuttle_tag = "Hiskyn Revanchist Shuttle"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/hiskyn_revanchists)
 "uwC" = (
@@ -6806,18 +6870,23 @@
 /area/hiskyn_ship/bridge)
 "uUA" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/shuttle/hiskyn_revanchists)
+/obj/structure/railing/mapped{
+	dir = 2
+	},
+/turf/template_noop,
+/area/space)
 "uVW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/power/apc/high/south{
+	req_access = list(210)
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "uZs" = (
@@ -6912,13 +6981,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "vvG" = (
@@ -6948,12 +7016,12 @@
 	},
 /area/hiskyn_ship/armory)
 "vKv" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner_wide/red{
-	dir = 6
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/hiskyn_ship/cic)
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/hiskyn_revanchists)
 "vSl" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small/emergency{
@@ -7161,13 +7229,8 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
 "xbz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/hiskyn_revanchists)
 "xmL" = (
 /obj/effect/floor_decal/corner/red{
@@ -7233,20 +7296,44 @@
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/thrusts)
 "xsr" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/obj/machinery/vending/wallmed1{
+	req_access = null;
+	pixel_x = 24
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "xCI" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
+"xGq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/hiskyn_revanchists)
 "xKW" = (
-/obj/structure/lattice,
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
-/area/space)
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/hallc)
 "xLO" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(210)
@@ -36544,10 +36631,10 @@ fPJ
 iXo
 acL
 nWj
+izj
 bTY
 bTY
-bTY
-cft
+tKa
 aOr
 aOr
 aOr
@@ -37283,9 +37370,9 @@ aQX
 aQX
 aQX
 aQX
-tLm
-tLm
-tLm
+hKG
+hKG
+hKG
 aQX
 aQX
 aQX
@@ -38567,11 +38654,11 @@ dVW
 aQX
 aQX
 ayf
-fHR
+lPx
 arb
 aaf
 aPk
-vKv
+aOe
 abi
 aQX
 aQX
@@ -39067,17 +39154,17 @@ hhv
 eDy
 iSX
 vvG
+lMG
+lMG
 dXJ
+lMG
+lMG
 dXJ
-dXJ
-dXJ
-dXJ
-lPx
 atc
 atc
 dXJ
-dXJ
-dXJ
+lMG
+lMG
 dXJ
 dXJ
 dXJ
@@ -39336,13 +39423,13 @@ aCg
 aCg
 xmL
 aGV
-aCg
+gKb
 tUH
 oUs
 xnF
 fJg
 agh
-aCg
+gKb
 aCg
 tHh
 qvt
@@ -39351,12 +39438,12 @@ sBo
 tUH
 xmL
 aCg
-oCm
+hbH
 xmL
 xnF
 fqL
 amR
-xmL
+diM
 xmL
 xmL
 oCm
@@ -39591,9 +39678,9 @@ fxA
 lPL
 vvx
 aah
-acg
-acg
-acg
+fHR
+fHR
+aad
 jkb
 aba
 acg
@@ -39845,7 +39932,7 @@ oRx
 nIi
 aHI
 aDF
-tjg
+nSn
 dXJ
 cDq
 jUH
@@ -39855,8 +39942,8 @@ tUH
 gXv
 mkA
 mkA
-sLt
 mkA
+xKW
 mkA
 mkA
 tVN
@@ -40095,14 +40182,14 @@ aBr
 aGx
 aQF
 vvG
+lMG
+lMG
 dXJ
+lMG
+lMG
 dXJ
-dXJ
-dXJ
-dXJ
-dXJ
-dXJ
-dXJ
+lMG
+lMG
 dXJ
 ruT
 vsV
@@ -40110,8 +40197,8 @@ dXJ
 dXJ
 dXJ
 dXJ
-dXJ
-dXJ
+lMG
+lMG
 dXJ
 vdA
 vdA
@@ -40612,7 +40699,7 @@ vvG
 aOr
 aOr
 aPB
-xKW
+kme
 ans
 ans
 ans
@@ -40625,7 +40712,7 @@ aSF
 ans
 ans
 ans
-xKW
+kme
 aSF
 vdA
 aYP
@@ -41130,8 +41217,8 @@ ans
 aOr
 aOr
 aOr
-kme
-jUT
+uvH
+qZu
 cUN
 fmN
 aOQ
@@ -41641,7 +41728,7 @@ aOr
 aOr
 aPB
 ans
-izj
+xbz
 aWB
 hVb
 prp
@@ -41650,8 +41737,8 @@ gXw
 hmF
 aOQ
 sGd
-beV
-ttg
+tLm
+aQp
 jkH
 ans
 aSF
@@ -41904,7 +41991,7 @@ vYc
 bLK
 qDP
 wBg
-tcX
+tnv
 aab
 acm
 csI
@@ -42155,17 +42242,17 @@ aOr
 aOr
 aPB
 ans
-izj
-nNV
-nnB
-jWh
 xbz
-xsr
+nNV
+ajL
+tcX
+tjg
+xGq
 aaT
-pgR
+xsr
 rRW
 ixC
-ttg
+aQp
 jkH
 ans
 aSF
@@ -42672,17 +42759,17 @@ ans
 aOr
 aOr
 aOQ
+pgR
 aRA
-sgc
-sgc
+aRA
 aOQ
-uUA
-uvH
 aht
+beV
+nsb
 aOr
 aOr
 ans
-lxQ
+lbu
 aOr
 aOr
 aOr
@@ -42929,17 +43016,17 @@ auR
 aOr
 aOr
 aOr
-ajL
-lMG
-hKG
-lMG
-aOe
-tKa
+srL
+vKv
+elA
+vKv
+jUT
+nnB
 aOr
 aOr
 aOr
 ans
-nsb
+uUA
 aOr
 aOr
 aOr
@@ -43182,7 +43269,7 @@ aOr
 aOr
 aOr
 aOr
-xKW
+kme
 aOr
 aOr
 aOr
@@ -43195,7 +43282,7 @@ aOr
 aOr
 aOr
 aOr
-xKW
+kme
 aOr
 aOr
 aOr
@@ -44737,8 +44824,8 @@ aOr
 aOr
 aOr
 aOr
-lbu
-lbu
+lqM
+lqM
 aOr
 aOr
 aOr
@@ -44992,10 +45079,10 @@ aOr
 aOr
 aOr
 aOr
-lbu
+lqM
 aOr
-lbu
-lbu
+lqM
+lqM
 aOr
 aOr
 aOr
@@ -45249,7 +45336,7 @@ aOr
 aOr
 aOr
 aOr
-lbu
+lqM
 aOr
 aOr
 aOr
