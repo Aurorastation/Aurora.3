@@ -14,7 +14,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep, /datum/shuttle/autodock/multi/lift/gd)
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
@@ -59,41 +59,6 @@
 /obj/effect/overmap/visitable/ship/golden_deep/New()
 	designation = "[pick("Pessinus", "Phyrgia", "Gordia", "Bermion", "Ancyra", "Silenus", "Alyattes", "Orpheus")]"
 	..()
-
-/obj/effect/shuttle_landmark/golden_deep
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/golden_deep/nav1
-	name = "Golden Deep Mercantile Vessel, Fore"
-	landmark_tag = "gd_nav1"
-
-/obj/effect/shuttle_landmark/golden_deep/nav2
-	name = "Golden Deep Mercantile Vessel, Aft"
-	landmark_tag = "gd_nav2"
-
-/obj/effect/shuttle_landmark/golden_deep/nav3
-	name = "Golden Deep Mercantile Vessel, Port"
-	landmark_tag = "gd_nav3"
-
-/obj/effect/shuttle_landmark/golden_deep/nav4
-	name = "Golden Deep Mercantile Vessel, Starboard"
-	landmark_tag = "gd_nav4"
-
-/obj/effect/shuttle_landmark/golden_deep/dock
-	name = "Golden Deep Mercantile Vessel, Main Docking Port"
-	docking_controller = "airlock_gd_dock"
-	landmark_tag = "gd_dock"
-
-/obj/effect/shuttle_landmark/golden_deep/dock2
-	name = "Golden Deep Mercantile Vessel, Auxiliary Docking Port"
-	docking_controller = "airlock_gd_dock2"
-	landmark_tag = "gd_dock2"
-
-/obj/effect/shuttle_landmark/golden_deep/dock3
-	name = "Golden Deep Mercantile Vessel, Docking Port"
-	docking_controller = "airlock_gd_dock3"
-	landmark_tag = "gd_dock3"
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/golden_deep_shuttle
@@ -140,6 +105,34 @@
 	name = "In transit"
 	landmark_tag = "gd_nav_transit"
 	base_turf = /turf/space/transit/east
+
+// Lift
+/datum/shuttle/autodock/multi/lift/gd
+	name = "Golden Deep Lift"
+	current_location = "nav_gd_lift_first_deck"
+	shuttle_area = /area/turbolift/tcaf_corvette/gd_lift
+	destination_tags = list(
+		"nav_gd_lift_first_deck",
+		"nav_gd_lift_second_deck",
+		)
+
+/obj/effect/shuttle_landmark/lift/gd_first_deck
+	name = "Collective Mercantile Vessel - First Deck"
+	landmark_tag = "nav_gd_lift_first_deck"
+	base_area = /area/golden_deep/warehouse
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/lift/gd_second_deck
+	name = "Collective Mercantile Vessel - Second Deck"
+	landmark_tag = "nav_gd_lift_second_deck"
+	base_area = /area/golden_deep/central_hallway
+	base_turf = /turf/simulated/open
+
+/obj/machinery/computer/shuttle_control/multi/lift/gd
+	shuttle_tag = "Golden Deep Lift"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/gd
+	shuttle_tag = "Golden Deep Lift"
 
 //Fluff items
 /obj/item/storage/secure/safe/golden_deep // Placed in merchant's quarters.

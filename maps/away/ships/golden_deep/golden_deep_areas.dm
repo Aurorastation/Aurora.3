@@ -10,9 +10,17 @@
 	name = "Collective Mercantile Vessel - Port Propulsion"
 	icon_state = "engine"
 
+/area/golden_deep/portmaints
+	name = "Port Maintenance"
+	icon_state = "maintenance"
+
 /area/golden_deep/starboardprop
 	name = "Collective Mercantile Vessel - Starboard Propulsion"
 	icon_state = "engine"
+
+/area/golden_deep/starboardmaints
+	name = "Starboard Maintenance"
+	icon_state = "maintenance"
 
 /area/golden_deep/atmos
 	name = "Collective Mercantile Vessel - Atmospherics"
@@ -29,10 +37,6 @@
 /area/golden_deep/eva
 	name = "Collective Mercantile Vessel - EVA Storage"
 	icon_state = "eva"
-
-/area/golden_deep/owned_storage
-	name = "Collective Mercantile Vessel - Owned Crew Storage"
-	icon_state = "crew_quarters"
 
 /area/golden_deep/owned_lounge
 	name = "Collective Mercantile Vessel - Owned Crew Fraternisation Area"
@@ -97,3 +101,9 @@
 //Shuttle
 /area/shuttle/golden_deep
 	name = "Golden Deep Shuttle"
+
+// Lift
+/area/turbolift/tcaf_corvette/gd_lift
+	name = "Golden Deep Lift"
+	station_area = FALSE
+
