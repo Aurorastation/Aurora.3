@@ -6,7 +6,7 @@
 	contained_sprite = TRUE
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
@@ -180,3 +180,19 @@
 	name = "bottle of 10u Ryetalyn pills"
 	desc = "Contains pills used to treat genetic and immune diseases."
 	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)
+
+/obj/item/storage/pill_bottle/caffeine
+	name = "bottle of 5u Caffeine pills"
+	desc = "Contains pills used to help with alertness and fatigue. The label warns against taking more than 2 in a 6-hour period. Possible side effects include jitteriness, heart palpitations, difficulty with concentrating, and even death."
+	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
+
+/obj/item/storage/pill_bottle/nicotine
+	name = "bottle of 5u Nicotine pills"
+	desc = "Contains pills used to treat nicotine addiction."
+	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
+
+/obj/item/storage/pill_bottle/vitamin
+	name = "bottle of Vitamin supplements"
+	desc = "Contains pills used to treat vitamin deficiency."
+	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
+

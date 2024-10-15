@@ -19,7 +19,7 @@
 		usr.on_mob_jump()
 		usr.forceMove(pick(get_area_turfs(A)))
 
-		log_admin("[key_name(usr)] jumped to [A]", admin_key=key_name(usr))
+		log_admin("[key_name(usr)] jumped to [A]")
 		message_admins("[key_name_admin(usr)] jumped to [A]", 1)
 		feedback_add_details("admin_verb","JA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
@@ -36,7 +36,7 @@
 		return
 
 	if(GLOB.config.allow_admin_jump)
-		log_admin("[key_name(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]")
 		message_admins("[key_name_admin(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]", 1)
 		usr.on_mob_jump()
 		usr.forceMove(T)
@@ -56,7 +56,7 @@
 		return
 
 	if(GLOB.config.allow_admin_jump)
-		log_admin("[key_name(usr)] jumped to [key_name(M)]", admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] jumped to [key_name(M)]")
 		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
 		if(src.mob)
 			var/mob/A = src.mob
@@ -207,7 +207,7 @@
 			to_chat(src, "No keys found.")
 			return
 		var/mob/M = selection:mob
-		log_admin("[key_name(usr)] jumped to [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] jumped to [key_name(M)]")
 		message_admins("[key_name_admin(usr)] jumped to [key_name_admin(M)]", 1)
 		usr.on_mob_jump()
 		usr.forceMove(M.loc)
@@ -222,7 +222,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
 	if(GLOB.config.allow_admin_jump)
-		log_admin("[key_name(usr)] teleported [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] teleported [key_name(M)]")
 		message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)]", 1)
 		M.on_mob_jump()
 		M.forceMove(get_turf(usr))
@@ -249,7 +249,7 @@
 
 		if(!M)
 			return
-		log_admin("[key_name(usr)] teleported [key_name(M)]",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(usr)] teleported [key_name(M)]")
 		message_admins("[key_name_admin(usr)] teleported [key_name(M)]", 1)
 		if(M)
 			M.on_mob_jump()
@@ -270,7 +270,7 @@
 			M.forceMove(pick(get_area_turfs(A)))
 			feedback_add_details("admin_verb","SMOB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-			log_admin("[key_name(usr)] teleported [key_name(M)] to [A]",admin_key=key_name(usr),ckey=key_name(M))
+			log_admin("[key_name(usr)] teleported [key_name(M)] to [A]")
 			message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)] to [A]", 1)
 		else
 			alert("Admin jumping disabled")

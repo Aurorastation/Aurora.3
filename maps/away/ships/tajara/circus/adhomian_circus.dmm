@@ -1144,7 +1144,6 @@
 /area/adhomian_circus/port)
 "fDP" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -2705,8 +2704,7 @@
 "nBx" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2748,7 +2746,6 @@
 "nDF" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -4122,12 +4119,6 @@
 	temperature = 278.15
 	},
 /area/adhomian_circus/hangar)
-"vLF" = (
-/obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/adhomian_circus/starboard)
 "vNj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/plating{
@@ -41902,7 +41893,7 @@ aSm
 lsQ
 knX
 aSm
-vLF
+thx
 aSm
 aSm
 aUK

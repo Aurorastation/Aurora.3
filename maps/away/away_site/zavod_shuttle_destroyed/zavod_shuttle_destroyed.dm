@@ -3,7 +3,7 @@
 	description = "A wrecked shuttle once owned by Zavodskoi Interstellar. It seems to have crashed into a large asteroid."
 
 	prefix = "away_site/zavod_shuttle_destroyed/"
-	suffixes = list("zavod_shuttle_destroyed.dmm")
+	suffix = "zavod_shuttle_destroyed.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1

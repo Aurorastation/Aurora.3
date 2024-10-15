@@ -61,10 +61,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		return
 
 	for(var/prog in SSatlas.current_map.holodeck_supported_programs)
-		dat += "<A href='?src=\ref[src];program=[SSatlas.current_map.holodeck_supported_programs[prog]]'>([prog])</A><BR>"
+		dat += "<A href='?src=[REF(src)];program=[SSatlas.current_map.holodeck_supported_programs[prog]]'>([prog])</A><BR>"
 
 	dat += "<BR>"
-	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
+	dat += "<A href='?src=[REF(src)];program=turnoff'>(Turn Off)</A><BR>"
 
 	dat += "<BR>"
 	dat += "Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.<BR>"
@@ -75,15 +75,15 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 			if (emagged)
 				dat += "<font color=red><b>ERROR</b>: Cannot re-enable Safety Protocols.</font><BR>"
 			else
-				dat += "<A href='?src=\ref[src];AIoverride=1'>(<font color=green>Re-Enable Safety Protocols?</font>)</A><BR>"
+				dat += "<A href='?src=[REF(src)];AIoverride=1'>(<font color=green>Re-Enable Safety Protocols?</font>)</A><BR>"
 		else
-			dat += "<A href='?src=\ref[src];AIoverride=1'>(<font color=red>Override Safety Protocols?</font>)</A><BR>"
+			dat += "<A href='?src=[REF(src)];AIoverride=1'>(<font color=red>Override Safety Protocols?</font>)</A><BR>"
 
 	dat += "<BR>"
 
 	if(safety_disabled)
 		for(var/prog in SSatlas.current_map.holodeck_restricted_programs)
-			dat += "<A href='?src=\ref[src];program=[SSatlas.current_map.holodeck_restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
+			dat += "<A href='?src=[REF(src)];program=[SSatlas.current_map.holodeck_restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
 		dat += "Safety Protocols are <font color=red> DISABLED </font><BR>"
@@ -91,15 +91,15 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		dat += "Safety Protocols are <font color=green> ENABLED </font><BR>"
 
 	if(linkedholodeck.has_gravity)
-		dat += "Gravity is <A href='?src=\ref[src];gravity=1'><font color=green>(ON)</font></A><BR>"
+		dat += "Gravity is <A href='?src=[REF(src)];gravity=1'><font color=green>(ON)</font></A><BR>"
 	else
-		dat += "Gravity is <A href='?src=\ref[src];gravity=1'><font color=blue>(OFF)</font></A><BR>"
+		dat += "Gravity is <A href='?src=[REF(src)];gravity=1'><font color=blue>(OFF)</font></A><BR>"
 
 	if(!locked)
-		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=green>(UNLOCKED)</font></A><BR>"
+		dat += "Holodeck is <A href='?src=[REF(src)];togglehololock=1'><font color=green>(UNLOCKED)</font></A><BR>"
 	else
 		dat = "<B>Holodeck Control System</B><BR>"
-		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=red>(LOCKED)</font></A><BR>"
+		dat += "Holodeck is <A href='?src=[REF(src)];togglehololock=1'><font color=red>(LOCKED)</font></A><BR>"
 
 	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")
@@ -128,10 +128,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		update_projections()
 		if(safety_disabled)
 			message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-			log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] overrided the holodeck's safeties")
 		else
 			message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-			log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] restored the holodeck's safeties")
 
 	else if(href_list["gravity"])
 		toggleGravity(linkedholodeck)
@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		update_projections()
 		to_chat(user, SPAN_NOTICE("You vastly increase projector power and override the safety and security protocols."))
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [SSatlas.current_map.company_name] maintenance and do not use the simulator.")
-		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
+		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
 		src.updateUsrDialog()
 		return 1
 	else

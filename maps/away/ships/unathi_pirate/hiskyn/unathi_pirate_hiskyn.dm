@@ -3,7 +3,7 @@
 	description = "Ship with pirate lizards."
 
 	prefix = "ships/unathi_pirate/hiskyn/"
-	suffixes = list("unathi_pirate_hiskyn.dmm")
+	suffix = "unathi_pirate_hiskyn.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL)
 	spawn_weight = 1

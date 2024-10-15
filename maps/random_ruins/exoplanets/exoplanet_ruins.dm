@@ -1,6 +1,4 @@
-/datum/map_template/ruin/exoplanet
-	abstract_type = /datum/map_template/ruin/exoplanet
-
+ABSTRACT_TYPE(/datum/map_template/ruin/exoplanet)
 	prefix = "maps/random_ruins/exoplanets/"
 	template_flags = TEMPLATE_FLAG_NO_RUINS
 	spawn_weight = 1

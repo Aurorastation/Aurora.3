@@ -14,6 +14,8 @@
 		// Skip sanity check for H.back, as istype can safely handle a null.
 		if (istype(H.back, /obj/item/tank/jetpack))
 			return H.back
+		else if (istype(H.s_store, /obj/item/tank/jetpack))
+			return H.s_store
 		else if (istype(H.back, /obj/item/rig))
 			var/obj/item/rig/rig = H.back
 			for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
@@ -36,7 +38,7 @@
 	icon_state = "jetpack"
 	item_state = "jetpack"
 	gauge_icon = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/ion_trail_type = /obj/effect/effect/ion_trails
 	var/on = 0.0

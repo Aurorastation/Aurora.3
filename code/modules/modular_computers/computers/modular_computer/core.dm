@@ -1,9 +1,9 @@
 /obj/item/modular_computer/process()
+	handle_power() // Handles all computer power interaction
+
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return FALSE
-
-	handle_power() // Handles all computer power interaction
 
 	if(damage > broken_damage)
 		shutdown_computer()
@@ -68,6 +68,7 @@
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/proc/handle_verbs()
+	verbs += /obj/item/modular_computer/proc/force_shutdown
 	if(card_slot)
 		if(card_slot.stored_card)
 			verbs += /obj/item/modular_computer/proc/eject_id

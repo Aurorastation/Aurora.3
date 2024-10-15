@@ -161,7 +161,7 @@
 
 	var/out = "<B>[name]</B>[(current&&(current.real_name!=name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
-	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
+	out += "Assigned role: [assigned_role]. <a href='?src=[REF(src)];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
 	for(var/antag_type in GLOB.all_antag_types)
@@ -178,15 +178,15 @@
 				out += "(<span class='good'>complete</span>)"
 			else
 				out += "(<span class='warning'>incomplete</span>)"
-			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
-			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
+			out += " <a href='?src=[REF(src)];obj_completed=[REF(O)]'>\[toggle\]</a>"
+			out += " <a href='?src=[REF(src)];obj_delete=[REF(O)]'>\[remove\]</a><br>"
 			num++
-		out += "<br><a href='?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
+		out += "<br><a href='?src=[REF(src)];obj_announce=1'>\[announce objectives\]</a>"
 
 	else
 		out += "None."
-	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a>"
-	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
+	out += "<br><a href='?src=[REF(src)];obj_add=1'>\[add\]</a>"
+	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='?src=[REF(src)];amb_edit=[REF(src)]'>\[edit\]</a></br>"
 	usr << browse(out, "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
@@ -196,7 +196,7 @@
 		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["add_antagonist"]]
 		if(antag)
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
-				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
+				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].")
 			else
 				to_chat(usr, SPAN_WARNING("[src] could not be made into a [antag.role_text]!"))
 
@@ -377,11 +377,11 @@
 							qdel(I)
 							break
 				to_chat(H, SPAN_NOTICE("<font size =3><B>Your loyalty implant has been deactivated.</B></font>"))
-				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].")
 			if("add")
 				to_chat(H, SPAN_DANGER("<font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font>"))
 				H.implant_loyalty(H, override = TRUE)
-				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
@@ -402,7 +402,7 @@
 					else if(R.module_state_3 == R.module.emag)
 						R.module_state_3 = null
 						R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemagged [R].",admin_key=key_name(usr),ckey_target=key_name(R))
+					log_admin("[key_name_admin(usr)] has unemagged [R].")
 
 			if("unemagcyborgs")
 				if (istype(current, /mob/living/silicon/ai))
@@ -421,7 +421,7 @@
 							else if(R.module_state_3 == R.module.emag)
 								R.module_state_3 = null
 								R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemagged [ai]'s Cyborgs.",admin_key=key_name(usr),ckey_target=key_name(ai))
+					log_admin("[key_name_admin(usr)] has unemagged [ai]'s Cyborgs.")
 
 	else if (href_list["common"])
 		switch(href_list["common"])

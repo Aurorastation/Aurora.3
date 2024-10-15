@@ -76,7 +76,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	shaken = 0
 
-/obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/drinks/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(force && !(atom_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0
@@ -211,6 +211,15 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
 	reagents_to_add = list(/singleton/reagent/drink/hot_coco = 30)
+
+/obj/item/reagent_containers/food/drinks/zobo
+	name = "zobo bottle"
+	desc = "A common, mass-produced Eridani drink. Now available on most* Getmore-affiliated installations."
+	icon_state = "zobo"
+	empty_icon_state = "zobo_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	reagents_to_add = list(/singleton/reagent/drink/zobo = 30)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"

@@ -10,7 +10,7 @@
 	available_on_ntnet = TRUE
 	required_access_download = ACCESS_HOS
 	required_access_run = ACCESS_ARMORY
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	tgui_id = "GunTracker"
 	var/list/wireless_firing_pins_data
 
@@ -38,7 +38,7 @@
 			var/list/guntracker_info = list(
 				"gun_name" = capitalize_first_letters(P.gun.name),
 				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
-				"ref" = "\ref[P]",
+				"ref" = "[REF(P)]",
 				"lock_status" = P.lock_status
 				)
 			wireless_firing_pins_data += list(guntracker_info)

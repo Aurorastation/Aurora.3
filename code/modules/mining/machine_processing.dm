@@ -479,7 +479,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 			//Compressing materials
 			else if(ores_processing[metal] & SMELTER_MODE_COMPRESSING && O.compresses_to)
-				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
+				var/can_make = clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 				if(can_make % 2 > 0)
 					can_make--
 
@@ -499,7 +499,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 			//Smelting materials
 			else if(ores_processing[metal] & SMELTER_MODE_SMELTING && O.smelts_to)
-				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
+				var/can_make = clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 
 				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)

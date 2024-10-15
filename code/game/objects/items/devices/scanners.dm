@@ -15,7 +15,7 @@ BREATH ANALYZER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
 	matter = list(MATERIAL_ALUMINIUM = 200)
@@ -24,7 +24,7 @@ BREATH ANALYZER
 	var/mode = 1
 	var/sound_scan = FALSE
 
-/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
@@ -32,7 +32,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(M, user, mode, sound_scan = sound_scan)
+	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
@@ -377,7 +377,7 @@ BREATH ANALYZER
 	icon_state = "analyzer"
 	item_state = "analyzer"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -411,7 +411,7 @@ BREATH ANALYZER
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
 	icon_state = "spectrometer"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -485,7 +485,7 @@ BREATH ANALYZER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
@@ -526,18 +526,19 @@ BREATH ANALYZER
 	icon_state = "adv_spectrometer"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
-/obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
-	if(!isslime(M))
+/obj/item/device/slime_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!isslime(target_mob))
 		to_chat(user, SPAN_WARNING("This device can only scan slimes!"))
 		return
-	var/mob/living/carbon/slime/T = M
+
+	var/mob/living/carbon/slime/T = target_mob
 	to_chat(user, SPAN_NOTICE("**************************"))
 	to_chat(user, SPAN_NOTICE("Slime scan results:"))
 	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
@@ -571,7 +572,7 @@ BREATH ANALYZER
 	item_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
@@ -590,7 +591,7 @@ BREATH ANALYZER
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 0
@@ -599,7 +600,9 @@ BREATH ANALYZER
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+
+	var/mob/living/carbon/human/H = target_mob
 
 	if (!istype(H))
 		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on [H]!"))
@@ -699,7 +702,7 @@ BREATH ANALYZER
 	icon_state = "adv-analyzer"
 	item_state = "adv-analyzer"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
 	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 
@@ -716,14 +719,14 @@ BREATH ANALYZER
 		QDEL_NULL(connected)
 	return ..()
 
-/obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/advanced_healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
-	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-	if(do_after(user, 7 SECONDS, M, DO_UNIQUE))
-		print_scan(M, user)
+	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
+		print_scan(target_mob, user)
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)

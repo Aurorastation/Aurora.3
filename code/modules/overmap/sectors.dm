@@ -165,7 +165,7 @@ var/global/area/overmap/map_overmap
 	if(!in_space)
 		SSatlas.current_map.sealed_levels |= map_z
 	if(base)
-		SSatlas.current_map.station_levels |= map_z
+		// SSatlas.current_map.station_levels |= map_z
 		SSatlas.current_map.contact_levels |= map_z
 		SSatlas.current_map.map_levels |= map_z
 
@@ -283,13 +283,13 @@ var/global/area/overmap/map_overmap
 	magnet_survey_result = ""
 
 /proc/build_overmap()
+	set waitfor = FALSE
 	if(!SSatlas.current_map.use_overmap)
 		return 1
 
 	log_module_sectors("Building overmap...")
-	world.maxz++
-	SSatlas.current_map.overmap_z = world.maxz
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/overmap_spacelevel = SSmapping.add_new_zlevel("Overmap", ZTRAITS_OVERMAP, contain_turfs = FALSE)
+	SSatlas.current_map.overmap_z = overmap_spacelevel.z_value
 
 	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new

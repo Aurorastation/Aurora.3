@@ -1,5 +1,5 @@
 ///Stinger grenade projectile
-/obj/item/projectile/bullet/rubberball/stinger_ball
+/obj/projectile/bullet/rubberball/stinger_ball
 	damage = 2
 	agony = 50
 	armor_penetration = 10
@@ -10,7 +10,6 @@
 	spread_step = 20
 
 	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = 1
 	muzzle_type = null
 
 /obj/item/grenade/stinger
@@ -34,23 +33,26 @@
 	var/fragments_per_projectile = round(fragger/target_turfs.len)
 
 	for(var/turf/T in target_turfs)
-		var/obj/item/projectile/bullet/rubberball/stinger_ball/P = new (O)
+		var/obj/projectile/bullet/rubberball/stinger_ball/P = new (O)
 
 		P.damage = p_dam
 		P.balls = fragments_per_projectile
 		P.range_step = p_range
-		P.shot_from = source
 		P.range = shard_range
 		P.name = "rubber ball"
 
-		P.launch_projectile(T)
+		P.preparePixelProjectile(T, get_turf(source))
+		P.firer = source
+		P.fired_from = source
+		P.fire()
 
 		if(can_cover)
 			for(var/mob/living/M in O)
 				if(M.lying && isturf(get_turf(source)))
-					P.attack_mob(M, 0, 0)
+					P.process_hit(get_turf(M), M)
 				else
-					P.attack_mob(M, 0, 100)
+					if(prob(20))
+						P.process_hit(get_turf(M), M)
 
 /obj/item/grenade/stinger/prime()
 	..()

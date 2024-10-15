@@ -29,7 +29,7 @@
 	if(.)
 		sleeper.ui_interact(user)
 
-/obj/item/mecha_equipment/sleeper/attack()
+/obj/item/mecha_equipment/sleeper/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/mecha_equipment/sleeper/attackby(obj/item/attacking_item, mob/user)
@@ -77,9 +77,6 @@
 	active_power_usage = 0 //It'd be hard to handle, so for now all power is consumed by mech sleeper object
 	interact_offline = TRUE
 	display_loading_message = FALSE
-
-/obj/machinery/sleeper/mounted/ui_interact(mob/user, var/datum/ui_state/state = mech_state)
-	. = ..()
 
 /obj/machinery/sleeper/mounted/ui_host()
 	var/obj/item/mecha_equipment/sleeper/S = loc
@@ -302,16 +299,19 @@
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
 
-/obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
+/obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	if(!fullScan)
-		for(var/mob/pilot in user.pilots)
-			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = TRUE)
+		var/mob/living/heavy_vehicle/user_vehicle = user
+		if(istype(user_vehicle))
+			for(var/mob/pilot in user_vehicle.pilots)
+				health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
 	else
-		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
+		user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].",
+								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
 		if(do_after(user, 7 SECONDS))
-			print_scan(M, user)
+			print_scan(target_mob, user)
 			add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)

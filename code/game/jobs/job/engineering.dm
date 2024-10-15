@@ -30,7 +30,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/chief_engineer
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -40,7 +40,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 

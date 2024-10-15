@@ -82,6 +82,9 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
+		"lasertag" = new /datum/holodeck_program(/area/horizon/holodeck/source_lasertag,
+			list('sound/music/THUNDERDOME.ogg')
+		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
@@ -120,7 +123,8 @@
 		"Jupiter Upper Atmosphere" = "jupiter",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
-		"Chessboard" = "chessboard"
+		"Chessboard" = "chessboard",
+		"Laser Tag Arena" = "lasertag"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",

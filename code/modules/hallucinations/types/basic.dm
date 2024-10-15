@@ -6,7 +6,7 @@
 /datum/hallucination/announcement/start()
 	var/list/hal_sender = SShallucinations.message_sender
 	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
-		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE) && isStationLevel(H.z))	//We're not going to add ninjas, mercs, borers, etc to prevent meta. No people off-station, either
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE) && is_station_level(H.z))	//We're not going to add ninjas, mercs, borers, etc to prevent meta. No people off-station, either
 			hal_sender += H
 	switch(rand(1,15))
 		if(1)
@@ -75,7 +75,7 @@
 /datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
 	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
-		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && isStationLevel(M.z))	//Antag check prevents meta, isStationLevel prevents people offsite doing it
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && is_station_level(M.z))	//Antag check prevents meta, isStationLevel prevents people offsite doing it
 			people += M
 	people -= holder
 	if(!length(people))

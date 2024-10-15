@@ -3,9 +3,10 @@
 	description = "The N'hanzafu class is a bulky Adhomian freighter designed with a large crew and cargo in mind. This one is painted in bright colors."
 
 	prefix = "ships/tajara/circus/"
-	suffixes = list("adhomian_circus.dmm")
+	suffix = "adhomian_circus.dmm"
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "adhomian_circus_ship"

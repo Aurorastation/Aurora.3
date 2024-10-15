@@ -1,5 +1,9 @@
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
 
 	if(ismob(mover))
 		var/mob/moving_mob = mover
@@ -141,7 +145,7 @@
 
 	var/old_loc = loc
 
-	//Cardinal move
+	//Diagonal move
 	if(direction & (direction - 1))
 		if(direction & 1)
 			if(direction & 4)
@@ -173,7 +177,7 @@
 							if(step(src, WEST))
 								. = step(src, SOUTH)
 
-	//Diagonal move
+	//Cardinal move
 	else
 		var/atom/A = src.loc
 
@@ -267,6 +271,8 @@
 
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
+
+	var/add_delay = mob.cached_multiplicative_slowdown
 
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
@@ -393,6 +399,7 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
+		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob

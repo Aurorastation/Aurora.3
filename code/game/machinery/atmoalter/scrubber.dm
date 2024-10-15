@@ -8,7 +8,7 @@
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
 	density = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	var/on = FALSE
 	var/volume_rate = 800
@@ -146,7 +146,7 @@
 		. = TRUE
 		update_icon()
 	if(action=="setVolume")
-		volume_rate = Clamp(text2num(params["targetVolume"]), minrate, maxrate)
+		volume_rate = clamp(text2num(params["targetVolume"]), minrate, maxrate)
 		. = TRUE
 		update_icon()
 

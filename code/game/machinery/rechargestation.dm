@@ -143,8 +143,6 @@
 
 /obj/machinery/recharge_station/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat)
 		return

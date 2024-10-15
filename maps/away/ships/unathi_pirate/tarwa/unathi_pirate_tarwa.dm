@@ -3,7 +3,7 @@
 	description = "Ship with pirate lizards, pirate plants"
 
 	prefix = "ships/unathi_pirate/tarwa/"
-	suffixes = list("unathi_pirate_tarwa.dmm")
+	suffix = "unathi_pirate_tarwa.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1

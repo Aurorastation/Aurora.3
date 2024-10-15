@@ -4,7 +4,7 @@
 // sliceable is just an organization type path, it doesn't have any additional code or variables tied to it.
 
 /obj/item/reagent_containers/food/snacks/sliceable
-	w_class = ITEMSIZE_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
+	w_class = WEIGHT_CLASS_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel
 	name = "cheese wheel"
@@ -46,7 +46,7 @@
 
 /obj/item/reagent_containers/food/snacks/nakarka_wedge
 	name = "nakarka cheese wedge"
-	desc = "Zzztop calling it Nakarka cheeeze. Nakarka meanzzz cheeeze. You are literally calling it cheezzze cheezzze."
+	desc = "Zzztop calling it Nakarka cheezzze. You sound ridicoulouzzz. Nakarka meanzzz cheezzze. You are literally calling it cheezzze cheezzze."
 	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
 	icon_state = "nakarka_wedge"
 	ingredient_name = "nakarka"

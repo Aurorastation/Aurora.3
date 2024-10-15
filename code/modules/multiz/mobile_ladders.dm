@@ -7,13 +7,14 @@
 	contained_sprite = TRUE
 	throw_range = 3
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 
 /obj/item/ladder_mobile/proc/place_ladder(atom/A, mob/user)
 
 	if (isopenturf(A))         //Place into open space
-		var/turf/below_loc = GetBelow(A)
+		var/turf/T = get_turf(A)
+		var/turf/below_loc = GET_TURF_BELOW(T)
 		if (!below_loc || (istype(/turf/space, below_loc)))
 			to_chat(user, SPAN_NOTICE("Why would you do that?! There is only infinite space there..."))
 			return
@@ -32,7 +33,8 @@
 		qdel(src)
 
 	else if (istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor))	//Place onto Floor
-		var/turf/upper_loc = GetAbove(A)
+		var/turf/T = get_turf(A)
+		var/turf/upper_loc = GET_TURF_ABOVE(T)
 		if (!upper_loc || !isopenturf(upper_loc))
 			to_chat(user, SPAN_NOTICE("There is something above. You can't deploy!"))
 			return

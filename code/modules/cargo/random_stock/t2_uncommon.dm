@@ -377,7 +377,7 @@ STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
 
 STOCK_ITEM_UNCOMMON(googly, 0.75)
-	new /obj/item/storage/box/googly(L)
+	new /obj/item/storage/stickersheet/googly_eye(L)
 
 STOCK_ITEM_UNCOMMON(wizarddressup, 1)
 	new /obj/random/wizard_dressup(L)

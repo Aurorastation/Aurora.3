@@ -4,8 +4,17 @@
 	description = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	sectors = list(SECTOR_HANEUNIM)
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	prefix = "away_site/konyang/point_verdant/"
-	suffixes = list("point_verdant-1.dmm", "point_verdant-2.dmm", "point_verdant-3.dmm")
+	suffix = "point_verdant.dmm"
 
 	spawn_weight = 1
 	spawn_cost = 1

@@ -51,7 +51,7 @@
 	G.can_reenter_corpse = 1
 
 	G.show_message(SPAN_NOTICE("<B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
-	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API",ckey=key_name(G),admin_key=senderkey)
+	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
 	message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
 

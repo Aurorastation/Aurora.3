@@ -156,7 +156,7 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 	v_flippable = FALSE
 
@@ -184,7 +184,7 @@
 	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -199,7 +199,7 @@
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
 	their customary roles related to their ethnicity."
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -255,7 +255,7 @@
 	icon_state = "pra-passport"
 	overlay_state = "pra-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -270,7 +270,7 @@
 	icon_state = "dpra-passport"
 	overlay_state = "dpra-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -285,7 +285,7 @@
 	icon_state = "nka-passport"
 	overlay_state = "nka-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -301,7 +301,7 @@
 	icon_state = "ftc-passport"
 	overlay_state = "ftc-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -317,7 +317,7 @@
 	icon_state = "rosette"
 	item_state = "rosette"
 	slot_flags = SLOT_MASK | SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/tajaran/kin_srendarr/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -342,21 +342,21 @@
 	item_state = "wooden_talisman"
 	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off Raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
 
 /obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
-	if(user.a_intent != I_HURT && M != user)
-		if(target_zone == BP_HEAD | M.lying)
-			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user.a_intent != I_HURT && target_mob != user)
+		if(target_zone == BP_HEAD | target_mob.lying)
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>")
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>")
 		else
-			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>")
 	else
 		return ..()
 
@@ -406,6 +406,15 @@
 	desc = "A hand carved charm of one of the mythical tajani."
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
+
+/obj/item/clothing/accessory/tajaran/charm/twin_suns
+	name = "twin suns charm"
+	desc = "A talisman with the symbol the Adhomian suns, the deities of the church S'rand'marr."
+	desc_extended = "The Twin Suns Icon is an ancient icon representing Adhomai's suns. While the Church of S'rand'marr claims it was originally a religious symbol, \
+	archeological evidence traces its origins to the Tajaran pre-history. The Twin Suns Icon represents auspiciousness, protection, and perseverance. \
+	It is commonly found on clothing, weapons, vehicles, and carved on the entrance of homes. When used on flags, it is considered to be a symbol of incontestable rulership."
+	icon_state = "suns_talisman"
+	item_state = "suns_talisman"
 
 /obj/item/clothing/accessory/tajaran/charm/raskariim
 	name = "metal amulet"
@@ -582,7 +591,7 @@
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "adhomai_tag"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/accessory/tajaran/hadii_badge
 	name = "president Hadii badge"

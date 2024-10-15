@@ -304,7 +304,7 @@
 /obj/item/clothing/suit/storage/target_costume/Initialize()
 	. = ..()
 	pockets.storage_slots = 2
-	pockets.max_w_class = ITEMSIZE_NORMAL
+	pockets.max_w_class = WEIGHT_CLASS_NORMAL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/target_costume/attack_hand(mob/user)

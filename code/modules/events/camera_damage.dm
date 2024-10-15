@@ -37,4 +37,4 @@
 /datum/event/camera_damage/proc/is_valid_camera(var/obj/machinery/camera/C)
 	// Only return a functional camera, not installed in a silicon, and that exists somewhere players have access
 	var/turf/T = get_turf(C)
-	return T && C.can_use() && !istype(C.loc, /mob/living/silicon) && isStationLevel(T.z)
+	return T && C.can_use() && !istype(C.loc, /mob/living/silicon) && is_station_level(T.z)

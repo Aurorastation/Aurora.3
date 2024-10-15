@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 		data["hasId"] = FALSE
 	var/list/prize_list = list()
 	for(var/datum/data/mining_equipment/prize as anything in GLOB.minevendor_list)
-		prize_list += list(list("name" = prize.equipment_name, "desc" = prize.equipment_description, "cost" = prize.cost, "stock" = prize.amount, "ref" = "\ref[prize]"))
+		prize_list += list(list("name" = prize.equipment_name, "desc" = prize.equipment_description, "cost" = prize.cost, "stock" = prize.amount, "ref" = "[REF(prize)]"))
 	data["prizeList"] = prize_list
 	return data
 

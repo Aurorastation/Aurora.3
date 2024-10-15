@@ -88,7 +88,7 @@
 					. = TRUE
 					//Manually stopping because this proc needs to sleep for a bit.
 					prepare_for_entry()
-					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
 					var/turf/laze = get_turf(entry_target)
@@ -114,7 +114,7 @@
 					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
 						ammunition.heading = entry_target.dir
 					prepare_for_entry()
-					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
 					ammunition.original_projectile = widowmaker
@@ -128,7 +128,9 @@
 					widowmaker.on_translate(entry_turf, target_turf)
 					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]!")
-					widowmaker.launch_projectile(target_turf)
+					widowmaker.preparePixelProjectile(target_turf, T)
+					widowmaker.fired_from = src
+					widowmaker.fire()
 					qdel(src)
 		if(istype(A, /obj/effect/overmap/event))
 			var/obj/effect/overmap/event/EV = A

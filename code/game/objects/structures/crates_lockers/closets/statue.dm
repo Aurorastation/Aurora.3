@@ -124,11 +124,13 @@
 		for(var/mob/M in src)
 			shatter(M)
 
-/obj/structure/closet/statue/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
-	check_health()
+/obj/structure/closet/statue/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
-	return
+	health -= hitting_projectile.get_structure_damage()
+	check_health()
 
 /obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -154,8 +156,6 @@
 
 /obj/structure/closet/statue/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	return
 

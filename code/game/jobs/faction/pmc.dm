@@ -21,6 +21,7 @@
 		/datum/species/unathi,
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_b/type_bb = TRUE,
 		/datum/species/machine
 	)
 
@@ -29,7 +30,8 @@
 			SPECIES_DIONA,
 			SPECIES_DIONA_COEUS,
 			SPECIES_VAURCA_WORKER,
-			SPECIES_VAURCA_WARRIOR
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT
 		)
 	)
 
@@ -49,8 +51,8 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /obj/outfit/job/representative/pmc,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/pmc,
-		"Security Personnel" = /obj/outfit/job/officer/pmc,
-		"Medical Personnel" = /obj/outfit/job/med_tech/pmc
+		"Security Personnel" = /obj/outfit/job/officer/event/pmc,
+		"Medical Personnel" = /obj/outfit/job/med_tech/event/pmc
 	)
 
 /obj/outfit/job/officer/pmc
@@ -221,6 +223,30 @@
 /obj/outfit/job/visitor/pmc
 	name = "Off-Duty Crew Member - PMC"
 
+	id = /obj/item/card/id/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/obj/outfit/job/officer/event/pmc
+	name = "Security Personnel - PMC"
+
+	uniform = /obj/item/clothing/under/rank/security/pmc
+	id = /obj/item/card/id/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/obj/outfit/job/med_tech/event/pmc
+	name = "Medical Personnel - PMC"
+
+	head = /obj/item/clothing/head/softcap/pmc
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/pmc
 	id = /obj/item/card/id/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg

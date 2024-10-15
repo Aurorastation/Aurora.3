@@ -810,3 +810,8 @@
 	id = ACCESS_TRAMP_FREIGHTER
 	desc = "Independent Freighter Access"
 
+#define ACCESS_LONE_SPACER 243
+/datum/access/lone_spacer_access
+	id = ACCESS_LONE_SPACER
+	desc = "Independent Skiff Access"
+

@@ -335,8 +335,7 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "hg" = (
@@ -399,8 +398,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_y = 32;
-	req_access = null;
-	store_mobs = 0
+	req_access = null
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1378,8 +1376,7 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "DE" = (
@@ -1597,7 +1594,6 @@
 /area/template_noop)
 "Iv" = (
 /obj/machinery/door/airlock/external{
-	electrified_until = 0;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,

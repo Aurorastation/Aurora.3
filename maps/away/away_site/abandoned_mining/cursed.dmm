@@ -6,13 +6,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
-"aab" = (
-/obj/machinery/door/airlock/glass_mining{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/yellow,
-/area/cursed/storage)
 "afk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -181,7 +174,7 @@
 /area/mine)
 "aQn" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -1151,8 +1144,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "gNq" = (
@@ -1849,7 +1841,7 @@
 /area/cursed/living_area)
 "lrD" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
@@ -2181,7 +2173,7 @@
 /area/cursed/mineral_processing)
 "mTG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -3928,7 +3920,7 @@
 /area/cursed/medical)
 "wDZ" = (
 /obj/structure/bookcase,
-/obj/item/book/manual/dpra_manifesto,
+/obj/item/device/versebook/dpra,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "wHA" = (
@@ -37134,7 +37126,7 @@ npR
 xHS
 lyG
 lyG
-aab
+aaa
 lyG
 lyG
 lyG

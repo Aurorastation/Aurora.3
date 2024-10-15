@@ -277,16 +277,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/junk{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/random/junk{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/random/junk{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/random/junk{
 	pixel_x = -6;
@@ -513,8 +510,7 @@
 	dir = 8
 	},
 /obj/item/paper_scanner{
-	pixel_x = 4;
-	pixel_y = 0
+	pixel_x = 4
 	},
 /obj/item/toy/desk/fan{
 	pixel_y = 7;
@@ -524,9 +520,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/konyang_village)
 "mT" = (
-/obj/structure/lattice/catwalk/indoor/tatami{
-	dir = 2
-	},
+/obj/structure/lattice/catwalk/indoor/tatami,
 /obj/structure/flora/pottedplant/orchid,
 /turf/simulated/floor/wood,
 /area/konyang_village)
@@ -865,12 +859,10 @@
 	pixel_y = -5
 	},
 /obj/random/junk{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/random/junk{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/item/trash/ricetub,
 /turf/simulated/floor/sidewalk,
@@ -1571,7 +1563,6 @@
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen{
-	pixel_y = 0;
 	pixel_x = -7
 	},
 /turf/simulated/floor/wood/bamboo,
@@ -1607,15 +1598,12 @@
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/cans/peach_soda,
@@ -1635,7 +1623,6 @@
 	},
 /obj/item/reagent_containers/food/drinks/cans/peach_soda,
 /obj/item/reagent_containers/food/drinks/dry_ramen{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /turf/simulated/floor/lino/diamond,

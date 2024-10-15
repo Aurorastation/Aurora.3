@@ -103,7 +103,7 @@
 		if("change_supplied_law_position")
 			var/new_position = input(usr, "Enter new supplied law position between 1 and [MAX_SUPPLIED_LAW_NUMBER], inclusive. Inherent laws at the same index as a supplied law will not be stated.", "Law Position", supplied_law_position) as num|null
 			if(isnum(new_position) && state.can_use_topic(src, usr))
-				supplied_law_position = Clamp(new_position, 1, MAX_SUPPLIED_LAW_NUMBER)
+				supplied_law_position = clamp(new_position, 1, MAX_SUPPLIED_LAW_NUMBER)
 			return TRUE
 
 		if("edit_law")
@@ -188,7 +188,7 @@
 /datum/tgui_module/admin/law_manager/proc/package_laws(var/list/data, var/field, var/list/datum/ai_law/laws)
 	var/list/packaged_laws = list()
 	for(var/datum/ai_law/AL in laws)
-		packaged_laws += list(list("law" = AL.law, "index" = AL.get_index(), "state" = owner.laws.get_state_law(AL), "ref" = "\ref[AL]"))
+		packaged_laws += list(list("law" = AL.law, "index" = AL.get_index(), "state" = owner.laws.get_state_law(AL), "ref" = "[REF(AL)]"))
 	data[field] = packaged_laws
 	data["has_[field]"] = packaged_laws.len
 
@@ -200,7 +200,7 @@
 		package_laws(packaged_laws, "ion_laws", ALs.ion_laws)
 		package_laws(packaged_laws, "inherent_laws", ALs.inherent_laws)
 		package_laws(packaged_laws, "supplied_laws", ALs.supplied_laws)
-		law_sets += list(list("name" = ALs.name, "header" = ALs.law_header, "ref" = "\ref[ALs]","laws" = packaged_laws))
+		law_sets += list(list("name" = ALs.name, "header" = ALs.law_header, "ref" = "[REF(ALs)]","laws" = packaged_laws))
 
 	return law_sets
 

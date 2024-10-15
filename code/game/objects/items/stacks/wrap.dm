@@ -30,7 +30,7 @@
 	if (!isturf(loc))
 		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return
-	if (attacking_item.w_class < ITEMSIZE_LARGE)
+	if (attacking_item.w_class < WEIGHT_CLASS_BULKY)
 		var/a_used = 2 * (src.w_class - 1)
 		if(src.amount < a_used)
 			to_chat(user, SPAN_WARNING("You need more paper!"))
@@ -44,7 +44,7 @@
 			var/obj/item/gift/G = new /obj/item/gift(src.loc)
 			G.size = attacking_item.w_class
 			G.w_class = G.size + 1
-			G.icon_state = text("gift[]", G.size)
+			G.icon_state = "gift[G.size]"
 			G.gift = attacking_item
 			attacking_item.forceMove(G)
 			G.add_fingerprint(user)
@@ -66,11 +66,11 @@
 	if(distance <= 1)
 		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
 
-/obj/item/stack/wrapping_paper/attack(mob/target, mob/user)
-	if(!ishuman(target))
+/obj/item/stack/wrapping_paper/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ishuman(target_mob))
 		return
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)
 		if(src.amount >= 2)
 			var/obj/effect/spresent/present = new /obj/effect/spresent (H.loc)
@@ -82,8 +82,8 @@
 
 			H.forceMove(present)
 
-			H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>")
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to wrap [H.name] ([H.ckey])</span>")
+			H.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>"
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to wrap [H.name] ([H.ckey])</span>"
 			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
@@ -102,7 +102,7 @@
 	desc = "A roll of paper used to enclose an object for delivery."
 	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
 	singular_name = "length"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	amount = 30
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -123,7 +123,7 @@
 	if(user in target) //no wrapping closets that you are inside - it's not physically possible
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <span class='notice'>Has used [src.name] on \ref[target]</span>")
+	user.attack_log += "\[[time_stamp()]\] <span class='notice'>Has used [src.name] on [REF(target)]</span>"
 
 	if(istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target
@@ -210,6 +210,6 @@
 		)
 	icon_state = "c_tube"
 	throwforce = 1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 5

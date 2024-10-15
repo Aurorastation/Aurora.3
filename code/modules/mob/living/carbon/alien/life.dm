@@ -1,5 +1,5 @@
 // Alien larva are quite simple.
-/mob/living/carbon/alien/Life()
+/mob/living/carbon/alien/Life(seconds_per_tick, times_fired)
 	if (transforming)	return
 	if(!loc)			return
 
@@ -126,11 +126,11 @@
 
 	if(stat != DEAD)
 		if(blinded)
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+			overlay_fullscreen("blind", /atom/movable/screen/fullscreen/blind)
 		else
 			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /atom/movable/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 		if(machine)
 			if (machine.check_eye(src) < 0)
 				reset_view(null)
