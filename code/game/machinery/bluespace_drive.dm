@@ -685,3 +685,85 @@
 /datum/event_meta/bluespace_jump
 	enabled = FALSE
 	weight = 0
+
+/*##########################
+	FLUFF INGAME MANUAL
+##########################*/
+
+/obj/item/paper/fluff/bluespacedrive_manual
+	set_unsafe_on_init = TRUE
+
+/obj/item/paper/fluff/bluespacedrive_manual/New(loc, ...)
+	name = "[/obj/machinery/bluespacedrive::name] Field Handbook"
+	desc = "A manual illustrating the basic operation of the [/obj/machinery/bluespacedrive::name], useful for those who missed the last 300 years of history."
+
+	info = {"
+	<h2>
+		<b>[/obj/machinery/bluespacedrive::name] Field Handbook - Quick Reference</b><BR>
+	</h2>
+
+	<font size = "1">
+		<i>"How to use the [/obj/machinery/bluespacedrive::name] for bluespace jumping."</i>
+	</font>
+
+	<BR>
+	<BR>
+	<BR>
+
+	<font size = "2">
+		<h3>The [/obj/machinery/bluespacedrive::name] comes equipped with:</h3><BR>
+		<ul style="list-style:circle">
+			<li>Two separate gas feeding circuits: A Phoron line on the west and a moderator gas mix line on the north.</li>
+			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the room APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
+			<li>A same-room control console.</li>
+		</ul>
+
+		<BR>
+		<BR>
+		<BR>
+
+		<h3>Operational Instructions:</h3><BR>
+		<ol>
+			<li>Energize and charge the two SMES circuits to an acceptable level.</li>
+			<li>Wrench down the coils and the outer shield ring generators, wrench down and weld down the inner shield ring generators and the emitters.</li>
+			<li>Prepare [/obj/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron to be pulled into the drive, on the Phoron line.</li>
+			<li>Prepare the moderator gas mixture to be fed into the drive, on the moderator gas mix line.</li>
+			<li>Once sure the calculations for the gasses are correct and the drive can feed, activate the emitters.</li>
+			<li>Wait for the charge bar indicators on the inner shield generators to reach 100%.</li>
+			<li>Operate the inner shield generators to turn them on. <span style="color:red;">Move away from them as soon as activated, the shield can and will repel you too!</span></li>
+			<li>Unlock with your ID card and activate the outer shield generators, if non-specialized personnel is present, lock them back after activation.</li>
+			<li>Operate the control console, energize the drive and observe the gasses being fed into it.</li>
+			<li>Set the rotation of the jump on the knob, in absolute galactic degrees.</li>
+			<li><b><span style="color:red;">Announce the jump and ensure no personnel is outside the ship!</span></b></li>
+			<li>Activate the jump, the drive will take approximately 30 seconds to energize the field, then it will jump automatically.</li>
+			<li>De-energize the drive in the control console.</li>
+			<li>Disable the secondary circuit SMES output to disable the emitters, and wait for the inner shield generators to discharge and the shield to extinguish.</li>
+			<li>Disable the outer shield generators.</li>
+		</ol>
+
+		<BR>
+		<BR>
+		<BR>
+
+		<h3>Emergency Procedure:</h3><BR>
+		Should the drive need to be shut down for an emergency, or to abort the jump, it's possible to de-energize it from the control console.<BR>
+		Likewise, it's possible to dump unwanted gas mixtures contained in it via the appropriate dump button located in the control console.<BR>
+		Dumping gasses will cause the gasses to be lost, it's recommended to only do that in extreme circumstances, and pump out the Phoron from the Phoron line before.<BR>
+
+		Please note, the dissipation of the stored energy would cause a bluespace flash across the ship, which can cause temporary hearing and vision disturbances, when the drive is de-energized
+		while operational or the gasses are dumped. If time allows, the crew should be informed about it.<BR>
+
+		<BR>
+		<BR>
+
+		<h4><i>Dr. Marivek's notes:</i></h3><BR>
+		The [/obj/machinery/bluespacedrive::name] will create the bluespace-field-driver singularity only when energized and fed with any valid gas in the moderator circuit and the Phoron line.<BR>
+		Any quantity above [/obj/machinery/bluespacedrive::minimum_phoron_moles_per_jump] moles of Phoron is wasted, precise calculation is therefore encourage for efficiency.<BR>
+		The field-driver singularity is not self-sustaining, and can be destroyed by depowering the [/obj/machinery/bluespacedrive::name].<BR>
+		Should the field-driver singularity become loose from the quantum entanglement tunnel, unless fed, it won't destroy more than its size and won't move.<BR>
+		It has been noted that, at times, it has been observed to escape the first shield ring. It is extremely important to ensure both shield rings are engaged for maximum safety.
+
+	</font>
+	"}
+
+	. = ..()
