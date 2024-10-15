@@ -237,6 +237,7 @@
 	pixel_y = 28
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -843,6 +844,9 @@
 /obj/item/pen/fountain{
 	pixel_x = -4;
 	pixel_y = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
@@ -1573,6 +1577,13 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hiskyn_ship/hallc)
+"aAW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "aBr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -2423,6 +2434,7 @@
 /area/space)
 "aUc" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
 	id_tag = "co2_out";
 	dir = 4
 	},
@@ -3172,6 +3184,18 @@
 "eHB" = (
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
+"eLb" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "eNG" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -3248,6 +3272,12 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "fmN" = (
@@ -3306,6 +3336,12 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/device/versebook/thakh{
 	pixel_y = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
@@ -3394,6 +3430,12 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "fGe" = (
@@ -3703,6 +3745,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "gVU" = (
@@ -3710,6 +3758,12 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/wood,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "gXv" = (
@@ -3893,6 +3947,7 @@
 	pixel_y = 12;
 	pixel_x = 7
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "hvG" = (
@@ -4561,6 +4616,12 @@
 	},
 /obj/effect/floor_decal/carpet{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
@@ -5484,6 +5545,9 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "pfn" = (
@@ -5617,6 +5681,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
@@ -5885,6 +5952,9 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
+	pixel_y = 1;
+	pixel_x = -1
+	},
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "qJt" = (
@@ -5907,6 +5977,9 @@
 	},
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
+	pixel_y = 3;
+	pixel_x = 6
+	},
 	pixel_y = 3;
 	pixel_x = 6
 	},
@@ -6106,6 +6179,12 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "rRW" = (
@@ -7093,6 +7172,12 @@
 /obj/effect/floor_decal/carpet{
 	dir = 6
 	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/hiskyn_revanchists)
+"wfH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "wvG" = (
@@ -7353,6 +7438,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "xRh" = (
+	dir = 5
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "xVj" = (
