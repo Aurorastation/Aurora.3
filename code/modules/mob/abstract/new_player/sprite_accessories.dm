@@ -4903,7 +4903,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
-	species_allowed = list(/datum/species/bug)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
 	name = "Mecha Eye (Faceplate, Right, Warrior)"
@@ -4913,7 +4913,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Left)"
 	icon_state = "mecha_eye_l"
-	species_allowed = list(/datum/species/bug)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l/warrior
 	name = "Mecha Eye (Faceplate, Left, Warrior)"
@@ -4950,7 +4950,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
-	species_allowed = list(/datum/species/bug)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
 	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"
@@ -4962,7 +4962,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
 	name = "Mecha Eye (Faceplate, Left, Large)"
 	icon_state = "mecha_eye_l_l"
-	species_allowed = list(/datum/species/bug)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l/warrior
 	name = "Mecha Eye (Faceplate, Left, Large, Warrior)"
