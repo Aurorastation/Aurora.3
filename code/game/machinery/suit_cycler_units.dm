@@ -309,7 +309,7 @@
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn/captain
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain
-=======
+
 /obj/machinery/suit_cycler/offship/skrell
 	model_text = "Qerr'Zolvq Industries"
 	req_access = list(ACCESS_SKRELL)
