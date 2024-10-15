@@ -1170,7 +1170,6 @@
 /area/hiskyn_ship/medbay)
 "alk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -1184,7 +1183,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2954,7 +2952,7 @@
 /area/hiskyn_ship/bridge)
 "diM" = (
 /obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters";
+	id = "hiskyn_shuttle_shutters";
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
@@ -4162,7 +4160,7 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "ixC" = (
-/obj/machinery/computer/shuttle_control/explore/sadar_shuttle{
+/obj/machinery/computer/shuttle_control/explore/hiskyn_shuttle{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -4325,7 +4323,7 @@
 /area/hiskyn_ship/hallc)
 "jkH" = (
 /obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters"
+	id = "hiskyn_shuttle_shutters"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	color = "#ac8b78";
@@ -4354,7 +4352,6 @@
 /turf/template_noop,
 /area/space)
 "jFM" = (
-
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -4362,11 +4359,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5950,9 +5945,6 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
-	pixel_y = 1;
-	pixel_x = -1
-	},
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "qJt" = (
@@ -5978,7 +5970,6 @@
 	pixel_y = 3;
 	pixel_x = 6
 	},
-
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "qTS" = (
@@ -6374,7 +6365,7 @@
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 28;
 	dir = 1;
-	id = "sadar_shuttle_shutters";
+	id = "hiskyn_shuttle_shutters";
 	name = "Shuttle Safety Shutters"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6559,7 +6550,7 @@
 	name = "francisca viewport window"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters"
+	id = "hiskyn_shuttle_shutters"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
@@ -7128,7 +7119,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "vYc" = (
-
 /obj/machinery/power/terminal{
 	dir = 8
 	},
@@ -7139,10 +7129,8 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 32
 	},
-
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -7434,8 +7422,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "xRh" = (
-	dir = 5
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
@@ -7502,7 +7488,7 @@
 /area/hiskyn_ship/crew)
 "ylh" = (
 /obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters";
+	id = "hiskyn_shuttle_shutters";
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/fore{
