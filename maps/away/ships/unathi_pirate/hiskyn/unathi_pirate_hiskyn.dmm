@@ -28,9 +28,7 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/engineering)
 "aab" = (
-
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 1
 	},
