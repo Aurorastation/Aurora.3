@@ -294,18 +294,18 @@
 	suit = /obj/item/clothing/suit/space/void/coalition/xanu
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition/xanu
 
-	/obj/machinery/suit_cycler/offship/hiskyn
+/obj/machinery/suit_cycler/offship/hiskyn
 	model_text = "Hiskyn's Revanchists"
 	req_access = list(ACCESS_UNATHI_PIRATE)
 	departments = list("Hiskyn's Revanchists")
 	species = list(BODYTYPE_UNATHI)
-	suit = /obj/item/clothing/suit/space/void/unathi_pirate_hiskyn
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn
 
-	/obj/machinery/suit_cycler/offship/hiskyn/captain
+/obj/machinery/suit_cycler/offship/hiskyn/captain
 	model_text = "Hiskyn's Revanchists"
 	req_access = list(ACCESS_UNATHI_PIRATE)
 	departments = list("Hiskyn's Revanchists")
 	species = list(BODYTYPE_UNATHI)
-	suit = /obj/item/clothing/suit/space/void/unathi_pirate_hiskyn/captain
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn/captain
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain
