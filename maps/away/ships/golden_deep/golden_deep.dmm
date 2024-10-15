@@ -287,7 +287,6 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/sofa/right/beige,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "bZ" = (
@@ -300,13 +299,12 @@
 /turf/simulated/floor/marble,
 /area/golden_deep/guest)
 "cc" = (
-/obj/machinery/computer/shuttle_control/multi/lift/wall/gd{
-	dir = 8;
-	pixel_x = 28
+/obj/machinery/stargazer{
+	pixel_x = -16;
+	pixel_y = -38
 	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/lino/diamond,
-/area/golden_deep/central_hallway)
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/lounge)
 "cf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -821,7 +819,7 @@
 /area/golden_deep/port_dock)
 "fo" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+	dir = 10
 	},
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/dark,
@@ -1004,10 +1002,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep)
-"gu" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/owned_lounge)
 "gv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1038,6 +1032,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
+"gG" = (
+/obj/machinery/light/small,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_5";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "gJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1927,7 +1932,6 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "mk" = (
@@ -2132,7 +2136,6 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "nN" = (
@@ -2237,12 +2240,13 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "oo" = (
-/obj/machinery/stargazer{
-	pixel_x = -16;
-	pixel_y = -38
+/obj/machinery/computer/shuttle_control/multi/lift/wall/gd{
+	dir = 4;
+	pixel_x = -28
 	},
-/turf/simulated/floor/marble/dark,
-/area/golden_deep/lounge)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/central_hallway)
 "or" = (
 /obj/effect/floor_decal/spline/fancy,
 /turf/simulated/floor/carpet/rubber,
@@ -2562,8 +2566,10 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/sofa/left/beige{
-	dir = 8
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/lava/blue{
+	pixel_y = 14;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -2843,11 +2849,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "sx" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/beige,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "sy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3012,6 +3017,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "tw" = (
@@ -3466,6 +3472,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/structure/closet/secure_closet/cabinet,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "wu" = (
@@ -4315,7 +4322,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 4
 	},
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "BV" = (
@@ -4589,6 +4596,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "DW" = (
@@ -4904,7 +4912,6 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/sofa/corner/convex/beige,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "FQ" = (
@@ -5824,6 +5831,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "Lt" = (
@@ -6016,7 +6024,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "MQ" = (
@@ -6466,7 +6474,7 @@
 	must_start_working = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
-/obj/structure/closet/secure_closet/cabinet,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "OV" = (
@@ -6794,13 +6802,9 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "Rc" = (
-/obj/machinery/computer/shuttle_control/multi/lift/wall/gd{
-	dir = 4;
-	pixel_x = -28
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/lino/diamond,
-/area/golden_deep/central_hallway)
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/owned_lounge)
 "Re" = (
 /obj/machinery/door/window,
 /turf/simulated/floor/tiled/dark/full,
@@ -6979,11 +6983,6 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/blue{
-	pixel_y = 14;
-	pixel_x = -5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "Sd" = (
@@ -7133,7 +7132,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
-/obj/structure/table/wood,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "SZ" = (
@@ -7316,16 +7315,13 @@
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/lounge)
 "UF" = (
-/obj/machinery/light/small,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_5";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
+/obj/machinery/computer/shuttle_control/multi/lift/wall/gd{
+	dir = 8;
+	pixel_x = 28
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/central_hallway)
 "UH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -39877,7 +39873,7 @@ fC
 mR
 FQ
 FQ
-UF
+gG
 fC
 ba
 FQ
@@ -39903,7 +39899,7 @@ CV
 JF
 Ls
 DV
-fo
+DV
 OU
 Uw
 Rt
@@ -40161,7 +40157,7 @@ uK
 bQ
 hh
 hh
-AW
+fo
 Uw
 Uw
 Uw
@@ -41187,8 +41183,8 @@ Uw
 Uw
 Uw
 bW
+Rc
 jK
-gu
 RY
 Uw
 wM
@@ -41443,9 +41439,9 @@ zH
 Uw
 XG
 uK
+bQ
+jK
 sx
-jK
-jK
 MP
 Uw
 Uw
@@ -106192,7 +106188,7 @@ zG
 aC
 NI
 zi
-Rc
+oo
 rt
 sG
 SC
@@ -106204,7 +106200,7 @@ Ux
 mS
 ko
 il
-oo
+cc
 mr
 JP
 Mw
@@ -106449,7 +106445,7 @@ Hw
 yj
 oM
 zi
-cc
+UF
 sG
 sG
 SC
