@@ -228,10 +228,14 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 	#endif
 
 	for(var/connection_edge/E in SSair.active_edges)
-		var/connection_edge/unsimulated/U = E
-		if(istype(U))
+
+		//Unsimulated edge
+		if(istype(E, /connection_edge/unsimulated))
+			var/connection_edge/unsimulated/U = E
 			var/turf/T = U.B
 			var/zone/zas_zone = U.A
+
+			fail_message += "Unsimulated edge between [zas_zone] and [T]\n"
 
 			if(istype(T))
 				fail_message += "--> [zas_zone.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures! <--\n"
@@ -242,6 +246,9 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 				//Let's see if we can get what turfs are on the edge connection
 				fail_message += "[zas_zone.name] edge turfs:\n"
 				for(var/connection_edge/edge in zas_zone.edges)
+					if(edge.sleeping)
+						continue
+
 					for(var/turf/edge_turf in edge.connecting_turfs)
 						fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
 
@@ -262,29 +269,47 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 			fail_message += "[offending_turfs_text]"
 
+
+		//Simulated edge (zone edge)
 		else
 			var/connection_edge/zone/Z = E
+			if(!istype(Z))
+				stack_trace("Somehow, an edge is neither an unsimulated edge nor a zone edge!")
+				return
+
+			var/zone/first_zone = Z.A
+			var/zone/second_zone = Z.B
+
+			fail_message += "Simulated edge between [first_zone.name] and [second_zone.name]\n"
+
+
+			//Let's see if we can get what turfs are on the edge connection
+			fail_message += "[first_zone.name] and [second_zone.name] edge turfs:\n"
+			for(var/connection_edge/edge in (first_zone.edges + second_zone.edges))
+				if(edge.sleeping)
+					continue
+
+				for(var/turf/edge_turf in edge.connecting_turfs)
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
 
 			//A list of turfs that are related to the found issue
 			var/list/turf/problem_turfs = list()
 
-			if(!istype(Z))
-				return
 
-			fail_message += "--> [Z.A.name] and [Z.B.name] have mismatched gas mixtures! <--\n"
+			fail_message += "--> [first_zone.name] and [second_zone.name] have mismatched gas mixtures! <--\n"
 
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
 				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
-				problem_turfs = Z.A.contents + Z.B.contents
+				problem_turfs = first_zone.contents + second_zone.contents
 			else if(Z.A.air.gas.len)
-				problem_turfs = Z.A.contents
+				problem_turfs = first_zone.contents
 			else if(Z.B.air.gas.len)
-				problem_turfs = Z.B.contents
+				problem_turfs = second_zone.contents
 
 			if(!length(problem_turfs))
 				continue
 
-			fail_message += "Mismatching edge gasses: [(Z.A.air) ? json_encode(Z.A.air.gas) : "vacuum"] <-----> [(Z.B.air) ? json_encode(Z.B.air.gas) : "vacuum"]\n\n"
+			fail_message += "Mismatching edge gasses: [(first_zone.air) ? json_encode(first_zone.air.gas) : "vacuum"] <-----> [(second_zone.air) ? json_encode(second_zone.air.gas) : "vacuum"]\n\n"
 
 			var/offending_turfs_text = "Problem turfs: "
 			for(var/turf/simulated/S in problem_turfs)
