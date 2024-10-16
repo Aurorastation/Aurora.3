@@ -71,7 +71,7 @@
 /area/exoplanet/lava
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_LAVA
-	base_turf = /turf/unsimulated/floor/asteroid/basalt
+	base_turf = /turf/simulated/floor/exoplanet/basalt
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
