@@ -18,7 +18,7 @@
 
 /area/exoplanet/barren/asteroid
 	name = "\improper Asteroid Surface"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/exoplanet/barren/raskara
 	name = "Raskara Surface"

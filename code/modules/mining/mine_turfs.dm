@@ -40,7 +40,7 @@ var/list/mineral_can_smooth_with = list(
 	temperature = T0C
 	explosion_resistance = 2
 
-	var/mined_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	var/mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
@@ -683,7 +683,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
+	mined_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
@@ -730,7 +730,7 @@ var/list/mineral_can_smooth_with = list(
 // Same as the other, this is a global so we don't have a lot of pointless lists floating around.
 // Basalt is explicitly omitted so ash will spill onto basalt turfs.
 var/list/asteroid_floor_smooth = list(
-	/turf/unsimulated/floor/asteroid/ash,
+	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall
 )
