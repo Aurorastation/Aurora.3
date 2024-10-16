@@ -216,10 +216,10 @@
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_RESISTANT,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35

@@ -19,10 +19,11 @@
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_SMALL
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
 	)
 
 /obj/item/clothing/suit/armor/carrier/officer
@@ -179,7 +180,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -193,7 +194,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -206,7 +207,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 1
+	slowdown = 0.4
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -221,7 +222,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -235,7 +236,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
@@ -274,7 +275,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0 // inherited the hacking from the scc
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF legionnaire light carapace"
@@ -350,6 +351,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.4
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
