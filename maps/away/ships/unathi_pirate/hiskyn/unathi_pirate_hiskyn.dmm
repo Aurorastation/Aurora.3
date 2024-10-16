@@ -355,6 +355,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/thrustp)
 "cn" = (
@@ -711,8 +712,14 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/west,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "eL" = (
@@ -5276,7 +5283,9 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/item/trash/meatsnack,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "Ie" = (
 /obj/machinery/light{
