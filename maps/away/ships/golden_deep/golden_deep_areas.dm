@@ -11,7 +11,7 @@
 	icon_state = "engine"
 
 /area/golden_deep/portmaints
-	name = "Port Maintenance"
+	name = "Collective Mercantile Vessel - Port Maintenance"
 	icon_state = "maintenance"
 
 /area/golden_deep/starboardprop
@@ -19,7 +19,7 @@
 	icon_state = "engine"
 
 /area/golden_deep/starboardmaints
-	name = "Starboard Maintenance"
+	name = "Collective Mercantile Vessel - Starboard Maintenance"
 	icon_state = "maintenance"
 
 /area/golden_deep/atmos
