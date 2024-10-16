@@ -74,8 +74,16 @@
 	name = "Collective Mercantile Vessel - Private Lounge"
 	icon_state = "lounge"
 
+/area/golden_deep/bridge_foyer
+	name = "Collective Mercantile Vessel - Bridge Foyer"
+	icon_state = "bridge"
+
+/area/golden_deep/accounting
+	name = "Collective Mercantile Vessel - Accounting"
+	icon_state = "bridge"
+
 /area/golden_deep/bridge
-	name = "Collective Mercantile Vessel - Bridge"
+	name = "Collective Mercantile Vessel - Control Room"
 	icon_state = "bridge"
 
 /area/golden_deep/lounge
