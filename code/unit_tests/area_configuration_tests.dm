@@ -25,4 +25,7 @@ ABSTRACT_TYPE(/datum/unit_test/area_configuration)
 			TEST_NOTICE("The exoplanet area [exoplanet_area_typepath] has an exoplanet base turf.")
 			TEST_DEBUG("The exoplanet area [exoplanet_area_typepath] has [exoplanet_area_typepath::base_turf] as its base turf.")
 
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All exoplanet areas have an exoplanet base turf.")
+
 	return test_status
