@@ -1684,7 +1684,6 @@
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
@@ -2604,7 +2603,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "qU" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -3571,6 +3569,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
+"wO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/cargobay)
 "wP" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger/wallcharger{
@@ -5313,16 +5321,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
-"Iv" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/cargobay)
 "IW" = (
 /obj/machinery/airlock_sensor{
 	pixel_x = 6;
@@ -37996,8 +37994,8 @@ zq
 oE
 po
 ql
-Iv
-Iv
+wO
+wO
 UY
 me
 aZ
