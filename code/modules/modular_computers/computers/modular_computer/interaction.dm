@@ -1,3 +1,11 @@
+/obj/item/modular_computer/proc/force_shutdown()
+	set name = "Force Shutdown"
+	set category = "Object"
+	set src in view(1)
+
+	to_chat(usr, SPAN_NOTICE("You long-press the power button on \the [src], causing it to forcibly power off."))
+	shutdown_computer(TRUE)
+
 /obj/item/modular_computer/proc/eject_id()
 	set name = "Eject ID"
 	set category = "Object"
