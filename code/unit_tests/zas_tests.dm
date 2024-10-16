@@ -229,6 +229,14 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
+
+		var/edge_connecting_turfs
+		for(var/turf/T in E.connecting_turfs)
+			edge_connecting_turfs += "[T.type] ([T.x], [T.y], [T.z])\t"
+
+		TEST_FAIL("Edge connecting turfs: [edge_connecting_turfs]")
+
+
 		if(istype(U))
 			var/turf/T = U.B
 			if(istype(T))
@@ -242,12 +250,12 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 
 			for(var/turf/simulated/S in A.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+					offending_turfs_text += "[S.type] ([S.x], [S.y], [S.z])\t"
 
 					#if defined(UNIT_TEST)
 					for(var/type in GLOB.turfs_to_map_type)
 						if(S in GLOB.turfs_to_map_type[type])
-							affected_map_types += type
+							affected_map_types |= type
 					#endif
 
 			fail_message += "[offending_turfs_text]"
@@ -279,12 +287,12 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 			var/offending_turfs_text = "Problem turfs: "
 			for(var/turf/simulated/S in problem_turfs)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
-					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+					offending_turfs_text += "[S.type] ([S.x], [S.y], [S.z])\t"
 
 					#if defined(UNIT_TEST)
 					for(var/type in GLOB.turfs_to_map_type)
 						if(S in GLOB.turfs_to_map_type[type])
-							affected_map_types += type
+							affected_map_types |= type
 					#endif
 
 			fail_message += "[offending_turfs_text]"
