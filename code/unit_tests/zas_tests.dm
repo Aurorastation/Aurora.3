@@ -250,11 +250,11 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 					continue
 
 				for(var/turf/edge_turf in edge.connecting_turfs)
-					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\t"
 
 
 
-			fail_message += "Mismatching edge gasses: [(zas_zone.air) ? json_encode(zas_zone.air.gas) : "vacuum"] <-----> [(T.air) ? json_encode(T.air.gas) : "vacuum"]\n\n"
+			fail_message += "\n\nMismatching edge gasses: [(zas_zone.air) ? json_encode(zas_zone.air.gas) : "vacuum"] <-----> [(T.air) ? json_encode(T.air.gas) : "vacuum"]\n\n"
 
 			var/offending_turfs_text = "Problem turfs: \n"
 			for(var/turf/simulated/S in zas_zone.contents)
@@ -290,13 +290,13 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 					continue
 
 				for(var/turf/edge_turf in edge.connecting_turfs)
-					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\t"
 
 			//A list of turfs that are related to the found issue
 			var/list/turf/problem_turfs = list()
 
 
-			fail_message += "--> [first_zone.name] and [second_zone.name] have mismatched gas mixtures! <--\n"
+			fail_message += "\n\n--> [first_zone.name] and [second_zone.name] have mismatched gas mixtures! <--\n"
 
 			if(Z.A.air.gas.len && Z.B.air.gas.len)
 				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
