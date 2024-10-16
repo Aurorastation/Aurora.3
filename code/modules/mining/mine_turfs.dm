@@ -707,7 +707,7 @@ var/list/mineral_can_smooth_with = list(
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
 // This means you can put grass on the asteroid etc.
-/turf/unsimulated/floor/asteroid
+/turf/simulated/floor/exoplanet/asteroid
 	name = "coder's blight"
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = ""
@@ -736,7 +736,7 @@ var/list/asteroid_floor_smooth = list(
 )
 
 // Copypaste parent for performance.
-/turf/unsimulated/floor/asteroid/Initialize(mapload)
+/turf/simulated/floor/exoplanet/asteroid/Initialize(mapload)
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
@@ -768,7 +768,7 @@ var/list/asteroid_floor_smooth = list(
 
 	return INITIALIZE_HINT_NORMAL
 
-/turf/unsimulated/floor/asteroid/ex_act(severity)
+/turf/simulated/floor/exoplanet/asteroid/ex_act(severity)
 	switch(severity)
 		if(3.0)
 			return
@@ -788,10 +788,10 @@ var/list/asteroid_floor_smooth = list(
 				gets_dug()
 	return
 
-/turf/unsimulated/floor/asteroid/is_plating()
+/turf/simulated/floor/exoplanet/asteroid/is_plating()
 	return FALSE
 
-/turf/unsimulated/floor/asteroid/attackby(obj/item/attacking_item, mob/user)
+/turf/simulated/floor/exoplanet/asteroid/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item || !user)
 		return FALSE
 
@@ -841,13 +841,13 @@ var/list/asteroid_floor_smooth = list(
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
 			if(!attacking_item.use_tool(src, user, 60, volume = 50))
-				if(istype(src, /turf/unsimulated/floor/asteroid))
+				if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 					digging = FALSE
 				return
 
 			// Turfs are special. They don't delete. So we need to check if it's
 			// still the same turf as before the sleep.
-			if(!istype(src, /turf/unsimulated/floor/asteroid))
+			if(!istype(src, /turf/simulated/floor/exoplanet/asteroid))
 				return
 
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
@@ -890,13 +890,13 @@ var/list/asteroid_floor_smooth = list(
 
 		digging = TRUE
 		if(!do_after(user, 40))
-			if(istype(src, /turf/unsimulated/floor/asteroid))
+			if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 				digging = FALSE
 			return
 
 		// Turfs are special. They don't delete. So we need to check if it's
 		// still the same turf as before the sleep.
-		if(!istype(src, /turf/unsimulated/floor/asteroid))
+		if(!istype(src, /turf/simulated/floor/exoplanet/asteroid))
 			return
 
 		to_chat(user, SPAN_NOTICE("You dug a hole."))
@@ -922,7 +922,7 @@ var/list/asteroid_floor_smooth = list(
 		..()
 	return
 
-/turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
+/turf/simulated/floor/exoplanet/asteroid/proc/gets_dug(mob/user)
 	AddOverlays("asteroid_dug", TRUE)
 
 	if(prob(75))
@@ -989,7 +989,7 @@ var/list/asteroid_floor_smooth = list(
 			else
 				ChangeTurf(/turf/space)
 
-/turf/unsimulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
+/turf/simulated/floor/exoplanet/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
 	if(istype(M,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M

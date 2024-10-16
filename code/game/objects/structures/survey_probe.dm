@@ -85,7 +85,7 @@
 		// turf
 		var/turf/turf = get_turf(src)
 		var/turf_is_exoplanet = istype(turf, /turf/simulated/floor/exoplanet)
-		var/turf_is_asteroid = istype(turf, /turf/unsimulated/floor/asteroid)
+		var/turf_is_asteroid = istype(turf, /turf/simulated/floor/exoplanet/asteroid)
 
 		// report vars and default vals
 		var/report_location = get_location()

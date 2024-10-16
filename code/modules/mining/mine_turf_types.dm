@@ -113,7 +113,7 @@
 				light_range = 2
 	. = ..()
 
-/turf/unsimulated/floor/asteroid/ReplaceWithLattice()
+/turf/simulated/floor/exoplanet/asteroid/ReplaceWithLattice()
 	ChangeTurf(baseturf)
 	new /obj/structure/lattice(src)
 

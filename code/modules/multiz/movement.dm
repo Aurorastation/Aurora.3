@@ -666,7 +666,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
+	if(istype(loc, /turf/simulated/floor/exoplanet/asteroid))
 		damage /= 2
 
 	health -= (damage * brute_dam_coeff)
