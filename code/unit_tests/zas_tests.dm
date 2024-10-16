@@ -14,6 +14,17 @@
 #define FAILURE 0
 #define SUCCESS 1
 
+#if defined(UNIT_TEST)
+/**
+ * A list of string-keyes lists that maps the type of what we put there to the turfs
+ *
+ * Keys are strings of typepaths, values are lists of turfs
+ *
+ * list("/datum/map_template/whatever" = list(/turf/simulated, /turf/simulated))
+ */
+GLOBAL_LIST_EMPTY(turfs_to_map_type)
+#endif
+
 //
 // Generic check for an area.
 //
@@ -211,6 +222,11 @@
 		compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
 	 */
 	var/fail_message = "\n\n\n\n\n[SSair.active_edges.len] edges active at round-start!\n"
+
+	#if defined(UNIT_TEST)
+	var/list/affected_map_types = list()
+	#endif
+
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
 		if(istype(U))
@@ -223,9 +239,16 @@
 			var/zone/A = U.A
 			var/offending_turfs_text = "Problem turfs: \n"
 			fail_message += "Mismatching edge gasses: [(U.A.air) ? json_encode(U.A.air.gas) : "vacuum"] <-----> [(U.B.air) ? json_encode(U.B.air.gas) : "vacuum"]\n\n"
+
 			for(var/turf/simulated/S in A.contents)
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
 					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+
+					#if defined(UNIT_TEST)
+					for(var/type in GLOB.turfs_to_map_type)
+						if(S in GLOB.turfs_to_map_type[type])
+							affected_map_types += type
+					#endif
 
 			fail_message += "[offending_turfs_text]"
 
@@ -258,7 +281,20 @@
 				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
 					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
 
+					#if defined(UNIT_TEST)
+					for(var/type in GLOB.turfs_to_map_type)
+						if(S in GLOB.turfs_to_map_type[type])
+							affected_map_types += type
+					#endif
+
 			fail_message += "[offending_turfs_text]"
+
+
+	#if defined(UNIT_TEST)
+	if(length(affected_map_types))
+		TEST_FAIL("Affected map types: [english_list(affected_map_types)]")
+	#endif
+
 
 	TEST_FAIL("[fail_message]")
 	return UNIT_TEST_FAILED
