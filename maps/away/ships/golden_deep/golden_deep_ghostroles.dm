@@ -56,13 +56,15 @@
 	l_ear = /obj/item/device/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
-	uniform = /obj/item/clothing/under/color/darkblue
+	uniform = /obj/item/clothing/under/goldendeep/porter
+	head = /obj/item/clothing/head/goldendeep/porter
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	shoes = /obj/item/clothing/shoes/jackboots
 
 /obj/outfit/admin/golden_deep/hoplan
 	name = "Golden Deep Collective, House Hoplan"
 	uniform = /obj/item/clothing/under/goldendeep/hoplan
+	head = /obj/item/clothing/head/goldendeep/hoplan
 	back = /obj/item/storage/backpack/satchel/leather
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	gloves = /obj/item/clothing/gloves/swat/tactical

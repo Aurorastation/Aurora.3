@@ -1296,9 +1296,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
-	door_color = "#686868";
+/obj/machinery/door/airlock/glass{
 	dir = 4;
+	door_color = "#686868";
 	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1845,8 +1845,6 @@
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt,
 /obj/item/clothing/head/helmet/hoplan,
 /obj/item/clothing/head/helmet/hoplan,
-/obj/item/clothing/head/goldendeep/hoplan,
-/obj/item/clothing/head/goldendeep/hoplan,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "lw" = (
@@ -2732,6 +2730,9 @@
 /area/golden_deep/starboardprop)
 "rq" = (
 /obj/structure/table/wood/walnut,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
 "rt" = (
@@ -3532,9 +3533,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
-	door_color = "#686868";
+/obj/machinery/door/airlock/glass{
 	dir = 4;
+	door_color = "#686868";
 	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6912,8 +6913,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cargo_receptacle{
 	desc = "An Orion Express automated cargo acceptance device. This one appears to be configured to receive cargo packages intended for the ship it's on.";
-	name = "ship cargo delivery point";
-	density = 1
+	name = "ship cargo delivery point"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
