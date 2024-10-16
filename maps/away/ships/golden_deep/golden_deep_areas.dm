@@ -109,6 +109,16 @@
 //Shuttle
 /area/shuttle/golden_deep
 	name = "Golden Deep Shuttle"
+	icon_state = "shuttlegrn"
+
+/area/shuttle/golden_deep/cargo
+	name = "Golden Deep Shuttle - Cargo Hold"
+
+/area/shuttle/golden_deep/passenger
+	name = "Golden Deep Shuttle - Passenger Hold"
+
+/area/shuttle/golden_deep/cockpit
+	name = "Golden Deep Shuttle - Cockpit"
 
 // Lift
 /area/turbolift/tcaf_corvette/gd_lift
