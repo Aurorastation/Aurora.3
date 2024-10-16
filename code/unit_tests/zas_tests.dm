@@ -243,14 +243,14 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 			else
 				fail_message += "--> [zas_zone.name] and [T] have mismatched gas mixtures! <--\n"
 
-				//Let's see if we can get what turfs are on the edge connection
-				fail_message += "[zas_zone.name] edge turfs:\n"
-				for(var/connection_edge/edge in zas_zone.edges)
-					if(edge.sleeping)
-						continue
+			//Let's see if we can get what turfs are on the edge connection
+			fail_message += "[zas_zone.name] edge turfs:\n"
+			for(var/connection_edge/edge in zas_zone.edges)
+				if(edge.sleeping)
+					continue
 
-					for(var/turf/edge_turf in edge.connecting_turfs)
-						fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
+				for(var/turf/edge_turf in edge.connecting_turfs)
+					fail_message += "[edge_turf.type] ([edge_turf.x], [edge_turf.y], [edge_turf.z])\n"
 
 
 
