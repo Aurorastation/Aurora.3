@@ -712,13 +712,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/power/apc/high/west{
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
@@ -1109,9 +1107,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1900,16 +1895,6 @@
 /area/hiskyn_ship/hallc)
 "nL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/door/airlock/hatch{
-	name = "Engineering";
-	req_access = list(210)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -2012,9 +1997,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2024,6 +2006,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
 "oq" = (
@@ -2164,6 +2149,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "pl" = (
@@ -2617,8 +2603,6 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
@@ -2971,8 +2955,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
 "tA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3784,8 +3767,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/cargobay)
@@ -3870,8 +3851,6 @@
 /area/hiskyn_ship/bridge)
 "yt" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3886,16 +3865,16 @@
 	dir = 4;
 	pixel_x = -21
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "airlock_hiskyn_shuttle";
 	name = "airlock_hiskyn_shuttle";
 	req_one_access = list(210);
 	shuttle_tag = "Hiskyn Revanchist Shuttle"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/structure/bed/handrail{
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
@@ -4409,13 +4388,6 @@
 /turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "BV" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5341,6 +5313,16 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
+"Iv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/cargobay)
 "IW" = (
 /obj/machinery/airlock_sensor{
 	pixel_x = 6;
@@ -5990,11 +5972,6 @@
 "NU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -6147,8 +6124,6 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/captain)
 "Pa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -6880,7 +6855,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
 "UZ" = (
 /obj/structure/bed/handrail,
@@ -38021,8 +37996,8 @@ zq
 oE
 po
 ql
-po
-ql
+Iv
+Iv
 UY
 me
 aZ
