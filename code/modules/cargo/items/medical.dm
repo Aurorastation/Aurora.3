@@ -20,8 +20,8 @@
 	category = "medical"
 	name = "first-aid kit"
 	supplier = "nanotrasen"
-	description = "It's an emergency medical kit for those serious boo-boos."
-	price = 150
+	description = "A basic medical kit for those boo-boos."
+	price = 250
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
@@ -34,10 +34,24 @@
 	category = "medical"
 	name = "advanced first-aid kit"
 	supplier = "nanotrasen"
-	description = "Contains advanced medical treatments."
+	description = "An emergency medical kit for general severe injuries."
 	price = 500
 	items = list(
 		/obj/item/storage/firstaid/adv
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/advancedfirstaidkit
+	category = "medical"
+	name = "advanced first-aid kit"
+	supplier = "nanotrasen"
+	description = "A large emergency medical kit for many general severe injuries."
+	price = 900
+	items = list(
+		/obj/item/storage/firstaid/large/adv
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
@@ -48,7 +62,7 @@
 	category = "medical"
 	name = "fire first-aid kit"
 	supplier = "nanotrasen"
-	description = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	description = "An emergency medical kit for serious burns, either chemical or temperature."
 	price = 450
 	items = list(
 		/obj/item/storage/firstaid/fire
@@ -62,7 +76,7 @@
 	category = "medical"
 	name = "oxygen deprivation first aid"
 	supplier = "nanotrasen"
-	description = "A box full of oxygen goodies."
+	description = "An emergency medical kit for oxygen deprivation, including cardiac arrest."
 	price = 450
 	items = list(
 		/obj/item/storage/firstaid/o2
@@ -76,10 +90,24 @@
 	category = "medical"
 	name = "toxin first aid"
 	supplier = "nanotrasen"
-	description = "Used to treat when you have a high amount of toxins in your body."
-	price = 250
+	description = "An emergency medical kit for toxin exposure."
+	price = 450
 	items = list(
 		/obj/item/storage/firstaid/toxin
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/radfirstaid
+	category = "medical"
+	name = "radiation first aid"
+	supplier = "nanotrasen"
+	description = "An emergency medical kit for severe radiation exposure."
+	price = 450
+	items = list(
+		/obj/item/storage/firstaid/radiation
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
@@ -601,7 +629,7 @@
 	items = list(
 		/obj/item/surgery/bone_gel
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -615,7 +643,7 @@
 	items = list(
 		/obj/item/surgery/bonesetter
 	)
-	access = ACCESS_MEDICAL
+	access = ACCESS_SURGERY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -634,20 +662,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/therapydoll
-	category = "medical"
-	name = "therapy doll"
-	supplier = "virgo"
-	description = "A toy for therapeutic and recreational purposes."
-	price = 200
-	items = list(
-		/obj/item/toy/plushie/therapy
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/unathilatexgloves
 	category = "medical"
 	name = "unathi latex gloves"
@@ -661,4 +675,3 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-

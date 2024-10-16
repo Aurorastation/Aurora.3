@@ -295,6 +295,20 @@
 	groupable = TRUE
 	spawn_amount = 4
 
+/singleton/cargo_item/therapydoll
+	category = "recreation"
+	name = "therapy doll"
+	supplier = "virgo"
+	description = "A toy for therapeutic and recreational purposes."
+	price = 120
+	items = list(
+		/obj/item/toy/plushie/therapy
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/snappop
 	category = "recreation"
 	name = "snap pop (x5)"
