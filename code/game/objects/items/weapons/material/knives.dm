@@ -192,8 +192,14 @@
 	desc = "A traditional pocket knife, perfect for opening letter, cutting up boxes, whittling wood, or anything else. The handle comes in 24 different colors."
 	desc_extended = "The H30V4 pocket knife, produced by Hephaestus Industries, is credited as the single most produced pocket knife in human history. \
 	With a tanto style blade, high quality steel, and a surprisingly sturdy textured plastic handle, its a true every person tool. Titanius Aeson himself \
-	carries one with a customized handle on his person, and is frequently seen using it both on and off camera. Critics of the knife are quick to point\
+	carries one, with a customized handle, on his person. He's even frequently seen using it both on and off camera. Critics of the knife are quick to point\
 	out that the plastic used is prone to becoming brittle after about 10 years. However, fans of the blade point to its easy disassembly and readily\
-	available replacement housings providing an easy way to simply replace the worn out piece yourself."
+	available replacement handles as providing an easy way to simply replace the worn out piece yourself."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "pocketgreen"
+
+/obj/item/material/knife/butterfly/switchblade/pocket_knife/blue
+	icon_state = "pocketblue"
+
+/obj/item/material/knife/butterfly/switchblade/pocket_knife/red
+	icon_state = "pocketred"
