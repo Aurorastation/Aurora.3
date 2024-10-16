@@ -19,11 +19,10 @@
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
 	armor = list(
-		melee = ARMOR_MELEE_KEVLAR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_KEVLAR,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_SMALL
 	)
 
 /obj/item/clothing/suit/armor/carrier/officer
