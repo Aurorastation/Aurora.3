@@ -99,6 +99,13 @@
 	icon = "leaf"
 	price_modifier = 1
 
+/singleton/cargo_category/recreation
+	name = "recreation"
+	display_name = "Recreation"
+	description = "Fun toys and games."
+	icon = "guitar"
+	price_modifier = 1
+
 /singleton/cargo_category/medical
 	name = "medical"
 	display_name = "Medical"

@@ -344,20 +344,6 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/jukebox
-	category = "operations"
-	name = "juke box"
-	supplier = "nanotrasen"
-	description = "A common sight in any modern space bar, this jukebox has all the space classics."
-	price = 500
-	items = list(
-		/obj/machinery/media/jukebox
-	)
-	access = 0
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
 /singleton/cargo_item/loadbearingequipment
 	category = "operations"
 	name = "load bearing equipment"

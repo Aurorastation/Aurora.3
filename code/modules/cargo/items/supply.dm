@@ -82,48 +82,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/electronicblinktoygame
-	category = "supply"
-	name = "electronic blink toy game"
-	supplier = "nanotrasen"
-	description = "Blink.  Blink.  Blink. Ages 8 and up."
-	price = 200
-	items = list(
-		/obj/item/toy/blink
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/foamdart
-	category = "supply"
-	name = "foam darts (x5)"
-	supplier = "nanotrasen"
-	description = "It's some foam darts, for use in foam weaponry. Ages 8 and up."
-	price = 20
-	items = list(
-		/obj/item/toy/ammo/crossbow
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 5
-
-/singleton/cargo_item/foamdartcrossbow
-	category = "supply"
-	name = "foam dart crossbow"
-	supplier = "nanotrasen"
-	description = "A weapon favored by many overactive children. Ages 8 and up."
-	price = 200
-	items = list(
-		/obj/item/toy/crossbow
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/folderblue
 	category = "supply"
 	name = "blue folder"
@@ -138,7 +96,7 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/folderblue
+/singleton/cargo_item/folderyellow
 	category = "supply"
 	name = "yellow folder"
 	supplier = "orion"
@@ -166,103 +124,18 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/gravitationalsingularitytoy
+/singleton/cargo_item/folderwhite
 	category = "supply"
-	name = "gravitational singularity toy"
-	supplier = "getmore"
-	description = "'Singulo' brand spinning toy."
-	price = 200
+	name = "white folder"
+	supplier = "orion"
+	description = "A white folder."
+	price = 8
 	items = list(
-		/obj/item/toy/spinningtoy
+		/obj/item/folder/white
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/trumpet
-	category = "supply"
-	name = "trumpet"
-	supplier = "virgo"
-	description = "A trumpet for those triumphant tooting sessions."
-	price = 300
-	items = list(
-		/obj/item/device/synthesized_instrument/trumpet
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-
-/singleton/cargo_item/guitar
-	category = "supply"
-	name = "guitar"
-	supplier = "virgo"
-	description = "An acoustic guitar for those balcony serenades."
-	price = 190
-	items = list(
-		/obj/item/device/synthesized_instrument/guitar
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/violin
-	category = "supply"
-	name = "violin"
-	supplier = "virgo"
-	description = "A wooden musical instrument with four strings and a bow."
-	price = 250
-	items = list(
-		/obj/item/device/synthesized_instrument/violin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/polyguitar
-	category = "supply"
-	name = "polyguitar"
-	supplier = "virgo"
-	description = "An electric polyguitar. 100% digital audio."
-	price = 250
-	items = list(
-		/obj/item/device/synthesized_instrument/guitar/multi
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/piano
-	category = "supply"
-	name = "piano"
-	supplier = "virgo"
-	description = "Like a regular piano, but always in tune! Even if the musician isn't."
-	price = 1200
-	items = list(
-		/obj/structure/synthesized_instrument/synthesizer/piano
-	)
-	access = 0
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/pianosoundsynthesizer
-	category = "supply"
-	name = "synthesizer 3.0"
-	supplier = "virgo"
-	description = "An expensive sound synthesizer. Great for those orchestra-of-one performances."
-	price = 1900
-	items = list(
-		/obj/structure/synthesized_instrument/synthesizer
-	)
-	access = 0
-	container_type = "box"
-	groupable = FALSE
 	spawn_amount = 1
 
 /singleton/cargo_item/handlabeler
@@ -419,80 +292,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/randomplushies
-	category = "supply"
-	name = "random plushies"
-	supplier = "nanotrasen"
-	description = "Four random plushies. Barely used."
-	price = 800
-	items = list(
-		/obj/random/plushie
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 4
-
-/singleton/cargo_item/redlasertagequipmentset
-	category = "supply"
-	name = "red laser tag equipment set"
-	supplier = "nanotrasen"
-	description = "A set of red laser tag equipment consisting of helmet, armor and gun."
-	price = 200
-	items = list(
-		/obj/item/clothing/head/helmet/riot/laser_tag,
-		/obj/item/clothing/suit/armor/riot/laser_tag,
-		/obj/item/gun/energy/lasertag/red
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/bluelasertagequipmentset
-	category = "supply"
-	name = "blue laser tag equipment set"
-	supplier = "nanotrasen"
-	description = "A set of red laser blue equipment consisting of helmet, armor and gun."
-	price = 200
-	items = list(
-		/obj/item/clothing/head/helmet/riot/laser_tag/blue,
-		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
-		/obj/item/gun/energy/lasertag/blue
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/replicakatana
-	category = "supply"
-	name = "replica katana"
-	supplier = "nanotrasen"
-	description = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
-	price = 200
-	items = list(
-		/obj/item/toy/katana
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/snappop
-	category = "supply"
-	name = "snap pop (x5)"
-	supplier = "nanotrasen"
-	description = "A number of snap pops."
-	price = 200
-	items = list(
-		/obj/item/toy/snappop
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 5
-
 /singleton/cargo_item/spacecleaner
 	category = "supply"
 	name = "space cleaner"
@@ -518,20 +317,6 @@
 	)
 	access = 0
 	container_type = "freezer"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/tajaranelectricalgloves
-	category = "supply"
-	name = "tajaran electrical gloves"
-	supplier = "zharkov"
-	description = "These gloves will protect the wearer from electric shock. Made special for Tajaran use."
-	price = 250
-	items = list(
-		/obj/item/clothing/gloves/yellow/specialt
-	)
-	access = ACCESS_ENGINE
-	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -563,20 +348,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/toysword
-	category = "supply"
-	name = "toy sword"
-	supplier = "nanotrasen"
-	description = "A cheap, plastic replica of a blue energy sword. Realistic sounds and colors! Ages 8 and up."
-	price = 200
-	items = list(
-		/obj/item/toy/sword
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/trashbag
 	category = "supply"
 	name = "trash bag"
@@ -591,34 +362,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/unathielectricalgloves
-	category = "supply"
-	name = "unathi electrical gloves"
-	supplier = "arizi"
-	description = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
-	price = 250
-	items = list(
-		/obj/item/clothing/gloves/yellow/specialu
-	)
-	access = ACCESS_ENGINE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/waterballoons
-	category = "supply"
-	name = "water balloons (x5)"
-	supplier = "nanotrasen"
-	description = "Five empty water balloons."
-	price = 200
-	items = list(
-		/obj/item/toy/balloon
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 5
-
 /singleton/cargo_item/wetfloorsign
 	category = "supply"
 	name = "wet floor sign"
@@ -632,27 +375,3 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
-/singleton/cargo_item/crayonbox
-	category = "supply"
-	name = "box of crayons"
-	supplier = "getmore"
-	description = "Nontoxic crayons! For drawing, writing, painting. Warranty void if consumed."
-	price = 12
-	items = list(
-		/obj/item/storage/box/fancy/crayons
-	)
-
-/singleton/cargo_item/painting_kit
-	category = "supply"
-	name = "painting kit"
-	supplier = "virgo"
-	description = "A painter's kit containing an easel, canvas, and some paints. Additional canvases sold separately."
-	price = 150
-	items = list(
-		/obj/structure/easel,
-		/obj/item/canvas,
-		/obj/item/storage/box/fancy/crayons,
-		/obj/item/reagent_containers/glass/rag,
-	)
-

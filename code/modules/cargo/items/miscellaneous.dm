@@ -1,17 +1,3 @@
-/singleton/cargo_item/adhomian_phonograph
-	category = "miscellaneous"
-	name = "adhomian phonograph"
-	supplier = "zharkov"
-	description = "An adhomian record player."
-	price = 700
-	items = list(
-		/obj/machinery/media/jukebox/phonograph
-	)
-	access = 0
-	container_type = "box"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/auto_chisel
 	category = "miscellaneous"
 	name = "auto-chisel"

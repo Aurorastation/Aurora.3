@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(cargo)
 	log_subsystem_cargo("Loading cargo items.")
 	var/id = 1
 
-	//reset_cargo()
+	reset_cargo()
 
 	// Get the list of all valid cargo items
 	for (var/singleton/cargo_item/I as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
