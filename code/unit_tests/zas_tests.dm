@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 							affected_map_types |= type
 					#endif
 
-			fail_message += "[offending_turfs_text]"
+			fail_message += "[offending_turfs_text]\n\n"
 
 
 		//Simulated edge (zone edge)
@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(turfs_to_map_type)
 							affected_map_types |= type
 					#endif
 
-			fail_message += "[offending_turfs_text]"
+			fail_message += "[offending_turfs_text]\n\n"
 
 
 	#if defined(UNIT_TEST)
