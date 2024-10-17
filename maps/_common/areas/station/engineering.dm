@@ -128,7 +128,3 @@
 	name = "Engineering - Backup Power Storage"
 	icon_state = "substation"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-
-/area/engineering/bluespace_drive
-	name = "Engineering - Bluespace Drive"
-	icon_state = "engine"
