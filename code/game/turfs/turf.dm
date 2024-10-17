@@ -372,7 +372,7 @@ var/const/enterloopsanity = 100
 
 	var/objects = 0
 	if(arrived && (arrived.movable_flags & MOVABLE_FLAG_PROXMOVE) && arrived.simulated)
-		for(var/atom/movable/oAM in range(1))
+		for(var/atom/movable/oAM in range(1, src))
 			if(objects > enterloopsanity)
 				break
 			objects++
