@@ -169,19 +169,25 @@
 				target = H
 				break
 		else
-			for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
-				if(!tray.seed) //No seed? We don't care.
-					continue
-				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
-					continue
-				if(pathfind(tray)) //If we can get there, we can accept it as a target.
-					target = tray
-					frustration = 0
-					break
+			if(check_tank())
+				for(var/obj/structure/sink/S in view(7, src))
+					if(pathfind(get_turf(S)))
+						target = S
+						frustration = 0
+						break
+			else
+				for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
+					if(!tray.seed) //No seed? We don't care.
+						continue
+					if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
+						continue
+					if(pathfind(get_turf(tray))) //If we can get there, we can accept it as a target.
+						target = tray
+						frustration = 0
+						break
 
 
-/mob/living/bot/farmbot/proc/pathfind(var/atom/A)
-	var/turf/targetloc = get_turf(A)
+/mob/living/bot/farmbot/proc/pathfind(var/turf/targetloc)
 	if(!targetloc)
 		return FALSE
 
@@ -246,6 +252,13 @@
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
 
+	else if(istype(A, /obj/structure/sink))
+		action = "water"
+		update_icon()
+		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
+		attacking = TRUE
+		addtimer(CALLBACK(src, PROC_REF(refill_water)), 3 SECONDS)
+
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
 		attacking = TRUE
@@ -301,6 +314,13 @@
 /mob/living/bot/farmbot/proc/rearm_attacking()
 	attacking = FALSE
 
+/mob/living/bot/farmbot/proc/refill_water()
+	tank.reagents.add_reagent(/singleton/reagent/water, (tank.reagents.maximum_volume - tank.reagents.total_volume))
+	playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+	action = ""
+	update_icon()
+	attacking = FALSE
+
 /mob/living/bot/farmbot/explode()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
 	var/turf/T = get_turf(src)
@@ -340,7 +360,7 @@
 /mob/living/bot/farmbot/proc/check_tank()
 	if(!tank)
 		return FALSE
-	return ((!target && refills_water && tank.reagents.total_volume < tank.reagents.maximum_volume) || ((tank.reagents.total_volume ) / tank.reagents.maximum_volume) <= 0.3)
+	return (refills_water && (tank.reagents.total_volume / tank.reagents.maximum_volume) <= 0.3)
 
 /obj/item/farmbot_arm_assembly
 	name = "water tank/robot arm assembly"
