@@ -214,9 +214,10 @@
 	opacity = FALSE
 
 // SUBTYPE: Shutters
-// Nicer looking, and also weaker, shutters. Found in kitchen and similar areas.
+// Nicer looking, and also weaker, shutters. Found in kitchen and similar areas. Unlike blast doors, can be destroyed with a welder.
 /obj/machinery/door/blast/shutters
 	name = "shutter"
+	desc_extended = "This can be disassembled by cutting all six support beams off with a welding tool, and this process can be reversed by reinstalling support beams with use of steel rods."
 	icon_state_open = "shutter0"
 	icon_state_opening = "shutterc0"
 	icon_state_closed = "shutter1"
@@ -224,11 +225,65 @@
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
+	/// How many cutting periods shutters require before they're deconstructed.
+	var/cuts_needed = 6
+	/// How long each cutting period takes.
+	var/cut_time = 15 SECONDS
+	/// Whether the shutter is currently being welded.
+	var/welding = FALSE
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
 	density = FALSE
 	opacity = FALSE
+
+/obj/machinery/door/blast/shutters/attackby(obj/item/attacking_item, mob/user)
+	// For replacing welded-off beams.
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
+		if(cuts_needed >= initial(cuts_needed))
+			to_chat(usr, SPAN_NOTICE("\The [src] already has all the necessary support beams."))
+		else
+			to_chat(usr, SPAN_NOTICE("You begin to reinforce \the [src] with an additional support beam..."))
+			if (do_after(user, 30 SECONDS))
+				if(cuts_needed < initial(cuts_needed))
+					to_chat(usr, SPAN_NOTICE("You reinforce \the [src] with an additional support beam."))
+					R.use(1)
+					cuts_needed++
+
+	// For welding off beams.
+	else if (attacking_item.iswelder() && !welding)
+		var/obj/item/weldingtool/WT = attacking_item
+		while (cuts_needed)
+			welding = TRUE
+			to_chat(user, SPAN_NOTICE("You begin slicing through a support beam in \the [src]. You see [cuts_needed] remaining."))
+
+			if(attacking_item.use_tool(src, user, cut_time, volume = 50) && WT.isOn())
+				cuts_needed--
+			else
+				break
+
+			new /obj/item/stack/rods(get_turf(src))
+
+			if (cuts_needed)
+				to_chat(user, SPAN_NOTICE("You successfully cut a support beam! Now dislodged from its fitting, it clatters down to the floor."))
+			else
+				qdel(src)
+				playsound(src, 'sound/items/Welder.ogg', 10, TRUE)
+				user.visible_message(SPAN_WARNING("\The [src] were cut apart by \the [user]!"), SPAN_NOTICE("You slice straight through \the [src], opening the way!"))
+				break
+
+		welding = FALSE
+
+	return ..()
+
+// I feel there must be a better way to do this ~ hazelmouse
+/obj/machinery/door/blast/shutters/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if (cuts_needed > 1)
+		. += SPAN_NOTICE("\The [src] seems to have [cuts_needed] intact support beams.")
+	else
+		. += SPAN_NOTICE("\The [src] seems to only have [cuts_needed] intact support beam! It's close to collapse!")
 
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
