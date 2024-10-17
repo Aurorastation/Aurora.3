@@ -48,6 +48,20 @@
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
 
+/datum/gear/augment/integrated/surgical
+	display_name = "retractable surgical toolset"
+	description = "An augment that allows the user to deploy a selection of surgical tools."
+	path = /obj/item/organ/internal/augment/tool/integrated/surgical
+	cost = 3
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Research Director", "Scientist", "Xenobiologist", "Medical Personnel", "Science Personnel")
+
+/datum/gear/augment/integrated/surgical/New()
+	..()
+	var/list/augs = list()
+	augs["retractable surgical toolset, right hand"] = /obj/item/organ/internal/augment/tool/integrated/surgical
+	augs["retractable surgical toolset, left hand"] = /obj/item/organ/internal/augment/tool/integrated/surgical/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/augment/combitool/New()
 	..()
 	var/list/augs = list()
