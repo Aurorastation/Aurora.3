@@ -13,7 +13,7 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 /datum/unit_test/modular_computers/presets_contain_only_compatible_programs/start_test()
 	var/test_result = UNIT_TEST_PASSED
 
-	for(var/obj/item/modular_computer/modular_computer_typepath in subtypesof(/obj/item/modular_computer))
+	for(var/modular_computer_typepath in subtypesof(/obj/item/modular_computer))
 		//We don't care about abstracts
 		if(is_abstract(modular_computer_typepath))
 			continue
@@ -22,6 +22,7 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 
 		//No need for nulls
 		if(isnull(sample_modular_computer._app_preset_type))
+			TEST_DEBUG("[modular_computer_typepath] _app_preset_type is null and won't be tested")
 			continue
 
 		if(!ispath(sample_modular_computer._app_preset_type, /datum/modular_computer_app_presets))
@@ -31,6 +32,7 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 		//Check that all the programs are supported by the hardwares that use those presets
 		var/list/programs = sample_modular_computer.get_preset_programs(sample_modular_computer._app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
+			TEST_DEBUG("Will now test [prog.type] in preset [sample_modular_computer._app_preset_type] used by [modular_computer_typepath]")
 			if(!prog.is_supported_by_hardware(sample_modular_computer.hardware_flag, FALSE))
 				test_result = TEST_FAIL("Found program [prog.type] in preset [sample_modular_computer._app_preset_type] that is used by [modular_computer_typepath], \
 										but is not supported by its hardware!")
