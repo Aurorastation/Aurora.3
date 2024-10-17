@@ -104,7 +104,7 @@
 	name = "heavy SCC leg guards"
 	icon_state = "legguards_blue"
 	item_state = "legguards_blue"
-	slowdown = 0
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/heavy/sec
 	name = "heavy corporate leg guards"
@@ -279,7 +279,7 @@
 	name = "heavy SCC arm guards"
 	icon_state = "armguards_blue"
 	item_state = "armguards_blue"
-	slowdown = 0
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/heavy/sec
 	name = "heavy corporate arm guards"

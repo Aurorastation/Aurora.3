@@ -242,7 +242,7 @@
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0 // the SCC is hacking
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
