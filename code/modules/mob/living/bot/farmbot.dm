@@ -251,7 +251,7 @@
 				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
-				
+
 	else if(istype(A, /obj/structure/sink))
 		action = "water"
 		update_icon()
