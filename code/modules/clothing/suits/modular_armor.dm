@@ -282,6 +282,13 @@
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	slowdown = 0
 
 /obj/item/clothing/accessory/armor_plate/military/navy
