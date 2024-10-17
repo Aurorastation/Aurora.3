@@ -24,6 +24,7 @@
 	var/belt = null
 	var/gloves = null
 	var/wrist = null
+	var/pants = null
 	var/shoes = null
 
 	var/head = null
@@ -108,6 +109,7 @@
 		belt,
 		gloves,
 		wrist,
+		pants,
 		shoes,
 
 		head,
@@ -406,6 +408,8 @@
 	if(wrist)
 		equip_item(H, wrist, slot_wrists)
 	var/got_shoes = FALSE
+	if(pants)
+		equip_item(H, pants, slot_pants)
 	if(length(species_shoes))
 		var/path = species_shoes[H.species.name]
 		if(path)

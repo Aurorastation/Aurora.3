@@ -76,6 +76,7 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
+	var/obj/item/pants = null
 
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
