@@ -659,7 +659,6 @@
 	contained_sprite = 1
 	slowdown = 1
 
-	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,

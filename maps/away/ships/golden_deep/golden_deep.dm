@@ -51,9 +51,11 @@
 		"gd_nav2",
 		"gd_nav3",
 		"gd_nav4",
-		"gd_dock",
+		"gd_dock1",
 		"gd_dock2",
 		"gd_dock3",
+		"gd_dock4",
+		"gd_dock5"
 	)
 
 /obj/effect/overmap/visitable/ship/golden_deep/New()
@@ -76,15 +78,15 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/golden_deep
+/obj/machinery/computer/shuttle_control/explore/terminal/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
-	req_access = list(ACCESS_GOLDEN_DEEP)
+	req_access = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
 
 /datum/shuttle/autodock/overmap/golden_deep
 	name = "Golden Deep Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/golden_deep)
+	shuttle_area = list(/area/shuttle/golden_deep/cargo, /area/shuttle/golden_deep/cockpit, /area/shuttle/golden_deep/passenger)
 	current_location = "gd_nav_hangar"
 	landmark_transition = "gd_nav_transit"
 	dock_target = "airlock_golden_shuttle"
@@ -92,6 +94,17 @@
 	fuel_consumption = 2
 	logging_home_tag = "gd_nav_hangar"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/golden_deep
+	name = "Golden Deep Shuttle"
+	shuttle_tag = "Golden Deep Shuttle"
+	master_tag = "airlock_golden_shuttle"
+	cycle_to_external_air = TRUE
+
+/obj/effect/map_effect/marker/airlock/docking/golden_deep/shuttle_hangar
+	name = "Shuttle Dock"
+	landmark_tag = "gd_nav_hangar"
+	master_tag = "golden_deep_hangar"
 
 /obj/effect/shuttle_landmark/golden_deep_shuttle/hangar
 	name = "Golden Deep Mercantile Vessel - Hangar"
@@ -105,34 +118,6 @@
 	name = "In transit"
 	landmark_tag = "gd_nav_transit"
 	base_turf = /turf/space/transit/east
-
-// Lift
-/datum/shuttle/autodock/multi/lift/gd
-	name = "Golden Deep Lift"
-	current_location = "nav_gd_lift_first_deck"
-	shuttle_area = /area/turbolift/tcaf_corvette/gd_lift
-	destination_tags = list(
-		"nav_gd_lift_first_deck",
-		"nav_gd_lift_second_deck",
-		)
-
-/obj/effect/shuttle_landmark/lift/gd_first_deck
-	name = "Collective Mercantile Vessel - First Deck"
-	landmark_tag = "nav_gd_lift_first_deck"
-	base_area = /area/golden_deep/warehouse
-	base_turf = /turf/simulated/floor/plating
-
-/obj/effect/shuttle_landmark/lift/gd_second_deck
-	name = "Collective Mercantile Vessel - Second Deck"
-	landmark_tag = "nav_gd_lift_second_deck"
-	base_area = /area/golden_deep/central_hallway
-	base_turf = /turf/simulated/open
-
-/obj/machinery/computer/shuttle_control/multi/lift/gd
-	shuttle_tag = "Golden Deep Lift"
-
-/obj/machinery/computer/shuttle_control/multi/lift/wall/gd
-	shuttle_tag = "Golden Deep Lift"
 
 //Fluff items
 /obj/item/storage/secure/safe/golden_deep // Placed in merchant's quarters.

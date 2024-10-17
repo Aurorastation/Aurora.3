@@ -675,6 +675,7 @@
 /datum/access/golden_deep
 	id = ACCESS_GOLDEN_DEEP
 	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep"
 
 #define ACCESS_KONYANG_POLICE 218
 /datum/access/konyang_police
@@ -739,6 +740,7 @@
 /datum/access/golden_deep_owned
 	id = ACCESS_GOLDEN_DEEP_OWNED
 	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 

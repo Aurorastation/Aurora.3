@@ -110,6 +110,8 @@
 /area/shuttle/golden_deep
 	name = "Golden Deep Shuttle"
 	icon_state = "shuttlegrn"
+	requires_power = TRUE
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/shuttle/golden_deep/cargo
 	name = "Golden Deep Shuttle - Cargo Hold"
@@ -121,7 +123,7 @@
 	name = "Golden Deep Shuttle - Cockpit"
 
 // Lift
-/area/turbolift/tcaf_corvette/gd_lift
+/area/turbolift/golden_deep/gd_lift
 	name = "Golden Deep Lift"
 	station_area = FALSE
 

@@ -85,6 +85,10 @@
 	contained_sprite = TRUE
 	has_accents = TRUE
 
+// Unique variation for use with the Golden Deep ghostrole.
+/obj/item/clothing/accessory/goldendeep/black
+	color = "#444444"
+
 /obj/item/clothing/accessory/goldendeep/pompous
 	name = "pompous shirt"
 	desc = "Poofy and ostentatious, this shirt of fine fabric screams wealth."
