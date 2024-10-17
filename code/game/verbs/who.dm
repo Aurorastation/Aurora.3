@@ -175,7 +175,6 @@
 					devmsg += " (AFK)"
 				devmsg += "<br>"
 				num_devs_online++
-
 	else
 		for(var/s in GLOB.staff)
 			var/client/client = s

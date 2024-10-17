@@ -51,6 +51,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -109,11 +110,6 @@ var/list/admin_verbs_ban = list(
 	/client/proc/warning_panel,
 	/client/proc/stickybanpanel
 	)
-var/list/admin_verbs_sounds = list(
-	/client/proc/play_local_sound,
-	/client/proc/play_sound,
-	/client/proc/play_server_sound
-	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
@@ -136,7 +132,11 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey,
+	/client/proc/play_local_sound,
+	/client/proc/play_sound,
+	/client/proc/play_server_sound
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -392,6 +392,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
@@ -424,6 +425,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/dsay,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
 	/datum/admins/proc/paralyze_mob,
@@ -492,6 +494,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
 )
 
@@ -513,7 +516,6 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
 		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
 		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
@@ -531,7 +533,6 @@ var/list/admin_verbs_cciaa = list(
 	remove_verb(src, admin_verbs_permissions)
 	remove_verb(src, /client/proc/stealth)
 	remove_verb(src, admin_verbs_rejuv)
-	remove_verb(src, admin_verbs_sounds)
 	remove_verb(src, admin_verbs_spawn)
 	remove_verb(src, debug_verbs)
 	add_aooc_if_necessary()
@@ -630,6 +631,13 @@ var/list/admin_verbs_cciaa = list(
 		global_check_antags.ui_interact(usr)
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
+
+/client/proc/odyssey_panel()
+	set name = "View Odyssey Panel"
+	set category = "Admin"
+
+	SSodyssey.ui_interact(mob)
+	feedback_add_details("admin_verb","ODP")
 
 /client/proc/jobbans()
 	set name = "Display Job bans"
