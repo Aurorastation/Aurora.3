@@ -13,8 +13,18 @@
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
-/area/tcaf_corvette/francisca
-	name = "Republican Fleet Corvette - Rotary Cannon"
+/area/tcaf_corvette/autocannon
+	name = "Republican Fleet Corvette - Autocannon Emplacement"
+	icon_state = "Tactical"
+	ambience = AMBIENCE_HIGHSEC
+
+/area/tcaf_corvette/ammo1
+	name = "Republican Fleet Corvette - Portside Ammunition Storage"
+	icon_state = "Tactical"
+	ambience = AMBIENCE_HIGHSEC
+
+/area/tcaf_corvette/ammo2
+	name = "Republican Fleet Corvette - Starboard Ammunition Storage"
 	icon_state = "Tactical"
 	ambience = AMBIENCE_HIGHSEC
 
