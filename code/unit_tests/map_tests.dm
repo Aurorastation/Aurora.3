@@ -162,7 +162,7 @@
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
-		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
@@ -188,7 +188,7 @@
 		if(firelock_increment > 1)
 			failed_checks++
 			TEST_FAIL("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
-		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 

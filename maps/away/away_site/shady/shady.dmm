@@ -227,11 +227,11 @@
 /area/hideout)
 "cK" = (
 /obj/item/pipewrench,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "cL" = (
 /obj/item/crowbar,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "cM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -855,11 +855,11 @@
 	pixel_x = -4;
 	pixel_y = 14
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lL" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -990,7 +990,7 @@
 /area/hideout)
 "nU" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "oa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1139,7 +1139,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "qu" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -1469,7 +1469,7 @@
 "vd" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "vy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1786,7 +1786,7 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "Be" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Bj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2037,7 +2037,7 @@
 /area/hideout)
 "EY" = (
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Fa" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2102,7 +2102,7 @@
 /area/hideout)
 "Gy" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "GB" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -2214,7 +2214,7 @@
 /area/hideout)
 "Ii" = (
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Ij" = (
 /obj/machinery/vending/hydronutrients,
@@ -2277,7 +2277,7 @@
 /area/hideout)
 "Js" = (
 /obj/effect/decal/cleanable/blood/no_dry,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Jw" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -2311,7 +2311,7 @@
 /area/hideout)
 "JQ" = (
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "JT" = (
 /obj/item/stack/material/phoron,
@@ -2674,7 +2674,7 @@
 "Pv" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood/drip/oil,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "PK" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2853,7 +2853,7 @@
 "St" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/electrical,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "SD" = (
 /obj/structure/table/steel,

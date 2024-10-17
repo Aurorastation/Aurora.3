@@ -1574,7 +1574,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "Xy" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "XF" = (
 /turf/simulated/floor/tiled/techmaint,

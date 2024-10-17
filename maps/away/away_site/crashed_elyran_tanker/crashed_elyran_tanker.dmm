@@ -632,7 +632,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "gc" = (
 /turf/simulated/floor/reinforced/airless,
@@ -943,7 +943,7 @@
 "jd" = (
 /obj/structure/foamedmetal,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "jg" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -967,7 +967,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "jr" = (
 /obj/machinery/door/airlock/hatch{
@@ -1230,7 +1230,7 @@
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "my" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1252,7 +1252,7 @@
 /area/crashed_elyran_tanker/engineering)
 "mN" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "mQ" = (
 /obj/effect/decal/cleanable/blood/oil{
@@ -1638,7 +1638,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "qu" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "qv" = (
 /obj/structure/inflatable/wall,
@@ -1757,7 +1757,7 @@
 /area/crashed_elyran_tanker/tanks)
 "rE" = (
 /obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "rG" = (
 /obj/structure/table/standard,
@@ -1905,11 +1905,11 @@
 /area/crashed_elyran_tanker/tanks)
 "ty" = (
 /mob/living/simple_animal/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tA" = (
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2022,7 +2022,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "uP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2084,7 +2084,7 @@
 "vP" = (
 /obj/structure/lattice,
 /obj/structure/blocker/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "vQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -2131,7 +2131,7 @@
 "wh" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "wk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2236,7 +2236,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "xs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2491,7 +2491,7 @@
 	pixel_y = -2;
 	pixel_x = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "zh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2525,7 +2525,7 @@
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "zr" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "zu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2535,7 +2535,7 @@
 "zI" = (
 /obj/item/stack/rods/full,
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "zN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/purple,
@@ -2558,7 +2558,7 @@
 "Ab" = (
 /obj/structure/lattice,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Ad" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
@@ -2683,7 +2683,7 @@
 /area/crashed_elyran_tanker/crew)
 "Bj" = (
 /obj/item/stack/material/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "Bl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2902,7 +2902,7 @@
 /area/crashed_elyran_tanker/engineering)
 "CD" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "CH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
@@ -3139,7 +3139,7 @@
 /area/crashed_elyran_tanker/tanks)
 "FO" = (
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "FU" = (
 /obj/structure/railing/mapped{
@@ -3176,7 +3176,7 @@
 "Gk" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "Go" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -3194,7 +3194,7 @@
 "Gv" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Gx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3518,7 +3518,7 @@
 /area/crashed_elyran_tanker/engineering)
 "Jo" = (
 /obj/structure/foamedmetal,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "Ju" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -3817,7 +3817,7 @@
 /area/crashed_elyran_tanker/engineering)
 "Mq" = (
 /obj/structure/foamedmetal,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "Mz" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -4004,7 +4004,7 @@
 	icon_state = "shrapnelmedium"
 	},
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "NZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -4102,7 +4102,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "OY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4268,7 +4268,7 @@
 "PV" = (
 /obj/structure/flora/rock/pile,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "PY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4294,7 +4294,7 @@
 "Qe" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Qp" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -4419,7 +4419,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "RX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4498,7 +4498,7 @@
 /area/crashed_elyran_tanker/tanks)
 "SA" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "SJ" = (
 /obj/structure/table/steel,
@@ -4858,7 +4858,7 @@
 "We" = (
 /obj/machinery/atmospherics/valve,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wg" = (
 /obj/structure/inflatable/door,
@@ -4869,7 +4869,7 @@
 "Wi" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4896,7 +4896,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wx" = (
 /obj/effect/decal/cleanable/dirt,

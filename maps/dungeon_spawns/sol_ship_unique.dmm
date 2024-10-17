@@ -21,7 +21,7 @@
 	},
 /area/dungeon/crashed_ship)
 "aV" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine/unexplored)
 "bj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -405,7 +405,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
 "yr" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "yX" = (
 /obj/structure/window/reinforced,
@@ -656,7 +656,7 @@
 /area/dungeon/crashed_ship)
 "Ti" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Tj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -706,7 +706,7 @@
 /area/dungeon/crashed_ship)
 "UF" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "VP" = (
 /turf/simulated/mineral/random/high_chance,
@@ -729,7 +729,7 @@
 	destroy_surroundings = 0;
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine/unexplored)
 "Yb" = (
 /obj/structure/railing,

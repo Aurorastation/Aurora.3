@@ -230,12 +230,12 @@
 	if(target.loc == src.loc)
 		return 0
 	var/turf/T = get_turf(target.loc)
-	if(!istype(T,/turf/unsimulated/floor/asteroid))
+	if(!istype(T,/turf/simulated/floor/exoplanet/asteroid))
 		return 0
 	if(locate(/mob/living/simple_animal/hostile/lesserworm) in T)
 		return 0
 	spawn_delay = world.time + spawn_time
-	var/turf/unsimulated/floor/asteroid/A = T
+	var/turf/simulated/floor/exoplanet/asteroid/A = T
 	var/mob/living/simple_animal/hostile/lesserworm/L = new /mob/living/simple_animal/hostile/lesserworm(A)
 	if(A.dug < 1)
 		A.gets_dug()

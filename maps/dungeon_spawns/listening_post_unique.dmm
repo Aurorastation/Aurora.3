@@ -195,7 +195,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/syndie_listening_post)
 "aA" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aB" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -354,7 +354,7 @@
 /area/dungeon/syndie_listening_post)
 "bb" = (
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bc" = (
 /obj/machinery/access_button/airlock_exterior{
@@ -363,14 +363,14 @@
 	pixel_x = 25
 	},
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bd" = (
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "be" = (
 /obj/structure/grille,
@@ -551,7 +551,7 @@
 /area/dungeon/syndie_listening_post)
 "hc" = (
 /obj/structure/computerframe,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "io" = (
 /obj/effect/decal/cleanable/dirt,

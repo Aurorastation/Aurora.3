@@ -6,42 +6,42 @@
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "c" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
 /mob/living/simple_animal/hostile/carp{
 	wander = 0
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /obj/item/arrow/rod,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "f" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "i" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
 /obj/random/voidsuit,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
 /obj/random/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "k" = (
 /obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "l" = (
 /obj/random/melee,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "m" = (
 /turf/simulated/wall/shuttle/cardinal,

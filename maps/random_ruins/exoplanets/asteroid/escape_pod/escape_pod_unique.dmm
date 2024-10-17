@@ -35,7 +35,7 @@
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "0,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "h" = (
 /turf/template_noop,
@@ -51,10 +51,10 @@
 /area/template_noop)
 "k" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "l" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "n" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -73,7 +73,7 @@
 /area/template_noop)
 "z" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "D" = (
 /obj/effect/decal/remains/human,
@@ -93,7 +93,7 @@
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "2,3"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 
 (1,1,1) = {"

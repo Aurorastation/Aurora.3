@@ -38,7 +38,7 @@
 	perlin_zoom = 21
 	surface_turfs = list(
 		/turf/simulated/mineral,
-		/turf/unsimulated/floor/asteroid/ash
+		/turf/simulated/floor/exoplanet/asteroid/ash
 	)
 
 	possible_biomes = list(

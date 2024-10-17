@@ -67,7 +67,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "ar" = (
 /obj/item/pipe{

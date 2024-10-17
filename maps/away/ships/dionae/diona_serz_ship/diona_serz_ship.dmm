@@ -485,7 +485,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cargo"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "tz" = (
 /obj/structure/table/diona,
@@ -577,7 +577,7 @@
 /area/ship/diona_serz_ship/heavycontainment)
 "xQ" = (
 /obj/effect/landmark/entry_point/aft,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "yn" = (
 /obj/structure/table/diona,
@@ -722,7 +722,7 @@
 /area/ship/diona_serz_ship/lightcontainment)
 "DM" = (
 /obj/structure/simple_door/iron,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "DP" = (
 /turf/simulated/floor/diona/airless,
@@ -1142,7 +1142,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port airlock"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "Th" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -1193,7 +1193,7 @@
 /turf/space/transit/north,
 /area/space)
 "UP" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "Vd" = (
 /obj/structure/closet/crate/freezer,
@@ -1236,7 +1236,7 @@
 /area/ship/diona_serz_ship/lightcontainment)
 "VC" = (
 /obj/effect/landmark/entry_point/fore,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_serz_ship/asteroid)
 "VO" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,

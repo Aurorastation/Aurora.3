@@ -673,7 +673,7 @@ AURORA_ESCAPE_POD(4)
 	name = "Research Dock"
 	landmark_tag = "nav_research_dock"
 	docking_controller = "science_bridge"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 	base_area = /area/mine/explored
 
 /obj/effect/shuttle_landmark/research/yellow
