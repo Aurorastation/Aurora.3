@@ -1,4 +1,4 @@
-/obj/outfit/admin/event/lance
+/datum/outfit/admin/event/lance
 	name = "Lancer"
 
 	uniform = /obj/item/clothing/under/lance
@@ -38,13 +38,13 @@
 	id_iff = IFF_LANCER
 	var/id_access = "Lancer"
 
-/obj/outfit/admin/event/lance/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/event/lance/post_equip(mob/living/carbon/human/H, visualsOnly)
 	organize_voidsuit(H)
 
-/obj/outfit/admin/event/lance/get_id_access()
+/datum/outfit/admin/event/lance/get_id_access()
 	return get_syndicate_access(id_access)
 
-/obj/outfit/admin/event/lance/engineer
+/datum/outfit/admin/event/lance/engineer
 	name = "Lance Engineer"
 
 	back = /obj/item/gun/projectile/shotgun/pump/combat/sol
@@ -65,7 +65,7 @@
 	)
 	id_access = "Lance Engineer"
 
-/obj/outfit/admin/event/lance/medic
+/datum/outfit/admin/event/lance/medic
 	name = "Lance Medic"
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile
@@ -91,7 +91,7 @@
 			)
 	id_access = "Lance Medic"
 
-/obj/outfit/admin/event/lance/operative
+/datum/outfit/admin/event/lance/operative
 	name = "Lance Operative"
 
 	uniform = /obj/item/clothing/under/dress/lance_dress/male
@@ -108,10 +108,10 @@
 	)
 	id_access = "Lance Operative"
 
-/obj/outfit/admin/event/lance/operative/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/event/lance/operative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	return
 
-/obj/outfit/admin/event/sol_marine
+/datum/outfit/admin/event/sol_marine
 	name = "Solarian Marine"
 
 	uniform = /obj/item/clothing/under/rank/sol
@@ -144,7 +144,7 @@
 
 	id_iff = IFF_SOL
 
-/obj/outfit/admin/event/sol_marine/heavy
+/datum/outfit/admin/event/sol_marine/heavy
 	name = "Heavy Solarian Marine"
 
 	head = null

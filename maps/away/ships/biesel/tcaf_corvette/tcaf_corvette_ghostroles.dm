@@ -8,7 +8,7 @@
 	spawnpoints = list("tcaf_crewman")
 	max_count = 2
 
-	outfit = /obj/outfit/admin/tcaf_crewman
+	outfit = /datum/outfit/admin/tcaf_crewman
 	// Vaurca workers are only playable as technicians, as it's a primarily non-combatatant role. Think engineers and ammo loaders.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -17,7 +17,7 @@
 	special_role = "Republican Fleet Legionnaire (Technician)"
 	respawn_flag = null
 
-/obj/outfit/admin/tcaf_crewman
+/datum/outfit/admin/tcaf_crewman
 	name = "TCAF Crewman"
 	uniform = /obj/item/clothing/under/legion/tcaf/technician
 	gloves = /obj/item/clothing/gloves/black
@@ -39,7 +39,7 @@
 		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/obj/outfit/admin/tcaf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tcaf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -55,14 +55,14 @@
 		if(istype(tag))
 			tag.modify_tag_data()
 
-/obj/outfit/admin/tcaf_crewman/get_id_access()
+/datum/outfit/admin/tcaf_crewman/get_id_access()
 	return list(ACCESS_TCAF_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/tcaf_crewman/armsman
 	name = "Republican Fleet Armsman"
 	short_name = "tcaf_armsman"
 	max_count = 2
-	outfit = /obj/outfit/admin/tcaf_crewman/armsman
+	outfit = /datum/outfit/admin/tcaf_crewman/armsman
 	// Excludes vaurca workers, as it's a combatant role.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "Lgn. "
@@ -70,7 +70,7 @@
 	assigned_role = "Republican Fleet Legionnaire (Armsman)"
 	special_role = "Republican Fleet Legionnaire (Armsman)"
 
-/obj/outfit/admin/tcaf_crewman/armsman
+/datum/outfit/admin/tcaf_crewman/armsman
 	name = "TCAF Armsman"
 	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/legion/tcaf
@@ -80,7 +80,7 @@
 	name = "Republican Fleet Prefect"
 	short_name = "tcaf_nco"
 	max_count = 1
-	outfit = /obj/outfit/admin/tcaf_crewman/nco
+	outfit = /datum/outfit/admin/tcaf_crewman/nco
 	// Excludes vaurca workers, as it's a combatant role.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "Pfct. "
@@ -88,7 +88,7 @@
 	assigned_role = "Republican Fleet Prefect"
 	special_role = "Republican Fleet Prefect"
 
-/obj/outfit/admin/tcaf_crewman/nco
+/datum/outfit/admin/tcaf_crewman/nco
 	head = /obj/item/clothing/head/softcap/tcaf_cap
 	uniform = /obj/item/clothing/under/legion/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -100,7 +100,7 @@
 	short_name = "tcaf_officer"
 	max_count = 1
 	spawnpoints = list("tcaf_officer")
-	outfit = /obj/outfit/admin/tcaf_crewman/officer
+	outfit = /datum/outfit/admin/tcaf_crewman/officer
 	// More limited species selection than the non-officer roles - humans, skrell, IPCs, and vaurca warriors.
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	mob_name_prefix = "Dcn. "
@@ -108,7 +108,7 @@
 	assigned_role = "Republican Fleet Decurion"
 	special_role = "Republican Fleet Decurion"
 
-/obj/outfit/admin/tcaf_crewman/officer
+/datum/outfit/admin/tcaf_crewman/officer
 	head = /obj/item/clothing/head/tcaf_officer
 	uniform = /obj/item/clothing/under/legion/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat

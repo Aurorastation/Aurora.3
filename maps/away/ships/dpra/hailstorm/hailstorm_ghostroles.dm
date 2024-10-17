@@ -8,7 +8,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/hailstorm_crew
+	outfit = /datum/outfit/admin/hailstorm_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
@@ -18,7 +18,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
 
-/obj/outfit/admin/hailstorm_crew
+/datum/outfit/admin/hailstorm_crew
 	name = "People's Volunteer Spacer Militia Crew"
 
 	id = /obj/item/card/id
@@ -32,7 +32,7 @@
 
 	r_pocket = /obj/item/storage/wallet/random
 
-/obj/outfit/admin/hailstorm_crew/get_id_access()
+/datum/outfit/admin/hailstorm_crew/get_id_access()
 	return list(ACCESS_DPRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/hailstorm_crew/captain
@@ -44,14 +44,14 @@
 	spawnpoints = list("hailstorm_captain")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/hailstorm_crew/captain
+	outfit = /datum/outfit/admin/hailstorm_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 	assigned_role = "Hailstorm Ship Captain"
 	special_role = "Hailstorm Ship Captain"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/obj/outfit/admin/hailstorm_crew/captain
+/datum/outfit/admin/hailstorm_crew/captain
 	name = "People's Volunteer Spacer Militia Captain"
 
 	head = /obj/item/clothing/head/beret/tajaran/pvsm
@@ -70,14 +70,14 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /obj/outfit/admin/hailstorm_crew/advisor
+	outfit = /datum/outfit/admin/hailstorm_crew/advisor
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 	assigned_role = "Hailstorm Ship ALA Advisor"
 	special_role = "Hailstorm Ship ALA Advisor"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/obj/outfit/admin/hailstorm_crew/advisor
+/datum/outfit/admin/hailstorm_crew/advisor
 	name = "People's Volunteer Spacer Militia ALA Advisor"
 
 	head = /obj/item/clothing/head/tajaran/ala_officer

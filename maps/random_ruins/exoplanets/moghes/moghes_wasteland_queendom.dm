@@ -32,7 +32,7 @@
 	spawnpoints = list("moghes_queendom")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_queendom
+	outfit = /datum/outfit/admin/moghes_queendom
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -46,10 +46,10 @@
 	short_name = "moghes_queendom_lead"
 	desc = "Lead your warriors through the Wasteland to recover supplies and eliminate threats, in the name of the Queen Szek'Hakh"
 	max_count = 1
-	outfit = /obj/outfit/admin/moghes_queendom/lead
+	outfit = /datum/outfit/admin/moghes_queendom/lead
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/moghes_queendom
+/datum/outfit/admin/moghes_queendom
 	name = "Szek'Hakh Queendom Warrior"
 
 	uniform = list(
@@ -72,6 +72,6 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/moghes_queendom/lead
+/datum/outfit/admin/moghes_queendom/lead
 	name = "Szek'Hakh Queendom Leader"
 	belt = /obj/item/melee/energy/sword/hegemony

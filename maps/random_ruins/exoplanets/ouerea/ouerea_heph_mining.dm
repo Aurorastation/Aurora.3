@@ -32,15 +32,15 @@
 	max_count = 5
 
 	extra_languages = list(LANGUAGE_UNATHI)
-	outfit = /obj/outfit/admin/moghes_heph_miner
+	outfit = /datum/outfit/admin/moghes_heph_miner
 	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
 	species_outfits = list(
-		SPECIES_HUMAN = /obj/outfit/admin/cyclops_crew,
-		SPECIES_SKRELL = /obj/outfit/admin/cyclops_crew,
-		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/cyclops_crew,
-		SPECIES_UNATHI = /obj/outfit/admin/moghes_heph_miner
+		SPECIES_HUMAN = /datum/outfit/admin/cyclops_crew,
+		SPECIES_SKRELL = /datum/outfit/admin/cyclops_crew,
+		SPECIES_SKRELL_AXIORI = /datum/outfit/admin/cyclops_crew,
+		SPECIES_UNATHI = /datum/outfit/admin/moghes_heph_miner
 	)
 
 /datum/ghostspawner/human/ouerea_heph_miner/klax
@@ -50,5 +50,5 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
-	outfit = /obj/outfit/admin/moghes_heph_miner/klax
+	outfit = /datum/outfit/admin/moghes_heph_miner/klax
 	uses_species_whitelist = TRUE

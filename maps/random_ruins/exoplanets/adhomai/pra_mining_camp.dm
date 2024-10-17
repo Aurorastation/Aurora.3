@@ -34,7 +34,7 @@
 	spawnpoints = list("adhomai_pra_miner")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/adhomai_pra_miner
+	outfit = /datum/outfit/admin/adhomai_pra_miner
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -44,7 +44,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/adhomai_pra_miner
+/datum/outfit/admin/adhomai_pra_miner
 	name = "Adhomai Corporate Miner"
 
 	uniform = /obj/item/clothing/under/tajaran/nt
@@ -69,7 +69,7 @@
 	spawnpoints = list("adhomai_pra_miner_teslabody")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/adhomai_pra_miner_teslabody
+	outfit = /datum/outfit/admin/adhomai_pra_miner_teslabody
 	possible_species = list(SPECIES_TAJARA_TESLA_BODY)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -79,7 +79,7 @@
 
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/adhomai_pra_miner_teslabody
+/datum/outfit/admin/adhomai_pra_miner_teslabody
 	name = "Tesla Rejuvenation Suit Mining Worker"
 
 	uniform = /obj/item/clothing/under/tajaran/tesla_body

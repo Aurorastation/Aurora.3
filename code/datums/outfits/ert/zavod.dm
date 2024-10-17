@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/zavodskoi
+/datum/outfit/admin/ert/zavodskoi
 	name = "Zavodskoi Asset Protection"
 	uniform = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -28,15 +28,15 @@
 	)
 	id_iff = IFF_ZAVOD
 
-/obj/outfit/admin/ert/zavodskoi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/zavodskoi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/obj/outfit/admin/ert/zavodskoi/get_id_access()
+/datum/outfit/admin/ert/zavodskoi/get_id_access()
 	return get_distress_access()
 
-/obj/outfit/admin/ert/zavodskoi/medic
+/datum/outfit/admin/ert/zavodskoi/medic
 	name = "Zavodskoi Medic"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -66,7 +66,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/zavodskoi/engi
+/datum/outfit/admin/ert/zavodskoi/engi
 	name = "Zavodskoi Engineer"
 	uniform = /obj/item/clothing/under/rank/engineer/zavod
 	back = /obj/item/storage/backpack/duffel/zavod
@@ -87,7 +87,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/zavodskoi/lead
+/datum/outfit/admin/ert/zavodskoi/lead
 	name = "Zavodskoi Squad Leader"
 	accessory_contents = list(
 		/obj/item/gun/projectile/revolver = 1
