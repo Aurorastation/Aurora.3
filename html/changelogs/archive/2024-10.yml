@@ -180,3 +180,29 @@
   Wowzewow (Wezzy):
   - rscadd: Adds a new species trait, NO_EQUIP_SPEEDMODS. Ignores slowdown effects
       from equipment and dragging things. G2s, Vaurca Bulwarks, and Tajara Teslas.
+2024-10-15:
+  CourierBravo:
+  - rscadd: Added the Dino Grabber. A toy weapon, that does no damage. But, it has
+      a 1 in 5 chance of disarming a target you attack with it. Works the same way
+      as whips, so targeting anywhere but the hands will not trigger the disarm.
+  - rscadd: Added the Dino Grabber to the warehouse rare item spawn pool.
+  - imageadd: Added an object sprite and in hand sprites for the dino grabber. Thanks
+      to @_bluebeerry for the object sprite.
+  FabianK3:
+  - rscadd: Updated engineering lobby layout and adjacent areas.
+  - rscadd: Added a notice board to the engineering lobby.
+  - qol: Moved engineering first aid locker into the lobby. Remember that.
+  SimpleMaroon:
+  - qol: Gives all Vaurca Ta representatives the thermic blaster as their firearm.
+  - balance: Gives the thermic blaster a slow self-recharge.
+  - qol: Updates the thermic blaster description and extended description.
+  nauticall:
+  - rscadd: Adds a right-click verb 'Force Shutdown' to modular computers that forces
+      them to power off. Useful for bluescreen situations.
+2024-10-17:
+  FluffyGhost:
+  - rscadd: Improved ZAS error reporting.
+  - rscdel: Removed a cursed ruin that was failing tests.
+  hazelmouse:
+  - qol: Made several QoL improvements to the TCAF Corvette ghostrole.
+  - rscadd: Added the Heavy Autocannon ship weapon to the TCAF Corvette ghostrole.
