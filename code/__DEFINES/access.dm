@@ -670,10 +670,12 @@
 	id = ACCESS_HEPHAESTUS
 	access_type = ACCESS_TYPE_CENTCOM
 
+// For the Golden Deep ghostrole. This is the access for the merchant and guards, but not for the owned synthetics.
 #define ACCESS_GOLDEN_DEEP 217
 /datum/access/golden_deep
 	id = ACCESS_GOLDEN_DEEP
 	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep"
 
 #define ACCESS_KONYANG_POLICE 218
 /datum/access/konyang_police
@@ -732,6 +734,13 @@
 /datum/access/autakh
 	id = ACCESS_AUTAKH
 	access_type = ACCESS_TYPE_CENTCOM
+
+// For the Golden Deep ghostrole. This is for the owned synthetics, so they lack some of the access their superiors enjoy.
+#define ACCESS_GOLDEN_DEEP_OWNED 229
+/datum/access/golden_deep_owned
+	id = ACCESS_GOLDEN_DEEP_OWNED
+	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
