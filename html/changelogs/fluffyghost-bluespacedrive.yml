@@ -59,4 +59,4 @@ changes:
   - bugfix: "Fixed overmap projectiles not transferring correctly."
   - code_imp: "Code improvements. A lot of."
   - rscadd: "Edited and partially remapped the deck one starboard engineering maints and the deck two aft auxiliary atmospherics. The auxiliary has been replaced with drone manufacturing."
-  - rcsadd: "Modified the supermatter cooling loop, giving it a slight increase in cooling potential. Please be mindful when doing more experimental setups."
+  - rscadd: "Modified the supermatter cooling loop, giving it a slight increase in cooling potential. Please be mindful when doing more experimental setups."
