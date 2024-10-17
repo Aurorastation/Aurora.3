@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - balance: "Changes the armour values of the Heavy Helmet to be in line with the Heavy Plate stats and other heavy armour stats."
   - balance: "Changes the armour values of the Imperial Flak Vest to be equal to Corporate Security plates, should make the imperial flak vest actually useful as armour."
+  - balance: "Changes the armour values of the TCAF Light carapce to be equal to Corporate Security plates, this is to make it actually have some tradeoff and stand out against the TCAF Heavy Carapce."
