@@ -210,7 +210,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/template_noop)
 "O" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/machinery/media/jukebox{
