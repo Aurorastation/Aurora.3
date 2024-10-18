@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Atmospheric technician spawn slot count, now three out of three ATs can spawn at roundstart instead of two out of three."
