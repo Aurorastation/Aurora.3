@@ -729,7 +729,7 @@
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		var/new_angle = Get_Angle(src, target)
+		var/new_angle = get_angle(src, target)
 		if(new_angle > old_angle + 30 || new_angle < old_angle - 30)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
 		set_angle(new_angle)
