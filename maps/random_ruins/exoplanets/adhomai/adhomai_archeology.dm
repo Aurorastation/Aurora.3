@@ -35,7 +35,7 @@
 	spawnpoints = list("adhomai_archeology")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/adhomai_archeology
+	outfit = /datum/outfit/admin/adhomai_archeology
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -45,7 +45,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/adhomai_archeology
+/datum/outfit/admin/adhomai_archeology
 	name = "Adhomian Archeologist"
 
 	uniform = /obj/item/clothing/under/tajaran/archeologist

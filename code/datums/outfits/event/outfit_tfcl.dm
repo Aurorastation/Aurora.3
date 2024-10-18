@@ -1,4 +1,4 @@
-/obj/outfit/admin/tcfl
+/datum/outfit/admin/tcfl
 	name = "TCFL Legate"
 
 	uniform = /obj/item/clothing/under/legion/legate
@@ -27,5 +27,5 @@
 	id_iff = IFF_TCFL
 	var/id_access = "NanoTrasen Representative"
 
-/obj/outfit/admin/tcfl/get_id_access()
+/datum/outfit/admin/tcfl/get_id_access()
 	return get_all_accesses() | get_centcom_access(id_access)

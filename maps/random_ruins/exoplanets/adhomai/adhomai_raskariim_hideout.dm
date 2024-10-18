@@ -43,7 +43,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /obj/outfit/admin/raskariim_hideout
+	outfit = /datum/outfit/admin/raskariim_hideout
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -53,7 +53,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/raskariim_hideout
+/datum/outfit/admin/raskariim_hideout
 	name = "Raskariim"
 
 	uniform = list(

@@ -10,7 +10,7 @@
 	spawnpoints = list("tcfl_peacekeeper")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/tcfl_peacekeeper
+	outfit = /datum/outfit/admin/tcfl_peacekeeper
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/tcfl_peacekeeper
+/datum/outfit/admin/tcfl_peacekeeper
 	name = "TCFL Peacekeeper"
 
 	head = /obj/item/clothing/head/beret/legion/field
@@ -42,7 +42,7 @@
 		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/jackboots/toeless
 	)
 
-/obj/outfit/admin/tcfl_peacekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/tcfl_peacekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -58,7 +58,7 @@
 		if(istype(tag))
 			tag.modify_tag_data()
 
-/obj/outfit/admin/tcfl_peacekeeper/get_id_access()
+/datum/outfit/admin/tcfl_peacekeeper/get_id_access()
 	return list(ACCESS_TCAF_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/tcfl_peacekeeper/prefect
@@ -70,13 +70,13 @@
 	spawnpoints = list("tcfl_peacekeeper_prefect")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/tcfl_peacekeeper/prefect
+	outfit = /datum/outfit/admin/tcfl_peacekeeper/prefect
 
 	assigned_role = "TCFL Peacekeeper Prefect"
 	special_role = "TCFL Peacekeeper Prefect"
 
 
-/obj/outfit/admin/tcfl_peacekeeper/prefect
+/datum/outfit/admin/tcfl_peacekeeper/prefect
 	name = "TCFL Peacekeeper Prefect"
 	accessory = /obj/item/clothing/accessory/legion
 
@@ -89,13 +89,13 @@
 
 	max_count = 1
 
-	outfit = /obj/outfit/admin/tcfl_peacekeeper/pilot
+	outfit = /datum/outfit/admin/tcfl_peacekeeper/pilot
 
 	assigned_role = "TCFL Peacekeeper Pilot"
 	special_role = "TCFL Peacekeeper Pilot"
 
 
-/obj/outfit/admin/tcfl_peacekeeper/pilot
+/datum/outfit/admin/tcfl_peacekeeper/pilot
 	name = "TCFL Peacekeeper Pilot"
 
 	uniform = /obj/item/clothing/under/legion/pilot

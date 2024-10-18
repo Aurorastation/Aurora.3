@@ -35,7 +35,7 @@
 	spawnpoints = list("adhomai_bar_innkeeper")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/adhomai_bar_innkeeper
+	outfit = /datum/outfit/admin/adhomai_bar_innkeeper
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -45,7 +45,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/adhomai_bar_innkeeper
+/datum/outfit/admin/adhomai_bar_innkeeper
 	name = "Adhomian Innkeeper"
 
 	uniform = /obj/item/clothing/under/sl_suit
@@ -69,7 +69,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /obj/outfit/admin/adhomai_bar_server
+	outfit = /datum/outfit/admin/adhomai_bar_server
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -79,7 +79,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/adhomai_bar_server
+/datum/outfit/admin/adhomai_bar_server
 	name = "Adhomian Inn Staff"
 
 	uniform = /obj/item/clothing/under/sl_suit
@@ -101,7 +101,7 @@
 	spawnpoints = list("adhomai_bar_patron")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/adhomai_bar_patron
+	outfit = /datum/outfit/admin/adhomai_bar_patron
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -111,7 +111,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/adhomai_bar_patron
+/datum/outfit/admin/adhomai_bar_patron
 	name = "Adhomian Patron"
 
 	uniform = list(

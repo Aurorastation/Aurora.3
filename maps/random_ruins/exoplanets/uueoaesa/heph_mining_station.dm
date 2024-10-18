@@ -68,7 +68,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_heph_miner
+	outfit = /datum/outfit/admin/moghes_heph_miner
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -80,5 +80,5 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
-	outfit = /obj/outfit/admin/moghes_heph_miner/klax
+	outfit = /datum/outfit/admin/moghes_heph_miner/klax
 	uses_species_whitelist = TRUE

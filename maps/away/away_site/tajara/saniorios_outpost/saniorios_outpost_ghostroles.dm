@@ -10,7 +10,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/saniorios_outpost_crew
+	outfit = /datum/outfit/admin/saniorios_outpost_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	respawn_flag = null
 
-/obj/outfit/admin/saniorios_outpost_crew
+/datum/outfit/admin/saniorios_outpost_crew
 	name = "Sani'Orios Asteroid Outpost Crewmember"
 
 	id = /obj/item/card/id
@@ -33,5 +33,5 @@
 
 	r_pocket = /obj/item/storage/wallet/random
 
-/obj/outfit/admin/saniorios_outpost_crew/get_id_access()
+/datum/outfit/admin/saniorios_outpost_crew/get_id_access()
 	return list(ACCESS_DPRA, ACCESS_EXTERNAL_AIRLOCKS)

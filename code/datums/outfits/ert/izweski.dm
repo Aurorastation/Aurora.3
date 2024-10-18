@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/izweski
+/datum/outfit/admin/ert/izweski
 	name = "Izweski Navy Crewman"
 	uniform = /obj/item/clothing/under/unathi/izweski
 	head = /obj/item/clothing/head/helmet/space/void/hegemony
@@ -21,15 +21,15 @@
 	)
 	id = /obj/item/card/id
 
-/obj/outfit/admin/ert/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-/obj/outfit/admin/ert/izweski/get_id_access()
+/datum/outfit/admin/ert/izweski/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/izweski/medic
+/datum/outfit/admin/ert/izweski/medic
 	name = "Izweski Navy Medic"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/hegemony
@@ -54,7 +54,7 @@
 	gloves = /obj/item/clothing/gloves/latex/nitrile/unathi
 	r_pocket = /obj/item/melee/energy/sword/hegemony
 
-/obj/outfit/admin/ert/izweski/klax
+/datum/outfit/admin/ert/izweski/klax
 	name = "Izweski Navy K'lax"
 	uniform = /obj/item/clothing/under/vaurca
 	head = /obj/item/clothing/head/helmet/unathi/klax
@@ -73,7 +73,7 @@
 		/obj/item/ammo_casing/slugger = 5
 	)
 
-/obj/outfit/admin/ert/izweski/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/ert/izweski/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -84,7 +84,7 @@
 
 	H.update_body()
 
-/obj/outfit/admin/ert/izweski/leader
+/datum/outfit/admin/ert/izweski/leader
 	name = "Izweski Navy Squad Leader"
 	uniform = /obj/item/clothing/under/unathi/izweski/officer
 	l_hand = /obj/item/melee/hammer/powered/hegemony
@@ -102,4 +102,4 @@
 		/obj/item/handcuffs/ziptie = 2
 	)
 
-/obj/outfit/admin/ert/izweski/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/izweski/leader/post_equip(mob/living/carbon/human/H, visualsOnly)

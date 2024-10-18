@@ -35,7 +35,7 @@
 	spawnpoints = list("moghes_gawgaryn_biker")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_gawgaryn
+	outfit = /datum/outfit/admin/moghes_gawgaryn
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -57,7 +57,7 @@
 	spawnpoints = list("moghes_gawgaryn_biker_boss")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_gawgaryn/leader
+	outfit = /datum/outfit/admin/moghes_gawgaryn/leader
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -66,7 +66,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/moghes_gawgaryn
+/datum/outfit/admin/moghes_gawgaryn
 	name = "Gawgaryn Raider"
 
 	uniform = /obj/item/clothing/under/unathi
@@ -79,7 +79,7 @@
 	id = null
 	l_ear = null
 
-/obj/outfit/admin/moghes_gawgaryn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_gawgaryn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)
@@ -87,7 +87,7 @@
 	if(H.wear_suit)
 		H.wear_suit.color = pick("#42330f", "#DBC684")
 
-/obj/outfit/admin/moghes_gawgaryn/leader
+/datum/outfit/admin/moghes_gawgaryn/leader
 	name = "Gawgaryn Raid Leader"
 
 	uniform = /obj/item/clothing/under/unathi/zazali
@@ -99,7 +99,7 @@
 	suit_accessory = /obj/item/clothing/accessory/poncho
 	belt = /obj/item/material/knife/tacknife
 
-/obj/outfit/admin/moghes_gawgaryn/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_gawgaryn/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)
