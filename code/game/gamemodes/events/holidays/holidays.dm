@@ -123,7 +123,9 @@ var/global/Holiday = null
 				if(9)							Holiday = "K'lax Technology Day"
 				if(16)							Holiday = "Galatean Federation Day"
 				if(27)							Holiday = "New Kingdom of Adhomai Day of Rightful Restoration"
-				if(31)							Holiday = "Halloween"
+				if(31)
+					Holiday = "Halloween"
+					if(YY == 24)  				Holiday = "Halloween and the day of Shi-rra Arr’Kahata"
 
 		if(11)	//Nov
 			switch(DD)
