@@ -432,8 +432,10 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon")
 			return
 
-		var/new_organ = input("Please choose an organ to add.","Organ",null) as null|anything in typesof(/obj/item/organ)-/obj/item/organ
-		if(!new_organ) return
+		var/new_organ = tgui_input_list(usr, "Please choose an organ to add.", "Add Organ", (subtypesof(/obj/item/organ)))
+		if(!new_organ)
+			to_chat(usr, "No organs to add selected, aborting.")
+			return
 
 		if(!M)
 			to_chat(usr, "Mob doesn't exist anymore")
@@ -454,7 +456,11 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon")
 			return
 
-		var/obj/item/organ/rem_organ = input("Please choose an organ to remove.","Organ",null) as null|anything in M.internal_organs
+		var/obj/item/organ/rem_organ = tgui_input_list(usr, "Please choose an organ to remove.", "Remove Organ", M.internal_organs)
+
+		if(!istype(rem_organ))
+			to_chat(usr, "No organs to remove selected, aborting.")
+			return
 
 		if(!M)
 			to_chat(usr, "Mob doesn't exist anymore")
