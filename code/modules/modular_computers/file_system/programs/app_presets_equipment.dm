@@ -45,10 +45,7 @@
 
 /datum/modular_computer_app_presets/command/account/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/newsbrowser,
-						/datum/computer_file/program/manifest,
-						/datum/computer_file/program/civilian/cargoorder,
-						/datum/computer_file/program/civilian/cargocontrol,
+	program_list += list(/datum/computer_file/program/civilian/cargocontrol,
 						/datum/computer_file/program/account_db
 						)
 
@@ -58,9 +55,12 @@
 	description = "Contains all the programs you would need to become a god-tier accountant."
 	available = FALSE
 
-/datum/modular_computer_app_presets/command/account/centcomm/return_install_programs(obj/item/modular_computer/comp)
+/datum/modular_computer_app_presets/command/account/centcomm/New()
 	. = ..()
-	. += new /datum/computer_file/program/account_db(comp, TRUE)
+
+	//Remove the default accounting program and add the centcomm version
+	program_list -= /datum/computer_file/program/account_db
+	program_list += /datum/computer_file/program/account_db/centcomm
 
 /datum/modular_computer_app_presets/trashcompactor
 	name = "trashcompactor"
