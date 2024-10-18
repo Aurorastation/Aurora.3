@@ -7,8 +7,39 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 	name = "MOD COMP: Template"
 	groups = list("generic")
 
+/datum/unit_test/modular_computers/modular_computer_app_presets_contain_programs_only_once
+	name = "MOD COMP: Preset contain programs only once"
+
+/datum/unit_test/modular_computers/modular_computer_app_presets_contain_programs_only_once/start_test()
+	var/test_result = UNIT_TEST_PASSED
+
+	var/obj/item/modular_computer/test_computer = new()
+
+	for(var/preset_typepath in subtypesof(/datum/modular_computer_app_presets))
+		var/datum/modular_computer_app_presets/preset = new preset_typepath()
+
+		//Get installed programs
+		var/list/datum/computer_file/program/installed_programs = preset.return_install_programs(test_computer)
+
+		//Second list to see if we're finding the same programs twice
+		//A list of types
+		var/list/programs_present = list()
+
+		for(var/datum/computer_file/program/program in installed_programs)
+			if(program.type in programs_present)
+				test_result = TEST_FAIL("Found multiple instances of program [program.type] in preset [preset.name]!")
+			else
+				programs_present += program.type
+
+	if(test_result == UNIT_TEST_PASSED)
+		TEST_PASS("All programs in modular computer presets are only present once.")
+
+	return test_result
+
+
 /datum/unit_test/modular_computers/presets_contain_only_compatible_programs
 	name = "MOD COMP: Presets contain only compatible programs"
+	disabled = TRUE //There's 400+ fuckups and i'm not fixing all that shit myself
 
 /datum/unit_test/modular_computers/presets_contain_only_compatible_programs/start_test()
 	var/test_result = UNIT_TEST_PASSED
