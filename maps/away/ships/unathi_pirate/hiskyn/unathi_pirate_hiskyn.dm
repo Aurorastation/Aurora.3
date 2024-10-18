@@ -30,7 +30,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	designer = "Zhurong Naval Arsenal, Empire of Dominia"
+	designer = "Imperial Engineering & Shipbuilding Conglomerate"
 	volume = "65 meters length, 25 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Dual wingtip-mounted heavy ballistic, starboard obscured flight craft bay"
@@ -94,12 +94,16 @@
 	name = "Hiskyn Revanchist Shuttle"
 	class = "ICV"
 	designation = "Stalker"
-	desc = "A heavily modified Yupmi-class transport shuttle, a common cargo transport in the Dominian Imperial Fleet."
+	desc = "A heavily modified Yupmi-class utility shuttle, utilised to transport He-3 tanks to and from their associated freighter."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#9c0101")
 	shuttle = "Hiskyn Revanchist Shuttle"
-	sizeclass = "Yupmi-class shuttle"
+	designer = "Imperial Engineering & Shipbuilding Conglomerate"
+	sizeclass = "Yupmi-class utility shuttle"
+	shiptype = "Salvage & Construction Utility"
+	volume = "11 meters length, 8 meters beam/width, 4 meters vertical height"
+	weapons = "Port-mounted extruding low-caliber rotary ballistic armament"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
