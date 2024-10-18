@@ -44,6 +44,12 @@ var/list/stickersheet_stickers_ = typesof(/obj/item/sticker)
 		/obj/item/sticker/generic/googly_eye = 12
 	)
 
+/obj/item/storage/stickersheet/domadice
+	name = "domadice sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/domadice = 12
+	)
+
 /obj/item/storage/stickersheet/generic
 	name = "generic sticker sheet"
 	starts_with = list(

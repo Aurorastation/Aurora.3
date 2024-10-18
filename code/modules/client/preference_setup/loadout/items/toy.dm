@@ -132,6 +132,7 @@
 	var/list/stickersheet = list()
 	stickersheet["Generic sticker sheet"] = /obj/item/storage/stickersheet/generic
 	stickersheet["Religious sticker sheet"] = /obj/item/storage/stickersheet/religion
+	stickersheet["Domadice sticker sheet"] = /obj/item/storage/stickersheet/domadice
 	stickersheet["Republic of Biesel sticker sheet"] = /obj/item/storage/stickersheet/biesel
 	stickersheet["Republic of Elyra sticker sheet"] = /obj/item/storage/stickersheet/elyra
 	stickersheet["Solarian Alliance sticker sheet"] = /obj/item/storage/stickersheet/sol
