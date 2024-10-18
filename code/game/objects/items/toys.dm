@@ -1376,7 +1376,8 @@
 	activate(user)
 
 /obj/item/toy/desk/AltClick(mob/user)
-	activate(user)
+	if(!use_check_and_message(user))
+		activate(user)
 
 /obj/item/toy/desk/proc/activate(mob/user)
 	on = !on
