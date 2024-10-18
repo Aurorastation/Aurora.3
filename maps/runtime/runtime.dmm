@@ -1703,10 +1703,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"ib" = (
-/obj/item/material/knife/butterfly/switchblade/pocket_knife,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "ie" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
@@ -2524,10 +2520,6 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"wm" = (
-/obj/item/material/knife/butterfly/switchblade/pocket_knife/blue,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "wI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2623,10 +2615,6 @@
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
-"yI" = (
-/obj/item/material/knife/butterfly/switchblade/pocket_knife/red,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "yY" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -8803,7 +8791,7 @@ bZ
 br
 br
 cy
-ib
+bB
 bB
 cO
 cV
@@ -9060,7 +9048,7 @@ ca
 cl
 cr
 cz
-wm
+bB
 bB
 cO
 tl
@@ -9317,7 +9305,7 @@ cb
 wk
 bs
 cA
-yI
+bB
 bB
 cO
 cV

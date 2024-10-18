@@ -38,3 +38,18 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/armaments)
 	name = "mechanical trap"
 	path = /obj/item/trap
 	hack_only = TRUE
+
+/singleton/autolathe_recipe/armaments/pocketgreen
+	name = "pocket knife, green"
+	path = /obj/item/material/knife/butterfly/switchblade/pocket_knife
+	hack_only = TRUE
+
+/singleton/autolathe_recipe/armaments/pocketblue
+	name = "pocket knife, blue"
+	path = /obj/item/material/knife/butterfly/switchblade/pocket_knife/blue
+	hack_only = TRUE
+
+/singleton/autolathe_recipe/armaments/pocketred
+	name = "pocket knife, red"
+	path = /obj/item/material/knife/butterfly/switchblade/pocket_knife/red
+	hack_only = TRUE

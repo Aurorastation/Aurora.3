@@ -189,14 +189,17 @@
 
 /obj/item/material/knife/butterfly/switchblade/pocket_knife
 	name = "pocket knife"
-	desc = "A traditional pocket knife, perfect for opening letter, cutting up boxes, whittling wood, or anything else. The handle comes in 24 different colors."
+	desc = "A traditional pocket knife, perfect for opening letters, cutting up boxes, whittling wood, or anything else. The handle comes in 24 different colors, or one of hundreds \
+	of novelty, licensed, or commemorative designs."
 	desc_extended = "The H30V4 pocket knife, produced by Hephaestus Industries, is credited as the single most produced pocket knife in human history. \
-	With a tanto style blade, high quality steel, and a surprisingly sturdy textured plastic handle, its a true every person tool. Titanius Aeson himself \
-	carries one, with a customized handle, on his person. He's even frequently seen using it both on and off camera. Critics of the knife are quick to point\
-	out that the plastic used is prone to becoming brittle after about 10 years. However, fans of the blade point to its easy disassembly and readily\
-	available replacement handles as providing an easy way to simply replace the worn out piece yourself."
+	With a tanto style blade, high quality steel, and a surprisingly sturdy textured plastic handle, its a true every person tool. The pocket knife is often \
+	given as a gift to Hephaestus employees who have been with the company for 5 years, or who have invested into the company. Titanius Aeson himself often \
+	flaunts his own pocket knife when emphasizing the benefits of employment or thanking long-time Hephaestus employees. The plastic handle is known to become quite \
+	brittle after several years of use, however easy disassembly and replacement parts available on Hephaestus' webstore (and a large third party aftermarket of dubious legality) \
+	means worn out components can be readily replaced"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "pocketgreen"
+	applies_material_colour = FALSE
 
 /obj/item/material/knife/butterfly/switchblade/pocket_knife/blue
 	icon_state = "pocketblue"
