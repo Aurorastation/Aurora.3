@@ -100,6 +100,30 @@
 		return
 	update_clothing_icon()
 
+// Greatcoats
+
+/obj/item/clothing/suit/storage/toggle/greatcoat
+	name = "black greatcoat"
+	desc = "A black greatcoat. It looks warmer, if a bit heavier, than most other clothing."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/greatcoat.dmi'
+	icon_state = "greatcoat"
+	item_state = "greatcoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+	siemens_coefficient = 0.8
+	protects_against_weather = TRUE
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown
+	name = "brown greatcoat"
+	desc = "A brown greatcoat. It looks warmer, if a bit heavier, than most other clothing."
+	icon_state = "greatcoat_bwn"
+	item_state = "greatcoat_bwn"
+
 // Corporate Jackets
 
 /obj/item/clothing/suit/storage/toggle/corp

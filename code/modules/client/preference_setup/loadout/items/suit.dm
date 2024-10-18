@@ -230,6 +230,19 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(trenches)
 
+/datum/gear/suit/greatcoats
+	display_name = "greatcoat selection"
+	description = "A selection of greatcoats."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/greatcoats/New()
+	..()
+	var/list/greatcoat = list()
+	greatcoat["greatcoat, black"] = /obj/item/clothing/suit/storage/toggle/greatcoat
+	greatcoat["greatcoat, brown"] = /obj/item/clothing/suit/storage/toggle/greatcoat/brown
+	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
