@@ -132,7 +132,6 @@
 	var/list/stickersheet = list()
 	stickersheet["Generic sticker sheet"] = /obj/item/storage/stickersheet/generic
 	stickersheet["Religious sticker sheet"] = /obj/item/storage/stickersheet/religion
-	stickersheet["Domadice sticker sheet"] = /obj/item/storage/stickersheet/domadice
 	stickersheet["Republic of Biesel sticker sheet"] = /obj/item/storage/stickersheet/biesel
 	stickersheet["Republic of Elyra sticker sheet"] = /obj/item/storage/stickersheet/elyra
 	stickersheet["Solarian Alliance sticker sheet"] = /obj/item/storage/stickersheet/sol
@@ -144,3 +143,32 @@
 	stickersheet["Uueoa-Esa sticker sheet"] = /obj/item/storage/stickersheet/hegemony
 	stickersheet["Anti-Establishment sticker sheet"] = /obj/item/storage/stickersheet/resistance
 	gear_tweaks += new /datum/gear_tweak/path(stickersheet)
+
+/datum/gear/toy/stickersheet_custom
+	display_name = "sticker sheet (custom)"
+	description = "A sticker sheet that can hold a variety of stickers."
+	cost = 1
+	path = /obj/item/storage/stickersheet
+
+/datum/gear/toy/stickersheet_custom/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers())
+
+/// Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
+/datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
+	if(metadata.len != valid_contents.len)
+		return
+	for(var/i = 1 to valid_contents.len)
+		var/path
+		var/list/contents = valid_contents[i]
+		if(metadata[i] == "Random")
+			path = pick(contents)
+			path = contents[path]
+		else if(metadata[i] == "None")
+			continue
+		else
+			path = 	contents[metadata[i]]
+		if(path) // repeat 3 times for each item
+			new path(sheet)
+			new path(sheet)
+			new path(sheet)

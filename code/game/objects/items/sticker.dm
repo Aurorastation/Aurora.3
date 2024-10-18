@@ -352,7 +352,7 @@
 	icon_state = "scarabpole"
 
 /obj/item/sticker/flagpole/coalition/xanu
-	name = "all xanu repiblic flag sticker"
+	name = "all xanu republic flag sticker"
 	desc = "The flag of the All Xanu-Republic on a flagpole."
 	icon_state = "xanupole"
 
