@@ -126,4 +126,5 @@
 /area/turbolift/golden_deep/gd_lift
 	name = "Golden Deep Lift"
 	station_area = FALSE
+	area_flags = AREA_FLAG_RAD_SHIELDED
 

@@ -86,7 +86,7 @@
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/handcuffs,
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "aB" = (
 /obj/structure/ship_weapon_dummy/barrel,
@@ -158,15 +158,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/lounge)
 "ba" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_3";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
@@ -199,15 +196,11 @@
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/lounge)
 "bi" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_5";
-	name = "Storage Compartment Access";
-	pixel_x = -23;
-	req_one_access = list(229, 217)
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "bk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -240,9 +233,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "by" = (
@@ -251,6 +241,9 @@
 	frame_color = "#6d6133";
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/private_lounge)
@@ -261,15 +254,13 @@
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "bC" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/machinery/light{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "bE" = (
 /obj/machinery/door/airlock/glass_command{
@@ -571,7 +562,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/aft_hallway)
 "cN" = (
-/obj/structure/table/stone/marble,
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 3;
 	pixel_x = 34
@@ -580,6 +570,7 @@
 	pixel_y = -8;
 	pixel_x = 34
 	},
+/obj/structure/table/fancy/black,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "cQ" = (
@@ -626,24 +617,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "cY" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "db" = (
 /obj/structure/table/stone/marble,
@@ -842,8 +818,10 @@
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/aft_hallway)
 "ef" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "ej" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -886,10 +864,15 @@
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/starboardprop)
 "en" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "ep" = (
@@ -979,6 +962,10 @@
 	frame_color = "#6d6133";
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/lounge)
@@ -1102,15 +1089,16 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/port_dock)
 "fo" = (
-/obj/machinery/light/small,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_5";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "fp" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -1233,13 +1221,11 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/accounting)
 "fO" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/alarm/south{
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "fP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1286,9 +1272,6 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/machinery/atm{
-	pixel_y = -5
-	},
 /obj/machinery/cell_charger{
 	pixel_y = 1
 	},
@@ -1296,6 +1279,7 @@
 	pixel_y = 8;
 	pixel_x = 1
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "gr" = (
@@ -1382,18 +1366,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "gO" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 26;
-	pixel_x = 5
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_3";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/airlock_sensor{
-	pixel_y = 27;
-	pixel_x = -7
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "gR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -1404,17 +1388,17 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "gV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_4";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "gW" = (
@@ -1497,8 +1481,8 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -1511,6 +1495,7 @@
 	pixel_y = 14;
 	pixel_x = 1
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "hi" = (
@@ -1540,9 +1525,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/light/small/floor,
 /turf/simulated/floor/lino/diamond,
 /area/shuttle/golden_deep/cockpit)
+"ho" = (
+/obj/effect/floor_decal/corner/dark_green/full,
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/hoplan)
 "hr" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -1769,11 +1757,32 @@
 /area/golden_deep/merchant)
 "iB" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+	dir = 5
 	},
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 26;
+	name = "Internal Blast Door";
+	id = "gd_driver_in";
+	pixel_x = -5;
+	req_one_access = list(229, 217)
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_x = 8;
+	name = "External Blast Door";
+	id = "gd_driver_out";
+	pixel_y = 26;
+	req_one_access = list(229, 217)
+	},
+/obj/machinery/button/mass_driver{
+	pixel_y = 35;
+	pixel_x = 7;
+	id = "gd_driver";
+	_wifi_id = "gd_driver"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -1789,6 +1798,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
+"iL" = (
+/obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/golden_deep,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "iN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1897,9 +1912,6 @@
 /area/golden_deep/starboardprop)
 "js" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "jw" = (
@@ -1939,17 +1951,26 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "jB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
+"jD" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "jG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1979,7 +2000,14 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light/small,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/machinery/atm{
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "jO" = (
@@ -2004,6 +2032,18 @@
 /obj/effect/map_effect/marker/airlock/golden_deep/fore_port,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
+"jP" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	name = "Window Blast Doors";
+	id = "gd_windows";
+	dir = 1;
+	pixel_x = -6;
+	pixel_y = 7;
+	req_one_access = list(229, 217)
+	},
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/bridge)
 "jQ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/ammo)
@@ -2033,7 +2073,7 @@
 /obj/machinery/door/blast/regular{
 	id = "gd_armory"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "kb" = (
 /obj/machinery/light/small{
@@ -2178,6 +2218,10 @@
 	spawn_grille = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/blast/regular{
+	id = "gd_atmos";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/atmos)
 "kE" = (
@@ -2283,10 +2327,24 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "lk" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/lino/diamond,
-/area/golden_deep/port_dock)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
 "ll" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -2316,6 +2374,7 @@
 	pixel_x = 28
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/window/southright,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/central_hallway)
 "lu" = (
@@ -2355,6 +2414,25 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/golden_deep/guest)
+"ly" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/mass_driver{
+	dir = 1;
+	id = "gd_driver";
+	_wifi_id = "gd_driver"
+	},
+/obj/machinery/door/window/southleft{
+	name = "Mass Driver Exterior Windoor";
+	dir = 1
+	},
+/obj/machinery/door/window/southleft{
+	name = "Mass Driver Interior Windoor"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "lB" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2423,31 +2501,31 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
-/obj/machinery/access_button{
-	pixel_x = 29;
-	pixel_y = 6;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = 24;
+	dir = 8;
+	frequency = 1380
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/shuttle/golden_deep/passenger)
 "lY" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/space)
 "mg" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	pixel_x = 12
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "mh" = (
 /obj/machinery/door/airlock/external{
@@ -2487,6 +2565,12 @@
 "mr" = (
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/lounge)
+"mz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/golden_deep/passenger)
 "mA" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/lounge)
@@ -2556,9 +2640,8 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "mR" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
+/obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "mS" = (
@@ -2776,6 +2859,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
 "nV" = (
+/obj/structure/coatrack{
+	pixel_y = 21;
+	pixel_x = -4
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "nY" = (
@@ -2831,9 +2918,8 @@
 	dir = 5
 	},
 /obj/machinery/access_button{
-	pixel_x = -26;
-	pixel_y = -28;
-	dir = 4
+	pixel_x = -30;
+	pixel_y = -5
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/golden_deep/dock1,
@@ -2890,14 +2976,20 @@
 /turf/simulated/floor/wood/yew,
 /area/golden_deep/guest)
 "oC" = (
-/obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 5
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/engineering)
+/obj/machinery/light/small/floor,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_bar";
+	name = "Desk Shutters";
+	req_one_access = list(229, 217);
+	pixel_x = 23;
+	pixel_y = -22
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "oM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -2997,7 +3089,10 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(229, 217)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "pi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3036,14 +3131,16 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
 "pm" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux,
+/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
+"pq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
-/area/golden_deep/warehouse)
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/shuttle/golden_deep/passenger)
 "ps" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -3083,10 +3180,10 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "pz" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/vehicle/train/cargo/trolley,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/lino/diamond,
+/area/golden_deep/port_dock)
 "pA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -3127,7 +3224,8 @@
 /area/golden_deep/aft_hallway)
 "pK" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate"
+	name = "secure crate";
+	req_access = list(217)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/button/remote/airlock{
@@ -3153,11 +3251,11 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/portprop)
 "pR" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "pS" = (
 /obj/machinery/power/apc/west{
@@ -3183,8 +3281,13 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(229, 217)
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -3220,13 +3323,18 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "qd" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_6";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "qe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3288,6 +3396,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 5
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
@@ -3393,15 +3505,11 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "qU" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
+/obj/item/modular_computer/console/preset/merchant/golden_deep{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "qV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3487,6 +3595,9 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboard_dock)
 "rQ" = (
@@ -3536,15 +3647,16 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "sf" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_6";
-	name = "Storage Compartment Access";
-	pixel_x = -23;
-	req_one_access = list(229, 217)
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "sg" = (
 /obj/machinery/photocopier,
@@ -3603,11 +3715,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "sx" = (
@@ -3617,9 +3726,6 @@
 "sy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
-	},
-/obj/structure/bed/stool/bar/padded/red{
-	dir = 8
 	},
 /obj/machinery/light/small/floor,
 /turf/simulated/floor/wood,
@@ -3653,8 +3759,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+/obj/machinery/alarm/west{
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -3701,10 +3807,8 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/structure/sign/poster{
-	icon_state = "bsposter65";
-	poster_type = "/datum/poster/bay_65";
-	pixel_y = -32
+/obj/machinery/atm{
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -3856,24 +3960,23 @@
 /area/golden_deep/lounge)
 "tx" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
+	dir = 10
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_y = 5
+	},
+/obj/item/pen{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "tz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/starboard_dock)
 "tA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3945,20 +4048,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "tR" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = 7;
-	pixel_y = -27;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/maintenance{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "tT" = (
@@ -3971,19 +4069,15 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "tV" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 24;
-	dir = 8;
-	frequency = 1380
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep/passenger)
 "tX" = (
@@ -4007,22 +4101,14 @@
 	name = "Warehouse"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/area/golden_deep/owned_lounge)
 "uf" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -24;
-	dir = 4
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep/passenger)
 "ug" = (
@@ -4175,9 +4261,13 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/cargo)
 "uN" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "uS" = (
 /obj/machinery/light/small{
@@ -4186,6 +4276,25 @@
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/accounting)
+"uX" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/closet/crate/drop,
+/obj/item/tent,
+/obj/item/tent,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
 "uZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -4251,10 +4360,6 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
 /turf/simulated/floor/wood,
 /area/golden_deep/accounting)
 "vn" = (
@@ -4266,9 +4371,9 @@
 	pixel_x = -6;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "vo" = (
@@ -4321,6 +4426,9 @@
 	frame_color = "#6d6133";
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
@@ -4647,10 +4755,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "xJ" = (
+/obj/machinery/smartfridge/drinks{
+	opacity = 1
+	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/lino,
 /area/golden_deep/lounge)
 "xP" = (
@@ -4664,8 +4774,17 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
 "xV" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/vehicle/train/cargo/engine,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_1";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "xW" = (
@@ -4677,15 +4796,6 @@
 "xX" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/portmaints)
-"xY" = (
-/obj/machinery/alarm/north{
-	req_one_access = list(229, 217)
-	},
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/golden_deep/starboard_dock)
 "xZ" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -4793,10 +4903,15 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "yB" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/owned_lounge)
 "yC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4830,23 +4945,18 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/merchant)
 "yH" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_1";
-	name = "Storage Compartment Access";
-	pixel_x = -23;
-	req_one_access = list(229, 217)
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/merchant_pad,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "yK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4906,14 +5016,23 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "yT" = (
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/shuttle/golden_deep/passenger)
 "yX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5009,6 +5128,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/eva)
+"zv" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/door/blast/shutters{
+	id = "gd_bar"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/lounge)
 "zw" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -5028,6 +5154,19 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/cargo)
+"zC" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/aft_hallway)
 "zD" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -5086,17 +5225,17 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
-	door_color = "#8c792e";
-	dir = 4;
-	name = "Cockpit";
-	req_one_access = list(229, 217)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Cockpit";
+	door_color = "#8c792e";
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/passenger)
@@ -5110,11 +5249,15 @@
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/accounting)
 "Af" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_4";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -5160,7 +5303,7 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Am" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -5298,7 +5441,7 @@
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
 	pixel_x = 6;
-	pixel_y = 15
+	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
@@ -5322,18 +5465,16 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
 "Be" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Bg" = (
 /obj/structure/cable{
@@ -5373,18 +5514,24 @@
 /obj/machinery/atm{
 	pixel_y = -3
 	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/accounting)
 "Bo" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_2";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Bp" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5572,9 +5719,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "BW" = (
@@ -5631,17 +5775,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/custodial)
 "Cs" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
 /obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
-/obj/machinery/power/apc/east{
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
-/obj/machinery/light/small/floor,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Cw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5794,10 +5937,19 @@
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "Da" = (
-/obj/structure/table/rack,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_2";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/starboard_dock)
+/area/golden_deep/warehouse)
 "Dc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -5821,6 +5973,15 @@
 "Dg" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/cockpit)
+"Dh" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "Dk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -5875,18 +6036,9 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/merchant)
 "DH" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = -7;
-	pixel_y = -27;
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "DM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5950,7 +6102,8 @@
 /area/golden_deep/aft_hallway)
 "Ea" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate"
+	name = "secure crate";
+	req_access = list(217)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light/small{
@@ -5967,6 +6120,10 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge)
 "Eh" = (
@@ -5980,6 +6137,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/item/pipe_meter,
+/obj/machinery/button/remote/blast_door{
+	name = "Atmospherics Blast Door";
+	id = "gd_atmos";
+	dir = 8;
+	pixel_x = -22;
+	req_one_access = list(229, 217)
+	},
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "Ek" = (
@@ -6019,19 +6183,17 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portmaints)
 "Er" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 9
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -6097,9 +6259,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -6110,7 +6269,9 @@
 	req_one_access = list(229, 217);
 	pixel_y = 33
 	},
-/obj/machinery/light/small/floor,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
 /turf/simulated/floor/lino/diamond,
 /area/shuttle/golden_deep/cockpit)
 "EK" = (
@@ -6151,9 +6312,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/engineering)
 "EO" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -6398,7 +6556,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "FQ" = (
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "FW" = (
 /obj/machinery/door/airlock/external{
@@ -6411,9 +6569,9 @@
 	pixel_x = 32;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "FX" = (
@@ -6422,6 +6580,10 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "Ga" = (
@@ -6448,13 +6610,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/golden_deep/workshop)
 "Gh" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Gn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6712,7 +6875,10 @@
 	pixel_y = -8;
 	pixel_x = 34
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Hu" = (
 /obj/machinery/hologram/holopad,
@@ -6862,15 +7028,15 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
 "HX" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_4";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "HY" = (
 /obj/machinery/light/small/floor,
@@ -6901,15 +7067,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/computer/shuttle_control/multi/lift/gd{
 	pixel_y = 9
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Ik" = (
@@ -6981,6 +7145,13 @@
 /obj/effect/map_effect/marker/airlock/docking/golden_deep/dock1,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
+"Ix" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "Iz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7028,16 +7199,25 @@
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/lounge)
 "IR" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	id = "gd_6";
-	name = "Storage Compartment Access";
+	id = "gd_bar";
+	name = "Desk Shutters";
+	req_one_access = list(229, 217);
 	pixel_x = 23;
-	req_one_access = list(229, 217)
+	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/carpet/red,
+/area/golden_deep/lounge)
 "IU" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -7061,6 +7241,9 @@
 	frame_color = "#6d6133";
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
@@ -7108,7 +7291,7 @@
 	req_one_access = list(229, 217);
 	req_access = null
 	},
-/obj/structure/table/stone/marble,
+/obj/structure/table/fancy/black,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Jk" = (
@@ -7120,12 +7303,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/port_dock)
 "Jl" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "Jo" = (
@@ -7233,7 +7413,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/cargo)
 "Kc" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Kd" = (
 /obj/structure/table/rack,
@@ -7312,27 +7495,30 @@
 /area/golden_deep/starboard_dock)
 "KC" = (
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_2";
+	dir = 4;
+	id = "gd_6";
 	name = "Storage Compartment Access";
-	pixel_x = -23;
+	pixel_x = 23;
 	req_one_access = list(229, 217)
 	},
-/obj/machinery/light/small{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "KD" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/multi_tile/glass{
-	door_color = "#8c792e";
-	req_one_access = list(229, 217);
-	name = "Warehouse & Shuttle"
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/area/shuttle/golden_deep/passenger)
 "KF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7364,11 +7550,11 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
 "KI" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/full{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
-/obj/machinery/alarm/north{
-	req_one_access = list(229, 217)
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -7395,6 +7581,12 @@
 "KO" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/starboardmaints)
+"KR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/portmaints)
 "KT" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -7431,13 +7623,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/golden_deep/gd_lift)
 "KZ" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "La" = (
 /obj/structure/table/wood,
@@ -7478,6 +7667,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
 "Lj" = (
@@ -7538,17 +7728,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/secure)
 "Ly" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Lz" = (
@@ -7653,12 +7837,24 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/bed/stool/chair/office/dark{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/lino/diamond,
 /area/shuttle/golden_deep/cockpit)
+"LT" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/bridge)
 "LU" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -7811,14 +8007,13 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portmaints)
 "MS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "MZ" = (
@@ -7845,21 +8040,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "Nd" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_5";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/access_button{
-	pixel_x = -7;
-	pixel_y = -27;
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Nh" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -7889,7 +8083,7 @@
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Ns" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8087,6 +8281,11 @@
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/poster{
+	icon_state = "bsposter65";
+	poster_type = "/datum/poster/bay_65";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "Od" = (
@@ -8193,7 +8392,7 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Ot" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
@@ -8201,6 +8400,9 @@
 	frame_color = "#6d6133";
 	spawn_firedoor = 1;
 	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
@@ -8304,14 +8506,16 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/central_hallway)
 "OO" = (
-/obj/structure/table/rack,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
-	dir = 1;
-	pixel_y = 5
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/atmos)
+/area/golden_deep/warehouse)
 "OR" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -8493,13 +8697,22 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "PJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
+"PN" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/accounting)
 "PV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -8691,15 +8904,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/ammo)
 "QD" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/vehicle/train/cargo/trolley,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/plating,
+/area/golden_deep/merchant)
 "QI" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -8713,18 +8922,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
 "QL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "gd_5";
+	name = "Storage Compartment Access";
+	pixel_x = 23;
+	req_one_access = list(229, 217)
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "QQ" = (
-/obj/machinery/smartfridge/drinks{
-	opacity = 1
-	},
+/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/lino,
 /area/golden_deep/lounge)
 "QW" = (
@@ -8775,14 +8987,6 @@
 "Re" = (
 /obj/machinery/door/window{
 	req_one_access = list(229, 217)
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_bar";
-	name = "Desk Shutters";
-	req_one_access = list(229, 217);
-	pixel_x = 23;
-	pixel_y = 5
 	},
 /obj/machinery/door/blast/shutters{
 	id = "gd_bar"
@@ -8847,7 +9051,7 @@
 /turf/template_noop,
 /area/space)
 "Rv" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/fancy/black,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Ry" = (
@@ -8925,10 +9129,21 @@
 /turf/simulated/floor/lino,
 /area/golden_deep/lounge)
 "RG" = (
-/obj/machinery/alarm/south{
-	req_one_access = list(229, 217)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "RH" = (
 /obj/structure/platform{
@@ -9032,6 +9247,9 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/accounting)
 "Sh" = (
@@ -9080,6 +9298,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
+"Sr" = (
+/obj/machinery/door/blast/regular{
+	id = "gd_driver_in";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "Su" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -9133,16 +9359,13 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "SM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "SP" = (
@@ -9194,25 +9417,23 @@
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/golden_deep/cargo)
 "SZ" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
+	dir = 1
 	},
-/turf/simulated/floor/wood,
-/area/golden_deep/bridge)
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "Ta" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -9253,7 +9474,7 @@
 	dir = 1;
 	pixel_y = 28
 	},
-/obj/structure/table/stone/marble,
+/obj/structure/table/fancy/black,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Tq" = (
@@ -9353,11 +9574,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/portprop)
 "TY" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/west{
-	req_one_access = list(229, 217)
+/obj/machinery/light/small{
+	dir = 1
 	},
-/obj/machinery/light/small/floor,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "TZ" = (
@@ -9457,6 +9677,7 @@
 	pixel_x = -28
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/window/southleft,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/central_hallway)
 "UH" = (
@@ -9481,6 +9702,24 @@
 "UM" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/guest)
+"UO" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle/golden_deep,
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/golden_deep/passenger)
 "UQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -9488,26 +9727,40 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/lounge)
 "UR" = (
-/obj/machinery/door/airlock/external{
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = 7;
-	pixel_y = -27;
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/machinery/door/blast/regular{
+	id = "gd_driver_out";
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "UT" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_1";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
+"UW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#6d6133";
+	frame_color = "#6d6133";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "gd_windows";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboard_dock)
 "UX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9559,16 +9812,17 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/private_lounge)
 "Vt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
-	icon_state = "2-4"
+	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "Vv" = (
 /obj/machinery/ammunition_loader/francisca{
@@ -9611,12 +9865,8 @@
 /area/golden_deep/eva)
 "VF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_3";
-	name = "Storage Compartment Access";
-	pixel_x = -23;
-	req_one_access = list(229, 217)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
@@ -9638,6 +9888,12 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/aft_hallway)
+"VI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/starboardmaints)
 "VJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
@@ -9651,14 +9907,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "VL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/hoplan)
 "VM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -9666,17 +9919,13 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/passenger)
 "VR" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_1";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
-	},
-/obj/machinery/light/small{
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "VS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -9710,8 +9959,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9778,6 +10025,19 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
+"Wx" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "gd_3";
+	name = "Storage Compartment Access";
+	pixel_x = -23;
+	req_one_access = list(229, 217)
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "WD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9788,7 +10048,8 @@
 /area/golden_deep/workshop)
 "WJ" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate"
+	name = "secure crate";
+	req_access = list(217)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/power/apc/super/south{
@@ -9822,11 +10083,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/atmos)
+/area/golden_deep/eva)
 "WL" = (
 /obj/machinery/light/small/floor,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
+"WN" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "WO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -9869,12 +10139,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/aft_hallway)
 "WU" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/plating,
+/obj/structure/table/reinforced,
+/obj/item/device/price_scanner{
+	pixel_y = 5
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = -11
+	},
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "WW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10075,6 +10350,10 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "XI" = (
@@ -10110,6 +10389,21 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
+"XZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "Yc" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
@@ -10159,18 +10453,19 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/accounting)
 "Yi" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "gd_4";
-	name = "Storage Compartment Access";
-	pixel_x = -23;
-	req_one_access = list(229, 217)
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 3;
+	pixel_x = 34
 	},
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -8;
+	pixel_x = 34
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/hoplan)
 "Yn" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -10266,6 +10561,8 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/item/device/hand_labeler,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "YE" = (
@@ -10292,13 +10589,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "YI" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "YJ" = (
 /obj/structure/cable/green{
@@ -10320,21 +10616,14 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardmaints)
 "YO" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/structure/sign/flag/goldendeep/large/north{
+	pixel_y = 32
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "gd_2";
-	name = "Storage Compartment Access";
-	pixel_x = 23;
-	req_one_access = list(229, 217)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "YT" = (
 /obj/machinery/vending/dinnerware/bar,
 /obj/machinery/light{
@@ -10425,34 +10714,29 @@
 /turf/template_noop,
 /area/space)
 "Zq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/owned_lounge)
 "Zr" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 26;
-	pixel_x = 5
+/obj/machinery/alarm/north{
+	req_one_access = list(229, 217)
 	},
-/obj/machinery/airlock_sensor{
-	pixel_y = 27;
-	pixel_x = -7
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard,
-/turf/simulated/floor/plating,
-/area/golden_deep/warehouse)
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/starboard_dock)
 "Zs" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -10496,11 +10780,25 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
 "ZH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/platform{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/warehouse)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/bridge)
 "ZI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40262,9 +40560,9 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
+fC
+fC
+fC
 Rt
 Rt
 Rt
@@ -40520,7 +40818,7 @@ Rt
 Rt
 Rt
 fC
-fC
+Ix
 fC
 Rt
 Rt
@@ -40783,14 +41081,14 @@ Rt
 Rt
 Rt
 Rt
-fC
-fC
-fC
-fC
-fC
-fC
-oC
-ZI
+Rt
+Rt
+Rt
+Rt
+Rt
+Rt
+Uq
+lk
 Uq
 Rt
 Rt
@@ -41026,8 +41324,8 @@ Rt
 Rt
 gW
 Rt
-fC
-fC
+Rt
+Rt
 fC
 fC
 fC
@@ -41037,15 +41335,15 @@ fC
 lT
 fC
 fC
-Rt
-Rt
-Rt
 fC
-mR
-FQ
-FQ
-ef
 fC
+fC
+fC
+fC
+fC
+fC
+Rt
+Uq
 Uq
 OZ
 Uq
@@ -41283,26 +41581,26 @@ Rt
 Rt
 Rt
 Rt
+Rt
+Rt
 fC
-mR
-FQ
-FQ
+TY
 ef
+dz
+iL
 fC
-mR
-FQ
-FQ
+TY
 ef
+dz
+iL
 fC
+TY
+ef
+dz
+iL
 fC
-DH
-fC
-fC
-FQ
-FQ
-FQ
-FQ
-fC
+Rt
+Uq
 zp
 sO
 fe
@@ -41540,35 +41838,35 @@ Rt
 Rt
 Rt
 Rt
+Rt
+Rt
 fC
-FQ
-FQ
-FQ
-FQ
+PJ
+JU
+xZ
+fO
 fC
-FQ
-FQ
-FQ
-FQ
+PJ
+JU
+xZ
+fO
 fC
-Gh
-UT
-Be
+PJ
+JU
+xZ
+fO
 fC
-FQ
-FQ
-FQ
-RG
-fC
+Rt
+Uq
 Sh
 lp
 sY
 EN
 Uq
+Rt
+Uw
 vn
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -41798,34 +42096,34 @@ Rt
 gW
 Rt
 fC
-FQ
-FQ
-FQ
-RG
 fC
-FQ
-FQ
-FQ
-RG
 fC
-Zr
-uN
-WU
+PJ
+JU
+xZ
+PJ
 fC
-FQ
-FQ
-FQ
-FQ
+PJ
+JU
+xZ
+PJ
 fC
+PJ
+JU
+xZ
+PJ
+fC
+Rt
+Uq
 Nc
 HE
 ZJ
 Jf
 Uq
+Rt
+Uw
 AK
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -42055,30 +42353,32 @@ Rt
 Rt
 Rt
 fC
-FQ
-FQ
-FQ
-FQ
+OO
 fC
-FQ
-FQ
-FQ
-FQ
+QL
+Uv
+AL
+mR
 fC
+gO
+Uv
+AL
+mR
 fC
-tR
+xV
+Uv
+AL
+mR
 fC
-fC
-VR
-FQ
-FQ
-ef
-fC
+Rt
+Uq
 ia
 Qd
 VB
 ki
 Uq
+Rt
+Uw
 FW
 Uw
 Uw
@@ -42086,8 +42386,6 @@ Uw
 Uw
 Uw
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -42312,30 +42610,32 @@ Rt
 Rt
 Rt
 fC
-mR
-FQ
-FQ
-fo
+tR
 fC
-ba
-FQ
-FQ
-ef
 fC
-pm
-QL
-Bo
+hI
+hI
+fC
+fC
+fC
+fE
+fE
+fC
 fC
 fC
 vi
 vi
 fC
 fC
+fC
+Uq
 qs
 lB
 cQ
 Gn
 Uq
+Rt
+Uw
 CV
 JF
 Ls
@@ -42343,8 +42643,6 @@ DU
 DV
 OU
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -42569,30 +42867,32 @@ Rt
 gW
 Rt
 fC
-fC
-hI
-hI
-fC
-fC
-fC
-fE
-fE
-fC
-fC
+uN
+Dh
+Nd
+pE
+pE
+fo
+pE
+Wx
+nK
+pE
 KI
 sJ
+UT
 pE
-Af
+nK
 yH
-pE
-pE
-dz
-fC
+qU
+DH
+Uq
 Uq
 bN
 MP
 Uq
 Uq
+Rt
+Uw
 FX
 uK
 bQ
@@ -42600,8 +42900,6 @@ sN
 sN
 sP
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -42826,29 +43124,31 @@ Rt
 fC
 fC
 fC
-iB
-pE
-nK
-bi
-TY
+jD
+FQ
 VF
-nK
-pE
-iB
-fC
-qd
+Ga
+FQ
+VF
+Ga
+FQ
+VF
+Ga
+FQ
 BV
 Gu
 Lz
 dT
-pz
-Ga
+FQ
+KZ
 jN
-fC
+Uw
 zZ
 iY
 fw
 YE
+Uw
+Uw
 Uw
 Uw
 Uw
@@ -42857,8 +43157,6 @@ cc
 cc
 hh
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -43083,23 +43381,23 @@ Rt
 QW
 Iu
 ok
+jD
 FQ
+VF
+Ga
 FQ
-ZH
+VF
+Ga
 FQ
+VF
+Ga
 FQ
-FQ
-ZH
-FQ
-FQ
-KD
-JU
 bo
 pZ
 Pv
 cX
-pz
-Ga
+FQ
+FQ
 xZ
 ud
 qI
@@ -43108,14 +43406,14 @@ Fe
 qI
 Lv
 iY
+yB
+iY
 iY
 tM
 jK
 jK
 Ob
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -43341,12 +43639,12 @@ ix
 Qi
 iP
 pR
-pR
+FQ
 SM
 Jl
-Vt
+cY
 MS
-Zq
+Jl
 cY
 MS
 jB
@@ -43355,15 +43653,17 @@ su
 cI
 KX
 sT
-QD
+YI
 YI
 cm
-tz
+XN
 Wk
 Yp
 Ro
 KF
 XN
+to
+Zq
 to
 to
 xI
@@ -43371,8 +43671,6 @@ jK
 jK
 yS
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -43597,29 +43895,31 @@ Rt
 fC
 fC
 fC
+iB
+FQ
 mg
-Lz
-Kn
-IR
-Cs
-HX
-Kn
-Er
+Ga
+FQ
 mg
-fC
-qd
+Ga
+FQ
+mg
+ba
+FQ
 hg
 If
 VX
 el
-xV
-Ga
-jN
-fC
+FQ
+Be
+tx
+Uw
 rK
 Bi
 ii
 Xc
+Uw
+Uw
 Uw
 Uw
 Uw
@@ -43628,8 +43928,6 @@ CG
 cc
 gl
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -43851,33 +44149,35 @@ Rt
 Rt
 Rt
 Rt
-gW
-Rt
-fC
-fC
-kC
-kC
-fC
-fC
-fC
-mF
-JI
-fC
-fC
-Uv
+UR
+ly
+Sr
+VR
+WN
+KC
+Lz
+Lz
+sf
+Lz
+Af
+Kn
+Cs
+bC
 pT
+Bo
 Lz
-tx
-YO
-Lz
-Lz
-AL
-fC
+Kn
+Gh
+WU
+bi
+NJ
 NJ
 ys
 Jg
 NJ
 NJ
+Rt
+Uw
 XG
 uK
 Av
@@ -43885,8 +44185,6 @@ cc
 Un
 Tq
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -44108,33 +44406,35 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
 fC
-mR
-FQ
-FQ
-sf
 fC
-Yi
-FQ
-gV
-ef
 fC
-KZ
-VL
-bC
+tR
+fC
+fC
+kC
+kC
+fC
+fC
+fC
+mF
+JI
+fC
 fC
 fC
 BF
 BF
 fC
 fC
+fC
+NJ
 zn
 Au
 vJ
 Dc
 NJ
+Rt
+Uw
 Se
 gA
 FN
@@ -44142,8 +44442,6 @@ qf
 hZ
 BS
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -44368,30 +44666,32 @@ Rt
 Rt
 Rt
 fC
-FQ
-FQ
-FQ
-FQ
+en
 fC
-FQ
-FQ
-gV
-FQ
-fC
-fC
-Nd
-fC
-fC
-KC
-FQ
-FQ
+qd
 ef
+dz
+iL
 fC
+gV
+ef
+XZ
+iL
+fC
+Da
+ef
+dz
+iL
+fC
+Rt
+NJ
 Ts
 SF
 NZ
 Kd
 NJ
+Rt
+Uw
 Cd
 Uw
 Uw
@@ -44399,8 +44699,6 @@ Uw
 Uw
 Uw
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -44625,34 +44923,34 @@ Rt
 gW
 Rt
 fC
-FQ
-FQ
-FQ
-RG
 fC
-FQ
-FQ
-gV
-RG
 fC
-gO
-yB
+PJ
+JU
+xZ
 PJ
 fC
-FQ
-FQ
-FQ
-FQ
+PJ
+JU
+RG
+PJ
 fC
+PJ
+JU
+xZ
+PJ
+fC
+Rt
+NJ
 Ts
 uo
 VE
 vC
 NJ
+Rt
+Uw
 jO
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -44881,35 +45179,35 @@ Rt
 Rt
 Rt
 Rt
+Rt
+Rt
 fC
-FQ
-FQ
-FQ
-FQ
-fC
-FQ
-FQ
-gV
-FQ
-fC
+PJ
+JU
+xZ
 fO
-en
-qU
 fC
-FQ
-FQ
-FQ
+PJ
+JU
 RG
+fO
 fC
+PJ
+JU
+xZ
+fO
+fC
+Rt
+NJ
 cG
 Ox
 nS
 vC
 NJ
+Rt
+Uw
 Qa
 Uw
-Rt
-Rt
 Rt
 Rt
 Rt
@@ -45138,26 +45436,26 @@ Rt
 Rt
 Rt
 Rt
+Rt
+Rt
 fC
+TY
+Uv
+AL
 mR
-FQ
-FQ
-ef
 fC
+SZ
+HX
+Er
 mR
-FQ
-gV
-ef
 fC
+TY
+Uv
+AL
+mR
 fC
-UR
-fC
-fC
-FQ
-FQ
-FQ
-FQ
-fC
+Rt
+NJ
 sZ
 Ny
 zt
@@ -45395,8 +45693,8 @@ Rt
 Rt
 gW
 Rt
-fC
-fC
+Rt
+Rt
 fC
 fC
 fC
@@ -45406,18 +45704,18 @@ fC
 mj
 fC
 fC
-Rt
-Rt
-Rt
 fC
-mR
-FQ
-FQ
-ef
 fC
-LK
+fC
+fC
+fC
+fC
+fC
+Rt
+NJ
+NJ
 WK
-LK
+NJ
 NJ
 NJ
 Rt
@@ -45660,19 +45958,19 @@ Rt
 Rt
 Rt
 fC
-tu
+Vt
 fC
 Rt
 Rt
 Rt
 Rt
-fC
-fC
-fC
-fC
-fC
-fC
-OO
+Rt
+Rt
+Rt
+Rt
+Rt
+Rt
+LK
 qo
 LK
 Rt
@@ -45917,7 +46215,7 @@ Rt
 Rt
 Rt
 fC
-fC
+tu
 fC
 Rt
 Rt
@@ -46173,9 +46471,9 @@ Rt
 Rt
 Rt
 Rt
-Rt
-Rt
-Rt
+fC
+fC
+fC
 Rt
 Rt
 Rt
@@ -103499,7 +103797,7 @@ sS
 Vv
 Jc
 Jc
-Jc
+UW
 Rt
 Rt
 Rt
@@ -103752,11 +104050,11 @@ Rt
 Rt
 Rt
 sS
-xY
+Zr
+tz
 rP
-rP
-rP
-Jc
+tz
+UW
 Rt
 Rt
 Rt
@@ -104009,7 +104307,7 @@ Rt
 Rt
 gW
 sS
-Da
+pm
 EO
 sS
 fD
@@ -105543,7 +105841,7 @@ gi
 JH
 Rt
 Rt
-yF
+iG
 yF
 yF
 yF
@@ -105798,9 +106096,9 @@ JH
 fi
 mh
 JH
-Rt
-Rt
-yF
+iG
+iG
+iG
 EF
 Ag
 Pb
@@ -106036,10 +106334,10 @@ Rt
 Rt
 Rt
 Rt
-Rt
 QI
 Mc
 Hf
+VI
 KW
 vf
 jQ
@@ -106056,7 +106354,7 @@ hD
 bd
 JH
 iG
-iG
+oX
 iG
 HM
 fc
@@ -106293,7 +106591,7 @@ Rt
 Rt
 Rt
 Rt
-Rt
+KO
 KO
 KO
 KO
@@ -106313,7 +106611,7 @@ mO
 zG
 Ik
 iG
-oX
+QD
 iG
 SR
 yE
@@ -106539,7 +106837,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 SX
 Hg
 Od
@@ -106547,6 +106844,7 @@ Od
 Od
 Hg
 Qe
+Rt
 Rt
 Rt
 Rt
@@ -106796,7 +107094,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 cx
 JZ
 uM
@@ -106804,6 +107101,7 @@ Vr
 lC
 Hg
 xG
+Rt
 Rt
 Rt
 Rt
@@ -107053,7 +107351,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 Hg
 NU
 ck
@@ -107061,6 +107358,7 @@ zH
 Bg
 up
 xG
+Rt
 Rt
 Rt
 Rt
@@ -107310,7 +107608,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 Hg
 eB
 kR
@@ -107318,6 +107615,7 @@ nm
 yh
 Zm
 xG
+Rt
 Rt
 Rt
 Rt
@@ -107369,7 +107667,7 @@ Mw
 Mw
 Mw
 Mw
-Ee
+LT
 Ee
 NQ
 Rt
@@ -107567,7 +107865,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 Hg
 zA
 Bh
@@ -107579,7 +107876,8 @@ Rt
 Rt
 Rt
 Rt
-tk
+Rt
+zC
 wc
 DQ
 SG
@@ -107622,12 +107920,12 @@ CP
 kK
 bE
 RH
-SZ
+ZH
 Tf
 RY
 cp
 xi
-Ee
+LT
 Ee
 Rt
 Rt
@@ -107824,7 +108122,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 kz
 Fd
@@ -107836,7 +108133,8 @@ Rt
 Rt
 Rt
 Rt
-tk
+Rt
+zC
 wc
 Bu
 SG
@@ -107885,7 +108183,7 @@ yk
 SP
 xi
 NM
-Ee
+LT
 Ee
 Rt
 Rt
@@ -108081,7 +108379,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 eQ
 It
@@ -108093,8 +108390,9 @@ Rt
 Rt
 Rt
 Rt
-tk
-wc
+Rt
+zC
+uX
 Bu
 SG
 RR
@@ -108338,14 +108636,14 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 sL
 Mt
 Go
 wE
 xg
-VM
+pq
+mz
 kz
 kz
 JH
@@ -108393,13 +108691,13 @@ iI
 Qy
 EP
 Qr
-Gw
+jP
 OC
 xT
 Pj
 xi
 dr
-Ee
+LT
 Ee
 Rt
 Rt
@@ -108595,13 +108893,13 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 EW
 SU
 Xw
 Xj
 Xw
+KD
 yT
 uf
 bH
@@ -108634,7 +108932,7 @@ UF
 rt
 sG
 SC
-MQ
+YO
 ow
 ow
 cK
@@ -108655,7 +108953,7 @@ eC
 pA
 Nm
 xi
-Ee
+LT
 Ee
 Rt
 Rt
@@ -108852,13 +109150,13 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 EW
 SU
 Xw
 TZ
 Mz
+UO
 lW
 tV
 LM
@@ -108911,7 +109209,7 @@ Mw
 Yo
 Mw
 Mw
-Ee
+LT
 Ee
 hX
 Rt
@@ -109109,13 +109407,13 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 EW
 NS
 qV
 Ex
 xW
+kz
 kz
 kz
 kz
@@ -109366,7 +109664,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 Rf
 Lj
@@ -109378,7 +109675,8 @@ Rt
 Rt
 Rt
 Rt
-tk
+Rt
+zC
 wc
 Bu
 hi
@@ -109623,7 +109921,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 kz
 kz
 RU
@@ -109635,7 +109932,8 @@ Rt
 Rt
 Rt
 Rt
-tk
+Rt
+zC
 wc
 Bu
 Bx
@@ -109880,7 +110178,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 Dg
 CY
 EH
@@ -109892,7 +110189,8 @@ Rt
 Rt
 Rt
 Rt
-tk
+Rt
+zC
 wc
 Wp
 SG
@@ -109938,7 +110236,7 @@ Qz
 Tv
 VS
 vk
-Tv
+PN
 Rt
 Rt
 Rt
@@ -110137,7 +110435,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 Dg
 fv
 wt
@@ -110145,6 +110442,7 @@ El
 nt
 EA
 Dg
+Rt
 Rt
 Rt
 Rt
@@ -110195,7 +110493,7 @@ Yh
 Tv
 Sf
 Sf
-Tv
+PN
 Rt
 Rt
 Rt
@@ -110394,7 +110692,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 gs
 vX
 bm
@@ -110402,6 +110699,7 @@ bm
 bm
 Yz
 gs
+Rt
 Rt
 Rt
 Rt
@@ -110428,8 +110726,8 @@ JH
 JH
 lI
 rq
-rQ
 tX
+rQ
 PB
 uI
 hA
@@ -110651,7 +110949,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 gs
 gs
 ad
@@ -110659,6 +110956,7 @@ bA
 Xm
 gs
 gs
+Rt
 Rt
 Rt
 Rt
@@ -110908,7 +111206,6 @@ Rt
 Rt
 Rt
 Rt
-Rt
 HJ
 gs
 gs
@@ -110916,6 +111213,7 @@ gs
 gs
 gs
 Jd
+Rt
 Rt
 Rt
 Rt
@@ -111176,7 +111474,7 @@ Rt
 Rt
 Rt
 Rt
-Rt
+xX
 xX
 xX
 xX
@@ -111196,7 +111494,7 @@ mO
 zG
 cM
 JH
-ER
+TO
 lI
 ve
 Bq
@@ -111207,7 +111505,7 @@ lI
 db
 db
 db
-db
+zv
 Ux
 mS
 MQ
@@ -111433,10 +111731,10 @@ Rt
 Rt
 Rt
 Rt
-Rt
 WP
 BM
 qm
+KR
 tG
 OR
 UM
@@ -111453,7 +111751,7 @@ hD
 bd
 JH
 JH
-JH
+ER
 lI
 lI
 ka
@@ -111463,9 +111761,9 @@ lI
 lI
 YT
 sy
-Uc
+oC
 Re
-Ux
+IR
 mS
 HD
 SS
@@ -111709,13 +112007,13 @@ JH
 ek
 NR
 JH
-Rt
-Rt
+JH
+JH
 lI
 Os
 Kc
-Kc
-Kc
+VL
+ho
 aw
 lI
 oQ
@@ -111972,7 +112270,7 @@ lI
 Ai
 Hq
 ph
-Hq
+Yi
 No
 lI
 RE
@@ -112232,7 +112530,7 @@ lI
 Ry
 lI
 lI
-QQ
+xJ
 wd
 jn
 mA
@@ -112489,7 +112787,7 @@ Rt
 Rt
 Rt
 lI
-xJ
+QQ
 RF
 lg
 mA
@@ -113266,7 +113564,7 @@ tI
 qY
 Cz
 IX
-lk
+pz
 uz
 Ra
 Xu

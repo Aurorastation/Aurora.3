@@ -83,18 +83,9 @@
 	name = "Fore Port Airlock"
 	master_tag = "airlock_gd_fore_port"
 
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_port
-	name = "Aft Port Airlock"
-	master_tag = "airlock_gd_aft_port"
-
 /obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard
 	name = "Fore Starboard Airlock"
 	master_tag = "airlock_gd_fore_starboard"
-
-/obj/effect/map_effect/marker/airlock/golden_deep/aft_starboard
-	name = "Aft Starboard Airlock"
-	master_tag = "airlock_gd_aft_starboard"
-
 
 /obj/effect/map_effect/marker/airlock/golden_deep/d2_aft_starboard
 	name = "Deck Two Aft Starboard Airlock"
@@ -103,7 +94,6 @@
 /obj/effect/map_effect/marker/airlock/golden_deep/d2_port_starboard
 	name = "Deck Two Port Starboard Airlock"
 	master_tag = "airlock_gd_aft_port_d2"
-
 
 // Lift
 /datum/shuttle/autodock/multi/lift/gd
@@ -132,3 +122,10 @@
 
 /obj/machinery/computer/shuttle_control/multi/lift/wall/gd
 	shuttle_tag = "Golden Deep Lift"
+
+// Storage compartment submaps.
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep
+	name = "Golden Deep Mercantile Vessel - Storage Compartment"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/golden_deep
+	name = "Golden Deep Mercantile Vessel - Storage Compartment"
