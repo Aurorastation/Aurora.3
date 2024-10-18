@@ -611,7 +611,7 @@
 /area/cult_base/asteroid)
 "abJ" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "abK" = (
 /obj/effect/gibspawner/human,
@@ -2480,7 +2480,7 @@
 "ajO" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "ajS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -8846,7 +8846,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
 "aWD" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "aWM" = (
 /obj/effect/floor_decal/corner/grey,
@@ -10325,7 +10325,7 @@
 "hfH" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "hgn" = (
 /obj/effect/floor_decal/corner/grey{
@@ -12696,7 +12696,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "xsd" = (
 /obj/effect/floor_decal/corner/grey,

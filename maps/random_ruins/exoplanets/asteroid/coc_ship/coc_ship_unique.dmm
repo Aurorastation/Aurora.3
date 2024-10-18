@@ -9,7 +9,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "aS" = (
 /obj/structure/reagent_dispensers/fueltank{
@@ -58,7 +58,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "5,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "bI" = (
 /obj/structure/shuttle_part/raider{
@@ -108,7 +108,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "cx" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -323,7 +323,7 @@
 /area/template_noop)
 "gH" = (
 /obj/structure/shuttle_part/raider,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "gQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -643,7 +643,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "2,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "nB" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -663,7 +663,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "17,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "nG" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -905,7 +905,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "18,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "sA" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1024,7 +1024,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "3,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "vL" = (
 /obj/structure/shuttle_part/raider{
@@ -1541,7 +1541,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "Hz" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -1639,7 +1639,7 @@
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/template_noop)
 "Jl" = (
 /obj/structure/shuttle_part/raider{

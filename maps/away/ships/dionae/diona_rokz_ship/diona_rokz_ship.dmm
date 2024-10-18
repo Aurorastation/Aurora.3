@@ -19,7 +19,7 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "by" = (
 /obj/structure/window/reinforced{
@@ -28,7 +28,7 @@
 /mob/living/simple_animal/carp{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "bB" = (
 /obj/structure/bed/handrail{
@@ -72,13 +72,13 @@
 	name = "starboard, cargo"
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "cW" = (
 /obj/machinery/floodlight{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "dj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -93,7 +93,7 @@
 /area/ship/diona_rokz_ship/bridge)
 "dE" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "dG" = (
 /obj/effect/overmap/visitable/ship/landable/diona_rokz_ship_shuttle,
@@ -130,11 +130,11 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "fo" = (
 /obj/item/wrench,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "fv" = (
 /obj/effect/landmark/entry_point/aft,
@@ -156,20 +156,20 @@
 /mob/living/simple_animal/carp/baby{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "gL" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/warehouse)
 "gP" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "gT" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "hu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -188,7 +188,7 @@
 /mob/living/simple_animal/carp/baby{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "iJ" = (
 /obj/effect/shuttle_landmark/diona_rokz_ship/transit,
@@ -201,7 +201,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid3"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "iZ" = (
 /obj/structure/window/reinforced{
@@ -211,12 +211,12 @@
 	dir = 8
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "jb" = (
 /obj/item/trap/animal/large,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "jw" = (
 /obj/structure/diona/bulb,
@@ -232,30 +232,30 @@
 /area/ship/diona_rokz_ship/bridge)
 "le" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "lk" = (
 /mob/living/simple_animal/carp{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "lT" = (
 /obj/machinery/vending/hydronutrients,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "lX" = (
 /obj/structure/ore_box,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "ms" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "mt" = (
 /obj/structure/simple_door/iron{
 	name = "animal cell"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "mE" = (
 /obj/structure/fuel_port/phoron{
@@ -267,17 +267,17 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "nA" = (
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid8"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "nC" = (
 /obj/machinery/seed_extractor,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "nG" = (
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav1,
@@ -290,7 +290,7 @@
 /obj/structure/simple_door/iron{
 	name = "animal cell"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "od" = (
 /obj/machinery/computer/ship/helm{
@@ -324,7 +324,7 @@
 /area/ship/diona_rokz_ship/kitchen)
 "pk" = (
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "pw" = (
 /obj/structure/simple_door/iron{
@@ -333,7 +333,7 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
 "px" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "qa" = (
 /obj/machinery/door/airlock/diona/external{
@@ -345,7 +345,7 @@
 "qc" = (
 /obj/machinery/floodlight,
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "qI" = (
 /obj/effect/step_trigger/teleporter,
@@ -360,7 +360,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid8"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "qX" = (
 /obj/structure/diona/bulb,
@@ -371,7 +371,7 @@
 /area/ship/diona_rokz_ship/exterior/west)
 "rb" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "rc" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -393,11 +393,11 @@
 /area/ship/diona_rokz_ship/exterior/west)
 "rm" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "ru" = (
 /obj/item/trap/animal/large,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "rV" = (
 /obj/structure/diona/bulb,
@@ -412,12 +412,12 @@
 "sD" = (
 /obj/item/trap/animal/large,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "sS" = (
 /obj/structure/diona/bulb,
 /obj/machinery/seed_storage/garden,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "sU" = (
 /obj/machinery/computer/ship/navigation{
@@ -454,7 +454,7 @@
 /area/ship/diona_rokz_ship/exterior/south)
 "ua" = (
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "up" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -494,7 +494,7 @@
 /area/ship/diona_rokz_ship/bridge)
 "vU" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "ws" = (
 /turf/simulated/wall/diona,
@@ -522,7 +522,7 @@
 /area/ship/diona_rokz_ship/engine)
 "wK" = (
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "wN" = (
 /obj/structure/table/diona,
@@ -538,7 +538,7 @@
 "xl" = (
 /obj/structure/closet/crate/loot,
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "xF" = (
 /obj/structure/table/diona,
@@ -589,11 +589,11 @@
 /area/ship/diona_rokz_ship/exterior/south)
 "zf" = (
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "zl" = (
 /obj/item/material/twohanded/pike/flag/hegemony,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "zm" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -603,7 +603,7 @@
 /area/ship/diona_rokz_ship/exterior/west)
 "Ai" = (
 /obj/machinery/autolathe,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Ar" = (
 /obj/effect/decal/cleanable/blood/gibs/down{
@@ -642,7 +642,7 @@
 /area/ship/diona_rokz_ship/exterior/south)
 "BQ" = (
 /obj/machinery/biogenerator,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "BZ" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -662,17 +662,17 @@
 /area/ship/diona_rokz_ship/bridge)
 "Cw" = (
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Cz" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "CB" = (
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship/exterior/east)
 "CE" = (
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "CU" = (
 /obj/machinery/door/airlock/diona/external{
@@ -682,7 +682,7 @@
 /area/shuttle/diona_rokz_ship_shuttle)
 "CW" = (
 /obj/item/pickaxe,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "CX" = (
 /obj/effect/shuttle_landmark/diona_rokz_ship/nav3,
@@ -692,7 +692,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid8"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "Dh" = (
 /obj/structure/table/diona,
@@ -702,11 +702,11 @@
 /area/ship/diona_rokz_ship/exterior/south)
 "DC" = (
 /obj/item/trap/animal/large,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "DE" = (
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "DM" = (
 /obj/effect/landmark/entry_point/port{
@@ -726,7 +726,7 @@
 /area/ship/diona_rokz_ship/bridge)
 "Ei" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "EF" = (
 /obj/structure/table/diona,
@@ -767,7 +767,7 @@
 /mob/living/simple_animal/carp{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Fg" = (
 /obj/structure/table/diona,
@@ -863,11 +863,11 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cargo"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "Ji" = (
 /obj/structure/closet/crate/loot,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "JH" = (
 /obj/structure/ore_box,
@@ -958,7 +958,7 @@
 	faction = "neutral"
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "LZ" = (
 /obj/item/trap/animal/large,
@@ -969,7 +969,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Mh" = (
 /obj/item/stack/material/gold{
@@ -985,7 +985,7 @@
 /area/ship/diona_rokz_ship/engine)
 "Mw" = (
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "MI" = (
 /obj/machinery/computer/ship/helm{
@@ -1007,18 +1007,18 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "NU" = (
 /obj/effect/landmark/entry_point/aft,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "Oo" = (
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid8"
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "Ow" = (
 /obj/item/storage/toolbox/syndicate,
@@ -1027,13 +1027,13 @@
 /area/ship/diona_rokz_ship/bridge)
 "OK" = (
 /obj/structure/bed/handrail,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "OO" = (
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid3"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "OP" = (
 /obj/item/stack/material/steel/full,
@@ -1044,7 +1044,7 @@
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/plastic/full,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "OU" = (
 /obj/structure/cable{
@@ -1061,12 +1061,12 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "Pq" = (
 /obj/item/trap/animal/large,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "Pt" = (
 /turf/unsimulated/mineral/asteroid,
@@ -1083,7 +1083,7 @@
 "Qb" = (
 /obj/effect/floor_decal/asteroid,
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "Qh" = (
 /obj/structure/closet/crate,
@@ -1157,16 +1157,16 @@
 /obj/item/trap/animal/large,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "RI" = (
 /obj/effect/floor_decal/asteroid,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/east)
 "Sb" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/engine)
 "Sh" = (
 /obj/structure/diona/bulb,
@@ -1231,7 +1231,7 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/exterior/south)
 "Uj" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/west)
 "UJ" = (
 /turf/space/transit/north,
@@ -1247,7 +1247,7 @@
 /obj/effect/floor_decal/asteroid{
 	icon_state = "asteroid3"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/exterior/south)
 "Vl" = (
 /obj/structure/diona/bulb,
@@ -1306,7 +1306,7 @@
 	dir = 8
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Wg" = (
 /turf/unsimulated/mineral/asteroid,
@@ -1329,7 +1329,7 @@
 /mob/living/simple_animal/hostile/gnat{
 	faction = "neutral"
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "XI" = (
 /turf/simulated/floor/diona/airless,
@@ -1361,7 +1361,7 @@
 	dir = 1
 	},
 /obj/structure/diona/bulb,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "ZT" = (
 /obj/machinery/button/distress{

@@ -81,7 +81,7 @@
 	landmark_tag = "nav_hangar_pirate_ship"
 	docking_controller = "pirate_ship_shuttle_dock"
 	base_area = /area/mine
-	base_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/pirate_ship/transit

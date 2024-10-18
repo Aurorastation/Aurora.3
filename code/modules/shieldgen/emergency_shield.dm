@@ -197,7 +197,7 @@
 		var/obj/item/tape/engineering/E = locate() in target_tile
 		if(E?.shield_marker)
 			deploy_shield(target_tile)
-		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless))
+		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/simulated/floor/exoplanet/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless))
 			if(malfunction && prob(33) || !malfunction)
 				deploy_shield(target_tile)
 
