@@ -192,3 +192,45 @@
 		user.Paralyse(2)
 		return
 	return ..()
+
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife
+	name = "pocket butter knife"
+	desc = "An SCC Security approved modification of the H30V4 pocket knife."
+	desc_extended = "The H30V4B was developed to answer the immediate issue posed by the SCC not allowing pocket knives aboard the SCCV Horizon. Featuring a circular, \
+	rounded tip and notching in place of serration, it gets the job done. The knife is an employee exclusive, issued to Hephaestus crew either by purchase, or at \
+	request for 5+ year veteran employees."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "pocketbutter"
+	attack_verb = list("poked", "jabbed", "schmeared")
+	var/on = FALSE
+
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/update_icon()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/proc/activate(mob/user)
+	on = !on
+	update_icon()
+	return 1
+
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/AltClick(mob/user)
+	activate(user)
+	if(on)
+		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
+		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
+		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
+	add_fingerprint(user)
+
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/attack_self(mob/user)
+	activate(user)
+	if(on)
+		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
+		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
+		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
+	add_fingerprint(user)
