@@ -8,6 +8,17 @@
 	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1
 
+/obj/machinery/computer/telescience/terminal
+	name = "\improper Telepad Control Terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "teleport"
+	icon_keyboard = "teleport_key"
+	icon_keyboard_emis = "teleport_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 	/**
 	 * The telepad that this console controls
 	 */
