@@ -174,8 +174,6 @@
 	zavodskoi_labcoats["zavodskoi labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi
 	zavodskoi_labcoats["zavodskoi corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/zavod
 	zavodskoi_labcoats["zavodskoi corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/zavod/alt
-	zavodskoi_labcoats["zavodskoi greatcoat"] = /obj/item/clothing/suit/storage/toggle/corp/zavod/great
-	zavodskoi_labcoats["zavodskoi greatcoat, alt"] = /obj/item/clothing/suit/storage/toggle/corp/zavod/great/alt
 	zavodskoi_labcoats["zavodskoi winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/zavod
 	zavodskoi_labcoats["zavodskoi winter coat, alt"] = /obj/item/clothing/suit/storage/hooded/wintercoat/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_labcoats)
