@@ -395,7 +395,7 @@
  */
 /obj/item/reagent_containers/syringe/robotic
 	name = "robotic syringe"
-	desc = "A syringe for our syntetic friends."
+	desc = "A syringe for our synthetic friends."
 	gets_dirty = FALSE
 
 /obj/item/reagent_containers/syringe/inaprovaline
