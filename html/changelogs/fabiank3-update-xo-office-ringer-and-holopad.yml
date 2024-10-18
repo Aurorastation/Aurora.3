@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Added the missing ringer terminal to the XO office. Now the ringer is functional."
+  - bugfix: "Removed duplicate standard holopad from the XO office."
