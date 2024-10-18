@@ -3,5 +3,5 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - rscadd: "Added the missing ringer terminal to the XO office. Now the ringer is functional."
-  - rscdel: "Removed duplicate standard holopad from the XO office."
+  - bugfix: "Added the missing ringer terminal to the XO office. Now the ringer is functional."
+  - bugfix: "Removed duplicate standard holopad from the XO office."
