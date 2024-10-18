@@ -10,6 +10,12 @@
 /proc/cmp_text_dsc(a,b)
 	return sorttext(a,b)
 
+/proc/cmp_typepaths_asc(A, B)
+	return sorttext("[B]","[A]")
+
+/proc/cmp_typepaths_name_asc(atom/A, atom/B)
+	return sorttext(initial(A.name), initial(B.name))
+
 /proc/cmp_embed_text_asc(a,b)
 	if(isdatum(a))
 		a = REF(a)
