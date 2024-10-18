@@ -8,6 +8,8 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	 * A `/list` of `/datum/computer_file/program` _typepaths_ that constitute this preset
 	 *
 	 * Is instantiated and returned by `return_install_programs()` on the computers that request it
+	 *
+	 * **Do not set this directly**, add or remove tye typepaths to it in New() **only**
 	 */
 	var/list/program_list = list()
 

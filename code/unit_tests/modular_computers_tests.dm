@@ -44,6 +44,7 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 /datum/unit_test/modular_computers/presets_contain_only_compatible_programs
 	name = "MOD COMP: Presets contain only compatible programs"
 	disabled = TRUE //There's 400+ fuckups and i'm not fixing all that shit myself
+	why_disabled = "There's over 400 programs that cannot run where they are installed, a large effort is required to fix them all."
 
 /datum/unit_test/modular_computers/presets_contain_only_compatible_programs/start_test()
 	var/test_result = UNIT_TEST_PASSED
