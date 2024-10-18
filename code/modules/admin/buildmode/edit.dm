@@ -1,6 +1,7 @@
 /datum/build_mode/edit
 	name = "Edit"
 	icon_state = "buildmode3"
+	permission_requirement = R_ADMIN
 	var/var_to_edit = "name"
 	var/value_to_set = "derp"
 
