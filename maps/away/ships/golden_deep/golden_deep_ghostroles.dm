@@ -92,7 +92,7 @@
 /obj/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial(H)
+	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial/hand(H)
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
@@ -102,15 +102,15 @@
 /obj/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial(H)
+	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial/hand(H)
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF
 		tag.citizenship_info = CITIZENSHIP_GOLDEN
 	// Method to avoid needing to define a seperate subtype for every recolourable bit of clothing we're using here.
-	H.wear_suit.color = pick("#722122", "#722122")
-	H.head.color = pick("#722122")
+	H.wear_suit.color = pick("#991517")
+	H.head.color = pick("#991517")
 	H.w_uniform.color = pick("#343434")
 
 /obj/outfit/admin/golden_deep/get_id_access()
