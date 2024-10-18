@@ -263,7 +263,7 @@
 
 /datum/modular_computer_app_presets/supply/mining/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN + /datum/computer_file/program/away_manifest
+	program_list -= list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/civilian/cargodelivery) //Snowflake
 
 
 /datum/modular_computer_app_presets/supply/machinist

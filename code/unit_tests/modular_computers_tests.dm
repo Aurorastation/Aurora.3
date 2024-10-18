@@ -16,6 +16,9 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 	var/obj/item/modular_computer/test_computer = new()
 
 	for(var/preset_typepath in subtypesof(/datum/modular_computer_app_presets))
+		TEST_DEBUG("Testing preset [preset_typepath]")
+
+		//Instance the preset
 		var/datum/modular_computer_app_presets/preset = new preset_typepath()
 
 		//Get installed programs
@@ -27,9 +30,10 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 
 		for(var/datum/computer_file/program/program in installed_programs)
 			if(program.type in programs_present)
-				test_result = TEST_FAIL("Found multiple instances of program [program.type] in preset [preset.name]!")
+				test_result = TEST_FAIL("Found multiple instances of program [program.type] in preset [preset_typepath]!")
 			else
 				programs_present += program.type
+				TEST_DEBUG("Found one instance of program [program.type] in preset [preset_typepath]")
 
 	if(test_result == UNIT_TEST_PASSED)
 		TEST_PASS("All programs in modular computer presets are only present once.")

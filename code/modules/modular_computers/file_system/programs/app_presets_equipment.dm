@@ -35,11 +35,7 @@
 
 /datum/modular_computer_app_presets/command/teleporter/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
-	program_list += list(/datum/computer_file/program/comm,
-						/datum/computer_file/program/records/employment,
-						/datum/computer_file/program/teleporter
-						)
+	program_list += /datum/computer_file/program/teleporter
 
 /datum/modular_computer_app_presets/command/account
 	name = "command_accounting"
@@ -49,12 +45,10 @@
 
 /datum/modular_computer_app_presets/command/account/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM
 	program_list += list(/datum/computer_file/program/newsbrowser,
 						/datum/computer_file/program/manifest,
 						/datum/computer_file/program/civilian/cargoorder,
 						/datum/computer_file/program/civilian/cargocontrol,
-						/datum/computer_file/program/records/employment,
 						/datum/computer_file/program/account_db
 						)
 
