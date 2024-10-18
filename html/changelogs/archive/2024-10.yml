@@ -206,3 +206,8 @@
   hazelmouse:
   - qol: Made several QoL improvements to the TCAF Corvette ghostrole.
   - rscadd: Added the Heavy Autocannon ship weapon to the TCAF Corvette ghostrole.
+2024-10-18:
+  Evandorf:
+  - rscadd: Adds Tokash's Consular Mantle custom item.
+  Snowy1237:
+  - rscdel: Temporairly disables the Adhomian Circus until it is remapped.
