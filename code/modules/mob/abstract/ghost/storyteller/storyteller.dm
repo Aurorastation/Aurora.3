@@ -20,6 +20,7 @@
 
 /mob/abstract/ghost/storyteller/Destroy()
 	SSodyssey.remove_storyteller(src)
+	GLOB.storytellers.remove_antagonist(mind)
 	return ..()
 
 /mob/abstract/ghost/storyteller/LateLogin()
@@ -125,7 +126,7 @@
 /mob/abstract/ghost/storyteller/can_admin_interact()
 	return TRUE
 
-/mob/abstract/ghost/observer/storyteller/on_restricted_level(var/check)
+/mob/abstract/ghost/storyteller/on_restricted_level(var/check)
 	return FALSE
 
 /mob/abstract/ghost/storyteller/verb/odyssey_panel()
