@@ -356,7 +356,7 @@
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/xuxigas = 1,
-		/obj/item/toy/balloon/syndicate = 4
+		/obj/item/toy/balloon/syndicate = 4,
 		/obj/item/material/knife/butterfly/switchblade/pocket_knife = 2.5,
 		/obj/item/material/knife/butterfly/switchblade/pocket_knife/blue = 2.5,
 		/obj/item/material/knife/butterfly/switchblade/pocket_knife/red = 2.5
