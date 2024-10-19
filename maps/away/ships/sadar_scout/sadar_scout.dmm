@@ -293,19 +293,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/power/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -419,18 +416,15 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
-	},
-/obj/machinery/power/smes/buildable/main_engine{
-	charge = 2.5e+006
 	},
 /obj/structure/sign/electricshock{
 	pixel_x = 32;
 	pixel_y = 2
+	},
+/obj/machinery/power/smes/buildable/main_engine{
+	charge = 2.5e+006
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/solars)
@@ -631,9 +625,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
