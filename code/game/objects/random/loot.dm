@@ -359,7 +359,7 @@
 		/obj/item/toy/balloon/syndicate = 4
 		/obj/item/material/knife/butterfly/switchblade/pocket_knife = 2.5,
 		/obj/item/material/knife/butterfly/switchblade/pocket_knife/blue = 2.5,
-		/obj/item/material/knife/butterfly/switchblade/pocket_knife/red = 2.5,
+		/obj/item/material/knife/butterfly/switchblade/pocket_knife/red = 2.5
 	)
 
 /obj/random/coin
