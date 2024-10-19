@@ -77,10 +77,11 @@
 	GLOB.destroyed_event.register(daddy, src, TYPE_PROC_REF(/datum, qdel_self))
 
 /obj/effect/bluegoast/Destroy()
-	GLOB.destroyed_event.unregister(daddy, src)
-	GLOB.dir_set_event.unregister(daddy, src)
-	UnregisterSignal(daddy, COMSIG_MOVABLE_MOVED)
-	daddy = null
+	if(daddy)
+		GLOB.destroyed_event.unregister(daddy, src)
+		GLOB.dir_set_event.unregister(daddy, src)
+		UnregisterSignal(daddy, COMSIG_MOVABLE_MOVED)
+		daddy = null
 	. = ..()
 
 // /obj/effect/bluegoast/proc/mirror(var/atom/movable/am, var/old_loc, var/new_loc)
