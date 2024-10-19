@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: MattAtlas
+author: MattAtlas, Dreamixpl
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added the Odyssey gamemode."
+  - experiment: "Added the Odyssey gamemode. This gamemode essentially revolves around the Horizon visiting an away site, a planet, or an otherwise fulfilling important mission."
+  - experiment: "Added Storytellers to go along with the Odyssey gamemode. They are essentially the gamemasters for the gamemode - they have quite a few admin tools and can run the round as they wish. The only thing they cannot modify is the canonicity of the round. To join as one during an Odyssey round, simply spawn in from the Ghost Spawner menu. You must have a head of staff whitelist."
   - bugfix: "Fixed planetary blueprints."
+  - refactor: "Storytellers and Observers are now subtypes of the same mob type - the ghost."
   - admin: "Changed how the Set Outfit verb works completely."
