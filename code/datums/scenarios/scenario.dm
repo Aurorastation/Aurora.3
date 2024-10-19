@@ -96,7 +96,8 @@
 	else
 		for(var/mob/storyteller in SSodyssey.storytellers)
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("The automated announcement to the Horizon would have been sent now, but it has been blocked by the presence of a Storyteller.")))
-			to_chat(storyteller, SPAN_DANGER("Please remember to use the Send Distress Message verb as soon as your prep is done!"))
+			to_chat(storyteller, FONT_LARGE(SPAN_DANGER("Please remember to use the Send Distress Message verb as soon as your prep is done!")))
+			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("If it is an Overmap scenario, please make sure to <b>include either the exact name or the coordinates of the Overmap object</b> the scenario takes place on.")))
 
 /obj/effect/landmark/actor
 	name = "actor"

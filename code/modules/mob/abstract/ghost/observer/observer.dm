@@ -91,15 +91,12 @@
 	real_name = name
 
 /mob/abstract/ghost/observer/Destroy()
-	stop_following()
-	qdel(ghost_multitool)
-	ghost_multitool = null
-
 	if (ghostimage)
 		SSmobs.ghost_darkness_images -= ghostimage
 		qdel(ghostimage)
 		ghostimage = null
 		updateallghostimages()
+
 	return ..()
 
 /mob/abstract/ghost/observer/Topic(href, href_list)
@@ -168,8 +165,7 @@ Works together with spawning an observer, noted above.
 		to_chat(src, SPAN_NOTICE("[message]"))
 		forceMove(O.loc)
 
-//Teleports the observer away from z-levels they shouldnt be on, if needed.
-/mob/abstract/ghost/observer/proc/teleport_if_needed()
+/mob/abstract/ghost/observer/teleport_if_needed()
 	//If we dont have a observe restriction we dont need to teleport
 	if(!GLOB.config.observe_restriction)
 		return
@@ -389,10 +385,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/add_memory()
 	set hidden = 1
 	to_chat(src, SPAN_WARNING("You are dead! You have no mind to store memory!"))
-
-/mob/abstract/ghost/observer/Post_Incorpmove()
-	stop_following()
-	teleport_if_needed()
 
 /mob/abstract/ghost/observer/verb/analyze_air()
 	set name = "Analyze Air"

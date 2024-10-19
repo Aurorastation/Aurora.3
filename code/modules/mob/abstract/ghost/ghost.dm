@@ -20,6 +20,11 @@
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
 
+/mob/abstract/ghost/Destroy()
+	stop_following()
+	QDEL_NULL(ghost_multitool)
+	return ..()
+
 /mob/abstract/ghost/ClickOn(var/atom/A, var/params)
 	if(!canClick())
 		return
@@ -27,6 +32,14 @@
 	// You are responsible for checking config.ghost_interaction when you override this function
 	// Not all of them require checking, see below
 	A.attack_ghost(src)
+
+/mob/abstract/ghost/Post_Incorpmove()
+	stop_following()
+	teleport_if_needed()
+
+/// Teleports the observer away from z-levels they shouldnt be on, if needed.
+/mob/abstract/ghost/proc/teleport_if_needed()
+	return
 
 /mob/abstract/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"

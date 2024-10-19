@@ -1,7 +1,7 @@
 /mob/proc/on_mob_jump()
 	return
 
-/mob/abstract/ghost/observer/on_mob_jump()
+/mob/abstract/ghost/on_mob_jump()
 	stop_following()
 
 /client/proc/Jump(var/area/A in GLOB.all_areas)

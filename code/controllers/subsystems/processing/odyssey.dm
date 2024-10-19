@@ -1,8 +1,9 @@
 SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
-	flags = SS_BACKGROUND|SS_NO_FIRE
+	flags = SS_BACKGROUND
 	wait = 8
+	can_fire = FALSE
 
 	/// The selected scenario singleton.
 	var/singleton/scenario/scenario
@@ -36,6 +37,7 @@ SUBSYSTEM_DEF(odyssey)
 	if(!has_sent_roundstart_announcement)
 		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
 		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
+		has_sent_roundstart_announcement = TRUE
 
 /**
  * Picks a random odyssey while keeping in mind sector requirements.
@@ -56,7 +58,7 @@ SUBSYSTEM_DEF(odyssey)
 	scenario = pickweight(possible_scenarios)
 	gamemode_setup()
 	/// Now that we actually have an odyssey, the subsystem can fire!
-	flags &= ~SS_NO_FIRE
+	can_fire = TRUE
 	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 	return TRUE
 
