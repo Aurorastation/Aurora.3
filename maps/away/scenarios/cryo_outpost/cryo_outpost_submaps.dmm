@@ -1904,7 +1904,7 @@
 "Zd" = (
 /obj/machinery/camera/network/cryo_outpost{
 	dir = 8;
-	c_tag = "Outside, River Bridge"
+	c_tag = "Warehouse"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
