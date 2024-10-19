@@ -15,10 +15,16 @@
 	if(!SSodyssey.pick_odyssey())
 		return FALSE
 
-	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY("The scenario picked for this round is: <b>[SPAN_NOTICE(SSodyssey.scenario.name)]</b>.\n\
-			[SSodyssey.scenario.desc]\n\
-			It is a <b>[SSodyssey.scenario.scenario_type == SCENARIO_TYPE_NONCANON ? "non-canon" : "canon"]</b> scenario.\n\
-			Please keep in mind that the Storyteller or the Actors may alter the story as they see fit, and remember to go along with what they have planned!")))
+	var/odyssey_message = "The scenario picked for this round is: <b>[SPAN_NOTICE(SSodyssey.scenario.name)]</b>.\n\
+			<i>[SSodyssey.scenario.desc]</i>\n\
+			It is a <b>[SSodyssey.scenario.scenario_type == SCENARIO_TYPE_NONCANON ? "non-canon" : "canon"]</b> scenario.\n"
+
+	if(SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON)
+		odyssey_message += SPAN_DANGER("A Canon Odyssey scenario follows the same rules as Extended canonicity, meaning that character deaths may be retconned if all parties agree. Adminhelp or refer to the rules for more information.")
+
+	odyssey_message += "Please keep in mind that the Storyteller and the Actors may alter the story as they see fit, and remember to go along with what they have planned!"
+
+	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY(odyssey_message)))
 
 	if(!SSodyssey.scenario.setup_scenario())
 		return FALSE

@@ -8,7 +8,7 @@
 	scenario_site_id = "ruined_propellant_depot"
 
 	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_announcement_message = "\
+	horizon_late_announcement_message = "\
 		Greetings, SCCV Horizon. A nearby propellant depot has launched a distress beacon, requesting help. \
 		That depot is independent, but friendly, often serving fuel to corporate ships at a discount. \
 		You are to investigate, and provide aid if needed. \

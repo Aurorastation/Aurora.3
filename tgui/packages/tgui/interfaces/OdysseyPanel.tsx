@@ -55,7 +55,7 @@ export const OdysseyPanel = (props, context) => {
             </Box>{' '}
             scenario. Please remember that the one thing you cannot change about
             the round is its canonicity! Stay within the bounds of the
-            scenario's intended canon status.
+            scenario&apos;s intended canon status.
           </NoticeBox>
         </Section>
         {data.scenario_roles && data.scenario_roles.length ? (

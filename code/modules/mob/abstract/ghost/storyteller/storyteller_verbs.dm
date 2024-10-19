@@ -308,3 +308,40 @@
 			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
 	message_admins(SPAN_NOTICE("[ckey] creating an explosion at [epicenter.loc]."))
+
+/mob/abstract/ghost/storyteller/verb/delete_atom(atom/O as obj|mob|turf in range(world.view))
+	set name = "Delete"
+	set category = "Storyteller"
+
+	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
+
+	if (action == "No")
+		return
+
+	if (istype(O, /mob/abstract/ghost/observer))
+		return
+
+	log_admin("[key_name(usr)] deleted [O] at ([O.x],[O.y],[O.z])")
+	message_admins("[key_name_admin(usr)] deleted [O] at ([O.x],[O.y],[O.z])", 1)
+
+	if (isturf(O))	// Can't qdel a turf.
+		var/turf/T = O
+		T.ChangeTurf(/turf/space)
+		return
+
+	if (action == "Yes")
+		qdel(O, TRUE)
+	else
+		// This is naughty, but sometimes necessary.
+		O.Destroy(TRUE)	// Because direct del without this breaks things.
+		del(O)
+
+/mob/abstract/ghost/storyteller/verb/rejuvenate(mob/living/M as mob in range(world.view))
+	set name = "Rejuvenate"
+	set category = "Storyteller"
+
+	if(!istype(M))
+		return
+
+	M.revive()
+	message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!"), 1)

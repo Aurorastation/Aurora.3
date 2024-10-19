@@ -25,10 +25,12 @@
 	/// The minimum amount of actors we want to spawn in this odyssey.
 	var/min_actor_amount = 1
 
-	/// The title for the message sent to the Horizon at roundstart.
+	/// The title for the messages sent to the Horizon to notify them of the scenarios, both in notify_scenario_early and notify_scenario_late.
 	var/horizon_announcement_title = "Central Command Situation Report"
-	/// The announcement message sent to the Horizon at roundstart, typically telling them to go investigate the Odyssey and why.
-	var/horizon_announcement_message = "There is a Situation on this away site you're probably supposed to know about. Go investigate it."
+	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
+	var/horizon_early_announcement_message = "A site of interest has been located and the SCCV Horizon will be sent to investigate it. Please prepare an expedition."
+	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
+	var/horizon_late_announcement_message = "There is a Situation on this away site you're probably supposed to know about. Go investigate it."
 
 	/// The default outfit every actor is given on this scenario.
 	/// They can select their role and outfit on the Odyssey UI when ingame.
@@ -75,13 +77,22 @@
 	SSholomap.generate_all_minimaps()
 
 /**
- * This proc is what you should override if you want anything specific to be messaged to the Horizon.
- * This is essentially the distress signal or central command order that makes the Horizon investigate the odyssey point.
+ * This proc sends the early message to the Horizon. It is supposed to be sent around 5 minutes in, telling them to get ready for a yet-unknown expedition.
+ * It essentially lets them prepare stuff for the expeditions, like shuttle, manpower and resources, without it being metagaming.
+ * Again, they probably shouldn't know the exact details here and they should await further information, but this is case-by-case depending on the scenario.
+ * You can override it with an empty return if you don't want anything sent early on.
  */
-/singleton/scenario/proc/notify_horizon(var/obj/effect/overmap/visitable/ship/horizon)
+/singleton/scenario/proc/notify_horizon_early(var/obj/effect/overmap/visitable/ship/horizon)
+	command_announcement.Announce(horizon_early_announcement_message, horizon_announcement_title, do_print = TRUE)
+
+/**
+ * This proc is what you should override if you want anything specific to be messaged to the Horizon. Keep in mind this is the message sent about 20 minutes in.
+ * This is essentially the distress signal or central command order that makes the Horizon go investigate the odyssey point.
+ */
+/singleton/scenario/proc/notify_horizon_late(var/obj/effect/overmap/visitable/ship/horizon)
 	/// We don't want to send the announcement if there are Storytellers. We want to have them control when to end their prep and when to tell the Horizon to come.
 	if(!length(SSodyssey.storytellers))
-		command_announcement.Announce(horizon_announcement_message, horizon_announcement_title, do_print = TRUE)
+		command_announcement.Announce(horizon_late_announcement_message, horizon_announcement_title, do_print = TRUE)
 	else
 		for(var/mob/storyteller in SSodyssey.storytellers)
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("The automated announcement to the Horizon would have been sent now, but it has been blocked by the presence of a Storyteller.")))

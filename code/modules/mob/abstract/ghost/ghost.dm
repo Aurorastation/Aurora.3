@@ -1,4 +1,7 @@
 /mob/abstract/ghost
+	layer = OBSERVER_LAYER
+	plane = OBSERVER_PLANE
+
 	/// Toggle darkness.
 	var/see_darkness = FALSE
 	/// Is the ghost able to see things humans can't?
@@ -42,7 +45,7 @@
 	update_sight()
 	to_chat(usr, SPAN_NOTICE("You [(ghostvision ? "now" : "no longer")] have ghost vision."))
 
-/mob/abstract/ghost/proc/dead_tele(A in GLOB.ghostteleportlocs)
+/mob/abstract/ghost/proc/dead_tele()
 	set name = "Teleport"
 	set category = "Ghost"
 	set desc= "Teleport to a location."
@@ -51,10 +54,12 @@
 		to_chat(usr, SPAN_WARNING("You need to be a ghost!"))
 		return
 
+	var/area_name = tgui_input_list(src, "Select an area to teleport to.", "Teleport", GLOB.ghostteleportlocs)
+
 	remove_verb(usr, /mob/abstract/ghost/proc/dead_tele)
 	ADD_VERB_IN(usr, 30, /mob/abstract/ghost/proc/dead_tele)
 
-	var/area/thearea = GLOB.ghostteleportlocs[A]
+	var/area/thearea = GLOB.ghostteleportlocs[area_name]
 	if(!thearea)
 		return
 

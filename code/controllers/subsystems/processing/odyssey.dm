@@ -34,7 +34,8 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/fire()
 	. = ..()
 	if(!has_sent_roundstart_announcement)
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon), horizon), rand(4 MINUTES, 5 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
 
 /**
  * Picks a random odyssey while keeping in mind sector requirements.
