@@ -78,7 +78,6 @@
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
-	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	//Recalculate opacity
 	var/turf/T = loc
@@ -147,7 +146,7 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, TRUE)
+	Moved(oldloc, NONE, TRUE, null)
 
 // Make sure you know what you're doing if you call this
 // You probably want CanPass()
@@ -492,7 +491,7 @@
 	var/old_loc = loc
 	loc = destination
 	loc.Entered(src, old_loc)
-	Moved(old_loc, TRUE)
+	Moved(old_loc, get_dir(old_loc, destination), TRUE)
 
 	//Zmimic
 	if(bound_overlay)
@@ -516,13 +515,20 @@
 
 	return TRUE
 
-/atom/movable/proc/Moved(atom/old_loc, forced)
+/**
+ * Called after a successful Move(). By this point, we've already moved.
+ * Arguments:
+ * * old_loc is the location prior to the move. Can be null to indicate nullspace.
+ * * movement_dir is the direction the movement took place. Can be NONE if it was some sort of teleport.
+ * * The forced flag indicates whether this was a forced move, which skips many checks of regular movement.
+ * * The old_locs is an optional argument, in case the moved movable was present in multiple locations before the movement.
+ **/
+/atom/movable/proc/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	SHOULD_CALL_PARENT(TRUE)
+
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
-	update_grid_location(old_loc, src)
-
-/atom/movable/proc/update_grid_location(atom/old_loc)
+	/* START Spatial grid stuffs */
 	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
 
@@ -541,6 +547,7 @@
 
 	else if(new_turf && !old_turf)
 		SSspatial_grid.enter_cell(src, new_turf)
+	/* END Spatial grid stuffs */
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -565,9 +572,6 @@
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
 
-	if(GLOB.moved_event.is_listening(src, gone, TYPE_PROC_REF(/atom/movable, recursive_move)))
-		GLOB.moved_event.unregister(src, gone)
-
 	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -588,9 +592,6 @@
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
-
-	if(GLOB.moved_event.has_listeners(arrived) && !GLOB.moved_event.is_listening(src, arrived))
-		GLOB.moved_event.register(src, arrived, TYPE_PROC_REF(/atom/movable, recursive_move))
 
 	if(GLOB.dir_set_event.has_listeners(arrived))
 		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))

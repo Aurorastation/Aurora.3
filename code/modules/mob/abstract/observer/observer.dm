@@ -421,7 +421,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	stop_following()
 	following = target
-	GLOB.moved_event.register(following, src, TYPE_PROC_REF(/atom/movable, move_to_destination))
+	RegisterSignal(following, COMSIG_MOVABLE_MOVED, PROC_REF(move_to_destination))
 	GLOB.destroyed_event.register(following, src, PROC_REF(stop_following))
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
@@ -431,19 +431,20 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/proc/stop_following()
 	if(following)
 		to_chat(src, SPAN_NOTICE("No longer following \the <b>[following]</b>."))
-		GLOB.moved_event.unregister(following, src)
+		UnregisterSignal(following, COMSIG_MOVABLE_MOVED)
 		GLOB.destroyed_event.unregister(following, src)
 		following = null
 
 
-/mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
-	var/turf/T = get_turf(new_loc)
+/mob/abstract/observer/proc/move_to_destination(atom/movable/listener, atom/old_loc, dir, forced, list/old_locs)
+	var/turf/T = get_turf(listener)
 	if(check_holy(T))
 		stop_following()
 		teleport_if_needed()
 		to_chat(usr, SPAN_WARNING("You cannot follow something standing on holy grounds!"))
 		return
-	..()
+	if(T && T != loc)
+		forceMove(T)
 
 /mob/proc/check_holy(var/turf/T)
 	return 0

@@ -173,7 +173,6 @@
 
 	//Observables event, Aurora snowflake code
 	GLOB.entered_event.raise_event(src, arrived, old_loc)
-	GLOB.moved_event.raise_event(arrived, old_loc, arrived.loc)
 
 /**
  * An atom is attempting to exit this atom's contents

@@ -799,7 +799,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	GLOB.moved_event.register(owner, src, PROC_REF(follow))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -826,7 +826,7 @@
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner = null
 	. = ..()
 

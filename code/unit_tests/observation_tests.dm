@@ -1,5 +1,8 @@
-/proc/is_listening_to_movement(var/atom/movable/listening_to, var/listener)
-	return GLOB.moved_event.is_listening(listening_to, listener)
+/proc/is_listening_to_movement(var/atom/movable/listening_to, var/datum/listener)
+	var/list/procs = (listener._signal_procs ||= list())
+	var/list/target_procs = (procs[listening_to] ||= list())
+	var/exists = target_procs[COMSIG_MOVABLE_MOVED]
+	return exists
 
 /datum/unit_test/observation
 	name = "OBSERVATION template"

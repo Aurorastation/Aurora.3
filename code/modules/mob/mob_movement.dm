@@ -185,10 +185,6 @@
 		. = ..(newloc, direction)
 
 		if(.)
-			// Events.
-			if(GLOB.moved_event.global_listeners[src])
-				GLOB.moved_event.raise_event(src, old_loc, loc)
-
 			// Lighting.
 			if(light_sources)
 				var/datum/light_source/L
@@ -213,7 +209,7 @@
 				if(bound_overlay.dir != dir)
 					bound_overlay.set_dir(dir)
 
-			Moved(old_loc, FALSE)
+			Moved(old_loc, direction, FALSE)
 
 		if(direction != olddir)
 			dir = olddir
