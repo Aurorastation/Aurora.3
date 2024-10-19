@@ -198,6 +198,7 @@
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
 /obj/machinery/door/blast/regular
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -207,6 +208,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = FALSE
 	opacity = FALSE
@@ -240,6 +242,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

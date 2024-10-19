@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	var/angle_per_element = round(zone / page_choices.len)
 	for(var/i in 1 to elements.len)
 		var/atom/movable/screen/radial/E = elements[i]
-		var/angle = Wrap(starting_angle + (i - 1) * angle_per_element,0,360)
+		var/angle = WRAP(starting_angle + (i - 1) * angle_per_element,0,360)
 		if(i > page_choices.len)
 			HideElement(E)
 		else
@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 /datum/radial_menu/proc/next_page()
 	if(pages > 1)
-		current_page = Wrap(current_page + 1,1,pages+1)
+		current_page = WRAP(current_page + 1,1,pages+1)
 		update_screen_objects()
 
 /datum/radial_menu/proc/show_to(mob/M)

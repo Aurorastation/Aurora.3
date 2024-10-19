@@ -330,8 +330,7 @@
 "dA" = (
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2226,7 +2225,6 @@
 /area/water_barge/engineering)
 "vl" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 2;
 	name = "scrubbers to waste"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -3758,8 +3756,7 @@
 "KW" = (
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -4639,8 +4636,7 @@
 /area/water_barge/breakroom)
 "SF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -4949,8 +4945,7 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+	pixel_y = -8
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -5224,8 +5219,7 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -5563,14 +5557,6 @@
 /obj/effect/overmap/visitable/ship/water_barge,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/helm)
-"ZF" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
-	},
-/turf/simulated/floor/plating,
-/area/water_barge)
 "ZI" = (
 /obj/item/modular_computer/console/preset/civilian,
 /turf/simulated/floor/tiled/dark,
@@ -16773,7 +16759,7 @@ Fj
 Fj
 Fj
 rX
-ZF
+pc
 Fj
 Fj
 Fj

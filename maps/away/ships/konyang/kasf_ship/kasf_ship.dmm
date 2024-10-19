@@ -5210,7 +5210,6 @@
 "DS" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "kasf_co2_out_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5843,7 +5842,6 @@
 "Hd" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "kasf_co2_out_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,

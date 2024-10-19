@@ -1,8 +1,8 @@
-/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user)
+/obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/attacking_item, mob/user, params)
 
-	if(istype(W,/obj/item/reagent_containers/food/snacks))
+	if(istype(attacking_item,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/S = new(get_turf(src))
-		S.attackby(W,user)
+		S.attackby(attacking_item,user)
 		qdel(src)
 	..()
 
@@ -63,7 +63,7 @@
 
 	name = lowertext("[english_list(words)] [base_name]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] [base_name]"
-	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
+	w_class = n_ceil(clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
 	QDEL_LIST(ingredients)

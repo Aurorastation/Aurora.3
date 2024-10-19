@@ -333,7 +333,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	if(lit)
 		die(TRUE)
 
-/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
+
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
@@ -972,8 +974,10 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 /obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
 	handle_lighting()
 
-/obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!istype(M, /mob))
+/obj/item/flame/lighter/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
 		return
 
 	if(lit && M.IgniteMob())

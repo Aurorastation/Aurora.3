@@ -224,6 +224,9 @@
 /obj/machinery/shower/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
+	if(QDELETED(arrived))
+		return
+
 	INVOKE_ASYNC(src, PROC_REF(wash), arrived)
 	if(ismob(arrived))
 		mobpresent += 1
@@ -231,6 +234,9 @@
 
 /obj/machinery/shower/proc/on_exit(atom/movable/gone, direction)
 	SIGNAL_HANDLER
+
+	if(QDELETED(gone))
+		return
 
 	if(ismob(gone))
 		mobpresent -= 1

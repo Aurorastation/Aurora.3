@@ -234,22 +234,22 @@ var/const/NO_EMAG_ACT = -50
 		blind_message += " [blind_add_text]"
 	user.visible_message(message, blind_message)
 
-/obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
-		if(!ishuman(M))
+		if(!ishuman(target_mob))
 			return ..()
 
 		if (dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
 
-				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
+				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
 					return
 
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/human/H = target_mob
 
 				if(H.gloves)
 					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))

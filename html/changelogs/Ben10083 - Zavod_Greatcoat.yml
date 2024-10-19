@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CourierBravo
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,7 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Redid random object sprites, assigning unique sprites to each random object. With the expectation that in the future, random objects have unique icons. You'll only ever see this when you do map making stuff."
-  - rscadd: "Created a new sprite for the cooking oil tank, a modified reagent tank sprite."
-  - imageadd: "Added rainbow sprites for random objects, and replaced the oil tank sprite."
-  - balance: "Reduced the amount of cooking oil in oil tanks to be in line with other reagent tanks."
+  - rscadd: "Adds new black and brown greatcoats, thanks to greytide_ for the sprites!"
+  - rscadd: "Greatcoat options added to loadout."

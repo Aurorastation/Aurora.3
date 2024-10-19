@@ -234,8 +234,6 @@
 	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
 	banners["banner, Republic of Assunzione"] = /obj/item/flag/assunzione
-	banners["banner, New Gibson"] = /obj/item/flag/newgibson
-	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
@@ -265,6 +263,16 @@
 	banners["banner, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium
 	banners["banner, Eternal Republic of the Ekane"] = /obj/item/flag/ekane
 	banners["banner, Union of Gla'orr"] = /obj/item/flag/glaorr
+	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Valkyrie"] = /obj/item/flag/valkyrie
+	banners["banner, Antique Xanu"] = /obj/item/flag/old_xanu
+	banners["banner, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm
+	banners["banner, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm
+	banners["banner, Provisional Government of Mars"] = /obj/item/flag/mars
+	banners["banner, Pluto"] = /obj/item/flag/pluto
+	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
+	banners["banner, Visegrad"] = /obj/item/flag/visegrad
+	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -355,6 +363,15 @@
 	flags["flag, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium/l
 	flags["flag, Eternal Republic of the Ekane"] = /obj/item/flag/ekane/l
 	flags["flag, Union of Gla'orr"] = /obj/item/flag/glaorr/l
+	flags["flag, New Gibson"] = /obj/item/flag/newgibson/l
+	flags["flag, Valkyrie"] = /obj/item/flag/valkyrie/l
+	flags["flag, Antique Xanu"] = /obj/item/flag/old_xanu/l
+	flags["flag, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm/l
+	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
+	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
+	flags["flag, Pluto"] = /obj/item/flag/pluto/l
+	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad
+	flags["flag, Visegrad"] = /obj/item/flag/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

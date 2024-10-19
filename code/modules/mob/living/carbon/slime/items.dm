@@ -137,10 +137,13 @@
 	filling.color = COLOR_PINK
 	AddOverlays(filling)
 
-/obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+/obj/item/docility_serum/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
+
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
 		return ..()
@@ -180,10 +183,13 @@
 	filling.color = COLOR_PALE_PINK
 	AddOverlays(filling)
 
-/obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+/obj/item/advanced_docility_serum/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M))//If target is not a slime.
 		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
+
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
 		return ..()
@@ -230,10 +236,13 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/obj/item/slimesteroid/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
+/obj/item/slimesteroid/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/slime/M = target_mob
+
+	if(!istype(M)) //If target is not a slime.
 		to_chat(user, SPAN_WARNING("The steroid only works on baby slimes!"))
 		return ..()
+
 	if(M.is_adult) //Can't tame adults
 		to_chat(user, SPAN_WARNING("Only baby slimes can use the steroid!"))
 		return ..()

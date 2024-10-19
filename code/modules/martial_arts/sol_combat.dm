@@ -46,7 +46,7 @@
 				A.spin(10,1)
 				M.Weaken(3)
 				A.visible_message(M, SPAN_DANGER("[A] swiftly leg sweeps [M]!"))
-				AM.throw_at(sweeptarget, ((Clamp((1 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
+				AM.throw_at(sweeptarget, ((clamp((1 - (clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)

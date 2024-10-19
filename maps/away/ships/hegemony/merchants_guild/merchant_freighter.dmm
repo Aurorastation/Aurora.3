@@ -92,8 +92,7 @@
 "bJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -293,8 +292,7 @@
 /area/shuttle/merchants_guild)
 "dC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -577,12 +575,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
@@ -774,8 +770,7 @@
 /area/merchants_guild/starboardengine)
 "jI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
@@ -925,12 +920,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1101,17 +1094,14 @@
 /area/merchants_guild/office)
 "pv" = (
 /obj/machinery/conveyor{
-	dir = 2;
 	id = "merchants_guild";
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	id = "mg_cargo_hatch"
@@ -1150,8 +1140,7 @@
 /area/merchants_guild/eva)
 "pR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1169,22 +1158,6 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
-"pV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	icon_state = "map-supply";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/merchants_guild)
 "qb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1308,8 +1281,7 @@
 /area/merchants_guild/starboardengine)
 "rv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1353,8 +1325,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1386,7 +1357,6 @@
 "sa" = (
 /obj/machinery/alarm/east{
 	pixel_x = 25;
-	pixel_y = 0;
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/plating,
@@ -1419,8 +1389,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1448,8 +1417,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
@@ -1717,12 +1685,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/office)
@@ -1913,8 +1879,7 @@
 /area/merchants_guild/bridge)
 "zE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2196,12 +2161,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2253,8 +2216,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
@@ -2372,12 +2334,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2921,8 +2881,7 @@
 /area/shuttle/merchants_guild)
 "Mj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
@@ -2973,8 +2932,7 @@
 /area/merchants_guild/portengine)
 "MR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3008,7 +2966,6 @@
 /obj/machinery/airlock_sensor/airlock_interior{
 	frequency = 1380;
 	id_tag = "merchant_guild_interior_sensor";
-	master_tag = null;
 	pixel_x = -25;
 	pixel_y = -25
 	},
@@ -3183,8 +3140,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
@@ -3384,22 +3340,11 @@
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
-"Uh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/merchants_guild)
 "Uk" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8;
@@ -3657,12 +3602,10 @@
 	id = "merchants_guild"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/merchant_pad,
 /turf/simulated/floor/plating,
@@ -3679,8 +3622,7 @@
 	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/light{
 	dir = 8
@@ -16425,9 +16367,9 @@ dO
 dO
 dO
 sx
-Uh
+kg
 Yf
-pV
+TC
 Yf
 kg
 Jp

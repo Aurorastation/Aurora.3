@@ -288,7 +288,7 @@ SUBSYSTEM_DEF(jobs)
 	if(SSatlas.current_sector.description)
 		to_chat(H, SSatlas.current_sector.get_chat_description())
 
-	if("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns && spawning_at == "Arrivals Shuttle")
+	if(("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns) && spawning_at == "Arrivals Shuttle")
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
 		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
