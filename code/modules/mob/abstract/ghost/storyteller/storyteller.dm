@@ -1,6 +1,6 @@
 /mob/abstract/ghost/storyteller
 	name = "Storyteller"
-	desc = "Are you a Storyteller because you tell a story, or do you tell the story because you're the Storyteller?"
+	desc = "You wonder what story will be told today. Hopefully one where your character with 200 euros' worth of custom art doesn't die. That would be a shame. Wouldn't it?"
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
 	status_flags = GODMODE
