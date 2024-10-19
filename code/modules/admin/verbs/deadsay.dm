@@ -17,11 +17,7 @@
 	if (src.handle_spam_prevention(msg,MUTE_DEADCHAT))
 		return
 
-	var/stafftype
-	if(!isstoryteller(src))
-		stafftype = uppertext(holder.rank)
-	else
-		stafftype = "STORYTELLER"
+	var/stafftype = uppertext(holder.rank)
 
 	msg = sanitize(msg)
 	log_admin("DSAY: [key_name(src)] : [msg]")
