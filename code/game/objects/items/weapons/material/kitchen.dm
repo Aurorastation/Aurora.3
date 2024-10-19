@@ -195,42 +195,64 @@
 
 /obj/item/material/kitchen/utensil/knife/pocketbutterknife
 	name = "pocket butter knife"
-	desc = "An SCC Security approved modification of the H30V4 pocket knife."
-	desc_extended = "The H30V4B was developed to answer the immediate issue posed by the SCC not allowing pocket knives aboard the SCCV Horizon. Featuring a circular, \
-	rounded tip and notching in place of serration, it gets the job done. The knife is an employee exclusive, issued to Hephaestus crew either by purchase, or at \
-	request for 5+ year veteran employees."
+	desc = "The H30V4B pocket butter knife exists solely to solve one problem: How do we let Hephaestus employees take this knife anywhere? The solution? \
+	A replacement blade. Featuring a circular, rounded tip and notching in place of serration, it gets the job done. This blade is an employee exclusive, \
+	issued to Hephaestus crew either by purchase, or at request for 5+ year veteran employees."
+	desc_extended = "The H30V4 pocket knife, produced by Hephaestus Industries, is credited as the single most produced pocket knife in human history. \
+	With a tanto style blade, high quality steel, and a surprisingly sturdy textured plastic handle, its a true every person tool. The pocket knife is often \
+	given as a gift to Hephaestus employees who have been with the company for 5 years, or who have invested into the company. Titanius Aeson himself often \
+	flaunts his own pocket knife when emphasizing the benefits of employment or thanking long-time Hephaestus employees. The plastic handle is known to become quite \
+	brittle after several years of use, however easy disassembly and replacement parts available on Hephaestus' webstore (and a large third party aftermarket of dubious legality) \
+	means worn out components can be readily replaced"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "pocketbutter"
 	attack_verb = list("poked", "jabbed", "schmeared")
-	var/on = FALSE
+	force_divisor = 0.05
+	w_class = WEIGHT_CLASS_SMALL
 
+	///Boolean, if the knife is deployed (blade is out)
+	var/deployed = FALSE
+
+/**
+ * Changes the icon and variables
+ */
 /obj/item/material/kitchen/utensil/knife/pocketbutterknife/update_icon()
-	if(on)
+	if(deployed)
 		icon_state = "[initial(icon_state)]-on"
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/material/kitchen/utensil/knife/pocketbutterknife/proc/activate(mob/user)
-	on = !on
+/**
+ * Switches the knife's deployment status, changes the force value, and makes it blunt/sharp.
+ *
+ * * user - The mob who is switching the knife's deployment status
+ */
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/proc/switch_deployment_status(mob/user)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(deployed)
+		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
+		playsound(user, 'sound/weapons/blade_close.ogg', 15, TRUE)
+		force = 3
+		sharp = FALSE
+		edge = FALSE
+		deployed = FALSE
+
+	else
+		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
+		playsound(user, 'sound/weapons/blade_open.ogg', 15, TRUE)
+		force = 6
+		sharp = TRUE
+		edge = TRUE
+		deployed = TRUE
+
+	add_fingerprint(user)
 	update_icon()
-	return 1
 
 /obj/item/material/kitchen/utensil/knife/pocketbutterknife/AltClick(mob/user)
-	activate(user)
-	if(on)
-		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
-		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
-	else
-		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
-		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
-	add_fingerprint(user)
+	if(!use_check_and_message(user))
+		switch_deployment_status(user)
 
 /obj/item/material/kitchen/utensil/knife/pocketbutterknife/attack_self(mob/user)
-	activate(user)
-	if(on)
-		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
-		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
-	else
-		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
-		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
-	add_fingerprint(user)
+	if(!use_check_and_message(user))
+		switch_deployment_status(user)
