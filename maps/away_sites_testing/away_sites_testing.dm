@@ -51,6 +51,17 @@
 	for(var/datum/map_template/ruin/away_site/away_site in away_sites_to_spawn)
 		// load the site
 		var/bounds = away_site.load_new_z()
+
+		// do away site exoplanet generation, if needed
+		if(away_site.exoplanet_themes)
+			for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
+
+
+		// fin
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
@@ -59,6 +70,16 @@
 		var/datum/map_template/ruin/away_site/away_site = SSmapping.away_sites_templates[map]
 
 		// load the site
-		away_site.load_new_z()
+		var/bounds = away_site.load_new_z()
+
+		// do away site exoplanet generation, if needed
+		if(away_site.exoplanet_themes)
+			for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
+
+		// fin
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 #endif
