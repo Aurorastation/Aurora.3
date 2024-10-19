@@ -25,13 +25,6 @@
 		stop_following()
 		forceMove(get_turf(A))
 
-/mob/abstract/ghost/observer/ClickOn(var/atom/A, var/params)
-	if(!canClick()) return
-	setClickCooldown(4)
-	// You are responsible for checking config.ghost_interaction when you override this function
-	// Not all of them require checking, see below
-	A.attack_ghost(src)
-
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
 /atom/proc/attack_ghost(mob/abstract/ghost/observer/user as mob)
 	if(user.client && user.client.inquisitive_ghost)

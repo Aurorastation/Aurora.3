@@ -24,7 +24,8 @@
 		to_chat(src, "You've used this verb too recently, please wait a moment before trying again.")
 		return
 
-	if(!check_rights(R_DEV|R_ADMIN))	return
+	if(!check_rights(R_DEV|R_ADMIN))
+		return
 
 	if(!holder)
 		return //how did they get here?

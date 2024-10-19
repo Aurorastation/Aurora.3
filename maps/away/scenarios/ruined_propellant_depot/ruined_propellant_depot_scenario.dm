@@ -1,5 +1,5 @@
 
-/singleton/scenario/ruined_propellant_depot
+/*/singleton/scenario/ruined_propellant_depot
 	name = "Propellant Depot"
 	desc = "\
 		An independent propellant depot near some asteroid field, that has launched a distress beacon, requesting help. \
@@ -15,7 +15,7 @@
 		"
 
 	min_player_amount = 0
-	min_actor_amount = 0 //should be 4 todomatt
+	min_actor_amount = 0
 
 	roles = list(
 		/singleton/role/ruined_propellant_depot,
@@ -27,3 +27,4 @@
 	base_area = /area/ruined_propellant_depot
 
 	radio_frequency_name = "Propellant Depot AG5"
+*/

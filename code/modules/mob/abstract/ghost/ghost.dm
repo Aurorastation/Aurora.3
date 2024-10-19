@@ -20,6 +20,14 @@
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
 
+/mob/abstract/ghost/ClickOn(var/atom/A, var/params)
+	if(!canClick())
+		return
+	setClickCooldown(4)
+	// You are responsible for checking config.ghost_interaction when you override this function
+	// Not all of them require checking, see below
+	A.attack_ghost(src)
+
 /mob/abstract/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
 	set category = "Ghost"

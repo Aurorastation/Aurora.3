@@ -285,8 +285,8 @@
 
 	M.mind.edit_memory()
 
-/mob/abstract/ghost/storyteller/verb/drop_bomb()
-	set name = "Drop Bomb"
+/mob/abstract/ghost/storyteller/verb/create_explosion()
+	set name = "Create Explosion"
 	set category = "Storyteller"
 
 	var/turf/epicenter = loc

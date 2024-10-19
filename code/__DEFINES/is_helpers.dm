@@ -37,6 +37,8 @@
 
 #define isspaceturf(A) istype(A, /turf/space)
 
+#define isghost(A) istype(A, /mob/abstract/ghost)
+
 #define isobserver(A) istype(A, /mob/abstract/ghost/observer)
 
 #define isstoryteller(A) istype(A, /mob/abstract/ghost/storyteller)

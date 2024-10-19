@@ -1,4 +1,4 @@
-/*
+
 /singleton/scenario/cryo_outpost
 	name = "Cryo Outpost #187-D"
 	desc = "An illegal cloning outpost on a desert oasis planet, that has just been noticed by megacorporations to be stealing proprietary tech. \
@@ -11,7 +11,7 @@
 	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here."
 
 	min_player_amount = 0
-	min_actor_amount = 0 //should be 4 todomatt
+	min_actor_amount = 0
 
 	roles = list(
 		/singleton/role/cryo_outpost,
@@ -27,7 +27,7 @@
 	base_area = /area/cryo_outpost
 
 	radio_frequency_name = "#187-D Outpost"
-*/
+
 
 /singleton/role/cryo_outpost
 	name = "Mercenary Team Lead"
