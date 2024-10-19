@@ -573,9 +573,9 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	set name = "Aghost"
 	if(!holder)	return
-	if(istype(mob,/mob/abstract/observer))
+	if(istype(mob,/mob/abstract/ghost/observer))
 		//re-enter
-		var/mob/abstract/observer/ghost = mob
+		var/mob/abstract/ghost/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.")
@@ -590,7 +590,7 @@ var/list/admin_verbs_cciaa = list(
 	else
 		//ghostize
 		var/mob/body = mob
-		var/mob/abstract/observer/ghost = body.ghostize(1)
+		var/mob/abstract/ghost/observer/ghost = body.ghostize(1)
 		ghost.admin_ghosted = 1
 		if(body)
 			body.teleop = ghost

@@ -1,4 +1,4 @@
-/mob/abstract/storyteller
+/mob/abstract/ghost/storyteller
 	name = "Storyteller"
 	desc = "Are you a Storyteller because you tell a story, or do you tell the story because you're the Storyteller?"
 	icon = 'icons/mob/mob.dmi'
@@ -14,20 +14,15 @@
 	mob_thinks = FALSE
 	universal_speak = TRUE
 
-	/// Toggle darkness. Basically the same verb as the one observers have.
-	var/see_darkness = FALSE
-	/// Is the ghost able to see things humans can't?
-	var/ghostvision = FALSE
-
-/mob/abstract/storyteller/Initialize()
+/mob/abstract/ghost/storyteller/Initialize()
 	. = ..()
 	SSghostroles.add_spawn_atom("storyteller", src)
 
-/mob/abstract/storyteller/Destroy()
+/mob/abstract/ghost/storyteller/Destroy()
 	SSodyssey.remove_storyteller(src)
 	return ..()
 
-/mob/abstract/storyteller/LateLogin()
+/mob/abstract/ghost/storyteller/LateLogin()
 	. = ..()
 	var/client/C = client
 
@@ -42,12 +37,12 @@
 		SSodyssey.add_storyteller(src)
 		GLOB.storytellers.add_antagonist(mind)
 
-/mob/abstract/storyteller/ghostize(can_reenter_corpse, should_set_timer)
+/mob/abstract/ghost/storyteller/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
 	if(!can_reenter_corpse)
 		SSodyssey.remove_storyteller(src)
 
-/mob/abstract/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/abstract/ghost/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (!message)
 		return
 
@@ -91,73 +86,53 @@
 			prefix = "(R)"
 			admin_stuff += "/([key])"
 			if(target != client)
-				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[src]'>JMP</A>)"
+				admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(src)]'>JMP</A>)"
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)
 			to_chat(target, "<span class='storyteller'>" + create_text_tag("STORY", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span>")
 
-/mob/abstract/storyteller/dust()
+/mob/abstract/ghost/storyteller/dust()
 	return
 
-/mob/abstract/storyteller/gib()
+/mob/abstract/ghost/storyteller/gib()
 	return
 
-/mob/abstract/storyteller/can_fall()
+/mob/abstract/ghost/storyteller/can_fall()
 	return FALSE
 
-/mob/abstract/storyteller/conveyor_act()
+/mob/abstract/ghost/storyteller/conveyor_act()
 	return
 
-/mob/abstract/storyteller/ex_act(var/severity = 2.0)
+/mob/abstract/ghost/storyteller/ex_act(var/severity = 2.0)
 	return
 
-/mob/abstract/storyteller/singularity_act()
+/mob/abstract/ghost/storyteller/singularity_act()
 	return
 
-/mob/abstract/storyteller/singularity_pull()
+/mob/abstract/ghost/storyteller/singularity_pull()
 	return
 
-/mob/abstract/storyteller/singuloCanEat()
+/mob/abstract/ghost/storyteller/singuloCanEat()
 	return FALSE
 
-/mob/abstract/storyteller/can_hear_radio(list/speaker_coverage)
+/mob/abstract/ghost/storyteller/can_hear_radio(list/speaker_coverage)
 	return TRUE
 
-/mob/abstract/storyteller/get_speech_bubble_state_modifier()
+/mob/abstract/ghost/storyteller/get_speech_bubble_state_modifier()
 	return "ghost"
 
-/mob/abstract/storyteller/verb/toggle_darkness()
-	set name = "Toggle Darkness"
-	set category = "Storyteller"
+/mob/abstract/ghost/storyteller/can_admin_interact()
+	return TRUE
 
-	see_darkness = !see_darkness
-	update_sight()
+/mob/abstract/ghost/observer/storyteller/on_restricted_level(var/check)
+	return FALSE
 
-/mob/abstract/storyteller/proc/update_sight()
-	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-	if (!see_darkness)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
-	else
-		set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
-
-/mob/abstract/storyteller/verb/toggle_ghostsee()
-	set name = "Toggle Ghost Vision"
-	set category = "Storyteller"
-	set desc = "Toggles your ability to see things only ghosts can see, like ghosts."
-
-	ghostvision = !ghostvision
-	update_sight()
-	to_chat(usr, SPAN_NOTICE("You [(ghostvision ? "now" : "no longer")] have ghost vision."))
-
-/mob/abstract/storyteller/verb/odyssey_panel()
+/mob/abstract/ghost/storyteller/verb/odyssey_panel()
 	set name = "Odyssey Panel"
 	set category = "Storyteller"
 
 	SSodyssey.ui_interact(src)
-
 
 /**
  * Currently whitelisted in the config behind the head of staff whitelist.
@@ -173,5 +148,5 @@
 	enabled = TRUE
 
 	show_on_job_select = TRUE
-	spawn_mob = /mob/abstract/storyteller
+	spawn_mob = /mob/abstract/ghost/storyteller
 	atom_add_message = "A Storyteller position is available!"

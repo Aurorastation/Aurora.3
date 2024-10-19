@@ -121,7 +121,7 @@
 	set name = "Del-All"
 
 	// to prevent REALLY stupid deletions
-	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/human, /mob/abstract, /mob/abstract/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
+	var/blocked = list(/obj, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/human, /mob/abstract, /mob/abstract/ghost/observer, /mob/living/silicon, /mob/living/silicon/robot, /mob/living/silicon/ai)
 	var/hsbitem = input(usr, "Choose an object to delete.", "Delete:") as null|anything in typesof(/obj) + typesof(/mob) - blocked
 	if(hsbitem)
 		for(var/atom/O in world)
@@ -177,7 +177,7 @@
 		if(alert("This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.",,"Yes","No") != "Yes")
 			return
 		else
-			var/mob/abstract/observer/ghost = new/mob/abstract/observer(M,1)
+			var/mob/abstract/ghost/observer/ghost = new/mob/abstract/ghost/observer(M,1)
 			ghost.ckey = M.ckey
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] assumed direct control of [M]."), 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].")
@@ -301,7 +301,7 @@
 	for(var/spawn_observer in chosen_observers)
 		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
 		do_dressing(H)
-		var/mob/abstract/observer/O = spawn_observer
+		var/mob/abstract/ghost/observer/O = spawn_observer
 		H.ckey = O.ckey
 		qdel(O)
 

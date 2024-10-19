@@ -13795,7 +13795,7 @@
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
 	},
-/mob/abstract/storyteller,
+/mob/abstract/ghost/storyteller,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
 "pId" = (

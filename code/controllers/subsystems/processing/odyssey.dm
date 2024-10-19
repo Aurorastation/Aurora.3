@@ -88,7 +88,7 @@ SUBSYSTEM_DEF(odyssey)
 /**
  * Adds a storyteller to the subsystem storyteller list.
  */
-/datum/controller/subsystem/odyssey/proc/add_storyteller(mob/abstract/storyteller/S)
+/datum/controller/subsystem/odyssey/proc/add_storyteller(mob/abstract/ghost/storyteller/S)
 	LAZYDISTINCTADD(storytellers, S)
 
 /**
@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(odyssey)
 /**
  * Removes a storyteller from the subsystem storyteller list.
  */
-/datum/controller/subsystem/odyssey/proc/remove_storyteller(mob/abstract/storyteller/S)
+/datum/controller/subsystem/odyssey/proc/remove_storyteller(mob/abstract/ghost/storyteller/S)
 	LAZYREMOVE(storytellers, S)
 
 /datum/controller/subsystem/odyssey/ui_state()

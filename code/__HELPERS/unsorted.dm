@@ -429,7 +429,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"
 		if (M.stat == 2)
-			if(istype(M, /mob/abstract/observer/))
+			if(istype(M, /mob/abstract/ghost/observer/))
 				name += " \[ghost\]"
 			else
 				name += " \[dead\]"
@@ -455,7 +455,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/carbon/alien/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/abstract/observer/M in sortmob)
+	for(var/mob/abstract/ghost/observer/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/abstract/new_player/M in sortmob)
 		moblist.Add(M)
@@ -463,7 +463,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/simple_animal/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/abstract/storyteller/M in sortmob)
+	for(var/mob/abstract/ghost/storyteller/M in sortmob)
 		moblist.Add(M)
 //	for(var/mob/living/silicon/hivebot/M in world)
 //		mob_list.Add(M)

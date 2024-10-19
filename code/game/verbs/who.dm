@@ -41,7 +41,7 @@
 					msg += "<font color='darkgray'><b>Unconscious</b></font>"
 				if(DEAD)
 					if(isobserver(client.mob))
-						var/mob/abstract/observer/O = client.mob
+						var/mob/abstract/ghost/observer/O = client.mob
 						if(O.started_as_observer)
 							msg += "<font color='gray'>Observing</font>"
 						else

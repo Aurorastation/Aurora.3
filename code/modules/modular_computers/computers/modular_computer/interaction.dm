@@ -173,7 +173,7 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/observer/user)
 	if(enabled)
 		ui_interact(user)
 	else if(check_rights(R_ADMIN, 0, user))

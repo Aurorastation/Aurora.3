@@ -14,7 +14,7 @@
 /datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	O.ManualFollow(H)
 	if(is_listening_to_movement(H, O))
@@ -33,7 +33,7 @@
 /datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	O.ManualFollow(H)
 	O.stop_following()
@@ -54,7 +54,7 @@
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/obj/structure/closet/C = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	H.forceMove(C)
 	O.ManualFollow(H)
@@ -78,7 +78,7 @@
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/obj/structure/closet/C = new(T)
-	var/mob/abstract/observer/O = new(T)
+	var/mob/abstract/ghost/observer/O = new(T)
 
 	O.ManualFollow(H)
 	H.forceMove(C)

@@ -172,7 +172,7 @@
 			client.holder.original_mob.key = key
 			client.init_verbs()
 		else
-			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/ghost/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"

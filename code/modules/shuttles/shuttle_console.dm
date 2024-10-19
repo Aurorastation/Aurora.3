@@ -51,7 +51,7 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/observer/user)
+/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/ghost/observer/user)
 	if(check_rights(R_ADMIN, 0, user))
 		ui_interact(user)
 

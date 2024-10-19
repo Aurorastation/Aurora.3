@@ -1,5 +1,5 @@
 /client/var/inquisitive_ghost = 1
-/mob/abstract/observer/verb/toggle_inquisition() // warning: unexpected inquisition
+/mob/abstract/ghost/observer/verb/toggle_inquisition() // warning: unexpected inquisition
 	set name = "Toggle Inquisitiveness"
 	set desc = "Sets whether your ghost examines everything on click by default"
 	set category = "Ghost"
@@ -10,7 +10,7 @@
 	else
 		to_chat(src, SPAN_NOTICE("You will no longer examine things you click on."))
 
-/mob/abstract/observer/DblClickOn(var/atom/A, var/params)
+/mob/abstract/ghost/observer/DblClickOn(var/atom/A, var/params)
 	if(can_reenter_corpse && mind && mind.current)
 		if(A == mind.current || (mind.current in A)) // double click your corpse or whatever holds it
 			reenter_corpse()						// (cloning scanner, body bag, closet, mech, etc)
@@ -25,7 +25,7 @@
 		stop_following()
 		forceMove(get_turf(A))
 
-/mob/abstract/observer/ClickOn(var/atom/A, var/params)
+/mob/abstract/ghost/observer/ClickOn(var/atom/A, var/params)
 	if(!canClick()) return
 	setClickCooldown(4)
 	// You are responsible for checking config.ghost_interaction when you override this function
@@ -33,7 +33,7 @@
 	A.attack_ghost(src)
 
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
-/atom/proc/attack_ghost(mob/abstract/observer/user as mob)
+/atom/proc/attack_ghost(mob/abstract/ghost/observer/user as mob)
 	if(user.client && user.client.inquisitive_ghost)
 		examinate(user, src)
 	return

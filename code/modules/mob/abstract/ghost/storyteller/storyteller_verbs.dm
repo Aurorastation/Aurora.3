@@ -1,26 +1,26 @@
 // Okay, these verbs are a lot of ugly copypaste. The issue is that we don't really have any other choice.
 // The alternative (and the first thing I tried) was to make the Storyteller into basically admin perms, but that introduces way too many issues.
 
-/mob/abstract/storyteller/verb/storyteller_panel()
+/mob/abstract/ghost/storyteller/verb/storyteller_panel()
 	set name = "Storyteller Panel"
 	set category = "Storyteller"
 
 	open_storyteller_panel()
 
-/mob/abstract/storyteller/proc/open_storyteller_panel()
+/mob/abstract/ghost/storyteller/proc/open_storyteller_panel()
 	var/dat = {"
 		<center><B>Storyteller Panel</B></center><hr>\n
 		"}
 	dat += {"
 		<BR>
-		<A href='?src=\ref[src];create_object=1'>Create Object</A><br>
-		<A href='?src=\ref[src];create_turf=1'>Create Turf</A><br>
-		<A href='?src=\ref[src];create_mob=1'>Create Mob</A><br>
+		<A href='?src=[REF(src)];create_object=1'>Create Object</A><br>
+		<A href='?src=[REF(src)];create_turf=1'>Create Turf</A><br>
+		<A href='?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
 		"}
 
 	usr << browse(dat, "window=storytellerpanel;size=210x280")
 
-/mob/abstract/storyteller/Topic(href, href_list)
+/mob/abstract/ghost/storyteller/Topic(href, href_list)
 	. = ..()
 	if(href_list["create_object"])
 		if(usr != src)
@@ -108,34 +108,34 @@
 
 		log_and_message_admins("created [number] [english_list(paths)]")
 
-/mob/abstract/storyteller/proc/create_object(var/mob/user)
+/mob/abstract/ghost/storyteller/proc/create_object(var/mob/user)
 	if (!create_object_html)
 		var/objectjs = null
 		objectjs = jointext(typesof(/obj), ";")
 		create_object_html = file2text('html/create_object.html')
 		create_object_html = replacetext(create_object_html, "null /* object types */", "\"[objectjs]\"")
 
-	user << browse(replacetext(create_object_html, "/* ref src */", "\ref[src]"), "window=create_object;size=700x700")
+	user << browse(replacetext(create_object_html, "/* ref src */", "[REF(src)]"), "window=create_object;size=700x700")
 
-/mob/abstract/storyteller/proc/create_turf(var/mob/user)
+/mob/abstract/ghost/storyteller/proc/create_turf(var/mob/user)
 	if (!create_turf_html)
 		var/turfjs = null
 		turfjs = jointext(typesof(/turf), ";")
 		create_turf_html = file2text('html/create_object.html')
 		create_turf_html = replacetext(create_turf_html, "null /* object types */", "\"[turfjs]\"")
 
-	user << browse(replacetext(create_turf_html, "/* ref src */", "\ref[src]"), "window=create_turf;size=700x700")
+	user << browse(replacetext(create_turf_html, "/* ref src */", "[REF(src)]"), "window=create_turf;size=700x700")
 
-/mob/abstract/storyteller/proc/create_mob(var/mob/user)
+/mob/abstract/ghost/storyteller/proc/create_mob(var/mob/user)
 	if (!create_mob_html)
 		var/mobjs = null
 		mobjs = jointext(typesof(/mob), ";")
 		create_mob_html = file2text('html/create_object.html')
 		create_mob_html = replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
 
-	user << browse(replacetext(create_mob_html, "/* ref src */", "\ref[src]"), "window=create_mob;size=700x700")
+	user << browse(replacetext(create_mob_html, "/* ref src */", "[REF(src)]"), "window=create_mob;size=700x700")
 
-/mob/abstract/storyteller/verb/storyteller_local_narrate()
+/mob/abstract/ghost/storyteller/verb/storyteller_local_narrate()
 	set name = "Local Narrate"
 	set category = "Storyteller"
 
@@ -160,7 +160,7 @@
 	log_admin("LocalNarrate: [key_name(usr)] : [msg]")
 	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 
-/mob/abstract/storyteller/verb/storyteller_global_narrate()
+/mob/abstract/ghost/storyteller/verb/storyteller_global_narrate()
 	set name = "Global Narrate"
 	set category = "Storyteller"
 
@@ -172,7 +172,7 @@
 	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
 	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 
-/mob/abstract/storyteller/verb/storyteller_direct_narrate(var/mob/M)
+/mob/abstract/ghost/storyteller/verb/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"
 	set category = "Storyteller"
 
@@ -197,7 +197,7 @@
 	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/mob/abstract/storyteller/verb/toggle_build_mode()
+/mob/abstract/ghost/storyteller/verb/toggle_build_mode()
 	set name = "Toggle Build Mode"
 	set category = "Storyteller"
 
@@ -210,7 +210,7 @@
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 
-/mob/abstract/storyteller/verb/send_distress_message()
+/mob/abstract/ghost/storyteller/verb/send_distress_message()
 	set name = "Create Command Report"
 	set category = "Storyteller"
 
@@ -235,7 +235,7 @@
 	//New message handling
 	post_comm_message(reporttitle, reportbody)
 
-/mob/abstract/storyteller/verb/change_mob_name(var/mob/victim)
+/mob/abstract/ghost/storyteller/verb/change_mob_name(var/mob/victim)
 	set name = "Change Mob Name"
 
 	var/new_name = tgui_input_text(src, "Enter a new name.", "Change Mob Name", max_length = MAX_NAME_LEN)
@@ -245,7 +245,7 @@
 	log_admin("[key_name(src)] has renamed [victim] to [new_name].")
 	victim.set_name(new_name)
 
-/mob/abstract/storyteller/verb/change_obj_name(var/obj/thing)
+/mob/abstract/ghost/storyteller/verb/change_obj_name(var/obj/thing)
 	set name = "Change Object Name"
 
 	var/new_name = tgui_input_text(src, "Enter a new name.", "Change Object Name", max_length = MAX_NAME_LEN)
@@ -255,7 +255,7 @@
 	log_admin("[key_name(src)] has renamed [thing] to [new_name].")
 	thing.name = new_name
 
-/mob/abstract/storyteller/verb/change_obj_desc(var/obj/thing)
+/mob/abstract/ghost/storyteller/verb/change_obj_desc(var/obj/thing)
 	set name = "Change Object Description"
 
 	var/new_desc = tgui_input_text(src, "Enter a new description.", "Change Object Description", max_length = MAX_MESSAGE_LEN)
@@ -265,50 +265,13 @@
 	log_admin("[key_name(src)] has changed [thing]'s description to [new_desc].")
 	thing.desc = new_desc
 
-/mob/abstract/storyteller/verb/teleport(A in GLOB.ghostteleportlocs)
-	set name = "Teleport to Area"
-	set category = "Storyteller"
-
-	var/area/chosen_area = GLOB.ghostteleportlocs[A]
-	if(!chosen_area)
-		return
-
-	var/list/area_turfs = list()
-	for(var/turf/T in get_area_turfs(chosen_area))
-		area_turfs += T
-
-	if(!area_turfs || !length(area_turfs))
-		to_chat(usr, "No area available.")
-		return
-
-	var/turf/P = pick(area_turfs)
-	forceMove(P)
-	log_admin("[key_name(usr)] has teleported to [P.x] [P.y] [P.z].")
-
-/mob/abstract/storyteller/verb/teleport_to_actor()
-	set name = "Teleport to Antagonist"
-	set category = "Storyteller"
-
-	var/list/antagonists = list()
-	for(var/antag_type in GLOB.all_antag_types)
-		var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
-		for(var/datum/mind/mind in A.current_antagonists)
-			var/mob/M = mind.current
-			if(M)
-				// technically you could be more than one antag
-				antagonists |= M
-	var/mob/chosen_mob = tgui_input_list(src, "Choose an antagonist to teleport to.", "Teleport to Antagonist", antagonists)
-	if(chosen_mob)
-		forceMove(get_turf(chosen_mob))
-	log_admin("[key_name(usr)] has teleported to [chosen_mob].")
-
-/mob/abstract/storyteller/verb/set_outfit(var/mob/living/carbon/human/H)
+/mob/abstract/ghost/storyteller/verb/set_outfit(var/mob/living/carbon/human/H)
 	set name = "Set Outfit"
 	set category = "Storyteller"
 
 	do_dressing(H)
 
-/mob/abstract/storyteller/proc/show_traitor_panel(var/mob/M)
+/mob/abstract/ghost/storyteller/proc/show_traitor_panel(var/mob/M)
 	set name = "Edit Antagonist"
 	set category = "Storyteller"
 
@@ -322,7 +285,7 @@
 
 	M.mind.edit_memory()
 
-/mob/abstract/storyteller/proc/drop_bomb()
+/mob/abstract/ghost/storyteller/verb/drop_bomb()
 	set name = "Drop Bomb"
 	set category = "Storyteller"
 

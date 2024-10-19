@@ -13,7 +13,7 @@
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
-#define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
+#define isvirtualmob(A) istype(A, /mob/abstract/ghost/observer/virtual)
 
 #define iscarbon(A) istype(A, /mob/living/carbon)
 
@@ -37,9 +37,9 @@
 
 #define isspaceturf(A) istype(A, /turf/space)
 
-#define isobserver(A) istype(A, /mob/abstract/observer)
+#define isobserver(A) istype(A, /mob/abstract/ghost/observer)
 
-#define isstoryteller(A) istype(A, /mob/abstract/storyteller)
+#define isstoryteller(A) istype(A, /mob/abstract/ghost/storyteller)
 
 #define isabstract(A) istype(A, /mob/abstract)
 

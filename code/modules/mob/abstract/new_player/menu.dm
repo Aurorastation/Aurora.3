@@ -323,7 +323,7 @@
 		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
 			return FALSE
 
-	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
+	var/mob/abstract/ghost/observer/observer = new /mob/abstract/ghost/observer(null, src)
 	spawning = 1
 	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for observers
 
@@ -350,7 +350,7 @@
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
 	if(!client.holder && !GLOB.config.antag_hud_allowed)
-		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
+		remove_verb(observer, /mob/abstract/ghost/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
 	observer.client.init_verbs()

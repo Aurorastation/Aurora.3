@@ -582,8 +582,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
-				var/mob/abstract/observer/DM
-				if(istype(subject, /mob/abstract/observer))
+				var/mob/abstract/ghost/observer/DM
+				if(istype(subject, /mob/abstract/ghost/observer))
 					DM = subject
 				if(M.client.holder) 							// What admins see
 					lname = "[keyname][(DM && DM.anonsay) ? "*" : (DM ? "" : "^")] ([name])"
@@ -1092,7 +1092,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(P?.ismultitool())
 		return P
 
-/mob/abstract/observer/get_multitool()
+/mob/abstract/ghost/observer/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
 /mob/living/carbon/human/get_multitool()

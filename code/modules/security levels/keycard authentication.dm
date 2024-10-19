@@ -77,8 +77,8 @@
 		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
+			dat += "<li><A href='?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
