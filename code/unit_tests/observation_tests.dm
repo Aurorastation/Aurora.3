@@ -1,4 +1,7 @@
 /proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/observer/listener)
+	if(!listener.orbiting)
+		return FALSE
+
 	var/list/procs = (listener.orbiting.tracker._signal_procs ||= list())
 	var/list/target_procs = (procs[listening_to] ||= list())
 	var/exists = target_procs[COMSIG_MOVABLE_MOVED]
