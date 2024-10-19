@@ -164,4 +164,7 @@ STOCK_ITEM_RARE(pistols, 1)
 	var/type = pickweight(pistols)
 	new type(L)
 
+STOCK_ITEM_RARE(dinograbber, 1.75)
+	new /obj/item/melee/dinograbber(L)
+
 STOCK_ITEM_RARE(nothing, 0)

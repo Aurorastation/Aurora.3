@@ -68,6 +68,15 @@
 	var/gendered_icon = 0
 	var/force_icon
 
+	/// If set, will use this as the robotized force icon instead of the robotype
+	var/override_robotize_force_icon
+
+	/// If set, will use tihs as the painted value instead of the robotype
+	var/override_robotize_painted
+
+	/// Will robotize the children of this limb if set to true
+	var/robotize_children = TRUE
+
 	var/limb_name
 	var/disfigured = 0
 
@@ -328,9 +337,12 @@
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
+
 	if(istype(owner))
 		owner.organs_by_name[limb_name] = src
 		owner.organs |= src
+		if(!species)
+			species = owner.species
 		for(var/obj/item/organ/organ in src)
 			organ.replaced(owner,src)
 
@@ -1217,8 +1229,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/datum/robolimb/R = GLOB.all_robolimbs[company]
 
 		if(R)
-			if(!force_skintone)
-				force_icon = R.icon
+			if(!force_skintone || override_robotize_force_icon)
+				force_icon = override_robotize_force_icon ? override_robotize_force_icon : R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE
 				if(force_prosthetic_name)
@@ -1231,8 +1243,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 				else
 					name = "[R.company] [initial(name)]"
 				desc = "[R.desc]"
-			if(R.paintable)
-				painted = 1
+			if(R.paintable || !isnull(override_robotize_painted))
+				painted = !isnull(override_robotize_painted) ? override_robotize_painted : TRUE
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
@@ -1242,8 +1254,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	limb_flags &= ~ORGAN_CAN_BREAK
 	get_icon()
 	unmutate()
-	for (var/obj/item/organ/external/T in children)
-		if(T)
+	if(robotize_children)
+		for (var/obj/item/organ/external/T in children)
 			T.robotize(company)
 
 /obj/item/organ/external/mechassist()

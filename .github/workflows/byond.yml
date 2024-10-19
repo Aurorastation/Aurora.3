@@ -103,7 +103,7 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter/flavors/python@v7.10.0
+        uses: oxsecurity/megalinter/flavors/python@v8.1.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
           PRINT_ALPACA: false

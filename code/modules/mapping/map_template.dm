@@ -200,6 +200,9 @@
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/list/turf)
+
 	var/turf/placement = T
 	if(centered)
 		var/turf/corner = locate(placement.x - round(width / 2), placement.y - round(height / 2), placement.z)

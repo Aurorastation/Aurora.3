@@ -75,8 +75,15 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			available -= ruin
 			continue
 
-		log_admin("Ruin \"[ruin.name]\" placed at ([choice.x], [choice.y], [choice.z])!")
+		log_admin("Loading ruin \"[ruin.name]\" ([ruin.type]) with center turf ([choice.x], [choice.y], [choice.z])!")
 		load_ruin(choice, ruin)
+		log_module_ruins("Ruin \"[ruin.name]\" ([ruin.type]) loaded with geometry: Lower X: [choice.x - round(ruin.width / 2)] - Lower Y [choice.y - round(ruin.height / 2)] -- Upper X: [choice.x + round(ruin.width / 2)] - Upper Y: [choice.y + round(ruin.height / 2)]")
+
+		#if defined(UNIT_TEST)
+		var/list/turf/affected_turfs = ruin.get_affected_turfs(choice, TRUE)
+		GLOB.turfs_to_map_type["[ruin.type]"] = affected_turfs
+		#endif
+
 		selected += ruin
 
 		for(var/ruin_path in ruin.force_ruins)
@@ -106,6 +113,12 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 
 		log_admin("Ruin \"[ruin.name]\" force-spawned at ([choice.x], [choice.y], [choice.z])!")
 		load_ruin(choice, ruin)
+
+		#if defined(UNIT_TEST)
+		var/list/turf/affected_turfs = ruin.get_affected_turfs(choice, TRUE)
+		GLOB.turfs_to_map_type["[ruin.type]"] = affected_turfs
+		#endif
+
 		selected += ruin
 
 		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
