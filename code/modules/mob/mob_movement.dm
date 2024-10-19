@@ -360,7 +360,7 @@
 				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -376,7 +376,7 @@
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled_to.relaymove(mob,direct)
 
@@ -432,13 +432,13 @@
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
-			step(mob, pick(GLOB.cardinal))
+			step(mob, pick(GLOB.cardinals))
 		else
 			. = mob.SelfMove(new_loc, direct)
 
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
-				mob.set_dir(GLOB.reverse_dir[direct])
+				mob.set_dir(REVERSE_DIR(direct))
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)

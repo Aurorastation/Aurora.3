@@ -42,7 +42,7 @@
 		buckled.set_dir(dir)
 
 /obj/structure/bed/stool/chair/MouseDrop_T(atom/dropping, mob/user)
-	if(dropping == user && user.loc != loc && (GLOB.reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
+	if(dropping == user && user.loc != loc && (REVERSE_DIR(dir) & angle2dir(Get_Angle(src, user))))
 		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
 		if(do_after(user, 2 SECONDS, do_flags = DO_UNIQUE))
 			user.forceMove(loc)
@@ -51,7 +51,7 @@
 
 /obj/structure/bed/stool/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(anchored && padding_material)
-		if(mover?.density && isliving(mover) && (GLOB.reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+		if(mover?.density && isliving(mover) && (REVERSE_DIR(dir) & angle2dir(Get_Angle(src, mover))))
 			return FALSE
 	return ..()
 
