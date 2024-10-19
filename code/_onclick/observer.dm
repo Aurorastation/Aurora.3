@@ -22,7 +22,7 @@
 
 	// Otherwise jump
 	else
-		stop_following()
+		QDEL_NULL(orbiting)
 		forceMove(get_turf(A))
 
 /mob/abstract/observer/ClickOn(var/atom/A, var/params)

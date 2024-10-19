@@ -50,9 +50,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
+		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	if(implanted_into)
-		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
+		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)
@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	if(held_by)
 		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
 	held_by = user
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	update_icon()
 
 /obj/item/device/gps/dropped(mob/user)
@@ -342,9 +342,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 	update_icon()
 
 	if(held_by)
-		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
+		RegisterSignal(held_by, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	if(implanted_into)
-		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
+		RegisterSignal(implanted_into, COMSIG_MOVABLE_MOVED, PROC_REF(update_position), TRUE)
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(update_position))
 
 	for(var/gps in GLOB.gps_list)

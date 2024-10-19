@@ -107,12 +107,7 @@
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 
-	if(orbiters)
-		for(var/thing in orbiters)
-			var/datum/orbit/O = thing
-			if(O.orbiter)
-				O.orbiter.stop_orbit()
-	orbiters = null
+	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
 	. = ..()
 

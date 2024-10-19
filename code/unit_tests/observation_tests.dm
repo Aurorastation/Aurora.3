@@ -1,5 +1,5 @@
-/proc/is_listening_to_movement(var/atom/movable/listening_to, var/datum/listener)
-	var/list/procs = (listener._signal_procs ||= list())
+/proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/observer/listener)
+	var/list/procs = (listener.orbiting.tracker._signal_procs ||= list())
 	var/list/target_procs = (procs[listening_to] ||= list())
 	var/exists = target_procs[COMSIG_MOVABLE_MOVED]
 	return exists
@@ -25,8 +25,8 @@
 	else
 		TEST_FAIL("The observer is not following the mob.")
 
-	QDEL_IN(H, 10 SECONDS)
-	QDEL_IN(O, 10 SECONDS)
+	qdel(H)
+	qdel(O)
 	return 1
 
 /datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
@@ -39,14 +39,14 @@
 	var/mob/abstract/observer/O = new(T)
 
 	O.ManualFollow(H)
-	O.stop_following()
+	QDEL_NULL(O.orbiting)
 	if(!is_listening_to_movement(H, O))
 		TEST_PASS("The observer is no longer following the mob.")
 	else
 		TEST_FAIL("The observer is still following the mob.")
 
-	QDEL_IN(H, 10 SECONDS)
-	QDEL_IN(O, 10 SECONDS)
+	qdel(H)
+	qdel(O)
 	return 1
 
 /datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
@@ -68,9 +68,9 @@
 	else
 		TEST_FAIL("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
-	QDEL_IN(C, 10 SECONDS)
-	QDEL_IN(H, 10 SECONDS)
-	QDEL_IN(O, 10 SECONDS)
+	qdel(C)
+	qdel(H)
+	qdel(O)
 	return 1
 
 /datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener
@@ -92,8 +92,7 @@
 	else
 		TEST_FAIL("Recursive moved registration failed. Human listening to closet: [listening_to_closet] - Observer listening to human: [listening_to_human]")
 
-	QDEL_IN(C, 10 SECONDS)
-	QDEL_IN(H, 10 SECONDS)
-	QDEL_IN(O, 10 SECONDS)
-
+	qdel(C)
+	qdel(H)
+	qdel(O)
 	return 1
