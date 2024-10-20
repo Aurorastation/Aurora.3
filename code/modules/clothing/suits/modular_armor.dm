@@ -180,7 +180,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -194,7 +194,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -207,7 +207,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 1
+	slowdown = 0.4
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -222,7 +222,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -236,14 +236,14 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0 // the SCC is hacking
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -275,7 +275,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0 // inherited the hacking from the scc
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF legionnaire light carapace"
@@ -358,6 +358,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.4
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
