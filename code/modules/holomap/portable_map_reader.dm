@@ -1,11 +1,13 @@
 
 /obj/item/portable_map_reader
 	name = "portable map reader"
-	desc = ""
+	desc = "Displays a map of the local space, as well as any marked points of interest."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "depthscanner"
 
-	// The zlevel that this reader is spawned on.
+	/// The zlevel that this reader is spawned on.
+	/// It only shows that zlevel (and any zlevels that zlevel is connected to).
+	/// It will not show other zlevels, if the user were to transport it elsewhere on a shuttle.
 	var/starting_z_level = null
 
 	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
@@ -41,19 +43,6 @@
 	data["user_z"] = user.z
 	data["station_levels"] = zlevels_affected
 	data["z_override"] = z_override
-
-	// data["dept_colors_map"] = list(
-	// 	list("d"="Command", "c"=HOLOMAP_AREACOLOR_COMMAND),
-	// 	list("d"="Security", "c"=HOLOMAP_AREACOLOR_SECURITY),
-	// 	list("d"="Medical", "c"=HOLOMAP_AREACOLOR_MEDICAL),
-	// 	list("d"="Science", "c"=HOLOMAP_AREACOLOR_SCIENCE),
-	// 	list("d"="Engineering", "c"=HOLOMAP_AREACOLOR_ENGINEERING),
-	// 	list("d"="Operations", "c"=HOLOMAP_AREACOLOR_OPERATIONS),
-	// 	list("d"="Civilian", "c"=HOLOMAP_AREACOLOR_CIVILIAN),
-	// 	list("d"="Hallways", "c"=HOLOMAP_AREACOLOR_HALLWAYS),
-	// 	list("d"="Dock", "c"=HOLOMAP_AREACOLOR_DOCK),
-	// 	list("d"="Hangar", "c"=HOLOMAP_AREACOLOR_HANGAR),
-	// )
 
 	data["pois"] = list()
 	for(var/obj/effect/landmark/minimap_poi/poi as anything in SSholomap.pois)
