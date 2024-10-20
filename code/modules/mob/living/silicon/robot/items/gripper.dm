@@ -85,12 +85,13 @@
 /obj/item/gripper/update_icon()
 	underlays.Cut()
 	grippersafety(src)
-	if(wrapped && wrapped.icon)
-		var/mutable_appearance/MA = new(wrapped)
-		MA.layer = FLOAT_LAYER
+	if(wrapped)
+		var/mutable_appearance/MA = new (wrapped)
 		MA.pixel_y = -8
-
+		MA.plane = src.plane
+		MA.layer = FLOAT_LAYER
 		underlays += MA
+
 
 /obj/item/gripper/attack_self(mob/user)
 	if(wrapped)
@@ -151,11 +152,18 @@
 	if(wrapped) //The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
 		wrapped.force = 0
+
 		var/resolved = wrapped.attack(target_mob, user)
+
 		if(QDELETED(wrapped))
 			drop(get_turf(src), user, FALSE)
+
+		update_icon()
+
 		return resolved
+
 	else // mob interactions
+
 		switch(user.a_intent)
 			if(I_HELP)
 				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [target_mob] with \the [src]")
@@ -165,17 +173,24 @@
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 3)
 				playsound(user, 'sound/effects/attackblob.ogg', 60, 1)
 				//Slow,powerful attack for borgs. No spamclicking
+
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/attacking_item, mob/user)
 	var/resolved = FALSE
+
 	if(wrapped)
 		if(attacking_item == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
 			return TRUE
+
 		resolved = wrapped.attackby(attacking_item,user)
+
 		if(!resolved)
 			attacking_item.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+
+		update_icon()
+
 	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
