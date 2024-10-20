@@ -92,7 +92,7 @@
 /obj/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial/hand(H)
+	new /obj/item/organ/internal/augment/gustatorial/hand(H)
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
@@ -102,7 +102,7 @@
 /obj/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/gustatorial/hand(H)
+	new /obj/item/organ/internal/augment/gustatorial/hand(H)
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))

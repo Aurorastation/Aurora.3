@@ -1,35 +1,124 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/template_noop,
-/area/space)
-"b" = (
-/obj/structure/closet/crate/loot,
-/turf/template_noop,
-/area/space)
-"c" = (
+"ar" = (
 /obj/structure/closet/crate/secure/phoron{
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
+/obj/item/nullrod/athame,
+/obj/item/nullrod/rredouane,
+/obj/item/nullrod/luceiansceptre,
 /turf/template_noop,
-/area/space)
-"d" = (
-/obj/structure/table/rack/folding_table,
-/obj/item/storage/box/fancy/vials{
-	pixel_x = -4;
-	pixel_y = 13
+/area/template_noop)
+"br" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
 	},
-/obj/item/reagent_containers/dropper/electronic_pipette{
-	pixel_x = 8;
-	pixel_y = 2
+/obj/random/finances,
+/obj/random/finances,
+/turf/template_noop,
+/area/template_noop)
+"bs" = (
+/obj/structure/closet/crate/solar{
+	name = "backup power generation supplies"
+	},
+/obj/item/circuitboard/portgen/fusion,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/graphite/full,
+/turf/template_noop,
+/area/template_noop)
+"ci" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/storage/backpack/hydroponics,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"ck" = (
+/obj/structure/table/steel,
+/obj/item/saddle{
+	pixel_y = 5
+	},
+/obj/item/saddle{
+	pixel_y = 5;
+	pixel_x = 10
 	},
 /turf/template_noop,
-/area/space)
-"e" = (
-/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/area/template_noop)
+"co" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/item/melee/vaurca/rock,
+/obj/random/dirt_75,
 /turf/template_noop,
-/area/space)
-"f" = (
+/area/template_noop)
+"cS" = (
+/obj/random/dirt_75,
+/obj/random/cookingoil,
+/turf/template_noop,
+/area/template_noop)
+"eM" = (
+/obj/structure/closet/crate/secure/large/viscerator,
+/obj/random/hardhat,
+/obj/random/hoodie,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/lavalamp,
+/obj/random/medical,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/syrup,
+/obj/random/survival_weapon,
+/obj/random/smokable,
+/turf/template_noop,
+/area/template_noop)
+"fj" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/rfd/construction,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/turf/template_noop,
+/area/template_noop)
+"fy" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/random/finances,
+/obj/random/finances,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"fM" = (
+/obj/structure/bed/psych,
+/obj/item/gun/bang/revolver{
+	pixel_y = -3
+	},
+/turf/template_noop,
+/area/template_noop)
+"gP" = (
+/obj/machinery/chem_heater,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"gY" = (
+/obj/structure/anomaly_container,
+/turf/template_noop,
+/area/template_noop)
+"hx" = (
+/obj/structure/rredouane_statue,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"hN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /obj/structure/table/rack/folding_table,
 /obj/machinery/reagentgrinder{
@@ -45,8 +134,342 @@
 	pixel_x = 8
 	},
 /turf/template_noop,
-/area/space)
-"g" = (
+/area/template_noop)
+"jJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/gloves{
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"jV" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"kw" = (
+/obj/random/keg,
+/turf/template_noop,
+/area/template_noop)
+"kC" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/glowstick{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/random/powercell,
+/obj/random/powercell{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/turf/template_noop,
+/area/template_noop)
+"kI" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"lc" = (
+/obj/item/gun/energy/gun/skrell/smg,
+/obj/item/gun/energy/gun/skrell/pistol,
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_one_access = list(229, 217)
+	},
+/obj/item/melee/telebaton/nlom,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"lT" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/random/animal_crate,
+/turf/template_noop,
+/area/template_noop)
+"mn" = (
+/obj/machinery/vending/overloaders,
+/turf/template_noop,
+/area/template_noop)
+"mQ" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"nM" = (
+/obj/structure/closet/crate,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/weak,
+/obj/item/smes_coil/weak,
+/turf/template_noop,
+/area/template_noop)
+"pe" = (
+/obj/machinery/suspension_gen,
+/turf/template_noop,
+/area/template_noop)
+"rg" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/item/rig/unathi,
+/turf/template_noop,
+/area/template_noop)
+"rC" = (
+/obj/structure/reagent_dispensers/lube,
+/turf/template_noop,
+/area/template_noop)
+"rD" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"sq" = (
+/turf/template_noop,
+/area/template_noop)
+"sC" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -4;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"uo" = (
+/obj/structure/closet/cabinet,
+/turf/template_noop,
+/area/template_noop)
+"uJ" = (
+/obj/structure/closet/crate,
+/obj/random/dirt_75,
+/obj/item/circuitboard/stove,
+/obj/item/circuitboard/smartfridge,
+/obj/item/circuitboard/grill,
+/obj/item/circuitboard/candymachine,
+/obj/item/circuitboard/oven,
+/obj/item/circuitboard/fryer,
+/turf/template_noop,
+/area/template_noop)
+"vl" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/item/skrell_projector/vaurca_projector,
+/obj/item/vaurca/box,
+/turf/template_noop,
+/area/template_noop)
+"vs" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/rfd/mining,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"xk" = (
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/structure/closet/toolcloset/empty,
+/obj/item/storage/belt/archaeology,
+/obj/item/device/ano_scanner,
+/obj/item/storage/bag/fossils,
+/obj/item/device/measuring_tape,
+/obj/item/device/core_sampler,
+/obj/item/device/depth_scanner,
+/obj/item/storage/box/excavation,
+/obj/item/book/manual/excavation,
+/obj/item/pickaxe/hand,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"xt" = (
+/obj/item/melee/ceremonial_sword,
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_one_access = list(229, 217)
+	},
+/obj/item/clothing/head/sol/dress/officer,
+/obj/item/clothing/under/rank/sol/dress/officer,
+/obj/item/clothing/under/rank/sol/dress/pettyofficer,
+/obj/item/clothing/head/sol/dress,
+/obj/item/clothing/accessory/sol_pin,
+/turf/template_noop,
+/area/template_noop)
+"xA" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"yn" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/turf/template_noop,
+/area/template_noop)
+"zk" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/table/rack,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Ah" = (
+/obj/structure/closet/cabinet,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"AU" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"Bl" = (
+/obj/machinery/media/jukebox/audioconsole,
+/turf/template_noop,
+/area/template_noop)
+"Bp" = (
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_one_access = list(229, 217)
+	},
+/turf/template_noop,
+/area/template_noop)
+"Bw" = (
+/obj/structure/table/steel,
+/obj/item/newspaper{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"BJ" = (
+/obj/structure/largecrate/animal/moghes/otzek,
+/turf/template_noop,
+/area/template_noop)
+"BP" = (
+/obj/machinery/shieldwallgen,
+/turf/template_noop,
+/area/template_noop)
+"Cp" = (
+/obj/structure/largecrate/animal/moghes/miervesh,
+/turf/template_noop,
+/area/template_noop)
+"CF" = (
+/mob/living/simple_animal/chicken,
+/turf/template_noop,
+/area/template_noop)
+"CG" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/item/clothing/suit/armor/amohda,
+/obj/item/clothing/head/helmet/amohda,
+/obj/item/material/sword/amohdan_sword,
+/obj/item/clothing/accessory/poncho/tajarancloak/amohda,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Dp" = (
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/turf/template_noop,
+/area/template_noop)
+"DM" = (
+/obj/machinery/power/portgen/basic,
+/turf/template_noop,
+/area/template_noop)
+"Fw" = (
+/obj/structure/closet/crate/secure/large/larva,
+/obj/random/softcap,
+/obj/random/medical,
+/obj/random/med_stack,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/light,
+/obj/random/gift,
+/obj/random/firstaid,
+/obj/random/coin,
+/obj/random/coin,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/beret,
+/obj/random/belt,
+/obj/random/belt,
+/obj/random/action_figure,
+/turf/template_noop,
+/area/template_noop)
+"Fy" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/overloader/screenshaker{
+	pixel_y = 3;
+	pixel_x = -10
+	},
+/obj/item/storage/overloader/jitterbug{
+	pixel_y = 2;
+	pixel_x = 7
+	},
+/obj/item/storage/overloader/rainbow{
+	pixel_y = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ge" = (
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_one_access = list(229, 217)
+	},
+/obj/random/high_grade_weapon,
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/turf/template_noop,
+/area/template_noop)
+"GC" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/anomaly_container,
+/turf/template_noop,
+/area/template_noop)
+"GF" = (
+/obj/machinery/stasis_cage{
+	req_access = list()
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ht" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/turf/template_noop,
+/area/template_noop)
+"Hv" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/neuralbroke{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/random/med_stack,
+/turf/template_noop,
+/area/template_noop)
+"HK" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"Iy" = (
 /obj/structure/closet/crate/drop,
 /obj/item/stack/material/phoron{
 	amount = 15
@@ -65,811 +488,907 @@
 /obj/item/device/assembly/timer,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
+/obj/random/dirt_75,
 /turf/template_noop,
-/area/space)
-"j" = (
+/area/template_noop)
+"IC" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/tech_supply,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"IT" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/machinery/shieldwallgen,
+/turf/template_noop,
+/area/template_noop)
+"Ja" = (
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Km" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/template_noop,
+/area/template_noop)
+"Ky" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"KA" = (
+/obj/structure/largecrate/animal/moghes/warmount,
+/turf/template_noop,
+/area/template_noop)
+"KW" = (
 /obj/machinery/stasis_cage{
 	req_access = list()
 	},
-/turf/template_noop,
-/area/space)
-"k" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /turf/template_noop,
-/area/space)
-"m" = (
+/area/template_noop)
+"Ld" = (
+/obj/machinery/vending/dinnerware,
+/turf/template_noop,
+/area/template_noop)
+"Lq" = (
+/obj/machinery/vending/cigarette/hacked,
+/turf/template_noop,
+/area/template_noop)
+"Ls" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/firstaid{
+	pixel_y = 7
+	},
+/turf/template_noop,
+/area/template_noop)
+"LF" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/template_noop,
+/area/template_noop)
+"LS" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/template_noop,
+/area/template_noop)
+"Mm" = (
+/obj/effect/decal/cleanable/fruit_smudge,
+/turf/template_noop,
+/area/template_noop)
+"MJ" = (
+/obj/machinery/shieldgen,
+/turf/template_noop,
+/area/template_noop)
+"Na" = (
+/obj/effect/decal/cleanable/generic,
+/turf/template_noop,
+/area/template_noop)
+"Ow" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
+/turf/template_noop,
+/area/template_noop)
+"OR" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/machinery/vending/hydronutrients,
+/turf/template_noop,
+/area/template_noop)
+"PX" = (
+/obj/structure/trash_pile,
+/turf/template_noop,
+/area/template_noop)
+"QO" = (
+/obj/structure/closet/crate/loot,
+/turf/template_noop,
+/area/template_noop)
+"Sh" = (
+/obj/machinery/chem_master,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Th" = (
+/obj/item/device/versebook/biesel,
+/obj/item/storage/stickersheet/biesel,
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
+/obj/item/clothing/suit/storage/legion/tcaf{
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces. It looks a little knocked about."
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf{
+	desc = "A cheap pilot's jacket. An immense stock of exactly this design has been grandfathered into the Tau Ceti Armed Forces via its predecessor, the Tau Ceti Foreign Legion, to the point of a near-complete ubiquity. This one looks a little worn, as if it were well loved by its previous owner."
+	},
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/clothing/head/beret/legion/tcaf,
+/obj/item/clothing/head/softcap/tcaf_cap,
+/obj/structure/closet/crate/secure/legion{
+	name = "tau ceti armed forces supply crate";
+	req_access = null;
+	req_one_access = list(229, 217)
+	},
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Tw" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
+/obj/structure/closet/crate/loot,
+/turf/template_noop,
+/area/template_noop)
+"Uw" = (
+/obj/structure/table/steel,
+/obj/item/toy/desk/fan{
+	pixel_y = 11;
+	pixel_x = -7
+	},
+/obj/item/paper_bin{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/item/pen{
+	pixel_x = 9
+	},
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"VD" = (
+/obj/machinery/vending/hydroseeds,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"VT" = (
+/obj/structure/closet/crate,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/booze,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Wp" = (
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/turf/template_noop,
+/area/template_noop)
+"Wr" = (
+/obj/structure/closet/crate/secure/weapon/alt{
+	req_one_access = list(229, 217)
+	},
+/obj/item/melee/energy/vaurca_zweihander,
+/obj/item/melee/energy/vaurca,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"YM" = (
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/random/mre,
+/obj/item/material/hatchet/butch{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/template_noop,
+/area/template_noop)
+"Za" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
-"n" = (
+/area/template_noop)
+"Zd" = (
+/obj/structure/table/steel,
+/obj/item/melee/whip{
+	pixel_x = -14
+	},
+/obj/item/gun/energy/net{
+	pixel_y = -4
+	},
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
+/obj/item/storage/box/tranquilizer{
+	pixel_y = 14
+	},
+/obj/item/gun/projectile/heavysniper/tranq{
+	pixel_y = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"ZD" = (
+/obj/structure/closet/crate/secure/phoron{
+	name = "secure crate";
+	req_one_access = list(229, 217)
+	},
+/obj/item/rig/tesla,
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"ZZ" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
-"p" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/table/reinforced/steel,
-/turf/template_noop,
-/area/space)
-"s" = (
-/obj/structure/table/rack,
-/turf/template_noop,
-/area/space)
-"u" = (
-/obj/machinery/stasis_cage{
-	req_access = list()
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/turf/template_noop,
-/area/space)
-"z" = (
-/obj/structure/table/reinforced/steel,
-/turf/template_noop,
-/area/space)
-"A" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/closet/crate/loot,
-/turf/template_noop,
-/area/space)
-"C" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/template_noop,
-/area/space)
-"E" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/table/rack,
-/turf/template_noop,
-/area/space)
-"F" = (
-/obj/structure/largecrate/animal/moghes/miervesh,
-/turf/template_noop,
-/area/space)
-"G" = (
-/obj/structure/table/steel,
-/turf/template_noop,
-/area/space)
-"H" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 8
-	},
-/turf/template_noop,
-/area/space)
-"K" = (
-/obj/machinery/chem_master,
-/turf/template_noop,
-/area/space)
-"L" = (
-/obj/structure/closet/cabinet,
-/turf/template_noop,
-/area/space)
-"M" = (
-/obj/structure/closet/crate/secure/weapon/alt,
-/turf/template_noop,
-/area/space)
-"P" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/largecrate/animal/adhomai/fatshouter,
-/turf/template_noop,
-/area/space)
-"Q" = (
-/obj/structure/largecrate/animal/adhomai/rafama,
-/turf/template_noop,
-/area/space)
-"R" = (
-/obj/structure/largecrate/animal/moghes/warmount,
-/turf/template_noop,
-/area/space)
-"S" = (
-/obj/structure/largecrate/animal/adhomai/harron,
-/turf/template_noop,
-/area/space)
-"V" = (
-/obj/machinery/chemical_dispenser/full{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
-"W" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
-"X" = (
-/obj/machinery/chem_heater,
-/turf/template_noop,
-/area/space)
-"Y" = (
-/obj/structure/largecrate/animal/moghes/otzek,
-/turf/template_noop,
-/area/space)
-"Z" = (
-/obj/structure/table/rack/folding_table,
-/turf/template_noop,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}
 (2,1,1) = {"
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
 "}
 (3,1,1) = {"
-a
-C
-L
-a
-a
-E
-a
-a
-C
-V
-a
-a
-f
-a
-a
-C
-z
-a
-a
-p
-a
-a
-C
-Z
-a
-a
-A
-a
-a
+sq
+Ow
+uo
+sq
+sq
+zk
+sq
+sq
+Ow
+HK
+sq
+sq
+hN
+sq
+sq
+Ow
+hx
+sq
+sq
+lT
+sq
+sq
+Ow
+rC
+sq
+sq
+Tw
+sq
+sq
 "}
 (4,1,1) = {"
-a
-C
-L
-a
-a
-L
-a
-a
-C
-d
-W
-a
-X
-a
-a
-C
-c
-a
-a
-c
-a
-a
-C
-M
-a
-a
-z
-a
-a
+sq
+Ow
+uo
+sq
+sq
+Ah
+sq
+sq
+Ow
+sC
+AU
+sq
+gP
+sq
+sq
+Ow
+CG
+sq
+sq
+ar
+sq
+sq
+Ow
+lc
+sq
+sq
+jV
+sq
+sq
 "}
 (5,1,1) = {"
-a
-C
-L
-a
-a
-L
-m
-a
-C
-K
-a
-a
-b
-m
-a
-C
-c
-a
-a
-c
-m
-a
-C
-M
-a
-a
-z
-m
-a
+sq
+Ow
+yn
+sq
+sq
+uo
+Za
+sq
+Ow
+Sh
+sq
+sq
+jV
+Za
+sq
+Ow
+vl
+sq
+sq
+co
+Za
+sq
+Ow
+Wr
+sq
+sq
+jJ
+Za
+sq
 "}
 (6,1,1) = {"
-a
-C
-s
-a
-a
-L
-m
-a
-C
-g
-a
-a
-b
-m
-a
-C
-z
-a
-a
-z
-m
-a
-C
-M
-a
-a
-z
-m
-a
+sq
+Ow
+Fw
+sq
+sq
+uo
+Za
+sq
+Ow
+Iy
+sq
+sq
+jV
+Za
+sq
+Ow
+Hv
+sq
+sq
+IC
+Za
+sq
+Ow
+Bp
+sq
+sq
+Ls
+Za
+sq
 "}
 (7,1,1) = {"
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
 "}
 (8,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}
 (9,1,1) = {"
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
 "}
 (10,1,1) = {"
-a
-C
-G
-a
-a
-P
-a
-a
-C
-R
-a
-a
-u
-a
-a
-C
-a
-a
-a
-k
-a
-a
-C
-a
-a
-a
-k
-a
-a
+sq
+Ow
+mn
+sq
+sq
+Fy
+sq
+sq
+Ow
+KA
+Na
+sq
+KW
+sq
+sq
+Ow
+BP
+sq
+sq
+IT
+sq
+sq
+Ow
+kC
+sq
+sq
+rg
+sq
+sq
 "}
 (11,1,1) = {"
-a
-C
-G
-a
-a
-e
-a
-a
-C
-Y
-a
-a
-j
-a
-a
-C
-a
-a
-a
-a
-a
-a
-C
-a
-a
-a
-a
-a
-a
+sq
+Ow
+sq
+sq
+sq
+mQ
+sq
+sq
+Ow
+BJ
+sq
+sq
+GF
+sq
+sq
+Ow
+MJ
+sq
+sq
+MJ
+sq
+sq
+Ow
+ZD
+Ja
+sq
+Th
+sq
+sq
 "}
 (12,1,1) = {"
-a
-C
-j
-a
-a
-S
-m
-a
-C
-F
-a
-a
-G
-m
-a
-C
-a
-a
-z
-a
-m
-a
-C
-a
-a
-z
-a
-m
-a
+sq
+Ow
+Bl
+sq
+sq
+rD
+Za
+sq
+Ow
+Cp
+sq
+sq
+ck
+Za
+sq
+Ow
+Km
+sq
+sq
+DM
+Za
+sq
+Ow
+fy
+sq
+sq
+Dp
+Za
+sq
 "}
 (13,1,1) = {"
-a
-C
-j
-a
-a
-Q
-m
-a
-C
-b
-a
-a
-G
-m
-a
-C
-a
-a
-a
-a
-m
-a
-C
-a
-a
-a
-a
-m
-a
+sq
+Ow
+sq
+sq
+sq
+fM
+Za
+sq
+Ow
+QO
+sq
+sq
+Zd
+Za
+sq
+Ow
+nM
+sq
+sq
+bs
+Za
+sq
+Ow
+br
+sq
+sq
+eM
+Za
+sq
 "}
 (14,1,1) = {"
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
 "}
 (15,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}
 (16,1,1) = {"
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
-a
-n
-n
-a
-a
-a
-a
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
+sq
+ZZ
+ZZ
+sq
+sq
+sq
+sq
 "}
 (17,1,1) = {"
-a
-C
-a
-a
-a
-k
-a
-a
-C
-a
-a
-a
-k
-a
-a
-C
-a
-a
-a
-k
-a
-a
-C
-a
-a
-a
-k
-a
-a
+sq
+Ow
+Lq
+sq
+sq
+GC
+sq
+sq
+Ow
+kw
+sq
+sq
+LS
+sq
+sq
+Ow
+PX
+sq
+sq
+Ht
+sq
+sq
+Ow
+LF
+sq
+sq
+OR
+sq
+sq
 "}
 (18,1,1) = {"
-a
-C
-a
-a
-a
-a
-a
-a
-C
-a
-a
-a
-a
-a
-a
-C
-a
-a
-a
-a
-a
-a
-C
-a
-a
-a
-a
-a
-a
+sq
+Ow
+Uw
+AU
+sq
+gY
+sq
+sq
+Ow
+cS
+kw
+sq
+Wp
+sq
+sq
+Ow
+QO
+sq
+sq
+jV
+sq
+sq
+Ow
+LF
+sq
+sq
+VD
+sq
+sq
 "}
 (19,1,1) = {"
-a
-C
-a
-a
-z
-a
-m
-a
-C
-a
-a
-z
-a
-m
-a
-C
-a
-a
-z
-a
-m
-a
-C
-a
-a
-z
-a
-m
-a
+sq
+Ow
+Bw
+sq
+sq
+pe
+Za
+sq
+Ow
+YM
+Mm
+CF
+uJ
+Za
+sq
+Ow
+xt
+sq
+sq
+vs
+Za
+sq
+Ow
+Ky
+sq
+sq
+ci
+Za
+sq
 "}
 (20,1,1) = {"
-a
-C
-a
-a
-a
-a
-m
-a
-C
-a
-a
-a
-a
-m
-a
-C
-a
-a
-a
-a
-m
-a
-C
-a
-a
-a
-a
-m
-a
+sq
+Ow
+xk
+Ja
+sq
+pe
+Za
+sq
+Ow
+Ld
+sq
+sq
+VT
+Za
+sq
+Ow
+Ge
+sq
+sq
+fj
+Za
+sq
+Ow
+Ky
+Ja
+sq
+xA
+Za
+sq
 "}
 (21,1,1) = {"
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
-a
-H
-H
-H
-H
-a
-a
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
+sq
+kI
+kI
+kI
+kI
+sq
+sq
 "}
 (22,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
+sq
 "}

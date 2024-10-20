@@ -26,7 +26,7 @@
 
 /obj/effect/overmap/visitable/ship/golden_deep
 	name = "Golden Deep Merchantile Vessel"
-	desc = "FILL THIS"
+	desc = "The Anchurus-class mercantile vessel is a common sight in the possession of Golden Deep traders - a high-speed vessel, designed in the shipyards of Midaion by the brightest minds of the Grand Camarilla Estriconian. They are frequently plated in gold and other rare metals, in order to easily distinguish them as Golden Deep property."
 	class = "GDMV" //Golden Deep Mercantile Vessel
 	icon_state = "tramp"
 	moving_state = "tramp_moving"

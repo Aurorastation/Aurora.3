@@ -38,6 +38,8 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/item/watertank/janitor,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/custodial)
 "ah" = (
@@ -88,7 +90,6 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/portprop)
 "aw" = (
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Compliance Weapons";
 	req_access = list(217)
@@ -100,7 +101,12 @@
 /obj/item/storage/box/smokebombs,
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/handcuffs,
+/obj/item/storage/box/teargas,
 /obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/box/landmines/claymore,
+/obj/item/shield/riot/tact,
+/obj/item/shield/riot/tact,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "aB" = (
@@ -171,6 +177,7 @@
 	name = "ship cargo delivery point"
 	},
 /obj/effect/floor_decal/industrial/hatch/operations,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/lounge)
 "ba" = (
@@ -216,6 +223,14 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
+/obj/item/pickaxe/hammer{
+	pixel_y = 12
+	},
+/obj/item/hammer{
+	pixel_x = -12;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "bk" = (
@@ -370,6 +385,7 @@
 	req_one_access = list(229, 217);
 	req_access = null
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "bZ" = (
@@ -435,6 +451,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "cp" = (
@@ -457,6 +474,16 @@
 /obj/effect/map_effect/marker/airlock/docking/golden_deep/dock2,
 /turf/simulated/floor/plating,
 /area/golden_deep/aft_hallway)
+"cs" = (
+/obj/machinery/light/small/floor,
+/obj/structure/sign/flag/goldendeep/large/west{
+	pixel_x = -32
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/golden_deep/hoplan)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -493,7 +520,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portmaints)
 "cx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
@@ -525,6 +552,12 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/central_hallway)
+"cF" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, owned crew lounge"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/owned_lounge)
 "cG" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -532,6 +565,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/eva)
 "cH" = (
@@ -578,15 +612,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/aft_hallway)
 "cN" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 3;
-	pixel_x = 34
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = -8;
-	pixel_x = 34
-	},
 /obj/structure/table/fancy/black,
+/obj/item/cane/concealed{
+	pixel_x = 1;
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "cQ" = (
@@ -605,6 +635,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/engineering)
 "cV" = (
@@ -651,6 +682,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/lounge)
+"dh" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "dj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1005,6 +1046,7 @@
 	pixel_y = 2;
 	initial_beds = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "eT" = (
@@ -1030,6 +1072,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
 "fc" = (
@@ -1064,6 +1107,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/engineering)
 "ff" = (
@@ -1129,6 +1173,7 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "fs" = (
@@ -1139,6 +1184,7 @@
 	name = "Thruster Shutoff Valve"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
 "ft" = (
@@ -1146,6 +1192,10 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = -3
+	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "fu" = (
@@ -1181,6 +1231,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "fz" = (
@@ -1303,7 +1354,6 @@
 	pixel_y = 8;
 	pixel_x = 1
 	},
-/obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "gr" = (
@@ -1363,6 +1413,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "gB" = (
@@ -1527,7 +1578,7 @@
 	pixel_y = 14;
 	pixel_x = 1
 	},
-/obj/machinery/light/small,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "hi" = (
@@ -1568,6 +1619,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "ht" = (
@@ -1627,6 +1679,12 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/aft_hallway)
+"hE" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, warehouse fore"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/warehouse)
 "hF" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -1664,13 +1722,20 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/item/storage/bag/circuits/basic{
-	pixel_y = 7
-	},
 /obj/structure/sign/poster{
 	icon_state = "bsposter56";
 	poster_type = "/datum/poster/bay_56";
 	pixel_x = 32
+	},
+/obj/item/storage/bag/circuits/all{
+	pixel_y = -3
+	},
+/obj/item/wrench{
+	pixel_y = 19;
+	pixel_x = 3
+	},
+/obj/item/screwdriver{
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -1686,6 +1751,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "ig" = (
@@ -1816,6 +1882,7 @@
 	id = "gd_driver";
 	_wifi_id = "gd_driver"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "iG" = (
@@ -1921,6 +1988,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "jl" = (
@@ -1943,10 +2011,17 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
+"jr" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/freezer/kois/rations,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/warehouse)
 "js" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "jw" = (
@@ -1958,6 +2033,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/portprop)
 "jx" = (
@@ -2021,6 +2097,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "jK" = (
@@ -2043,6 +2120,7 @@
 /obj/machinery/atm{
 	pixel_y = -3
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "jO" = (
@@ -2087,6 +2165,7 @@
 /obj/effect/floor_decal/industrial/arrow/operations{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/lounge)
 "jV" = (
@@ -2122,6 +2201,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "kd" = (
@@ -2131,7 +2211,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/random/pottedplant,
+/obj/machinery/media/jukebox/phonograph,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "kh" = (
@@ -2161,6 +2241,8 @@
 	dir = 1;
 	level = 2
 	},
+/obj/item/stack/material/wood/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "kk" = (
@@ -2212,6 +2294,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
+"kw" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, warehouse aft"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/warehouse)
 "kz" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/passenger)
@@ -2300,6 +2388,7 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "kR" = (
@@ -2315,6 +2404,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/cargo)
+"kS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/computer/guestpass{
+	pixel_y = -32
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/wood,
+/area/golden_deep/aft_hallway)
 "kY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -2393,6 +2492,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
+"lm" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/owned_lounge)
 "lp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -2438,6 +2544,13 @@
 /obj/item/clothing/head/helmet/hoplan,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
+"lv" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "lw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -2509,6 +2622,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portmaints)
 "lR" = (
@@ -2674,6 +2788,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "mR" = (
@@ -2732,6 +2847,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "nj" = (
@@ -2875,6 +2991,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "nP" = (
@@ -3013,6 +3130,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "ow" = (
@@ -3029,6 +3147,9 @@
 	dir = 1
 	},
 /obj/structure/closet/cabinet,
+/obj/machinery/alarm/north{
+	req_one_access = list(229, 217)
+	},
 /turf/simulated/floor/wood/yew,
 /area/golden_deep/guest)
 "oC" = (
@@ -3063,13 +3184,15 @@
 	pixel_y = 18;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 9;
-	pixel_y = 2
-	},
 /obj/machinery/reagentgrinder{
 	pixel_y = 19;
 	pixel_x = -11
+	},
+/obj/item/reagent_containers/glass/rag/advanced{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/glass/rag/advanced{
+	pixel_x = -1
 	},
 /turf/simulated/floor/lino,
 /area/golden_deep/lounge)
@@ -3097,6 +3220,7 @@
 	pixel_x = -9;
 	pixel_y = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "oT" = (
@@ -3109,10 +3233,10 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/private_lounge)
 "oX" = (
-/obj/effect/floor_decal/industrial/hatch_small/red,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/plating,
 /area/golden_deep/merchant)
 "oY" = (
@@ -3130,18 +3254,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
-"pc" = (
-/obj/machinery/turretid{
-	dir = 1;
-	pixel_y = -26;
-	req_access = null;
-	req_one_access = list(229, 217);
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
-/turf/template_noop,
-/area/space)
 "pe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -3236,6 +3348,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardmaints)
 "pu" = (
@@ -3331,6 +3444,7 @@
 	req_one_access = list(229, 217);
 	name = "Owned Crew Lounge"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "pP" = (
@@ -3452,6 +3566,9 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 15
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "qg" = (
@@ -3463,6 +3580,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/portprop)
 "qm" = (
@@ -3525,13 +3643,15 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/obj/machinery/shieldwallgen,
+/obj/machinery/power/emitter,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "qt" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
 "qC" = (
@@ -3552,6 +3672,7 @@
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(217)
 	},
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "qI" = (
@@ -3561,6 +3682,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "qJ" = (
@@ -3606,6 +3728,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "qV" = (
@@ -3632,10 +3755,34 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/private_lounge)
+"rm" = (
+/obj/machinery/turretid{
+	dir = 1;
+	pixel_y = -26;
+	req_access = null;
+	req_one_access = list(229, 217);
+	check_arrest = 0;
+	check_records = 0;
+	check_wildlife = 0
+	},
+/turf/template_noop,
+/area/space)
 "rq" = (
 /obj/structure/table/wood/walnut,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/deck/cards{
+	pixel_y = 1;
+	pixel_x = 7
+	},
+/obj/item/ipc_overloader/classic{
+	pixel_x = -10;
+	pixel_y = 6
+	},
+/obj/item/ipc_overloader/classic{
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
@@ -3682,6 +3829,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "rL" = (
@@ -3909,6 +4057,15 @@
 /obj/machinery/atm{
 	pixel_y = -5
 	},
+/obj/item/ipc_overloader/classic{
+	pixel_x = -10;
+	pixel_y = 6
+	},
+/obj/item/ipc_overloader/classic{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "sS" = (
@@ -3968,6 +4125,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/hand_labeler,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "th" = (
@@ -4049,6 +4207,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "tw" = (
@@ -4068,6 +4227,7 @@
 /obj/item/pen{
 	pixel_y = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "tz" = (
@@ -4136,6 +4296,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/port_dock)
 "tM" = (
@@ -4190,6 +4351,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "ud" = (
@@ -4239,6 +4401,7 @@
 	pixel_x = -7
 	},
 /obj/structure/table/reinforced/steel,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/custodial)
 "uo" = (
@@ -4269,7 +4432,23 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/steel,
+/obj/item/stack/barricade/plasteel{
+	pixel_y = 4
+	},
+/obj/item/stack/barricade/plasteel{
+	pixel_y = 10
+	},
+/obj/item/stack/barricade/plasteel{
+	pixel_y = 4
+	},
+/obj/item/stack/barricade/plasteel{
+	pixel_y = 10
+	},
+/obj/item/ammo_display{
+	pixel_x = 11;
+	pixel_y = 7
+	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "uw" = (
@@ -4282,6 +4461,10 @@
 	},
 /obj/item/pen{
 	pixel_y = 4
+	},
+/obj/item/folder/red{
+	pixel_y = -7;
+	pixel_x = -7
 	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
@@ -4325,6 +4508,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/ammo)
 "uI" = (
@@ -4351,6 +4535,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /obj/machinery/meter,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "uM" = (
@@ -4367,6 +4552,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "uS" = (
@@ -4433,6 +4619,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardmaints)
 "vg" = (
@@ -4538,6 +4725,7 @@
 "vC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/offship/golden_deep,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "vJ" = (
@@ -4572,8 +4760,19 @@
 	dir = 1
 	},
 /obj/structure/reagent_dispensers/coolanttank,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
+"vS" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "vX" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -4748,6 +4947,7 @@
 	pixel_y = 4;
 	pixel_x = -4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/ammo)
 "wG" = (
@@ -4757,6 +4957,7 @@
 	must_start_working = 1
 	},
 /obj/machinery/suit_cycler/offship/golden_deep,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "wH" = (
@@ -4783,12 +4984,14 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "wU" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "xa" = (
@@ -4811,6 +5014,12 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
+"xj" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, atmospherics"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/atmos)
 "xq" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/structure/cable/green{
@@ -4828,6 +5037,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "xG" = (
@@ -4918,6 +5128,7 @@
 	dir = 1;
 	level = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portmaints)
 "yh" = (
@@ -5013,6 +5224,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "yC" = (
@@ -5022,6 +5234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "yD" = (
@@ -5158,6 +5371,7 @@
 "za" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/reagent_dispensers/coolanttank,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "zd" = (
@@ -5165,6 +5379,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
 "ze" = (
@@ -5190,6 +5405,7 @@
 	dir = 8
 	},
 /obj/machinery/suit_cycler/offship/golden_deep/merchant,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "zp" = (
@@ -5201,6 +5417,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "zq" = (
@@ -5244,6 +5461,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
 "zA" = (
@@ -5276,6 +5494,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
 "zG" = (
@@ -5322,6 +5541,9 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "Ab" = (
@@ -5362,18 +5584,27 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Ag" = (
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = 6
-	},
-/obj/item/pen/black{
-	pixel_x = 8;
+/obj/structure/table/stone/marble,
+/obj/item/pen/fountain/captain{
+	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/structure/table/stone/marble,
+/obj/item/paper_bin{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/storage/slide_projector{
+	pixel_y = 18;
+	pixel_x = -5
+	},
+/obj/item/device/taperecorder{
+	pixel_x = -8;
+	pixel_y = -3
+	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/merchant)
 "Ah" = (
@@ -5388,6 +5619,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/custodial)
 "Ai" = (
@@ -5522,6 +5754,10 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
+/obj/item/paper_scanner{
+	pixel_x = 2;
+	pixel_y = 10
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "AP" = (
@@ -5540,14 +5776,11 @@
 /turf/simulated/floor/carpet/red,
 /area/golden_deep/lounge)
 "AW" = (
-/obj/machinery/light/small/floor,
-/obj/structure/table/wood,
-/obj/random/pottedplant_small{
-	pixel_x = 6;
-	pixel_y = 5
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, atmospherics"
 	},
-/turf/simulated/floor/carpet/darkblue,
-/area/golden_deep/hoplan)
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/atmos)
 "Ba" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -5559,6 +5792,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "Bc" = (
@@ -5577,6 +5811,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Bg" = (
@@ -5606,6 +5841,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "Bl" = (
@@ -5643,6 +5879,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "Bq" = (
@@ -5702,6 +5939,7 @@
 	pixel_y = 4;
 	pixel_x = -4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/ammo)
 "Bz" = (
@@ -5788,6 +6026,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "BQ" = (
@@ -5805,6 +6044,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
 "BS" = (
@@ -5816,6 +6056,12 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
+/obj/item/rfd/service{
+	pixel_x = -16
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "BV" = (
@@ -5865,6 +6111,12 @@
 /obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
+"Cn" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, reactor"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/engineering)
 "Co" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 5
@@ -6020,6 +6272,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/portprop)
 "CV" = (
@@ -6029,6 +6282,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "CY" = (
@@ -6079,19 +6333,19 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Dg" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/cockpit)
 "Dh" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "Dk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6128,6 +6382,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/port_dock)
+"Do" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, reactor"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/engineering)
 "Dr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -6146,6 +6406,7 @@
 	dir = 1
 	},
 /obj/machinery/mecha_part_fabricator,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "Dx" = (
@@ -6164,6 +6425,7 @@
 "DH" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/table/reinforced,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "DM" = (
@@ -6236,6 +6498,8 @@
 	dir = 4
 	},
 /obj/item/stack/material/gold/full,
+/obj/item/stack/material/gold/full,
+/obj/item/stack/material/diamond/full,
 /obj/item/stack/material/diamond/full,
 /obj/item/stack/material/silver/full,
 /obj/item/stack/material/silver/full,
@@ -6276,6 +6540,7 @@
 	pixel_x = -22;
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "Ek" = (
@@ -6377,14 +6642,19 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "EF" = (
 /obj/item/device/flashlight/lamp/green{
-	pixel_y = -5;
+	pixel_y = 5;
 	pixel_x = 5
 	},
 /obj/structure/table/stone/marble,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23;
+	pixel_x = 4
+	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/merchant)
 "EH" = (
@@ -6434,6 +6704,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "EN" = (
@@ -6442,6 +6713,7 @@
 	req_one_access = list(229, 217)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/engineering)
 "EO" = (
@@ -6458,6 +6730,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
 "ER" = (
@@ -6572,6 +6845,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "Fm" = (
@@ -6653,6 +6927,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboard_dock)
 "FA" = (
@@ -6681,6 +6956,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/aft_hallway)
 "FN" = (
@@ -6692,6 +6968,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "FQ" = (
@@ -6723,6 +7002,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "Ga" = (
@@ -6756,11 +7036,16 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/cell_charger{
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "Gn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/shieldwallgen,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "Go" = (
@@ -6843,6 +7128,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/tank/air,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "GI" = (
@@ -6919,6 +7205,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/aft_hallway)
 "Hc" = (
@@ -6979,6 +7266,7 @@
 /obj/machinery/light/small,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/aft_hallway)
 "Hm" = (
@@ -7124,17 +7412,21 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "HM" = (
 /obj/item/storage/secure/safe/golden_deep{
 	pixel_y = 32
 	},
-/obj/item/lore_radio{
-	pixel_x = 2;
-	pixel_y = 3
-	},
 /obj/structure/table/stone/marble,
+/obj/item/storage/secure/briefcase{
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_x = 8;
+	pixel_y = 6
+	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/merchant)
 "HN" = (
@@ -7150,6 +7442,7 @@
 	dir = 1;
 	level = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardmaints)
 "HQ" = (
@@ -7232,6 +7525,7 @@
 "Il" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "In" = (
@@ -7242,8 +7536,15 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
+"Io" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, warehouse aft"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/warehouse)
 "Iq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
@@ -7296,6 +7597,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "Iz" = (
@@ -7411,6 +7713,7 @@
 /obj/machinery/autolathe{
 	hacked = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "Jg" = (
@@ -7444,6 +7747,18 @@
 	req_access = null
 	},
 /obj/structure/table/fancy/black,
+/obj/item/ipc_overloader/tranquil{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ipc_overloader/tranquil{
+	pixel_y = 3;
+	pixel_x = -15
+	},
+/obj/skeleton{
+	pixel_y = 6;
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Jk" = (
@@ -7452,6 +7767,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/port_dock)
 "Jl" = (
@@ -7531,6 +7847,12 @@
 /obj/structure/sign/flag/goldendeep,
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
+"JO" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, owned crew lounge"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/owned_lounge)
 "JP" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/marble/dark,
@@ -7572,7 +7894,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboard_dock)
 "JZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/cargo)
 "Kc" = (
@@ -7594,6 +7916,7 @@
 	dir = 1;
 	level = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Kf" = (
@@ -7621,6 +7944,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
+"Ki" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, reactor"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/engineering)
 "Km" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, portside propellant tank"
@@ -7728,6 +8057,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "KK" = (
@@ -7758,6 +8088,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portmaints)
 "KT" = (
@@ -7772,6 +8103,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portmaints)
 "KW" = (
@@ -7834,6 +8166,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
 "Lg" = (
@@ -7869,12 +8202,11 @@
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "Ls" = (
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "Lt" = (
@@ -7930,6 +8262,10 @@
 	dir = 9
 	},
 /obj/structure/table/wood,
+/obj/item/reagent_containers/glass/rag/handkerchief,
+/obj/item/reagent_containers/glass/rag/handkerchief{
+	pixel_y = -8
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "LE" = (
@@ -8039,8 +8375,15 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/aft_hallway)
+"LV" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, warehouse fore"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/warehouse)
 "LZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -8078,6 +8421,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Mn" = (
@@ -8215,6 +8559,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "Nd" = (
@@ -8262,7 +8607,6 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
 "No" = (
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ancillary Weapons";
 	req_access = list(217)
@@ -8276,6 +8620,7 @@
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
 /obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Ns" = (
@@ -8302,6 +8647,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
+/obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Nx" = (
@@ -8535,6 +8881,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "On" = (
@@ -8553,6 +8900,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "Oq" = (
@@ -8620,6 +8968,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Ov" = (
@@ -8629,6 +8978,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
 /obj/machinery/meter,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "Ox" = (
@@ -8705,6 +9055,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "ON" = (
@@ -8734,6 +9085,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portmaints)
 "OT" = (
@@ -8745,12 +9097,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/secure)
 "OU" = (
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/structure/table/steel,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "OV" = (
@@ -8929,7 +9280,19 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/table/wood,
+/obj/item/crowbar/red{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/crowbar/red{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/ammo_display{
+	pixel_x = -11;
+	pixel_y = 7
+	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "PW" = (
@@ -9026,12 +9389,16 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/pipewrench{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
 "Ql" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "Qm" = (
@@ -9114,11 +9481,15 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/ammo)
 "QD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/merchant)
@@ -9198,6 +9569,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "Rc" = (
@@ -9278,6 +9650,7 @@
 /area/space)
 "Rv" = (
 /obj/structure/table/fancy/black,
+/obj/item/mesmetron,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Ry" = (
@@ -9312,10 +9685,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/alarm/south{
-	req_one_access = list(229, 217)
-	},
 /obj/machinery/hologram/holopad,
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/wood/yew,
 /area/golden_deep/guest)
 "RD" = (
@@ -9464,6 +9836,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "Sf" = (
@@ -9478,6 +9851,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/accounting)
+"Sg" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, owned crew lounge"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/owned_lounge)
 "Sh" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -9485,6 +9864,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/engineering)
 "Si" = (
@@ -9532,15 +9912,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
-"Ss" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/golden_deep/owned_lounge)
 "Su" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -9578,6 +9949,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/starboardprop)
 "SF" = (
@@ -9609,6 +9981,18 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 11;
+	pixel_x = -13
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 11;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_y = 11;
+	pixel_x = 5
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
 "SM" = (
@@ -9728,6 +10112,10 @@
 	pixel_y = 28
 	},
 /obj/structure/table/fancy/black,
+/obj/item/lore_radio{
+	pixel_x = 2;
+	pixel_y = 3
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "Tq" = (
@@ -9747,6 +10135,7 @@
 "Ts" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/offship/golden_deep/hoplan,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Tt" = (
@@ -9788,6 +10177,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
+"TM" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, atmospherics"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
+/area/golden_deep/atmos)
 "TO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9799,6 +10194,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/aft_hallway)
 "TQ" = (
@@ -9846,6 +10242,13 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/shuttle/golden_deep/passenger)
+"Ua" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/golden_deep/warehouse)
 "Uc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -9861,6 +10264,7 @@
 /obj/machinery/vending/tool{
 	req_one_access = list(229, 217)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "Ue" = (
@@ -9990,6 +10394,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, mass driver"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "UT" = (
@@ -10079,6 +10486,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "Vv" = (
@@ -10149,6 +10557,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
 "VJ" = (
@@ -10161,6 +10570,7 @@
 	name = "gd_merchant_port_co2";
 	master_tag = "gd_merchant_port_co2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "VL" = (
@@ -10182,6 +10592,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "VS" = (
@@ -10357,17 +10768,18 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "WN" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 6
-	},
-/obj/machinery/light/small{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/golden_deep/warehouse)
+/area/golden_deep/owned_lounge)
 "WO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10431,11 +10843,13 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/device/price_scanner{
-	pixel_y = 5
+	pixel_y = 17;
+	pixel_x = -2
 	},
 /obj/item/device/hand_labeler{
-	pixel_y = -11
+	pixel_y = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "WW" = (
@@ -10524,6 +10938,7 @@
 "Xp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "Xq" = (
@@ -10653,6 +11068,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "XI" = (
@@ -10666,6 +11082,7 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "XM" = (
@@ -10772,6 +11189,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/port_dock)
 "Yo" = (
@@ -10822,6 +11240,7 @@
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "Yt" = (
@@ -10873,6 +11292,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "YG" = (
@@ -10884,6 +11304,7 @@
 	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "YI" = (
@@ -10977,12 +11398,12 @@
 	name = "Evacuation Tools";
 	req_access = list(217)
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/item/ladder_mobile,
 /obj/item/crowbar/red,
 /obj/item/weldingtool/emergency{
 	pixel_y = 6
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/merchant)
 "Zj" = (
@@ -11185,8 +11606,16 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portmaints)
+"ZV" = (
+/obj/machinery/light/small/floor,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/golden_deep/merchant)
 "ZX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -39867,7 +40296,7 @@ Rt
 Rt
 Uq
 Uq
-Uq
+Ki
 Uq
 Uq
 Rt
@@ -40379,11 +40808,11 @@ Rt
 Rt
 Rt
 Rt
-Uq
+Cn
 mU
 Fn
 ug
-Uq
+Do
 Rt
 Rt
 Rt
@@ -41649,7 +42078,7 @@ Rt
 Rt
 fC
 fC
-fC
+kw
 fC
 fC
 fC
@@ -41659,7 +42088,7 @@ fC
 fC
 fC
 fC
-fC
+hE
 fC
 fC
 fC
@@ -42703,7 +43132,7 @@ Uw
 FW
 Uw
 Uw
-Uw
+JO
 Uw
 Uw
 Uw
@@ -43189,15 +43618,15 @@ gW
 Rt
 fC
 uN
-Dh
+KI
 Nd
 pE
 pE
 fo
 pE
 Wx
-nK
-pE
+vS
+Ua
 KI
 sJ
 UT
@@ -43445,10 +43874,10 @@ Rt
 fC
 fC
 fC
-jD
+dh
 FQ
-VF
-Ga
+Dh
+jr
 FQ
 VF
 Ga
@@ -43721,12 +44150,12 @@ FQ
 FQ
 xZ
 ud
-Ss
+WN
 jK
 Fe
 qI
 Lv
-iY
+lm
 yB
 iY
 pL
@@ -43991,7 +44420,7 @@ xI
 jK
 jK
 yS
-Uw
+cF
 Rt
 Rt
 Rt
@@ -44474,12 +44903,12 @@ UR
 ly
 Sr
 VR
-WN
+bC
 KC
 Lz
 Lz
 sf
-Lz
+lv
 Af
 Kn
 Cs
@@ -45016,7 +45445,7 @@ Uw
 Cd
 Uw
 Uw
-Uw
+Sg
 Uw
 Uw
 Uw
@@ -46018,7 +46447,7 @@ Rt
 Rt
 fC
 fC
-fC
+Io
 fC
 fC
 fC
@@ -46028,7 +46457,7 @@ fC
 fC
 fC
 fC
-fC
+LV
 fC
 fC
 fC
@@ -47318,11 +47747,11 @@ Rt
 Rt
 Rt
 Rt
-LK
+AW
 GG
 lR
 Ba
-LK
+TM
 Rt
 Rt
 Rt
@@ -47834,7 +48263,7 @@ Rt
 Rt
 LK
 LK
-LK
+xj
 LK
 LK
 Rt
@@ -107964,7 +108393,7 @@ FK
 iG
 Rv
 cN
-WL
+ZV
 qG
 uZ
 iG
@@ -110271,7 +110700,7 @@ Ue
 iq
 Tu
 zG
-RR
+kS
 JH
 FK
 SC
@@ -110791,7 +111220,7 @@ LU
 lI
 ZF
 tX
-AW
+cs
 uw
 ft
 lI
@@ -130208,7 +130637,7 @@ Rt
 Rt
 Rt
 Rt
-pc
+rm
 Rt
 Rt
 Rt
