@@ -21,6 +21,7 @@
 /mob/abstract/ghost/storyteller/Destroy()
 	SSodyssey.remove_storyteller(src)
 	GLOB.storytellers.remove_antagonist(mind)
+	SSghostroles.remove_spawn_atom("storyteller", src)
 	return ..()
 
 /mob/abstract/ghost/storyteller/LateLogin()
@@ -35,6 +36,7 @@
 		mind.current = src
 
 		real_name = "Storyteller ([client.ckey])"
+		name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 		GLOB.storytellers.add_antagonist(mind)
 
