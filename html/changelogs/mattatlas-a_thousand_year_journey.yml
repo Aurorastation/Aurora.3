@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: MattAtlas, Dreamixpl
+author: MattAtlas, DreamySkrell
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -57,6 +57,9 @@ delete-after: True
 changes:
   - experiment: "Added the Odyssey gamemode. This gamemode essentially revolves around the Horizon visiting an away site, a planet, or an otherwise fulfilling important mission."
   - experiment: "Added Storytellers to go along with the Odyssey gamemode. They are essentially the gamemasters for the gamemode - they have quite a few admin tools and can run the round as they wish. The only thing they cannot modify is the canonicity of the round. To join as one during an Odyssey round, simply spawn in from the Ghost Spawner menu. You must have a head of staff whitelist."
+  - experiment: "Added Cryo Outpost Odyssey scenario."
+  - experiment: "Added Ruined Propellant Depot Odyssey scenario."
   - bugfix: "Fixed planetary blueprints."
   - refactor: "Storytellers and Observers are now subtypes of the same mob type - the ghost."
   - admin: "Changed how the Set Outfit verb works completely."
+  - rscadd: "Added the Portable Map Reader item. Shows a map of the zlevel, with 'points of interest' if any are mapped in."
