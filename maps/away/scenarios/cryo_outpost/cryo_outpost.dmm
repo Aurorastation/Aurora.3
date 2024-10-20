@@ -1013,7 +1013,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},
@@ -1281,8 +1280,7 @@
 "brk" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/folder/yellow{
-	pixel_x = -1;
-	pixel_y = 0
+	pixel_x = -1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
@@ -2595,7 +2593,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},
@@ -3885,7 +3882,6 @@
 "esE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Outside, Landing Pads, Close"
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -4224,8 +4220,7 @@
 /area/cryo_outpost/outside/surface)
 "eHV" = (
 /obj/random/junk{
-	pixel_x = -1;
-	pixel_y = 0
+	pixel_x = -1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -4752,7 +4747,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},
@@ -4760,7 +4754,6 @@
 /area/cryo_outpost/inside/labs_maint_e)
 "fnD" = (
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Outside, Entrance, Aux, East"
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -5515,8 +5508,7 @@
 /area/cryo_outpost/inside/engineering)
 "geL" = (
 /obj/random/junk{
-	pixel_x = -1;
-	pixel_y = 0
+	pixel_x = -1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -6334,7 +6326,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_east_out";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},
@@ -8346,7 +8337,6 @@
 	id = "cryo_outpost_shutter_entrance_aux_west_in";
 	pixel_x = 28;
 	pixel_y = -20;
-	dir = 2;
 	req_one_access = list(244)
 	},
 /turf/simulated/floor/plating,
@@ -8436,7 +8426,6 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Canteen"
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
@@ -8701,7 +8690,6 @@
 	id = "cryo_outpost_shutter_entrance_aux_east_in";
 	pixel_x = 28;
 	pixel_y = -20;
-	dir = 2;
 	req_one_access = list(244)
 	},
 /turf/simulated/floor/tiled,
@@ -8953,7 +8941,6 @@
 /area/cryo_outpost/outside/cave)
 "kfF" = (
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Engineering"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9734,8 +9721,7 @@
 	pixel_y = 8
 	},
 /obj/random/junk{
-	pixel_x = -1;
-	pixel_y = 0
+	pixel_x = -1
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/cave)
@@ -9931,7 +9917,6 @@
 "lfa" = (
 /obj/random/dirt_75,
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Outside, Landing Pads, Far"
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -10578,8 +10563,7 @@
 	pixel_y = -3
 	},
 /obj/item/pipe{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/pipe{
 	pixel_x = 10;
@@ -10734,7 +10718,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_west_out";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},
@@ -11296,7 +11279,6 @@
 /area/cryo_outpost/inside/labs_cryo_s)
 "mQU" = (
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Outside, Entrance, Main"
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -11330,7 +11312,6 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Entrance, Main"
 	},
 /turf/simulated/floor/tiled,
@@ -11696,7 +11677,6 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Crew Quarters"
 	},
 /obj/random/dirt_75,
@@ -11753,8 +11733,7 @@
 "nsL" = (
 /obj/structure/table/wood/walnut,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /turf/simulated/floor/wood/walnut,
 /area/cryo_outpost/inside/canteen)
@@ -16669,11 +16648,9 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 0;
 	pixel_x = 2
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_y = 0;
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
@@ -17518,8 +17495,7 @@
 	pixel_y = 1
 	},
 /obj/item/pipe_meter{
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /obj/item/pipe_meter{
 	pixel_x = 2;
@@ -19722,7 +19698,6 @@
 /area/cryo_outpost/outside/surface)
 "wkK" = (
 /obj/machinery/camera/network/cryo_outpost{
-	dir = 2;
 	c_tag = "Outside, Entrance, Aux, West"
 	},
 /turf/simulated/floor/exoplanet/desert,
@@ -20027,9 +20002,7 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_engineering)
 "wBT" = (
-/obj/item/material/stool/chair/plastic{
-	dir = 2
-	},
+/obj/item/material/stool/chair/plastic,
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
 "wBU" = (
@@ -21460,7 +21433,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	pixel_y = 0;
 	dir = 4;
 	req_one_access = list(244)
 	},

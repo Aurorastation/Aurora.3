@@ -27,8 +27,7 @@
 /area/template_noop)
 "aJ" = (
 /obj/random/junk{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/template_noop)
@@ -1744,9 +1743,7 @@
 	pixel_x = -20;
 	pixel_y = 2
 	},
-/obj/item/material/stool/chair/plastic{
-	dir = 2
-	},
+/obj/item/material/stool/chair/plastic,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
