@@ -90,7 +90,7 @@
 /area/template_noop)
 "hz" = (
 /obj/random/keg,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "hO" = (
 /obj/structure/cable{
@@ -160,7 +160,7 @@
 "nt" = (
 /obj/random/junk,
 /obj/random/finances,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "nB" = (
 /obj/effect/decal/cleanable/blood,
@@ -169,7 +169,7 @@
 	projectile_type = null
 	},
 /obj/effect/landmark/corpse/hideout/captain,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "oe" = (
 /obj/effect/map_effect/airlock/long/square/engine/reversed,
@@ -273,7 +273,7 @@
 "Ab" = (
 /obj/random/document/junk,
 /obj/item/trash/cigbutt/cigarbutt,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/template_noop)
 "Aq" = (
 /obj/structure/table/wood,

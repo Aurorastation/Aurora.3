@@ -24,20 +24,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ad" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ae" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "af" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -52,55 +52,55 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ai" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aj" = (
 /obj/machinery/artifact,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ak" = (
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "al" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "am" = (
 /obj/structure/inflatable/wall,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "an" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ap" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aq" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ar" = (
 /obj/effect/landmark/clear,
@@ -109,25 +109,25 @@
 "as" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "at" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "au" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "av" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aw" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -151,7 +151,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "az" = (
 /turf/simulated/wall,
@@ -191,7 +191,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aE" = (
 /obj/machinery/artifact_analyser,
@@ -345,7 +345,7 @@
 /area/dungeon/anomaly_outpost)
 "bb" = (
 /obj/structure/inflatable/door,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "bc" = (
 /obj/effect/landmark/clear,
@@ -433,7 +433,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 
 (1,1,1) = {"
