@@ -100,7 +100,7 @@
 			to_chat(daddy, SPAN_WARNING("You feel a bit less real. Which one of you two was original again?.."))
 
 /obj/effect/bluegoast/proc/mirror_dir(var/atom/movable/am, var/old_dir, var/new_dir)
-	set_dir(GLOB.reverse_dir[new_dir])
+	set_dir(REVERSE_DIR(new_dir))
 
 /obj/effect/bluegoast/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)

@@ -12,7 +12,7 @@
 		return -(round(current_wind_strength * 0.5))
 
 	// Never spit into the wind.
-	var/reversed_wind = GLOB.reverse_dir[wind_direction]
+	var/reversed_wind = REVERSE_DIR(wind_direction)
 	if(reversed_wind == travel_dir)
 		return current_wind_strength
 	if(travel_dir & reversed_wind)

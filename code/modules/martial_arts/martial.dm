@@ -69,7 +69,7 @@
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
 				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
-				D.set_dir(pick(GLOB.cardinal))
+				D.set_dir(pick(GLOB.cardinals))
 			miss_type = 1
 
 	if(!miss_type && block)

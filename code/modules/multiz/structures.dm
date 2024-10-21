@@ -258,7 +258,7 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
-	if(!staircase && (target_dir != dir && target_dir != GLOB.reverse_dir[dir]))
+	if(!staircase && (target_dir != dir && target_dir != REVERSE_DIR(dir)))
 		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
@@ -437,7 +437,7 @@
 		return TRUE
 	if(mover.throwing)
 		return TRUE
-	if(get_dir(mover, target) == GLOB.reverse_dir[dir])
+	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
 	if(height && (mover.dir == dir))
 		return FALSE
@@ -446,7 +446,7 @@
 /obj/structure/platform/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
 		return TRUE
-	if(get_dir(O, target) == GLOB.reverse_dir[dir])
+	if(get_dir(O, target) == REVERSE_DIR(dir))
 		return FALSE
 	return TRUE
 
@@ -456,7 +456,7 @@
 		/// If the user is on the same turf as the platform, we're trying to go past it, so we need to use reverse_dir.
 		/// Otherwise, use our own turf.
 		var/same_turf = get_turf(user) == get_turf(src)
-		var/turf/next_turf = get_step(src, same_turf ? GLOB.reverse_dir[dir] : 0)
+		var/turf/next_turf = get_step(src, same_turf ? REVERSE_DIR(dir) : 0)
 		if(istype(next_turf) && !next_turf.density && can_climb(user))
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)

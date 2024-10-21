@@ -97,7 +97,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 					else
 						target.visible_message(SPAN_DANGER("[target] slams into [T]!"))
 					if(prob(50))
-						target.set_dir(GLOB.reverse_dir[target.dir])
+						target.set_dir(REVERSE_DIR(target.dir))
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 			if(BP_GROIN)
 				if(pain_message)

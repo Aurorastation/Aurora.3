@@ -23,7 +23,7 @@
 		return
 
 	var/ndir = get_dir(user, on_wall)
-	if(!(ndir in GLOB.cardinal))
+	if(!(ndir in GLOB.cardinals))
 		to_chat(user, SPAN_WARNING("You need to stand in front of the wall, directly, to build an APC!"))
 		return
 

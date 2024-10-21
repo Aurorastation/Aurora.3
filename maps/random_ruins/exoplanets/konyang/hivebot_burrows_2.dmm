@@ -1968,9 +1968,6 @@
 /obj/machinery/power/portgen/basic{
 	anchored = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1978,6 +1975,9 @@
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
 /area/hivebot_burrows_2)
@@ -3143,9 +3143,6 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "RE" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},

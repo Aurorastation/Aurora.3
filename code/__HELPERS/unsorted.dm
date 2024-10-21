@@ -1031,25 +1031,6 @@ var/global/list/common_tools = list(
 		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
 	return surgery_attempt
 
-/proc/reverse_direction(var/dir)
-	switch(dir)
-		if(NORTH)
-			return SOUTH
-		if(NORTHEAST)
-			return SOUTHWEST
-		if(EAST)
-			return WEST
-		if(SOUTHEAST)
-			return NORTHWEST
-		if(SOUTH)
-			return NORTH
-		if(SOUTHWEST)
-			return NORTHEAST
-		if(WEST)
-			return EAST
-		if(NORTHWEST)
-			return SOUTHEAST
-
 /*
 Checks if that loc and dir has a item on the wall
 */

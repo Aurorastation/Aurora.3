@@ -229,7 +229,7 @@
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
 						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
-						src.set_dir(pick(GLOB.cardinal))
+						src.set_dir(pick(GLOB.cardinals))
 					miss_type = 1
 
 			if(!miss_type && block)
@@ -380,7 +380,7 @@
 						problem_railing = R
 						break
 				for(var/obj/structure/railing/R in get_step(T, dir))
-					if(R.dir == GLOB.reverse_dir[dir])
+					if(R.dir == REVERSE_DIR(dir))
 						problem_railing = R
 						same_loc = TRUE
 						break

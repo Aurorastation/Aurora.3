@@ -555,7 +555,7 @@
 		return 1
 
 	// Get data for building windows here.
-	var/list/possible_directions = GLOB.cardinal.Copy()
+	var/list/possible_directions = GLOB.cardinals.Copy()
 	var/window_count = 0
 	for (var/obj/structure/window/check_window in user.loc)
 		window_count++

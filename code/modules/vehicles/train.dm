@@ -177,7 +177,7 @@
 
 		if(dir == T_dir) 	//if car is ahead
 			src.attach_to(T, user)
-		else if(reverse_direction(dir) == T_dir)	//else if car is behind
+		else if(REVERSE_DIR(dir) == T_dir)	//else if car is behind
 			T.attach_to(src, user)
 
 //returns 1 if this is the lead car of the train
