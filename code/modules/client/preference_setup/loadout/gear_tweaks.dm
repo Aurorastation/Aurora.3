@@ -192,7 +192,7 @@ Content adjustment
 	for(var/i = metadata.len to (valid_contents.len - 1))
 		metadata += "Random"
 	for(var/i = 1 to valid_contents.len)
-		var/entry = tgui_input_list(user, "Choose an entry.", "Character Preference", (valid_contents[i] + list("Random", "None")), metadata[i])
+		var/entry = tgui_input_list(user, "Choose an entry.", "Character Preference", (list("None", "Random") + valid_contents[i]), metadata[i])
 		if(entry)
 			. += entry
 		else
