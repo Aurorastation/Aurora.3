@@ -19,7 +19,7 @@
 "av" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/saniorios_outpost/gun)
 "aN" = (
 /obj/item/modular_computer/console,
@@ -1627,7 +1627,7 @@
 /area/saniorios_outpost/barracks)
 "wi" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "wp" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -2227,7 +2227,7 @@
 /area/saniorios_outpost/armory)
 "Fl" = (
 /obj/item/weldingtool/hugetank,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "Fp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -2387,7 +2387,7 @@
 "GT" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "GU" = (
 /obj/effect/shuttle_landmark/saniorios_outpost/nav2{
@@ -2565,7 +2565,7 @@
 /area/shuttle/saniorios_outpost)
 "IB" = (
 /obj/item/storage/toolbox/syndicate,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "IE" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -2900,7 +2900,7 @@
 	},
 /area/saniorios_outpost/gun)
 "PQ" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "PW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -2986,7 +2986,7 @@
 /area/saniorios_outpost/barracks)
 "RY" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "Se" = (
 /obj/effect/floor_decal/corner/green{

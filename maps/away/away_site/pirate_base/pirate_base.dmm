@@ -209,7 +209,7 @@
 	pixel_y = -10;
 	pixel_x = -5
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "aY" = (
 /obj/structure/closet/crate/bin{
@@ -474,7 +474,7 @@
 /area/piratebase/maint_airlock)
 "ct" = (
 /obj/effect/shuttle_landmark/pirate_ship/hangar,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "cu" = (
 /obj/random/dirt_75,
@@ -1566,7 +1566,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "hp" = (
 /obj/machinery/floodlight/randomcharge,
@@ -1651,7 +1651,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "hN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2181,7 +2181,7 @@
 /area/piratebase/hallway_south)
 "kz" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "kB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2469,7 +2469,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lz" = (
 /obj/effect/floor_decal/corner/grey{
@@ -2488,7 +2488,7 @@
 	pixel_x = -11;
 	pixel_y = -8
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lJ" = (
 /obj/item/crowbar,
@@ -2522,7 +2522,7 @@
 /area/shuttle/pirate_shuttle/storage)
 "lR" = (
 /obj/structure/closet/crate/miningcart,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "lU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -2673,7 +2673,7 @@
 /area/piratebase/maint_north)
 "mV" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "mW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -2933,7 +2933,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/pirate_shuttle/storage)
 "nT" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "nV" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -3091,7 +3091,7 @@
 /area/piratebase/eva)
 "oL" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "oM" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -3885,7 +3885,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/piratebase/kitchen)
 "sB" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sC" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -4023,7 +4023,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "tA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4222,7 +4222,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "uT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -4277,7 +4277,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "vj" = (
 /obj/structure/closet,
@@ -4835,7 +4835,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "yk" = (
 /turf/simulated/floor/tiled,
@@ -5198,7 +5198,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Ae" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5311,7 +5311,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "AI" = (
 /obj/structure/bed/stool/padded/orange,
@@ -5642,7 +5642,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Co" = (
 /obj/random/dirt_75,
@@ -5813,7 +5813,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "DE" = (
 /obj/random/dirt_75,
@@ -5929,7 +5929,7 @@
 /area/piratebase/maint_south)
 "Ek" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "El" = (
 /obj/structure/table/steel,
@@ -6094,7 +6094,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Fo" = (
 /obj/structure/table/steel,
@@ -6560,7 +6560,7 @@
 /obj/item/pickaxe{
 	pixel_y = -9
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Hx" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
@@ -6618,7 +6618,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "HJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6934,7 +6934,7 @@
 	pixel_x = 11;
 	pixel_y = 15
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Jf" = (
 /obj/structure/table/steel,
@@ -7356,7 +7356,7 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "KZ" = (
 /turf/simulated/wall{
@@ -7511,7 +7511,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "LU" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -7774,7 +7774,7 @@
 /obj/random/junk{
 	pixel_x = -9
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "MS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8235,7 +8235,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Pz" = (
 /obj/effect/floor_decal/corner/red{
@@ -8249,7 +8249,7 @@
 "PA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "PC" = (
 /obj/machinery/bodyscanner,
@@ -8313,7 +8313,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "PP" = (
 /obj/machinery/light/colored/decayed{
@@ -9718,7 +9718,7 @@
 /obj/random/junk{
 	pixel_x = -9
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Wt" = (
 /obj/structure/table/rack,
@@ -9783,7 +9783,7 @@
 /area/piratebase/medbay)
 "Wy" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "WA" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -10176,7 +10176,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Yx" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10548,7 +10548,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "ZY" = (
 /obj/machinery/door/airlock/external{

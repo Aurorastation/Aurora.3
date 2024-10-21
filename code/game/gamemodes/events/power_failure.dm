@@ -22,7 +22,7 @@
 			C.cell.charge = C.cell.maxcharge
 	for(var/obj/machinery/power/smes/S in SSmachinery.smes_units)
 		var/area/current_area = get_area(S)
-		if(current_area.type in skipped_areas || !is_station_level(S.z))
+		if((current_area.type in skipped_areas) || !is_station_level(S.z))
 			continue
 		S.charge = S.capacity
 		S.update_icon()
