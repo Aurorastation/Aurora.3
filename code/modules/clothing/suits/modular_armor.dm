@@ -140,6 +140,7 @@
 	item_state = "plate_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
+	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
