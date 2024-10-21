@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(cargo)
 		I.get_adjusted_price()
 
 		// Check if the category exists in SScargo.cargo_categories
-		if (!(I.category && SScargo.cargo_categories[I.category]))
+		if (!(I.category || SScargo.cargo_categories[I.category]))
 			log_subsystem_cargo("Error: Unable to find category '[I.category]' for item '[I.name]. Skipping.")
 			continue
 		else
@@ -127,7 +127,7 @@ SUBSYSTEM_DEF(cargo)
 			item_category.items += I
 			log_subsystem_cargo("Inserted item '[I.name]' into category '[I.category]' with ID '[I.id]'.")
 
-		if (!(I.supplier && SScargo.cargo_suppliers[I.supplier]))
+		if (!(I.supplier || SScargo.cargo_suppliers[I.supplier]))
 			log_subsystem_cargo("Error: Unable to find supplier '[I.supplier]' for item '[I.name]. Skipping.")
 			continue
 		else
