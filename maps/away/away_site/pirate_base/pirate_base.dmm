@@ -2739,7 +2739,7 @@
 	pixel_y = -8
 	},
 /obj/item/clothing/under/pj/red,
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_y = -5
 	},
 /obj/item/clothing/suit/storage/hooded/wintercoat/mars,
@@ -4429,7 +4429,7 @@
 /obj/item/clothing/shoes/sneakers/hitops/brown{
 	pixel_y = -7
 	},
-/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/pants/tacticool,
 /obj/item/clothing/under/syndicate/tracksuit,
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
@@ -9306,7 +9306,7 @@
 /obj/item/spacecash/c200,
 /obj/random/spacecash,
 /obj/random/spacecash,
-/obj/item/clothing/under/pants/designer{
+/obj/item/clothing/pants/designer{
 	pixel_y = -3
 	},
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
@@ -10023,7 +10023,7 @@
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/suit/storage/toggle/trench/grey,
 /obj/item/clothing/under/color/brown,
-/obj/item/clothing/under/pants/black,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/under/tactical,
 /obj/item/clothing/under/syndicate/tacticool,
 /obj/item/clothing/accessory/longsleeve_s,
@@ -10324,8 +10324,8 @@
 /obj/item/clothing/under/suit_jacket/charcoal,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff,
 /obj/item/clothing/suit/storage/toggle/varsity,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/ripped,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/ripped,
 /obj/item/clothing/accessory/university/black,
 /obj/item/clothing/suit/storage/toggle/track/red,
 /obj/item/clothing/suit/storage/toggle/flannel/gray,

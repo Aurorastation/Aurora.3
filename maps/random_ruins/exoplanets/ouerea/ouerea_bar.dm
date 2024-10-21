@@ -85,8 +85,8 @@
 
 /obj/outfit/admin/ouerea_human
 	name = "Ouerean Human"
-	uniform = list(/obj/item/clothing/under/pants/tan, /obj/item/clothing/under/pants/jeans, /obj/item/clothing/under/shorts/black, /obj/item/clothing/under/shorts/jeans, /obj/item/clothing/under/tactical,
-	/obj/item/clothing/under/unathi)
+	uniform = list(/obj/item/clothing/under/tactical, /obj/item/clothing/under/unathi)
+	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	accessory = list(/obj/item/clothing/accessory/silversun/random, /obj/item/clothing/accessory/dressshirt, /obj/item/clothing/accessory/tshirt, /obj/item/clothing/accessory/longsleeve)
 	suit = list(/obj/item/clothing/suit/storage/toggle/track, /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan, /obj/item/clothing/accessory/poncho/unathimantle, /obj/item/clothing/suit/storage/toggle/corp/heph)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
