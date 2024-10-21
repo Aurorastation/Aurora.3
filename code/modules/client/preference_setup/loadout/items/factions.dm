@@ -624,6 +624,12 @@
 	slot = slot_tie
 	faction = "Hephaestus Industries"
 
+/datum/gear/faction/pocketbutterknife
+	display_name = "hephaestus pocket butter knife"
+	description = "An SCC Security approved modification of the H30V4 pocket knife."
+	path = /obj/item/material/kitchen/utensil/knife/pocketbutterknife
+	faction = "Hephaestus Industries"
+
 //NanoTrasen
 /datum/gear/faction/nanotrasen_labcoat
 	display_name = "nanotrasen coat selection"
