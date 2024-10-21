@@ -329,7 +329,7 @@
 	var/list/sliced_turfs = list()
 
 	for(var/turf/checked_turf as anything in turfs)
-		var/angle_to = Get_Angle(center_turf, checked_turf)
+		var/angle_to = get_angle(center_turf, checked_turf)
 		if(angle_to < inner_angle || angle_to > outer_angle)
 			continue
 		sliced_turfs += checked_turf
