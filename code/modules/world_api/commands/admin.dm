@@ -13,7 +13,7 @@
 	var/allow_antaghud = queryparams["allow_antaghud"]
 	var/senderkey = queryparams["senderkey"] //Identifier of the sender (Ckey / Userid / ...)
 
-	var/mob/abstract/observer/G = ghosts[target]
+	var/mob/abstract/ghost/observer/G = ghosts[target]
 
 	if(!(G in ghosts))
 		statuscode = 404

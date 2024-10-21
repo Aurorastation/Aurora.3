@@ -76,7 +76,7 @@
 			GLOB.move_manager.stop_looping(src)
 
 		if(prob(2)) //spooky
-			var/mob/abstract/observer/spook = locate() in range(src,5)
+			var/mob/abstract/ghost/observer/spook = locate() in range(src,5)
 			if(spook)
 				var/turf/T = spook.loc
 				var/list/visible = list()

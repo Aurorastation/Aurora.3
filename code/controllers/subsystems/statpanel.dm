@@ -41,6 +41,10 @@ SUBSYSTEM_DEF(statpanels)
 		if(eta_status)
 			global_data += eta_status
 
+		if(SSodyssey && SSodyssey.scenario)
+			global_data += "Odyssey: [SSodyssey.scenario.name]"
+			global_data += "Storytellers: [length(SSodyssey.storytellers)]"
+
 		src.currentrun = GLOB.clients.Copy()
 		mc_data = null
 

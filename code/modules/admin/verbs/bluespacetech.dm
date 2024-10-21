@@ -24,7 +24,8 @@
 		to_chat(src, "You've used this verb too recently, please wait a moment before trying again.")
 		return
 
-	if(!check_rights(R_DEV|R_ADMIN))	return
+	if(!check_rights(R_DEV|R_ADMIN))
+		return
 
 	if(!holder)
 		return //how did they get here?
@@ -172,7 +173,7 @@
 			client.holder.original_mob.key = key
 			client.init_verbs()
 		else
-			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/ghost/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"

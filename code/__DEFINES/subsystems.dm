@@ -241,6 +241,7 @@
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_WEATHER    -9
+#define INIT_ORDER_ODYSSEY	-15
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50

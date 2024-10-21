@@ -4,7 +4,7 @@
 	if(!istype(src, /mob/living/test) && cant_hear())
 		return
 
-	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
+	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/ghost/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
@@ -214,7 +214,7 @@
 		else
 			track = "<a class='ai_tracking' href='byond://?src=[REF(src)];trackname=[html_encode(speaker_name)];track=[REF(speaker)]'>[speaker_name] ([jobname])</a>"
 
-	if(istype(src, /mob/abstract/observer))
+	if(istype(src, /mob/abstract/ghost/observer))
 		if(speaker != null)
 			if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 				speaker_name = "[speaker.real_name] ([speaker_name])"
@@ -240,7 +240,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
-/mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
+/mob/abstract/ghost/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)

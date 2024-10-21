@@ -567,7 +567,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
+	if(istype(M, /mob/abstract/ghost/observer) || M.stat == DEAD)
 		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 

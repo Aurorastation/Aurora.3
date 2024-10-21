@@ -135,6 +135,9 @@ GLOBAL_LIST_EMPTY(intent_listener)
 /// Cache for clothing species adaptability.
 GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
 
+/// Cache for outfit selection.
+GLOBAL_LIST_EMPTY(outfit_cache)
+
 //////////////////////////
 /////Initial Building/////
 //////////////////////////

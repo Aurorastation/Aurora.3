@@ -223,7 +223,7 @@
 	return null
 
 var/obj/item/card/id/all_access/ghost_all_access
-/mob/abstract/observer/GetIdCard()
+/mob/abstract/ghost/observer/GetIdCard()
 	if(!is_admin(src))
 		return
 

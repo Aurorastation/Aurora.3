@@ -493,6 +493,14 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/check_victory()
 	return
 
+/**
+ * This proc runs immediately after the gamemode datum is created, right before the jobs and antag roles are divvied out.
+ * Essentially, in the lobby right before game start.
+ * This proc should always return TRUE on a success and FALSE if something went wrong, so that if the initialization failed, the game can reset to lobby state.
+ */
+/datum/game_mode/proc/pre_game_setup()
+	return TRUE
+
 //////////////////////////
 //Reports player logouts//
 //////////////////////////
@@ -522,7 +530,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/abstract/observer/D in GLOB.mob_list)
+		for(var/mob/abstract/ghost/observer/D in GLOB.mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"

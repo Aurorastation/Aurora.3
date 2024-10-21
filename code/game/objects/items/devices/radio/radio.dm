@@ -295,7 +295,7 @@ var/global/list/default_interrogation_channels = list(
 	var/obj/item/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
-/mob/abstract/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
+/mob/abstract/ghost/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
 	return can_admin_interact()
 
 /obj/item/device/radio/proc/text_wires()

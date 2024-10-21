@@ -244,7 +244,7 @@
 
 	log_and_message_admins("has [open ? SPAN_WARNING("OPENED") : "closed"] [name].", user)
 
-/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
+/obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (open)
