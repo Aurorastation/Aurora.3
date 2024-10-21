@@ -42,18 +42,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "ajL" = (
-/obj/machinery/ship_weapon/francisca{
-	pixel_x = -64;
-	pixel_y = -162;
-	weapon_id = "SSMD Francisca Rotary Gun"
-	},
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "ajS" = (
@@ -197,6 +192,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/ssmd_shuttle)
 "aHt" = (
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "aHv" = (
@@ -421,6 +417,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
+"aUY" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/ship/ssmd_corvette/grauwolf)
 "aZf" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/cable{
@@ -433,6 +435,11 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/red,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
@@ -2475,6 +2482,7 @@
 	pixel_y = -319;
 	weapon_id = "SSRM Light Coilgun"
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "gxv" = (
@@ -3263,6 +3271,11 @@
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/grauwolf)
 "iMd" = (
@@ -3650,11 +3663,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/mechbay)
 "kpR" = (
-/obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/ship/ssmd_corvette/francisca)
 "kqx" = (
@@ -3870,7 +3883,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "ssmd_grau_shroud";
-	name = "flak battery shroud";
+	name = "coilgun shroud";
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4256,9 +4269,7 @@
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "mib" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "mjR" = (
@@ -4284,6 +4295,10 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
+"mmo" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/airless,
+/area/ship/ssmd_corvette/grauwolf)
 "moE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/alarm/north{
@@ -4304,9 +4319,28 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca/frag{
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
 	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -4342,6 +4376,11 @@
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
@@ -5308,21 +5347,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/cryo)
 "prd" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
-	},
-/turf/simulated/floor/reinforced,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/ssmd_corvette/francisca)
 "pwR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5383,6 +5413,38 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
+"pDy" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/ssmd_corvette/francisca)
 "pDZ" = (
 /obj/structure/bed/stool/padded/black{
 	pixel_x = 8;
@@ -5406,6 +5468,9 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "ssmd_autocannon"
+	},
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "pKR" = (
@@ -5421,10 +5486,10 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/starboardfoyer)
 "pOd" = (
-/obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/francisca)
 "pRf" = (
@@ -5593,17 +5658,32 @@
 "qvC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 4
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/francisca)
@@ -5966,8 +6046,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/grauwolf)
 "rNp" = (
-/obj/machinery/ammunition_loader/francisca{
-	weapon_id = "SSMD Francisca Rotary Gun"
+/obj/machinery/ammunition_loader/autocannon{
+	weapon_id = "ssmd_autocannon"
 	},
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/francisca)
@@ -6576,9 +6656,28 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/frag{
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/autocannon/frag{
+	pixel_x = -1;
 	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -6971,6 +7070,10 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardengine)
+"uYY" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/ship/ssmd_corvette/grauwolf)
 "vaV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -7888,6 +7991,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
+"xBE" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/ship/ssmd_corvette/grauwolf)
 "xBR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/steel,
@@ -35485,8 +35594,8 @@ hqh
 gDg
 hqh
 hqh
-fws
-fws
+prd
+prd
 fws
 pJZ
 xRX
@@ -35735,7 +35844,7 @@ txv
 waK
 hwL
 hqh
-prd
+pDy
 cdz
 ucw
 hqh
@@ -36000,7 +36109,7 @@ rej
 sru
 ajL
 kpR
-iiZ
+kpR
 iiZ
 pCa
 xRX
@@ -43970,7 +44079,7 @@ hNE
 hNE
 hNE
 hNE
-hNE
+aUY
 hNE
 hNE
 hNE
@@ -44223,13 +44332,13 @@ ctL
 rJN
 liN
 gsW
-hNE
-hNE
-hNE
-hNE
-hNE
-hNE
-hNE
+uYY
+uYY
+uYY
+uYY
+uYY
+uYY
+mmo
 hNE
 sYY
 xRX
@@ -44480,13 +44589,13 @@ hQA
 sIJ
 wqS
 aHt
-hNE
-hNE
-hNE
-hNE
-hNE
-hNE
-hNE
+uYY
+uYY
+uYY
+uYY
+uYY
+uYY
+mmo
 sYY
 xRX
 xRX
@@ -44741,7 +44850,7 @@ hNE
 hNE
 hNE
 hNE
-hNE
+xBE
 hNE
 odL
 xRX
