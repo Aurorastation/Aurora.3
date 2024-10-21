@@ -197,11 +197,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/ssmd_shuttle)
 "aHs" = (
-/obj/structure/viewport,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/grauwolf)
 "aHt" = (
-/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "aHv" = (
@@ -438,9 +436,11 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/red,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/grauwolf)
 "bcf" = (
@@ -1098,14 +1098,6 @@
 /obj/structure/window,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
-"dhK" = (
-/obj/structure/ship_weapon_dummy,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "ssmd_grau_shroud"
-	},
-/turf/simulated/floor/plating,
-/area/ship/ssmd_corvette/grauwolf)
 "dhO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light/colored/blue{
@@ -2481,11 +2473,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "gsW" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+/obj/machinery/ship_weapon/coilgun/light{
+	pixel_x = -32;
+	pixel_y = -319;
+	weapon_id = "SSRM Light Coilgun"
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "gxv" = (
 /obj/structure/cable{
@@ -3268,9 +3261,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/grauwolf)
 "iMd" = (
@@ -3520,7 +3515,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
 "jNb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/viewport/sol,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/grauwolf)
 "jOl" = (
@@ -3546,16 +3541,6 @@
 	req_one_access = list(24,11,203)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/ssmd_corvette/grauwolf)
-"jZd" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "ssmd_grau_shroud"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, grauwolf array"
-	},
-/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "kaL" = (
 /obj/structure/cable{
@@ -3995,19 +3980,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/francisca)
 "liN" = (
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SSMD Grauwolf Flak Battery"
-	},
-/obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor,
+/obj/machinery/ammunition_loader/sol{
+	weapon_id = "SSRM Light Coilgun"
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/grauwolf)
 "liS" = (
 /obj/machinery/light/small/emergency{
@@ -4270,10 +4252,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardfoyer)
 "mdD" = (
-/obj/structure/ship_weapon_dummy,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/viewport/sol,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
 "mib" = (
@@ -4360,12 +4342,14 @@
 "mxo" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/grauwolf)
 "myR" = (
@@ -4655,10 +4639,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssmd_corvette/nuke)
 "ncB" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "SSMD Grauwolf Flak Battery"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/grauwolf)
 "nda" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4731,7 +4712,7 @@
 /area/shuttle/ssmd_shuttle)
 "nnH" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port, grauwolf storage"
+	name = "port, coilgun storage"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssmd_corvette/grauwolf)
@@ -5013,10 +4994,14 @@
 	},
 /area/ship/ssmd_corvette/canteen)
 "odL" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "ssmd_grau_shroud"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, coilgun array"
+	},
+/turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7511,14 +7496,17 @@
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/starboardengine)
 "wqS" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/ssmd_corvette/grauwolf)
 "wrc" = (
 /obj/machinery/alarm/east{
@@ -43730,10 +43718,10 @@ hQA
 hQA
 hQA
 hQA
-xRX
-xRX
-xRX
-xRX
+hQA
+hQA
+hQA
+hQA
 xRX
 xRX
 xRX
@@ -43985,12 +43973,12 @@ aHt
 aHt
 aHt
 hNE
+hNE
+hNE
+hNE
+hNE
+hNE
 sYY
-xRX
-xRX
-xRX
-xRX
-xRX
 xRX
 xRX
 xRX
@@ -44237,16 +44225,16 @@ fDY
 ctL
 rJN
 liN
+gsW
 aHt
 aHt
-odL
 aHt
+hNE
+hNE
+hNE
+hNE
+hNE
 sYY
-xRX
-xRX
-xRX
-xRX
-xRX
 xRX
 xRX
 xRX
@@ -44497,12 +44485,12 @@ wqS
 aHt
 aHt
 aHt
-dhK
-xRX
-xRX
-xRX
-xRX
-xRX
+aHt
+hNE
+hNE
+hNE
+hNE
+sYY
 xRX
 xRX
 xRX
@@ -44753,12 +44741,12 @@ qvF
 ncB
 jNb
 aHs
-jZd
-xRX
-xRX
-xRX
-xRX
-xRX
+hNE
+hNE
+hNE
+hNE
+hNE
+odL
 xRX
 xRX
 xRX
@@ -45007,15 +44995,15 @@ ciD
 iLQ
 hQA
 uHZ
-gsW
 fWG
 hQA
 hQA
-xRX
-xRX
-xRX
-xRX
-xRX
+hQA
+hQA
+hQA
+hQA
+hQA
+hQA
 xRX
 xRX
 xRX
