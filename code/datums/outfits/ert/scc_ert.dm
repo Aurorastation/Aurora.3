@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/scc
+/datum/outfit/admin/ert/scc
 	name = "ERT Security Specialist (SCC)"
 
 	uniform = /obj/item/clothing/under/rank/security
@@ -17,10 +17,10 @@
 		/obj/item/ammo_magazine/a556/ap = 1
 	)
 
-/obj/outfit/admin/ert/scc/get_id_access()
+/datum/outfit/admin/ert/scc/get_id_access()
 	return get_all_station_access() | get_centcom_access("Emergency Response Team")
 
-/obj/outfit/admin/ert/scc/engineer
+/datum/outfit/admin/ert/scc/engineer
 	name = "ERT Engineering Specialist (SCC)"
 
 	belt = /obj/item/storage/belt/utility/full
@@ -28,7 +28,7 @@
 
 	belt_contents = null
 
-/obj/outfit/admin/ert/scc/medic
+/datum/outfit/admin/ert/scc/medic
 	name = "ERT Medical Specialist (SCC)"
 
 	belt = /obj/item/storage/belt/medical/paramedic/combat
@@ -45,7 +45,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/scc/commander
+/datum/outfit/admin/ert/scc/commander
 	name = "ERT Commander (SCC)"
 
 	back = /obj/item/rig/ert/scc

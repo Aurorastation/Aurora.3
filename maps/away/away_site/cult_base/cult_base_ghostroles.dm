@@ -34,7 +34,7 @@
 	enabled = FALSE
 	enable_dmessage = TRUE
 
-	outfit = /obj/outfit/admin/cult_base_cultist
+	outfit = /datum/outfit/admin/cult_base_cultist
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	possible_species = list(
@@ -61,11 +61,11 @@
 	name = "Cult Base Cultist Corpse"
 	species = list(SPECIES_HUMAN, SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_UNATHI)
 	outfit = list(
-		/obj/outfit/admin/cult_base_cultist_corpse,
-		/obj/outfit/admin/generic,
-		/obj/outfit/admin/generic/engineer,
-		/obj/outfit/admin/generic/security,
-		/obj/outfit/admin/generic/medical,
+		/datum/outfit/admin/cult_base_cultist_corpse,
+		/datum/outfit/admin/generic,
+		/datum/outfit/admin/generic/engineer,
+		/datum/outfit/admin/generic/security,
+		/datum/outfit/admin/generic/medical,
 	)
 
 /obj/effect/landmark/corpse/cult_base_cultist/do_extra_customization(var/mob/living/carbon/human/human)
@@ -86,7 +86,7 @@
 
 // ---------------------- outfits
 
-/obj/outfit/admin/cult_base_cultist
+/datum/outfit/admin/cult_base_cultist
 	name = "Cult Base Cultist"
 
 	uniform = list(
@@ -200,7 +200,7 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/fingerless,
 	)
 
-/obj/outfit/admin/cult_base_cultist/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
+/datum/outfit/admin/cult_base_cultist/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
 
 	// add species equipment
@@ -240,7 +240,7 @@
 		human.gloves?.add_blood(human)
 		human.shoes?.add_blood(human)
 
-/obj/outfit/admin/cult_base_cultist_corpse
+/datum/outfit/admin/cult_base_cultist_corpse
 	name = "Cult Base Cultist Corpse"
 
 	uniform = list(

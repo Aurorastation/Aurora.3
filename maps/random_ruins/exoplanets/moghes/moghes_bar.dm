@@ -35,14 +35,14 @@
 	spawnpoints = list("moghes_bar_innkeeper")
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_innkeeper
+	outfit = /datum/outfit/admin/moghes_bar_innkeeper
 
 	assigned_role = "Moghresian Innkeeper"
 	special_role = "Moghresian Innkeeper"
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/moghes_bar_innkeeper
+/datum/outfit/admin/moghes_bar_innkeeper
 	name = "Moghes Innkeeper"
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/suit/unathi/robe/robe_coat/blue
@@ -52,7 +52,7 @@
 	l_ear = null
 	id = /obj/item/card/id
 
-/obj/outfit/admin/moghes_bar_inkeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_bar_inkeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)
@@ -72,14 +72,14 @@
 	max_count = 2
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_server
+	outfit = /datum/outfit/admin/moghes_bar_server
 
 	assigned_role = "Moghresian Inn Staff"
 	special_role = "Moghresian Inn Staff"
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/moghes_bar_server
+/datum/outfit/admin/moghes_bar_server
 	name = "Moghes Server"
 	uniform = /obj/item/clothing/under/unathi
 	shoes = /obj/item/clothing/shoes/sandals
@@ -92,7 +92,7 @@
 	l_ear = null
 	id = /obj/item/card/id
 
-/obj/outfit/admin/moghes_bar_server/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_bar_server/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)
@@ -114,14 +114,14 @@
 	spawnpoints = list("moghes_bar_patron")
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_patron
+	outfit = /datum/outfit/admin/moghes_bar_patron
 
 	assigned_role = "Moghresian Patron"
 	special_role = "Moghresian Patron"
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/moghes_bar_patron
+/datum/outfit/admin/moghes_bar_patron
 	name = "Moghes Bar Patron"
 	uniform = list(
 		/obj/item/clothing/under/unathi,
@@ -147,7 +147,7 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/moghes_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)

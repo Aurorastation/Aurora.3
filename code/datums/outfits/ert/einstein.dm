@@ -1,4 +1,4 @@
-/obj/outfit/admin/ert/einstein
+/datum/outfit/admin/ert/einstein
 	name = "Einstein Engines ERT"
 	uniform = /obj/item/clothing/under/rank/security/einstein
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -27,10 +27,10 @@
 	)
 	id_iff = IFF_EE
 
-/obj/outfit/admin/ert/einstein/get_id_access()
+/datum/outfit/admin/ert/einstein/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/einstein/medic
+/datum/outfit/admin/ert/einstein/medic
 	name = "Einstein Medic"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -60,7 +60,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/einstein/engi
+/datum/outfit/admin/ert/einstein/engi
 	name = "Einstein Engineer"
 	uniform = /obj/item/clothing/under/rank/engineer/einstein
 	back = /obj/item/storage/backpack/industrial
@@ -81,7 +81,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/einstein/leader
+/datum/outfit/admin/ert/einstein/leader
 	name = "Einstein Squad Leader"
 	back = /obj/item/rig/merc/einstein
 	l_hand = /obj/item/gun/energy/gun/nuclear

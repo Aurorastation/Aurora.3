@@ -32,14 +32,14 @@
 	max_count = 5
 
 	extra_languages = list(LANGUAGE_UNATHI)
-	outfit = /obj/outfit/admin/unathi_village
+	outfit = /datum/outfit/admin/unathi_village
 	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	species_outfits = list(
-		SPECIES_UNATHI = /obj/outfit/admin/unathi_village,
-		SPECIES_HUMAN = /obj/outfit/admin/ouerea_human,
-		SPECIES_SKRELL = /obj/outfit/admin/ouerea_skrell,
-		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/ouerea_skrell
+		SPECIES_UNATHI = /datum/outfit/admin/unathi_village,
+		SPECIES_HUMAN = /datum/outfit/admin/ouerea_human,
+		SPECIES_SKRELL = /datum/outfit/admin/ouerea_skrell,
+		SPECIES_SKRELL_AXIORI = /datum/outfit/admin/ouerea_skrell
 	)
 
 	assigned_role = "Ouerean Villager"

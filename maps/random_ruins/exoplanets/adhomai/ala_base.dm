@@ -35,7 +35,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /obj/outfit/admin/ala_base
+	outfit = /datum/outfit/admin/ala_base
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -44,7 +44,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/ala_base
+/datum/outfit/admin/ala_base
 	name = "Adhomai Liberation Army Soldier"
 
 	uniform = /obj/item/clothing/under/tajaran/ala
@@ -58,7 +58,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/obj/outfit/admin/ala_base/get_id_access()
+/datum/outfit/admin/ala_base/get_id_access()
 	return list(ACCESS_DPRA)
 
 
@@ -70,14 +70,14 @@
 	spawnpoints = list("ala_base_officer")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/ala_base/officer
+	outfit = /datum/outfit/admin/ala_base/officer
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI)
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Adhomai Liberation Army Officer"
 	special_role = "Adhomai Liberation Army Officer"
 
-/obj/outfit/admin/ala_base/officer
+/datum/outfit/admin/ala_base/officer
 	name = "Adhomai Liberation Army Officer"
 
 	uniform = /obj/item/clothing/under/tajaran/ala/black/officer
