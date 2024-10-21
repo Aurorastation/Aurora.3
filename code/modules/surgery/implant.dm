@@ -142,10 +142,6 @@
 		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 	user.drop_item()
 	affected.implants += tool
-	if(istype(tool, /obj/item/device/gps))
-		var/obj/item/device/gps/gps = tool
-		GLOB.moved_event.register(target, gps, TYPE_PROC_REF(/obj/item/device/gps, update_position))
-		gps.implanted_into = target
 	tool.forceMove(affected)
 	affected.cavity = CAVITY_CLOSED
 
@@ -209,11 +205,6 @@
 						target.release_control()
 					worm.detach()
 					worm.leave_host()
-
-				else if(istype(I, /obj/item/device/gps))
-					var/obj/item/device/gps/gps = I
-					GLOB.moved_event.unregister(target, gps)
-					gps.implanted_into = null
 
 				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 	else

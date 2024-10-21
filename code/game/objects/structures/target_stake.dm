@@ -43,8 +43,6 @@
 		T.pixel_x = 0
 		T.pixel_y = 0
 		T.layer = ABOVE_OBJ_LAYER
-		GLOB.moved_event.register(T, src, TYPE_PROC_REF(/atom/movable, move_to_turf))
-		GLOB.moved_event.register(src, T, TYPE_PROC_REF(/atom/movable, move_to_turf))
 		T.stake = src
 		pinned_target = T
 	else
@@ -52,8 +50,6 @@
 		if(pinned_target)
 			pinned_target.density = FALSE
 			pinned_target.layer = OBJ_LAYER
-			GLOB.moved_event.unregister(pinned_target, src)
-			GLOB.moved_event.unregister(src, pinned_target)
 			pinned_target.stake = null
 		pinned_target = null
 
