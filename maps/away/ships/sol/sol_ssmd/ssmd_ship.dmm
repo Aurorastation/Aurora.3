@@ -196,9 +196,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/ssmd_shuttle)
-"aHs" = (
-/turf/simulated/floor,
-/area/ship/ssmd_corvette/grauwolf)
 "aHt" = (
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/grauwolf)
@@ -43969,9 +43966,9 @@ hQA
 mKi
 foE
 mdD
-aHt
-aHt
-aHt
+hNE
+hNE
+hNE
 hNE
 hNE
 hNE
@@ -44226,9 +44223,9 @@ ctL
 rJN
 liN
 gsW
-aHt
-aHt
-aHt
+hNE
+hNE
+hNE
 hNE
 hNE
 hNE
@@ -44483,9 +44480,9 @@ hQA
 sIJ
 wqS
 aHt
-aHt
-aHt
-aHt
+hNE
+hNE
+hNE
 hNE
 hNE
 hNE
@@ -44740,7 +44737,7 @@ hQA
 qvF
 ncB
 jNb
-aHs
+hNE
 hNE
 hNE
 hNE
