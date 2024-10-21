@@ -573,7 +573,7 @@
 /area/ship/sfa_patrol_ship/docking)
 "bhV" = (
 /obj/structure/viewport/sol,
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "bjO" = (
 /obj/item/ammo_magazine/c45m/empty{
@@ -2483,6 +2483,9 @@
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
 "hcA" = (
@@ -2743,6 +2746,13 @@
 /area/ship/sfa_patrol_ship/hangar)
 "hWh" = (
 /obj/structure/table/rack,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
@@ -6576,10 +6586,7 @@
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/Engineering)
 "uii" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "uiW" = (
@@ -7623,9 +7630,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/docking)
 "ydn" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "yil" = (
@@ -49393,7 +49398,7 @@ iIT
 kJp
 vMF
 bhV
-yjW
+ufa
 ufa
 xRX
 xRX
@@ -49913,7 +49918,7 @@ yjW
 yjW
 yjW
 yjW
-yjW
+ydn
 xRX
 xRX
 xRX
@@ -50164,7 +50169,7 @@ woR
 iOD
 kJp
 bhV
-yjW
+ufa
 ufa
 xRX
 xRX

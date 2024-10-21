@@ -4,6 +4,7 @@
 	desc_extended = "Pressed for a smaller version of a coilgun to fit onto escort craft, the Alliance contracted what was then Necropolis Industries to design and manufacture the Navy’s first coilgun for corvette use in the mid-2200s. The M2307 is a post-Interstellar War modernization of earlier models that had been steadily improved upon over time. Though phased out of use in some battlegroups in favor of the M455A1 light coilgun, it remains a common sight in many fleets."
 	icon = 'icons/obj/machinery/ship_guns/sol_light_coilgun.dmi'
 	icon_state = "weapon_base"
+	max_ammo = 8
 	projectile_type = /obj/projectile/ship_ammo/coilgun/light
 
 	heavy_firing_sound = 'sound/weapons/railgun.ogg'
@@ -18,8 +19,8 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "trodpack-2"
 	caliber = SHIP_CALIBER_COILGUN
-	overmap_icon_state = "cannon"
-	impact_type = SHIP_AMMO_IMPACT_HE
+	overmap_icon_state = "light_pulse"
+	impact_type = SHIP_AMMO_IMPACT_AP
 
 /obj/projectile/ship_ammo/coilgun/light
 	name = "low-power tungsten rod"
@@ -34,4 +35,4 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 2, 3, 5)
+		explosion(target, 1, 3, 4)
