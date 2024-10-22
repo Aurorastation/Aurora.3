@@ -264,3 +264,7 @@
   - qol: Vaurca Attendants can now use the same mecha eye body markings as Workers.
   Snowy1237:
   - bugfix: Fixed greimorian workers making greimorians out of dead greimorians.
+2024-10-22:
+  AlaunusLux:
+  - balance: Removes chance of failure when opening a surgical site for vaurca with
+      surgical drill.
