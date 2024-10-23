@@ -94,9 +94,13 @@
 	name = "Collective Mercantile Vessel - Aft Hallway"
 	icon_state = "hallA"
 
+/area/golden_deep/aft_central_hallway
+	name = "Collective Mercantile Vessel - Aft Central Hallway"
+	icon_state = "hallC1"
+
 /area/golden_deep/central_hallway
-	name = "Collective Mercantile Vessel - Central Hallway"
-	icon_state = "hallC"
+	name = "Collective Mercantile Vessel - Fore Central Hallway"
+	icon_state = "hallC2"
 
 /area/golden_deep/port_dock
 	name = "Collective Mercantile Vessel - Portside Docking"

@@ -85,8 +85,8 @@
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
-		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
-		tag.citizenship_info = CITIZENSHIP_GOLDEN // These are owned by the merchant.
+		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // These are owned by the merchant.
+		tag.citizenship_info = CITIZENSHIP_GOLDEN
 
 // For the Hoplan. Hoplan and merchants both have a gustatorial centre, so they can use the bar.
 /obj/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -96,8 +96,8 @@
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
-		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
-		tag.citizenship_info = CITIZENSHIP_GOLDEN // Hoplan are government owned.
+		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // Hoplan are government owned.
+		tag.citizenship_info = CITIZENSHIP_GOLDEN
 
 /obj/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
@@ -111,7 +111,7 @@
 	// Method to avoid needing to define a seperate subtype for every recolourable bit of clothing we're using here.
 	H.wear_suit.color = pick("#991517")
 	H.head.color = pick("#991517")
-	H.w_uniform.color = pick("#343434")
+	H.w_uniform.color = pick("#333333")
 
 /obj/outfit/admin/golden_deep/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_EXTERNAL_AIRLOCKS)

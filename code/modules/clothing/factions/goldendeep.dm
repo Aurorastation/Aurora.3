@@ -87,7 +87,7 @@
 
 // Unique variation for use with the Golden Deep ghostrole.
 /obj/item/clothing/accessory/goldendeep/black
-	color = "#444444"
+	color = "#333333"
 
 /obj/item/clothing/accessory/goldendeep/pompous
 	name = "pompous shirt"

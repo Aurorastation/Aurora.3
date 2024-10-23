@@ -25,6 +25,25 @@
 /obj/item/circuitboard/portgen/fusion,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/graphite/full,
+/obj/item/stack/material/uranium/full,
+/turf/template_noop,
+/area/template_noop)
+"by" = (
+/obj/random/dirt_75,
+/obj/structure/closet/cabinet,
+/obj/item/device/versebook/trinary,
+/obj/item/device/versebook/templeist,
+/obj/item/device/versebook/gadpathur,
+/obj/item/device/versebook/dpra,
+/obj/item/device/versebook/biesel,
+/obj/item/device/versebook/autakh,
+/obj/item/device/versebook/assunzione,
+/obj/item/device/versebook/tribunal,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/skakh,
+/obj/item/device/versebook/siakh,
+/obj/item/device/versebook/pra,
+/obj/item/device/versebook/nka,
 /turf/template_noop,
 /area/template_noop)
 "ci" = (
@@ -78,6 +97,7 @@
 /obj/random/syrup,
 /obj/random/survival_weapon,
 /obj/random/smokable,
+/obj/random/suit,
 /turf/template_noop,
 /area/template_noop)
 "fj" = (
@@ -99,8 +119,9 @@
 /area/template_noop)
 "fM" = (
 /obj/structure/bed/psych,
-/obj/item/gun/bang/revolver{
-	pixel_y = -3
+/obj/item/toy/plushie/domadice{
+	pixel_y = 6;
+	pixel_x = -1
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -115,7 +136,6 @@
 /area/template_noop)
 "hx" = (
 /obj/structure/rredouane_statue,
-/obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "hN" = (
@@ -135,12 +155,34 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"ji" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
+/obj/item/clothing/accessory/tshirt/skrell/reef,
+/obj/item/clothing/ears/skrell/band,
+/obj/item/clothing/ears/skrell/chain/black,
+/obj/item/clothing/ears/skrell/chain/ebony,
+/obj/item/clothing/ears/skrell/chain/festive/long,
+/obj/item/clothing/ears/skrell/chain/silver/average,
+/obj/item/clothing/ears/skrell/cloth,
+/obj/item/clothing/ears/skrell/scrunchy,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/mask/skrell/horned,
+/obj/item/clothing/mask/skrell/thirdeye,
+/obj/item/clothing/mask/skrell/weeping,
+/obj/item/clothing/under/skrell/qeblak,
+/obj/item/device/hearing_aid/skrell,
+/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha,
+/obj/item/skrell_projector,
+/turf/template_noop,
+/area/template_noop)
 "jJ" = (
 /obj/structure/table/reinforced/steel,
-/obj/random/gloves{
-	pixel_x = 10
-	},
 /obj/random/dirt_75,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
 /turf/template_noop,
 /area/template_noop)
 "jV" = (
@@ -172,13 +214,13 @@
 /turf/template_noop,
 /area/template_noop)
 "lc" = (
-/obj/item/gun/energy/gun/skrell/smg,
 /obj/item/gun/energy/gun/skrell/pistol,
 /obj/structure/closet/crate/secure/weapon/alt{
 	req_one_access = list(229, 217)
 	},
 /obj/item/melee/telebaton/nlom,
 /obj/random/dirt_75,
+/obj/item/gun/energy/blaster/himeo,
 /turf/template_noop,
 /area/template_noop)
 "lT" = (
@@ -187,7 +229,7 @@
 /turf/template_noop,
 /area/template_noop)
 "mn" = (
-/obj/machinery/vending/overloaders,
+/obj/random/vendor,
 /turf/template_noop,
 /area/template_noop)
 "mQ" = (
@@ -204,6 +246,11 @@
 /obj/item/smes_coil/super_capacity,
 /obj/item/smes_coil/weak,
 /obj/item/smes_coil/weak,
+/turf/template_noop,
+/area/template_noop)
+"nP" = (
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
 /turf/template_noop,
 /area/template_noop)
 "pe" = (
@@ -247,6 +294,17 @@
 /area/template_noop)
 "uo" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/dominia,
+/obj/item/clothing/accessory/poncho/dominia_cape,
+/obj/item/clothing/accessory/poncho/dominia_cape/zavod,
+/obj/item/clothing/head/ushanka/dominia,
+/obj/item/clothing/suit/storage/dominia/coat,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber/long,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber,
+/obj/item/clothing/under/dominia/dress/fancy,
+/obj/item/flag/dominia,
+/obj/item/flame/lighter/zippo/dominia,
+/obj/item/clothing/under/dominia/sweater,
 /turf/template_noop,
 /area/template_noop)
 "uJ" = (
@@ -311,20 +369,57 @@
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
+"xD" = (
+/obj/structure/closet/cabinet,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/suit,
+/obj/random/softcap,
+/obj/random/softcap,
+/turf/template_noop,
+/area/template_noop)
 "yn" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack,
+/obj/item/clothing/accessory/tajaran/charm/raskariim{
+	pixel_x = 4;
+	pixel_y = -2
+	},
 /turf/template_noop,
 /area/template_noop)
 "zk" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /obj/structure/table/rack,
 /obj/random/dirt_75,
+/obj/item/flag/nka,
+/obj/item/flag/dpra{
+	pixel_y = 5
+	},
+/obj/item/flag/pra{
+	pixel_y = 9
+	},
+/turf/template_noop,
+/area/template_noop)
+"zz" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/autakh,
 /turf/template_noop,
 /area/template_noop)
 "Ah" = (
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/suit/vaurca/silver,
+/obj/item/clothing/shoes/vaurca/red,
+/obj/item/clothing/shoes/vaurca/brown,
+/obj/item/clothing/shoes/magboots/vaurca,
+/obj/item/clothing/mask/gas/vaurca/tactical,
+/obj/item/clothing/accessory/poncho/vaurca,
+/obj/item/clothing/suit/space/void/vaurca,
+/obj/item/clothing/head/helmet/space/void/vaurca,
+/obj/item/clothing/shoes/magboots/vaurca,
 /turf/template_noop,
 /area/template_noop)
 "AU" = (
@@ -380,6 +475,7 @@
 /obj/item/material/sword/amohdan_sword,
 /obj/item/clothing/accessory/poncho/tajarancloak/amohda,
 /obj/random/dirt_75,
+/obj/item/clothing/gloves/tajaran_gauntlets,
 /turf/template_noop,
 /area/template_noop)
 "Dp" = (
@@ -387,7 +483,7 @@
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
-/obj/machinery/power/portgen/basic,
+/obj/machinery/power/portgen/basic/advanced,
 /turf/template_noop,
 /area/template_noop)
 "Fw" = (
@@ -426,6 +522,34 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"FV" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/tajaran/charm/steel,
+/obj/item/clothing/accessory/tajaran/charm/bone,
+/obj/item/clothing/accessory/tajaran/nka_vest,
+/obj/item/clothing/accessory/tajaran/nka_waistcoat,
+/obj/item/clothing/gloves/black/tajara/smithgloves,
+/obj/item/clothing/gloves/botanic_leather/tajara,
+/obj/item/clothing/head/beret/tajaran/nka,
+/obj/item/clothing/head/beret/tajaran/dpra/alt,
+/obj/item/clothing/head/beret/tajaran/pra,
+/obj/item/clothing/head/tajaran/circlet,
+/obj/item/clothing/head/tajaran/circlet/silver,
+/obj/item/clothing/head/tajaran/archeologist,
+/obj/item/clothing/head/tajaran/fur,
+/obj/item/clothing/ring/tajara,
+/obj/item/clothing/shoes/flats/tajara,
+/obj/item/clothing/suit/storage/hooded/tajaran/royalist,
+/obj/item/clothing/suit/storage/hooded/tajaran/winter,
+/obj/item/clothing/suit/storage/hooded/tajaran/maroon,
+/obj/item/clothing/suit/storage/tajaran/finecoat,
+/obj/item/clothing/under/tajaran/relaxed,
+/obj/item/clothing/under/tajaran/summer,
+/obj/item/clothing/wrists/watch/tajara,
+/obj/item/material/knife/raskariim,
+/obj/item/storage/pill_bottle/dice/tajara,
+/turf/template_noop,
+/area/template_noop)
 "Ge" = (
 /obj/structure/closet/crate/secure/weapon/alt{
 	req_one_access = list(229, 217)
@@ -433,6 +557,7 @@
 /obj/random/high_grade_weapon,
 /obj/random/civgun/rifle,
 /obj/random/civgun,
+/obj/item/gun/energy/galatea,
 /turf/template_noop,
 /area/template_noop)
 "GC" = (
@@ -448,10 +573,17 @@
 /area/template_noop)
 "Ht" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
-	},
+/obj/random/plushie,
+/obj/random/plushie,
+/obj/random/hoodie,
+/obj/random/hardhat,
+/obj/random/finances,
+/obj/random/coin,
+/obj/random/coin,
+/obj/structure/closet/crate/secure/large/viscerator,
+/obj/random/belt,
+/obj/random/backpack,
+/obj/random/backpack,
 /turf/template_noop,
 /area/template_noop)
 "Hv" = (
@@ -495,6 +627,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/random/tech_supply,
 /obj/random/dirt_75,
+/obj/random/toolbox,
 /turf/template_noop,
 /area/template_noop)
 "IT" = (
@@ -536,8 +669,17 @@
 /area/template_noop)
 "Ls" = (
 /obj/structure/table/reinforced/steel,
-/obj/random/firstaid{
-	pixel_y = 7
+/obj/item/gun/projectile/shotgun/doublebarrel{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/ammo_casing/shotgun/beanbag{
+	pixel_y = -4;
+	pixel_x = -6
+	},
+/obj/item/ammo_casing/shotgun/beanbag{
+	pixel_x = 4;
+	pixel_y = -2
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -562,6 +704,10 @@
 /obj/effect/decal/cleanable/generic,
 /turf/template_noop,
 /area/template_noop)
+"No" = (
+/obj/structure/bed/psych,
+/turf/template_noop,
+/area/template_noop)
 "Ow" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/template_noop,
@@ -573,6 +719,12 @@
 /area/template_noop)
 "PX" = (
 /obj/structure/trash_pile,
+/turf/template_noop,
+/area/template_noop)
+"Qz" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
 "QO" = (
@@ -607,7 +759,15 @@
 /area/template_noop)
 "Tw" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/closet/crate/loot,
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/firstaid,
 /turf/template_noop,
 /area/template_noop)
 "Uw" = (
@@ -775,7 +935,7 @@ sq
 (3,1,1) = {"
 sq
 Ow
-uo
+ji
 sq
 sq
 zk
@@ -789,7 +949,7 @@ hN
 sq
 sq
 Ow
-hx
+ar
 sq
 sq
 lT
@@ -806,7 +966,7 @@ sq
 (4,1,1) = {"
 sq
 Ow
-uo
+FV
 sq
 sq
 Ah
@@ -823,14 +983,14 @@ Ow
 CG
 sq
 sq
-ar
+hx
 sq
 sq
 Ow
 lc
 sq
 sq
-jV
+nP
 sq
 sq
 "}
@@ -871,14 +1031,14 @@ Ow
 Fw
 sq
 sq
-uo
+xD
 Za
 sq
 Ow
 Iy
 sq
 sq
-jV
+zz
 Za
 sq
 Ow
@@ -1085,7 +1245,7 @@ sq
 (13,1,1) = {"
 sq
 Ow
-sq
+No
 sq
 sq
 fM
@@ -1223,14 +1383,14 @@ LS
 sq
 sq
 Ow
-PX
+by
 sq
 sq
 Ht
 sq
 sq
 Ow
-LF
+Qz
 sq
 sq
 OR
@@ -1257,7 +1417,7 @@ Ow
 QO
 sq
 sq
-jV
+PX
 sq
 sq
 Ow
