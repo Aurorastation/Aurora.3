@@ -28,10 +28,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 		chan = power_channel
 	return check_area.powered(chan)			// return power status of the area
 
-// called whenever the power settings of the containing area change
-// by default, check equipment channel & set flag can override if needed
-// This is NOT for when the machine's own status changes; update_use_power for that.
+/// called whenever the power settings of the containing area change
+/// by default, check equipment channel & set flag can override if needed
+/// This is NOT for when the machine's own status changes; update_use_power for that.
 /obj/machinery/proc/power_change()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	var/oldstat = stat
 
 	if(powered(power_channel))
