@@ -78,7 +78,7 @@
 /area/template_noop)
 "cS" = (
 /obj/random/dirt_75,
-/obj/random/cookingoil,
+/obj/random/keg,
 /turf/template_noop,
 /area/template_noop)
 "eM" = (
@@ -378,6 +378,15 @@
 /obj/random/suit,
 /obj/random/softcap,
 /obj/random/softcap,
+/obj/random/smokable,
+/obj/random/bandana,
+/obj/random/backpack,
+/obj/random/backpack,
+/obj/random/gloves,
+/obj/random/gloves,
+/obj/random/hoodie,
+/obj/random/hoodie,
+/obj/random/hoodie,
 /turf/template_noop,
 /area/template_noop)
 "yn" = (
@@ -692,10 +701,6 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/template_noop,
 /area/template_noop)
-"Mm" = (
-/obj/effect/decal/cleanable/fruit_smudge,
-/turf/template_noop,
-/area/template_noop)
 "MJ" = (
 /obj/machinery/shieldgen,
 /turf/template_noop,
@@ -768,6 +773,11 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
 /turf/template_noop,
 /area/template_noop)
 "Uw" = (
@@ -1408,7 +1418,7 @@ sq
 sq
 Ow
 cS
-kw
+sq
 sq
 Wp
 sq
@@ -1439,7 +1449,7 @@ Za
 sq
 Ow
 YM
-Mm
+sq
 CF
 uJ
 Za
