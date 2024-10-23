@@ -176,8 +176,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/floor,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/golden_deep/central_hallway)
 "aS" = (
@@ -3035,14 +3035,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
-"nh" = (
-/obj/item/clothing/accessory/goldendeep/pullover,
-/turf/template_noop,
-/area/space)
-"ni" = (
-/obj/item/clothing/accessory/goldendeep/gambeson,
-/turf/template_noop,
-/area/space)
 "nj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3945,8 +3937,53 @@
 	},
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(217);
-	name = "Accessories & Uniforms"
+	name = "Personal Wear"
 	},
+/obj/item/clothing/under/skirt{
+	color = "#333333"
+	},
+/obj/item/clothing/under/skirt/high{
+	color = "#333333"
+	},
+/obj/item/clothing/accessory/goldendeep/gambeson{
+	color = "#333333";
+	accent_color = "#991517"
+	},
+/obj/item/clothing/accessory/goldendeep/pompous{
+	color = "#333333";
+	accent_color = "#991517"
+	},
+/obj/item/clothing/accessory/goldendeep/pullover{
+	color = "#333333";
+	accent_color = "#991517"
+	},
+/obj/item/clothing/accessory/goldendeep/raingarb{
+	color = "#333333";
+	accent_color = "#991517"
+	},
+/obj/item/clothing/accessory/goldendeep/tabbard{
+	color = "#333333";
+	accent_color = "#991517"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep{
+	color = "#991517";
+	accent_color = "#daa520"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep/desertadornment{
+	color = "#991517";
+	accent_color = "#daa520"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep/elegantcloak{
+	color = "#991517";
+	accent_color = "#daa520"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep/furwrap{
+	color = "#991517";
+	accent_color = "#daa520"
+	},
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/workboots/brown,
+/obj/item/device/clothes_dyer,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "qI" = (
@@ -4093,6 +4130,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/central_hallway)
 "rK" = (
@@ -4945,10 +4985,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/cabinet{
-	req_access = list(217);
-	name = "Overwear"
-	},
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
 "vd" = (
@@ -5011,6 +5048,10 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/device/taperecorder{
+	pixel_x = -2;
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/accounting)
 "vn" = (
@@ -5360,12 +5401,16 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
-"wO" = (
-/obj/item/clothing/accessory/poncho/goldendeep,
-/turf/template_noop,
-/area/space)
 "wU" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
@@ -6311,6 +6356,8 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
+/obj/item/storage/pill_bottle/spotlight,
+/obj/item/storage/pill_bottle/sparkle,
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "Bq" = (
@@ -7494,14 +7541,19 @@
 /area/golden_deep/owned_lounge)
 "FP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+	dir = 8
 	},
-/obj/machinery/light/small/floor,
-/obj/structure/sign/flag/goldendeep{
-	pixel_y = -32
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/golden_deep/lounge)
+/area/golden_deep/central_hallway)
 "FQ" = (
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
@@ -8006,10 +8058,6 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_central_hallway)
-"HR" = (
-/obj/item/clothing/accessory/goldendeep/pompous,
-/turf/template_noop,
-/area/space)
 "HX" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -9067,10 +9115,6 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/lounge)
-"MI" = (
-/obj/item/clothing/under/skirt,
-/turf/template_noop,
-/area/space)
 "ML" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -9248,10 +9292,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
-"Nt" = (
-/obj/item/clothing/accessory/goldendeep/raingarb,
-/turf/template_noop,
-/area/space)
 "Nv" = (
 /obj/machinery/power/apc/west{
 	req_access = null;
@@ -9438,10 +9478,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/lounge)
-"NW" = (
-/obj/item/clothing/accessory/poncho/goldendeep/flowingcloak,
-/turf/template_noop,
-/area/space)
 "NZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -10007,10 +10043,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/golden_deep/cargo)
-"Qf" = (
-/obj/item/clothing/accessory/poncho/goldendeep/desertadornment,
-/turf/template_noop,
-/area/space)
 "Qi" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -10767,10 +10799,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge)
-"Ti" = (
-/obj/item/clothing/accessory/poncho/goldendeep/elegantcloak,
-/turf/template_noop,
-/area/space)
 "Tk" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -10842,10 +10870,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
-"TH" = (
-/obj/item/clothing/accessory/goldendeep/tabbard,
-/turf/template_noop,
-/area/space)
 "TM" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, atmospherics"
@@ -11350,10 +11374,6 @@
 /obj/machinery/cryopod,
 /turf/simulated/floor/marble,
 /area/golden_deep/port_dock)
-"Wb" = (
-/obj/item/clothing/under/skirt/high,
-/turf/template_noop,
-/area/space)
 "Wh" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -12138,10 +12158,6 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/starboard_dock)
-"Zg" = (
-/obj/item/clothing/under/pants/dress/belt,
-/turf/template_noop,
-/area/space)
 "Zh" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Evacuation Tools";
@@ -12257,9 +12273,13 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
 "ZH" = (
-/obj/item/clothing/accessory/poncho/goldendeep/furwrap,
-/turf/template_noop,
-/area/space)
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars/high_power{
+	pixel_y = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/bridge)
 "ZI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12346,7 +12366,7 @@
 /area/golden_deep/portmaints)
 "ZV" = (
 /obj/machinery/light/small/floor,
-/obj/structure/undies_wardrobe,
+/obj/machinery/media/jukebox/gramophone,
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "ZX" = (
@@ -103738,9 +103758,9 @@ Rt
 Rt
 Rt
 Rt
-Zg
-MI
-Wb
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -104251,11 +104271,11 @@ Rt
 Rt
 Rt
 Rt
-ni
-HR
-nh
-Nt
-TH
+Rt
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -104765,11 +104785,11 @@ Rt
 Rt
 Rt
 Rt
-wO
-Qf
-Ti
-NW
-ZH
+Rt
+Rt
+Rt
+Rt
+Rt
 Rt
 Rt
 Rt
@@ -109655,7 +109675,7 @@ jr
 LU
 SC
 sD
-Kw
+FP
 aP
 Kw
 RA
@@ -109680,7 +109700,7 @@ Gw
 KH
 yk
 SP
-xi
+ZH
 NM
 LT
 Ee
@@ -114031,7 +114051,7 @@ lI
 lI
 xJ
 wd
-FP
+jn
 mA
 yX
 fL
