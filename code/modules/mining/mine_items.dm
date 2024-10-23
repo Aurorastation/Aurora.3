@@ -808,7 +808,7 @@
 	update_held_icon()
 
 /obj/item/lazarus_injector/attack(mob/living/target_mob, mob/living/user, target_zone)
-	//If we're not loaded, the target is a living mob, or we're further from 1 tile away, not our problem
+	//If we're not loaded, the target is not a living mob, or we're further from 1 tile away, not our problem
 	if(!loaded || !isliving(target_mob) || get_dist(target_mob, user) > 1)
 		return ..()
 
