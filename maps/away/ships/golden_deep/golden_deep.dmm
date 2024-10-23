@@ -3983,6 +3983,25 @@
 	},
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/workboots/brown,
+/obj/item/storage/backpack/goldendeep{
+	color = "#daa520"
+	},
+/obj/item/clothing/suit/storage/goldendeep{
+	color = "#991517";
+	accent_color = "#daa520"
+	},
+/obj/item/clothing/head/goldendeep/cowl{
+	color = "#991517"
+	},
+/obj/item/clothing/head/goldendeep/cubehood{
+	color = "#991517"
+	},
+/obj/item/clothing/head/goldendeep/chainjewelry{
+	color = "#daa520"
+	},
+/obj/item/clothing/accessory/storage/goldendeep{
+	color = "#444444"
+	},
 /obj/item/device/clothes_dyer,
 /turf/simulated/floor/wood,
 /area/golden_deep/merchant)
@@ -10043,6 +10062,14 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/golden_deep/cargo)
+"Qf" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars,
+/obj/item/device/binoculars/high_power{
+	pixel_y = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/golden_deep/bridge)
 "Qi" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -12272,14 +12299,6 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/golden_deep/hoplan)
-"ZH" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/device/binoculars,
-/obj/item/device/binoculars/high_power{
-	pixel_y = 6
-	},
-/turf/simulated/floor/marble/dark,
-/area/golden_deep/bridge)
 "ZI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -109700,7 +109719,7 @@ Gw
 KH
 yk
 SP
-ZH
+Qf
 NM
 LT
 Ee
