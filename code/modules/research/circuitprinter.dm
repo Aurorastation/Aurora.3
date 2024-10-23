@@ -140,7 +140,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		return
 
 	var/max_value = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
-	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", min(10, max_value), max_value = min(10, max_value), min_value = 1, round_value = TRUE)
+	var/amount = tgui_input_number(user, "How many sheets do you want to add?", "Add sheets", min(10, max_value), max_value = max_value, min_value = 1, round_value = TRUE)
 
 	if(!attacking_item)
 		return
