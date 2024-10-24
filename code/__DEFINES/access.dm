@@ -815,3 +815,8 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+#define ACCESS_CRYO_LOST_STATION 244
+/datum/access/cryo_lost_station_access
+	id = ACCESS_CRYO_LOST_STATION
+	desc = "Cryo-Lost Station Access"
+

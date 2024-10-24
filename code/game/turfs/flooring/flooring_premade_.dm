@@ -30,6 +30,11 @@
 	icon_state = "rcircuit"
 	initial_flooring = /singleton/flooring/reinforced/circuit/red
 
+/turf/simulated/floor/redgrid/airless
+	name = "airless floor"
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/bluegrid/airless
 	name = "airless floor"
 	initial_gas = null
