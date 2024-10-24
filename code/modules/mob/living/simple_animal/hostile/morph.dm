@@ -102,7 +102,7 @@
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
-		return form.examine(user)
+		return form.examine(arglist(args))
 	else
 		return ..()
 

@@ -76,7 +76,7 @@
 /mob/living/simple_animal/hostile/mirror_shade/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(!QDELETED(owner))
 		/// Technically suspicious, but these have 30 seconds of lifetime so it's probably fine.
-		return owner.examine(user)
+		return owner.examine(arglist(args))
 	return ..()
 
 /mob/living/simple_animal/hostile/mirror_shade/Destroy()

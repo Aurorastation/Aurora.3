@@ -22,7 +22,7 @@
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
 
-/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent, show_extended)
+/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (distance <= 1)
 		checktime()

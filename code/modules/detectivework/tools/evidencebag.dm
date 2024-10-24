@@ -95,7 +95,7 @@
 		icon_state = "evidenceobj"
 	return
 
-/obj/item/evidencebag/examine(mob/user, show_extended)
+/obj/item/evidencebag/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (stored_item)
 		examinate(user, stored_item, show_extended)

@@ -3,7 +3,7 @@
 a creative player the means to solve many problems.  Circuits are held inside an electronic assembly, and are wired using special tools.
 */
 
-/obj/item/integrated_circuit/examine(mob/user, show_extended)
+/obj/item/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	interact(user)
 	external_examine(user)
 	. = ..()

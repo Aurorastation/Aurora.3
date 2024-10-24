@@ -13,7 +13,7 @@
 	slowdown = 10
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/ecd/examine(mob/living/user, distance, is_adjacent, infix, suffix, show_extended)
+/obj/structure/ecd/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	switch(state)
 		if(ECD_LOOSE)
@@ -22,8 +22,11 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor."))
 		if(ECD_WELDED)
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted and welded to the floor."))
-	if(user.isSynthetic())
-		to_chat(user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
+
+	if(istype(user, /mob/living))
+		var/mob/living/living_user = user
+		if(living_user.isSynthetic())
+			to_chat(living_user, SPAN_NOTICE("\The [src] does not seem to be doing anything, but you can feel it. A signal, beyond anything you can consciously understand, weaving and scratching a shield around the back of your mind."))
 
 /obj/structure/ecd/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.iswrench())

@@ -34,7 +34,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(copying)
-		return copying.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return copying.examine(arglist(args))
 	else
 		return list("???")
 
