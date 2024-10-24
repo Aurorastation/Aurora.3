@@ -95,7 +95,7 @@
 	return ..()
 
 /datum/beam/proc/Draw()
-	var/Angle = round(Get_Angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
+	var/Angle = round(get_angle(origin.z ? origin : get_turf(origin), target.z ? target : get_turf(target)))
 	var/matrix/rot_matrix = matrix()
 	rot_matrix.Turn(Angle)
 
@@ -206,6 +206,7 @@
 /obj/effect/ebeam
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	layer = BEAM_PROJECTILE_LAYER
 	blend_mode = BLEND_ADD
 	var/datum/beam/owner
