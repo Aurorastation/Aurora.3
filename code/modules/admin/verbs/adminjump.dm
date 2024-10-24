@@ -2,7 +2,7 @@
 	return
 
 /mob/abstract/observer/on_mob_jump()
-	stop_following()
+	QDEL_NULL(orbiting)
 
 /client/proc/Jump(var/area/A in GLOB.all_areas)
 	set name = "Jump to Area"

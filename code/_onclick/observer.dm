@@ -16,13 +16,14 @@
 			reenter_corpse()						// (cloning scanner, body bag, closet, mech, etc)
 			return									// seems legit.
 
+	orbiting?.end_orbit(src) // stop orbiting
+
 	// Things you might plausibly want to follow
 	if((ismob(A) && A != src) || istype(A,/obj/machinery/bot) || istype(A,/obj/singularity))
 		ManualFollow(A)
 
 	// Otherwise jump
 	else
-		stop_following()
 		forceMove(get_turf(A))
 
 /mob/abstract/observer/ClickOn(var/atom/A, var/params)

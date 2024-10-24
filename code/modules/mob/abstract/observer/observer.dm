@@ -22,7 +22,7 @@
 	var/medHUD = 0
 	var/antagHUD = 0
 	universal_speak = 1
-	var/atom/movable/following = null
+	// var/atom/movable/following = null
 	var/admin_ghosted = 0
 	var/anonsay = 0
 	var/image/ghostimage = null //this mobs ghost image, for deleting and stuff
@@ -36,6 +36,9 @@
 	incorporeal_move = INCORPOREAL_GHOST
 
 	mob_thinks = FALSE
+
+	/// The POI we're orbiting (orbit menu)
+	var/orbiting_ref
 
 /mob/abstract/observer/New(mob/body)
 	if (istype(body, /mob/abstract/observer))
@@ -97,7 +100,6 @@
 	..()
 
 /mob/abstract/observer/Destroy()
-	stop_following()
 	qdel(ghost_multitool)
 	ghost_multitool = null
 
@@ -162,8 +164,6 @@ Works together with spawning an observer, noted above.
 	if(medHUD)
 		process_medHUD(src)
 
-	teleport_if_needed()
-
 /mob/abstract/observer/proc/on_restricted_level(var/check)
 	if(!check)
 		check = z
@@ -186,30 +186,6 @@ Works together with spawning an observer, noted above.
 	if(istype(O))
 		to_chat(src, SPAN_NOTICE("[message]"))
 		forceMove(O.loc)
-
-//Teleports the observer away from z-levels they shouldnt be on, if needed.
-/mob/abstract/observer/proc/teleport_if_needed()
-	//If we dont have a observe restriction we dont need to teleport
-	if(!GLOB.config.observe_restriction)
-		return
-
-	//If we are not on a restricted level we dont need to get rid of them
-	if(!on_restricted_level())
-		return
-
-	//If we have observe restriction 1 and they are following a living non-animal mob we dont need to do anything.
-	if(GLOB.config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
-		return
-
-	//In case we have observe restriction 2 (or 1 and they are following something, then teleport them back.)
-	if(following)
-		stop_following()
-		teleport_to_spawn("You can not follow \the [following] on this level.")
-	else
-		teleport_to_spawn()
-
-	//And update their sight settings
-	updateghostsight()
 
 
 /mob/abstract/observer/proc/process_medHUD(var/mob/M)
@@ -299,7 +275,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!found_rune)
 			to_chat(usr, SPAN_CULT("The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
-	stop_following()
+	QDEL_NULL(orbiting)
 	mind.current.ajourn=0
 	mind.current.key = key
 	mind.current.teleop = null
@@ -326,14 +302,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Medical Scan Target"
 	set desc = "Analyse the health of whatever you are following."
 
-	if(!following)
+	if(!orbiting)
 		to_chat(src, SPAN_WARNING("You aren't following anything!"))
 		return
 
-	if(isipc(following) || isrobot(following))
-		robotic_analyze_mob(following, usr, TRUE)
-	else if(ishuman(following))
-		health_scan_mob(following, usr, TRUE, TRUE)
+	if(isipc(orbit_target) || isrobot(orbit_target))
+		robotic_analyze_mob(orbit_target, usr, TRUE)
+	else if(ishuman(orbit_target))
+		health_scan_mob(orbit_target, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
@@ -403,8 +379,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, "You can not teleport to this area")
 		return
 
-	stop_following()
-	usr.forceMove(pick(L))
+	usr.abstract_move(pick(L))
 
 /mob/abstract/observer/verb/follow()
 	set category = "Ghost"
@@ -415,35 +390,28 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
-/mob/abstract/observer/proc/ManualFollow(var/atom/movable/target)
-	if(!target || target == following || target == src)
+/mob/abstract/observer/proc/ManualFollow(atom/movable/target)
+	if(!target)
 		return
 
-	stop_following()
-	following = target
-	GLOB.moved_event.register(following, src, TYPE_PROC_REF(/atom/movable, move_to_destination))
-	GLOB.destroyed_event.register(following, src, PROC_REF(stop_following))
+	//Stops orbit if there's any; TG doesn't do this, but if you don't it breaks the orbiting reference
+	//if you are jumping from one mob to another, hence why we're doing it here
+	orbiting?.end_orbit(src)
 
-	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
-	move_to_destination(following, following.loc, following.loc)
+	var/list/icon_dimensions = get_icon_dimensions(target.icon)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * 0.5
+	orbitsize -= (orbitsize/ICON_SIZE_ALL)*(ICON_SIZE_ALL*0.25)
+
+	var/rot_seg = 30 //Let's make it simple and it's just a circle
+
+	orbit(target,orbitsize, FALSE, 20, rot_seg)
+
+	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	updateghostsight()
 
-/mob/abstract/observer/proc/stop_following()
-	if(following)
-		to_chat(src, SPAN_NOTICE("No longer following \the <b>[following]</b>."))
-		GLOB.moved_event.unregister(following, src)
-		GLOB.destroyed_event.unregister(following, src)
-		following = null
-
-
-/mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
-	var/turf/T = get_turf(new_loc)
-	if(check_holy(T))
-		stop_following()
-		teleport_if_needed()
-		to_chat(usr, SPAN_WARNING("You cannot follow something standing on holy grounds!"))
-		return
-	..()
+/mob/abstract/observer/orbit()
+	set_dir(2)//reset dir so the right directional sprites show up
+	return ..()
 
 /mob/proc/check_holy(var/turf/T)
 	return 0
@@ -459,18 +427,17 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Jump to Mob"
 	set desc = "Teleport to a mob"
 
-	if(istype(usr, /mob/abstract/observer)) //Make sure they're an observer!
+	if(istype(src, /mob/abstract/observer)) //Make sure they're an observer!
+		var/mob/source_mob = src  //Source mob
+
 		var/target = getmobs()[input]
 		if(!target) return
 		var/turf/T = get_turf(target) //Turf of the destination mob
 
 		if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
-			stop_following()
-			forceMove(T)
+			source_mob.abstract_move(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-
-		teleport_if_needed()
 
 /mob/abstract/observer/memory()
 	set hidden = 1
@@ -479,10 +446,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/add_memory()
 	set hidden = 1
 	to_chat(src, SPAN_WARNING("You are dead! You have no mind to store memory!"))
-
-/mob/abstract/observer/Post_Incorpmove()
-	stop_following()
-	teleport_if_needed()
 
 /mob/abstract/observer/verb/analyze_air()
 	set name = "Analyze Air"
