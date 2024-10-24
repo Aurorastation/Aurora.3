@@ -157,6 +157,11 @@ var/list/floating_chat_colors = list()
 	SHOULD_NOT_SLEEP(TRUE)
 	PRIVATE_PROC(TRUE)
 
+	//The client can go offline, which would cause a runtime below
+	//this prevents the runtime, checking for both null and being deleted
+	if(QDELETED(show_to))
+		return
+
 	runetext_image.maptext_height = mheight * 1.25
 
 	var/stored_chat_text_hash_cache = STORED_CHAT_TEXT_HASH(show_to)
