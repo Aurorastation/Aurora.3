@@ -61,7 +61,7 @@
 			new_firedoor.req_one_access = req_one_access
 	if(!single_window)
 		var/list/neighbours = list()
-		for (var/dir in GLOB.cardinal)
+		for (var/dir in GLOB.cardinals)
 			var/turf/T = get_step(src, dir)
 			var/obj/effect/map_effect/window_spawner/other = locate(/obj/effect/map_effect/window_spawner) in T
 			if(!other)

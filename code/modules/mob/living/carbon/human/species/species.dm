@@ -752,7 +752,7 @@
 	if(length(trail_info))
 		var/track_path = trail_info["footprint_type"]
 		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
-		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		var/turf/simulated/from = get_step(H, REVERSE_DIR(H.dir))
 		if(istype(from))
 			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 

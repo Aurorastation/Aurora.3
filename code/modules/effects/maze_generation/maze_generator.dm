@@ -133,7 +133,7 @@ do { \
 
 			// On both tiles
 			for(var/obj/structure/window/reinforced/crescent/W in T3)
-				if(W.dir == GLOB.reverse_dir[text2num(D)])
+				if(W.dir == REVERSE_DIR(text2num(D)))
 					qdel(W)
 
 			// Mark as visited

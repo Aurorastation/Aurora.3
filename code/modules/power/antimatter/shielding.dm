@@ -1,7 +1,7 @@
 //like orange but only checks north/south/east/west for one step
 /proc/cardinalrange(var/center)
 	var/list/things = list()
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		var/turf/T = get_step(center, direction)
 		if(!T)
 			continue
@@ -138,7 +138,7 @@
 					coredirs |= direction
 
 			// Detect cores, shielding, and control boxen.
-			if(direction in GLOB.cardinal)
+			if(direction in GLOB.cardinals)
 				if(istype(machine, /obj/machinery/am_shielding))
 					var/obj/machinery/am_shielding/AMS = machine
 					if(AMS.control_unit == control_unit)

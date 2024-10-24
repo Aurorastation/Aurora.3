@@ -162,7 +162,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		A.fire_act(air_contents.temperature, air_contents.volume)
 
 	//spread
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		var/turf/simulated/enemy_tile = get_step(my_tile, direction)
 
 		if(istype(enemy_tile))
@@ -202,7 +202,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		qdel(src)
 		return
 
-	set_dir(pick(GLOB.cardinal))
+	set_dir(pick(GLOB.cardinals))
 
 	var/datum/gas_mixture/air_contents = loc.return_air()
 	color = fire_color(air_contents.temperature)

@@ -267,13 +267,13 @@
 			if(holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
 			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(50))
-				step(src, pick(GLOB.cardinal))
+				step(src, pick(GLOB.cardinals))
 
 		else
 			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
 			else if(canmove && !pulledby && !length(grabbed_by) && isturf(loc) && prob(33))
-				step(src, pick(GLOB.cardinal))
+				step(src, pick(GLOB.cardinals))
 
 /mob/living/carbon/slime/proc/handle_AI() // the master AI process
 	if(victim?.stat & DEAD)

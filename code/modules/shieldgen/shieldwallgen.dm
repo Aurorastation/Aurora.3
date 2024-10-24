@@ -117,7 +117,7 @@
 	if(!NSEW)//Make sure its ran right
 		return
 
-	oNSEW = reverse_direction(NSEW)
+	oNSEW = REVERSE_DIR(NSEW)
 
 	for(var/dist = 0, dist <= 9, dist++) // checks out to 8 tiles away for another generator
 		T = get_step(T2, NSEW)

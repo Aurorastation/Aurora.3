@@ -3758,9 +3758,6 @@
 /area/ship/gadpathur_patrol/ammo)
 "Dm" = (
 /obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
 	icon_state = "1-8"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -5402,7 +5399,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
 "QF" = (

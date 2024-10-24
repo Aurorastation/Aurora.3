@@ -341,7 +341,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 
 /singleton/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(GLOB.cardinal))
+		step(M, pick(GLOB.cardinals))
 	if(prob(5) && ishuman(M))
 		M.emote(pick("twitch", "drool", "moan"))
 

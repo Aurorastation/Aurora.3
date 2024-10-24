@@ -143,19 +143,19 @@
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
 	//Locate our output and input machinery.
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, GLOB.reverse_dir[dir])
+		input = get_step(src, REVERSE_DIR(dir))
 	if(!output)
 		output = get_step(src, dir)
 

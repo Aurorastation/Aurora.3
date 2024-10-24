@@ -19,7 +19,7 @@
 	if(cached_icon)
 		icon = cached_icon
 
-	set_dir(pick(GLOB.cardinal))
+	set_dir(pick(GLOB.cardinals))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
@@ -285,7 +285,7 @@
 
 	while(pending.len)
 		for(var/turf/current in pending)
-			for(var/D in GLOB.cardinal)
+			for(var/D in GLOB.cardinals)
 				var/turf/target = get_step(current, D)
 				if(wallList)
 					if(istype(target, /turf/simulated/wall))

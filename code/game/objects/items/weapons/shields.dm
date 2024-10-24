@@ -23,7 +23,7 @@
 		return 0
 
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 	if(!check_shield_arc(user, bad_arc, damage_source, attacker))
 		return 0
 
@@ -40,7 +40,7 @@
 	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return BULLET_ACT_HIT
@@ -177,7 +177,7 @@
 	user.update_inv_r_hand()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : REVERSE_DIR(user.dir)
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return BULLET_ACT_HIT

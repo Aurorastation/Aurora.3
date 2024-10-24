@@ -60,8 +60,8 @@
 	update_icon()
 	var/obj/machinery/door/airlock/newtarget = (locate(/obj/machinery/door/airlock) in get_turf(src))
 	if(newtarget)
-		var/direction = reverse_direction(dir)
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
+		var/direction = REVERSE_DIR(dir)
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
 		for (var/obj/machinery/door/airlock/A in oview(1, newtarget))
 			var/rdir = get_dir(newtarget, A)
 			if (istype(A, newtarget.type) && (rdir == turn(direction, -90) || rdir == turn(direction, 90)))
@@ -300,7 +300,7 @@
 				return
 
 		var/direction = get_dir(user, newtarget)
-		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinal))
+		if ((direction in GLOB.alldirs) && !(direction in GLOB.cardinals))
 			direction = turn(direction, -45)
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
@@ -326,8 +326,8 @@
 
 		user.drop_from_inventory(src, src.loc)
 
-		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
-		set_dir(reverse_direction(direction))
+		forceMove(get_step(newtarget.loc, REVERSE_DIR(direction)))
+		set_dir(REVERSE_DIR(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
 		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."),

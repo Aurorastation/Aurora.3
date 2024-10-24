@@ -271,7 +271,7 @@
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
-		direction = pick(GLOB.cardinal)
+		direction = pick(GLOB.cardinals)
 
 	var/do_strafe = !isnull(user.facing_dir) && (legs.turn_delay <= legs.move_delay)
 	if(!do_strafe && dir != direction)

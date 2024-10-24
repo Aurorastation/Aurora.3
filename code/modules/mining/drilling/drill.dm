@@ -556,7 +556,7 @@
 	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
-	for(var/angle in GLOB.cardinal) // make it face any drill in GLOB.cardinal direction from it
+	for(var/angle in GLOB.cardinals) // make it face any drill in GLOB.cardinals direction from it
 		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
 		if(D)
 			src.dir = angle
