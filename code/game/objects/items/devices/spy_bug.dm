@@ -48,7 +48,7 @@
 		return ..()
 
 /obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	radio.hear_talk(M, msg, speaking)
+	radio.hear_talk(M, msg, verb, speaking)
 
 
 /obj/item/device/spy_monitor
