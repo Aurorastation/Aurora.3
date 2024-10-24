@@ -41,16 +41,16 @@
 			if(BP_R_FOOT)
 				name = "benign plantar fibroma (right foot)"
 
-/obj/item/organ/internal/parasite/benign_tumour/process()
+/obj/item/organ/internal/parasite/benign_tumour/process(seconds_per_tick)
 	..()
-	if (!owner)
+	if(!owner)
 		return
-	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn))  //10u will treat most tumours, 20u will nuke fully developed tumours
+	if(LAZYACCESS(owner.chem_doses, /singleton/reagent/ryetalyn))  //10u will treat most tumours, 20u will nuke fully developed tumours
 		recession = 20
-	if(prob(2))
+	if(SPT_PROB(2, seconds_per_tick))
 		owner.adjustNutritionLoss(5)
 	if(stage >= 2)  //after ~5 minutes
-		if(prob(5))
+		if(SPT_PROB(5, seconds_per_tick))
 			owner.adjustHalLoss(10*stage)
 
 /obj/item/organ/internal/parasite/malignant_tumour
@@ -98,44 +98,44 @@
 			if(BP_R_FOOT)
 				name = "malignant chondrosarcoma (right foot)"
 
-/obj/item/organ/internal/parasite/malignant_tumour/process()
+/obj/item/organ/internal/parasite/malignant_tumour/process(seconds_per_tick)
 	..()
-	if (!owner)
+	if(!owner)
 		return
-	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/ryetalyn)) //10u will treat most tumours, 20u will nuke fully developed tumours
+	if(LAZYACCESS(owner.chem_doses, /singleton/reagent/ryetalyn)) //10u will treat most tumours, 20u will nuke fully developed tumours
 		recession = 20
-	if(prob(5))
+	if(SPT_PROB(5, seconds_per_tick))
 		owner.adjustNutritionLoss(5)
-		if(prob(5))
+		if(SPT_PROB(5, seconds_per_tick))
 			owner.adjustHalLoss((10*stage)/2)
 	if(stage >= 2)  //after ~5 minutes
 		switch(parent_organ)
 			if(BP_HEAD)
 				owner.confused = min(owner.confused + (stage*2), 10)
 				owner.slurring = min(owner.slurring + (stage*2), 50)
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					to_chat(owner, SPAN_WARNING(pick("You struggle to remember the last several moments.", "You smell something funny.", "You taste something funny.", "You can't figure out how to properly string words together.", "What was I just doing?")))
 					owner.emote("drool")
 			if(BP_CHEST)
-				if(prob(3))
+				if(SPT_PROB(3, seconds_per_tick))
 					to_chat(owner, SPAN_WARNING(pick("You feel a tightness in your chest.", "You feel a little lightheaded.", "You need to take larger breaths than normal.")))
 					owner.emote(pick("cough", "gasp"))
 			if(BP_GROIN)
-				if(prob(3))
+				if(SPT_PROB(3, seconds_per_tick))
 					to_chat(owner, SPAN_WARNING(pick("You feel a sharp pain in your gut.", "You feel a little bloated.")))
 					owner.visible_message("<b>[owner]</b> winces slightly.")
 					owner.delayed_vomit()
 			else
-				if(prob(stage*2))
+				if(SPT_PROB(stage*2, seconds_per_tick))
 					to_chat(owner, SPAN_WARNING("You feel very lethargic."))
 	if(stage >= 3) //after ~10 minutes
 		for(var/obj/item/organ/internal/O in owner.internal_organs)
 			if(O.parent_organ == parent_organ)
 				if(BP_IS_ROBOTIC(O))
 					continue
-				if(prob(stage*stage))
+				if(SPT_PROB(stage*stage, seconds_per_tick))
 					O.damage = min(O.damage+stage, O.max_damage)
 
 	if(stage >= 4) //after 15 minutes
-		if(prob(3))
+		if(SPT_PROB(3, seconds_per_tick))
 			owner.reagents.add_reagent(egg, 2) //malignant cells breaking off, enter circulatory/lymphatic nodes to spread
