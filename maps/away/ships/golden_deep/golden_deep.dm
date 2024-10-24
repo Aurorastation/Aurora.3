@@ -15,7 +15,7 @@
 	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep, /datum/shuttle/autodock/multi/lift/gd)
-	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_VALLEY_HALE)
 
 	unit_test_groups = list(1)
 
