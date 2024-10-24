@@ -516,7 +516,7 @@ var/list/mob/living/forced_ambiance_list = new
 			blurb_verb.do_area_blurb(src, TRUE)
 
 /// A ghost version of the view area blurb verb so you can view it while observing.
-/mob/abstract/observer/verb/ghost_show_area_blurb()
+/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
 	set name = "Show Area Blurb"
 	set category = "IC"
 

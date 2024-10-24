@@ -22,8 +22,8 @@
 		return fizzle(user, A)
 
 	var/mob/living/carbon/C = user
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(A))
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(jobban_isbanned(O, "cultist"))

@@ -112,7 +112,7 @@
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/abstract/observer/zMove(direction)
+/mob/abstract/ghost/observer/zMove(direction)
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
@@ -133,7 +133,7 @@
 		return TRUE
 	return FALSE
 
-/mob/abstract/observer/can_ztravel(var/direction)
+/mob/abstract/ghost/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)

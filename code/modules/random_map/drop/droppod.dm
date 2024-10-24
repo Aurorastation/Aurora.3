@@ -174,7 +174,7 @@
 	else
 		var/list/candidates = list()
 		for(var/client/player in GLOB.clients)
-			if(player.mob && istype(player.mob, /mob/abstract/observer))
+			if(player.mob && istype(player.mob, /mob/abstract/ghost/observer))
 				candidates |= player
 
 		if(!candidates.len)

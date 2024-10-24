@@ -179,7 +179,7 @@
 /mob/living/captive_brain/emote(var/message)
 	return
 
-/mob/abstract/observer/emote(var/act, var/type, var/message)
+/mob/abstract/ghost/observer/emote(var/act, var/type, var/message)
 	if(!message)
 		return
 

@@ -43,8 +43,8 @@
 			to_chat(user, SPAN_WARNING("The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
 		return fizzle(user)
 
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(A))
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(O.mind?.current?.stat != DEAD)

@@ -405,7 +405,7 @@ update_flag
 		src.health -= round(hitting_projectile.damage / 2)
 		healthcheck()
 
-/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/observer/admin)
+/obj/machinery/portable_atmospherics/canister/AltClick(var/mob/abstract/ghost/observer/admin)
 	if (istype(admin))
 		if (admin.client && admin.client.holder && ((R_MOD|R_ADMIN) & admin.client.holder.rights))
 			if (valve_open)

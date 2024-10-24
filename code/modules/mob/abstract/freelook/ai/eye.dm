@@ -3,27 +3,27 @@
 // A mob that the AI controls to look around the station with.
 // It streams chunks as it moves around, which will show it what the AI can and cannot see.
 
-/mob/abstract/eye/cameranet
+/mob/abstract/eye/freelook
 	// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
 	name = "Inactive Camera Eye"
 	name_suffix = "Camera Eye"
 	living_eye = FALSE
 
-/mob/abstract/eye/cameranet/Initialize()
+/mob/abstract/eye/freelook/Initialize()
 	. = ..()
 	visualnet = GLOB.cameranet
 
-/mob/abstract/eye/aiEye
+/mob/abstract/eye/freelook/aiEye
 	name = "Inactive AI Eye"
 	name_suffix = "AI Eye"
 	icon_state = "AI-eye"
 	living_eye = FALSE
 
-/mob/abstract/eye/aiEye/Initialize()
+/mob/abstract/eye/freelook/aiEye/Initialize()
 	. = ..()
 	visualnet = GLOB.cameranet
 
-/mob/abstract/eye/aiEye/setLoc(var/T, var/cancel_tracking = 1)
+/mob/abstract/eye/freelook/aiEye/setLoc(var/T, var/cancel_tracking = 1)
 	. = ..()
 	if(. && isAI(owner))
 		var/mob/living/silicon/ai/ai = owner
@@ -55,7 +55,7 @@
 
 /mob/living/silicon/ai/proc/create_eyeobj(var/newloc = get_turf(src))
 	if(eyeobj) destroy_eyeobj()
-	eyeobj = new /mob/abstract/eye/aiEye(newloc)
+	eyeobj = new /mob/abstract/eye/freelook/aiEye(newloc)
 	eyeobj.possess(src)
 
 /atom/proc/move_camera_by_click()

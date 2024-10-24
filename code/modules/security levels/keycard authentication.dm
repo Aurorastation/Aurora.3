@@ -78,7 +78,6 @@
 		dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
 			dat += "<li><A href='?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 		dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"

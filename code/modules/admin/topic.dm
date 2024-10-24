@@ -161,7 +161,7 @@
 
 		switch(href_list["simplemake"])
 			if("observer")
-				M.change_mob_type( /mob/abstract/observer , null, null, delmob )
+				M.change_mob_type( /mob/abstract/ghost/observer , null, null, delmob )
 			if("nymph")
 				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
 			if("human")
@@ -1591,7 +1591,7 @@
 	if(client && eyeobj)
 		return "|<A HREF='?[source];adminplayerobservejump=[REF(eyeobj)]'>EYE</A>"
 
-/mob/abstract/observer/extra_admin_link(var/source)
+/mob/abstract/ghost/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
 		return "|<A HREF='?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
 
