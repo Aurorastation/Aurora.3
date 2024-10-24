@@ -42,6 +42,8 @@
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
+	overmap_visitable_type = /obj/effect/overmap/visitable/ship/runtime
+
 	evac_controller_type = /datum/evacuation_controller/starship
 
 	station_networks = list(
