@@ -207,7 +207,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "pocketbutter"
 	attack_verb = list("poked", "jabbed", "schmeared")
-	force_divisor = 0.05
+	force_divisor = 0.05 // 3 when folded, 6 when deployed when using steel.
 	w_class = WEIGHT_CLASS_SMALL
 
 	///Boolean, if the knife is deployed (blade is out)
@@ -222,6 +222,17 @@
 	else
 		icon_state = initial(icon_state)
 
+/obj/item/material/kitchen/utensil/knife/pocketbutterknife/update_force()
+	if(deployed)
+		force = 6
+		sharp = TRUE
+		edge = TRUE
+
+	else
+		force = 3
+		sharp = FALSE
+		edge = FALSE
+
 /**
  * Switches the knife's deployment status, changes the force value, and makes it blunt/sharp.
  *
@@ -233,17 +244,11 @@
 	if(deployed)
 		to_chat(user, SPAN_NOTICE("\The [src] can now be put away."))
 		playsound(user, 'sound/weapons/blade_close.ogg', 15, TRUE)
-		force = 3
-		sharp = FALSE
-		edge = FALSE
 		deployed = FALSE
 
 	else
 		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
 		playsound(user, 'sound/weapons/blade_open.ogg', 15, TRUE)
-		force = 6
-		sharp = TRUE
-		edge = TRUE
 		deployed = TRUE
 
 	add_fingerprint(user)
