@@ -8,7 +8,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/tarwa
+	outfit = /datum/outfit/admin/tarwa
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +29,7 @@
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	uses_species_whitelist = TRUE
 	spawnpoints = list("tarwa_diona")
-	outfit = /obj/outfit/admin/tarwa/diona
+	outfit = /datum/outfit/admin/tarwa/diona
 	welcome_message = "As a diona gestalt of the Tarwa Conglomerate, most of the blood you have consumed would likely be from Unathi pirates, meaning that your gestalt would likely resemble an Unathi to some degree. Remember, even though you are a pirate, you are still \
 	a diona gestalt, and should roleplay diona conditional pacifism accordingly."
 
@@ -42,9 +42,9 @@
 	assigned_role = "Tarwa Conglomerate Captain"
 	special_role = "Tarwa Conglomerate Captain"
 	spawnpoints = list("tarwa_captain")
-	outfit = /obj/outfit/admin/tarwa/captain
+	outfit = /datum/outfit/admin/tarwa/captain
 
-/obj/outfit/admin/tarwa
+/datum/outfit/admin/tarwa
 	name = "Tarwa Conglomerate Crew"
 	uniform = /obj/item/clothing/under/unathi
 	shoes = /obj/item/clothing/shoes/sandals/caligae
@@ -58,16 +58,16 @@
 		/obj/item/storage/box/survival = 1
 	)
 
-/obj/outfit/admin/tarwa/get_id_access()
+/datum/outfit/admin/tarwa/get_id_access()
 	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/tarwa/diona
+/datum/outfit/admin/tarwa/diona
 	name = "Tarwa Conglomerate Diona"
 	suit = /obj/item/clothing/accessory/poncho/green
 	head = /obj/item/clothing/head/bandana/pirate
 	backpack_contents = list(/obj/item/device/uv_light = 1)
 
-/obj/outfit/admin/tarwa/captain
+/datum/outfit/admin/tarwa/captain
 	name = "Tarwa Conglomerate Captain"
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat
 	gloves = /obj/item/clothing/gloves/green/unathi

@@ -34,7 +34,7 @@
 	spawnpoints = list("moghes_ozeuoi")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_ozeuoi
+	outfit = /datum/outfit/admin/moghes_ozeuoi
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -55,7 +55,7 @@
 	special_role = "Ozeuoi Outpost Leader"
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/moghes_ozeuoi
+/datum/outfit/admin/moghes_ozeuoi
 	uniform = /obj/item/clothing/under/color/lightbrown
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 	shoes = /obj/item/clothing/shoes/sandals/caligae
@@ -64,5 +64,5 @@
 	id = /obj/item/card/id
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 
-/obj/outfit/admin/moghes_ozeuoi/get_id_access()
+/datum/outfit/admin/moghes_ozeuoi/get_id_access()
 	return list(ACCESS_OZEUOI)

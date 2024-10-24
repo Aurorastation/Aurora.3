@@ -40,21 +40,21 @@
 	)
 
 	titles_to_loadout = list(
-		"Hangar Technician" = /obj/outfit/job/hangar_tech/hephaestus,
-		"Shaft Miner" = /obj/outfit/job/mining/hephaestus,
-		"Machinist" = /obj/outfit/job/machinist/hephaestus,
-		"Engineer" = /obj/outfit/job/engineer/hephaestus,
-		"Atmospheric Technician" = /obj/outfit/job/atmos/hephaestus,
-		"Engineering Apprentice" = /obj/outfit/job/intern_eng/hephaestus,
-		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/hephaestus,
-		"Corporate Reporter" = /obj/outfit/job/journalist/hephaestus,
-		"Corporate Liaison" = /obj/outfit/job/representative/hephaestus,
-		"Off-Duty Crew Member" = /obj/outfit/job/visitor/hephaestus,
-		"Engineering Personnel" = /obj/outfit/job/engineer/event/hephaestus,
-		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/hephaestus
+		"Hangar Technician" = /datum/outfit/job/hangar_tech/hephaestus,
+		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
+		"Machinist" = /datum/outfit/job/machinist/hephaestus,
+		"Engineer" = /datum/outfit/job/engineer/hephaestus,
+		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
+		"Engineering Apprentice" = /datum/outfit/job/intern_eng/hephaestus,
+		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/hephaestus,
+		"Corporate Reporter" = /datum/outfit/job/journalist/hephaestus,
+		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/hephaestus,
+		"Engineering Personnel" = /datum/outfit/job/engineer/event/hephaestus,
+		"Operations Personnel" = /datum/outfit/job/hangar_tech/event/hephaestus
 	)
 
-/obj/outfit/job/hangar_tech/hephaestus
+/datum/outfit/job/hangar_tech/hephaestus
 	name = "Hangar Technician - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/heph
@@ -65,7 +65,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/machinist/hephaestus
+/datum/outfit/job/machinist/hephaestus
 	name = "Machinist - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/machinist/heph
@@ -76,7 +76,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/mining/hephaestus
+/datum/outfit/job/mining/hephaestus
 	name = "Shaft Miner - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
@@ -87,7 +87,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/engineer/hephaestus
+/datum/outfit/job/engineer/hephaestus
 	name = "Engineer - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
@@ -99,7 +99,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/atmos/hephaestus
+/datum/outfit/job/atmos/hephaestus
 	name = "Atmospheric Technician - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/heph
@@ -111,7 +111,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/intern_eng/hephaestus
+/datum/outfit/job/intern_eng/hephaestus
 	name = "Engineering Apprentice - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
@@ -123,7 +123,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/intern_atmos/hephaestus
+/datum/outfit/job/intern_atmos/hephaestus
 	name = "Atmospherics Apprentice - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
@@ -135,7 +135,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/representative/hephaestus
+/datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
 
 	head = /obj/item/clothing/head/beret/corporate/heph
@@ -156,7 +156,7 @@
 		/obj/item/stamp/hephaestus = 1
 	)
 
-/obj/outfit/job/journalist/hephaestus
+/datum/outfit/job/journalist/hephaestus
 	name = "Corporate Reporter - Hephaestus"
 
 	uniform = /obj/item/clothing/under/librarian/heph
@@ -168,7 +168,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 
-/obj/outfit/job/visitor/hephaestus
+/datum/outfit/job/visitor/hephaestus
 	name = "Off-Duty Crew Member - Hephaestus"
 
 	id = /obj/item/card/id/hephaestus
@@ -178,7 +178,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/hangar_tech/event/hephaestus
+/datum/outfit/job/hangar_tech/event/hephaestus
 	name = "Operations Personnel - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/heph
@@ -189,7 +189,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
-/obj/outfit/job/engineer/event/hephaestus
+/datum/outfit/job/engineer/event/hephaestus
 	name = "Engineering Personnel - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph

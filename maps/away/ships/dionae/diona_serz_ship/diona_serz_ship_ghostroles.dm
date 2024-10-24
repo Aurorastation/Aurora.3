@@ -9,7 +9,7 @@
 	spawnpoints = list("serz_voidtamer")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/serz_voidtamer
+	outfit = /datum/outfit/admin/serz_voidtamer
 
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -20,7 +20,7 @@
 	special_role = "Serz Clan Voidtamer"
 	respawn_flag = null
 
-/obj/outfit/admin/serz_voidtamer
+/datum/outfit/admin/serz_voidtamer
 	name = "Serz Clan Voidtamer"
 
 	uniform = /obj/item/clothing/under/unathi/zozo
@@ -41,7 +41,7 @@
 
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/obj/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/serz_voidtamer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"
 		H.w_uniform.accent_color = H.w_uniform.color
@@ -54,7 +54,7 @@
 	spawnpoints = list("serz_voidtamer_captain")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/serz_voidtamer/captain
+	outfit = /datum/outfit/admin/serz_voidtamer/captain
 
 	uses_species_whitelist = TRUE
 
@@ -62,7 +62,7 @@
 	special_role = "Serz Clan Voidtamer Captain"
 
 
-/obj/outfit/admin/serz_voidtamer/captain
+/datum/outfit/admin/serz_voidtamer/captain
 	name = "Serz Clan Voidtamer Captain"
 	uniform = /obj/item/clothing/under/unathi/zozo
 	back = /obj/item/storage/backpack/satchel/hegemony
@@ -71,6 +71,6 @@
 	l_ear = /obj/item/device/radio/headset/ship
 	backpack_contents = list(/obj/item/device/flashlight/lantern = 1, /obj/item/device/flashlight/survival = 1)
 
-/obj/outfit/admin/serz_voidtamer/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/serz_voidtamer/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#6D3175"

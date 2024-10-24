@@ -7,7 +7,7 @@
 	spawnpoints = list("tajaran_scrapper")
 	max_count = 3
 
-	outfit = /obj/outfit/admin/tajaran_scrapper
+	outfit = /datum/outfit/admin/tajaran_scrapper
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/tajaran_scrapper
+/datum/outfit/admin/tajaran_scrapper
 	name = "Scrapper"
 
 	uniform = list(
@@ -47,5 +47,5 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
-/obj/outfit/admin/tajaran_scrapper/get_id_access()
+/datum/outfit/admin/tajaran_scrapper/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)

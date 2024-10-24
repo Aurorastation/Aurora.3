@@ -21,7 +21,7 @@
 	short_name = "cciaagent"
 	name = "CCIA Agent"
 
-	outfit = /obj/outfit/admin/nt/cciaa
+	outfit = /datum/outfit/admin/nt/cciaa
 
 	assigned_role = "CCIA Agent"
 	special_role = "CCIA Agent"
@@ -32,7 +32,7 @@
 	short_name = "vip"
 	name = "Very Important Person"
 
-	outfit = /obj/outfit/admin/nt/vip
+	outfit = /datum/outfit/admin/nt/vip
 
 	assigned_role = "VIP"
 	special_role = "VIP"
@@ -55,7 +55,7 @@
 	max_count = 1
 
 	//Vars related to human mobs
-	outfit = /obj/outfit/admin/nt/protection_detail
+	outfit = /datum/outfit/admin/nt/protection_detail
 
 	assigned_role = "Civil Protection Officer"
 	special_role = "Civil Protection Officer"
@@ -67,7 +67,7 @@
 	short_name = "sccagent"
 	name = "SCC Agent"
 
-	outfit = /obj/outfit/admin/scc
+	outfit = /datum/outfit/admin/scc
 
 	assigned_role = "SCC Agent"
 	special_role = "SCC Agent"
@@ -83,7 +83,7 @@
 
 	landmark_name = "CCIAEscort"
 
-	outfit = /obj/outfit/admin/scc/bodyguard
+	outfit = /datum/outfit/admin/scc/bodyguard
 
 	enabled = FALSE
 	req_perms = null
@@ -101,7 +101,7 @@
 	name = "BSSB Agent"
 	desc = "Investigate issues related to crimes under the jurisdiction of the Biesel Security Services Bureau."
 
-	outfit = /obj/outfit/admin/nt/bssb
+	outfit = /datum/outfit/admin/nt/bssb
 
 	assigned_role = "BSSB Agent"
 	special_role = "BSSB Agent"
@@ -116,7 +116,7 @@
 
 	landmark_name = "CCIAEscort"
 
-	outfit = /obj/outfit/admin/nt/bssb/guard
+	outfit = /datum/outfit/admin/nt/bssb/guard
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 	enabled = FALSE
@@ -145,7 +145,7 @@
 	req_perms = R_CCIAA
 
 	//Vars related to human mobs
-	outfit = /obj/outfit/admin/nt/ert_commander
+	outfit = /datum/outfit/admin/nt/ert_commander
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -166,7 +166,7 @@
 	req_perms = R_CCIAA
 
 	//Vars related to human mobs
-	outfit = /obj/outfit/admin/tcfl
+	outfit = /datum/outfit/admin/tcfl
 	possible_species = list(SPECIES_HUMAN,SPECIES_TAJARA_MSAI,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI,SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

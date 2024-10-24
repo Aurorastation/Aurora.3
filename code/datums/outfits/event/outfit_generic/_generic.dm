@@ -1,5 +1,5 @@
 
-/obj/outfit/admin/generic
+/datum/outfit/admin/generic
 	name = "Generic Outfit"
 
 	uniform = list(
@@ -66,7 +66,7 @@
 		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 
-/obj/outfit/admin/generic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/generic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)

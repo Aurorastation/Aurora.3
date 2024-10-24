@@ -25,7 +25,7 @@
 	spawnpoints = list("moghes_gawgaryn_rider")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_gawgaryn
+	outfit = /datum/outfit/admin/moghes_gawgaryn
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -47,7 +47,7 @@
 	spawnpoints = list("moghes_gawgaryn_rider_boss")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_gawgaryn/leader
+	outfit = /datum/outfit/admin/moghes_gawgaryn/leader
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

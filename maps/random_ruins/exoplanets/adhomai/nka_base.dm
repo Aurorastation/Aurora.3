@@ -37,7 +37,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /obj/outfit/admin/nka_base
+	outfit = /datum/outfit/admin/nka_base
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -46,7 +46,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/nka_base
+/datum/outfit/admin/nka_base
 	name = "Imperial Adhomian Army Soldier"
 
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform
@@ -60,7 +60,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/obj/outfit/admin/nka_base/get_id_access()
+/datum/outfit/admin/nka_base/get_id_access()
 	return list(ACCESS_NKA)
 
 /datum/ghostspawner/human/nka_base/commander
@@ -71,14 +71,14 @@
 	spawnpoints = list("nka_base_commander")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/nka_base/commander
+	outfit = /datum/outfit/admin/nka_base/commander
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI)
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Imperial Adhomian Army Officer"
 	special_role = "Imperial Adhomian Army Officer"
 
-/obj/outfit/admin/nka_base/commander
+/datum/outfit/admin/nka_base/commander
 	name = "Imperial Adhomian Army Officer"
 
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform/commander

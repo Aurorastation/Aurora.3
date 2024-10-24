@@ -8,7 +8,7 @@
 	spawnpoints = list("hiskyn")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/hiskyn_pirate
+	outfit = /datum/outfit/admin/hiskyn_pirate
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -28,13 +28,13 @@
 
 	spawnpoints = list("hiskyn_captain")
 
-	outfit = /obj/outfit/admin/hiskyn_pirate/captain
+	outfit = /datum/outfit/admin/hiskyn_pirate/captain
 
 
 	assigned_role = "Hiskyn Captain"
 	special_role = "Hiskyn Captain"
 
-/obj/outfit/admin/hiskyn_pirate
+/datum/outfit/admin/hiskyn_pirate
 	name = "Hiskyn Revanchist"
 	uniform = /obj/item/clothing/under/unathi/hiskyn
 	shoes = /obj/item/clothing/shoes/sandals/caligae
@@ -47,9 +47,9 @@
 		/obj/item/storage/box/survival = 1
 	)
 
-/obj/outfit/admin/hiskyn_pirate/get_id_access()
+/datum/outfit/admin/hiskyn_pirate/get_id_access()
 	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/hiskyn_pirate/captain
+/datum/outfit/admin/hiskyn_pirate/captain
 	gloves = /obj/item/clothing/gloves/black_leather/unathi
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat/hiskyn

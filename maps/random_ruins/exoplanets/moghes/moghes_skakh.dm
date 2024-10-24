@@ -33,7 +33,7 @@
 	spawnpoints = list("moghes_skakh")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_skakh
+	outfit = /datum/outfit/admin/moghes_skakh
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -50,7 +50,7 @@
 
 	max_count = 1
 	spawnpoints = list("moghes_skakh_priest")
-	outfit = /obj/outfit/admin/moghes_skakh
+	outfit = /datum/outfit/admin/moghes_skakh
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Sk'akh Priest"
@@ -67,14 +67,14 @@
 	max_count = 3
 	possible_species = list(SPECIES_UNATHI)
 	spawnpoints = list("moghes_skakh_faithful")
-	outfit = /obj/outfit/admin/moghes_bar_patron
+	outfit = /datum/outfit/admin/moghes_bar_patron
 	uses_species_whitelist = FALSE
 
 	assigned_role = "Sk'akh Faithful"
 	special_role = "Sk'akh Faithful"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_skakh
+/datum/outfit/admin/moghes_skakh
 	name = "Sk'akh Acolyte"
 	uniform = /obj/item/clothing/under/unathi/skakh
 	shoes = /obj/item/clothing/shoes/sandal
