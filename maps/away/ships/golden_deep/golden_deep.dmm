@@ -2858,9 +2858,6 @@
 	dir = 8;
 	frequency = 1380
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep/passenger)
@@ -4442,7 +4439,7 @@
 /area/shuttle/golden_deep/passenger)
 "sN" = (
 /obj/effect/ghostspawpoint{
-	name = "igs - golden_deep_hoplan";
+	name = "igs - golden_deep";
 	identifier = "golden_deep"
 	},
 /obj/structure/bed/stool/chair/office/dark{
@@ -6260,7 +6257,7 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - golden_deep_hoplan";
+	name = "igs - golden_deep";
 	identifier = "golden_deep"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11254,7 +11251,7 @@
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
-	name = "igs - golden_deep_hoplan";
+	name = "igs - golden_deep";
 	identifier = "golden_deep"
 	},
 /turf/simulated/floor/carpet/darkblue,
@@ -11412,6 +11409,10 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_central_hallway)
+"Vl" = (
+/obj/effect/shuttle_landmark/golden_deep/nav2,
+/turf/template_noop,
+/area/space)
 "Vm" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -11558,10 +11559,6 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/passenger)
-"VN" = (
-/obj/effect/shuttle_landmark/golden_deep/nav2,
-/turf/template_noop,
-/area/space)
 "VR" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
@@ -110669,7 +110666,7 @@ Rt
 Rt
 Rt
 Rt
-VN
+Vl
 Rt
 Rt
 Rt
