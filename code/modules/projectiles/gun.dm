@@ -813,14 +813,15 @@
 #undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
 #undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
 
-/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
-	//Cannot equip wielded items.
+/obj/item/gun/on_slotmove(mob/user, slot, disable_warning, ignore_blocked)
+	. = ..()
+	if(!.)
+		return
 	if(wielded)
 		unwield()
 		var/obj/item/offhand/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
-	return ..()
 
 /obj/item/gun/throw_at()
 	..()
