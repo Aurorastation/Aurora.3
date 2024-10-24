@@ -10169,6 +10169,10 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
+"PX" = (
+/obj/effect/shuttle_landmark/golden_deep/nav2,
+/turf/template_noop,
+/area/space)
 "PY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -110660,7 +110664,7 @@ Rt
 Rt
 Rt
 Rt
-Rt
+PX
 Rt
 Rt
 Rt
