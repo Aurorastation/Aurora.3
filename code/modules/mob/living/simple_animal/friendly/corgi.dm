@@ -85,7 +85,7 @@
 
 			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2))
 	else
-		..()
+		return ..()
 
 /mob/living/simple_animal/corgi/regenerate_icons()
 	ClearOverlays()
