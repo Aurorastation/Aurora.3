@@ -760,10 +760,9 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "dj" = (
@@ -1011,13 +1010,13 @@
 /area/golden_deep/starboardprop)
 "en" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
@@ -2248,14 +2247,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
 "jD" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/golden_deep/warehouse)
+/obj/effect/shuttle_landmark/golden_deep/nav2,
+/turf/template_noop,
+/area/space)
 "jG" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/alarm/south{
@@ -3737,7 +3731,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "pS" = (
@@ -4764,13 +4758,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "tR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 8
 	},
 /obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5033,10 +5027,9 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "uS" = (
@@ -9917,12 +9910,12 @@
 /area/golden_deep/central_hallway)
 "OO" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/warehouse)
@@ -11409,10 +11402,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_central_hallway)
-"Vl" = (
-/obj/effect/shuttle_landmark/golden_deep/nav2,
-/turf/template_noop,
-/area/space)
 "Vm" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -11563,10 +11552,9 @@
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/warehouse)
 "VS" = (
@@ -45171,7 +45159,7 @@ bH
 QW
 Iu
 ok
-jD
+dh
 FQ
 iB
 PJ
@@ -110666,7 +110654,7 @@ Rt
 Rt
 Rt
 Rt
-Vl
+jD
 Rt
 Rt
 Rt
