@@ -7,6 +7,7 @@
 /obj/item/nullrod/athame,
 /obj/item/nullrod/rredouane,
 /obj/item/nullrod/luceiansceptre,
+/obj/item/storage/assunzionesheath/filled,
 /turf/template_noop,
 /area/template_noop)
 "br" = (
@@ -119,10 +120,7 @@
 /area/template_noop)
 "fM" = (
 /obj/structure/bed/psych,
-/obj/item/toy/plushie/domadice{
-	pixel_y = 6;
-	pixel_x = -1
-	},
+/obj/random/plushie,
 /turf/template_noop,
 /area/template_noop)
 "gP" = (
@@ -135,12 +133,11 @@
 /turf/template_noop,
 /area/template_noop)
 "hx" = (
-/obj/structure/rredouane_statue,
+/obj/vehicle/bike/speeder/izweski,
 /turf/template_noop,
 /area/template_noop)
 "hN" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/table/rack/folding_table,
 /obj/machinery/reagentgrinder{
 	pixel_y = 17;
 	pixel_x = 6
@@ -153,6 +150,7 @@
 	pixel_y = 4;
 	pixel_x = 8
 	},
+/obj/structure/table/steel,
 /turf/template_noop,
 /area/template_noop)
 "ji" = (
@@ -176,6 +174,7 @@
 /obj/item/device/hearing_aid/skrell,
 /obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha,
 /obj/item/skrell_projector,
+/obj/item/toy/plushie/axic,
 /turf/template_noop,
 /area/template_noop)
 "jJ" = (
@@ -186,8 +185,8 @@
 /turf/template_noop,
 /area/template_noop)
 "jV" = (
-/obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/template_noop,
 /area/template_noop)
 "kw" = (
@@ -214,13 +213,13 @@
 /turf/template_noop,
 /area/template_noop)
 "lc" = (
-/obj/item/gun/energy/gun/skrell/pistol,
 /obj/structure/closet/crate/secure/weapon/alt{
 	req_one_access = list(229, 217)
 	},
 /obj/item/melee/telebaton/nlom,
 /obj/random/dirt_75,
 /obj/item/gun/energy/blaster/himeo,
+/obj/item/gun/energy/gun/qukala,
 /turf/template_noop,
 /area/template_noop)
 "lT" = (
@@ -230,6 +229,13 @@
 /area/template_noop)
 "mn" = (
 /obj/random/vendor,
+/turf/template_noop,
+/area/template_noop)
+"mp" = (
+/obj/structure/table/rack/no_cargo,
+/obj/random/toolbox,
+/obj/random/tool,
+/obj/random/tech_supply,
 /turf/template_noop,
 /area/template_noop)
 "mQ" = (
@@ -268,7 +274,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rC" = (
-/obj/structure/reagent_dispensers/lube,
+/obj/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
 /area/template_noop)
 "rD" = (
@@ -281,7 +287,6 @@
 /turf/template_noop,
 /area/template_noop)
 "sC" = (
-/obj/structure/table/rack/folding_table,
 /obj/item/storage/box/fancy/vials{
 	pixel_x = -4;
 	pixel_y = 13
@@ -290,6 +295,7 @@
 	pixel_x = 8;
 	pixel_y = 2
 	},
+/obj/structure/table/steel,
 /turf/template_noop,
 /area/template_noop)
 "uo" = (
@@ -325,6 +331,7 @@
 	},
 /obj/item/skrell_projector/vaurca_projector,
 /obj/item/vaurca/box,
+/obj/item/stellascope,
 /turf/template_noop,
 /area/template_noop)
 "vs" = (
@@ -387,6 +394,7 @@
 /obj/random/hoodie,
 /obj/random/hoodie,
 /obj/random/hoodie,
+/obj/random/watches,
 /turf/template_noop,
 /area/template_noop)
 "yn" = (
@@ -447,6 +455,7 @@
 /obj/structure/closet/crate/secure/weapon/alt{
 	req_one_access = list(229, 217)
 	},
+/obj/random/prebuilt_ka,
 /turf/template_noop,
 /area/template_noop)
 "Bw" = (
@@ -567,6 +576,7 @@
 /obj/random/civgun/rifle,
 /obj/random/civgun,
 /obj/item/gun/energy/galatea,
+/obj/random/melee/highvalue,
 /turf/template_noop,
 /area/template_noop)
 "GC" = (
@@ -593,6 +603,8 @@
 /obj/random/belt,
 /obj/random/backpack,
 /obj/random/backpack,
+/obj/random/plushie,
+/obj/random/plushie,
 /turf/template_noop,
 /area/template_noop)
 "Hv" = (
@@ -699,10 +711,26 @@
 "LS" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/template_noop,
+/area/template_noop)
+"Mm" = (
+/obj/structure/largecrate/animal/shark,
 /turf/template_noop,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/shieldgen,
+/obj/machinery/vending/security{
+	req_access = null
+	},
 /turf/template_noop,
 /area/template_noop)
 "Na" = (
@@ -1210,7 +1238,7 @@ Ow
 MJ
 sq
 sq
-MJ
+mp
 sq
 sq
 Ow
@@ -1262,7 +1290,7 @@ fM
 Za
 sq
 Ow
-QO
+Mm
 sq
 sq
 Zd
