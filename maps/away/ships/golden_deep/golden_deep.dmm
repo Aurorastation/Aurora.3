@@ -7361,6 +7361,9 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_one_access = list(229, 217)
+	},
 /turf/simulated/floor,
 /area/golden_deep/starboardprop)
 "EN" = (
@@ -9723,10 +9726,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "On" = (
-/turf/simulated/wall/shuttle/dark/cardinal/closet_gold{
-	can_open = 1;
-	color = "#60562f"
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(229, 217)
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
 "Oo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -10169,10 +10174,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
-"PX" = (
-/obj/effect/shuttle_landmark/golden_deep/nav2,
-/turf/template_noop,
-/area/space)
 "PY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -11557,6 +11558,10 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/shuttle/golden_deep/passenger)
+"VN" = (
+/obj/effect/shuttle_landmark/golden_deep/nav2,
+/turf/template_noop,
+/area/space)
 "VR" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
@@ -110664,7 +110669,7 @@ Rt
 Rt
 Rt
 Rt
-PX
+VN
 Rt
 Rt
 Rt
