@@ -235,7 +235,7 @@
 
 	next_turf:
 		for(var/turf/T in world)
-			for(var/dir in GLOB.cardinal)
+			for(var/dir in GLOB.cardinals)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++

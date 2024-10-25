@@ -236,7 +236,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(GLOB.cardinal)
+		destination = pick(GLOB.cardinals)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
@@ -297,7 +297,7 @@
 		if(istype(O, /obj/structure/window))
 			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
-			if(W.dir == GLOB.reverse_dir[dir])
+			if(W.dir == REVERSE_DIR(dir))
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

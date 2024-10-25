@@ -106,7 +106,7 @@
 		connect_to_network()
 
 	dir_loop:
-		for(var/d in GLOB.cardinal)
+		for(var/d in GLOB.cardinals)
 			var/turf/T = get_step(src, d)
 			for(var/obj/machinery/power/terminal/term in T)
 				if(term && term.dir == turn(d, 180))
@@ -314,7 +314,7 @@
 			tempDir = EAST
 		if (NORTHWEST, SOUTHWEST)
 			tempDir = WEST
-	var/turf/tempLoc = get_step(src, reverse_direction(tempDir))
+	var/turf/tempLoc = get_step(src, REVERSE_DIR(tempDir))
 	if (istype(tempLoc, /turf/space))
 		to_chat(user, SPAN_WARNING("You can't build a terminal on space."))
 		return 1
