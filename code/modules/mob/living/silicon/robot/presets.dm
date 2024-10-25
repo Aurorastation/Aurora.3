@@ -29,6 +29,10 @@
 	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
 	var/mob/original_mob
 
+/mob/living/silicon/robot/bluespace/Destroy(force)
+	original_mob = null
+	return ..()
+
 /mob/living/silicon/robot/bluespace/verb/antigrav()
 	set name = "Toggle Gravity"
 	set desc = "Use bluespace technology to ignore gravity."

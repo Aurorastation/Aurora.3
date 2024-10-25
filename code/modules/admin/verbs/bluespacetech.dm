@@ -40,15 +40,15 @@
 	//This whole section looks like a hack, I don't like it.
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
+	if(istype(mob, /mob/living))
+		bst.original_mob = mob
+
 	bst.anchored = 1
 	bst.ckey = usr.ckey
 	bst.name = "Bluespace Technician"
 	bst.real_name = "Bluespace Technician"
 	bst.voice_name = "Bluespace Technician"
 	bst.h_style = "Crewcut"
-
-	if(istype(mob, /mob/living))
-		bst.original_mob = mob
 
 	//Items
 	var/obj/item/clothing/under/U = new /obj/item/clothing/under/rank/centcom_officer/bst(bst)
@@ -140,6 +140,10 @@
 	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
 	var/mob/original_mob
 
+/mob/living/carbon/human/bst/Destroy(force)
+	original_mob = null
+	return ..()
+
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
 	user.drop_item()
@@ -174,7 +178,7 @@
 			client.key = key
 			client.init_verbs()
 		else
-			var/mob/abstract/ghost/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/ghost/observer/ghost = new(src, src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"

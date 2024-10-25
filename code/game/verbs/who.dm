@@ -46,6 +46,8 @@
 							msg += "<font color='gray'>Observing</font>"
 						else
 							msg += "<font color='black'><b>DEAD</b></font>"
+					else if(isstoryteller(client.mob))
+						msg += "<font color='blue'><b>STORYTELLING</b></font>"
 					else
 						msg += "<font color='black'><b>DEAD</b></font>"
 			msg += "</td>"
@@ -123,8 +125,10 @@
 
 				if(isobserver(client.mob))
 					msg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
+				else if(isnewplayer(client.mob))
 					msg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					msg += "- Storytelling"
 				else
 					msg += " - Playing"
 
@@ -137,11 +141,13 @@
 				modmsg += "\t[client.key] is a [client.holder.rank]"
 
 				if(isobserver(client.mob))
-					modmsg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
-					modmsg += " - Lobby"
+					msg += " - Observing"
+				else if(isnewplayer(client.mob))
+					msg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					msg += "- Storytelling"
 				else
-					modmsg += " - Playing"
+					msg += " - Playing"
 
 				if(client.is_afk())
 					modmsg += " (AFK)"
@@ -150,12 +156,15 @@
 
 			else if (R_CCIAA & client.holder.rights)
 				cciaamsg += "\t[client.key]"
-				if (isobserver(client.mob))
-					cciaamsg += " - Observing"
-				else if (istype(client.mob, /mob/abstract/new_player))
-					cciaamsg += " - Lobby"
+
+				if(isobserver(client.mob))
+					msg += " - Observing"
+				else if(isnewplayer(client.mob))
+					msg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					msg += "- Storytelling"
 				else
-					cciaamsg += " - Playing"
+					msg += " - Playing"
 
 				if (client.is_afk())
 					cciaamsg += " (AFK)"
@@ -164,12 +173,15 @@
 
 			else if(client.holder.rights & R_DEV)
 				devmsg += "\t[client.key] is a [client.holder.rank]"
+
 				if(isobserver(client.mob))
-					devmsg += " - Observing"
-				else if(istype(client.mob, /mob/abstract/new_player))
-					devmsg += " - Lobby"
+					msg += " - Observing"
+				else if(isnewplayer(client.mob))
+					msg += " - Lobby"
+				else if(isstoryteller(client.mob))
+					msg += "- Storytelling"
 				else
-					devmsg += " - Playing"
+					msg += " - Playing"
 
 				if(client.is_afk())
 					devmsg += " (AFK)"

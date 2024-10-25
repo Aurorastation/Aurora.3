@@ -29,7 +29,10 @@
 	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
 	var/horizon_early_announcement_message = "A site of interest has been located and the SCCV Horizon will be sent to investigate it. Please prepare an expedition."
 	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
-	var/horizon_late_announcement_message = "There is a Situation on this away site you're probably supposed to know about. Go investigate it."
+	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on sensors. Send an expedition to investigate."
+
+	/// The announcement message for offships. This one contains all the info and is sent quickly.
+	var/offship_announcement_message = "A recent scan indicates the presence of a site of interest to investigate. Coordinates have been registered on sensors."
 
 	/// The default outfit every actor is given on this scenario.
 	/// They can select their role and outfit on the Odyssey UI when ingame.
@@ -97,6 +100,11 @@
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("The automated announcement to the Horizon would have been sent now, but it has been blocked by the presence of a Storyteller.")))
 			to_chat(storyteller, FONT_LARGE(SPAN_DANGER("Please remember to use the Send Distress Message verb as soon as your prep is done!")))
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("If it is an Overmap scenario, please make sure to <b>include either the exact name or the coordinates of the Overmap object</b> the scenario takes place on.")))
+
+	var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
+	if(odyssey_site)
+		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
+			sensors.add_contact(odyssey_site)
 
 /obj/effect/landmark/actor
 	name = "actor"
