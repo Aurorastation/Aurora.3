@@ -21,7 +21,7 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 	)
 
 /datum/antagonist/actor/New()
-	..(1)
+	..()
 	GLOB.actors = src
 
 /datum/antagonist/actor/equip(var/mob/living/carbon/human/player)

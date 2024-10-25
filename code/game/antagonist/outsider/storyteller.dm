@@ -12,5 +12,5 @@ GLOBAL_DATUM(storytellers, /datum/antagonist/storyteller)
 	bantype = "storyteller"
 
 /datum/antagonist/storyteller/New()
-	..(1)
+	..()
 	GLOB.storytellers = src

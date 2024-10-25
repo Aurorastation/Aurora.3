@@ -46,18 +46,19 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/proc/pick_odyssey()
 	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
 	var/list/possible_scenarios = list()
-	for(var/singleton/scenario/S in all_scenarios)
+	for(var/scenario in all_scenarios)
+		var/singleton/scenario/S = scenario
 		if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
 			possible_scenarios[S] = S.weight
 
 	if(!length(possible_scenarios))
-		log_debug("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
+		log_subsystem_odyssey("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
 		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
 		return FALSE
 
 	scenario = pickweight(possible_scenarios)
 	gamemode_setup()
-	/// Now that we actually have an odyssey, the subsystem can fire!
+	// Now that we actually have an odyssey, the subsystem can fire!
 	can_fire = TRUE
 	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 	return TRUE
@@ -140,13 +141,19 @@ SUBSYSTEM_DEF(odyssey)
 
 /datum/controller/subsystem/odyssey/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	if(.)
+		return
+
+	var/mob/odyssey_user = ui.user
+	if(!ismob(odyssey_user))
+		return
 
 	switch(action)
 		if("equip_outfit")
-			if(!ishuman(usr))
+			if(!ishuman(odyssey_user))
 				return
 
-			var/mob/living/carbon/human/player = usr
+			var/mob/living/carbon/human/player = odyssey_user
 			if(player.incapacitated())
 				return
 
@@ -162,36 +169,36 @@ SUBSYSTEM_DEF(odyssey)
 				return TRUE
 
 		if("edit_scenario_name")
-			if(!isstoryteller(usr))
+			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN, user = odyssey_user))
 				return
 
 			var/new_scenario_name = tgui_input_text(usr, "Insert the new name for your scenario. Remember that this will be visible for anyone in the Stat Panel.", "Odyssey Panel", max_length = MAX_NAME_LEN)
 			if(!new_scenario_name)
 				return
 
-			log_and_message_admins("has changed the scenario name from [SSodyssey.scenario.name] to [new_scenario_name]")
+			log_and_message_admins("has changed the scenario name from [SSodyssey.scenario.name] to [new_scenario_name]", odyssey_user)
 			SSodyssey.scenario.name = new_scenario_name
 			return TRUE
 
 		if("edit_scenario_desc")
-			if(!isstoryteller(usr))
+			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN, user = odyssey_user))
 				return
 
-			var/new_scenario_desc = tgui_input_text(usr, "Insert the new description for your scenario. This is visible only in the Odyssey Panel.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
+			var/new_scenario_desc = tgui_input_text(odyssey_user, "Insert the new description for your scenario. This is visible only in the Odyssey Panel.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
 			if(!new_scenario_desc)
 				return
 
-			log_and_message_admins("has changed the scenario description")
+			log_and_message_admins("has changed the scenario description", odyssey_user)
 			SSodyssey.scenario.desc = new_scenario_desc
 			return TRUE
 
 		if("edit_role")
-			if(!isstoryteller(usr) && !check_rights(R_ADMIN))
+			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN))
 				return
 
 			var/role_path = text2path(params["role_type"])
 			if(!role_path || !ispath(role_path, /singleton/role))
-				to_chat(usr, SPAN_WARNING("Invalid or inexisting role!"))
+				to_chat(odyssey_user, SPAN_WARNING("Invalid or inexisting role!"))
 				return
 
 			var/singleton/role/role_to_edit = GET_SINGLETON(role_path)
@@ -200,25 +207,25 @@ SUBSYSTEM_DEF(odyssey)
 			var/editing_outfit = params["edit_outfit"]
 
 			if(editing_name)
-				var/new_name = tgui_input_text(usr, "Insert the new name for this role.", "Odyssey Panel", max_length = MAX_NAME_LEN)
+				var/new_name = tgui_input_text(odyssey_user, "Insert the new name for this role.", "Odyssey Panel", max_length = MAX_NAME_LEN)
 				if(new_name)
-					log_and_message_admins("has changed the [role_to_edit.name] role's name to [new_name]")
+					log_and_message_admins("has changed the [role_to_edit.name] role's name to [new_name]", odyssey_user)
 					role_to_edit.name = new_name
 					return TRUE
 
 			if(editing_desc)
-				var/new_desc = tgui_input_text(usr, "Insert the new description for this role.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
+				var/new_desc = tgui_input_text(odyssey_user, "Insert the new description for this role.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
 				if(new_desc)
-					log_and_message_admins("has changed the [role_to_edit.name] role's description")
+					log_and_message_admins("has changed the [role_to_edit.name] role's description", odyssey_user)
 					role_to_edit.desc = new_desc
 					return TRUE
 
 			if(editing_outfit)
-				var/chosen_outfit = tgui_input_list(usr, "Select the new outfit for this role.", "Odyssey Panel", GLOB.outfit_cache)
+				var/chosen_outfit = tgui_input_list(odyssey_user, "Select the new outfit for this role.", "Odyssey Panel", GLOB.outfit_cache)
 				if(chosen_outfit)
 					var/obj/outfit/new_outfit = GLOB.outfit_cache[chosen_outfit]
 					if(new_outfit)
-						log_and_message_admins("has changed the [role_to_edit.name] role's outfit from [role_to_edit.outfit] to [new_outfit]")
+						log_and_message_admins("has changed the [role_to_edit.name] role's outfit from [role_to_edit.outfit] to [new_outfit]", odyssey_user)
 						role_to_edit.outfit = new_outfit.type
 						return TRUE
 

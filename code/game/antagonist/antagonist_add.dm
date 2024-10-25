@@ -33,7 +33,7 @@
 		return 0
 	current_antagonists |= player
 
-	if(length(faction_verbs) && player.current)
+	if(LAZYLEN(faction_verbs) && player.current)
 		add_verb(player.current.client, faction_verbs)
 
 	if(player.current.client)
@@ -59,7 +59,7 @@
 	if(!istype(player))
 		return 0
 
-	if(player.current && length(faction_verbs))
+	if(player.current && LAZYLEN(faction_verbs))
 		remove_verb(player.current.client, faction_verbs)
 
 	if(player in current_antagonists)

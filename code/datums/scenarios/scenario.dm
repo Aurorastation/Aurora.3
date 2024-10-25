@@ -8,12 +8,11 @@
 	/// The type of scenario this is. NOT a boolean or a bitfield.
 	var/scenario_type = SCENARIO_TYPE_NONCANON
 
-	/**
-	 * All scenarios happen in an away site, which is manually spawned when the odyssey is picked.
-	 * This away site can have its exoplanet themes defined and then mapped to give the semblance of being on a planet (see the Tret away site).
-	 * Alternatively, without defining exoplanet themes, it can take place in space, for example.
-	 * In the future there will likely be support for no-away site scenarios that take place on the Horizon.
-	 */
+	// All scenarios happen in an away site, which is manually spawned the very second the round starts.
+	// This away site can have its exoplanet themes defined and then mapped to give the semblance of being on a planet (see the Tret away site).
+	// Alternatively, without defining exoplanet themes, it can take place in space, for example.
+	// In the future there will likely be support for no-away site scenarios that take place on the Horizon.
+
 	/// The away site ID of the scenario to spawn. This is what you should edit, set it to the away site's id variable.
 	var/scenario_site_id
 	/// This is the away site where the scenario takes place. Do not edit this variable - it's set automatically.
@@ -36,9 +35,9 @@
 	/// They can select their role and outfit on the Odyssey UI when ingame.
 	var/default_outfit = /obj/outfit/admin/generic
 
-	/// The displayed list of scenario roles. List of /singleton/role
+	/// The displayed list of scenario roles.
 	/// The players will be able to see the role names in the Odyssey UI, and when they click them, they'll equip the relevant outfit.
-	var/list/roles
+	var/list/singleton/role/roles
 
 	/// The base area of this scenario's away site. Used for blueprints. Must have  AREA_FLAG_IS_BACKGROUND.
 	var/base_area
