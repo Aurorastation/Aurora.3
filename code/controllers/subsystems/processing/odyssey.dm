@@ -46,8 +46,7 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/proc/pick_odyssey()
 	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
 	var/list/possible_scenarios = list()
-	for(var/scenario in all_scenarios)
-		var/singleton/scenario/S = scenario
+	for(var/singleton/scenario/S as anything in all_scenarios)
 		if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
 			possible_scenarios[S] = S.weight
 

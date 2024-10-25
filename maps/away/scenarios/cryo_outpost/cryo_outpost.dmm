@@ -8110,9 +8110,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_aux_west)
 "jsA" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/random/junk{
 	pixel_x = -5;
 	pixel_y = 15
@@ -8276,13 +8273,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "jBl" = (
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/machinery/washing_machine,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
@@ -9283,9 +9274,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "kAw" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -10745,9 +10733,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_east)
 "mfo" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -12266,13 +12251,6 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/warehouse)
-"oex" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/plating,
-/area/cryo_outpost/inside/maint_habitation)
 "oeP" = (
 /obj/structure/bed/stool/chair/padded/purple{
 	dir = 8
@@ -13969,9 +13947,6 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "pWz" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -17402,9 +17377,6 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
 "tEH" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -17672,13 +17644,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
-"tUR" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cryo_outpost/inside/maint_habitation)
 "tVk" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -19274,12 +19239,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
-"vHp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/cryo_outpost/inside/maint_habitation)
 "vHB" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/tiled,
@@ -19480,13 +19439,17 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "vRY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cryo_outpost/inside/maint_habitation)
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/habitation_west)
 "vTC" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -45467,7 +45430,7 @@ rHe
 rHe
 abK
 abK
-eMM
+vRY
 abK
 abK
 ejq
@@ -45981,7 +45944,7 @@ pgW
 pgW
 foj
 xNp
-xJd
+xNp
 tHy
 abK
 abK
@@ -46238,7 +46201,7 @@ pgW
 pgW
 foj
 gxX
-xJd
+xNp
 xNp
 qUQ
 meq
@@ -46495,10 +46458,10 @@ pgW
 pgW
 foj
 rsG
-tUR
+xNp
 jsA
-vHp
-oex
+tHy
+qas
 jag
 xNp
 abK
@@ -46755,7 +46718,7 @@ srD
 tHy
 tHy
 tHy
-vrE
+tHy
 jag
 mhO
 abK
@@ -47012,7 +46975,7 @@ foj
 foj
 foj
 foj
-vRY
+jag
 hvN
 hvN
 abK
@@ -47269,7 +47232,7 @@ gXK
 upw
 foj
 hTW
-xJd
+xNp
 abK
 abK
 abK
