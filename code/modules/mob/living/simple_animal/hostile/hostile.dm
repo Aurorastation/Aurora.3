@@ -156,14 +156,20 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/FoundTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/see_target()
-	return is_in_sight(src, target_mob)
+/mob/living/simple_animal/hostile/proc/see_target(atom/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!target)
+		stack_trace("see_target() called with null target!")
+		return FALSE
+
+	return is_in_sight(src, target)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
-	if(!see_target())
+	if(!see_target(target_mob))
 		LoseTarget()
 	if(target_mob in targets)
 		if(ranged)
@@ -188,7 +194,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(!(target_mob in targets))
 		LoseTarget()
 		return 0
-	if(!see_target())
+	if(!see_target(target_mob))
 		LoseTarget()
 	if(ON_ATTACK_COOLDOWN(src))
 		return
@@ -210,7 +216,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		return
 	if(!canmove)
 		return
-	if(!see_target())
+	if(!see_target(target_mob))
 		LoseTarget()
 	for(var/grab in grabbed_by)
 		var/obj/item/grab/G = grab
@@ -323,11 +329,19 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	return TRUE
 
-/mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
+/**
+ * Handles the logic of firing at a target for the hostile mob
+ *
+ * * target_mob - The mob to fire at
+ * * ignore_visibility - Whether or not to ignore the visibility check
+ */
+/mob/living/simple_animal/hostile/proc/OpenFire(target_mob, ignore_visibility = FALSE)
 	set waitfor = FALSE
 
-	if(!see_target())
+	if(!ignore_visibility && !see_target(target_mob))
 		LoseTarget()
+		return
+
 	var/target = target_mob
 	// This code checks if we are not going to hit our target
 	if(smart_ranged && !check_fire(target_mob))

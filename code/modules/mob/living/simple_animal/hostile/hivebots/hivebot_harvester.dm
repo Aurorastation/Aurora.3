@@ -253,9 +253,8 @@
 		return
 
 	if(istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/W = T
 		rapid = 1
-		OpenFire(W)
+		OpenFire(T, ignore_visibility = TRUE)
 		rapid = 0
 		return
 
@@ -337,7 +336,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/shoot_wrapper(target, location, user)
 	target_mob = target
-	if(see_target())
-		Shoot(target, location, user)
+	Shoot(target, location, user)
 	target_mob = null
 	return
