@@ -574,7 +574,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				name = realname
 
 	for(var/mob/M in GLOB.player_list)
-		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD) || isstoryteller(M) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
+		if(M.client && ((!istype(M, /mob/abstract/new_player) && M.stat == DEAD) || (M.client.holder && check_rights(R_DEV|R_MOD|R_ADMIN, 0, M))) && (M.client.prefs.toggles & CHAT_DEAD))
 			var/follow
 			var/lname
 			if(subject)

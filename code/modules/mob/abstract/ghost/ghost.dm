@@ -1,4 +1,5 @@
 /mob/abstract/ghost
+	stat = DEAD
 	layer = OBSERVER_LAYER
 	plane = OBSERVER_PLANE
 
@@ -10,6 +11,8 @@
 	var/has_ghost_restrictions = TRUE
 	/// The mob or thing we are following.
 	var/atom/movable/following
+	/// If the ghost has antagHUD.
+	var/antagHUD = 0
 	/// Necessary for seeing wires.
 	var/obj/item/device/multitool/ghost_multitool
 
@@ -24,6 +27,17 @@
 	stop_following()
 	QDEL_NULL(ghost_multitool)
 	return ..()
+
+/mob/abstract/ghost/Topic(href, href_list)
+	if (href_list["track"])
+		if(istype(href_list["track"],/mob))
+			var/mob/target = locate(href_list["track"]) in GLOB.mob_list
+			if(target)
+				ManualFollow(target)
+		else
+			var/atom/target = locate(href_list["track"])
+			if(istype(target))
+				ManualFollow(target)
 
 /mob/abstract/ghost/ClickOn(var/atom/A, var/params)
 	if(!canClick())
@@ -154,3 +168,32 @@
 		return FALSE
 
 	return TRUE
+
+/mob/abstract/ghost/verb/analyze_air()
+	set name = "Analyze Air"
+	set category = "Ghost"
+
+	// Shamelessly copied from the Gas Analyzers
+	if(!isturf(loc))
+		return
+
+	var/datum/gas_mixture/environment = loc.return_air()
+
+	var/pressure = environment.return_pressure()
+	var/total_moles = environment.total_moles
+
+	to_chat(src, SPAN_NOTICE("<B>Results:</B>"))
+	if(abs(pressure - ONE_ATMOSPHERE) < 10)
+		to_chat(src, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
+	else
+		to_chat(src, SPAN_WARNING("Pressure: [round(pressure,0.1)] kPa"))
+	if(total_moles)
+		for(var/g in environment.gas)
+			to_chat(src, SPAN_NOTICE("[gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)"))
+		to_chat(src, SPAN_NOTICE("Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)"))
+		to_chat(src, SPAN_NOTICE("Heat Capacity: [round(environment.heat_capacity(),0.1)]"))
+
+/mob/abstract/ghost/verb/view_manifest()
+	set name = "Show Crew Manifest"
+	set category = "Ghost"
+	SSrecords.open_manifest_tgui(usr)

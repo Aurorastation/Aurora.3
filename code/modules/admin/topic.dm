@@ -731,7 +731,7 @@
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
@@ -751,7 +751,7 @@
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		C.jumptocoord(x,y,z)
 

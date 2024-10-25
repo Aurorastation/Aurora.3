@@ -47,6 +47,9 @@
 			if(isobserver(M))
 				name += " \[Ghost\]"
 				category = "Observer"
+			else if(isstoryteller(M))
+				name += "\[Storyteller\]"
+				category = "Storytellers"
 			else
 				name += " \[Dead\]"
 				category = "Dead"

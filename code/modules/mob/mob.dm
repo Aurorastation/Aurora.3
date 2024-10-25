@@ -191,7 +191,7 @@
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(isobserver(M))
+		if(isghost(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
 			continue
 		if(self_message && M == src)

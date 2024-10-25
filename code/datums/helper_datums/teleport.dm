@@ -313,7 +313,7 @@
 		return FALSE
 
 
-	if(isobserver(teleatom)) // do not teleport ghosts
+	if(isghost(teleatom)) // do not teleport ghosts
 		return FALSE
 
 

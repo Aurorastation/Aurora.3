@@ -3,19 +3,17 @@
 	set name = "Toggle Inquisitiveness"
 	set desc = "Sets whether your ghost examines everything on click by default"
 	set category = "Ghost"
-	if(!client) return
+
+	if(!client)
+		return
+
 	client.inquisitive_ghost = !client.inquisitive_ghost
 	if(client.inquisitive_ghost)
 		to_chat(src, SPAN_NOTICE("You will now examine everything you click on."))
 	else
 		to_chat(src, SPAN_NOTICE("You will no longer examine things you click on."))
 
-/mob/abstract/ghost/observer/DblClickOn(var/atom/A, var/params)
-	if(can_reenter_corpse && mind && mind.current)
-		if(A == mind.current || (mind.current in A)) // double click your corpse or whatever holds it
-			reenter_corpse()						// (cloning scanner, body bag, closet, mech, etc)
-			return									// seems legit.
-
+/mob/abstract/ghost/DblClickOn(var/atom/A, var/params)
 	// Things you might plausibly want to follow
 	if((ismob(A) && A != src) || istype(A,/obj/machinery/bot) || istype(A,/obj/singularity))
 		ManualFollow(A)
@@ -25,8 +23,15 @@
 		stop_following()
 		forceMove(get_turf(A))
 
+/mob/abstract/ghost/observer/DblClickOn(atom/A, params)
+	if(can_reenter_corpse && mind && mind.current)
+		if(A == mind.current || (mind.current in A)) // double click your corpse or whatever holds it
+			reenter_corpse()						// (cloning scanner, body bag, closet, mech, etc)
+			return									// seems legit.
+		. = ..()
+
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
-/atom/proc/attack_ghost(mob/abstract/ghost/observer/user as mob)
+/atom/proc/attack_ghost(mob/abstract/ghost/user as mob)
 	if(user.client && user.client.inquisitive_ghost)
 		examinate(user, src)
 	return

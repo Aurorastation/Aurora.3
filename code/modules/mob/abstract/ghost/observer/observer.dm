@@ -3,7 +3,6 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	stat = DEAD
 	density = 0
 	canmove = 0
 	blinded = 0
@@ -24,8 +23,6 @@
 	var/has_enabled_antagHUD = 0
 	/// If the ghost has enabled medHUD.
 	var/medHUD = 0
-	/// If the ghost has antagHUD.
-	var/antagHUD = 0
 	/// If this is an adminghost.
 	var/admin_ghosted = 0
 	/// If this ghost has enabled chat anonymization.
@@ -98,17 +95,6 @@
 		updateallghostimages()
 
 	return ..()
-
-/mob/abstract/ghost/observer/Topic(href, href_list)
-	if (href_list["track"])
-		if(istype(href_list["track"],/mob))
-			var/mob/target = locate(href_list["track"]) in GLOB.mob_list
-			if(target)
-				ManualFollow(target)
-		else
-			var/atom/target = locate(href_list["track"])
-			if(istype(target))
-				ManualFollow(target)
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
@@ -385,37 +371,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/add_memory()
 	set hidden = 1
 	to_chat(src, SPAN_WARNING("You are dead! You have no mind to store memory!"))
-
-/mob/abstract/ghost/observer/verb/analyze_air()
-	set name = "Analyze Air"
-	set category = "Ghost"
-
-	if(!istype(usr, /mob/abstract/ghost/observer)) return
-
-	// Shamelessly copied from the Gas Analyzers
-	if (!( istype(usr.loc, /turf) ))
-		return
-
-	var/datum/gas_mixture/environment = usr.loc.return_air()
-
-	var/pressure = environment.return_pressure()
-	var/total_moles = environment.total_moles
-
-	to_chat(src, SPAN_NOTICE("<B>Results:</B>"))
-	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		to_chat(src, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
-	else
-		to_chat(src, SPAN_WARNING("Pressure: [round(pressure,0.1)] kPa"))
-	if(total_moles)
-		for(var/g in environment.gas)
-			to_chat(src, SPAN_NOTICE("[gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)"))
-		to_chat(src, SPAN_NOTICE("Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)"))
-		to_chat(src, SPAN_NOTICE("Heat Capacity: [round(environment.heat_capacity(),0.1)]"))
-
-/mob/abstract/ghost/observer/verb/view_manifest()
-	set name = "Show Crew Manifest"
-	set category = "Ghost"
-	SSrecords.open_manifest_tgui(usr)
 
 //This is called when a ghost is drag clicked to something.
 /mob/abstract/ghost/observer/MouseDrop(atom/over)
