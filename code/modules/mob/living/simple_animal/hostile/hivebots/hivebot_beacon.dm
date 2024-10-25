@@ -185,7 +185,7 @@
 		stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
-	if(!see_target())
+	if(!see_target(target_mob))
 		LoseTarget()
 	if(target_mob in targets)
 		if(get_dist(src, target_mob) <= 6)
