@@ -155,7 +155,7 @@
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 85,
+	/obj/item/surgery/surgicaldrill = 100,
 	/obj/item/pickaxe/ = 15
 	)
 

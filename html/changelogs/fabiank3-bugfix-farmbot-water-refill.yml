@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the water tank refill of Farmbots. Farmbots will now refill their tank if the option is enabled and a sink is nearby."

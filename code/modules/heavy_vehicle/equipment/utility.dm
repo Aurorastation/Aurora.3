@@ -480,8 +480,8 @@
 								for(var/obj/item/ore/ore in range(owner,1))
 									if(get_dir(owner,ore)&owner.dir)
 										ore.Move(ore_box)
-				else if(istype(target, /turf/unsimulated/floor/asteroid))
-					for(var/turf/unsimulated/floor/asteroid/M in range(owner,1))
+				else if(istype(target, /turf/simulated/floor/exoplanet/asteroid))
+					for(var/turf/simulated/floor/exoplanet/asteroid/M in range(owner,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.gets_dug()
 							drill_head.durability -= 1

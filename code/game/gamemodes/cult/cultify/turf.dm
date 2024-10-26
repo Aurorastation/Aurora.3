@@ -30,7 +30,7 @@
 /turf/unsimulated/wall/cultify()
 	cultify_wall()
 
-/turf/unsimulated/floor/asteroid/cultify()
+/turf/simulated/floor/exoplanet/asteroid/cultify()
 	return
 
 /turf/simulated/mineral/cultify()
