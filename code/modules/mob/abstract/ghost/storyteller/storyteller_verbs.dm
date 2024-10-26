@@ -374,4 +374,4 @@
 		return
 
 	M.revive()
-	message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!"), 1)
+	message_admins(SPAN_DANGER("Storyteller [key_name_admin(usr)] healed / revived [key_name_admin(M)]!"), 1)
