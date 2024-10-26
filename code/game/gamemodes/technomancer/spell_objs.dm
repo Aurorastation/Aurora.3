@@ -43,7 +43,7 @@
 	var/cast_sound = null			// Sound file played when this is used.
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
-/obj/item/spell/examine(mob/user, distance, is_adjacent, show_extended) // Nothing on examine.
+/obj/item/spell/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended) // Nothing on examine.
 	SHOULD_CALL_PARENT(FALSE)
 
 	return TRUE

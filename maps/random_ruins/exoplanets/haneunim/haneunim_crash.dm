@@ -74,7 +74,7 @@
 /obj/effect/landmark/corpse/league_smuggler/do_extra_customization(mob/living/carbon/human/M)
 	M.change_skin_tone(rand(10, 200))
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/item/paper/fluff/haneunim_crash
 	name = "scrawled message"

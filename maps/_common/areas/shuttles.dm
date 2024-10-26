@@ -36,7 +36,7 @@
 
 /area/shuttle/escape_pod
 	name = "Escape pod"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/shuttle/escape_pod/pod1
 	name = "Escape pod - 1"
@@ -85,7 +85,7 @@
 
 /area/shuttle/research
 	name = "Research Shuttle"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash
 
 /area/shuttle/legion
 	name = "Foreign Legion Shuttle"
