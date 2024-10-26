@@ -210,7 +210,7 @@
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 
-/mob/abstract/ghost/storyteller/verb/send_distress_message()
+/mob/abstract/ghost/storyteller/verb/command_report()
 	set name = "Create Command Report"
 	set category = "Storyteller"
 
@@ -234,6 +234,36 @@
 
 	//New message handling
 	post_comm_message(reporttitle, reportbody)
+
+/mob/abstract/ghost/storyteller/verb/send_odyssey_message()
+	set name = "Send Odyssey Message"
+	set category = "Storyteller"
+
+	var/reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the message the Horizon will get.", "Title"))
+	if(!reporttitle)
+		reporttitle = "SCC Sensors Report"
+	var/reportbody = sanitize(tgui_input_text(usr, "Enter the message the Horizon will get. Note that they will automatically receive the sensors data for the overmap object if applicable.", "Body", multiline = TRUE), extra = FALSE)
+	if(!reportbody)
+		return
+
+	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
+	switch(announce)
+		if("Yes")
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+		if("No")
+			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
+			sound_to(world, ('sound/AI/commandreport.ogg'))
+
+	log_admin("Storyteller [key_name(src)] has notified the Horizon about the current Odyssey: [reportbody]")
+	message_admins("Storyteller [key_name_admin(src)] has notified the Horizon about the current Odyssey:", 1)
+
+	//New message handling
+	post_comm_message(reporttitle, reportbody)
+
+	var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
+	if(odyssey_site)
+		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
+			sensors.add_contact(odyssey_site)
 
 /mob/abstract/ghost/storyteller/verb/change_mob_name(var/mob/victim)
 	set name = "Change Mob Name"

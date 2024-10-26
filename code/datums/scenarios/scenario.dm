@@ -29,10 +29,10 @@
 	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
 	var/horizon_early_announcement_message = "A site of interest has been located and the SCCV Horizon will be sent to investigate it. Please prepare an expedition."
 	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
-	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on sensors. Send an expedition to investigate."
+	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on your sensors. Send an expedition to investigate."
 
 	/// The announcement message for offships. This one contains all the info and is sent quickly.
-	var/offship_announcement_message = "A recent scan indicates the presence of a site of interest to investigate. Coordinates have been registered on sensors."
+	var/offship_announcement_message = "A recent sensors scan indicates the presence of a site of interest to investigate. Coordinates have been registered on your sensors."
 
 	/// The default outfit every actor is given on this scenario.
 	/// They can select their role and outfit on the Odyssey UI when ingame.
@@ -61,6 +61,7 @@
 		setup_away_site()
 		to_world(FONT_LARGE(SPAN_DANGER("Your Odyssey is ready!")))
 	else
+		// To edit this part eventually for Horizon odyssey scenarios.
 		log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: SCENARIO [name] DOES NOT HAVE A VALID SITE!"))
 		return FALSE
 	return TRUE
@@ -92,19 +93,19 @@
  * This is essentially the distress signal or central command order that makes the Horizon go investigate the odyssey point.
  */
 /singleton/scenario/proc/notify_horizon_late(var/obj/effect/overmap/visitable/ship/horizon)
-	/// We don't want to send the announcement if there are Storytellers. We want to have them control when to end their prep and when to tell the Horizon to come.
+	// We don't want to send the announcement if there are Storytellers.
+	// We want to have them control when to end their prep and when to tell the Horizon to come.
 	if(!length(SSodyssey.storytellers))
 		command_announcement.Announce(horizon_late_announcement_message, horizon_announcement_title, do_print = TRUE)
+		var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
+		if(odyssey_site)
+			for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
+				sensors.add_contact(odyssey_site)
 	else
 		for(var/mob/storyteller in SSodyssey.storytellers)
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("The automated announcement to the Horizon would have been sent now, but it has been blocked by the presence of a Storyteller.")))
-			to_chat(storyteller, FONT_LARGE(SPAN_DANGER("Please remember to use the Send Distress Message verb as soon as your prep is done!")))
+			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("Please remember to use the <b>Send Odyssey Message</b> verb as soon as your prep is done!")))
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("If it is an Overmap scenario, please make sure to <b>include either the exact name or the coordinates of the Overmap object</b> the scenario takes place on.")))
-
-	var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
-	if(odyssey_site)
-		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
-			sensors.add_contact(odyssey_site)
 
 /obj/effect/landmark/actor
 	name = "actor"

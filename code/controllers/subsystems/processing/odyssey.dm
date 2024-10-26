@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(odyssey)
 					continue
 
 				for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
-					priority_announcement.Announce(scenario.offship_announcement_message, "[ship.name] Sensors Report")
+					priority_announcement.Announce(scenario.offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
 					sensors.add_contact(odyssey_site)
 
 		has_sent_roundstart_announcement = TRUE
@@ -136,7 +136,7 @@ SUBSYSTEM_DEF(odyssey)
 		data["scenario_name"] = SSodyssey.scenario.name
 		data["scenario_desc"] = SSodyssey.scenario.desc
 		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
-		data["is_storyteller"] = isstoryteller(user)
+		data["is_storyteller"] = isstoryteller(user) || check_rights(R_ADMIN, user = user)
 
 		if(length(scenario.roles))
 			data["scenario_roles"] = list()
