@@ -5,7 +5,8 @@
 ///from base of atom/movable/Moved(): (/atom)
 #define COMSIG_MOVABLE_PRE_MOVE "movable_pre_move"
 	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE (1<<0)
-
+///from base of atom/movable/Moved(): (atom/old_loc, dir, forced, list/old_locs)
+#define COMSIG_MOVABLE_MOVED "movable_moved"
 ///from base of atom/movable/Cross(): (/atom/movable)
 #define COMSIG_MOVABLE_CROSS "movable_cross"
 ///from base of atom/movable/Move(): (/atom/movable)

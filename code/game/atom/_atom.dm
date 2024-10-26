@@ -107,12 +107,7 @@
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 
-	if(orbiters)
-		for(var/thing in orbiters)
-			var/datum/orbit/O = thing
-			if(O.orbiter)
-				O.orbiter.stop_orbit()
-	orbiters = null
+	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
 	. = ..()
 
@@ -173,7 +168,6 @@
 
 	//Observables event, Aurora snowflake code
 	GLOB.entered_event.raise_event(src, arrived, old_loc)
-	GLOB.moved_event.raise_event(arrived, old_loc, arrived.loc)
 
 /**
  * An atom is attempting to exit this atom's contents
