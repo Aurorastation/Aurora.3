@@ -32,7 +32,7 @@
 	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on your sensors. Send an expedition to investigate."
 
 	/// The announcement message for offships. This one contains all the info and is sent quickly.
-	var/offship_announcement_message = "A recent sensors scan indicates the presence of a site of interest to investigate. Coordinates have been registered on your sensors."
+	var/offship_announcement_message = "A recent sensors scan indicates the presence of a site of interest to investigate. The oordinates have been registered on the sensors consoles."
 
 	/// The default outfit every actor is given on this scenario.
 	/// They can select their role and outfit on the Odyssey UI when ingame.
