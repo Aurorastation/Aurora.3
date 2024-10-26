@@ -228,3 +228,78 @@
   WickedCybs, Ansekishokuu:
   - rscadd: Added 2 new hairstyles for humans and tajara. Bobcut, overeye and Diagonal
       Bangs.
+2024-10-20:
+  Ben10083:
+  - rscadd: Adds new black and brown greatcoats, thanks to greytide_ for the sprites!
+  - rscadd: Greatcoat options added to loadout.
+  dessysalta:
+  - rscadd: Rejoice! The freebooter and freighter offships can now have IPC captains.
+2024-10-21:
+  ClemTheDuck:
+  - balance: Tweaked armour slowdown to be spread between the plate, arm and leg guards.
+      Having the full set on will slow you down the most, taking the arm and leg guards
+      off will make you faster.
+  - balance: Changes the armour values of the Heavy Helmet to be in line with the
+      Heavy Plate stats and other heavy armour stats.
+  - balance: Changes the armour values of the Imperial Flak Vest to be equal to Corporate
+      Security plates, should make the imperial flak vest actually useful as armour.
+  - balance: Changes the armour values of the TCAF Light carapce to be equal to Corporate
+      Security plates, this is to make it actually have some tradeoff and stand out
+      against the TCAF Heavy Carapce.
+  FluffyGhost:
+  - bugfix: Replaced the outside turfs with exoplanet ones for the digsite.
+  - bugfix: Fixed some exoplanet areas not having an exoplanet base turf.
+  - code_imp: Wrote a unit test for exoplanet areas to ensure they have an exoplanet
+      base turf.
+  - bugfix: Fixed toys being interactable from distance, while floored etcetera.
+  - rscadd: Added a robotic syringe, to be used by borgs, that do not get dirty and
+      gives infection to people after the first use.
+  - code_imp: Removed a snowflake storage code for the light replacer, that was bypassing
+      the doafter loading inside afterattack.
+  - bugfix: Fixed multi-stacking light replacing doafter.
+  - bugfix: Fixed grippers icon not displaying the content of the gripper.
+  - bugfix: Gripper icon now updates when the item content changes (in most situations?).
+  - bugfix: Fixed the xenomorph helmet icon state.
+  SimpleMaroon:
+  - qol: Vaurca Attendants can now use the same mecha eye body markings as Workers.
+  Snowy1237:
+  - bugfix: Fixed greimorian workers making greimorians out of dead greimorians.
+2024-10-22:
+  AlaunusLux:
+  - balance: Removes chance of failure when opening a surgical site for vaurca with
+      surgical drill.
+2024-10-25:
+  Ben10083:
+  - qol: The Strange One darkens the sky on October 31st.
+2024-10-26:
+  Ben10083:
+  - spellcheck: Grammar fix for Twin Suns Charm.
+  FluffyGhost:
+  - rscadd: Ingested ryetalyn now cures tumors, and does its effect.
+  - code_imp: Implemented time-constant STP_PROB in some procs.
+  - bugfix: Fixed a runtime on book opening.
+  - bugfix: Fixed a runtime in floating message generator when the client disconnects.
+  - bugfix: Fixed some TGUI number inputs where the default could be larger than the
+      max in some instances, causing a runtime.
+  - bugfix: Fixed harvesters vision not making them shoot at opaque turfs on non-vertical
+      alignments.
+  - code_imp: Some code QoL changes.
+  - bugfix: Fixed even more active edges on the abandoned adhomian village turfs.
+  - bugfix: Fix lazarus injector not working.
+  - bugfix: Fix corgi attack resolution not returning parent result.
+  - bugfix: Resolved some runtimes for mimic turfs on examine.
+  - code_imp: All examine headers respect the proc signature.
+  - code_imp: All examine that do not explicitly need not to, passthrough the arglist
+      to references examine target procs.
+  - refactor: Refactored directionals, ported lists of directions from TG, got rid
+      of useless proc to get the reverse direction.
+  - bugfix: Fixed a runtime in handle_intoxication().
+  Snowy1237:
+  - bugfix: Fixes wieldable items un-wielding when hovered over a compatible storage
+      slot.
+  hazelmouse:
+  - rscadd: Remaps the Golden Deep ghostrole to fit newer standards.
+  - rscadd: Adds a number of new assets to the game for the Golden Deep, including
+      new voidsuits and menial uniforms.
+  - rscadd: Adds the clothes dyer item to the game, used to recolor recolorable clothing.
+      Adds it to the Golden Deep ghostrole.

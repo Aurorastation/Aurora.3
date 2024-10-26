@@ -714,22 +714,7 @@
 	..()
 
 	if(!attacking_item.dropsafety())
-		return.
-
-	if(istype(attacking_item, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LP = attacking_item
-		var/amt_inserted = 0
-		var/turf/T = get_turf(user)
-		for(var/obj/item/light/L in src.contents)
-			if(L.status == 0)
-				if(LP.uses < LP.max_uses)
-					LP.AddUses(1)
-					amt_inserted++
-					remove_from_storage(L, T)
-					qdel(L)
-		if(amt_inserted)
-			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
-			return
+		return
 
 	if(!can_be_inserted(attacking_item))
 		return
