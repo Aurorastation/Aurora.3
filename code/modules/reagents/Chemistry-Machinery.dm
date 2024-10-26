@@ -299,6 +299,11 @@
 		return TRUE
 	return TRUE
 
+/obj/machinery/chem_master/ui_status(mob/user, datum/ui_state/state)
+	if(!operable())
+		return UI_DISABLED
+
+	. = ..()
 
 
 /obj/machinery/chem_master/Topic(href, href_list)
