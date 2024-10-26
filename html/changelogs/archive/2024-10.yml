@@ -271,3 +271,35 @@
 2024-10-25:
   Ben10083:
   - qol: The Strange One darkens the sky on October 31st.
+2024-10-26:
+  Ben10083:
+  - spellcheck: Grammar fix for Twin Suns Charm.
+  FluffyGhost:
+  - rscadd: Ingested ryetalyn now cures tumors, and does its effect.
+  - code_imp: Implemented time-constant STP_PROB in some procs.
+  - bugfix: Fixed a runtime on book opening.
+  - bugfix: Fixed a runtime in floating message generator when the client disconnects.
+  - bugfix: Fixed some TGUI number inputs where the default could be larger than the
+      max in some instances, causing a runtime.
+  - bugfix: Fixed harvesters vision not making them shoot at opaque turfs on non-vertical
+      alignments.
+  - code_imp: Some code QoL changes.
+  - bugfix: Fixed even more active edges on the abandoned adhomian village turfs.
+  - bugfix: Fix lazarus injector not working.
+  - bugfix: Fix corgi attack resolution not returning parent result.
+  - bugfix: Resolved some runtimes for mimic turfs on examine.
+  - code_imp: All examine headers respect the proc signature.
+  - code_imp: All examine that do not explicitly need not to, passthrough the arglist
+      to references examine target procs.
+  - refactor: Refactored directionals, ported lists of directions from TG, got rid
+      of useless proc to get the reverse direction.
+  - bugfix: Fixed a runtime in handle_intoxication().
+  Snowy1237:
+  - bugfix: Fixes wieldable items un-wielding when hovered over a compatible storage
+      slot.
+  hazelmouse:
+  - rscadd: Remaps the Golden Deep ghostrole to fit newer standards.
+  - rscadd: Adds a number of new assets to the game for the Golden Deep, including
+      new voidsuits and menial uniforms.
+  - rscadd: Adds the clothes dyer item to the game, used to recolor recolorable clothing.
+      Adds it to the Golden Deep ghostrole.
