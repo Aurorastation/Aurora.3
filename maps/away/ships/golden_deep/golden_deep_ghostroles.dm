@@ -27,7 +27,7 @@
 	spawnpoints = list("golden_deep_hoplan")
 	max_count = 2
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/golden_deep/hoplan
+	outfit = /datum/outfit/admin/golden_deep/hoplan
 	assigned_role = "Golden Deep Collective, House Hoplan"
 	special_role = "Golden Deep Collective, House Hoplan"
 
@@ -59,7 +59,7 @@
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	shoes = /obj/item/clothing/shoes/jackboots
 
-/obj/outfit/admin/golden_deep/hoplan
+/datum/outfit/admin/golden_deep/hoplan
 	name = "Golden Deep Collective, House Hoplan"
 	uniform = /obj/item/clothing/under/goldendeep/hoplan
 	head = /obj/item/clothing/head/goldendeep/hoplan
@@ -67,7 +67,7 @@
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	gloves = /obj/item/clothing/gloves/swat/tactical
 
-/obj/outfit/admin/golden_deep/boss
+/datum/outfit/admin/golden_deep/boss
 	name = "Golden Deep Collective, Accredited Merchant"
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
@@ -90,7 +90,7 @@
 		tag.citizenship_info = CITIZENSHIP_GOLDEN
 
 // For the Hoplan. Hoplan and merchants both have a gustatorial centre, so they can use the bar.
-/obj/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
@@ -114,11 +114,11 @@
 	H.head.color = pick("#991517")
 	H.w_uniform.color = pick("#333333")
 
-/obj/outfit/admin/golden_deep/get_id_access()
+/datum/outfit/admin/golden_deep/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/golden_deep/hoplan/get_id_access()
+/datum/outfit/admin/golden_deep/hoplan/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/golden_deep/boss/get_id_access()
+/datum/outfit/admin/golden_deep/boss/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)
