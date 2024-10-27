@@ -303,3 +303,10 @@
       new voidsuits and menial uniforms.
   - rscadd: Adds the clothes dyer item to the game, used to recolor recolorable clothing.
       Adds it to the Golden Deep ghostrole.
+2024-10-27:
+  FluffyGhost:
+  - rscadd: Chemmaster and chemdispenser UI disables if the machine is not operable.
+  - code_imp: Turned a comment into a DMDoc.
+  - refactor: Refactored movement observable away, use only the signal.
+  - refactor: Refactored and fixed orbiter for ghosts.
+  - code_imp: Some tweaks to the signal.
