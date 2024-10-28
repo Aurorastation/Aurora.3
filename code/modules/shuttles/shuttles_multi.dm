@@ -55,8 +55,7 @@
 	..()
 
 /datum/shuttle/autodock/multi/antag/arrived()
-	if(current_location == home_waypoint)
-		returned = TRUE
+	returned = TRUE
 
 /datum/shuttle/autodock/multi/antag/launch(var/user)
 	if(returned)
