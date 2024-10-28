@@ -245,9 +245,9 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			GLOB.destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
+			RegisterSignal(linked_pad, COMSIG_QDELETING, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
-			GLOB.destroyed_event.unregister(old_pad, src)
+			UnregisterSignal(old_pad, COMSIG_QDELETING)
 		return
 	return ..()
 

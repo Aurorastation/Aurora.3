@@ -215,7 +215,7 @@
 	lock_time = world.time + 35
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(update_aiming))
 	RegisterSignal(aiming_at, COMSIG_MOVABLE_MOVED, PROC_REF(target_moved))
-	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
+	RegisterSignal(aiming_at, COMSIG_QDELETING, PROC_REF(cancel_aiming))
 
 /obj/aiming_overlay/proc/aim_cooldown(seconds)
 	aimcooldown = world.time + seconds SECONDS
@@ -261,7 +261,7 @@
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	if(aiming_at)
 		UnregisterSignal(aiming_at, COMSIG_MOVABLE_MOVED)
-		GLOB.destroyed_event.unregister(aiming_at, src)
+		UnregisterSignal(aiming_at, COMSIG_QDELETING)
 		LAZYREMOVE(aiming_at.aimed_at_by, src)
 		aiming_at = null
 
