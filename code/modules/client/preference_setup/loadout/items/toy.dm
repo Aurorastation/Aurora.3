@@ -157,9 +157,9 @@
 
 // Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
 /datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
-	if(metadata.len != valid_contents.len)
+	if(length(metadata) != length(valid_contents))
 		return
-	for(var/i = 1 to valid_contents.len)
+	for(var/i = 1 to length(valid_contents))
 		var/path
 		var/list/contents = valid_contents[i]
 		if(metadata[i] == "Random")
