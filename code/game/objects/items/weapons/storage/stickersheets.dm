@@ -16,7 +16,7 @@
 		/obj/item/sticker
 	)
 
-// List/Procs to list all stickers for custom stickersheet(similar to lunchbox code)
+/// List/Procs to list all stickers for custom stickersheet(similar to lunchbox code)
 var/list/stickersheet_stickers_ = typesof(/obj/item/sticker)
 
 /proc/stickersheet_stickers()

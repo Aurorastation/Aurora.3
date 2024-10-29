@@ -155,7 +155,7 @@
 	..()
 	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers())
 
-/// Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
+// Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
 /datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
 	if(metadata.len != valid_contents.len)
 		return
@@ -170,6 +170,5 @@
 		else
 			path = 	contents[metadata[i]]
 		if(path) // repeat 3 times for each item
-			new path(sheet)
-			new path(sheet)
-			new path(sheet)
+			for(i = 0, i < 3, ++i)
+				new path(sheet)
