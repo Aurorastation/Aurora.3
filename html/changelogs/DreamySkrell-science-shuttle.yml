@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds SCCV Quark, new shuttle for xenoarch/science, on Horizon."
+  - rscadd: "Small remap of the aux hangar on Horizon, adding some expedition supplies there."
