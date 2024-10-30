@@ -129,6 +129,7 @@
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/overmap/canary,
+		/datum/shuttle/autodock/overmap/quark,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
@@ -153,8 +154,10 @@
 
 	shuttle_manifests = list(
 		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
-		"SCCV Intrepid" = list("color" = "purple", "icon" = "compass"),
-		"SCCV Spark" = list("color" = "brown", "icon" = "gem"))
+		"SCCV Intrepid" = list("color" = "blue", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
+		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
+	)
 	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
 
 /datum/map/sccv_horizon/send_welcome()
