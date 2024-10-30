@@ -155,7 +155,7 @@
 	name = "Quark"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/quark/cockpit, /area/shuttle/quark/cargo_hold)
-	dock_target = "quark_shuttle"
+	dock_target = "airlock_shuttle_quark"
 	current_location = "nav_hangar_quark"
 	landmark_transition = "nav_transit_quark"
 	range = 1
