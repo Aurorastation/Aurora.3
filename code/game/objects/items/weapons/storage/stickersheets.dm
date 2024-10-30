@@ -17,7 +17,7 @@
 	)
 
 /// List/Procs to list all stickers for custom stickersheet(similar to lunchbox code)
-var/list/stickersheet_stickers_ = typesof(/obj/item/sticker)
+var/list/stickersheet_stickers_ = subtypesof(/obj/item/sticker)
 
 /proc/stickersheet_stickers()
 	if(!(stickersheet_stickers_[stickersheet_stickers_[1]]))
