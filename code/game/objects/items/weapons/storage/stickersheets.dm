@@ -16,22 +16,6 @@
 		/obj/item/sticker
 	)
 
-/// List/Procs to list all stickers for custom stickersheet(similar to lunchbox code)
-var/list/stickersheet_stickers_ = subtypesof(/obj/item/sticker)
-
-/proc/stickersheet_stickers()
-	if(!(stickersheet_stickers_[stickersheet_stickers_[1]]))
-		stickersheet_stickers_ = init_sticketsheet_stickers(stickersheet_stickers_)
-	return stickersheet_stickers_
-
-/proc/init_sticketsheet_stickers(var/list/stickers)
-	. = list()
-	for(var/sticker in stickers)
-		var/obj/O = sticker
-		.[initial(O.name)] = sticker
-
-	sortTim(., GLOBAL_PROC_REF(cmp_text_asc))
-
 /obj/item/storage/stickersheet/goldstar
 	name = "gold star sticker sheet"
 	starts_with = list(

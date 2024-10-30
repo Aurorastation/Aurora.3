@@ -153,7 +153,12 @@
 
 /datum/gear/toy/stickersheet_custom/New()
 	..()
-	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers(),stickersheet_stickers())
+	var/list/stickersheet = list()
+
+	for(var/sticker as anything in subtypesof(/obj/item/sticker))
+		var/obj/O = sticker
+		stickersheet[initial(O.name)] = sticker
+	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet,stickersheet,stickersheet,stickersheet)
 
 // Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
 /datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
