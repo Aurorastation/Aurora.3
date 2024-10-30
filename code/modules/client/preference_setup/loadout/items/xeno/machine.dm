@@ -125,7 +125,7 @@
 
 /datum/gear/uniform/goldendeep
 	display_name = "golden deep outfit selection"
-	description = "A selection of formal outfits worn by members of the Golden Deep."
+	description = "A selection of formal outfits and uniforms worn by members of the Golden Deep."
 	path = /obj/item/clothing/under/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
@@ -138,6 +138,8 @@
 	goldendeep["golden deep vest"] = /obj/item/clothing/under/goldendeep/vest
 	goldendeep["golden deep suit"] = /obj/item/clothing/under/goldendeep/suit
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
+	goldendeep["golden deep hoplan uniform"] = /obj/item/clothing/under/goldendeep/hoplan
+	goldendeep["golden deep porter uniform"] = /obj/item/clothing/under/goldendeep/porter
 	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
 
 ABSTRACT_TYPE(/datum/gear/augment/machine)
@@ -259,6 +261,22 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	goldendeephat["golden deep cowl"] = /obj/item/clothing/head/goldendeep/cowl
 	goldendeephat["golden deep cube hood"] = /obj/item/clothing/head/goldendeep/cubehood
 	gear_tweaks += new /datum/gear_tweak/path(goldendeephat)
+
+/datum/gear/head/goldendeephoplan
+	display_name = "golden deep hoplan hat"
+	description = "A large poofy hat typically worn by members of the Hoplan, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/hoplan
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeepporter
+	display_name = "golden deep porter hat"
+	description = "A plain and durable piece of headwear popular among the menial synthetics of the Golden Deep, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/porter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeepchainjewelry
 	display_name = "golden deep chain jewelry"
