@@ -125,7 +125,7 @@
 
 /datum/gear/uniform/goldendeep
 	display_name = "golden deep outfit selection"
-	description = "A selection of formal outfits and uniforms worn by members of the Golden Deep."
+	description = "A selection of formal outfits worn by members of the Golden Deep."
 	path = /obj/item/clothing/under/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
