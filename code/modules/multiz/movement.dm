@@ -666,7 +666,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
+	if(istype(loc, /turf/simulated/floor/exoplanet/asteroid))
 		damage /= 2
 
 	health -= (damage * brute_dam_coeff)
@@ -799,7 +799,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	GLOB.moved_event.register(owner, src, PROC_REF(follow))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -826,7 +826,7 @@
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner = null
 	. = ..()
 

@@ -209,7 +209,7 @@
 	pixel_y = -10;
 	pixel_x = -5
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "aY" = (
 /obj/structure/closet/crate/bin{
@@ -455,7 +455,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -475,7 +474,7 @@
 /area/piratebase/maint_airlock)
 "ct" = (
 /obj/effect/shuttle_landmark/pirate_ship/hangar,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "cu" = (
 /obj/random/dirt_75,
@@ -517,12 +516,10 @@
 	name = "airlock_pirate_base_maint"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -795,7 +792,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -997,7 +993,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1151,9 +1146,7 @@
 /area/shuttle/pirate_shuttle/storage)
 "fp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/floodlight/randomcharge{
-	dir = 2
-	},
+/obj/machinery/floodlight/randomcharge,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -1473,7 +1466,6 @@
 /obj/item/storage/box/produce,
 /obj/item/storage/box/produce,
 /obj/machinery/button/remote/airlock{
-	dir = 2;
 	id = "pirate_base_freezer_door";
 	specialfunctions = 4;
 	pixel_y = -19
@@ -1574,12 +1566,10 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "hp" = (
-/obj/machinery/floodlight/randomcharge{
-	dir = 2
-	},
+/obj/machinery/floodlight/randomcharge,
 /turf/simulated/floor/airless/ceiling,
 /area/mine)
 "hq" = (
@@ -1661,7 +1651,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "hN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1703,7 +1693,6 @@
 /obj/structure/bed/roller,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1766,8 +1755,7 @@
 	pixel_y = -15
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -9;
@@ -1855,7 +1843,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -2031,8 +2018,7 @@
 	pixel_y = 1
 	},
 /obj/item/clothing/suit/armor/carrier/heavy{
-	pixel_x = -6;
-	pixel_y = 0
+	pixel_x = -6
 	},
 /obj/item/clothing/head/helmet/merc{
 	pixel_x = 4
@@ -2195,7 +2181,7 @@
 /area/piratebase/hallway_south)
 "kz" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "kB" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2416,7 +2402,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /obj/random/voidsuit/freebooter,
@@ -2484,7 +2469,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lz" = (
 /obj/effect/floor_decal/corner/grey{
@@ -2503,7 +2488,7 @@
 	pixel_x = -11;
 	pixel_y = -8
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "lJ" = (
 /obj/item/crowbar,
@@ -2537,7 +2522,7 @@
 /area/shuttle/pirate_shuttle/storage)
 "lR" = (
 /obj/structure/closet/crate/miningcart,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "lU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -2634,7 +2619,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate,
@@ -2689,7 +2673,7 @@
 /area/piratebase/maint_north)
 "mV" = (
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "mW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -2949,7 +2933,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/pirate_shuttle/storage)
 "nT" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "nV" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -3106,10 +3090,8 @@
 /turf/simulated/floor/tiled/full,
 /area/piratebase/eva)
 "oL" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 2
-	},
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "oM" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -3186,7 +3168,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -3256,8 +3237,7 @@
 "pn" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/toilet{
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -3571,7 +3551,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -3804,7 +3783,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
@@ -3834,7 +3812,6 @@
 	name = "airlock_pirate_base_main"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -3908,7 +3885,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/piratebase/kitchen)
 "sB" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sC" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -4046,7 +4023,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "tA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -4157,7 +4134,6 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -4246,7 +4222,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "uT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -4301,7 +4277,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "vj" = (
 /obj/structure/closet,
@@ -4672,7 +4648,6 @@
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -4860,7 +4835,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "yk" = (
 /turf/simulated/floor/tiled,
@@ -5021,7 +4996,6 @@
 /obj/item/bedsheet/black,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -5137,7 +5111,6 @@
 /obj/structure/closet/crate,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -5169,9 +5142,7 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "zQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_airlock)
@@ -5227,7 +5198,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Ae" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5340,12 +5311,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "AI" = (
-/obj/structure/bed/stool/padded/orange{
-	dir = 2
-	},
+/obj/structure/bed/stool/padded/orange,
 /turf/simulated/floor/carpet/red,
 /area/piratebase/living)
 "AL" = (
@@ -5525,7 +5494,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -5563,7 +5531,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -5675,7 +5642,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Co" = (
 /obj/random/dirt_75,
@@ -5846,7 +5813,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "DE" = (
 /obj/random/dirt_75,
@@ -5923,7 +5890,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -5963,7 +5929,7 @@
 /area/piratebase/maint_south)
 "Ek" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "El" = (
 /obj/structure/table/steel,
@@ -5978,7 +5944,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -6008,17 +5973,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_south)
-"Ew" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 2
-	},
-/obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_pirate_base_main";
-	name = "airlock_pirate_base_main"
-	},
-/turf/simulated/floor/plating,
-/area/piratebase/hallway_south)
 "Ex" = (
 /obj/structure/bed/stool/padded/orange{
 	dir = 8
@@ -6140,7 +6094,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Fo" = (
 /obj/structure/table/steel,
@@ -6477,9 +6431,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/sofa/right/red{
-	dir = 2
-	},
+/obj/structure/bed/stool/chair/sofa/right/red,
 /turf/simulated/floor/wood,
 /area/piratebase/living)
 "GM" = (
@@ -6608,7 +6560,7 @@
 /obj/item/pickaxe{
 	pixel_y = -9
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Hx" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
@@ -6666,7 +6618,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "HJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6676,9 +6628,7 @@
 /turf/simulated/floor/wood,
 /area/piratebase/quarters)
 "HK" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark,
 /area/piratebase/equipment)
 "HO" = (
@@ -6687,11 +6637,8 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
 "HU" = (
-/obj/structure/closet/cabinet{
-	pixel_y = 0
-	},
+/obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/whitewine{
-	pixel_y = 0;
 	pixel_x = -4
 	},
 /obj/item/reagent_containers/food/drinks/bottle/rum{
@@ -6958,7 +6905,6 @@
 /area/piratebase/hallway_south)
 "IX" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = -21;
 	pixel_x = -6
 	},
@@ -6988,7 +6934,7 @@
 	pixel_x = 11;
 	pixel_y = 15
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Jf" = (
 /obj/structure/table/steel,
@@ -7031,7 +6977,6 @@
 /obj/item/bedsheet/black,
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -7411,7 +7356,7 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "KZ" = (
 /turf/simulated/wall{
@@ -7566,7 +7511,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "LU" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -7662,7 +7607,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -7830,7 +7774,7 @@
 /obj/random/junk{
 	pixel_x = -9
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "MS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8056,7 +8000,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -8292,7 +8235,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Pz" = (
 /obj/effect/floor_decal/corner/red{
@@ -8306,7 +8249,7 @@
 "PA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "PC" = (
 /obj/machinery/bodyscanner,
@@ -8370,7 +8313,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "PP" = (
 /obj/machinery/light/colored/decayed{
@@ -8592,7 +8535,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -8720,8 +8662,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
@@ -9003,7 +8944,6 @@
 	name = "airlock_pirate_base_main"
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -9268,8 +9208,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
@@ -9473,7 +9412,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /obj/item/pen/fountain/silver{
@@ -9619,7 +9557,6 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
@@ -9781,7 +9718,7 @@
 /obj/random/junk{
 	pixel_x = -9
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Wt" = (
 /obj/structure/table/rack,
@@ -9846,7 +9783,7 @@
 /area/piratebase/medbay)
 "Wy" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "WA" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -10174,7 +10111,6 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10240,7 +10176,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "Yx" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10612,7 +10548,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "ZY" = (
 /obj/machinery/door/airlock/external{
@@ -45152,7 +45088,7 @@ ws
 Tg
 GG
 JH
-Ew
+Df
 GG
 GG
 cN

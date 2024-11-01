@@ -162,7 +162,7 @@
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
-		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
@@ -188,7 +188,7 @@
 		if(firelock_increment > 1)
 			failed_checks++
 			TEST_FAIL("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
-		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
+		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			TEST_FAIL("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 
@@ -235,7 +235,7 @@
 
 	next_turf:
 		for(var/turf/T in world)
-			for(var/dir in GLOB.cardinal)
+			for(var/dir in GLOB.cardinals)
 				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++
@@ -340,6 +340,29 @@
 		TEST_PASS("All the mapped stairs are valid.")
 	else
 		TEST_FAIL("Some mapped stairs are invalid!")
+
+	return test_status
+
+/datum/unit_test/map_test/no_dirty_vars
+	name = "MAP: No Dirty Vars"
+
+/datum/unit_test/map_test/no_dirty_vars/start_test()
+	var/test_status
+
+#if defined(TESTING)
+
+	if(length(GLOB.dirty_vars))
+		test_status = TEST_FAIL("There are dirty vars in the map! Read the logs above!")
+		TEST_DEBUG(json_encode(GLOB.dirty_vars))
+	else
+		test_status = TEST_PASS("No dirty vars in the map.")
+
+#else
+
+	test_status = TEST_FAIL("This test was run without the TESTING define set, which isn't supported")
+
+#endif
+
 
 	return test_status
 

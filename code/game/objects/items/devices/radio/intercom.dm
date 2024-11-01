@@ -406,7 +406,7 @@ pixel_x = 8;
 		if(!istype(position) || !(position.z in levels))
 			return FALSE
 
-	if(input_frequency in ANTAG_FREQS && !syndie)
+	if((input_frequency in ANTAG_FREQS) && !syndie)
 		return FALSE//Prevents broadcast of messages over devices lacking the encryption
 
 	return TRUE

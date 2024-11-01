@@ -879,8 +879,7 @@
 /area/ship/gadpathur_patrol/sit_room)
 "hW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1295,8 +1294,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -1800,8 +1798,7 @@
 /area/ship/gadpathur_patrol/cell)
 "oO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/gadpathur_patrol/reactor)
@@ -2082,9 +2079,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "qU" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -2543,8 +2538,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 8;
@@ -2579,8 +2573,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/light/small/floor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2595,8 +2588,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
@@ -3166,8 +3158,7 @@
 	pixel_y = 20
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/starboard)
@@ -3193,7 +3184,6 @@
 /area/ship/gadpathur_patrol/hangar)
 "zy" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "co2_out";
 	dir = 4
 	},
@@ -3752,8 +3742,7 @@
 /area/ship/gadpathur_patrol/crew_prep)
 "Dl" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/machinery/alarm/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3768,9 +3757,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "Dm" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -3991,8 +3977,7 @@
 /area/shuttle/gadpathur_shuttle)
 "Fb" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -4365,8 +4350,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5001,8 +4985,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5416,7 +5399,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
 "QF" = (
@@ -5966,8 +5948,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -6167,8 +6148,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable{
 	icon_state = "4-8"

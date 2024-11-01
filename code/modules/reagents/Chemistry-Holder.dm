@@ -333,18 +333,27 @@
 	for(var/rtype in rtypes)
 		. += src.trans_type_to(target, rtype, amounteach)
 
-// When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
-// This does not handle transferring reagents to things.
-// For example, splashing someone with water will get them wet and extinguish them if they are on fire,
-// even if they are wearing an impermeable suit that prevents the reagents from contacting the skin.
-/datum/reagents/proc/touch(var/atom/target)
+/**
+ * When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent
+ *
+ * This does not handle transferring reagents to things
+ *
+ * For example, splashing someone with water will get them wet and extinguish them if they are on fire,
+ * even if they are wearing an impermeable suit that prevents the reagents from contacting the skin
+ */
+/datum/reagents/proc/touch(atom/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//No point if it's getting deleted
+	if(QDELETED(target))
+		return
+
 	if(ismob(target))
 		touch_mob(target)
-	if(isturf(target))
+	else if(isturf(target))
 		touch_turf(target)
-	if(isobj(target))
+	else if(isobj(target))
 		touch_obj(target)
-	return
 
 /datum/reagents/proc/touch_mob(var/mob/living/target)
 	if(!target || !istype(target) || !target.simulated)

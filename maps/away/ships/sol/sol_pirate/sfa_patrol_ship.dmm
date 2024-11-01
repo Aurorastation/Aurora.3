@@ -11,8 +11,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -184,8 +183,7 @@
 "auY" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars{
-	pixel_x = -4;
-	pixel_y = 0
+	pixel_x = -4
 	},
 /obj/item/device/binoculars{
 	pixel_y = 10;
@@ -379,12 +377,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -488,11 +483,9 @@
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/belt/utility,
 /obj/item/clothing/gloves/yellow{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /obj/item/clothing/gloves/yellow{
-	pixel_x = 0;
 	pixel_y = 10
 	},
 /obj/item/tape_roll{
@@ -916,8 +909,7 @@
 /area/shuttle/sfa_shuttle)
 "cBm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/dirt,
@@ -1094,8 +1086,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -1215,7 +1206,6 @@
 /obj/structure/girder,
 /obj/structure/lattice,
 /obj/item/ore/silver{
-	pixel_x = 0;
 	pixel_y = 13
 	},
 /turf/space,
@@ -1240,8 +1230,7 @@
 "dyv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -1276,8 +1265,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1331,8 +1319,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/decal/cleanable/generic,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
@@ -1496,9 +1483,7 @@
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "eoo" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1574,8 +1559,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2210,8 +2194,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -2725,9 +2708,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engine2)
 "hRm" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2754,7 +2735,6 @@
 /area/ship/sfa_patrol_ship/Quarters)
 "hYx" = (
 /obj/item/reagent_containers/glass/bucket{
-	pixel_x = 0;
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2826,7 +2806,6 @@
 /obj/item/reagent_containers/pill/cyanide{
 	name = "cyanide pill";
 	desc = "a cyanide pill. Useful if you're about to be captured after years of committing piracy on the run.";
-	pixel_x = 0;
 	pixel_y = 8
 	},
 /turf/simulated/floor/carpet/art,
@@ -2915,8 +2894,7 @@
 "ivQ" = (
 /obj/structure/table/standard,
 /obj/item/blueprints{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/pen/drafting/blue{
 	pixel_x = 9;
@@ -2973,10 +2951,7 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/hazardvest/fsf{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/item/clothing/suit/storage/hazardvest/fsf,
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -3017,8 +2992,7 @@
 "iMA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -3103,8 +3077,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -3375,8 +3348,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -3568,8 +3540,7 @@
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
@@ -3599,8 +3570,7 @@
 	},
 /obj/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = 32;
-	dir = 2
+	pixel_y = 32
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	req_one_access = list(13,203);
@@ -3628,8 +3598,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3749,8 +3718,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "kLW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -3966,8 +3934,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -4333,12 +4300,10 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -4713,8 +4678,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -4887,7 +4851,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/full{
-	dir = 2;
 	icon_state = "soda_dispenser";
 	pixel_y = 5;
 	pixel_x = -3
@@ -5050,8 +5013,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "pcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
@@ -5060,8 +5022,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = list(203)
@@ -5083,8 +5044,7 @@
 /area/ship/sfa_patrol_ship/Engine2)
 "peB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5120,7 +5080,6 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "pip" = (
 /obj/item/material/shard/shrapnel{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -5355,8 +5314,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -5528,8 +5486,7 @@
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "qjY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/sfa_shuttle)
@@ -5578,12 +5535,8 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -5659,8 +5612,7 @@
 /area/shuttle/sfa_shuttle)
 "qHm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -5808,7 +5760,6 @@
 /area/ship/sfa_patrol_ship)
 "rgK" = (
 /obj/item/storage/firstaid/surgery{
-	pixel_x = 0;
 	pixel_y = 6
 	},
 /obj/structure/table/rack/folding_table,
@@ -5871,8 +5822,7 @@
 /area/ship/sfa_patrol_ship/Bridge)
 "rwh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
@@ -6059,8 +6009,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -6183,8 +6132,7 @@
 /area/ship/sfa_patrol_ship/hangar)
 "sjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6347,8 +6295,7 @@
 /area/ship/sfa_patrol_ship)
 "tmT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
@@ -6384,7 +6331,6 @@
 	pixel_y = 3
 	},
 /obj/item/cell/crap/empty{
-	pixel_x = 0;
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6417,7 +6363,6 @@
 	pixel_x = -3
 	},
 /obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 0;
 	pixel_x = -3
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -6445,8 +6390,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
@@ -6702,8 +6646,7 @@
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -6763,8 +6706,7 @@
 "uNE" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
@@ -6773,8 +6715,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -7048,7 +6989,6 @@
 "wbH" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian{
-	pixel_x = 0;
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet/art,
@@ -7094,7 +7034,6 @@
 	pixel_y = 4
 	},
 /obj/item/ship_ammunition/grauwolf_bundle{
-	pixel_x = 0;
 	pixel_y = -4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -7340,9 +7279,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},

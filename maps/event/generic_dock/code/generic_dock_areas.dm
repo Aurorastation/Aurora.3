@@ -11,3 +11,6 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+
+/area/shuttle/administration
+	name = "Shuttle - Administration"

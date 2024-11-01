@@ -52,8 +52,6 @@
 	return bounds
 
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
-	RETURN_TYPE(/turf)
-
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 	var/initial_z = world.maxz + 1
@@ -199,6 +197,9 @@
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/list/turf)
+
 	var/turf/placement = T
 	if(centered)
 		var/turf/corner = locate(placement.x - round(width / 2), placement.y - round(height / 2), placement.z)

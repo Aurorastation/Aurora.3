@@ -105,7 +105,7 @@
 		return
 	else
 		if(owned_capacitor)
-			if(!(owned_capacitor in range(1, src) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
+			if(!((owned_capacitor in range(1, src)) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
 				if(owned_capacitor.owned_gen == src)
 					owned_capacitor.owned_gen = null
 				owned_capacitor = null

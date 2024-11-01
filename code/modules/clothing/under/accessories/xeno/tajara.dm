@@ -409,7 +409,7 @@
 
 /obj/item/clothing/accessory/tajaran/charm/twin_suns
 	name = "twin suns charm"
-	desc = "A talisman with the symbol the Adhomian suns, the deities of the church S'rand'marr."
+	desc = "A talisman with the symbol of the Adhomian suns, the deities of the S'rand'marr faith."
 	desc_extended = "The Twin Suns Icon is an ancient icon representing Adhomai's suns. While the Church of S'rand'marr claims it was originally a religious symbol, \
 	archeological evidence traces its origins to the Tajaran pre-history. The Twin Suns Icon represents auspiciousness, protection, and perseverance. \
 	It is commonly found on clothing, weapons, vehicles, and carved on the entrance of homes. When used on flags, it is considered to be a symbol of incontestable rulership."

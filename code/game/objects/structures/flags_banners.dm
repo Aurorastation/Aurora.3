@@ -178,7 +178,7 @@
 		return
 
 	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in GLOB.cardinal))
+	if (!(placement_dir in GLOB.cardinals))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
@@ -3382,6 +3382,22 @@
 /obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+//Burzsia (banner only)
+/obj/item/flag/burzsia
+	name = "\improper Burzsia flag"
+	desc = "The sigil of Burzsia."
+	flag_path = "burzsia"
+	flag_structure = /obj/structure/sign/flag/burzsia
+
+/obj/structure/sign/flag/burzsia
+	name = "\improper Burzsia flag"
+	desc = "The sigil of Burzsia."
+	flag_path = "burzsia"
+	icon_state = "burzsia"
+	flag_item = /obj/item/flag/burzsia
+
+/obj/structure/sign/flag/burzsia/unmovable
+	unmovable = TRUE
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry

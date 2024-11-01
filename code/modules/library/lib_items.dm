@@ -134,15 +134,19 @@
 	update_icon()
 
 /obj/structure/bookcase/libraryspawn/fiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Fiction"
 
 /obj/structure/bookcase/libraryspawn/nonfiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Non-Fiction"
 
 /obj/structure/bookcase/libraryspawn/reference
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Reference"
 
 /obj/structure/bookcase/libraryspawn/religion
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Religion"
 
 /obj/structure/bookcase/manuals/medical
@@ -219,9 +223,8 @@
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
+		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
-		onclose(playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1))
 	else
 		to_chat(user, "This book is completely blank!")
 

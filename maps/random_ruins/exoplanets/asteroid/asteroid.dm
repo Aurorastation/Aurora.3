@@ -213,18 +213,3 @@
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
 
 	unit_test_groups = list(1)
-
-/datum/map_template/ruin/exoplanet/abandoned_outpost
-	name = "Abandoned Mining Outpost"
-	id = "miningoutpost"
-	description = "A long-abandoned mining outpost."
-
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
-
-	prefix = "asteroid/old_outpost/"
-	suffix = "old_outpost.dmm"
-
-	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
-	ruin_tags = RUIN_LOWPOP|RUIN_MINING
-
-	unit_test_groups = list(3)

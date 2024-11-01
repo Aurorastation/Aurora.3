@@ -38,7 +38,7 @@
 		return BULLET_ACT_HIT
 
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 		if(istype(damage_source, /obj/projectile))
@@ -75,7 +75,7 @@
 				to_chat(attacker, SPAN_DANGER("Your [damage_source.name] goes through \the [src] in one location, comes out \
 				on the same side, and hits you!"))
 
-				spark(src, 5, GLOB.cardinal)
+				spark(src, 5, GLOB.cardinals)
 				playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 				log_and_message_admins("[user] reflected [attacker]'s attack back at them.")

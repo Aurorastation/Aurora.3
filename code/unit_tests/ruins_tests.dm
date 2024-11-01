@@ -48,7 +48,7 @@
 		//See if the ruin is in the unit test groups we're supposed to run
 		var/is_in_unit_test_groups = FALSE
 		for(var/unit_test_group in tested_ruin.unit_test_groups)
-			if(unit_test_group in SSunit_tests_config.config["ruins_unit_test_groups"] || SSunit_tests_config.config["ruins_unit_test_groups"][1] == "*")
+			if((unit_test_group in SSunit_tests_config.config["ruins_unit_test_groups"]) || SSunit_tests_config.config["ruins_unit_test_groups"][1] == "*")
 				is_in_unit_test_groups = TRUE
 				break
 

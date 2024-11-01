@@ -19,10 +19,11 @@
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_SMALL
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
 	)
 
 /obj/item/clothing/suit/armor/carrier/officer
@@ -122,6 +123,14 @@
 		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
+/obj/item/clothing/suit/armor/carrier/hoplan
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/heavy/hoplan,
+		/obj/item/clothing/accessory/leg_guard/hoplan,
+		/obj/item/clothing/accessory/arm_guard/hoplan,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -171,7 +180,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -185,7 +194,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -198,7 +207,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 1
+	slowdown = 0.4
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -213,7 +222,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -227,14 +236,14 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0 // the SCC is hacking
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -243,6 +252,14 @@
 	wound, and are worn throughout the Imperial Army. Despite the protection it offers this body armor is often hot and uncomfortable to wear due to its weight."
 	icon_state = "dom_plate"
 	item_state = "dom_plate"
+
+/obj/item/clothing/accessory/armor_plate/heavy/hoplan
+	name = "hoplan breastplate"
+	desc = "What looks to you like a medieval relic, is actually ablative plating backed by ballistic padding! Have at thee!"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "hoplan_breastplate"
+	item_state = "hoplan_breastplate"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/armor_plate/tcaf
 	name = "\improper TCAF legionnaire carapace"
@@ -258,13 +275,20 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0 // inherited the hacking from the scc
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF legionnaire light carapace"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	slowdown = 0
 
 /obj/item/clothing/accessory/armor_plate/military/navy
@@ -334,6 +358,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.4
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
@@ -445,6 +470,21 @@
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"
+
+/obj/item/clothing/head/helmet/hoplan
+	name = "hoplan helm"
+	desc = "A modern combat helmet with a stylish outer shell to make it appear from another era entirely. What these robots do for fashion..."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
 
 //Cosmetic Accessories
 
@@ -753,6 +793,13 @@
 	pan-Vaurcaesian interests over the interests of the individual Hives."
 	icon_state = "flagpatch_sedantis"
 	item_state = "flagpatch_sedantis"
+
+/obj/item/clothing/accessory/flagpatch/burzsia
+	name = "burzsia flagpatch"
+	desc = "A patch bearing the sigil of Burzsia. While mainly worn by workers and natives loyal to Hephaestus alike, \
+	there are still those who don this item in a more patriotic sense."
+	icon_state = "flagpatch_burzsia"
+	item_state = "flagpatch_burzsia"
 
 // Wildlands
 

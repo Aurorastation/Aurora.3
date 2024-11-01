@@ -43,8 +43,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -222,8 +221,7 @@
 /area/template_noop)
 "hv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/template_noop)
@@ -274,8 +272,7 @@
 "iL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled,
@@ -1392,8 +1389,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	pixel_y = 0
+	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/random/dirt_75,
@@ -1692,8 +1688,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/exoplanet/plating,

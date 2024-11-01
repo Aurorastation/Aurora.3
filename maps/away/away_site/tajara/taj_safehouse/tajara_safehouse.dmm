@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/obj/structure/extinguisher_cabinet/west{
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ac" = (
@@ -42,8 +41,7 @@
 "aY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10;
-	icon_state = "spline_fancy"
+	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
@@ -305,8 +303,7 @@
 /area/tajara_safehouse)
 "iy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5;
-	icon_state = "spline_fancy"
+	dir = 5
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/wood,
@@ -611,8 +608,7 @@
 /area/tajara_safehouse)
 "sb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6;
-	icon_state = "spline_fancy"
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
@@ -632,8 +628,7 @@
 /area/tajara_safehouse/hangar)
 "sE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4;
-	icon_state = "spline_fancy"
+	dir = 4
 	},
 /obj/structure/bed/stool/bar/padded/black,
 /obj/machinery/light/small{
@@ -663,8 +658,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "th" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
@@ -796,9 +790,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "yu" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null
-	},
+/obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
 "yw" = (
@@ -869,7 +861,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "AD" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "AT" = (
 /obj/machinery/light{
@@ -1060,11 +1052,6 @@
 /obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
-"JI" = (
-/obj/structure/extinguisher_cabinet/east{
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "JZ" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/snacks/hardbread,
@@ -1101,15 +1088,13 @@
 /area/tajara_safehouse)
 "Lh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9;
-	icon_state = "spline_fancy"
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "Lt" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8;
-	icon_state = "spline_fancy"
+	dir = 8
 	},
 /obj/structure/bed/stool/bar/padded/black,
 /obj/effect/ghostspawpoint{
@@ -1228,10 +1213,6 @@
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
-"RB" = (
-/obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "RS" = (
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/wood,
@@ -1258,7 +1239,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/appliance/mixer/cereal{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
@@ -1272,8 +1252,7 @@
 	dir = 1
 	},
 /obj/structure/toilet{
-	dir = 8;
-	icon_state = "toilet00"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
@@ -1363,8 +1342,7 @@
 /area/tajara_safehouse/hangar)
 "WV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4;
-	icon_state = "spline_fancy"
+	dir = 4
 	},
 /obj/structure/bed/stool/bar/padded/black,
 /obj/effect/ghostspawpoint{
@@ -29304,7 +29282,7 @@ Hc
 lH
 nk
 ot
-RB
+ab
 ot
 qK
 ot
@@ -30063,7 +30041,7 @@ lH
 lH
 lH
 lH
-JI
+iK
 lH
 lH
 lH
