@@ -24,7 +24,7 @@
 	name = "Space Station 13"
 	fps = 20
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
-	map_format = SIDE_MAP
+	// map_format = SIDE_MAP //Possibly makes the sprites flicker and thus the clients lag
 #ifdef FIND_REF_NO_CHECK_TICK
 	loop_checks = FALSE
 #endif
