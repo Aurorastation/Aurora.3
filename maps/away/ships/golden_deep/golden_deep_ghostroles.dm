@@ -70,7 +70,7 @@
 	name = "Golden Deep Collective, Accredited Merchant"
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
-	uniform = /obj/item/clothing/under/pants/dress/belt
+	pants = /obj/item/clothing/pants/dress/belt
 	head = /obj/item/clothing/head/goldendeep
 	accessory = /obj/item/clothing/accessory/goldendeep/black
 	suit = /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
