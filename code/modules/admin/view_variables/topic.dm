@@ -6,28 +6,29 @@
 	if(href_list["Vars"])
 		debug_variables(locate(href_list["Vars"]))
 
-	//~CARN: for renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records).
-	else if(href_list["rename"])
+	// For admin renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records)
+	if(href_list[VV_HK_ADMIN_RENAME])
 		if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
 			return
 
-		var/mob/M = locate(href_list["rename"])
-		if(!istype(M))
+		var/mob/living/mob_to_rename = locate(href_list[VV_HK_ADMIN_RENAME])
+		if(!istype(mob_to_rename))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
-		var/new_name = sanitize(input(usr,"What would you like to name this mob?","Input a name",M.real_name) as text|null, MAX_NAME_LEN)
-		if( !new_name || !M )	return
+		var/new_name = sanitize(input(usr,"What would you like to name this mob?","Input a name", mob_to_rename.real_name) as text|null, MAX_NAME_LEN)
+		if(!new_name || !mob_to_rename)
+			return
 
-		message_admins("Admin [key_name_admin(usr)] renamed [key_name_admin(M)] to [new_name].")
-		M.fully_replace_character_name(M.real_name,new_name)
+		message_admins("Admin [key_name_admin(usr)] renamed [key_name_admin(mob_to_rename)] to [new_name].")
+		mob_to_rename.fully_replace_character_name(mob_to_rename.real_name, new_name)
 
-		if (issilicon(M) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
-			var/mob/living/silicon/S = M
+		if (issilicon(mob_to_rename) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
+			var/mob/living/silicon/S = mob_to_rename
 			S.SetName(new_name)
 			to_chat(usr, SPAN_NOTICE("Silicon properly renamed."))
 
-		href_list["datumrefresh"] = href_list["rename"]
+		href_list["datumrefresh"] = href_list[VV_HK_ADMIN_RENAME]
 
 	else if(href_list["varnameedit"] && href_list[VV_HK_BASIC_EDIT])
 		if(!check_rights(R_VAREDIT|R_DEV))	return
