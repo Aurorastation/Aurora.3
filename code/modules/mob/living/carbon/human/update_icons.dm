@@ -1651,7 +1651,7 @@ There are several things that need to be remembered:
 		return FALSE
 	else if (pants.flags_inv & ALWAYSDRAW)
 		return TRUE
-	else if (pants?.flags_inv & HIDEPANTS)
+	else if (pants.flags_inv & HIDEPANTS)
 		return FALSE
 	else
 		return TRUE
