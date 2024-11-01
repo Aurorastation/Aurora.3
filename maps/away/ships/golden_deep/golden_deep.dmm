@@ -3089,6 +3089,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	req_one_access = list(229, 217);
+	name = "Repair & Maintenance";
+	door_color = "#8c792e"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "nm" = (
@@ -7026,7 +7032,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(229, 217)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
@@ -8692,6 +8700,9 @@
 	level = 2
 	},
 /obj/random/dirt_75,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Kf" = (

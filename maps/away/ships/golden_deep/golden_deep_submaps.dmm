@@ -405,10 +405,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Bl" = (
-/obj/machinery/media/jukebox/audioconsole,
-/turf/template_noop,
-/area/template_noop)
 "Bp" = (
 /obj/random/civgun/rifle,
 /obj/random/civgun,
@@ -450,10 +446,6 @@
 /obj/item/clothing/accessory/poncho/tajarancloak/amohda,
 /obj/random/dirt_75,
 /obj/item/clothing/gloves/tajaran_gauntlets,
-/turf/template_noop,
-/area/template_noop)
-"Dp" = (
-/obj/structure/largecrate/animal/adhomai/schlorrgo,
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
@@ -633,10 +625,6 @@
 /obj/machinery/vending/dinnerware,
 /turf/template_noop,
 /area/template_noop)
-"Lq" = (
-/obj/machinery/vending/cigarette/hacked,
-/turf/template_noop,
-/area/template_noop)
 "LF" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
@@ -680,9 +668,9 @@
 /turf/template_noop,
 /area/template_noop)
 "Qz" = (
-/obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/loot,
 /turf/template_noop,
 /area/template_noop)
 "QO" = (
@@ -1122,7 +1110,7 @@ Fy
 sq
 sq
 Ow
-KA
+QO
 Na
 sq
 KW
@@ -1177,14 +1165,14 @@ sq
 (12,1,1) = {"
 sq
 Ow
-Bl
+QO
 sq
 sq
 QO
 Za
 sq
 Ow
-Dp
+KA
 sq
 sq
 ck
@@ -1332,7 +1320,7 @@ sq
 (17,1,1) = {"
 sq
 Ow
-Lq
+QO
 sq
 sq
 GC
