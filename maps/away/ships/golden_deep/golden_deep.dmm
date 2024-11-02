@@ -3080,12 +3080,6 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass{
-	dir = 4;
-	req_one_access = list(229, 217);
-	name = "Repair & Maintenance";
-	door_color = "#8c792e"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
