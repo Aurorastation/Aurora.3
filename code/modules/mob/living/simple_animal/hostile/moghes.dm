@@ -186,5 +186,5 @@
 		shriek_time = world.time + 2 MINUTES //cant do it too often or it will get annoying as fuck
 
 /mob/living/simple_animal/hostile/shrieker/FoundTarget()
-	if(target_mob && shriek_time <= world.time)
-		shriek(get_turf(src), target_mob)
+	if(last_found_target && shriek_time <= world.time)
+		shriek(get_turf(src), last_found_target)

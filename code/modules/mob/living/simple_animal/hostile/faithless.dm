@@ -44,7 +44,7 @@
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
-	var/my_target = target_mob
+	var/my_target = last_found_target
 	. = ..()
 	if(. && (prob(30) || (. != my_target)))
 		audible_emote("wails at [.]")
