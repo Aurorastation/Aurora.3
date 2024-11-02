@@ -9,12 +9,12 @@
 	var/ghostvision = FALSE
 	/// This variable generally controls whether a ghost has restrictions on where it can go or not (ex. if the ghost can bypass holy places).
 	var/has_ghost_restrictions = TRUE
-	/// The mob or thing we are following.
-	var/atom/movable/following
 	/// If the ghost has antagHUD.
 	var/antagHUD = 0
 	/// Necessary for seeing wires.
 	var/obj/item/device/multitool/ghost_multitool
+	/// The POI we're orbiting.
+	var/orbiting_ref
 
 /mob/abstract/ghost/Initialize(mapload)
 	. = ..()
@@ -24,7 +24,6 @@
 	ghost_multitool = new(src)
 
 /mob/abstract/ghost/Destroy()
-	stop_following()
 	QDEL_NULL(ghost_multitool)
 	return ..()
 
@@ -48,12 +47,11 @@
 	A.attack_ghost(src)
 
 /mob/abstract/ghost/Post_Incorpmove()
-	stop_following()
-	teleport_if_needed()
+	orbiting?.end_orbit(src)
 
-/// Teleports the observer away from z-levels they shouldnt be on, if needed.
-/mob/abstract/ghost/proc/teleport_if_needed()
-	return
+/mob/abstract/ghost/orbit()
+	set_dir(2)//reset dir so the right directional sprites show up
+	return ..()
 
 /mob/abstract/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
@@ -124,7 +122,7 @@
 		to_chat(usr, "You can not teleport to this area.")
 		return
 
-	stop_following()
+	orbiting?.end_orbit(src)
 	usr.forceMove(pick(L))
 
 /mob/abstract/ghost/verb/follow()
@@ -137,24 +135,23 @@
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/ghost/proc/ManualFollow(var/atom/movable/target)
-	if(!target || target == following || target == src)
+	if(!target)
 		return
 
-	stop_following()
-	following = target
-	GLOB.moved_event.register(following, src, TYPE_PROC_REF(/atom/movable, move_to_destination))
-	GLOB.destroyed_event.register(following, src, PROC_REF(stop_following))
+	//Stops orbit if there's any; TG doesn't do this, but if you don't it breaks the orbiting reference
+	//if you are jumping from one mob to another, hence why we're doing it here
+	orbiting?.end_orbit(src)
 
-	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
-	move_to_destination(following, following.loc, following.loc)
+	var/list/icon_dimensions = get_icon_dimensions(target.icon)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * 0.5
+	orbitsize -= (orbitsize/ICON_SIZE_ALL)*(ICON_SIZE_ALL*0.25)
+
+	var/rot_seg = 30 //Let's make it simple and it's just a circle
+
+	orbit(target,orbitsize, FALSE, 20, rot_seg)
+
+	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	update_sight()
-
-/mob/abstract/ghost/proc/stop_following()
-	if(following)
-		to_chat(src, SPAN_NOTICE("No longer following \the <b>[following]</b>."))
-		GLOB.moved_event.unregister(following, src)
-		GLOB.destroyed_event.unregister(following, src)
-		following = null
 
 /mob/abstract/ghost/proc/on_restricted_level(var/check)
 	if(!check)

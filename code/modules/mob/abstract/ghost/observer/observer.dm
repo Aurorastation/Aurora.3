@@ -33,8 +33,6 @@
 	var/is_manifest = 0
 	/// Cooldown for ghost abilities, such as move_item().
 	var/ghost_cooldown = 0
-	/// The POI we're orbiting.
-	var/orbiting_ref
 
 /mob/abstract/ghost/observer/Initialize(mapload, mob/body)
 	. = ..()
@@ -141,8 +139,6 @@ Works together with spawning an observer, noted above.
 	if(medHUD)
 		process_medHUD(src)
 
-	teleport_if_needed()
-
 /mob/abstract/ghost/observer/proc/teleport_to_spawn(var/message)
 	if(!message)
 		message = "You can not freely observe on this z-level."
@@ -152,30 +148,6 @@ Works together with spawning an observer, noted above.
 	if(istype(O))
 		to_chat(src, SPAN_NOTICE("[message]"))
 		forceMove(O.loc)
-
-/mob/abstract/ghost/observer/teleport_if_needed()
-	//If we dont have a observe restriction we dont need to teleport
-	if(!GLOB.config.observe_restriction)
-		return
-
-	//If we are not on a restricted level we dont need to get rid of them
-	if(!on_restricted_level())
-		return
-
-	//If we have observe restriction 1 and they are following a living non-animal mob we dont need to do anything.
-	if(GLOB.config.observe_restriction == 1 && following && isliving(following) && !isliving(following))
-		return
-
-	//In case we have observe restriction 2 (or 1 and they are following something, then teleport them back.)
-	if(following)
-		stop_following()
-		teleport_to_spawn("You can not follow \the [following] on this level.")
-	else
-		teleport_to_spawn()
-
-	//And update their sight settings
-	update_sight()
-
 
 /mob/abstract/ghost/observer/proc/process_medHUD(var/mob/M)
 	var/client/C = M.client
@@ -330,15 +302,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		M.antagHUD = 1
 		to_chat(src, SPAN_NOTICE("<B>AntagHUD Enabled</B>"))
 
-/mob/abstract/ghost/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
-	var/turf/T = get_turf(new_loc)
-	if(check_holy(T))
-		orbiting?.end_orbit(src)
-		teleport_if_needed()
-		to_chat(usr, SPAN_WARNING("You cannot follow something standing on holy grounds!"))
-		return
-	..()
-
 /mob/proc/check_holy(var/turf/T)
 	return 0
 
@@ -359,11 +322,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/turf/T = get_turf(target) //Turf of the destination mob
 
 		if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
-			source_mob.abstract_move(T)
+			abstract_move(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-
-		teleport_if_needed()
 
 /mob/abstract/ghost/observer/memory()
 	set hidden = 1

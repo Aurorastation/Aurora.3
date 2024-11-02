@@ -1,4 +1,4 @@
-/proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/observer/listener)
+/proc/is_listening_to_movement(var/atom/movable/listening_to, var/mob/abstract/ghost/listener)
 	if(!listener.orbiting)
 		return FALSE
 
