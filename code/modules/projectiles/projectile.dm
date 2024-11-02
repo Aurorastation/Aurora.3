@@ -209,9 +209,6 @@
 
 	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
-	///If the projectile launches a secondary projectile in addition to itself.
-	var/secondary_projectile
-
 	/*########################################
 		END AURORA SNOWFLAKE VARS SECTION
 	########################################*/
@@ -1091,11 +1088,6 @@
 	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
-
-//return TRUE if the projectile should be allowed to pass through after all, FALSE if not.
-/obj/projectile/proc/check_penetrate(atom/A)
-	return TRUE
-
 
 /obj/projectile/ex_act(var/severity = 2.0)
 	return //explosions probably shouldn't delete projectiles
