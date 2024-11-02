@@ -9,6 +9,9 @@
 	antag_tags = list(MODE_ACTOR)
 	antag_scaling_coeff = 1
 
+	// Unvotable while we don't have that many maps.
+	votable = FALSE
+
 /datum/game_mode/odyssey/pre_game_setup()
 	SSticker.prevent_unready = TRUE
 
