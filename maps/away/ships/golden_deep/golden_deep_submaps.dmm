@@ -113,9 +113,10 @@
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
-/obj/random/finances,
-/obj/random/finances,
 /obj/random/dirt_75,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
 /turf/template_noop,
 /area/template_noop)
 "fM" = (
@@ -196,6 +197,7 @@
 /obj/random/dirt_75,
 /obj/item/gun/energy/blaster/himeo,
 /obj/item/gun/energy/gun/qukala,
+/obj/random/civgun/rifle,
 /turf/template_noop,
 /area/template_noop)
 "lT" = (
@@ -424,7 +426,7 @@
 /turf/template_noop,
 /area/template_noop)
 "BJ" = (
-/obj/structure/largecrate/animal/moghes/otzek,
+/obj/random/animal_crate,
 /turf/template_noop,
 /area/template_noop)
 "BP" = (
@@ -608,10 +610,6 @@
 "Ky" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
-/turf/template_noop,
-/area/template_noop)
-"KA" = (
-/obj/structure/largecrate/animal/moghes/warmount,
 /turf/template_noop,
 /area/template_noop)
 "KW" = (
@@ -1172,7 +1170,7 @@ QO
 Za
 sq
 Ow
-KA
+BJ
 sq
 sq
 ck
