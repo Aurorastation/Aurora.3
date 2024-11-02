@@ -107,6 +107,23 @@
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("Please remember to use the <b>Send Odyssey Message</b> verb as soon as your prep is done!")))
 			to_chat(storyteller, FONT_LARGE(SPAN_NOTICE("If it is an Overmap scenario, please make sure to <b>include either the exact name or the coordinates of the Overmap object</b> the scenario takes place on.")))
 
+/**
+ * This proc notifies the offships about the presence of the Scenario and its coordinates.
+ */
+/singleton/scenario/proc/notify_offships(obj/effect/overmap/odyssey_site)
+	if(!istype(odyssey_site))
+		return
+
+	for(var/obj/effect/overmap/visitable/ship/ship as anything in SSshuttle.ships)
+		// Don't duplicate the message for landable ships. We don't want to notify both the big ship and its shuttle.
+		// Or notify the Horizon again, for that matter...
+		if(istype(ship, /obj/effect/overmap/visitable/ship/landable) || (ship == SSodyssey.horizon))
+			continue
+
+		for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
+			priority_announcement.Announce(offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
+			sensors.add_contact(odyssey_site)
+
 /obj/effect/landmark/actor
 	name = "actor"
 

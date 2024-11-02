@@ -2963,6 +2963,7 @@
 #include "code\modules\nano\modules\follow_menu.dm"
 #include "code\modules\nano\modules\human_appearance.dm"
 #include "code\modules\nano\modules\nano_module.dm"
+#include "code\modules\nano\modules\narrate_panel.dm"
 #include "code\modules\ntsl2\guide.dm"
 #include "code\modules\ntsl2\ntsl2_program.dm"
 #include "code\modules\ntsl2\ntsl2_types.dm"

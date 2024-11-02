@@ -15,8 +15,8 @@
 
 	offship_announcement_message = "A nearby propellant depot has launched a distress beacon. The coordinates have been registered on the flight deck."
 
-	min_player_amount = 1
-	min_actor_amount = 1
+	min_player_amount = 0
+	min_actor_amount = 0
 
 	roles = list(
 		/singleton/role/ruined_propellant_depot,

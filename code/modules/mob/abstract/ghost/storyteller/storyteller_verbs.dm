@@ -135,42 +135,12 @@
 
 	user << browse(replacetext(create_mob_html, "/* ref src */", "[REF(src)]"), "window=create_mob;size=700x700")
 
-/mob/abstract/ghost/storyteller/verb/storyteller_local_narrate()
-	set name = "Local Narrate"
+/mob/abstract/ghost/storyteller/verb/open_narrate_panel()
+	set name = "Narrate Panel"
 	set category = "Storyteller"
 
-	var/list/mob/message_mobs = list()
-	var/choice = tgui_alert(usr, "Narrate to mobs in view, or in range?", "Narrate Selection", list("In view", "In range", "Cancel"))
-	if(choice != "Cancel")
-		if(choice == "In view")
-			message_mobs = mobs_in_view(world.view, src)
-		else
-			for(var/mob/M in range(world.view, src))
-				message_mobs += M
-	else
-		return
-
-	var/msg = html_decode(sanitize(tgui_input_text(src, "What do you want to narrate?", "Local Narrate", max_length = MAX_PAPER_MESSAGE_LEN)))
-	if(!msg)
-		return
-
-	for(var/M in message_mobs)
-		to_chat(M, msg)
-
-	log_admin("LocalNarrate: [key_name(usr)] : [msg]")
-	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
-
-/mob/abstract/ghost/storyteller/verb/storyteller_global_narrate()
-	set name = "Global Narrate"
-	set category = "Storyteller"
-
-	var/msg = html_decode(sanitize(tgui_input_text(src, "What do you want to narrate?", "Global Narrate", max_length = MAX_PAPER_MESSAGE_LEN)))
-
-	if (!msg)
-		return
-	to_world("[msg]")
-	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
-	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
+	var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
+	NP.ui_interact(usr)
 
 /mob/abstract/ghost/storyteller/verb/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"

@@ -12,8 +12,8 @@
 
 	offship_announcement_message = "An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck."
 
-	min_player_amount = 8
-	min_actor_amount = 2
+	min_player_amount = 0
+	min_actor_amount = 0
 
 	roles = list(
 		/singleton/role/cryo_outpost,

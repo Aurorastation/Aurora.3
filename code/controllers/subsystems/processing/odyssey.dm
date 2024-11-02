@@ -1,7 +1,6 @@
 SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
-	flags = SS_BACKGROUND
 	wait = 8
 	can_fire = FALSE
 
@@ -34,24 +33,18 @@ SUBSYSTEM_DEF(odyssey)
 
 /datum/controller/subsystem/odyssey/fire()
 	. = ..()
-	if(!has_sent_roundstart_announcement)
-		// First of all, notify the Horizon.
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
+	if(ROUND_IS_STARTED)
+		if(!has_sent_roundstart_announcement)
+			// First of all, notify the Horizon.
+			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
+			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
 
-		var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[scenario_zlevel]"]
-		if(odyssey_site)
-			// Next, notify the offships - these announcements happen earlier to potentially give them a bit of an edge in reaching the objective area.
-			// Both because the offships are much slower than the Horizon and also because sometimes they need to wait for pop.
-			for(var/obj/effect/overmap/visitable/ship/ship as anything in SSshuttle.ships)
-				if(istype(ship, /obj/effect/overmap/visitable/ship/landable))
-					continue
+			var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[scenario_zlevel]"]
+			if(odyssey_site)
+				// Next, notify the offships - these announcements can happen earlier to potentially give them a bit of an edge in reaching the objective area.
+				addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_offships), odyssey_site), rand(5 MINUTES, 30 MINUTES))
 
-				for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
-					priority_announcement.Announce(scenario.offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
-					sensors.add_contact(odyssey_site)
-
-		has_sent_roundstart_announcement = TRUE
+			has_sent_roundstart_announcement = TRUE
 
 /**
  * Picks a random odyssey while keeping in mind sector requirements.
