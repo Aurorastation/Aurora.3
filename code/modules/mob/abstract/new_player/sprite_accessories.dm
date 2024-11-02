@@ -1888,14 +1888,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi, /datum/species/zombie/unathi)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb, /datum/species/unathi, /datum/species/zombie/unathi)
 
 /datum/sprite_accessory/hair_gradients/none
 	name = "None"
 	icon_state = "none"
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
-		/datum/species/bug/type_b)
+		/datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/hair_gradients/none_48
 	name = "None (Vaurca Type C/E)"
@@ -4964,6 +4964,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_eyeoverlay_l"
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
 	name = "Upper Mecha Eye (Overlay, Right)"
@@ -4986,7 +4987,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
-	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b/type_bb)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
 	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"

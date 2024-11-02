@@ -1,0 +1,7 @@
+2024-11-01:
+  FluffyGhost:
+  - qol: Set the map format to sidemap, to better represent that we're in 3/4th perspective
+      now.
+  - code_imp: Some code cleanup around the definition of /world.
+  hazelmouse:
+  - bugfix: Available ghostroles now appear correctly at roundstart.

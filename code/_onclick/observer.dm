@@ -20,7 +20,7 @@
 
 	// Otherwise jump
 	else
-		stop_following()
+		orbiting?.end_orbit(src) // stop orbiting
 		forceMove(get_turf(A))
 
 /mob/abstract/ghost/observer/DblClickOn(atom/A, params)

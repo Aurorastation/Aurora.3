@@ -146,6 +146,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	total_players = length(GLOB.player_list)
 
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
+		welcome()
 		SSvote.autogamemode()
 		pregame_timeleft--
 		return
@@ -456,6 +457,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		setup_player_ready_list()
 
+	callHook("pregame_start")
+
+/// Handles welcome message and prints out ghostrole information. Should be called after offsites have spawned.
+/datum/controller/subsystem/ticker/proc/welcome()
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 
@@ -491,8 +496,6 @@ var/datum/controller/subsystem/ticker/SSticker
 		</span>\
 	"}
 	to_world(html)
-
-	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode

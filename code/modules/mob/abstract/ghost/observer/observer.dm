@@ -33,6 +33,8 @@
 	var/is_manifest = 0
 	/// Cooldown for ghost abilities, such as move_item().
 	var/ghost_cooldown = 0
+	/// The POI we're orbiting.
+	var/orbiting_ref
 
 /mob/abstract/ghost/observer/Initialize(mapload, mob/body)
 	. = ..()
@@ -262,7 +264,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(!found_rune)
 			to_chat(usr, SPAN_CULT("The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
-	stop_following()
+	QDEL_NULL(orbiting)
 	mind.current.ajourn=0
 	mind.current.key = key
 	mind.current.teleop = null
@@ -289,14 +291,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Medical Scan Target"
 	set desc = "Analyse the health of whatever you are following."
 
-	if(!following)
+	if(!orbiting)
 		to_chat(src, SPAN_WARNING("You aren't following anything!"))
 		return
 
-	if(isipc(following) || isrobot(following))
-		robotic_analyze_mob(following, usr, TRUE)
-	else if(ishuman(following))
-		health_scan_mob(following, usr, TRUE, TRUE)
+	if(isipc(orbit_target) || isrobot(orbit_target))
+		robotic_analyze_mob(orbit_target, usr, TRUE)
+	else if(ishuman(orbit_target))
+		health_scan_mob(orbit_target, usr, TRUE, TRUE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
@@ -331,7 +333,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
 	if(check_holy(T))
-		stop_following()
+		orbiting?.end_orbit(src)
 		teleport_if_needed()
 		to_chat(usr, SPAN_WARNING("You cannot follow something standing on holy grounds!"))
 		return
@@ -357,8 +359,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/turf/T = get_turf(target) //Turf of the destination mob
 
 		if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
-			stop_following()
-			forceMove(T)
+			source_mob.abstract_move(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
 

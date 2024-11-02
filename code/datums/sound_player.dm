@@ -197,19 +197,19 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	listeners += listener
 
-	GLOB.moved_event.register(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	RegisterSignal(listener, COMSIG_MOVABLE_MOVED, PROC_REF(PrivUpdateListenerLoc))
 	GLOB.destroyed_event.register(listener, src, PROC_REF(PrivRemoveListener))
 
-	PrivUpdateListenerLoc(listener, FALSE)
+	PrivUpdateListenerLoc(listener, update_sound = FALSE)
 
 /datum/sound_token/proc/PrivRemoveListener(atom/listener, sound/null_sound)
 	null_sound = null_sound || new(channel = sound.channel)
 	sound_to(listener, null_sound)
-	GLOB.moved_event.unregister(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	UnregisterSignal(listener, COMSIG_MOVABLE_MOVED)
 	GLOB.destroyed_event.unregister(listener, src, PROC_REF(PrivRemoveListener))
 	listeners -= listener
 
-/datum/sound_token/proc/PrivUpdateListenerLoc(atom/listener, update_sound = TRUE)
+/datum/sound_token/proc/PrivUpdateListenerLoc(atom/movable/listener, atom/old_loc, dir, forced, list/old_locs, update_sound = TRUE)
 	var/turf/source_turf = get_turf(source)
 	var/turf/listener_turf = get_turf(listener)
 
