@@ -1767,7 +1767,7 @@ About the new airlock wires panel:
 						playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 						take_damage(50)
 						set_broken()
-						to_chat(user, SPAN_NOTICE("The jaws of life overcome the resistance of the airlock's motors easily opening the way ahead!"))
+						to_chat(user, SPAN_NOTICE("The hydraulic strength easily overcomes the resistance of the airlock's motors opening the way ahead!"))
 				open(1)
 			else
 				close(1)
