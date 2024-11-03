@@ -5,3 +5,27 @@
   - code_imp: Some code cleanup around the definition of /world.
   hazelmouse:
   - bugfix: Available ghostroles now appear correctly at roundstart.
+2024-11-03:
+  Ben10083:
+  - rscadd: New loadout options in Tajara loadout for getting sets of Religious banners
+      (S'rand'marr and Ma'ta'ke).
+  - spellcheck: Fixed incorrect extended description for Raskariim mask.
+  FluffyGhost:
+  - bugfix: Fixed some situations where a null was being set as target.
+  - refactor: Repathed the dreaded target_mob variable to last_found_target, and from
+      mob to atom, as it was not being used only for mobs.
+  - refactor: Added procs to set and unset the last_found_target and setup the signals
+      relative to clear it, and validations.
+  - refactor: Thanks to the above, removed a viewscan that was needed to delete references
+      when mobs die from their attacker.
+  - code_imp: General QoL of code, DMDocs.
+  - server: Updates the CI to use byond 515.1644.
+  - bugfix: Fix mechs taking damage from sandstorms.
+  SimpleMaroon:
+  - qol: Vaurca Prosthetic Limbs now color themselves after the Vaurca's body color,
+      similar to Aut'akh limbs.
+  - imageadd: Vaurca Prosthetic Limb sprites have been grayscaled and darkened to
+      facilitate this.
+  - bugfix: Pixel-shifted the Vaurca Attendant west-facing head sprites to align properly.
+  WickedCybs:
+  - rscadd: Added Kira's custom item.
