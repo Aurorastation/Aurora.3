@@ -99,7 +99,7 @@
 		index_name = "Index ([length(indices) + 1])"
 	E.name = index_name
 	LAZYSET(indices, E.name, E)
-	GLOB.destroyed_event.register(E, src, PROC_REF(remove_index))
+	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
 	return E
 
 /obj/item/journal/proc/remove_index(var/obj/item/folder/embedded/E)

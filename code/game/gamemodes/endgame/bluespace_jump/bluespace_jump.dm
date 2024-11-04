@@ -74,11 +74,11 @@
 	appearance = daddy.appearance
 	RegisterSignal(daddy, COMSIG_MOVABLE_MOVED, PROC_REF(mirror))
 	GLOB.dir_set_event.register(daddy, src, PROC_REF(mirror_dir))
-	GLOB.destroyed_event.register(daddy, src, TYPE_PROC_REF(/datum, qdel_self))
+	RegisterSignal(daddy, COMSIG_QDELETING, TYPE_PROC_REF(/datum, qdel_self))
 
 /obj/effect/bluegoast/Destroy()
 	if(daddy)
-		GLOB.destroyed_event.unregister(daddy, src)
+		UnregisterSignal(daddy, COMSIG_QDELETING)
 		GLOB.dir_set_event.unregister(daddy, src)
 		UnregisterSignal(daddy, COMSIG_MOVABLE_MOVED)
 		daddy = null
