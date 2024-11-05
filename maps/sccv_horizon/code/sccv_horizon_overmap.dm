@@ -202,17 +202,20 @@
 	name = "Quark"
 	class = "SCCV"
 	designation = "Quark"
-	desc = "..."
+	desc = "\
+		A small-sized exploration shuttle manufactured by Hephaestus, the Celeste-class is commonly used by the corporations of the SCC. \
+		Designed for short-term expeditions, it is entirely reliant on a bigger ship for supply and support. \
+		This one's transponder identifies it as the SCCV Quark. \
+	"
 	shuttle = "Quark"
 	icon_state = "pod" // <-------------- temporary, hopefully someone sprites it some day
 	moving_state = "pod_moving"
 	colors = list("#cfd4ff", "#78adf8")
 	// scanimage = "quark.png" // <-------------- hopefully someone sprites it some day
-	designer = "Hephaestus Industries, NanoTrasen"
-	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
-	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
-	sizeclass = "Jester-type Scout Skiff"
-	shiptype = "Exploratory survey and scouting, high-speed target interception"
+	designer = "Hephaestus Industries"
+	volume = "15 meters length, 9 meters beam/width, 6 meters vertical height"
+	sizeclass = "Celeste-type Exploration Shuttlecraft"
+	shiptype = "Exploratory survey and scouting"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000
