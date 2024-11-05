@@ -229,7 +229,3 @@
 	name = "\improper Quark control console"
 	shuttle_tag = "Quark"
 	req_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH)
-
-//
-// ------------------------------------------- fin
-//
