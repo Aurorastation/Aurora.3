@@ -29,3 +29,24 @@
   - bugfix: Pixel-shifted the Vaurca Attendant west-facing head sprites to align properly.
   WickedCybs:
   - rscadd: Added Kira's custom item.
+2024-11-05:
+  CourierBravo:
+  - rscadd: Added all of the other cars.dmi sprites as automobile objects.
+  - rscadd: Moved around and changed some of the names of sprites in the cars.dmi
+      file.
+  - rscadd: Reworked how the random car spawning works. Now instead of initializing
+      a structure with a random name/sprite, its a random subtype selecting to spawn
+      structure with a preset name and sprite.
+  - rscdel: Replaced the previous random car initialize with the random subtype.
+  - imageadd: Added a random car sprite to the car.dmi file, since the random.dmi
+      file doesnt support 96x64 pixel sprites
+  FluffyGhost:
+  - refactor: Refactored deletion observables to use the COMSIG_QDELETING signal instead,
+      removed the observable.
+  hazelmouse:
+  - rscadd: Adds the submariner's beanie to the loadout, a tight piece of headwear
+      common among the dock workers of Europa.
+  - rscadd: Adds the Golden Deep Hoplan and Porter uniforms to the loadout.
+  - rscadd: Adds the Golden Deep Hoplan voidsuit to the appropriate uplink kit.
+  - rscadd: Adds some missing stuff to the Golden Deep ghostrole, and further randomises
+      cargo holds contents.
