@@ -1536,7 +1536,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/quark
+ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH, ACCESS_BRIDGE_CREW)
