@@ -93,7 +93,7 @@
 
 			var/connected_dirs
 			GET_ZONE_NEIGHBOURS(T, connected_dirs)
-			if(connected_dirs && (dir & GLOB.reverse_dir[connected_dirs]) == dir)
+			if(connected_dirs && (dir & REVERSE_DIR(connected_dirs)) == dir)
 				. &= ~dir //they are, so unflag the cardinals in question
 
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
@@ -179,7 +179,7 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			sim.open_directions |= GLOB.reverse_dir[d]
+			sim.open_directions |= REVERSE_DIR(d)
 
 			if(TURF_HAS_VALID_ZONE(sim))
 				//Might have assigned a zone, since this happens for each direction.

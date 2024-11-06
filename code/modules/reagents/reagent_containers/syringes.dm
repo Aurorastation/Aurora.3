@@ -39,6 +39,9 @@
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
+	///Boolean, if this syringe gets dirty (and consequently infects people when reused)
+	var/gets_dirty = TRUE
+
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()
 	update_icon()
@@ -73,7 +76,7 @@
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
 		addtimer(CALLBACK(src, PROC_REF(infect_limb), eo), rand(5 MINUTES, 10 MINUTES))
 
-	if(!used)
+	if(!used && gets_dirty)
 		START_PROCESSING(SSprocessing, src)
 		used = TRUE
 
@@ -281,7 +284,7 @@
 		AddOverlays("capped")
 
 	if(reagents && reagents.total_volume)
-		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
+		worn_overlay = clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
 		AddOverlays(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
@@ -380,6 +383,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
+
+/*#############
+	SUBTYPES
+#############*/
+
+/**
+ * #Robotic syringe
+ *
+ * This syringe is for borgs and the likes, do not give it around otherwise
+ */
+/obj/item/reagent_containers/syringe/robotic
+	name = "robotic syringe"
+	desc = "A syringe for our synthetic friends."
+	gets_dirty = FALSE
 
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"

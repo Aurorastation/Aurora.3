@@ -1,0 +1,59 @@
+2024-11-01:
+  FluffyGhost:
+  - qol: Set the map format to sidemap, to better represent that we're in 3/4th perspective
+      now.
+  - code_imp: Some code cleanup around the definition of /world.
+  hazelmouse:
+  - bugfix: Available ghostroles now appear correctly at roundstart.
+2024-11-03:
+  Ben10083:
+  - rscadd: New loadout options in Tajara loadout for getting sets of Religious banners
+      (S'rand'marr and Ma'ta'ke).
+  - spellcheck: Fixed incorrect extended description for Raskariim mask.
+  FluffyGhost:
+  - bugfix: Fixed some situations where a null was being set as target.
+  - refactor: Repathed the dreaded target_mob variable to last_found_target, and from
+      mob to atom, as it was not being used only for mobs.
+  - refactor: Added procs to set and unset the last_found_target and setup the signals
+      relative to clear it, and validations.
+  - refactor: Thanks to the above, removed a viewscan that was needed to delete references
+      when mobs die from their attacker.
+  - code_imp: General QoL of code, DMDocs.
+  - server: Updates the CI to use byond 515.1644.
+  - bugfix: Fix mechs taking damage from sandstorms.
+  SimpleMaroon:
+  - qol: Vaurca Prosthetic Limbs now color themselves after the Vaurca's body color,
+      similar to Aut'akh limbs.
+  - imageadd: Vaurca Prosthetic Limb sprites have been grayscaled and darkened to
+      facilitate this.
+  - bugfix: Pixel-shifted the Vaurca Attendant west-facing head sprites to align properly.
+  WickedCybs:
+  - rscadd: Added Kira's custom item.
+2024-11-05:
+  CourierBravo:
+  - rscadd: Added all of the other cars.dmi sprites as automobile objects.
+  - rscadd: Moved around and changed some of the names of sprites in the cars.dmi
+      file.
+  - rscadd: Reworked how the random car spawning works. Now instead of initializing
+      a structure with a random name/sprite, its a random subtype selecting to spawn
+      structure with a preset name and sprite.
+  - rscdel: Replaced the previous random car initialize with the random subtype.
+  - imageadd: Added a random car sprite to the car.dmi file, since the random.dmi
+      file doesnt support 96x64 pixel sprites
+  FluffyGhost:
+  - refactor: Refactored deletion observables to use the COMSIG_QDELETING signal instead,
+      removed the observable.
+  hazelmouse:
+  - rscadd: Adds the submariner's beanie to the loadout, a tight piece of headwear
+      common among the dock workers of Europa.
+  - rscadd: Adds the Golden Deep Hoplan and Porter uniforms to the loadout.
+  - rscadd: Adds the Golden Deep Hoplan voidsuit to the appropriate uplink kit.
+  - rscadd: Adds some missing stuff to the Golden Deep ghostrole, and further randomises
+      cargo holds contents.
+2024-11-06:
+  Ben10083:
+  - rscadd: Custom stickersheets added to loadout. Select 4 stickers which is put
+      into the sheet (each selection provides 3).
+  - qol: Random and None options now appear first in content lists (like lunchboxes)
+  FluffyGhost:
+  - server: Added force name change dropdown menu option to rename living mobs.

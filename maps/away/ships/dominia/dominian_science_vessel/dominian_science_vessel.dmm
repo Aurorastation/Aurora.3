@@ -495,8 +495,7 @@
 /area/ship/dominian_science_vessel/center_hall)
 "bpq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -871,8 +870,7 @@
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
@@ -1775,8 +1773,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -1853,8 +1850,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_dominian_science_shuttle";
@@ -2273,8 +2269,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -2872,8 +2867,7 @@
 /area/shuttle/dominian_science_shuttle)
 "iWi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -3131,7 +3125,6 @@
 "kam" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = 21;
 	name = "surgical sink"
 	},
@@ -3206,7 +3199,6 @@
 /area/ship/dominian_science_vessel/officer)
 "knD" = (
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 20;
 	pixel_x = -6
 	},
@@ -3770,8 +3762,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4299,8 +4290,7 @@
 /area/shuttle/dominian_science_shuttle)
 "oiZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4461,8 +4451,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/dominian_science_vessel/stbd_fore,
@@ -4643,8 +4632,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/dominian_science_vessel/dock/aft,
@@ -4709,8 +4697,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/dominian_science_vessel/stbd_fore,
@@ -4765,8 +4752,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -4797,9 +4783,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_science_shuttle)
 "pNy" = (
-/obj/machinery/cryopod{
-	dir = 8
-	},
+/obj/machinery/cryopod,
 /obj/machinery/computer/cryopod{
 	pixel_x = 28;
 	pixel_y = -6
@@ -6162,8 +6146,7 @@
 /area/ship/dominian_science_vessel/atmospherics)
 "uGG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -6177,7 +6160,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 28;
-	dir = 2;
 	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{

@@ -96,7 +96,7 @@
 	return FALSE
 
 /mob/living/simple_animal/hostile/republicon/FoundTarget()
-	if(istajara(target_mob))
+	if(istajara(last_found_target))
 		say("Subversive element detected!")
 	else
 		say("Foreign invader detected!")
@@ -232,15 +232,13 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/FoundTarget()
-	if(!ishuman(target_mob))
+	if(!ishuman(last_found_target))
 		say("Hostile xenofauna detected!")
-	else if(istajara(target_mob))
+	else if(istajara(last_found_target))
 		say("Subversive element detected!")
 	else
 		say("Foreign invader detected!")
 	playsound(src, 'sound/effects/creatures/PRA_drone_aggro.ogg', 75, 1)
-	return
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/LostTarget()
 	say("Returning to data gathering.")
-	return

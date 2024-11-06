@@ -299,9 +299,9 @@
 	else
 		return ..()
 
-/obj/machinery/optable/attackby(obj/item/W, mob/living/carbon/user)
-	if(istype(W, /obj/item/grab))
-		var/obj/item/grab/G = W
+/obj/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 
 		var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
 		if(occupant_resolved)
@@ -319,11 +319,11 @@
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			take_occupant(G.affecting,usr)
-			qdel(W)
+			qdel(attacking_item)
 		return TRUE
-	if(default_deconstruction_screwdriver(user, W))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, W))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, W))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE

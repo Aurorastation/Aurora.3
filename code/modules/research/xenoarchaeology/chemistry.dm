@@ -13,7 +13,7 @@
 	volume = 2
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/attacking_item, mob/living/user)
+/obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.ispen())
 		var/new_label = sanitizeSafe( tgui_input_text(user, "What should the new label be?", "Label solution tray", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(new_label)

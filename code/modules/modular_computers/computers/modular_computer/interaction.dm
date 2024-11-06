@@ -1,3 +1,11 @@
+/obj/item/modular_computer/proc/force_shutdown()
+	set name = "Force Shutdown"
+	set category = "Object"
+	set src in view(1)
+
+	to_chat(usr, SPAN_NOTICE("You long-press the power button on \the [src], causing it to forcibly power off."))
+	shutdown_computer(TRUE)
+
 /obj/item/modular_computer/proc/eject_id()
 	set name = "Eject ID"
 	set category = "Object"
@@ -146,13 +154,13 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
-	sound_scan = FALSE
+/obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
+		health_scan_mob(target_mob, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()

@@ -76,7 +76,7 @@
 			return BULLET_ACT_HIT
 
 		//block as long as they are not directly behind us
-		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+		var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 			if(prob(base_block_chance) && shield_power)
@@ -163,7 +163,7 @@
 	icon_state = initial(icon_state)
 	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
-/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/glaive/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

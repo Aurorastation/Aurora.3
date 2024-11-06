@@ -9,9 +9,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "cw" = (
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "ef" = (
 /obj/structure/bed/padded,
@@ -111,9 +109,7 @@
 /area/exoplanet/adhomai)
 "mF" = (
 /obj/structure/bed/padded,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "nR" = (
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -121,9 +117,7 @@
 "qm" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/carpet/art{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/carpet/art,
 /area/exoplanet/adhomai)
 "rf" = (
 /obj/structure/simple_door/wood,
@@ -148,9 +142,7 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/freezer,
 /area/exoplanet/adhomai)
 "wx" = (
 /obj/item/material/shard/wood,
@@ -183,9 +175,7 @@
 	},
 /area/exoplanet/adhomai)
 "Aq" = (
-/turf/simulated/floor/tiled/freezer{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/tiled/freezer,
 /area/exoplanet/adhomai)
 "BZ" = (
 /obj/structure/railing/fence,
@@ -202,9 +192,7 @@
 /area/exoplanet/adhomai)
 "Cw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "DP" = (
 /obj/machinery/light/small,
@@ -305,9 +293,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "TD" = (
 /obj/structure/curtain/black,
@@ -349,9 +335,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
-	},
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "YQ" = (
 /obj/structure/railing/fence{

@@ -916,8 +916,7 @@
 /area/burzsia_mining/mining)
 "zB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1672,8 +1671,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -1704,8 +1702,7 @@
 /obj/item/ore_detector,
 /obj/item/device/flashlight/lantern,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/item/device/radio,
 /obj/item/stack/flag/yellow,

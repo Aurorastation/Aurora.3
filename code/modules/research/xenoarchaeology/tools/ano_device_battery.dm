@@ -202,22 +202,22 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/anodevice/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
-	if (!istype(M))
+/obj/item/anodevice/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (!istype(target_mob))
 		return
 
 	if(activated && inserted_battery.battery_effect.effect == EFFECT_TOUCH && !isnull(inserted_battery))
-		inserted_battery.battery_effect.DoEffectTouch(M)
+		inserted_battery.battery_effect.DoEffectTouch(target_mob)
 		inserted_battery.use_power(energy_consumed_on_touch)
-		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], and it shudders on contact."))
+		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], and it shudders on contact."))
 	else
-		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], but nothing happens."))
+		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], but nothing happens."))
 
 	//admin logging
-	user.lastattacked = M
-	M.lastattacker = user
+	user.lastattacked = target_mob
+	target_mob.lastattacker = user
 
 	if(inserted_battery.battery_effect)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Tapped [M.name] ([M.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</span>"
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Tapped by [user.name] ([user.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</font>"
-		msg_admin_attack("[key_name_admin(user)] tapped [key_name_admin(M)] with [name] (EFFECT: [inserted_battery.battery_effect.effecttype]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Tapped [target_mob.name] ([target_mob.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</span>"
+		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Tapped by [user.name] ([user.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</font>"
+		msg_admin_attack("[key_name_admin(user)] tapped [key_name_admin(target_mob)] with [name] (EFFECT: [inserted_battery.battery_effect.effecttype]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )

@@ -229,7 +229,7 @@
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
 						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
-						src.set_dir(pick(GLOB.cardinal))
+						src.set_dir(pick(GLOB.cardinals))
 					miss_type = 1
 
 			if(!miss_type && block)
@@ -327,13 +327,13 @@
 					if(M.stamina <= disarm_cost)
 						to_chat(M, SPAN_DANGER("You're too tired to disarm someone!"))
 						return FALSE
-					M.stamina = Clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+					M.stamina = clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				else if(M.max_stamina <= 0)
 					disarm_cost = M.max_nutrition / 6
 					if(M.nutrition <= disarm_cost)
 						to_chat(M, SPAN_DANGER("You don't have enough power to disarm someone!"))
 						return FALSE
-					M.nutrition = Clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
+					M.nutrition = clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
 
 			M.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>"
 			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
@@ -380,7 +380,7 @@
 						problem_railing = R
 						break
 				for(var/obj/structure/railing/R in get_step(T, dir))
-					if(R.dir == GLOB.reverse_dir[dir])
+					if(R.dir == REVERSE_DIR(dir))
 						problem_railing = R
 						same_loc = TRUE
 						break
@@ -549,7 +549,7 @@
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>"
 	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
 	user.do_attack_animation(src)
-	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") == BULLET_ACT_HIT))
+	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") != BULLET_ACT_HIT))
 		return
 
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))

@@ -118,7 +118,6 @@
 "pV" = (
 /obj/machinery/light{
 	dir = 8;
-	pixel_y = 0;
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/white,
@@ -170,9 +169,7 @@
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
-/obj/machinery/light{
-	pixel_y = 0
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "vO" = (
@@ -190,9 +187,7 @@
 	pixel_y = 9;
 	pixel_x = -5
 	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 0
-	},
+/obj/item/storage/pill_bottle/inaprovaline,
 /obj/item/storage/pill_bottle/inaprovaline{
 	pixel_y = -5;
 	pixel_x = 8
@@ -213,7 +208,6 @@
 	pixel_y = -4
 	},
 /obj/item/stack/nanopaste{
-	pixel_y = 0;
 	pixel_x = 10
 	},
 /obj/item/stack/nanopaste{
@@ -317,7 +311,6 @@
 	pixel_y = 9
 	},
 /obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = 0;
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/white,

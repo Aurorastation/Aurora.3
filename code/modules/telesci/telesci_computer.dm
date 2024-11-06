@@ -277,15 +277,15 @@
 
 	if(telepad)
 
-		var/truePower = Clamp(power + power_off, 1, 1000)
+		var/truePower = clamp(power + power_off, 1, 1000)
 		var/trueRotation = rotation + rotation_off
-		var/trueAngle = Clamp(angle, 1, 90)
+		var/trueAngle = clamp(angle, 1, 90)
 
 		var/datum/projectile_data/proj_data = projectile_trajectory(telepad.x, telepad.y, trueRotation, trueAngle, truePower)
 		last_tele_data = proj_data
 
-		var/trueX = Clamp(round(proj_data.dest_x, 1), 1, world.maxx)
-		var/trueY = Clamp(round(proj_data.dest_y, 1), 1, world.maxy)
+		var/trueX = clamp(round(proj_data.dest_x, 1), 1, world.maxx)
+		var/trueY = clamp(round(proj_data.dest_y, 1), 1, world.maxy)
 		var/spawn_time = round(proj_data.time)
 
 		var/turf/target = locate(trueX, trueY, target_zlevel)
@@ -407,14 +407,14 @@
 		var/new_rot = input("Please input desired bearing in degrees.", name, rotation) as num
 		if(..()) // Check after we input a value, as they could've moved after they entered something
 			return
-		rotation = Clamp(new_rot, -900, 900)
+		rotation = clamp(new_rot, -900, 900)
 		rotation = round(rotation, 0.01)
 
 	if(href_list["setangle"])
 		var/new_angle = input("Please input desired elevation in degrees.", name, angle) as num
 		if(..())
 			return
-		angle = Clamp(round(new_angle, 0.1), 1, 9999)
+		angle = clamp(round(new_angle, 0.1), 1, 9999)
 
 	if(href_list["setpower"])
 		var/index = href_list["setpower"]

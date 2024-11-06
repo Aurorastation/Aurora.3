@@ -218,7 +218,7 @@
 	value = 6
 
 /singleton/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	var/power = 1 + Clamp((holder.get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
+	var/power = 1 + clamp((holder.get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
@@ -737,6 +737,22 @@
 	if(needs_mutation_update && ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
+
+/singleton/reagent/ryetalyn/affect_ingest(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+
+	holder.remove_reagent(/singleton/reagent/toxin/malignant_tumour_cells, 2)
+
+	var/needs_mutation_update = M.mutations > 0
+	M.mutations = 0
+	M.disabilities = 0
+	M.sdisabilities = 0
+
+	// Might need to update appearance for hulk etc.
+	if(needs_mutation_update && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.update_mutations()
+
 
 /singleton/reagent/hyperzine
 	name = "Hyperzine"

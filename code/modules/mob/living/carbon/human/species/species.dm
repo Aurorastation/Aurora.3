@@ -655,7 +655,7 @@
 		prescriptions += 7
 	if(H.equipment_prescription)
 		prescriptions -= H.equipment_prescription
-	return Clamp(prescriptions, 0, 7)
+	return clamp(prescriptions, 0, 7)
 
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
@@ -752,7 +752,7 @@
 	if(length(trail_info))
 		var/track_path = trail_info["footprint_type"]
 		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
-		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		var/turf/simulated/from = get_step(H, REVERSE_DIR(H.dir))
 		if(istype(from))
 			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 

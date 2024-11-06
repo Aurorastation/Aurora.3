@@ -28,6 +28,12 @@
 		/obj/item/sticker/generic/googly_eye = 12
 	)
 
+/obj/item/storage/stickersheet/domadice
+	name = "domadice sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/domadice = 12
+	)
+
 /obj/item/storage/stickersheet/generic
 	name = "generic sticker sheet"
 	starts_with = list(
@@ -50,12 +56,6 @@
 		/obj/item/sticker/religious/luceism = 2,
 		/obj/item/sticker/religious/tribunal = 2,
 		/obj/item/sticker/religious/trinary = 2
-	)
-
-/obj/item/storage/stickersheet/domadice
-	name = "domadice sticker sheet"
-	starts_with = list(
-		/obj/item/sticker/generic/domadice = 12
 	)
 
 /obj/item/storage/stickersheet/biesel

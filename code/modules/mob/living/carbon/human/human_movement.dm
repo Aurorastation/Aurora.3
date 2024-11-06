@@ -9,7 +9,8 @@
 	if(lying) //Crawling, it's slower
 		tally += (8 + ((weakened * 3) + (confused * 2)))
 
-	tally += get_pulling_movement_delay()
+	if (!(species.flags & NO_EQUIP_SPEEDMODS))
+		tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
@@ -50,7 +51,7 @@
 	if((mutations & mRun))
 		tally = 0
 
-	if(isitem(pulling))
+	if(isitem(pulling) && !(species.flags & NO_EQUIP_SPEEDMODS))
 		var/obj/item/P = pulling
 		tally += P.slowdown
 
@@ -125,7 +126,7 @@
 	if(.) //We moved
 		handle_leg_damage()
 
-	var/turf/T = loc
+	var/turf/T = get_turf(loc)
 	var/footsound
 	var/top_layer = 0
 	if(istype(T))

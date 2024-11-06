@@ -183,14 +183,14 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
 	if(!stop_automated_movement)
 		stop_automated_movement = 1
-	if(QDELETED(target_mob) || SA_attackable(target_mob))
+	if(QDELETED(last_found_target) || SA_attackable(last_found_target))
 		LoseTarget()
-	if(!see_target())
+	if(!see_target(last_found_target))
 		LoseTarget()
-	if(target_mob in targets)
-		if(get_dist(src, target_mob) <= 6)
+	if(last_found_target in targets)
+		if(get_dist(src, last_found_target) <= 6)
 			GLOB.move_manager.stop_looping(src)
-			OpenFire(target_mob)
+			OpenFire(last_found_target)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/activate_beacon()
 	if(activated != 1)
@@ -294,7 +294,7 @@
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
 			if(GUARDIAN)
 				Destination = null
-				for(var/check_dir in GLOB.cardinal)
+				for(var/check_dir in GLOB.cardinals)
 					var/turf/T = get_step(src, check_dir)
 					if(turf_clear(T))
 						Destination = T

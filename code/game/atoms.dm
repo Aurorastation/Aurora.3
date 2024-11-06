@@ -453,6 +453,9 @@
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!simulated)
 		return
 	fluorescent = 0
@@ -628,7 +631,7 @@
 	if(Proj.damage_flags & DAMAGE_FLAG_LASER)
 		if(Proj.damage >= 20)
 			bullet_mark_icon_state = "scorch"
-			bullet_mark_dir = pick(GLOB.cardinal) // Pick random scorch design
+			bullet_mark_dir = pick(GLOB.cardinals) // Pick random scorch design
 		else
 			bullet_mark_icon_state = "light_scorch"
 

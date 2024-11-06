@@ -153,7 +153,7 @@
 	var/temp_scale = 0
 	if(temperature > min_temp)
 		if(temperature >= optimal_temp)
-			temp_scale = Clamp(1 - ((optimal_temp - temperature) / optimal_temp), 0, 1)
+			temp_scale = clamp(1 - ((optimal_temp - temperature) / optimal_temp), 0, 1)
 		else
 			temp_scale = temperature / optimal_temp
 		//If we're between min and optimal this will yield a value in the range 0.7 to 1

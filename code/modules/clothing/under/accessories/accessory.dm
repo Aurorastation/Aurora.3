@@ -156,6 +156,11 @@
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 
+/obj/item/clothing/accessory/update_clothing_icon()
+	if (ismob(loc))
+		var/mob/mob = src.loc
+		mob.update_inv_wear_suit()
+
 /obj/item/clothing/accessory/red
 	name = "red tie"
 	icon_state = "redtie"
@@ -266,7 +271,9 @@
 	flippable = 1
 	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
+
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)

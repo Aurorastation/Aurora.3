@@ -242,7 +242,7 @@
 		return 0
 
 	if(is_train_head())
-		if(direction == reverse_direction(dir) && tow)
+		if(direction == REVERSE_DIR(dir) && tow)
 			//Allow the engine to rotate, but only if there's not another piece in the new direction
 			//Basically, to allow the first rotation at spawn to align with the rest of the convoy, without it being a CBT
 			if(!(locate(/obj/vehicle/train) in get_step(src, direction)))

@@ -95,7 +95,7 @@
 	var/brightness = get_pin_data(IC_INPUT, 2)
 
 	if(new_color && isnum(brightness))
-		brightness = Clamp(brightness, 0, 6)
+		brightness = clamp(brightness, 0, 6)
 		light_rgb = new_color
 		light_brightness = brightness
 
