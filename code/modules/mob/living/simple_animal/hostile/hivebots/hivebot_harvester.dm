@@ -335,7 +335,7 @@
 	last_prospect_loc = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/shoot_wrapper(target, location, user)
-	target_mob = target
+	set_last_found_target(target)
 	Shoot(target, location, user)
-	target_mob = null
+	unset_last_found_target()
 	return

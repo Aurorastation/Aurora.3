@@ -50,6 +50,10 @@
 	VV_DROPDOWN_OPTION("explode", "Trigger explosion")
 	VV_DROPDOWN_OPTION("emp", "Trigger EM pulse")
 
+/mob/living/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION(VV_HK_ADMIN_RENAME, "Force Change Name")
+
 /mob/living/carbon/human/vv_get_dropdown()
 	. = ..()
 	VV_DROPDOWN_OPTION("setspecies", "Set Species")

@@ -2000,3 +2000,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "tokash_mantle"
 	item_state = "tokash_mantle"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/fluff/kira_carrier //mictlan plate carrier adjustments - Kira Vazquez - Dessysalta
+	name = "mictlan plate carrier adjustments"
+	desc = "Various pieces of custom-made accessories and adjustments to better suit a plate carrier for its wearer. It has various notes scrawled along it in permanent marker, mostly \
+	in Tradeband and Spanish, such as the verse of Ephesians 6:13 and, 'Wishing you well!' The SCC's logo has been woven around the left arm flap, and Mictlan's flag \
+	around the right. The back reads K. VAZQUEZ in bold text."
+	icon = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_state = "kira_carrier"
+	item_state = "kira_carrier"
+	contained_sprite = TRUE

@@ -113,9 +113,10 @@
 	name = "secure crate";
 	req_one_access = list(229, 217)
 	},
-/obj/random/finances,
-/obj/random/finances,
 /obj/random/dirt_75,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
 /turf/template_noop,
 /area/template_noop)
 "fM" = (
@@ -177,33 +178,9 @@
 /obj/item/toy/plushie/axic,
 /turf/template_noop,
 /area/template_noop)
-"jJ" = (
-/obj/structure/table/reinforced/steel,
-/obj/random/dirt_75,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
-/turf/template_noop,
-/area/template_noop)
 "jV" = (
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/phoron,
-/turf/template_noop,
-/area/template_noop)
-"kw" = (
-/obj/random/keg,
-/turf/template_noop,
-/area/template_noop)
-"kC" = (
-/obj/structure/table/reinforced/steel,
-/obj/random/glowstick{
-	pixel_y = 5;
-	pixel_x = -5
-	},
-/obj/random/powercell,
-/obj/random/powercell{
-	pixel_x = 8;
-	pixel_y = 5
-	},
 /turf/template_noop,
 /area/template_noop)
 "kI" = (
@@ -220,6 +197,7 @@
 /obj/random/dirt_75,
 /obj/item/gun/energy/blaster/himeo,
 /obj/item/gun/energy/gun/qukala,
+/obj/random/civgun/rifle,
 /turf/template_noop,
 /area/template_noop)
 "lT" = (
@@ -227,21 +205,11 @@
 /obj/random/animal_crate,
 /turf/template_noop,
 /area/template_noop)
-"mn" = (
-/obj/random/vendor,
-/turf/template_noop,
-/area/template_noop)
 "mp" = (
 /obj/structure/table/rack/no_cargo,
 /obj/random/toolbox,
 /obj/random/tool,
 /obj/random/tech_supply,
-/turf/template_noop,
-/area/template_noop)
-"mQ" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
-	dir = 1
-	},
 /turf/template_noop,
 /area/template_noop)
 "nM" = (
@@ -275,12 +243,6 @@
 /area/template_noop)
 "rC" = (
 /obj/machinery/portable_atmospherics/canister/chlorine,
-/turf/template_noop,
-/area/template_noop)
-"rD" = (
-/obj/structure/bed/stool/chair/sofa/right/brown{
-	dir = 1
-	},
 /turf/template_noop,
 /area/template_noop)
 "sq" = (
@@ -421,7 +383,7 @@
 /area/template_noop)
 "zz" = (
 /obj/random/dirt_75,
-/obj/structure/closet/crate/autakh,
+/obj/structure/closet/crate/loot,
 /turf/template_noop,
 /area/template_noop)
 "Ah" = (
@@ -445,10 +407,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Bl" = (
-/obj/machinery/media/jukebox/audioconsole,
-/turf/template_noop,
-/area/template_noop)
 "Bp" = (
 /obj/random/civgun/rifle,
 /obj/random/civgun,
@@ -468,15 +426,11 @@
 /turf/template_noop,
 /area/template_noop)
 "BJ" = (
-/obj/structure/largecrate/animal/moghes/otzek,
+/obj/random/animal_crate,
 /turf/template_noop,
 /area/template_noop)
 "BP" = (
 /obj/machinery/shieldwallgen,
-/turf/template_noop,
-/area/template_noop)
-"Cp" = (
-/obj/structure/largecrate/animal/moghes/miervesh,
 /turf/template_noop,
 /area/template_noop)
 "CF" = (
@@ -494,10 +448,6 @@
 /obj/item/clothing/accessory/poncho/tajarancloak/amohda,
 /obj/random/dirt_75,
 /obj/item/clothing/gloves/tajaran_gauntlets,
-/turf/template_noop,
-/area/template_noop)
-"Dp" = (
-/obj/structure/largecrate/animal/adhomai/schlorrgo,
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
@@ -581,7 +531,7 @@
 /area/template_noop)
 "GC" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
-/obj/structure/anomaly_container,
+/obj/structure/closet/crate/loot,
 /turf/template_noop,
 /area/template_noop)
 "GF" = (
@@ -644,13 +594,6 @@
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
-"IC" = (
-/obj/structure/table/reinforced/steel,
-/obj/random/tech_supply,
-/obj/random/dirt_75,
-/obj/random/toolbox,
-/turf/template_noop,
-/area/template_noop)
 "IT" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep,
 /obj/machinery/shieldwallgen,
@@ -669,10 +612,6 @@
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
-"KA" = (
-/obj/structure/largecrate/animal/moghes/warmount,
-/turf/template_noop,
-/area/template_noop)
 "KW" = (
 /obj/machinery/stasis_cage{
 	req_access = list()
@@ -682,26 +621,6 @@
 /area/template_noop)
 "Ld" = (
 /obj/machinery/vending/dinnerware,
-/turf/template_noop,
-/area/template_noop)
-"Lq" = (
-/obj/machinery/vending/cigarette/hacked,
-/turf/template_noop,
-/area/template_noop)
-"Ls" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/gun/projectile/shotgun/doublebarrel{
-	pixel_y = 7;
-	pixel_x = -4
-	},
-/obj/item/ammo_casing/shotgun/beanbag{
-	pixel_y = -4;
-	pixel_x = -6
-	},
-/obj/item/ammo_casing/shotgun/beanbag{
-	pixel_x = 4;
-	pixel_y = -2
-	},
 /turf/template_noop,
 /area/template_noop)
 "LF" = (
@@ -737,10 +656,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/template_noop,
 /area/template_noop)
-"No" = (
-/obj/structure/bed/psych,
-/turf/template_noop,
-/area/template_noop)
 "Ow" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/template_noop,
@@ -750,14 +665,10 @@
 /obj/machinery/vending/hydronutrients,
 /turf/template_noop,
 /area/template_noop)
-"PX" = (
-/obj/structure/trash_pile,
-/turf/template_noop,
-/area/template_noop)
 "Qz" = (
-/obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/loot,
 /turf/template_noop,
 /area/template_noop)
 "QO" = (
@@ -1059,7 +970,7 @@ Ow
 Wr
 sq
 sq
-jJ
+QO
 Za
 sq
 "}
@@ -1083,14 +994,14 @@ Ow
 Hv
 sq
 sq
-IC
+QO
 Za
 sq
 Ow
 Bp
 sq
 sq
-Ls
+QO
 Za
 sq
 "}
@@ -1190,14 +1101,14 @@ sq
 (10,1,1) = {"
 sq
 Ow
-mn
+QO
 sq
 sq
 Fy
 sq
 sq
 Ow
-KA
+QO
 Na
 sq
 KW
@@ -1211,7 +1122,7 @@ IT
 sq
 sq
 Ow
-kC
+QO
 sq
 sq
 rg
@@ -1221,10 +1132,10 @@ sq
 (11,1,1) = {"
 sq
 Ow
+QO
 sq
 sq
-sq
-mQ
+QO
 sq
 sq
 Ow
@@ -1252,14 +1163,14 @@ sq
 (12,1,1) = {"
 sq
 Ow
-Bl
+QO
 sq
 sq
-rD
+QO
 Za
 sq
 Ow
-Cp
+BJ
 sq
 sq
 ck
@@ -1276,14 +1187,14 @@ Ow
 fy
 sq
 sq
-Dp
+QO
 Za
 sq
 "}
 (13,1,1) = {"
 sq
 Ow
-No
+QO
 sq
 sq
 fM
@@ -1407,14 +1318,14 @@ sq
 (17,1,1) = {"
 sq
 Ow
-Lq
+QO
 sq
 sq
 GC
 sq
 sq
 Ow
-kw
+QO
 sq
 sq
 LS
@@ -1441,7 +1352,7 @@ Ow
 Uw
 AU
 sq
-gY
+QO
 sq
 sq
 Ow
@@ -1455,7 +1366,7 @@ Ow
 QO
 sq
 sq
-PX
+QO
 sq
 sq
 Ow
@@ -1472,7 +1383,7 @@ Ow
 Bw
 sq
 sq
-pe
+gY
 Za
 sq
 Ow

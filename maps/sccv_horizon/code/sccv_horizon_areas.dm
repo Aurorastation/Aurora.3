@@ -49,6 +49,14 @@
 /area/hallway/engineering/rust
 	name = "Engineering - INDRA Hallway"
 
+/area/engineering/bluespace_drive
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engine"
+
+/area/engineering/bluespace_drive/monitoring
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engineering"
+
 //Medical
 
 /area/medical/ors
