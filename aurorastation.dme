@@ -892,6 +892,7 @@
 #include "code\game\machinery\Beacon.dm"
 #include "code\game\machinery\biogenerator.dm"
 #include "code\game\machinery\bioprinter.dm"
+#include "code\game\machinery\bluespace_drive.dm"
 #include "code\game\machinery\bluespacerelay.dm"
 #include "code\game\machinery\body_scanner.dm"
 #include "code\game\machinery\buttons.dm"
