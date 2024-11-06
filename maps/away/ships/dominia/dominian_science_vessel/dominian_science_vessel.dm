@@ -96,6 +96,11 @@
 	landmark_tag = "nav_dominian_science_dock_port"
 	docking_controller = "airlock_dominian_science_dock_port"
 
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/stbd
+	name = "Dock, Starboard"
+	landmark_tag = "nav_dominian_science_dock_stbd"
+	docking_controller = "airlock_dominian_science_dock_stbd"
+
 /obj/effect/shuttle_landmark/dominian_science_vessel/dock/aft
 	name = "Dock, Aft"
 	landmark_tag = "nav_dominian_science_dock_aft"
@@ -110,6 +115,33 @@
 	name = "Dock, Fore Port 2"
 	landmark_tag = "nav_dominian_science_dock_fore_2"
 	docking_controller = "airlock_dominian_science_dock_fore_2"
+
+//airlocks
+
+/obj/effect/map_effect/marker/airlock/dominian_science_vessel/port_fore
+	name = "Port Fore Airlock"
+	master_tag = "airlock_dominian_science_vessel_port_fore"
+
+/obj/effect/map_effect/marker/airlock/dominian_science_vessel/stbd_fore
+	name = "Starboard Fore Airlock"
+	master_tag = "airlock_dominian_science_vessel_port_stbd"
+
+//docks
+
+/obj/effect/map_effect/marker/airlock/docking/dominian_science_vessel/dock/port
+	name = "Dock, Port"
+	landmark_tag = "nav_dominian_science_dock_port"
+	master_tag = "airlock_dominian_science_dock_port"
+
+/obj/effect/map_effect/marker/airlock/docking/dominian_science_vessel/dock/stbd
+	name = "Dock, Starboard"
+	landmark_tag = "nav_dominian_science_dock_stbd"
+	master_tag = "airlock_dominian_science_dock_stbd"
+
+/obj/effect/map_effect/marker/airlock/docking/dominian_science_vessel/dock/aft
+	name = "Dock, Aft"
+	landmark_tag = "nav_dominian_science_dock_aft"
+	master_tag = "airlock_dominian_science_dock_aft"
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/dominian_science_shuttle
