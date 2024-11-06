@@ -159,7 +159,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/dominian_science_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
 	req_access = list(ACCESS_HOUSE_VOLVALAAD_SHIP)

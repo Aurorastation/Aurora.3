@@ -5108,7 +5108,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/explore/dominian_science_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/dominian_science_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
