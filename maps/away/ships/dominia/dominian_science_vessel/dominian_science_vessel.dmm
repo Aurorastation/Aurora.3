@@ -3677,6 +3677,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
+"lPE" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/fore_1{
+	dir = 1
+	},
+/turf/space,
+/area/ship/dominian_science_vessel/exterior)
 "lRV" = (
 /obj/machinery/door/airlock/research{
 	dir = 4;
@@ -6680,6 +6690,16 @@
 	},
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/quarters)
+"wsq" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/fore_2{
+	dir = 1
+	},
+/turf/space,
+/area/ship/dominian_science_vessel/exterior)
 "wtL" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner/green/full{
@@ -43793,7 +43813,7 @@ pmy
 pmy
 efw
 vMS
-eIb
+lPE
 xRX
 xRX
 xRX
@@ -49437,7 +49457,7 @@ xRX
 xRX
 ttP
 eIb
-eIb
+wsq
 xRX
 xRX
 xRX

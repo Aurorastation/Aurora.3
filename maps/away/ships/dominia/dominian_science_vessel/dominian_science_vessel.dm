@@ -101,6 +101,16 @@
 	landmark_tag = "nav_dominian_science_dock_aft"
 	docking_controller = "airlock_dominian_science_dock_aft"
 
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/fore_1
+	name = "Dock, Fore Port 1"
+	landmark_tag = "nav_dominian_science_dock_fore_1"
+	docking_controller = "airlock_dominian_science_dock_fore_1"
+
+/obj/effect/shuttle_landmark/dominian_science_vessel/dock/fore_2
+	name = "Dock, Fore Port 2"
+	landmark_tag = "nav_dominian_science_dock_fore_2"
+	docking_controller = "airlock_dominian_science_dock_fore_2"
+
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
