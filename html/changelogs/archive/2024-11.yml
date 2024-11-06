@@ -50,3 +50,10 @@
   - rscadd: Adds the Golden Deep Hoplan voidsuit to the appropriate uplink kit.
   - rscadd: Adds some missing stuff to the Golden Deep ghostrole, and further randomises
       cargo holds contents.
+2024-11-06:
+  Ben10083:
+  - rscadd: Custom stickersheets added to loadout. Select 4 stickers which is put
+      into the sheet (each selection provides 3).
+  - qol: Random and None options now appear first in content lists (like lunchboxes)
+  FluffyGhost:
+  - server: Added force name change dropdown menu option to rename living mobs.
