@@ -1466,8 +1466,8 @@ About the new airlock wires panel:
 	else if(istype(tool, /obj/item/crowbar/robotic/jawsoflife))
 		if(bolt_cut_state == BOLTS_FINE)
 			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolt cover!"),
-								 SPAN_WARNING("You start applying pressure on the airlock's bolt cover using the [tool]..."),
-								 SPAN_NOTICE("You hear metal cracking and deforming...")\
+				SPAN_WARNING("You start applying pressure on the airlock's bolt cover using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")\
 			)
 			if (do_after(user, 1 SECONDS))
 				to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
@@ -1475,8 +1475,8 @@ About the new airlock wires panel:
 				bolt_cut_state = BOLTS_EXPOSED
 		else if(bolt_cut_state != BOLTS_FINE)
 			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolts!"),
-								 SPAN_WARNING("You start applying pressure on the airlock's bolts using the [tool]..."),
-								 SPAN_NOTICE("You hear metal cracking and deforming...")
+				SPAN_WARNING("You start applying pressure on the airlock's bolts using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")
 			)
 			cut_verb = "smashing"
 			cut_sound = 'sound/weapons/smash.ogg'
@@ -1756,10 +1756,9 @@ About the new airlock wires panel:
 		else
 			if(density)
 				if(arePowerSystemsOn() && istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
-					user.visible_message(\
-						SPAN_DANGER("[user.name] starts using the [attacking_item] on the airlock!"),\
-						SPAN_WARNING("You start applying pressure on the airlock using the [attacking_item]..."),\
-						SPAN_NOTICE("You hear metal cracking and deforming...")\
+					user.visible_message(SPAN_DANGER("[user] starts using the [attacking_item] on the airlock!"),
+						SPAN_WARNING("You start applying pressure on the airlock using the [attacking_item]..."),
+						SPAN_NOTICE("You hear metal cracking and deforming...")
 					)
 					if (do_after(user, 5 SECONDS))
 						playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
