@@ -738,6 +738,22 @@
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 
+/singleton/reagent/ryetalyn/affect_ingest(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	. = ..()
+
+	holder.remove_reagent(/singleton/reagent/toxin/malignant_tumour_cells, 2)
+
+	var/needs_mutation_update = M.mutations > 0
+	M.mutations = 0
+	M.disabilities = 0
+	M.sdisabilities = 0
+
+	// Might need to update appearance for hulk etc.
+	if(needs_mutation_update && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.update_mutations()
+
+
 /singleton/reagent/hyperzine
 	name = "Hyperzine"
 	description = "Hyperzine is a complex cardio-synaptic stimulant drug designed to increase the performance of the body. Downsides include violent muscle spasms and tremors."
