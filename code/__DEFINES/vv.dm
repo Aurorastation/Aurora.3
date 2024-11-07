@@ -11,5 +11,8 @@
 #define VV_HK_CALLPROC "proc_call"
 #define VV_HK_MARK "mark"
 
+// /mob/living
+#define VV_HK_ADMIN_RENAME "admin_rename"
+
 //Helpers for vv_get_dropdown() - yes this is different from the tg one, cope
 #define VV_DROPDOWN_OPTION(href_key, name) . += "<option value='?_src_=vars;[href_key]=[REF(src)]'>[name]</option>"

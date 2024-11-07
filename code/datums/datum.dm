@@ -104,7 +104,6 @@
 	#endif
 	#endif
 
-	GLOB.destroyed_event.raise_event(src)
 	if (!isturf(src))
 		cleanup_events(src)
 

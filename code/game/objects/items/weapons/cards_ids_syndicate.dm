@@ -83,13 +83,17 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	GLOB.destroyed_event.register(user, src, PROC_REF(unset_registered_user))
+	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(on_user_deletion))
 	return TRUE
+
+/obj/item/card/id/syndicate/proc/on_user_deletion(datum/source)
+	SIGNAL_HANDLER
+	unset_registered_user(source)
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
-	GLOB.destroyed_event.unregister(registered_user, src)
+	UnregisterSignal(registered_user, COMSIG_QDELETING)
 	registered_user = null
 
 /obj/item/card/id/syndicate/CanUseTopic(mob/user)

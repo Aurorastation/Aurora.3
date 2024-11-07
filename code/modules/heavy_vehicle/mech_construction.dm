@@ -100,7 +100,7 @@
 	if(target == selected_hardpoint)
 		clear_selected_hardpoint()
 
-	GLOB.destroyed_event.unregister(module_to_forget, src, PROC_REF(forget_module))
+	UnregisterSignal(module_to_forget, COMSIG_QDELETING)
 
 	var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[target]
 	H.holding = null
@@ -144,7 +144,7 @@
 			if(!found)
 				return FALSE
 		ME.installed(src)
-		GLOB.destroyed_event.register(system, src, PROC_REF(forget_module))
+		RegisterSignal(system, COMSIG_QDELETING, PROC_REF(forget_module))
 
 
 	system.forceMove(src)
@@ -198,7 +198,7 @@
 	system.forceMove(get_turf(src))
 	system.screen_loc = null
 	system.layer = initial(system.layer)
-	GLOB.destroyed_event.unregister(system, src, PROC_REF(forget_module))
+	UnregisterSignal(system, COMSIG_QDELETING)
 
 	var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = null
