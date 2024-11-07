@@ -628,6 +628,7 @@
 	icon_supported_species_tags = null
 	refittable_species = list(BODYTYPE_HUMAN)
 
+// For use by merchants of the Golden Deep.
 /obj/item/clothing/head/helmet/space/void/golden_deep
 	name = "golden helmet"
 	desc = "A glamorous, decorated helmet plated with gold. Very hefty."
@@ -646,7 +647,7 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/golden_deep
@@ -658,7 +659,6 @@
 	contained_sprite = 1
 	slowdown = 1
 
-	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -670,7 +670,67 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+
+// For use by non-combatant and non-merchant members of the Golden Deep.
+/obj/item/clothing/suit/space/void/golden_deep/menial
+	name = "golden deep voidsuit"
+	desc = "This is a deep red voidsuit typical of the Golden Deep, often used by its less ostentatious - and, less wealthy - members to go about the work necessary to uphold the interests of their merchant and Collective."
+	icon_state = "golden_deep"
+	item_state = "golden_deep"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/head/helmet/space/void/golden_deep/menial
+	name = "golden deep voidsuit helmet"
+	desc = "This is a deep red voidsuit helmet typical of the Golden Deep, often used by its less ostentatious - and, less wealthy - members to go about the work necessary to uphold the interests of their merchant and Collective. Clever ergonomics appear to allow the helmet to fit a very diverse range of head shapes, including those of a standard baseline."
+	icon_state = "golden_deep_helm"
+	item_state = "golden_deep_helm"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+// For use by the Hoplan, the Golden Deep's military.
+/obj/item/clothing/suit/space/void/golden_deep/hoplan
+	name = "hoplan voidsuit"
+	desc = "This is an extremely bulky and heavily made voidsuit used by the Hoplan, the military of the Golden Deep. Designed to provide extreme protection in all conditions, but not particularly comfortable for human use."
+	icon_state = "hoplan"
+	item_state = "hoplan"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
+
+/obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
+	name = "hoplan voidsuit helmet"
+	desc = "This is an extremely bulky and heavily made voidsuit helmet used by the Hoplan, the military of the Golden Deep. Designed to provide extreme protection in all conditions, but not particularly comfortable for human use."
+	icon_state = "hoplan_helm"
+	item_state = "hoplan_helm"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+	)
 
 /obj/item/clothing/head/helmet/space/void/mining/himeo
 	name = "himeo mining voidsuit helmet"

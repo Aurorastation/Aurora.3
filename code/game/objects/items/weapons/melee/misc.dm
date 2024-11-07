@@ -200,3 +200,47 @@
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
+
+/obj/item/melee/dinograbber
+	name = "dino grabber"
+	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string links the jaw and a trigger, allowing you to grab \
+	objects with it. Perfect for annoying your friends!"
+	icon = 'icons/obj/dinograbber.dmi'
+	icon_state = "dinograbber"
+	item_state = "dinograbber"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_NORMAL
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("grabbed at")
+	var/drop_result = FALSE
+
+/obj/item/melee/dinograbber/attack(mob/living/target_mob, mob/living/user, target_zone)
+	..()
+
+	if(!ishuman(target_mob))
+		return
+	drop_result = FALSE
+
+	// 20% chance to disarm someone per hit, not including the chance to miss with the weapon
+	if(prob(20))
+		// If hit in a valid zone, check and drop the item held in the respective hand, only working for items that are weight class small or below
+		switch(target_zone)
+			if(BP_L_HAND, BP_L_ARM)
+				if(target_mob.l_hand && (target_mob.l_hand != src) && target_mob.l_hand.w_class <= WEIGHT_CLASS_SMALL)
+					target_mob.drop_l_hand()
+					drop_result = TRUE
+
+			if(BP_R_HAND, BP_R_ARM)
+				if(target_mob.r_hand && (target_mob.r_hand != src) && target_mob.r_hand.w_class <= WEIGHT_CLASS_SMALL)
+					target_mob.drop_r_hand()
+					drop_result = TRUE
+
+	// Visible messages for either result.
+	if(drop_result)
+		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"))
+	else
+		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"))

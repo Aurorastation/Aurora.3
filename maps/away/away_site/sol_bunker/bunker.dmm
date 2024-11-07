@@ -712,7 +712,7 @@
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "GF" = (
 /obj/structure/bed/stool/padded/red,
@@ -803,7 +803,7 @@
 /area/derelict)
 "KL" = (
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "KZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1026,14 +1026,14 @@
 /obj/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "Vs" = (
 /obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "Wn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1103,7 +1103,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Yp" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "YV" = (
 /turf/template_noop,

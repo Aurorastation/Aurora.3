@@ -298,7 +298,7 @@ var/list/preferences_datums = list()
 	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
 	var/index = 0
-	for(var/D in GLOB.cardinal)
+	for(var/D in GLOB.cardinals)
 		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new

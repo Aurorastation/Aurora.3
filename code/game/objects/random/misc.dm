@@ -444,7 +444,7 @@
 	)
 	while(!P)
 		P = pick(typesof(/obj/structure/flora/pottedplant))
-		if(P in unwanted || ((P in rare) && prob(50)))
+		if((P in unwanted) || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
 
@@ -465,7 +465,7 @@
 	)
 	while(!P)
 		P = pick(typesof(/obj/item/flora/pottedplant_small))
-		if(P in unwanted || ((P in rare) && prob(50)))
+		if((P in unwanted) || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
 

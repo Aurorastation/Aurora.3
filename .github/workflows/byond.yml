@@ -15,7 +15,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 179
+  TO_WORLD_COUNT: 178
 
   #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
@@ -103,7 +103,7 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter/flavors/python@v7.10.0
+        uses: oxsecurity/megalinter/flavors/python@v8.1.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
           PRINT_ALPACA: false

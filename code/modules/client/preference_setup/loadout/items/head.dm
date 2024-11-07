@@ -340,6 +340,11 @@
 	path = /obj/item/clothing/head/beanie/winter
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
+/datum/gear/head/submariner_beanie
+	display_name = "submariner beanie"
+	path = /obj/item/clothing/head/beanie/submariner
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla

@@ -270,7 +270,7 @@
 			gen_turf.resources[ORE_SAND] = rand(3, 5)
 			gen_turf.resources[ORE_COAL] = rand(3, 5)
 			if(ground_resources_roll)
-				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(GLOB.cardinal))
+				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(GLOB.cardinals))
 				resource_indicator.alpha = rand(30, 60)
 				gen_turf.resource_indicator = resource_indicator
 				if(!gen_turf.density)
