@@ -57,3 +57,15 @@
   - qol: Random and None options now appear first in content lists (like lunchboxes)
   FluffyGhost:
   - server: Added force name change dropdown menu option to rename living mobs.
+2024-11-07:
+  FluffyGhost:
+  - rscadd: Added the bluespace drive.
+  - bugfix: Fixed overmap projectiles not transferring correctly.
+  - code_imp: Code improvements. A lot of.
+  - rscadd: Edited and partially remapped the deck one starboard engineering maints
+      and the deck two aft auxiliary atmospherics. The auxiliary has been replaced
+      with drone manufacturing.
+  - rscadd: Modified the supermatter cooling loop, giving it a slight increase in
+      cooling potential. Please be mindful when doing more experimental setups.
+  hazelmouse:
+  - bugfix: Greimorians should no longer be able to spin multiple webs on one tile.
