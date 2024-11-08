@@ -142,12 +142,36 @@
 	name = "First Deck Canary Hangar Bay"
 	landmark_tag = "nav_hangar_canary"
 	docking_controller = "canary_dock"
-	base_area = /area/hangar/canary
+	base_area = /area/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/canary/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_canary"
+	base_turf = /turf/space/transit/north
+
+// Quark
+/datum/shuttle/autodock/overmap/quark
+	name = "Quark"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/quark/cockpit, /area/shuttle/quark/cargo_hold)
+	dock_target = "airlock_shuttle_quark"
+	current_location = "nav_hangar_quark"
+	landmark_transition = "nav_transit_quark"
+	range = 1
+	fuel_consumption = 3
+	logging_home_tag = "nav_hangar_quark"
+
+/obj/effect/shuttle_landmark/quark/hangar
+	name = "First Deck Quark Hangar Bay"
+	landmark_tag = "nav_hangar_quark"
+	docking_controller = "quark_dock"
+	base_area = /area/hangar/auxiliary
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/quark/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_quark"
 	base_turf = /turf/space/transit/north
 
 // Mining Shuttle

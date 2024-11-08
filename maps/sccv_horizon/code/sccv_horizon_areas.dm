@@ -151,9 +151,6 @@
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
 
-/area/hangar/canary
-	name = "Canary Hangar"
-
 //Operations
 
 /area/operations
@@ -321,22 +318,37 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	requires_power = TRUE
+
 /area/shuttle/intrepid/crew_compartment
 	name = "Intrepid Crew Compartment"
+
 /area/shuttle/intrepid/cargo_bay
 	name = "Intrepid Cargo Bay"
+
 /area/shuttle/intrepid/engine_compartment
 	name = "Engine Compartment"
+
 /area/shuttle/intrepid/atmos_compartment
 	name = "Atmos Compartment"
+
 /area/shuttle/intrepid/cockpit
 	name = "Cockpit"
+
 /area/shuttle/intrepid/quarters
 	name = "Intrepid Crew Quarters"
 
 /area/shuttle/canary
 	name = "Canary"
 	requires_power = TRUE
+
+/area/shuttle/quark/cockpit
+	name = "Quark Cockpit"
+	requires_power = TRUE
+
+/area/shuttle/quark/cargo_hold
+	name = "Quark Cargo Hold"
+	requires_power = TRUE
+
 //
 // SCCV Horizon Areas
 //
