@@ -12,7 +12,7 @@
 	economic_modifier = 1
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	outfit = /obj/outfit/job/assistant
+	outfit = /datum/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/assistant/get_access(selected_title)
@@ -21,7 +21,7 @@
 	else
 		return list()
 
-/obj/outfit/job/assistant
+/datum/outfit/job/assistant
 	name = "Assistant"
 	jobtype = /datum/job/assistant
 
@@ -41,17 +41,17 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	outfit = /obj/outfit/job/visitor
+	outfit = /datum/outfit/job/visitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/visitor
+/datum/outfit/job/visitor
 	name = "Off-Duty Crew Member"
 	jobtype = /datum/job/visitor
 
 	uniform = /obj/item/clothing/under/color/black
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-/obj/outfit/job/visitor/passenger
+/datum/outfit/job/visitor/passenger
 	name = "Passenger"
 	jobtype = /datum/job/passenger
 
@@ -68,5 +68,5 @@
 	economic_modifier = 1
 	access = list()
 	minimal_access = list()
-	outfit = /obj/outfit/job/visitor/passenger
+	outfit = /datum/outfit/job/visitor/passenger
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

@@ -30,7 +30,7 @@
 	IMPORTANT - Vaurca are a very alien species, and can be difficult to roleplay. It is recommended that you read the Aurorastation wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration."
 	uses_species_whitelist = FALSE
 
-	outfit = /obj/outfit/admin/pid_farmer
+	outfit = /datum/outfit/admin/pid_farmer
 	possible_species = list(SPECIES_VAURCA_WORKER)
 	extra_languages = list(LANGUAGE_VAURCA)
 	mob_name_pick_message = "Pick a Vaurca Worker name."
@@ -55,7 +55,7 @@
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Warrior of the Hive K'lax, tasked with protecting a k'ois farm on Pid. Ensure the safety of the Workers and Bulwarks at this location."
 
-/obj/outfit/admin/pid_farmer
+/datum/outfit/admin/pid_farmer
 	name = "Pid K'ois Farmer"
 	uniform = /obj/item/clothing/under/vaurca
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -63,7 +63,7 @@
 	l_ear = null
 	id = /obj/item/card/id
 
-/obj/outfit/admin/pid_farmer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/pid_farmer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve

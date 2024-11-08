@@ -9,7 +9,7 @@
 	max_count = 4
 	uses_species_whitelist = TRUE
 	respawn_flag = null
-	outfit = /obj/outfit/admin/coc_surveyor_crew
+	outfit = /datum/outfit/admin/coc_surveyor_crew
 
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -17,7 +17,7 @@
 	assigned_role = "Coalition Surveyor"
 	special_role = "Coalition Surveyor"
 
-/obj/outfit/admin/coc_surveyor_crew
+/datum/outfit/admin/coc_surveyor_crew
 	name = "Coalition Surveyor"
 
 	uniform = /obj/item/clothing/under/tactical
@@ -35,7 +35,7 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark
 	)
 
-/obj/outfit/admin/coc_surveyor_crew/post_equip(mob/living/carbon/human/H)
+/datum/outfit/admin/coc_surveyor_crew/post_equip(mob/living/carbon/human/H)
 	if(!istype(H))
 		return
 	if(istajara(H))
@@ -46,7 +46,7 @@
 			tag.modify_tag_data()
 
 
-/obj/outfit/admin/coc_surveyor_crew/get_id_access()
+/datum/outfit/admin/coc_surveyor_crew/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_GENERIC_AWAY_SITE)
 
 /datum/ghostspawner/human/coc_surveyor/captain

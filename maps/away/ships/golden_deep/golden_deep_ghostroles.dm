@@ -6,7 +6,8 @@
 	spawnpoints = list("golden_deep")
 	max_count = 3
 	uses_species_whitelist = FALSE
-	outfit = /obj/outfit/admin/golden_deep
+	welcome_message = "You are an IPC, property of a merchant of the Golden Deep. Work hard, pay off the debt you owe to your 'employer', and maybe some day you too can acquire your freedom..."
+	outfit = /datum/outfit/admin/golden_deep
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
@@ -26,7 +27,7 @@
 	spawnpoints = list("golden_deep_hoplan")
 	max_count = 2
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/golden_deep/hoplan
+	outfit = /datum/outfit/admin/golden_deep/hoplan
 	assigned_role = "Golden Deep Collective, House Hoplan"
 	special_role = "Golden Deep Collective, House Hoplan"
 
@@ -40,14 +41,14 @@
 	spawnpoints = list("golden_deep_boss")
 	max_count = 1
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/golden_deep/boss
+	outfit = /datum/outfit/admin/golden_deep/boss
 	assigned_role = "Golden Deep Collective, Accredited Merchant"
 	special_role = "Golden Deep Collective, Accredited Merchant"
 
 	idris_account_min = 12000
 	idris_account_max = 30000
 
-/obj/outfit/admin/golden_deep
+/datum/outfit/admin/golden_deep
 	name = "Golden Deep Collective, Indentured Citizen"
 	id = /obj/item/card/id/gold
 	l_ear = /obj/item/device/radio/headset/ship
@@ -58,7 +59,7 @@
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	shoes = /obj/item/clothing/shoes/jackboots
 
-/obj/outfit/admin/golden_deep/hoplan
+/datum/outfit/admin/golden_deep/hoplan
 	name = "Golden Deep Collective, House Hoplan"
 	uniform = /obj/item/clothing/under/goldendeep/hoplan
 	head = /obj/item/clothing/head/goldendeep/hoplan
@@ -66,7 +67,7 @@
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	gloves = /obj/item/clothing/gloves/swat/tactical
 
-/obj/outfit/admin/golden_deep/boss
+/datum/outfit/admin/golden_deep/boss
 	name = "Golden Deep Collective, Accredited Merchant"
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
@@ -79,7 +80,7 @@
 	gloves = /obj/item/clothing/gloves/black_leather
 
 // Even owned Golden Deep synthetics are counted as citizens.
-/obj/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
@@ -89,7 +90,7 @@
 		tag.citizenship_info = CITIZENSHIP_GOLDEN
 
 // For the Hoplan. Hoplan and merchants both have a gustatorial centre, so they can use the bar.
-/obj/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/golden_deep/hoplan/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
@@ -99,7 +100,7 @@
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // Hoplan are government owned.
 		tag.citizenship_info = CITIZENSHIP_GOLDEN
 
-/obj/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/golden_deep/boss/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
@@ -113,11 +114,11 @@
 	H.head.color = pick("#991517")
 	H.w_uniform.color = pick("#333333")
 
-/obj/outfit/admin/golden_deep/get_id_access()
+/datum/outfit/admin/golden_deep/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/golden_deep/hoplan/get_id_access()
+/datum/outfit/admin/golden_deep/hoplan/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)
 
-/obj/outfit/admin/golden_deep/boss/get_id_access()
+/datum/outfit/admin/golden_deep/boss/get_id_access()
 	return list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP, ACCESS_EXTERNAL_AIRLOCKS)

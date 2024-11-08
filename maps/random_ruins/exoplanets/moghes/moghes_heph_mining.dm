@@ -33,7 +33,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_heph_miner
+	outfit = /datum/outfit/admin/moghes_heph_miner
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -45,10 +45,10 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
-	outfit = /obj/outfit/admin/moghes_heph_miner/klax
+	outfit = /datum/outfit/admin/moghes_heph_miner/klax
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/moghes_heph_miner
+/datum/outfit/admin/moghes_heph_miner
 	name = "Moghes Hephaestus Miner"
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
@@ -61,16 +61,16 @@
 
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
-/obj/outfit/admin/moghes_heph_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_heph_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.wear_suit)
 		H.wear_suit.color = "#2a2b2e"
 
-/obj/outfit/admin/moghes_heph_miner/get_id_access()
+/datum/outfit/admin/moghes_heph_miner/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
 
-/obj/outfit/admin/moghes_heph_miner/klax
+/datum/outfit/admin/moghes_heph_miner/klax
 	name = "Moghes Hephaestus Miner - K'lax"
 
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -79,7 +79,7 @@
 	back = /obj/item/storage/backpack/cloak/cargo
 	backpack_contents = list(/obj/item/storage/wallet/random = 1, /obj/item/reagent_containers/food/snacks/koisbar_clean = 3)
 
-/obj/outfit/admin/moghes_heph_miner/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_heph_miner/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])

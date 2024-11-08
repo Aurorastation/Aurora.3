@@ -1,5 +1,5 @@
 //Zo'ra
-/obj/outfit/admin/ert/zora
+/datum/outfit/admin/ert/zora
 	name = "Zo'ra Warrior"
 	uniform = /obj/item/clothing/under/vaurca
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -27,7 +27,7 @@
 		/obj/item/handcuffs/ziptie = 2
 	)
 
-/obj/outfit/admin/ert/zora/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/zora/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 	H.internal = preserve
 	H.internals.icon_state = "internal1"
@@ -47,10 +47,10 @@
 	if(H?.glasses)
 		H.glasses.color = "#391610"
 
-/obj/outfit/admin/ert/zora/get_id_access()
+/datum/outfit/admin/ert/zora/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/zora/medic
+/datum/outfit/admin/ert/zora/medic
 	name = "Zo'ra Field Biotechnician"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile/vaurca
@@ -79,7 +79,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/zora/medic/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/zora/medic/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 	H.internal = preserve
 	H.internals.icon_state = "internal1"
@@ -104,7 +104,7 @@
 	var/obj/item/card/id/I = H.wear_id
 	I.access += (ACCESS_MEDICAL) //so the hud works
 
-/obj/outfit/admin/ert/zora/engi
+/datum/outfit/admin/ert/zora/engi
 	name = "Zo'ra Sapper"
 	belt = /obj/item/storage/belt/utility/very_full
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
@@ -121,7 +121,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/zora/engi/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/zora/engi/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/organ/C = new /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener(H)
 	var/obj/item/organ/external/affectedC = H.get_organ(C.parent_organ)
@@ -131,7 +131,7 @@
 	D.replaced(H, affectedD)
 	H.update_body()
 
-/obj/outfit/admin/ert/zora/heavy
+/datum/outfit/admin/ert/zora/heavy
 	name = "Zo'ra Heavy"
 	r_hand = /obj/item/gun/energy/vaurca/gatlinglaser
 	back = /obj/item/rig/vaurca
@@ -142,7 +142,7 @@
 	backpack_contents = list()
 
 //K'lax
-/obj/outfit/admin/ert/klax
+/datum/outfit/admin/ert/klax
 	name = "K'lax Warrior"
 	uniform = /obj/item/clothing/under/vaurca
 	shoes = /obj/item/clothing/shoes/vaurca
@@ -171,7 +171,7 @@
 		/obj/item/handcuffs/ziptie = 2
 	)
 
-/obj/outfit/admin/ert/klax/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/klax/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 	H.internal = preserve
 	H.internals.icon_state = "internal1"
@@ -191,10 +191,10 @@
 	if(H?.glasses)
 		H.glasses.color = "#0e3a11"
 
-/obj/outfit/admin/ert/klax/get_id_access()
+/datum/outfit/admin/ert/klax/get_id_access()
 	return get_distress_access_lesser()
 
-/obj/outfit/admin/ert/klax/medic
+/datum/outfit/admin/ert/klax/medic
 	name = "K'lax Field Biotechnician"
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile/vaurca
@@ -225,7 +225,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/obj/outfit/admin/ert/klax/medic/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/klax/medic/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/organ/grasper = new /obj/item/organ/external/hand/right/vaurca/medical(H)
 	var/obj/item/organ/external/arm = H.get_organ(grasper.parent_organ)
@@ -237,7 +237,7 @@
 	var/obj/item/card/id/I = H.wear_id
 	I.access += (ACCESS_MEDICAL) //so the hud works
 
-/obj/outfit/admin/ert/klax/engi
+/datum/outfit/admin/ert/klax/engi
 	name = "K'lax Sapper"
 	belt = /obj/item/storage/belt/utility/very_full
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
@@ -255,7 +255,7 @@
 	)
 	belt_contents = null
 
-/obj/outfit/admin/ert/klax/engi/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/admin/ert/klax/engi/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/organ/weld = new /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener(H)
 	var/obj/item/organ/external/head = H.get_organ(weld.parent_organ)
@@ -265,7 +265,7 @@
 	tool.replaced(H, hand)
 	H.update_body()
 
-/obj/outfit/admin/ert/klax/heavy
+/datum/outfit/admin/ert/klax/heavy
 	name = "K'lax Heavy"
 	r_hand = /obj/item/melee/energy/vaurca_zweihander
 	back = /obj/item/rig/vaurca

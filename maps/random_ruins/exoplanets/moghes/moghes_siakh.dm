@@ -22,7 +22,7 @@
 	spawnpoints = list("moghes_siakh")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_siakh
+	outfit = /datum/outfit/admin/moghes_siakh
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
@@ -46,7 +46,7 @@
 	special_role = "Knight of the Flame"
 	respawn_flag = null
 
-/obj/outfit/admin/moghes_siakh
+/datum/outfit/admin/moghes_siakh
 	name = "Si'akh Knight"
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/zazali)
 	suit = /obj/item/clothing/accessory/poncho/unathimantle
@@ -65,7 +65,7 @@
 	id = null
 	l_ear = null
 
-/obj/outfit/admin/moghes_siakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_siakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H.w_uniform)

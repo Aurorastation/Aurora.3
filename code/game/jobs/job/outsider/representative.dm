@@ -22,12 +22,12 @@
 		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
 		"Freelance Journalist" = list("Independent")
 	)
-	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
+	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
-	outfit = /obj/outfit/job/journalist
+	outfit = /datum/outfit/job/journalist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/obj/outfit/job/journalist
+/datum/outfit/job/journalist
 	name = "Corporate Reporter"
 	jobtype = /datum/job/journalist
 
@@ -53,7 +53,7 @@
 		/obj/item/device/tvcamera = 1
 	)
 
-/obj/outfit/job/journalistf
+/datum/outfit/job/journalistf
 	name = "Freelance Journalist"
 	jobtype = /datum/job/journalist
 
@@ -94,7 +94,7 @@
 		"Corporate Representative",
 		"Corporate Executive"
 		)
-	outfit = /obj/outfit/job/representative
+	outfit = /datum/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
@@ -105,7 +105,7 @@
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
-/obj/outfit/job/representative
+/datum/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
@@ -130,13 +130,13 @@
 		/obj/item/gun/energy/pistol = 1
 	)
 
-/obj/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
 		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
-/obj/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
+/datum/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
 	var/faxtext = "<center><br><h2><br><b>Directives Report</h2></b></FONT size><HR></center>"
 	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay in the station:</font></b><br><ul>"
 
@@ -156,7 +156,7 @@
 			P.update_icon()
 	return
 
-/obj/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/datum/outfit/job/representative/proc/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
 	var/rep_objectives
 
 	for (var/datum/faction/faction in SSjobs.factions)
@@ -187,7 +187,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/representative/consular
+	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
@@ -196,7 +196,7 @@
 	if(citizenship)
 		return citizenship.consular_outfit
 
-/obj/outfit/job/representative/consular
+/datum/outfit/job/representative/consular
 	name = "Consular Officer"
 	fax_department = "Consular's Office"
 	jobtype = /datum/job/consular
@@ -210,7 +210,7 @@
 	)
 	implants = null
 
-/obj/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
+/datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
 	var/rep_objectives
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
@@ -274,7 +274,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/consular_assistant
+	outfit = /datum/outfit/job/consular_assistant
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
 /datum/job/consular_assistant/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -282,7 +282,7 @@
 	if(citizenship)
 		return citizenship.assistant_outfit
 
-/obj/outfit/job/consular_assistant
+/datum/outfit/job/consular_assistant
 	name = "Diplomatic Aide"
 	jobtype = /datum/job/consular_assistant
 

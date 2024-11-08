@@ -40,7 +40,7 @@
 	spawnpoints = list("moghes_dorviza")
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	outfit = /obj/outfit/admin/moghes_dorviza
+	outfit = /datum/outfit/admin/moghes_dorviza
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -60,12 +60,12 @@
 	spawnpoints = list("moghes_dorviza_diona")
 
 	extra_languages = list(LANGUAGE_ROOTSONG)
-	outfit = /obj/outfit/admin/moghes_dorviza/diona
+	outfit = /datum/outfit/admin/moghes_dorviza/diona
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = TRUE
 
-/obj/outfit/admin/moghes_dorviza
+/datum/outfit/admin/moghes_dorviza
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	suit = list(/obj/item/clothing/suit/unathi/robe, /obj/item/clothing/suit/unathi/robe/kilt)
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
@@ -74,7 +74,7 @@
 	id = null
 	back = /obj/item/storage/backpack/satchel/leather
 
-/obj/outfit/admin/moghes_dorviza/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/moghes_dorviza/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
 	if(H?.w_uniform)
@@ -82,7 +82,7 @@
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#42330f", "#DBC684")
 
-/obj/outfit/admin/moghes_dorviza/diona
+/datum/outfit/admin/moghes_dorviza/diona
 	uniform = /obj/item/clothing/under/gearharness
 	suit = /obj/item/clothing/accessory/poncho/green
 	shoes = null

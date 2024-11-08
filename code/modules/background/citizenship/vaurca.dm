@@ -5,7 +5,7 @@
 	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other Hives. In \
 	Tau Ceti, this has lead to confrontations between them and other Hives arriving in the system. The Zo'ra are the most politically developed Hive, recently helping in the funding of \
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
-	consular_outfit = /obj/outfit/job/representative/consular/zora
+	consular_outfit = /datum/outfit/job/representative/consular/zora
 	linked_citizenship = CITIZENSHIP_BIESEL
 
 	job_species_blacklist = list(
@@ -54,7 +54,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/zora
+/datum/outfit/job/representative/consular/zora
 	name = "Zo'ra Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -65,7 +65,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-/obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
@@ -82,7 +82,7 @@
 	Now parting their own ways, both Hives have developed differently.  the K'lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
 	They maintain subtly warm, if terse relations with the Hegemony as a whole, and have committed to its terraforming agenda, being instrumental in the implementation of such a monumental undertaking. \
 	The K'lax are the most technologically developed Hive, and are leading the way in reconstructing the species' superior technology."
-	consular_outfit = /obj/outfit/job/representative/consular/klax
+	consular_outfit = /datum/outfit/job/representative/consular/klax
 	linked_citizenship = CITIZENSHIP_IZWESKI
 
 	job_species_blacklist = list(
@@ -128,7 +128,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/klax
+/datum/outfit/job/representative/consular/klax
 	name = "K'lax Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -139,7 +139,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
-/obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
@@ -155,7 +155,7 @@
 	Unlike all other Hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
 	The C'thur are the most economically developed Hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
-	consular_outfit = /obj/outfit/job/representative/consular/cthur
+	consular_outfit = /datum/outfit/job/representative/consular/cthur
 	linked_citizenship = CITIZENSHIP_NRALAKK
 
 	job_species_blacklist = list(
@@ -202,7 +202,7 @@
 
 	return rep_objectives
 
-/obj/outfit/job/representative/consular/cthur
+/datum/outfit/job/representative/consular/cthur
 	name = "C'thur Consular Officer"
 
 	uniform = /obj/item/clothing/under/gearharness
@@ -213,7 +213,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
-/obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)

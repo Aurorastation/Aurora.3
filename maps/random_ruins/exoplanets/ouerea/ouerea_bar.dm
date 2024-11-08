@@ -32,7 +32,7 @@
 	spawnpoints = list("ouerea_bar_innkeeper")
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_innkeeper
+	outfit = /datum/outfit/admin/moghes_bar_innkeeper
 
 	assigned_role = "Ouerean Innkeeper"
 	special_role = "Ouerean Innkeeper"
@@ -51,7 +51,7 @@
 	max_count = 2
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_server
+	outfit = /datum/outfit/admin/moghes_bar_server
 
 	assigned_role = "Ouerean Inn Staff"
 	special_role = "Ouerean Inn Staff"
@@ -70,12 +70,12 @@
 	spawnpoints = list("ouerea_bar_patron")
 	possible_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	outfit = /obj/outfit/admin/moghes_bar_patron
+	outfit = /datum/outfit/admin/moghes_bar_patron
 	species_outfits = list(
-		SPECIES_UNATHI = /obj/outfit/admin/moghes_bar_patron,
-		SPECIES_SKRELL = /obj/outfit/admin/ouerea_skrell,
-		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/ouerea_skrell,
-		SPECIES_HUMAN = /obj/outfit/admin/ouerea_human
+		SPECIES_UNATHI = /datum/outfit/admin/moghes_bar_patron,
+		SPECIES_SKRELL = /datum/outfit/admin/ouerea_skrell,
+		SPECIES_SKRELL_AXIORI = /datum/outfit/admin/ouerea_skrell,
+		SPECIES_HUMAN = /datum/outfit/admin/ouerea_human
 	)
 
 	assigned_role = "Ouerean Inn Patron"
@@ -83,7 +83,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/obj/outfit/admin/ouerea_human
+/datum/outfit/admin/ouerea_human
 	name = "Ouerean Human"
 	uniform = list(/obj/item/clothing/under/pants/tan, /obj/item/clothing/under/pants/jeans, /obj/item/clothing/under/shorts/black, /obj/item/clothing/under/shorts/jeans, /obj/item/clothing/under/tactical,
 	/obj/item/clothing/under/unathi)
@@ -96,7 +96,7 @@
 	l_ear = null
 	id = null
 
-/obj/outfit/admin/ouerea_skrell
+/datum/outfit/admin/ouerea_skrell
 	name = "Ouerean Skrell"
 	uniform = list(/obj/item/clothing/under/skrell/wetsuit, /obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	accessory = list(/obj/item/clothing/accessory/tshirt/skrell/maelstrom, /obj/item/clothing/accessory/tshirt/skrell/nebula, /obj/item/clothing/accessory/tshirt/skrell/reef)
