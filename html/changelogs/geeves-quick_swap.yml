@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now instantly replace the armor accessories on plate carriers by clicking on it with the new plate or guard you want to replace them with."
