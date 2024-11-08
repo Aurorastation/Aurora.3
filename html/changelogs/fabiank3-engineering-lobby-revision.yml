@@ -1,8 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - rscadd: "Updated engineering lobby layout and adjacent areas."
-  - rscadd: "Added a notice board to the engineering lobby."
-  - qol: "Moved engineering first aid locker into the lobby. Remember that."
