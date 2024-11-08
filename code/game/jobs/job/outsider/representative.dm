@@ -97,13 +97,36 @@
 	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
+	aide_job = "Corporate Aide"
+
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+	add_verb(H, /mob/living/carbon/human/proc/summon_aide)
 
 /datum/job/representative/on_despawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYDISTINCTADD(faction.allowed_role_types, REPRESENTATIVE_ROLE)
+
+	// Handle the removal of aide blacklists and the slot.
+	var/datum/job/J = SSjobs.GetJob(aide_job)
+	close_aide_slot(H, J)
+
+/datum/job/representative/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	var/datum/faction/rep_faction = SSjobs.name_factions[representative.employer_faction]
+
+	// This is some unfortunately necessary mega snowflake code, because job and faction species blacklists aren't mirrored.
+	// Factions utilize a datum-based whitelist, whereas jobs utilise a define-based blacklist...
+	for(var/species_name in ALL_SPECIES)
+		var/datum/species/species = GLOB.all_species[species_name]
+		if(species.type in rep_faction.allowed_species_types)
+			continue
+		LAZYDISTINCTADD(aide.blacklisted_species, species.name)
+
+/datum/job/representative/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	aide.blacklisted_species = null
+	if(aide.total_positions > 0)
+		aide.total_positions--
 
 /obj/outfit/job/representative
 	name = "NanoTrasen Corporate Liaison"
@@ -191,6 +214,8 @@
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
+	aide_job = "Diplomatic Aide"
+
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
@@ -224,37 +249,34 @@
 /datum/job/consular/after_spawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
-	add_verb(H, /mob/living/carbon/human/proc/summon_goon)
+	add_verb(H, /mob/living/carbon/human/proc/summon_aide)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYREMOVE(blacklisted_citizenship, citizenship.name)
-	var/datum/job/J = SSjobs.GetJob("Diplomatic Aide")
-	if(citizenship.linked_citizenship)
-		LAZYDISTINCTADD(J.blacklisted_citizenship, citizenship.linked_citizenship)
-	else
-		LAZYDISTINCTADD(J.blacklisted_citizenship, H.citizenship)
-	if(J.total_positions > 0)
-		J.total_positions--
 
-/mob/living/carbon/human/proc/summon_goon()
-	set name = "Open Aide Slot"
-	set desc = "Allows a diplomatic aide to join you as an assistant, companion, or bodyguard."
-	set category = "Consular"
+	// Handle the removal of aide blacklists and the slot.
+	var/datum/job/J = SSjobs.GetJob(aide_job)
+	close_aide_slot(H, J)
 
-	if(alert(src, "Are you sure you want to open an assistant slot? This can only be used once", "Open Aide Slot", "No", "Yes") != "Yes")
-		return
-	var/datum/job/J = SSjobs.GetJob("Diplomatic Aide")
-	var/datum/citizenship/citizenship = SSrecords.citizenships[src.citizenship]
+/datum/job/consular/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
 	if(citizenship.linked_citizenship) //if there's a secondary citizenship that this one should allow - e.g zo'ra and biesel
-		LAZYREMOVE(J.blacklisted_citizenship, citizenship.linked_citizenship)
+		LAZYREMOVE(aide.blacklisted_citizenship, citizenship.linked_citizenship)
 	else
-		LAZYREMOVE(J.blacklisted_citizenship, src.citizenship)
-	J.total_positions++
-	to_chat(src, SPAN_NOTICE("A slot for a diplomatic aide has been opened."))
-	remove_verb(src, /mob/living/carbon/human/proc/summon_goon)
+		LAZYREMOVE(aide.blacklisted_citizenship, representative.citizenship)
 
-/datum/job/consular_assistant
+/datum/job/consular/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
+	if(citizenship.linked_citizenship)
+		LAZYDISTINCTADD(aide.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYDISTINCTADD(aide.blacklisted_citizenship, representative.citizenship)
+
+	if(aide.total_positions > 0)
+		aide.total_positions--
+
+/datum/job/diplomatic_aide
 	title = "Diplomatic Aide"
 	flag = CONSULAR_ASST
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
@@ -274,17 +296,17 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/consular_assistant
+	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
-/datum/job/consular_assistant/get_outfit(mob/living/carbon/human/H, alt_title = null)
+/datum/job/diplomatic_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	if(citizenship)
 		return citizenship.assistant_outfit
 
-/obj/outfit/job/consular_assistant
+/obj/outfit/job/diplomatic_aide
 	name = "Diplomatic Aide"
-	jobtype = /datum/job/consular_assistant
+	jobtype = /datum/job/diplomatic_aide
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
@@ -297,5 +319,47 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
 
-/datum/job/consular_assistant/after_spawn(mob/living/carbon/human/H)
+/datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
+
+/datum/job/corporate_aide
+	title = "Corporate Aide"
+	flag = DIPLOMAT_AIDE
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 0 //manually opened by representative
+	spawn_positions = 0
+	supervisors = "the Corporate Representative"
+	selection_color = "#6186cf"
+	economic_modifier = 5
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_LAWYER)
+	outfit = /obj/outfit/job/diplomatic_aide
+
+/datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
+	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
+	if(aide_faction)
+		return aide_faction.titles_to_loadout["Off-Duty Crew Member"]
+
+/obj/outfit/job/corporate_aide
+	name = "Corporate Aide"
+	jobtype = /datum/job/corporate_aide
+
+	uniform = /obj/item/clothing/under/suit_jacket/navy
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	headset = /obj/item/device/radio/headset/representative
+	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
