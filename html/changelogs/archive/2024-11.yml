@@ -74,3 +74,28 @@
   - rscadd: Updated engineering lobby layout and adjacent areas.
   - rscadd: Added a notice board to the engineering lobby.
   - qol: Moved engineering first aid locker into the lobby. Remember that.
+2024-11-09:
+  DreamySkrell:
+  - rscadd: Adds SCCV Quark, new shuttle for xenoarch/science, on Horizon.
+  - rscadd: Small remap of the aux hangar on Horizon, adding some expedition supplies
+      there.
+  FabianK3:
+  - bugfix: Fixes ill-placed piping near the engineering lobby due to previous merge-conflicts.
+  FluffyGhost:
+  - balance: Frag grenades projectiles now apply some agony and eyeblur.
+  - balance: Frag grenades projectiles have damage augmented by 3 points (~10%).
+  - balance: Frag grenades projectiles have an augmented chance of leaving a shrapnel
+      (+30%).
+  - balance: Frag grenades projectiles have a chance to ricochet up to 2 times.
+  - code_imp: Some code cleanup and removed some procs that were no longer used (nothing
+      called them anymore) from the projectile refactor.
+  Geeves:
+  - rscadd: You can now instantly replace the armor accessories on plate carriers
+      by clicking on it with the new plate or guard you want to replace them with.
+  MattAtlas:
+  - rscadd: Added Corporate Aides - essentially diplomatic aides but for corporate
+      representatives.
+  - refactor: Refactored aide code to make it more modular and easier to work with.
+  hazelmouse:
+  - rscadd: Skrellian Nralakk Federation Consular Officers now spawn with a box of
+      psionic receivers.
