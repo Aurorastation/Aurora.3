@@ -45,6 +45,17 @@
 		/obj/item/sticker/generic/smile = 2
 	)
 
+/obj/item/storage/stickersheet/hearts
+	name = "heart sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/redheart = 2,
+		/obj/item/sticker/generic/smallredheart = 2,
+		/obj/item/sticker/generic/pinkheart = 2,
+		/obj/item/sticker/generic/smallpinkheart = 2,
+		/obj/item/sticker/generic/blackheart = 2,
+		/obj/item/sticker/generic/smallblackheart = 2
+	)
+
 /obj/item/storage/stickersheet/religion
 	name = "religious sticker sheet"
 	starts_with = list(
