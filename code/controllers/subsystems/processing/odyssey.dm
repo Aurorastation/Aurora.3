@@ -13,9 +13,9 @@ SUBSYSTEM_DEF(odyssey)
 	/// Should only be changed through set_scenario_site().
 	var/datum/map_template/ruin/away_site/scenario_site
 	/// A list of currently spawned actors for easy access.
-	var/list/actors
+	var/list/mob/living/carbon/human/actors
 	/// A list of currently spawned storytellers for easy access.
-	var/list/storytellers
+	var/list/mob/abstract/ghost/storyteller/storytellers
 	/// Whether or not we've sent the odyssey's roundstart report yet.
 	var/has_sent_roundstart_announcement = FALSE
 	/// The Horizon's overmap object. We keep it here for convenience.

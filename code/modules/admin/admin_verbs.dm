@@ -577,7 +577,7 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	set name = "Aghost"
 	if(!holder)	return
-	if(istype(mob,/mob/abstract/ghost/observer))
+	if(isobserver(mob))
 		//re-enter
 		var/mob/abstract/ghost/observer/ghost = mob
 		if(ghost.can_reenter_corpse)

@@ -265,7 +265,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You missed the crew transfer after the events on [station_name()] as [Player.real_name].")))
 			else
-				if(istype(Player,/mob/abstract/ghost/observer))
+				if(isobserver(Player))
 					var/mob/abstract/ghost/observer/O = Player
 					if(!O.started_as_observer)
 						to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))

@@ -164,8 +164,7 @@
 
 	to_chat(M, msg)
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
-	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
-	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	message_admins(SPAN_NOTICE(SPAN_BOLD("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")), 1)
 
 /mob/abstract/ghost/storyteller/verb/toggle_build_mode()
 	set name = "Toggle Build Mode"

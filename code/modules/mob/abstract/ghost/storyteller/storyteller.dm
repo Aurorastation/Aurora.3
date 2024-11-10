@@ -93,7 +93,7 @@
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)
-			to_chat(target, "<span class='storyteller'>" + create_text_tag("STORY", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span>")
+			to_chat(target, SPAN_STORYTELLER("[create_text_tag("STORY", target)] <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span>"))
 
 /mob/abstract/ghost/storyteller/dust()
 	return

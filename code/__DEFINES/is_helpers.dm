@@ -43,7 +43,7 @@
 
 #define isstoryteller(A) istype(A, /mob/abstract/ghost/storyteller)
 
-#define isabstract(A) istype(A, /mob/abstract)
+#define isabstractmob(A) istype(A, /mob/abstract)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)
 
