@@ -104,6 +104,10 @@
 	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
 	selectable_tails = list("Gaster")
 
+/datum/species/bug/type_b/type_bb/New()
+	..()
+	default_emotes += /singleton/emote/audible/rattle // Appends an emote unique to Attendants.
+
 /datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
 	if(I.w_class <= WEIGHT_CLASS_NORMAL)
 		return TRUE
@@ -380,6 +384,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	stamina = 50
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
 	valid_prosthetics = null
+
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
 
 	character_color_presets = list(
 		"Zo'ra: Unbound Vaur" = "#3D000F", "Zo'ra: Bound Vaur" = "#37000F",

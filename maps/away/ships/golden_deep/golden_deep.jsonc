@@ -1,0 +1,12 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 4,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "golden_deep_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/golden_deep",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/golden_deep",
+		"submaps_can_repeat": false
+	}
+]

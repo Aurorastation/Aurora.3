@@ -20,8 +20,7 @@
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/device/radio/phone{
 	frequency = 1280;
@@ -85,8 +84,7 @@
 /area/crashed_elyran_tanker/crew)
 "av" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/effect/decal/cleanable/generic{
 	pixel_y = -6;
@@ -125,8 +123,7 @@
 /area/crashed_elyran_tanker/crew)
 "aL" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -200,8 +197,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
 "bk" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
@@ -335,7 +331,6 @@
 /area/crashed_elyran_tanker/thruster)
 "de" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tank_vent_l_2";
 	dir = 1
 	},
@@ -400,7 +395,6 @@
 /area/crashed_elyran_tanker/crew)
 "du" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tank_vent_l_3";
 	dir = 1
 	},
@@ -638,7 +632,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "gc" = (
 /turf/simulated/floor/reinforced/airless,
@@ -730,7 +724,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /obj/item/stack/material/steel,
 /obj/item/tape_roll,
@@ -797,8 +791,7 @@
 	},
 /area/crashed_elyran_tanker/engineering)
 "hO" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
@@ -853,9 +846,7 @@
 /area/crashed_elyran_tanker/tanks)
 "ij" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "tank_vent_r_2";
-	dir = 2
+	id_tag = "tank_vent_r_2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/crashed_elyran_tanker/tanks)
@@ -883,8 +874,7 @@
 /area/crashed_elyran_tanker/bridge)
 "iE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -953,7 +943,7 @@
 "jd" = (
 /obj/structure/foamedmetal,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "jg" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -977,7 +967,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "jr" = (
 /obj/machinery/door/airlock/hatch{
@@ -1103,8 +1093,7 @@
 	pixel_x = -7
 	},
 /obj/item/device/gps{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
@@ -1241,7 +1230,7 @@
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "my" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1263,7 +1252,7 @@
 /area/crashed_elyran_tanker/engineering)
 "mN" = (
 /obj/structure/lattice/catwalk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "mQ" = (
 /obj/effect/decal/cleanable/blood/oil{
@@ -1551,8 +1540,7 @@
 "pr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/rust/airless,
 /area/crashed_elyran_tanker/engineering)
 "pz" = (
@@ -1650,7 +1638,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "qu" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "qv" = (
 /obj/structure/inflatable/wall,
@@ -1758,9 +1746,7 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/obj/machinery/recharger{
-	pixel_y = 0
-	},
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "rD" = (
@@ -1771,7 +1757,7 @@
 /area/crashed_elyran_tanker/tanks)
 "rE" = (
 /obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "rG" = (
 /obj/structure/table/standard,
@@ -1919,11 +1905,11 @@
 /area/crashed_elyran_tanker/tanks)
 "ty" = (
 /mob/living/simple_animal/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tA" = (
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1961,8 +1947,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "tS" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
@@ -2037,7 +2022,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "uP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2089,8 +2074,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "vI" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -2100,13 +2084,11 @@
 "vP" = (
 /obj/structure/lattice,
 /obj/structure/blocker/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "vQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "tank_vent_r_1";
-	dir = 2
+	id_tag = "tank_vent_r_1"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
@@ -2149,7 +2131,7 @@
 "wh" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "wk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2254,7 +2236,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "xs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2280,9 +2262,7 @@
 "xB" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/crashed_elyran_tanker/crew)
@@ -2292,8 +2272,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "xF" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor,
@@ -2512,7 +2491,7 @@
 	pixel_y = -2;
 	pixel_x = 1
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "zh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2546,7 +2525,7 @@
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "zr" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "zu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2556,7 +2535,7 @@
 "zI" = (
 /obj/item/stack/rods/full,
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "zN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/purple,
@@ -2579,7 +2558,7 @@
 "Ab" = (
 /obj/structure/lattice,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Ad" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
@@ -2704,7 +2683,7 @@
 /area/crashed_elyran_tanker/crew)
 "Bj" = (
 /obj/item/stack/material/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "Bl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2923,7 +2902,7 @@
 /area/crashed_elyran_tanker/engineering)
 "CD" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "CH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
@@ -3160,7 +3139,7 @@
 /area/crashed_elyran_tanker/tanks)
 "FO" = (
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "FU" = (
 /obj/structure/railing/mapped{
@@ -3197,7 +3176,7 @@
 "Gk" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "Go" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -3215,7 +3194,7 @@
 "Gv" = (
 /obj/structure/lattice,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Gx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3284,8 +3263,7 @@
 /area/crashed_elyran_tanker/engineering)
 "Hj" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -3385,8 +3363,7 @@
 /area/crashed_elyran_tanker/tanks)
 "Ia" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/machinery/power/solar,
 /obj/structure/cable/green{
@@ -3541,12 +3518,8 @@
 /area/crashed_elyran_tanker/engineering)
 "Jo" = (
 /obj/structure/foamedmetal,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
-"Js" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/crew)
 "Ju" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -3844,7 +3817,7 @@
 /area/crashed_elyran_tanker/engineering)
 "Mq" = (
 /obj/structure/foamedmetal,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "Mz" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -4031,7 +4004,7 @@
 	icon_state = "shrapnelmedium"
 	},
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "NZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -4129,7 +4102,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "OY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4158,9 +4131,7 @@
 /area/crashed_elyran_tanker/tanks)
 "Pe" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "tank_vent_r_3";
-	dir = 2
+	id_tag = "tank_vent_r_3"
 	},
 /turf/simulated/floor/reinforced/phoron,
 /area/crashed_elyran_tanker/tanks)
@@ -4297,7 +4268,7 @@
 "PV" = (
 /obj/structure/flora/rock/pile,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "PY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4323,11 +4294,10 @@
 "Qe" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Qp" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tank_vent_l_4";
 	dir = 1
 	},
@@ -4345,8 +4315,7 @@
 /area/crashed_elyran_tanker/tanks)
 "QB" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/machinery/power/solar,
 /obj/effect/decal/cleanable/dirt,
@@ -4407,8 +4376,7 @@
 	},
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
@@ -4451,7 +4419,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "RX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4496,7 +4464,6 @@
 /area/crashed_elyran_tanker/tanks)
 "Sm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "tank_vent_l_1";
 	dir = 1
 	},
@@ -4531,7 +4498,7 @@
 /area/crashed_elyran_tanker/tanks)
 "SA" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "SJ" = (
 /obj/structure/table/steel,
@@ -4748,7 +4715,6 @@
 	dir = 10
 	},
 /obj/random/junk{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /turf/simulated/floor/tiled,
@@ -4818,8 +4784,7 @@
 /area/crashed_elyran_tanker/engineering)
 "VE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4847,8 +4812,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "VN" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/head/helmet/space/emergency{
@@ -4894,7 +4858,7 @@
 "We" = (
 /obj/machinery/atmospherics/valve,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wg" = (
 /obj/structure/inflatable/door,
@@ -4905,7 +4869,7 @@
 "Wi" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4932,7 +4896,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5028,9 +4992,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "tank_vent_r_4";
-	dir = 2
+	id_tag = "tank_vent_r_4"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
@@ -5133,8 +5095,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "Yq" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -5196,8 +5157,7 @@
 /area/crashed_elyran_tanker/tanks)
 "YH" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /obj/machinery/power/solar,
 /obj/effect/decal/cleanable/dirt,
@@ -5229,7 +5189,6 @@
 	pixel_x = 11
 	},
 /obj/item/pipe{
-	pixel_y = 0;
 	pixel_x = 22
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -42522,7 +42481,7 @@ Dg
 le
 Am
 LV
-Js
+Km
 JP
 tG
 Sf
@@ -43291,7 +43250,7 @@ Dg
 Dg
 le
 wO
-Js
+Km
 Bg
 Lu
 nQ

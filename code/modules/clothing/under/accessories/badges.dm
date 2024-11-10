@@ -79,10 +79,10 @@
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
 										SPAN_NOTICE("You display your [src.name]."))
 
-/obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/badge/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isliving(user))
-		user.visible_message(SPAN_DANGER("[user] invades [M]'s personal space, thrusting [src] into their face insistently."),
-								SPAN_DANGER("You invade [M]'s personal space, thrusting [src] into their face insistently."))
+		user.visible_message(SPAN_DANGER("[user] invades [target_mob]'s personal space, thrusting [src] into their face insistently."),
+								SPAN_DANGER("You invade [target_mob]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
 	set category = "Object"
@@ -154,7 +154,7 @@
 		if(!istype(id_card))
 			return
 
-		if(ACCESS_SECURITY in id_card.access || emagged)
+		if((ACCESS_SECURITY in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else

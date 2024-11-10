@@ -280,7 +280,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(connected)
-		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return connected.examine(arglist(args))
 	else
 		return TRUE
 

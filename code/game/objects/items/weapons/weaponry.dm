@@ -145,7 +145,8 @@
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
-	to_chat(M, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
-	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [M]"))
+/obj/item/banhammer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	to_chat(target_mob, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
+	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [target_mob]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
+

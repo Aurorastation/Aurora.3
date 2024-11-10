@@ -394,11 +394,11 @@
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"
-	desc = "A fifty-litre tank of commercial-grade corn oil, intended for use in large scale deep fryers. Store in a cool, dark place"
+	desc = "A  tank of commercial-grade corn oil, intended for use in large scale deep fryers. Store in a cool, dark place"
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
-	capacity = 5000
-	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 5000)
+	capacity = 1000
+	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 1000)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

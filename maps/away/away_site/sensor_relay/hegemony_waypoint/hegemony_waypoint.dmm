@@ -663,8 +663,7 @@
 /area/hegemony_waypoint/monitoring)
 "mD" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
@@ -1429,7 +1428,6 @@
 /area/hegemony_waypoint/engineering)
 "Bs" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 26;
 	pixel_x = 5
 	},
@@ -1510,7 +1508,6 @@
 	dir = 4
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 26;
 	pixel_x = 5
 	},
@@ -2014,8 +2011,7 @@
 /area/hegemony_waypoint/hydroponics)
 "KX" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/hegemony_waypoint/monitoring)
@@ -2534,8 +2530,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/random/dirt_75,
@@ -2756,7 +2751,6 @@
 	},
 /obj/machinery/light/small,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 2;
 	pixel_y = 26;
 	pixel_x = 5
 	},

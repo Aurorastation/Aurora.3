@@ -132,9 +132,9 @@
 	// Overlays
 	var/has_cut_eye_overlay
 	var/image/eye_overlay
-	var/list/image/cached_eye_overlays
+	var/list/image/cached_eye_overlays = list()
 	var/image/panel_overlay
-	var/list/image/cached_panel_overlays
+	var/list/image/cached_panel_overlays = list()
 	var/image/shield_overlay
 	var/datum/weakref/holo_map
 
@@ -399,6 +399,9 @@
 
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
+
+	if(!src.mind)
+		return
 
 	spawn(0)
 		var/newname

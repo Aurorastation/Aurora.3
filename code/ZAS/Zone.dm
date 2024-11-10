@@ -49,7 +49,7 @@ Class Procs:
 
 	var/needs_update = 0
 
-	var/list/edges
+	var/list/connection_edge/edges
 
 	var/datum/gas_mixture/air = new
 

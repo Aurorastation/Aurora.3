@@ -20,7 +20,7 @@
 	return ..()
 
 
-/obj/item/device/animaltagger/attack()
+/obj/item/device/animaltagger/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/device/animaltagger/afterattack(atom/A as mob|obj, mob/user as mob)

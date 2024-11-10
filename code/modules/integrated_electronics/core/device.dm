@@ -51,7 +51,7 @@
 		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.contents)
 			I.do_work()
 
-/obj/item/device/assembly/electronic_assembly/examine(mob/user, show_extended)
+/obj/item/device/assembly/electronic_assembly/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(EA)
 		for(var/obj/item/integrated_circuit/IC in EA.contents)

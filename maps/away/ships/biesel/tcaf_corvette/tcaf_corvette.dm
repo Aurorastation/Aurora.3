@@ -113,7 +113,7 @@
 /obj/effect/shuttle_landmark/tcaf_shuttle/hangar
 	name = "Gunship Hangar"
 	landmark_tag = "nav_hangar_tcaf"
-	docking_controller = "tcaf_dock"
+	docking_controller = "tcaf_shuttle_dock"
 	base_area = /area/tcaf_corvette/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
@@ -123,8 +123,19 @@
 	landmark_tag = "nav_transit_tcaf_shuttle"
 	base_turf = /turf/space/transit/north
 
-// So people know how to use the engine. There's also a pre-wired spare PACMAN.
+/// So people know how to use the engine. There's also a pre-wired spare PACMAN.
 /obj/item/paper/fluff/tcaf_corvette_engine_guide
 	name = "Antlion-class engine operational notes"
 	desc = "This is a handwritten list of steps to operating the combustion engine of an Antlion-class scout corvette."
-	info = "<font face=\"Verdana\"><b>Obey these instructions! I swear to god, if we have one single more 'mishap' I am going to see you all assigned to the Zoleth line while I pray for another Solarian invasion.<BR><BR>STEP 1: Enable the connectors to cold loop pump, and the cooling array to generator pump, to get the cold loop circulating.<BR><BR>STEP 2: Configure the gas mixer to output north, and inject the contents of as many hydrogen and oxygen tanks into the combustion chamber as you wish, at the pre-set ratio of 60% oxygen and 40% hydrogen.<BR><BR>STEP 3: Disable injection! Do not leave injection on!<BR><BR>STEP 4: Ignite the mix inside the combustion chamber, and wait for it to fully burn out. Some strain on the glass at this step is expected.<BR><BR>STEP 5: Once the fire has stopped and the contents of the tank are 100% CO2, enable circulation: I recommend 700L/s input and 500kpa output. Higher you put the output, more power it generates.<BR><BR>WARNING: If you feel it's going to break the glass, lower the blast doors and vent the chamber immediately! We have a portable generator in the back if we run out of fuel or suffer another mishap.</b></font>"
+	info = "<font face=\"Verdana\"><b>Obey these instructions! I swear to god, \
+	if we have one single more 'mishap' I am going to see you all assigned to the Zoleth line while I pray for another Solarian invasion.<BR>\
+	<BR>STEP 1: Enable the connectors to cold loop pump, and the cooling array to generator pump, to get the cold loop circulating.<BR>\
+	<BR>STEP 2: Configure the gas mixer to output north, and inject the contents of as many hydrogen and oxygen tanks into the combustion chamber as you wish, \
+	at the pre-set ratio of 60% oxygen and 40% hydrogen.<BR>\
+	<BR>STEP 3: Disable injection! Do not leave injection on!<BR>\
+	<BR>STEP 4: Ignite the mix inside the combustion chamber, and wait for it to fully burn out. \
+	Some strain on the glass at this step is expected.<BR>\
+	<BR>STEP 5: Once the fire has stopped and the contents of the tank are 100% CO2, \
+	enable circulation: I recommend 700L/s input and 1000kpa output. The higher you put the output, more power it generates, raise as necessary.<BR>\
+	<BR>WARNING: If you feel it's going to break the glass, lower the blast doors and vent the chamber immediately! \
+	We have a portable generator in the back if we run out of fuel or suffer another mishap.</b></font>"

@@ -608,8 +608,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -733,8 +732,7 @@
 "gJ" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
@@ -810,8 +808,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -912,8 +909,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1465,8 +1461,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_port)
@@ -2181,8 +2176,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2419,8 +2413,7 @@
 /area/ship/fishing_trawler/corridor/port)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2713,8 +2706,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/closet/emcloset,
@@ -2744,8 +2736,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "trawler_lockdown";
-	name = "blast door"
+	id = "trawler_lockdown"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
@@ -3692,8 +3683,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -4375,8 +4365,7 @@
 /area/ship/fishing_trawler/kitchen)
 "GB" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -4666,7 +4655,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1336;
-	icon_state = "map_injector";
 	id = "trawler_thrust_in"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5027,8 +5015,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -5063,8 +5050,7 @@
 /area/ship/fishing_trawler/crew_quarters)
 "Mx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -5110,7 +5096,6 @@
 "ML" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = -3;
 	pixel_x = 24
 	},
@@ -5285,8 +5270,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -6429,8 +6413,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"

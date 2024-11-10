@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a hydraulic rescue tool (also known as jaws of life) to the atmos locker room. They are now able to perform their emergency/fire fighter duties more easily by being able to enter locked areas."
+  - rscadd: "Jaws of life now work on regular, non-locked, powered doors as well. Using the tool on a powered airlock will force it open and damage it in the act. Previously it only worked bolted/unpowered doors."
+  - qol: "The jaws of life are a bit more nosy in the chat. It's a powered metal tool, you can't miss its use."

@@ -24,15 +24,15 @@
 					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
 					You can also crush cans on other people's foreheads as well."
 
-/obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
-	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
-		if(M == user)
+/obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(target_mob == user)
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
-			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
-		playsound(M,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
-		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [target_mob]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [target_mob]'s forehead."))
+		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
+		playsound(target_mob,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
+		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(target_mob.loc)
 		crushed_can.icon_state = icon_state
 		qdel(src)
 		user.put_in_hands(crushed_can)
@@ -596,13 +596,13 @@
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
 
-/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
-	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
-		if(M == user)
+/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/target_mob, mob/living/user, target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
+	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(target_mob == user)
 			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
 		else
-			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [M]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [M]'s forehead."))
-		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [target_mob]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [target_mob]'s forehead."))
+		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
 		return TRUE
 	. = ..()
 

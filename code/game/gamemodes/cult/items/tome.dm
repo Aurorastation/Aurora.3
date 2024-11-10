@@ -9,32 +9,32 @@
 	unique = TRUE
 	slot_flags = SLOT_BELT
 
-/obj/item/book/tome/attack(mob/living/M, mob/living/user)
-	if(isobserver(M))
-		var/mob/abstract/observer/D = M
+/obj/item/book/tome/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(isobserver(target_mob))
+		var/mob/abstract/observer/D = target_mob
 		D.manifest(user)
 		attack_admins(D, user)
 		return
 
-	if(!istype(M))
+	if(!istype(target_mob))
 		return
 
 	if(!iscultist(user))
 		return ..()
 
-	if(iscultist(M))
+	if(iscultist(target_mob))
 		return
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	M.take_organ_damage(0, rand(5,20)) //really lucky - 5 hits for a crit
-	visible_message(SPAN_WARNING("\The [user] beats \the [M] with \the [src]!"))
-	to_chat(M, SPAN_DANGER("You feel searing heat inside!"))
-	attack_admins(M, user)
+	target_mob.take_organ_damage(0, rand(5,20)) //really lucky - 5 hits for a crit
+	visible_message(SPAN_WARNING("\The [user] beats \the [target_mob] with \the [src]!"))
+	to_chat(target_mob, SPAN_DANGER("You feel searing heat inside!"))
+	attack_admins(target_mob, user)
 
-/obj/item/book/tome/proc/attack_admins(var/mob/living/M, var/mob/living/user)
-	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>"
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [name] on [M.name] ([M.ckey])</span>"
-	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+/obj/item/book/tome/proc/attack_admins(var/mob/living/target_mob, var/mob/living/user)
+	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [name] on [target_mob.name] ([target_mob.ckey])</span>"
+	msg_admin_attack("[key_name_admin(user)] used [name] on [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 
 /obj/item/book/tome/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

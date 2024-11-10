@@ -214,13 +214,15 @@
 		return
 	if(asleep)
 		return
-	..()
+	. = ..()
 
 /mob/living/simple_animal/hostile/greatworm/FoundTarget()
-	if(target_mob.faction != "syndicate")
-		spawn_tentacle(target_mob)
+	if(ismob(last_found_target))
+		var/mob/mob_target = last_found_target
+		if(mob_target.faction != "syndicate")
+			spawn_tentacle(mob_target)
+
 	LoseTarget()
-	return
 
 /mob/living/simple_animal/hostile/greatworm/proc/spawn_tentacle(var/mob/living/target)
 	if(active_tentacles.len >= tentacles)
@@ -230,12 +232,12 @@
 	if(target.loc == src.loc)
 		return 0
 	var/turf/T = get_turf(target.loc)
-	if(!istype(T,/turf/unsimulated/floor/asteroid))
+	if(!istype(T,/turf/simulated/floor/exoplanet/asteroid))
 		return 0
 	if(locate(/mob/living/simple_animal/hostile/lesserworm) in T)
 		return 0
 	spawn_delay = world.time + spawn_time
-	var/turf/unsimulated/floor/asteroid/A = T
+	var/turf/simulated/floor/exoplanet/asteroid/A = T
 	var/mob/living/simple_animal/hostile/lesserworm/L = new /mob/living/simple_animal/hostile/lesserworm(A)
 	if(A.dug < 1)
 		A.gets_dug()

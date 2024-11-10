@@ -165,7 +165,7 @@
 		filling.color = R.get_color()
 		AddOverlays(filling)
 
-/obj/item/reagent_containers/hypospray/borghypo/service/attack(var/mob/M, var/mob/user)
+/obj/item/reagent_containers/hypospray/borghypo/service/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/reagent_containers/hypospray/borghypo/service/afterattack(var/obj/target, var/mob/user, var/proximity)

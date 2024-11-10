@@ -24,6 +24,8 @@
 		/obj/machinery/door/airlock
 	)
 
+	explosion_resistance = 10
+
 	var/damage = 0
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]

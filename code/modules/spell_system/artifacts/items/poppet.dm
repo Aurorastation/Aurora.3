@@ -54,7 +54,7 @@
 		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, SPAN_NOTICE("You move \the [src]'s legs around."))
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
-				step(H, pick(GLOB.cardinal))
+				step(H, pick(GLOB.cardinals))
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, SPAN_NOTICE("You twist \the [src]'s left arm."))

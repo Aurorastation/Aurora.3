@@ -90,8 +90,8 @@
 		return
 
 	//Drill through the flooring, if any.
-	if(istype(get_turf(src), /turf/unsimulated/floor/asteroid))
-		var/turf/unsimulated/floor/asteroid/T = get_turf(src)
+	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
+		var/turf/simulated/floor/exoplanet/asteroid/T = get_turf(src)
 		if(!T.dug)
 			T.gets_dug()
 			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
@@ -556,7 +556,7 @@
 	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
-	for(var/angle in GLOB.cardinal) // make it face any drill in GLOB.cardinal direction from it
+	for(var/angle in GLOB.cardinals) // make it face any drill in GLOB.cardinals direction from it
 		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
 		if(D)
 			src.dir = angle

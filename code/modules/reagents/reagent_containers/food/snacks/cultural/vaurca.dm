@@ -46,12 +46,12 @@
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/kois = 12, /singleton/reagent/toxin/phoron = 16)
 
-/obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
+/obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item,/obj/item/reagent_containers/food/snacks/friedkois))
 		new /obj/item/reagent_containers/food/snacks/koiskebab3(src)
 		to_chat(user, "You add fried K'ois to the kebab.")
 		qdel(src)
-		qdel(W)
+		qdel(attacking_item)
 
 /obj/item/reagent_containers/food/snacks/koiskebab3
 	name = "k'ois on a stick"

@@ -224,7 +224,7 @@
 
 /obj/structure/barricade/ex_act(severity, direction, cause_data)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(B.dir == reverse_direction(dir))
+		if(B.dir == REVERSE_DIR(dir))
 			INVOKE_ASYNC(B, TYPE_PROC_REF(/atom, ex_act), severity, direction)
 	update_health(round(severity))
 
@@ -255,13 +255,13 @@
 
 /obj/structure/barricade/proc/take_damage(var/damage)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(B.dir == reverse_direction(dir))
+		if(B.dir == REVERSE_DIR(dir))
 			B.update_health(damage)
 	update_health(damage)
 
 /obj/structure/barricade/proc/update_health(damage, nomessage)
 	health -= damage
-	health = Clamp(health, 0, maxhealth)
+	health = clamp(health, 0, maxhealth)
 
 	if(!health)
 		if(!nomessage)
