@@ -70,3 +70,5 @@
 #define isprojectile(A) istype(A, /obj/projectile)
 #define isbeam(A) istype(A, /obj/projectile/beam)
 #define isenergy(A) istype(A, /obj/projectile/energy)
+
+#define ismagazine(A) istype(A, /obj/item/ammo_magazine)
