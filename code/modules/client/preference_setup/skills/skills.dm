@@ -4,14 +4,17 @@
 
 /datum/category_item/player_setup_item/skills/load_character(var/savefile/S)
 	S["skills"]    		>> pref.skills
+	S["education"]		>> pref.education
 
 /datum/category_item/player_setup_item/skills/save_character(var/savefile/S)
 	S["skills"]    		<< pref.skills
+	S["education"]		<< pref.education
 
 /datum/category_item/player_setup_item/skills/gather_load_query()
 	return list(
 		"ss13_characters" = list(
 			"vars" = list(
+				"education",
 				"skills"
 			),
 			"args" = list("id")
@@ -24,6 +27,7 @@
 /datum/category_item/player_setup_item/skills/gather_save_query()
 	return list(
 		"ss13_characters" = list(
+			"education",
 			"skills",
 			"id" = 1,
 			"ckey" = 1
@@ -33,12 +37,13 @@
 /datum/category_item/player_setup_item/skills/gather_save_parameters()
 	var/list/sanitized_skills = list()
 	for(var/S in pref.skills)
-		var/singleton/skill/skill = GET_SINGLETON(text2path(S))
+		var/singleton/skill/skill = GET_SINGLETON(S)
 		if(!istype(skill))
 			continue
 		sanitized_skills[skill.type] = pref.skills[S]
 
 	return list(
+		"education" = pref.education,
 		"skills" = json_encode(sanitized_skills),
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
@@ -57,6 +62,23 @@
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	//todomatt
+	if(!istext(pref.education) || !ispath(text2path(pref.education), /singleton/education))
+		var/singleton/education/ED = find_suitable_education()
+		if(ED)
+			pref.education = "[ED.type]"
+	else
+		var/singleton/education/our_education = GET_SINGLETON(text2path(pref.education))
+		if(length(our_education.species_restriction))
+			if(pref.species in our_education.species_restriction)
+				var/singleton/education/ED = find_suitable_education()
+				if(ED)
+					pref.education = "[ED.type]"
+		if(length(our_education.minimum_character_age))
+			if(pref.species in our_education.minimum_character_age)
+				if(pref.age < our_education.minimum_character_age[pref.species])
+					var/singleton/education/ED = find_suitable_education()
+					if(ED)
+						pref.education = "[ED.type]"
 
 // Skills HTML UI lifted from Baystation 12. Credit goes to Afterthought12. Thank you for saving me from HTML hell!
 /datum/category_item/player_setup_item/skills/content(var/mob/user)
@@ -71,7 +93,8 @@
 	dat += "<style>.Selectable,a.Selectable{background: #40628a}</style>"
 	dat += "<style>.Current,a.Current{background: #2f943c}</style>"
 	dat += "<style>.Unavailable{background: #d09000}</style>"
-
+	var/singleton/education/ED = GET_SINGLETON(text2path(pref.education))
+	dat += "<b>Education:</b> <a href='?src=\ref[src];open_education_menu=1'>[ED.name]</a><br/><hr>"
 	dat += "<table>"
 	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
 	for(var/category in SSskills.skill_tree)
@@ -156,4 +179,70 @@
 			pref.skills[new_skill.type] = text2num(new_skill_value)
 		return TOPIC_REFRESH
 
+	else if(href_list["open_education_menu"])
+		var/list/options = list()
+		var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
+		for(var/singleton_type in education_list)
+			var/singleton/education/ED = education_list[singleton_type]
+			if(length(ED.species_restriction))
+				if(pref.species in ED.species_restriction)
+					continue
+			if(length(ED.minimum_character_age))
+				if(pref.species in ED.minimum_character_age)
+					if(pref.age < ED.minimum_character_age[pref.species])
+						continue
+			options[ED.name] = ED
+		var/result = tgui_input_list(user, "Choose your character's education.", "Education", options)
+		var/singleton/education/chosen_education = options[result]
+		if(chosen_education)
+			show_education_window(chosen_education, "set_education_data", user)
+
+	else if(href_list["set_education_data"])
+		user << browse(null, "window=set_education_data")
+		var/new_education = html_decode(href_list["set_education_data"])
+		pref.education = new_education
+
+		pref.skills = list() // reset skills because we have to give them new minimums
+		to_chat(user, SPAN_WARNING("Your skills have been reset as you changed your education."))
+		var/singleton/education/education = GET_SINGLETON(text2path(new_education))
+		if(istype(education))
+			for(var/skill in education.skills)
+				var/singleton/skill/new_skill = GET_SINGLETON(skill)
+				pref.skills[new_skill.type] = education.skills[new_skill.type]
+				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [SSskills.skill_level_map[education.skills[new_skill.type]]]."))
+
+		sanitize_character()
+		return TOPIC_REFRESH
+
 	return ..()
+
+/datum/category_item/player_setup_item/skills/proc/show_education_window(var/singleton/education/ED, var/topic_data, var/mob/user)
+	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
+	var/dat = "<html><center><b>[ED.name]</center></b>"
+	dat += "<hr>[ED.description]<hr>"
+	dat += "This education gives you the following skills: "
+	var/list/skills_to_show = list()
+	for(var/skill in ED.skills)
+		var/singleton/skill/S = GET_SINGLETON(skill)
+		skills_to_show += "[S.name] ([SPAN_DANGER(SSskills.skill_level_map[ED.skills[S.type]])])"
+	dat +=  "<b>[english_list(skills_to_show)]</b>.<br>"
+	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
+	dat += "</html>"
+	education_win.set_content(dat)
+	education_win.open()
+
+/**
+ * This proc finds and returns the first suitable education for the pref datum.
+ */
+/datum/category_item/player_setup_item/skills/proc/find_suitable_education()
+	var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
+	for(var/singleton_type in education_list)
+		var/singleton/education/ED = education_list[singleton_type]
+		if(length(ED.species_restriction))
+			if(pref.species in ED.species_restriction)
+				continue
+		if(length(ED.minimum_character_age))
+			if(pref.species in ED.minimum_character_age)
+				if(pref.age < ED.minimum_character_age[pref.species])
+					continue
+		return ED
