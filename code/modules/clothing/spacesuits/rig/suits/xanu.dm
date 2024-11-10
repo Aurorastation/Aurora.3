@@ -37,7 +37,7 @@
 		/obj/item/rig_module/vision/thermal,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/actuators,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		)
 
 /obj/item/rig/xanu/equipped/ert //ERT variant
