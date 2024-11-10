@@ -31,8 +31,15 @@
 	)
 
 /datum/category_item/player_setup_item/skills/gather_save_parameters()
+	var/list/sanitized_skills = list()
+	for(var/S in pref.skills)
+		var/singleton/skill/skill = GET_SINGLETON(text2path(S))
+		if(!istype(skill))
+			continue
+		sanitized_skills[skill.type] = pref.skills[S]
+
 	return list(
-		"skills" = pref.skills,
+		"skills" = json_encode(sanitized_skills),
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
