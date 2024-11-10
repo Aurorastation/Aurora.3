@@ -73,6 +73,9 @@
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
+	if(user.get_skill_level(/singleton/skill/reactor_systems) <= SKILL_LEVEL_FAMILIAR)
+		to_chat(user, SPAN_WARNING("You have no idea where the switch even is on this thing..."))
+		return
 	activate(user)
 
 /obj/machinery/power/emitter/proc/activate(mob/user)

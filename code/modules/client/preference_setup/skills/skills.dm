@@ -51,29 +51,75 @@
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	//todomatt
 
+// Skills HTML UI lifted from Baystation 12. Credit goes to Afterthought12. Thank you for saving me from HTML hell!
 /datum/category_item/player_setup_item/skills/content(var/mob/user)
+	if(!SSskills.initialized)
+		return "<center><large>Skills not initialized yet. Please wait a bit and reload this section.</large></center>"
+
 	var/list/dat = list()
+
+	dat += "<body>"
+	dat += "<style>.Selectable,.Current,.Unavailable,.Toohigh,.Forced{border: 1px solid #161616;padding: 1px 4px 1px 4px;margin: 0 2px 0 0}</style>"
+	dat += "<style>.Forced,a.Forced{background: #FF0000}</style>"
+	dat += "<style>.Selectable,a.Selectable{background: #40628a}</style>"
+	dat += "<style>.Current,a.Current{background: #2f943c}</style>"
+	dat += "<style>.Unavailable{background: #d09000}</style>"
+
+	dat += "<table>"
 	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
 	for(var/category in SSskills.skill_tree)
 		var/singleton/skill_category/skill_category = category
-		dat += "<b><font size=5>[skill_category.name]</font></b><br>"
+		dat += "<tr><th colspan = 4><b>[skill_category.name] (X points remaining)</b>"
+		dat += "</th></tr>"
 		for(var/subcategory in SSskills.skill_tree[skill_category])
-			dat += "<font size=4>[subcategory]</font><br><table><tr style='text-align:left;'>"
+			dat += "<tr><th colspan = 3><b>[subcategory]</b></th></tr>"
 			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
-				dat += "<tr><a href='?src=\ref[src];skillinfo=[skill.type]'>[skill.name]</a>: "
-				var/current_skill_level = 0
-				if(skill.type in pref.skills)
-					current_skill_level = pref.skills[skill.type]
-				for(var/skill_level in SKILL_LEVEL_UNFAMILIAR to skill.get_maximum_level(education))
-					if(current_skill_level == skill_level)
-						dat += "<b><a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='green'>\[[SSskills.skill_level_map[skill_level]]\]</font></a></b>"
-					if(current_skill_level > skill_level)
-						dat += "<b><a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='green'>[SSskills.skill_level_map[skill_level]]</font></a></b>"
-					if(current_skill_level < skill_level)
-						dat += "<a href='?src=\ref[src];setskill=[skill.type];newvalue=[skill_level]'><font color='red'>[SSskills.skill_level_map[skill_level]]</font></a>"
-				dat += "</tr><br><br>"
-		dat += "</table><hr>"
-	. = dat.Join()
+				dat += get_skill_row(skill, education)
+	dat += "</table>"
+
+	. = JOINTEXT(dat)
+
+/datum/category_item/player_setup_item/skills/proc/get_skill_row(singleton/skill/skill, singleton/education/education)
+	var/list/dat = list()
+	dat += "<tr style='text-align:left;'>"
+	dat += "<th><a href='?src=\ref[src];skillinfo=[skill.type]'>[skill.name]</a></th>"
+
+	var/current_level = pref.skills[skill.type]
+	var/maximum_skill_level = skill.get_maximum_level(education)
+	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= SKILL_LEVEL_PROFESSIONAL, i++)
+		dat += skill_to_button(skill, education, current_level, i, maximum_skill_level)
+
+	return JOINTEXT(dat)
+
+/datum/category_item/player_setup_item/skills/proc/skill_to_button(singleton/skill/skill, singleton/education/education, current_level, selection_level, maximum_skill_level)
+	var/effective_level = selection_level
+	if(effective_level <= 0)
+		return "<th></th>"
+
+	var/level_name = SSskills.skill_level_map[effective_level]
+	var/cost = "N" //skill.get_cost(effective_level)
+	var/button_label = "[level_name] ([cost])"
+	var/given_skill = FALSE
+
+	// Prevent removal of skills given by education. These are meant to be minimum skills for jobs, after all.
+	if(skill.type in education.skills)
+		given_skill = TRUE
+
+	if((effective_level < current_level) && given_skill)
+		return "<th>[span("Forced", "[button_label]")]</th>"
+	else if((effective_level < current_level) && !given_skill)
+		return "<th>[add_link(skill, education, button_label, "'Current'", effective_level)]</th>"
+	else if(effective_level == current_level)
+		return "<th>[span("Current", "[button_label]")]</th>"
+	else if(effective_level <= maximum_skill_level)
+		return "<th>[add_link(skill, education, button_label, "'Selectable'", effective_level)]</th>"
+	else
+		return "<th>[span("Toohigh", "[button_label]")]</th>"
+
+/datum/category_item/player_setup_item/skills/proc/add_link(singleton/skill/skill, singleton/education/education, text, style, value)
+	if(skill.get_maximum_level(education) >= value)
+		return "<a class=[style] href='?src=\ref[src];setskill=[skill.type];newvalue=[value]'>[text]</a>"
+	return text
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
@@ -101,6 +147,6 @@
 			pref.skills -= new_skill.type
 		else
 			pref.skills[new_skill.type] = text2num(new_skill_value)
-			return TOPIC_REFRESH
+		return TOPIC_REFRESH
 
 	return ..()

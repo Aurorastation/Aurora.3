@@ -483,7 +483,6 @@ var/list/preferences_datums = list()
 	character.set_culture(GET_SINGLETON(text2path(culture)))
 	character.set_origin(GET_SINGLETON(text2path(origin)))
 
-
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
@@ -523,6 +522,8 @@ var/list/preferences_datums = list()
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
 				P.apply(character)
+
+	character.skills.set_skills_from_pref(src)
 
 	if(icon_updates)
 		character.force_update_limbs()

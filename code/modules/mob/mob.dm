@@ -104,6 +104,8 @@
 
 	become_hearing_sensitive()
 
+	skills = new skills(src)
+
 /**
  * Generate the tag for this mob
  *

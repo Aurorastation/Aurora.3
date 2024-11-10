@@ -210,7 +210,18 @@
 
 	if(href_list["set_education_data"])
 		user << browse(null, "window=set_education_data")
-		pref.education = html_decode(href_list["set_education_data"])
+		var/new_education = html_decode(href_list["set_education_data"])
+		pref.education = new_education
+
+		pref.skills = list() // reset skills because we have to give them new minimums
+		to_chat(user, SPAN_WARNING("Your skills have been reset as you changed your education."))
+		var/singleton/education/education = GET_SINGLETON(text2path(new_education))
+		if(istype(education))
+			for(var/skill in education.skills)
+				var/singleton/skill/new_skill = GET_SINGLETON(skill)
+				pref.skills[new_skill.type] = education.skills[new_skill.type]
+				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [SSskills.skill_level_map[education.skills[new_skill.type]]]."))
+
 		sanitize_character()
 		return TOPIC_REFRESH
 
@@ -277,12 +288,12 @@
 	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
 	var/dat = "<html><center><b>[ED.name]</center></b>"
 	dat += "<hr>[ED.description]<hr>"
-	dat += "This education gives you the following skills:"
+	dat += "This education gives you the following skills: "
 	var/list/skills_to_show = list()
 	for(var/skill in ED.skills)
 		var/singleton/skill/S = GET_SINGLETON(skill)
-		skills_to_show += S.name
-	dat +=  "<b>[english_list(skills_to_show)]</b><br>"
+		skills_to_show += "[S.name] ([SPAN_DANGER(SSskills.skill_level_map[ED.skills[S.type]])])"
+	dat +=  "<b>[english_list(skills_to_show)]</b>.<br>"
 	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	education_win.set_content(dat)
