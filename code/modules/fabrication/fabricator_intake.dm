@@ -62,8 +62,8 @@
 		var/amount_needed = total_used / mass_per_sheet
 		stack.use(min(stack.get_amount(), (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1)) // Prevent maths imprecision from leading to infinite resources
 	else
-		user.remove_from_mob(O)
-		qdel(O)
+		user.remove_from_mob(loading_item)
+		qdel(loading_item)
 
 #undef NO_SPACE
 #undef FILL_COMPLETELY

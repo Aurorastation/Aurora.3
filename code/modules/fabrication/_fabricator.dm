@@ -39,6 +39,9 @@
 	/// What is currently printing in this fabricator
 	var/datum/fabricator_build_order/currently_printing
 
+	/// Global list of the substances currently stored in the fabricator
+	var/static/list/stored_substances_to_names = list()
+
 	/// How efficient this fabricator uses materials. Modified by default by the amount and tier of manipulators
 	var/mat_efficiency = 1
 	/// What to multiply build times by. Modified by default by the amount and tier of manipulators
