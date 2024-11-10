@@ -214,13 +214,15 @@
 		return
 	if(asleep)
 		return
-	..()
+	. = ..()
 
 /mob/living/simple_animal/hostile/greatworm/FoundTarget()
-	if(target_mob.faction != "syndicate")
-		spawn_tentacle(target_mob)
+	if(ismob(last_found_target))
+		var/mob/mob_target = last_found_target
+		if(mob_target.faction != "syndicate")
+			spawn_tentacle(mob_target)
+
 	LoseTarget()
-	return
 
 /mob/living/simple_animal/hostile/greatworm/proc/spawn_tentacle(var/mob/living/target)
 	if(active_tentacles.len >= tentacles)

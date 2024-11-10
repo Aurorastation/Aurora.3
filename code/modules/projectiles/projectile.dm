@@ -209,9 +209,6 @@
 
 	var/anti_materiel_potential = 1 //how much the damage of this bullet is increased against mechs
 
-	///If the projectile launches a secondary projectile in addition to itself.
-	var/secondary_projectile
-
 	/*########################################
 		END AURORA SNOWFLAKE VARS SECTION
 	########################################*/
@@ -1092,11 +1089,6 @@
 		return FALSE
 	return TRUE
 
-//return TRUE if the projectile should be allowed to pass through after all, FALSE if not.
-/obj/projectile/proc/check_penetrate(atom/A)
-	return TRUE
-
-
 /obj/projectile/ex_act(var/severity = 2.0)
 	return //explosions probably shouldn't delete projectiles
 
@@ -1157,7 +1149,7 @@
 		return
 
 	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
-	var/angle = (P.firer && prob(60)) ? round(Get_Angle(P.firer,src)) : round(rand(1,359))
+	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
 

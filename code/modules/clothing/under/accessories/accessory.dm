@@ -83,6 +83,10 @@
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
+/// Gets called before 'can_attach_accessory()' is called in clothing_accessories.dm
+/obj/item/clothing/accessory/proc/before_attached(var/obj/item/clothing/S, var/mob/user)
+	return
+
 //when user attached an accessory to S
 /obj/item/clothing/accessory/proc/on_attached(var/obj/item/clothing/S, var/mob/user)
 	if(!istype(S))

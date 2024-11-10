@@ -144,3 +144,36 @@
 	stickersheet["Uueoa-Esa sticker sheet"] = /obj/item/storage/stickersheet/hegemony
 	stickersheet["Anti-Establishment sticker sheet"] = /obj/item/storage/stickersheet/resistance
 	gear_tweaks += new /datum/gear_tweak/path(stickersheet)
+
+/datum/gear/toy/stickersheet_custom
+	display_name = "sticker sheet (custom)"
+	description = "A sticker sheet that can hold a variety of stickers."
+	cost = 1
+	path = /obj/item/storage/stickersheet
+
+/datum/gear/toy/stickersheet_custom/New()
+	..()
+	var/list/stickersheet = list()
+
+	for(var/sticker as anything in subtypesof(/obj/item/sticker))
+		var/obj/O = sticker
+		stickersheet[initial(O.name)] = sticker
+	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet,stickersheet,stickersheet,stickersheet)
+
+// Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
+/datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
+	if(length(metadata) != length(valid_contents))
+		return
+	for(var/i = 1 to length(valid_contents))
+		var/path
+		var/list/contents = valid_contents[i]
+		if(metadata[i] == "Random")
+			path = pick(contents)
+			path = contents[path]
+		else if(metadata[i] == "None")
+			continue
+		else
+			path = 	contents[metadata[i]]
+		if(path) // repeat 3 times for each item
+			for(i = 0, i < 3, ++i)
+				new path(sheet)

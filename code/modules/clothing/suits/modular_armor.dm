@@ -150,6 +150,14 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
+/obj/item/clothing/accessory/armor_plate/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/armor_plate/existing_plate = locate() in clothing.accessories
+	if(!existing_plate)
+		return
+	clothing.remove_accessory(user, existing_plate)
+
 /obj/item/clothing/accessory/armor_plate/generic
 	name = "standard armor plate"
 	desc = "A light-weight kevlar armor plate in drab black colors. A galactic favourite of Zavodskoi fans."
