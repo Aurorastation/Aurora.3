@@ -311,7 +311,7 @@
 /obj/item/ammo_casing/proto_smg
 	desc = "A small flachette casing."
 	caliber = "4mm"
-	projectile_type = /obj/item/projectile/bullet/proto_smg
+	projectile_type = /obj/projectile/bullet/proto_smg
 	icon_state = "flechette-casing"
 	spent_icon = "flechette-casing-spent"
 
