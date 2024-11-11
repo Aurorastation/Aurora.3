@@ -24,15 +24,9 @@
 	/// The minimum amount of actors we want to spawn in this odyssey.
 	var/min_actor_amount = 1
 
-	/// The title for the messages sent to the Horizon to notify them of the scenarios, both in notify_scenario_early and notify_scenario_late.
-	var/horizon_announcement_title = "Central Command Situation Report"
-	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
-	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and we are in the process of scanning the received deta. You will shortly be sent to investigate it. Please prepare an expedition."
-	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
-	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on your sensors. Send an expedition to investigate."
-
-	/// The announcement message for offships. This one contains all the info and is sent quickly.
-	var/offship_announcement_message = "A recent sensors scan indicates the presence of a site of interest to investigate. The oordinates have been registered on the sensors consoles."
+	/// The scenario_announcements singleton for this scenario. Contains information on the announcements sent to the Horizon and the offships.
+	/// Initially set to a type, which is then created in Initialize().
+	var/singleton/scenario_announcements/scenario_announcements = /singleton/scenario_announcements
 
 	/// The default outfit every actor is given on this scenario.
 	/// They can select their role and outfit on the Odyssey UI when ingame.
@@ -48,6 +42,11 @@
 	/// The name of the frequency that will be used by the radios on the away site.
 	var/radio_frequency_name = "Sector"
 
+/singleton/scenario/Initialize()
+	. = ..()
+	if(!ispath(scenario_announcements))
+		crash_with("Scenario [type] tried initializing without appropriate announcements!")
+	scenario_announcements = GET_SINGLETON(scenario_announcements)
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.
@@ -86,7 +85,7 @@
  * You can override it with an empty return if you don't want anything sent early on.
  */
 /singleton/scenario/proc/notify_horizon_early(var/obj/effect/overmap/visitable/ship/horizon)
-	command_announcement.Announce(horizon_early_announcement_message, horizon_announcement_title, do_print = TRUE)
+	command_announcement.Announce(scenario_announcements.horizon_early_announcement_message, scenario_announcements.horizon_announcement_title, do_print = TRUE)
 
 /**
  * This proc is what you should override if you want anything specific to be messaged to the Horizon. Keep in mind this is the message sent about 20 minutes in.
@@ -96,7 +95,7 @@
 	// We don't want to send the announcement if there are Storytellers.
 	// We want to have them control when to end their prep and when to tell the Horizon to come.
 	if(!length(SSodyssey.storytellers))
-		command_announcement.Announce(horizon_late_announcement_message, horizon_announcement_title, do_print = TRUE)
+		command_announcement.Announce(scenario_announcements.horizon_late_announcement_message, scenario_announcements.horizon_announcement_title, do_print = TRUE)
 		var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
 		if(odyssey_site)
 			for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
@@ -121,8 +120,19 @@
 			continue
 
 		for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
-			priority_announcement.Announce(offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
+			priority_announcement.Announce(scenario_announcements.offship_announcement_message, "[ship.name] Sensors Report", zlevels = ship.map_z)
 			sensors.add_contact(odyssey_site)
+
+/singleton/scenario_announcements
+	/// The title for the messages sent to the Horizon to notify them of the scenarios, both in notify_scenario_early and notify_scenario_late.
+	var/horizon_announcement_title = "Central Command Situation Report"
+	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
+	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and we are in the process of scanning the received deta. You will shortly be sent to investigate it. Please prepare an expedition."
+	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
+	var/horizon_late_announcement_message = "The site of interest has been located and its coordinates have been registered on your sensors. Send an expedition to investigate."
+
+	/// The announcement message for offships. This one contains all the info, without time segmentation.
+	var/offship_announcement_message = "A recent sensors scan indicates the presence of a site of interest to investigate. The oordinates have been registered on the sensors consoles."
 
 /obj/effect/landmark/actor
 	name = "actor"

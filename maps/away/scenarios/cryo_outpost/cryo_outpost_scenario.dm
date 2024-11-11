@@ -5,15 +5,10 @@
 			SCCV Horizon, the closest ship in this sector, was dispatched to investigate."
 	scenario_site_id = "cryo_outpost"
 
-	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_late_announcement_message = "Greetings, SCCV Horizon. There's been some proprietary Zeng-Hu tech reported missing from nearby corporate facilities, \
-	recently tracked down to a planet, Juliett-Enderly, located in your current sector. You are the closest to this planet, and should investigate and \
-	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here."
-
-	offship_announcement_message = "An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck."
-
 	min_player_amount = 0
 	min_actor_amount = 0
+
+	scenario_announcements = /singleton/scenario_announcements/cryo_outpost
 
 	roles = list(
 		/singleton/role/cryo_outpost,
@@ -30,6 +25,13 @@
 
 	radio_frequency_name = "#187-D Outpost"
 
+/singleton/scenario_announcements/cryo_outpost
+	horizon_announcement_title = "SCC Central Command Outpost"
+	horizon_late_announcement_message = "Greetings, SCCV Horizon. There's been some proprietary Zeng-Hu tech reported missing from nearby corporate facilities, \
+	recently tracked down to a planet, Juliett-Enderly, located in your current sector. You are the closest to this planet, and should investigate and \
+	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here."
+
+	offship_announcement_message = "An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck."
 
 /singleton/role/cryo_outpost
 	name = "Mercenary Team Lead"

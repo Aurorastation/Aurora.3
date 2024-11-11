@@ -6,17 +6,10 @@
 		"
 	scenario_site_id = "ruined_propellant_depot"
 
-	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_late_announcement_message = "\
-		Greetings, SCCV Horizon. A nearby propellant depot has launched a distress beacon, requesting help. \
-		That depot is independent, but friendly, often serving fuel to corporate ships at a discount. \
-		You are to investigate, and provide aid if needed. \
-		"
-
-	offship_announcement_message = "A nearby propellant depot has launched a distress beacon. The coordinates have been registered on the flight deck."
-
 	min_player_amount = 0
 	min_actor_amount = 0
+
+	scenario_announcements = /singleton/scenario_announcements/ruined_propellant_depot
 
 	roles = list(
 		/singleton/role/ruined_propellant_depot,
@@ -29,3 +22,12 @@
 
 	radio_frequency_name = "Propellant Depot AG5"
 
+/singleton/scenario_announcements/ruined_propellant_depot
+	horizon_announcement_title = "SCC Central Command Outpost"
+	horizon_late_announcement_message = "\
+		Greetings, SCCV Horizon. A nearby propellant depot has launched a distress beacon, requesting help. \
+		That depot is independent, but friendly, often serving fuel to corporate ships at a discount. \
+		You are to investigate, and provide aid if needed. \
+		"
+
+	offship_announcement_message = "A nearby propellant depot has launched a distress beacon. The coordinates have been registered on the flight deck."
