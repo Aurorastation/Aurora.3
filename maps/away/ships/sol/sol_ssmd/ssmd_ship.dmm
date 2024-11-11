@@ -895,7 +895,7 @@
 "cFy" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
+	dir = 8;
 	name = "Fuel to Thrusters"
 	},
 /turf/simulated/floor/tiled/dark/full,
