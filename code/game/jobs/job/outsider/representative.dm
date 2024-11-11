@@ -122,6 +122,7 @@
 		if(species.type in rep_faction.allowed_species_types)
 			continue
 		LAZYDISTINCTADD(aide.blacklisted_species, species.name)
+	LAZYDISTINCTADD(rep_faction.allowed_role_types, aide.type)
 
 /datum/job/representative/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	aide.blacklisted_species = null

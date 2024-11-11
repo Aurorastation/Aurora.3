@@ -261,6 +261,7 @@
 	// Now that the blacklists are applied, open the job.
 	J.total_positions++
 	to_chat(representative, SPAN_NOTICE("A slot for a [aide_job] has been opened."))
+	return TRUE
 
 /**
  * This proc is called when a job opens an aide slot. It MUST be called manually.
