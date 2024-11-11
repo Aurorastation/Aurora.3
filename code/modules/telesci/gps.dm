@@ -382,4 +382,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 	gps_prefix = "COM"
 	compass_color = "#57c5e0"
 	gpstag = "CANARY"
+
+/obj/item/device/gps/stationary/sccv_quark
+	name = "static GPS (SCCV Quark)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Quark."
+	icon_state = "gps-sci"
+	gps_prefix = "SCI"
+	compass_color = "#d691ce"
+	gpstag = "QUARK"
+
 /********** Static GPS End **********/

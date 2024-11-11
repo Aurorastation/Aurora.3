@@ -1536,6 +1536,27 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -4
 
+ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
+	cell_type = /obj/item/cell/high
+	req_access = null
+	req_one_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH, ACCESS_BRIDGE_CREW)
+
+/obj/machinery/power/apc/quark/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/quark/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/quark/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/quark/south
+	dir = SOUTH
+	pixel_y = -4
+
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
