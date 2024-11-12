@@ -1765,7 +1765,9 @@ About the new airlock wires panel:
 						take_damage(50)
 						set_broken()
 						to_chat(user, SPAN_NOTICE("The hydraulic strength easily overcomes the resistance of the airlock's motors opening the way ahead!"))
-				open(1)
+						open(1)
+				else
+					open(1)
 			else
 				close(1)
 		return TRUE
