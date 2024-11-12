@@ -12,7 +12,12 @@
 	var/category
 	/// The sub-category of this skill. Used to better sort skills.
 	var/subcategory
+	/// The modifier for how difficult the skill is. Each level costs this much * the level.
+	var/skill_difficulty_modifier = SKILL_MODIFIER_MEDIUM
 
+/**
+ * Returns the maximum level a character can have in this skill depending on education.
+ */
 /singleton/skill/proc/get_maximum_level(var/singleton/education/education)
 	if(!istype(education))
 		crash_with("SKILL: Invalid [education] fed to get_maximum_level!")
@@ -27,3 +32,9 @@
 
 
 	return uneducated_skill_cap
+
+/**
+ * Returns the cost of this skill, modified by its difficulty modifier.
+ */
+/singleton/skill/proc/get_cost(level)
+	return skill_difficulty_modifier * level

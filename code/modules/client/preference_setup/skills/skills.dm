@@ -87,7 +87,7 @@
 					if(ED)
 						pref.education = "[ED.type]"
 
-// Skills HTML UI lifted from Baystation 12. Credit goes to Afterthought12. Thank you for saving me from HTML hell!
+// Skills HTML UI, along with a lot of other components here, lifted from Baystation 12. Credit goes to Afterthought12. Thank you for saving me from HTML hell!
 /datum/category_item/player_setup_item/skills/content(var/mob/user)
 	if(!SSskills.initialized)
 		return "<center><large>Skills not initialized yet. Please wait a bit and reload this section.</large></center>"
@@ -101,12 +101,12 @@
 	dat += "<style>.Current,a.Current{background: #2f943c}</style>"
 	dat += "<style>.Unavailable{background: #d09000}</style>"
 	var/singleton/education/ED = GET_SINGLETON(text2path(pref.education))
-	dat += "<b>Education:</b> <a href='?src=\ref[src];open_education_menu=1'>[ED.name]</a><br/><hr>"
+	dat += "<center><b>Education:</b> <a href='?src=[REF(src)];open_education_menu=1'>[ED.name]</a></center><br/><hr>"
 	dat += "<table>"
 	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
 	for(var/category in SSskills.skill_tree)
 		var/singleton/skill_category/skill_category = category
-		dat += "<tr><th colspan = 4><b>[skill_category.name] (X points remaining)</b>"
+		dat += "<tr><th colspan = 4><b>[skill_category.name] ([calculate_remaining_skill_points(skill_category)])</b>"
 		dat += "</th></tr>"
 		for(var/subcategory in SSskills.skill_tree[skill_category])
 			dat += "<tr><th colspan = 3><b>[subcategory]</b></th></tr>"
@@ -119,7 +119,7 @@
 /datum/category_item/player_setup_item/skills/proc/get_skill_row(singleton/skill/skill, singleton/education/education)
 	var/list/dat = list()
 	dat += "<tr style='text-align:left;'>"
-	dat += "<th><a href='?src=\ref[src];skillinfo=[skill.type]'>[skill.name]</a></th>"
+	dat += "<th><a href='?src=[REF(src)];skillinfo=[skill.type]'>[skill.name]</a></th>"
 
 	var/current_level = pref.skills[skill.type]
 	var/maximum_skill_level = skill.get_maximum_level(education)
@@ -134,7 +134,7 @@
 		return "<th></th>"
 
 	var/level_name = SSskills.skill_level_map[effective_level]
-	var/cost = "N" //skill.get_cost(effective_level)
+	var/cost = skill.get_cost(effective_level)
 	var/button_label = "[level_name] ([cost])"
 	var/given_skill = FALSE
 
@@ -155,8 +155,14 @@
 
 /datum/category_item/player_setup_item/skills/proc/add_link(singleton/skill/skill, singleton/education/education, text, style, value)
 	if(skill.get_maximum_level(education) >= value)
-		return "<a class=[style] href='?src=\ref[src];setskill=[skill.type];newvalue=[value]'>[text]</a>"
+		return "<a class=[style] href='?src=[REF(src)];setskill=[skill.type];newvalue=[value]'>[text]</a>"
 	return text
+
+/datum/category_item/player_setup_item/skills/proc/calculate_remaining_skill_points(singleton/skill_category/skill_category)
+	if(!istype(skill_category))
+		crash_with("Invalid skill category fed to calculate_remaining_skill_points!")
+
+	var/total_points_available = skill_category.calculate_remaining_skill_points(GLOB.all_species[pref.species], pref.age)
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
@@ -233,7 +239,7 @@
 		var/singleton/skill/S = GET_SINGLETON(skill)
 		skills_to_show += "[S.name] ([SPAN_DANGER(SSskills.skill_level_map[ED.skills[S.type]])])"
 	dat +=  "<b>[english_list(skills_to_show)]</b>.<br>"
-	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
+	dat += "<br><center>\[<a href='?src=[REF(src)];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	education_win.set_content(dat)
 	education_win.open()

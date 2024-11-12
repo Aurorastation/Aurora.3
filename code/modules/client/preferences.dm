@@ -111,6 +111,8 @@ var/list/preferences_datums = list()
 
 	/// The character's skills list. JSON.
 	var/list/skills = list()
+	/// The character's current spent skill points. Assoc list of SKILL_CATEGORY define to number of remaining skill points.
+	var/list/skill_points_remaining
 
 	/// The character's psionics. JSON.
 	var/list/psionics = list()
