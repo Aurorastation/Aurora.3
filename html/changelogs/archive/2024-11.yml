@@ -112,3 +112,15 @@
       it only worked bolted/unpowered doors.
   - qol: The jaws of life are a bit more nosy in the chat. It's a powered metal tool,
       you can't miss its use.
+2024-11-12:
+  MattAtlas:
+  - bugfix: Fixed the Corporate Aide slot not being opened.
+  - bugfix: Fixed the Open Aide Slot verb not being removed upon use.
+  OolongCow:
+  - bugfix: Fixes the SSMD ship's shuttle having a backwards fuel pump.
+  - balance: Un-nerfed Columbo's damage and increased his health. Good boy.
+  Yonnimer:
+  - rscadd: Adds back customization for head & beard options in the character setup
+      for Dionae.
+  notagonk:
+  - rscadd: Remaps the Head of Security office.
