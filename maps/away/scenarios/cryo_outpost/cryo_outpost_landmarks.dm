@@ -122,5 +122,3 @@
 	name = "Surface, Landing Pad, Far, 3d"
 	landmark_tag = "nav_cryo_outpost_surface_far_3d"
 	dir = WEST
-
-// --------------------- fin

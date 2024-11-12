@@ -602,7 +602,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
-			sound_to(world, ('sound/AI/commandreport.ogg'))
+			sound_to_playing_players('sound/AI/commandreport.ogg')
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]")
 	message_admins("[key_name_admin(src)] has created a command report", 1)
@@ -621,7 +621,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
 
-	if (action == "No")
+	if (action == "No" || !action)
 		return
 
 	if (istype(O, /mob/abstract/ghost/observer))

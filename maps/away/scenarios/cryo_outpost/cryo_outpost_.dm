@@ -133,5 +133,3 @@
 	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one is covered in Zeng-Hu Pharmaceuticals logos."
 	icon_state = "slip_zeng"
 	origin_tech = list(TECH_BIO = 8, TECH_MATERIAL = 7, TECH_MAGNET = 7, TECH_DATA = 7)
-
-// --------------------------------------------------- fin

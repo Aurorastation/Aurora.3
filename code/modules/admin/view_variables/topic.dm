@@ -170,7 +170,7 @@
 			return
 
 		var/del_action = alert("Are you really sure you want to delete all objects of type [O.type]?",,"Yes","No", "Hard Delete")
-		if(del_action == "No")
+		if (del_action == "No" || !del_action)
 			return
 
 		if(alert("Second confirmation required. Delete?",,"Yes","No") != "Yes")

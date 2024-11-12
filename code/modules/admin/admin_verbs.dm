@@ -716,9 +716,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = mob.loc
-	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
+	var/turf/epicenter = get_turf(mob)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if(null)
 			return 0

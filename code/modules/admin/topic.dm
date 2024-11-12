@@ -1177,7 +1177,7 @@
 
 		if(target)
 			for (var/path in paths)
-				for (var/i = 0; i < number; i++)
+				for (var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
 						var/turf/N = O.ChangeTurf(path)

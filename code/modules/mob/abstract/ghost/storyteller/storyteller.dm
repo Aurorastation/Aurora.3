@@ -55,8 +55,8 @@
 
 	log_ooc("(STORYTELLER) [name]/[key] : [msg]")
 
-	var/list/messageturfs = list() //List of turfs we broadcast to.
-	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+	var/list/turf/messageturfs = list() //List of turfs we broadcast to.
+	var/list/mob/messagemobs = list() //List of living mobs nearby who can hear it
 
 	for(var/turf in range(world.view, get_turf(src)))
 		messageturfs += turf
@@ -93,7 +93,7 @@
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)
-			to_chat(target, SPAN_STORYTELLER("[create_text_tag("STORY", target)] <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span>"))
+			to_chat(target, SPAN_STORYTELLER("[create_text_tag("STORY", target)] [span("prefix", prefix)]<EM>[display_name][admin_stuff]:</EM> [span("message linkify", msg)]>"))
 
 /mob/abstract/ghost/storyteller/dust()
 	return

@@ -216,6 +216,3 @@
 /area/cryo_outpost/inside/maint_engineering
 	name = "Maint, Engineering"
 	icon_state = "maintenance"
-
-
-// ------------------------- fin

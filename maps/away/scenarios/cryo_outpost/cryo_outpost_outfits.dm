@@ -230,5 +230,3 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
 	)
-
-// ------------------ fin

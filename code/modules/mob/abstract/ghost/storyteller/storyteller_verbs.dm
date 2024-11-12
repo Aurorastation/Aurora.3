@@ -89,7 +89,7 @@
 
 		if(target)
 			for (var/path in paths)
-				for (var/i = 0; i < number; i++)
+				for (var/_ in 1 to number)
 					if(ispath(path, /turf))
 						var/turf/O = target
 						var/turf/N = O.ChangeTurf(path)
@@ -196,7 +196,7 @@
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
-			sound_to(world, ('sound/AI/commandreport.ogg'))
+			sound_to_playing_players('sound/AI/commandreport.ogg')
 
 	log_admin("Storyteller [key_name(src)] has created a command report: [reportbody]")
 	message_admins("Storyteller [key_name_admin(src)] has created a command report", 1)
@@ -221,7 +221,7 @@
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
-			sound_to(world, ('sound/AI/commandreport.ogg'))
+			sound_to_playing_players('sound/AI/commandreport.ogg')
 
 	log_admin("Storyteller [key_name(src)] has notified the Horizon about the current Odyssey: [reportbody]")
 	message_admins("Storyteller [key_name_admin(src)] has notified the Horizon about the current Odyssey:", 1)
@@ -288,9 +288,8 @@
 	set name = "Create Explosion"
 	set category = "Storyteller"
 
-	var/turf/epicenter = loc
-	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
+	var/turf/epicenter = get_turf(src)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if(null)
 			return 0
@@ -314,7 +313,7 @@
 
 	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
 
-	if (action == "No")
+	if (action == "No" || !action)
 		return
 
 	if (istype(O, /mob/abstract/ghost/observer))

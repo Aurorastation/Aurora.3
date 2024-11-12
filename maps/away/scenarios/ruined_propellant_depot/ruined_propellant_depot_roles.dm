@@ -96,5 +96,3 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/random/suit,
 	)
-
-// --------------------- fin

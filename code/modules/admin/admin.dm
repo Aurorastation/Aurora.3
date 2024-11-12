@@ -1406,7 +1406,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
 
-	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+	var/list/singleton/scenario/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
 	var/list/possible_scenarios = list()
 	for(var/singleton/scenario/S in all_scenarios)
 		possible_scenarios[S.name] = S

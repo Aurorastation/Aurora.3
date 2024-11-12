@@ -36,8 +36,8 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 /datum/map_template/ruin/away_site/post_exoplanet_generation(bounds)
 	// do away site exoplanet generation, if needed
 	if(length(exoplanet_themes))
-		for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+		for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
 			for(var/marker_turf_type in exoplanet_themes)
 				var/datum/exoplanet_theme/exoplanet_theme_type = exoplanet_themes[marker_turf_type]
 				var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
-				exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
+				exoplanet_theme.generate_map(z_index, bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MAXX], bounds[MAP_MAXY], marker_turf_type)
