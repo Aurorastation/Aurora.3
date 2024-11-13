@@ -8,9 +8,9 @@
 	/// The number of base points a character gets in this category.
 	var/base_skill_points
 
-/singleton/skill_category/proc/calculate_skill_points(datum/species/species, age, singleton/culture_item/culture, singleton/culture_item/origin)
-	var/species_modifier = species.modify_skill_points(src, age)
-	return base_skill_points * species_modifier
+/singleton/skill_category/proc/calculate_skill_points(datum/species/species, age, singleton/origin_item/culture, singleton/origin_item/origin)
+	var/list/species_modifiers = species.modify_skill_points(src, age)
+	return base_skill_points * species_modifiers[name]
 
 /singleton/skill_category/everyday
 	name = SKILL_CATEGORY_EVERYDAY

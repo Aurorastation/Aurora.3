@@ -106,7 +106,7 @@
 	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
 	for(var/category in SSskills.skill_tree)
 		var/singleton/skill_category/skill_category = category
-		dat += "<tr><th colspan = 4><b>[skill_category.name] ([calculate_remaining_skill_points(skill_category)])</b>"
+		dat += "<tr><th colspan = 4><b>[skill_category.name] ([calculate_remaining_skill_points(skill_category)] points remaining)</b>"
 		dat += "</th></tr>"
 		for(var/subcategory in SSskills.skill_tree[skill_category])
 			dat += "<tr><th colspan = 3><b>[subcategory]</b></th></tr>"
@@ -116,18 +116,39 @@
 
 	. = JOINTEXT(dat)
 
+/**
+ * Returns an HTML skill row.
+ */
 /datum/category_item/player_setup_item/skills/proc/get_skill_row(singleton/skill/skill, singleton/education/education)
 	var/list/dat = list()
 	dat += "<tr style='text-align:left;'>"
 	dat += "<th><a href='?src=[REF(src)];skillinfo=[skill.type]'>[skill.name]</a></th>"
 
 	var/current_level = pref.skills[skill.type]
-	var/maximum_skill_level = skill.get_maximum_level(education)
+	var/maximum_skill_level = get_maximum_skill_level(skill, education)
+
 	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= SKILL_LEVEL_PROFESSIONAL, i++)
 		dat += skill_to_button(skill, education, current_level, i, maximum_skill_level)
 
 	return JOINTEXT(dat)
 
+/datum/category_item/player_setup_item/skills/proc/get_maximum_skill_level(singleton/skill/skill, singleton/education/education)
+	var/base_maximum_level = skill.get_maximum_level(education)
+	var/remaining_skill_points = calculate_remaining_skill_points(GET_SINGLETON(skill.category))
+
+	for(var/skill_level = SKILL_LEVEL_UNFAMILIAR to base_maximum_level)
+		. = skill_level
+
+		var/skill_cost = skill.get_cost(skill_level)
+		if(skill_cost > remaining_skill_points)
+			break
+
+		skill_level++
+		remaining_skill_points -= skill_cost
+
+/**
+ * Turns a skill into a dynamic button.
+ */
 /datum/category_item/player_setup_item/skills/proc/skill_to_button(singleton/skill/skill, singleton/education/education, current_level, selection_level, maximum_skill_level)
 	var/effective_level = selection_level
 	if(effective_level <= 0)
@@ -153,16 +174,46 @@
 	else
 		return "<th>[span("Toohigh", "[button_label]")]</th>"
 
+/**
+ * Returns a button to set a skill in the skill UI.
+ */
 /datum/category_item/player_setup_item/skills/proc/add_link(singleton/skill/skill, singleton/education/education, text, style, value)
 	if(skill.get_maximum_level(education) >= value)
 		return "<a class=[style] href='?src=[REF(src)];setskill=[skill.type];newvalue=[value]'>[text]</a>"
 	return text
 
+/**
+ * Returns the currently remaining skill points in a given category.
+ */
 /datum/category_item/player_setup_item/skills/proc/calculate_remaining_skill_points(singleton/skill_category/skill_category)
 	if(!istype(skill_category))
-		crash_with("Invalid skill category fed to calculate_remaining_skill_points!")
+		crash_with("Invalid skill category [skill_category] fed to calculate_remaining_skill_points!")
 
-	var/total_points_available = skill_category.calculate_remaining_skill_points(GLOB.all_species[pref.species], pref.age)
+	var/skill_points_remaining = skill_category.calculate_skill_points(GLOB.all_species[pref.species], pref.age, GET_SINGLETON(text2path(pref.culture)), GET_SINGLETON(text2path(pref.origin)))
+	var/current_points_used = get_used_skill_points_per_category(skill_category, GET_SINGLETON(text2path(pref.education)))
+	return skill_points_remaining - current_points_used
+
+/**
+ * Returns the amount of used skill points in a certain skill category, ignoring skills given by education.
+ */
+/datum/category_item/player_setup_item/skills/proc/get_used_skill_points_per_category(singleton/skill_category/skill_category, singleton/education/education)
+	if(!istype(skill_category))
+		crash_with("Invalid skill category [skill_category] fed to get_used_skill_points_per_category!")
+
+	if(!istype(education))
+		crash_with("Invalid education [education] fed to get_used_skill_points_per_category!")
+
+	. = 0
+	for(var/skill_type in pref.skills)
+		var/singleton/skill/skill = GET_SINGLETON(skill_type)
+		if(skill.category != skill_category.type)
+			continue
+
+		if(skill.type in education.skills)
+			continue
+
+		. += skill.get_cost(pref.skills[skill.type])
+
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
@@ -229,6 +280,9 @@
 
 	return ..()
 
+/**
+ * Opens a window showing details of an education.
+ */
 /datum/category_item/player_setup_item/skills/proc/show_education_window(var/singleton/education/ED, var/topic_data, var/mob/user)
 	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
 	var/dat = "<html><center><b>[ED.name]</center></b>"
@@ -245,7 +299,7 @@
 	education_win.open()
 
 /**
- * This proc finds and returns the first suitable education for the pref datum.
+ * Finds and returns the first suitable education for the pref datum.
  */
 /datum/category_item/player_setup_item/skills/proc/find_suitable_education()
 	var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
