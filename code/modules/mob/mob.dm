@@ -54,6 +54,8 @@
 		click_handlers.QdelClear()
 		QDEL_NULL(click_handlers)
 
+	QDEL_NULL(skills)
+
 	return ..()
 
 /mob/New()
