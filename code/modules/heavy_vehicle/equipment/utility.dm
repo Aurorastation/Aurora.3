@@ -621,7 +621,7 @@
 
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
-	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+	if(is_type_in_list(target, list(/obj/item/stack/material/steel, /obj/item/stack/material/glass, /obj/item/stack/material/aluminium, /obj/item/stack/material/lead, /obj/item/stack/material/plastic)))
 		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
