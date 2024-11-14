@@ -169,9 +169,6 @@ var/list/armory_positions = list(
 	"Captain",
 	"Executive Officer",
 	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer",
 	"Operations Manager"
 )
 
