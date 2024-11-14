@@ -132,7 +132,7 @@
 
 	data["currently_printing"] = null
 	if(currently_printing)
-		data["currently_printing"] = "\ref[currently_printing]"
+		data["currently_printing"] = REF("[currently_printing]")
 	data["queue"] = list()
 	for(var/datum/fabricator_build_order/AR in print_queue)
 		data["queue"] += list(
