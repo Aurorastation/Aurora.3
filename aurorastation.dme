@@ -3751,6 +3751,7 @@
 #include "code\unit_tests\loadout_tests.dm"
 #include "code\unit_tests\map_tests.dm"
 #include "code\unit_tests\mob_tests.dm"
+#include "code\unit_tests\modular_computers_tests.dm"
 #include "code\unit_tests\object_tests.dm"
 #include "code\unit_tests\observation_tests.dm"
 #include "code\unit_tests\origins_tests.dm"
