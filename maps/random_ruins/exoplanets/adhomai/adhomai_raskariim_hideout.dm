@@ -58,14 +58,10 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer
-
+				/obj/item/clothing/under/tajaran/summer,
+				/obj/item/clothing/under/pants/tajaran,
+				/obj/item/clothing/under/pants/track
 	)
-
-	pants = list(
-				/obj/item/clothing/pants/tajaran,
-				/obj/item/clothing/pants/track
-				)
 
 	suit = list(
 				/obj/item/clothing/suit/storage/toggle/bomber,

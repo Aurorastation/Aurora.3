@@ -39,7 +39,7 @@
 	name = "unidentifiable corpse"
 	corpseid = 0
 	corpseradio = null
-	corpseuniform = /obj/item/clothing/under/rank/medical/surgeon
+	corpseuniform = /obj/item/clothing/under/pants/khaki
 	corpsesuit = /obj/item/clothing/suit/storage/toggle/labcoat/accent
 	corpseback = /obj/item/storage/backpack/satchel/leather
 	corpseshoes = /obj/item/clothing/shoes/workboots/dark

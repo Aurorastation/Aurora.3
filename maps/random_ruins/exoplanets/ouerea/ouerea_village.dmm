@@ -482,8 +482,8 @@
 /obj/item/clothing/under/skrell/wetsuit{
 	color = "#100942"
 	},
-/obj/item/clothing/pants/jeans,
-/obj/item/clothing/pants/tan,
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
 /obj/item/clothing/accessory/silversun/random,
 /obj/item/clothing/accessory/tshirt,
 /obj/item/clothing/accessory/tshirt/skrell/ocean,
@@ -558,8 +558,8 @@
 /obj/item/clothing/under/skrell/wetsuit{
 	color = "#100942"
 	},
-/obj/item/clothing/pants/jeans,
-/obj/item/clothing/pants/tan,
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
 /obj/item/clothing/accessory/silversun/random,
 /obj/item/clothing/accessory/tshirt,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/teal,

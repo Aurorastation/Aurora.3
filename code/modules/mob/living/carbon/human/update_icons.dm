@@ -792,7 +792,7 @@ There are several things that need to be remembered:
 			var/layer = L_EAR_LAYER
 			var/layer_alt = L_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = l_ear
-			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
+			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
 				layer = L_EAR_LAYER_ALT
 				layer_alt = L_EAR_LAYER
 
@@ -833,7 +833,7 @@ There are several things that need to be remembered:
 			var/layer = R_EAR_LAYER
 			var/layer_alt = R_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = r_ear
-			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
+			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
 				layer = R_EAR_LAYER_ALT
 				layer_alt = R_EAR_LAYER
 
@@ -1276,9 +1276,9 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[UNDER_UNIFORM_LAYER_WR] = null
-	overlays_raw[ABOVE_UNIFORM_LAYER_WR] = null
-	overlays_raw[ABOVE_SUIT_LAYER_WR] = null
+	overlays_raw[WRISTS_LAYER_UNDER] = null
+	overlays_raw[WRISTS_LAYER_UNIFORM] = null
+	overlays_raw[WRISTS_LAYER_OVER] = null
 
 	if(check_draw_wrists())
 		var/mob_icon
@@ -1307,57 +1307,12 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/wrist_layer = ABOVE_SUIT_LAYER_WR
+		var/wrist_layer = WRISTS_LAYER_OVER
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
 			wrist_layer = W.mob_wear_layer
 
 		overlays_raw[wrist_layer] = wrists_overlay
-
-	if(update_icons)
-		update_icon()
-
-/mob/living/carbon/human/update_inv_pants(var/update_icons=1)
-	if (QDELETED(src))
-		return
-
-	overlays_raw[UNDER_UNIFORM_LAYER_PA] = null
-	overlays_raw[ABOVE_UNIFORM_LAYER_PA] = null
-	overlays_raw[ABOVE_SUIT_LAYER_PA] = null
-
-	if(check_draw_pants())
-		var/mob_icon
-		var/mob_state = pants.item_state || pants.icon_state
-		if(pants.contained_sprite)
-			if(pants.icon_override)
-				mob_icon = pants.icon_override
-			else if(pants.sprite_sheets && pants.sprite_sheets[GET_BODY_TYPE])
-				mob_icon = pants.sprite_sheets[GET_BODY_TYPE]
-			else
-				mob_icon = pants.icon
-			pants.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(pants.icon_species_tag)][pants.item_state][WORN_PANTS]"
-		else
-			if(pants.item_state_slots && pants.item_state_slots[slot_pants_str])
-				mob_state = pants.item_state_slots[slot_pants_str]
-
-			//determine icon to use
-			if(pants.item_icons && (slot_pants_str in pants.item_icons))
-				mob_icon = pants.item_icons[slot_pants_str]
-			else if(pants.icon_override)
-				mob_icon = pants.icon_override
-				mob_state += WORN_PANTS
-			else
-				mob_icon = INV_PANTS_DEF_ICON
-
-		var/image/pants_overlay = pants.get_mob_overlay(src, mob_icon, mob_state, slot_pants_str)
-
-		var/pants_layer = ABOVE_SUIT_LAYER_PA
-		if(istype(pants, /obj/item/clothing/pants))
-			var/obj/item/clothing/pants/P = pants
-			pants_layer = P.mob_wear_layer
-
-		overlays_raw[pants_layer] = pants_overlay
 
 	if(update_icons)
 		update_icon()
@@ -1640,18 +1595,6 @@ There are several things that need to be remembered:
 	else if (wrists.flags_inv & ALWAYSDRAW)
 		return TRUE
 	else if (wear_suit?.flags_inv & HIDEWRISTS)
-		return FALSE
-	else
-		return TRUE
-
-/mob/living/carbon/human/proc/check_draw_pants()
-	SHOULD_NOT_SLEEP(TRUE)
-	SHOULD_BE_PURE(TRUE)
-	if (!pants)
-		return FALSE
-	else if (pants.flags_inv & ALWAYSDRAW)
-		return TRUE
-	else if (pants.flags_inv & HIDEPANTS)
 		return FALSE
 	else
 		return TRUE

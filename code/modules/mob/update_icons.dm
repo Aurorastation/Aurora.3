@@ -67,8 +67,5 @@
 /mob/proc/update_inv_wrists()
 	return
 
-/mob/proc/update_inv_pants()
-	return
-
 /mob/proc/update_targeted()
 	return
