@@ -53,6 +53,7 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
+	layer = BODY_BAG_LAYER
 	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
