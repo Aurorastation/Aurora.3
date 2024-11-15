@@ -1528,7 +1528,7 @@
 		/obj/item/material/knife/butterfly/switchblade = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
 		/obj/item/clothing/under/tajaran/summer = 2,
-		/obj/item/clothing/pants/tajaran = 2,
+		/obj/item/clothing/under/pants/tajaran = 2,
 		/obj/item/clothing/under/dress/tajaran =2,
 		/obj/item/clothing/under/dress/tajaran/blue = 2,
 		/obj/item/clothing/under/dress/tajaran/green = 2,
