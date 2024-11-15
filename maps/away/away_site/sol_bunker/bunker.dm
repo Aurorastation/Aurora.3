@@ -19,3 +19,7 @@
 /obj/effect/overmap/visitable/sector/abandoned_bunker
 	name = "lone asteroid"
 	desc = "A lone asteroid. Strange signals are coming from this one."
+
+/obj/effect/map_effect/marker/airlock/sol_bunker
+	name = "Entrance Airlock"
+	master_tag = "airlock_sol_bunker"

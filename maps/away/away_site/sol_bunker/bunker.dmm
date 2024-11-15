@@ -3,69 +3,87 @@
 /obj/machinery/door/airlock/centcom{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/turf/simulated/floor/wood,
+/area/derelict)
+"ax" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "aC" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "aL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"bg" = (
+/obj/effect/floor_decal/corner/brown,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "bJ" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"bK" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
 /area/derelict)
 "cn" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"cv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/derelict)
-"cA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
+/area/derelict)
+"cv" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"cA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"cJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "du" = (
 /obj/effect/decal/cleanable/dirt,
@@ -73,17 +91,31 @@
 	brightness_color = "#FA8282";
 	dir = 8
 	},
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
-/obj/item/gun/projectile/automatic/rifle/sol,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"dJ" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/icarus_drone/malf,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "fr" = (
@@ -93,15 +125,23 @@
 "fv" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "fy" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "fJ" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "fT" = (
@@ -109,6 +149,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/launcher/grenade{
 	pixel_y = 6
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
@@ -124,25 +167,72 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "gd" = (
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"gv" = (
+/obj/random/junk,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "gI" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
+/area/derelict)
+"ha" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"hf" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"hi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "ht" = (
 /obj/machinery/appliance/cooker/fryer,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"hC" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "hE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "ia" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -150,24 +240,44 @@
 	},
 /turf/simulated/floor/wood,
 /area/derelict)
+"ie" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An old cryogenic freezer .";
+	dir = 4;
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
 "iv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/turf/simulated/floor/wood,
+/area/derelict)
+"iN" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "iU" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "jC" = (
-/obj/structure/sign/flag/sol{
-	pixel_x = -32
-	},
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "jD" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -191,47 +301,63 @@
 	dir = 1
 	},
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled,
-/area/derelict)
-"jK" = (
-/obj/structure/sign/flag/sol/large/north,
-/obj/machinery/light_construct{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "kc" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"ki" = (
-/obj/structure/sign/flag/sol/large/north,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "kj" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "ku" = (
 /obj/structure/table/reinforced,
 /obj/random/junk,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "kL" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/storage/box/shotgunshells,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "kP" = (
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 33;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "ld" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/snack,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "lg" = (
@@ -239,7 +365,7 @@
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "li" = (
 /turf/simulated/floor/wood,
@@ -248,7 +374,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/turf/simulated/floor/wood,
 /area/derelict)
 "lu" = (
 /obj/structure/curtain/open/shower,
@@ -256,19 +382,34 @@
 /obj/item/soap/blue_soap,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
-"lU" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+"lM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
 	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"lU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "mg" = (
 /obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "mo" = (
@@ -293,27 +434,44 @@
 	pixel_x = -12;
 	pixel_y = 6
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "mM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/door_assembly,
-/turf/simulated/floor/wood/airless,
+/obj/structure/door_assembly{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "mP" = (
 /obj/structure/table/wood,
 /obj/item/pen,
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/derelict)
 "nj" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/turf/simulated/floor/wood,
+/area/derelict)
+"nn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
 /area/derelict)
 "nx" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "nR" = (
@@ -321,15 +479,26 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/foamedmetal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "om" = (
 /obj/machinery/photocopier,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "op" = (
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
+/area/derelict)
+"oq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "oM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -338,32 +507,49 @@
 /area/derelict)
 "oU" = (
 /obj/structure/door_assembly{
-	anchored = 1
+	anchored = 1;
+	dir = 8
 	},
-/turf/simulated/floor/wood/airless,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "oZ" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "pd" = (
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "pA" = (
 /obj/machinery/light_construct{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"pO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "pV" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "qy" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "qH" = (
 /obj/structure/window/reinforced{
@@ -377,7 +563,8 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/sign/flag/sol{
+/obj/structure/sign/flag/sol/old{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -385,7 +572,22 @@
 "qZ" = (
 /obj/structure/table/wood,
 /obj/item/phone,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
+/area/derelict)
+"rj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"rn" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/derelict)
 "rp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -393,14 +595,25 @@
 	pixel_y = -32
 	},
 /obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "rr" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict)
+"rE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/sol/marine,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "rF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -410,31 +623,35 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "sk" = (
-/obj/structure/door_assembly/door_assembly_hatch,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/door_assembly/door_assembly_hatch{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "sv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"sI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
+/area/derelict)
+"sI" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "sJ" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "sN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -445,7 +662,31 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"sO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"sS" = (
+/obj/random/junk,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"sT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "tz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -457,18 +698,17 @@
 	icon_state = "spiderling";
 	name = "dead greimorian"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "tL" = (
 /obj/structure/safe,
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/derelict)
 "tS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/structure/sign/flag/sol/old,
+/obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -478,40 +718,47 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
 /obj/item/grenade/frag,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "uk" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/remains/rat,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "un" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "us" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
 	},
-/turf/simulated/floor,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "uA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/ballistic,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "uE" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "uG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -524,7 +771,10 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -535,11 +785,16 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "vN" = (
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"vQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
 /area/derelict)
 "vY" = (
 /obj/structure/curtain/open/shower,
@@ -547,8 +802,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "wi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "wY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -558,16 +818,38 @@
 	},
 /turf/simulated/floor/wood,
 /area/derelict)
+"xw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
 "xU" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "xW" = (
 /obj/effect/decal/cleanable/mucus,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = 6
 	},
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "yt" = (
 /obj/machinery/shower{
@@ -579,25 +861,39 @@
 "yT" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
+/area/derelict)
+"ze" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "zs" = (
 /obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled,
 /area/derelict)
 "zJ" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "zM" = (
 /turf/simulated/mineral,
 /area/space)
+"Ag" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
 "Bi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood/airless,
+/turf/simulated/floor/wood,
 /area/derelict)
 "Bl" = (
 /obj/structure/toilet,
@@ -610,14 +906,27 @@
 /area/derelict)
 "Bq" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"BP" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "BV" = (
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
 /obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Ce" = (
 /turf/simulated/wall,
@@ -629,16 +938,38 @@
 	info = "\[center]\[flag_sol]\[/center]\[center]\[small]\[i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet\[/i]\[/small]\[/center]\[hr]\[hr]\[small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
 	},
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "CD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/sol/marine,
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"CM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"Dr" = (
+/obj/structure/computerframe{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "DF" = (
 /obj/random/junk,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Eb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -647,13 +978,29 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "Em" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
+/area/derelict)
+"Et" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown,
+/turf/simulated/floor/tiled,
+/area/derelict)
+"EI" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "EK" = (
 /obj/structure/toilet,
@@ -666,14 +1013,18 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/derelict)
 "Fn" = (
 /obj/random/junk,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "FJ" = (
 /obj/structure/door_assembly,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "FK" = (
@@ -683,12 +1034,15 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Gf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/derelict)
 "Gt" = (
 /obj/structure/table/rack,
@@ -700,24 +1054,25 @@
 /obj/item/clothing/head/helmet/space/void/sol,
 /turf/simulated/floor/tiled,
 /area/derelict)
-"Gw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
 "Gy" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
+"Gz" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
 "GF" = (
 /obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/derelict)
@@ -727,10 +1082,20 @@
 	dir = 1;
 	status = 2
 	},
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "GX" = (
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict)
+"Hy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "HB" = (
@@ -741,11 +1106,27 @@
 	},
 /obj/item/ammo_magazine/mc9mm,
 /obj/structure/closet/crate/drop,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood,
+/area/derelict)
+"Ii" = (
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "IB" = (
 /obj/effect/decal/cleanable/spiderling_remains,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
+/area/derelict)
+"ID" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/derelict)
 "II" = (
 /obj/structure/sink{
@@ -770,36 +1151,63 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "Jc" = (
 /obj/structure/table/reinforced,
 /obj/random/booze,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
+"Js" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
 "Kq" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/derelict)
 "Ku" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
+/area/derelict)
+"KA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "KG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"KK" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "KL" = (
 /obj/structure/boulder,
@@ -810,33 +1218,59 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"Lb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Lu" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -33;
+	pixel_y = 7;
 	dir = 1
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
+/area/derelict)
+"Lx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "LH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "LJ" = (
-/obj/structure/sign/flag/sol{
-	pixel_x = 32
-	},
 /obj/machinery/light_construct{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"LU" = (
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Mf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Mh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -844,41 +1278,69 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "Mi" = (
-/obj/structure/sign/flag/sol/large/south,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/obj/structure/sign/flag/sol/old/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
+/area/derelict)
+"MC" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "MJ" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/ballistic,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "ML" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "Nf" = (
 /obj/random/junk,
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
 /area/derelict)
+"Nq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
 "Oe" = (
 /obj/effect/decal/remains/rat,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/derelict)
 "Oh" = (
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "Oi" = (
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/wood,
 /area/derelict)
+"Oq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/derelict)
 "OK" = (
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "OL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -886,7 +1348,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/derelict)
 "OR" = (
 /obj/structure/table/rack,
@@ -903,35 +1365,67 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "Pe" = (
 /obj/effect/decal/cleanable/generic,
-/obj/structure/sign/flag/sol{
-	pixel_x = 32
-	},
 /obj/machinery/light_construct{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"Pt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Pz" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"QF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "QX" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "Rb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
+/area/derelict)
+"Rd" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "Re" = (
 /obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "Rk" = (
@@ -940,7 +1434,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -957,7 +1451,7 @@
 "RO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "Sv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -975,17 +1469,34 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/derelict)
 "SI" = (
 /obj/machinery/door/airlock/vault/bolted{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "SW" = (
 /obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
+/area/derelict)
+"Tk" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"Tp" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "TC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -995,16 +1506,6 @@
 /obj/effect/overmap/visitable/sector/abandoned_bunker,
 /turf/simulated/floor/wood,
 /area/derelict)
-"TO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/derelict)
 "TP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/greenglow,
@@ -1012,6 +1513,12 @@
 /area/derelict)
 "Uq" = (
 /turf/simulated/wall/r_wall,
+/area/derelict)
+"UH" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "UK" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -1029,49 +1536,44 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/derelict)
 "Vs" = (
-/obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/derelict)
+"Vv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"Vw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/derelict)
+"VZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Wn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/rat,
-/obj/structure/sign/flag/sol{
+/obj/structure/sign/flag/sol/old{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"WE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
-"WG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
-"WS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
 /area/derelict)
 "Xd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1083,10 +1585,17 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/derelict)
 "XK" = (
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"XM" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/wood,
 /area/derelict)
 "Ya" = (
@@ -1095,15 +1604,26 @@
 	brightness_color = "#FA8282";
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Yp" = (
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/derelict)
+"YG" = (
+/obj/structure/table/reinforced,
+/obj/random/junk,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 "YV" = (
 /turf/template_noop,
@@ -1113,15 +1633,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full,
 /area/derelict)
 "Zg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/derelict)
 
 (1,1,1) = {"
@@ -31828,11 +32349,11 @@ Yp
 Yp
 Yp
 Yp
-Lu
-xU
+sI
+cA
 xU
 kP
-xU
+hf
 Rk
 OV
 mo
@@ -32090,7 +32611,7 @@ Uq
 Uq
 Uq
 kc
-Mf
+tz
 LH
 qH
 Uq
@@ -32600,16 +33121,16 @@ Yp
 Yp
 Uq
 Uq
-gd
-Mf
-gd
+hC
+un
+cv
 jC
-Mf
-Mf
+un
+un
 FK
-gd
+oq
 DF
-gd
+LU
 Uq
 Uq
 zM
@@ -32856,18 +33377,18 @@ Yp
 Yp
 Uq
 Uq
-gd
-gd
-Mf
-DF
-aL
+hC
+ze
+hf
+iN
+rj
 lg
-Mf
+hf
 iU
-gd
-gd
-Mf
-gd
+Ii
+Ii
+Pt
+LU
 Uq
 Uq
 Uq
@@ -33113,19 +33634,19 @@ Uq
 Uq
 Uq
 QX
-Mf
+lM
 uA
-gd
+Tp
 Mf
-gd
-gd
-gd
-gd
-gd
+Tp
+Tp
+Tp
+Tp
+Tp
 aL
 uA
-gd
-gd
+MC
+LU
 Uq
 Uq
 Uq
@@ -33365,30 +33886,30 @@ zM
 Uq
 fv
 mH
-tz
-qy
+KA
+EI
 zs
 Ce
-Mf
-gd
+us
+Ii
 Bq
-TO
+rn
 tS
-WE
+rn
 hS
 hS
-cA
-tS
-Gw
-gd
+rn
+rn
+rn
+Vw
 OK
-Mf
+pO
 Uq
 Ku
 kL
 du
 tV
-GX
+vQ
 Uq
 Uq
 zM
@@ -33621,31 +34142,31 @@ zM
 zM
 Uq
 gI
-oZ
+Ii
 pd
 uk
-ku
+YG
 Ce
-ki
-Mf
-Mf
-WG
+Vw
+hf
+pO
+Kq
 Cs
 nx
-li
-XK
+hi
+Lx
 nx
-Re
-us
-Bq
-gd
-gd
+XM
+Kq
+KK
+Ii
+Gz
 Uq
-aC
+dJ
 Xu
 GX
 GX
-GX
+sO
 Uq
 Uq
 zM
@@ -33884,25 +34405,25 @@ uE
 GF
 Ce
 pA
-Mf
-Mf
-WS
+hf
+pO
+Kq
 Re
 ia
 Xd
 XK
 Nf
 mP
-cv
-gd
-Mf
+Kq
+Vw
+hf
 rp
 Uq
-aC
+dJ
 GX
 GX
 Gf
-GX
+sO
 Uq
 Uq
 zM
@@ -34135,27 +34656,27 @@ zM
 zM
 Uq
 gI
-oZ
+Ii
 tD
-tz
+hf
 IB
 ML
-gd
-Mf
-gd
+Vw
+hf
+Gz
 ab
 Fn
 li
-fJ
-fJ
+Dr
+Dr
 Oi
-XK
+nn
 ab
-gd
-gd
+Vw
+Ii
 Bq
 SI
-GX
+VZ
 GX
 EO
 GX
@@ -34393,26 +34914,26 @@ zM
 Uq
 jF
 pV
-tz
+hf
 vJ
-tz
+Lb
 ML
-Mf
-gd
-Mf
+CM
+Ii
+pO
 ab
-li
+Oh
 Xd
 fJ
 fJ
 TN
-Xd
+Oq
 ab
-gd
+Vw
 sJ
-gd
+Gz
 SI
-GX
+VZ
 GX
 GX
 GX
@@ -34650,13 +35171,13 @@ zM
 Uq
 ku
 qy
-tz
+hf
 qy
 IO
 Ce
-jK
-Mf
-gd
+pA
+hf
+Gz
 Kq
 qZ
 ia
@@ -34664,16 +35185,16 @@ wY
 oM
 Rq
 tL
-bK
-gd
-Mf
+Kq
+Vw
+hf
 BV
 Uq
-aC
+dJ
 Oe
 GX
 Rb
-GX
+sO
 Uq
 Uq
 zM
@@ -34911,20 +35432,20 @@ pV
 vN
 Jc
 Ce
-gd
-Mf
-gd
-WG
+Zg
+hf
+Gz
+Kq
 HB
 om
-li
-XK
+xw
+Vv
 fy
-Re
-us
-gd
-Mf
-DF
+BP
+Kq
+Vw
+hf
+gv
 Uq
 fT
 rr
@@ -35164,30 +35685,30 @@ zM
 Uq
 mg
 oZ
-tz
-zs
-zs
+QF
+Tk
+Ag
 Ce
-gd
-gd
-Mf
-sI
-tS
-WE
+Vw
+Ii
+pO
+rn
+rn
+rn
 hS
 hS
-cA
-tS
-Zg
-Mf
-gd
-gd
+rn
+rn
+rn
+CM
+Ii
+Gz
 Uq
 aC
 lU
 Ya
-GX
-GX
+ID
+Hy
 Uq
 Uq
 zM
@@ -35426,19 +35947,19 @@ Uq
 Uq
 Uq
 gd
-Mf
+Nq
 MJ
-Mf
-gd
-gd
-lg
-gd
-gd
-Mf
-gd
+un
+oq
+oq
+ax
+oq
+oq
+un
+oq
 MJ
-gd
-gd
+bg
+UH
 Uq
 Uq
 Uq
@@ -35683,18 +36204,18 @@ zM
 zM
 Uq
 Uq
-DF
-Mf
-gd
-gd
+sS
+Nq
+Ii
+Ii
 RO
-Bq
-Mf
-Mf
-gd
-gd
-Mf
-gd
+pV
+hf
+hf
+Ii
+Ii
+Et
+UH
 Uq
 Uq
 Uq
@@ -35942,15 +36463,15 @@ zM
 Uq
 Uq
 gd
-gd
-gd
+Tp
+ha
 LJ
 Mf
-gd
+Tp
 Pe
+cJ
 Mf
-Mf
-gd
+UH
 Uq
 Uq
 zM
@@ -36456,14 +36977,14 @@ RB
 II
 fY
 Ce
-CD
-hE
+rE
+Lx
 mM
-hE
+Lx
 cn
 SC
 uG
-uG
+ie
 Uq
 zM
 zM
@@ -36717,9 +37238,9 @@ GU
 aj
 aj
 Bi
-hE
-hE
-hE
+XK
+XK
+XK
 KG
 Uq
 zM
@@ -36970,14 +37491,14 @@ TC
 uQ
 TC
 FJ
-hE
+sT
 Bi
-hE
-hE
-hE
-hE
-Oh
-hE
+XK
+XK
+XK
+XK
+li
+Js
 Uq
 Yp
 Yp
@@ -37230,11 +37751,11 @@ FJ
 Oh
 aj
 nj
-hE
+XK
 aj
 lp
 lp
-lp
+Rd
 Uq
 zM
 Yp
@@ -37485,12 +38006,12 @@ vY
 op
 Ce
 Eb
-Oh
-hE
+li
+XK
 iv
-hE
-hE
-un
+XK
+XK
+Xd
 sN
 Uq
 zM
@@ -37742,8 +38263,8 @@ lu
 yt
 Ce
 CD
-hE
-hE
+Vv
+Vv
 sv
 Wn
 bJ
