@@ -243,6 +243,10 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
+"cl" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
 "cn" = (
 /obj/machinery/power/apc/empty/south,
 /obj/structure/cable{
@@ -437,10 +441,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"dQ" = (
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/space)
 "dT" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -1010,6 +1010,9 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/rust/airless,
 /area/crashed_elyran_tanker/engineering)
 "jT" = (
@@ -1261,6 +1264,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"mS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/girder,
+/turf/simulated/floor/tiled/rust/airless,
+/area/crashed_elyran_tanker/engineering)
 "mU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -1374,10 +1382,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
-"od" = (
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/crashed_elyran_tanker/tanks)
 "oh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
@@ -3260,6 +3264,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
+"Hi" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE"
+	},
+/turf/simulated/floor/plating,
+/area/crashed_elyran_tanker/crew)
 "Hj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3295,11 +3305,13 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "HA" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#BDB6AE"
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/crashed_elyran_tanker/crew)
+/turf/simulated/floor/tiled/rust/airless,
+/area/crashed_elyran_tanker/engineering)
 "HB" = (
 /obj/item/stack/material/steel,
 /turf/simulated/floor/airless,
@@ -3335,13 +3347,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
-"HO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
-/area/crashed_elyran_tanker/crew)
 "HT" = (
 /obj/item/pipewrench{
 	pixel_x = -6;
@@ -3426,17 +3431,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
-"Io" = (
+"IA" = (
 /turf/space/dynamic,
 /area/space)
-"IA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/rust/airless,
-/area/crashed_elyran_tanker/engineering)
 "IE" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -3678,6 +3675,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
 "Le" = (
@@ -3689,10 +3689,9 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/crashed_elyran_tanker/tanks)
 "Lf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
-/turf/simulated/floor/tiled/rust/airless,
-/area/crashed_elyran_tanker/engineering)
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/crashed_elyran_tanker/tanks)
 "Lj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -31145,7 +31144,7 @@ tS
 Yw
 mQ
 fw
-od
+Lf
 Yh
 Wt
 CD
@@ -32167,7 +32166,7 @@ Dg
 Dg
 Dg
 or
-od
+Lf
 uc
 gc
 PY
@@ -32182,7 +32181,7 @@ gc
 kg
 BG
 Id
-od
+Lf
 ja
 Dg
 Dg
@@ -33201,10 +33200,10 @@ gc
 gc
 gc
 fw
-od
+Lf
 Jl
 Jl
-od
+Lf
 HG
 gc
 gc
@@ -34223,7 +34222,7 @@ Dg
 Dg
 Dg
 or
-od
+Lf
 uc
 Tn
 YM
@@ -34238,7 +34237,7 @@ nK
 et
 pB
 Fr
-od
+Lf
 Pt
 Dg
 Dg
@@ -34496,7 +34495,7 @@ de
 dT
 OF
 xx
-od
+Lf
 Dg
 Dg
 Dg
@@ -34753,7 +34752,7 @@ QV
 xf
 Dk
 xx
-od
+Lf
 Dg
 Dg
 Dg
@@ -35010,7 +35009,7 @@ gc
 Sk
 fw
 xx
-od
+Lf
 Dg
 Dg
 Dg
@@ -35257,17 +35256,17 @@ gc
 gc
 gc
 fw
-od
+Lf
 Jl
 Jl
-od
+Lf
 HG
 gc
 gc
 Sk
 fw
-od
-od
+Lf
+Lf
 Dg
 Dg
 Dg
@@ -35507,7 +35506,7 @@ Dg
 Dg
 Dg
 Dg
-od
+Lf
 xx
 yb
 gc
@@ -35524,7 +35523,7 @@ gc
 Sk
 fw
 xx
-od
+Lf
 Dg
 Dg
 Dg
@@ -35781,7 +35780,7 @@ uA
 Yt
 Dk
 xx
-od
+Lf
 Dg
 Dg
 Dg
@@ -36279,7 +36278,7 @@ Dg
 Dg
 Dg
 or
-od
+Lf
 HK
 bV
 UG
@@ -36294,7 +36293,7 @@ Wr
 HE
 hz
 CQ
-od
+Lf
 ja
 Dg
 Dg
@@ -37313,7 +37312,7 @@ gc
 gc
 vu
 fw
-od
+Lf
 Jl
 xx
 qz
@@ -37829,7 +37828,7 @@ hb
 Dk
 xx
 gl
-od
+Lf
 xx
 Dk
 wc
@@ -38335,7 +38334,7 @@ Dg
 Dg
 Dg
 or
-od
+Lf
 uc
 mE
 Qr
@@ -38350,8 +38349,8 @@ gc
 QR
 Sk
 Id
-od
-od
+Lf
+Lf
 Dg
 qu
 qu
@@ -38608,7 +38607,7 @@ Qp
 Fl
 Ew
 xx
-od
+Lf
 Dg
 qu
 qu
@@ -38865,7 +38864,7 @@ KL
 qK
 Dk
 xx
-od
+Lf
 tA
 qu
 qu
@@ -39121,7 +39120,7 @@ gc
 gc
 Sk
 fw
-od
+Lf
 CD
 SA
 qu
@@ -39363,22 +39362,22 @@ gm
 gm
 gm
 gm
-od
+Lf
 HG
 gc
 zi
 di
 Nd
-od
+Lf
 Yh
 Oi
-od
+Lf
 HG
 Xw
 zi
 Sk
 fw
-od
+Lf
 CD
 SA
 SA
@@ -39620,7 +39619,7 @@ qj
 jg
 Rp
 gm
-od
+Lf
 HG
 gc
 zi
@@ -39877,7 +39876,7 @@ zk
 XU
 Tj
 LC
-od
+Lf
 HG
 gc
 HZ
@@ -40666,7 +40665,7 @@ oh
 VD
 Ry
 yZ
-Lf
+mS
 yZ
 yZ
 yi
@@ -40912,8 +40911,8 @@ mE
 Gq
 le
 le
-HA
-HA
+Hi
+Hi
 le
 le
 mE
@@ -41164,8 +41163,8 @@ JM
 LC
 le
 le
-HA
-HA
+Hi
+Hi
 le
 le
 ZP
@@ -41181,7 +41180,7 @@ Sq
 yZ
 yZ
 CC
-Lf
+mS
 Sq
 Sq
 qu
@@ -42207,7 +42206,7 @@ pO
 vT
 Bv
 sn
-IA
+HA
 TL
 xL
 Sq
@@ -42464,7 +42463,7 @@ iS
 BP
 ge
 PQ
-IA
+HA
 BX
 tW
 hq
@@ -42971,7 +42970,7 @@ kl
 Ov
 le
 le
-HO
+aq
 le
 Sq
 EG
@@ -43476,9 +43475,9 @@ cr
 Sc
 vr
 le
-dQ
-dQ
-dQ
+cl
+cl
+cl
 Th
 Th
 iY
@@ -43733,10 +43732,10 @@ le
 le
 le
 le
-dQ
-Io
-dQ
-dQ
+cl
+IA
+cl
+cl
 Th
 Ao
 nu
@@ -43987,13 +43986,13 @@ Xj
 Me
 eJ
 le
-dQ
-dQ
-dQ
-dQ
-Io
-dQ
-dQ
+cl
+cl
+cl
+cl
+IA
+cl
+cl
 Th
 Il
 eT
@@ -44244,12 +44243,12 @@ nW
 it
 Pl
 Pl
-dQ
-Io
-Io
-Io
-Io
-dQ
+cl
+IA
+IA
+IA
+IA
+cl
 Th
 Th
 me
@@ -44260,8 +44259,8 @@ Th
 Th
 ZJ
 cP
-dQ
-Io
+cl
+IA
 qu
 yi
 qu
@@ -44500,13 +44499,13 @@ ph
 MP
 PI
 Pl
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
+cl
+cl
+cl
+cl
+cl
+cl
+cl
 Th
 VN
 aS
@@ -44517,12 +44516,12 @@ FY
 Th
 ZJ
 cP
-dQ
-Io
+cl
+IA
 qu
 qu
 qu
-dQ
+cl
 aL
 Dd
 yS
@@ -44774,12 +44773,12 @@ pm
 Th
 ZJ
 cP
-dQ
-Io
+cl
+IA
 qu
 qu
-Io
-dQ
+IA
+cl
 YH
 nq
 Vi
@@ -45014,13 +45013,13 @@ EK
 Xj
 Zd
 Pl
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
+cl
+cl
+cl
+cl
+cl
+cl
+cl
 Th
 PZ
 Og
@@ -45031,12 +45030,12 @@ OH
 gf
 dY
 hQ
-dQ
+cl
 qu
 qu
 qu
-Io
-dQ
+IA
+cl
 QB
 nq
 mK
@@ -45272,12 +45271,12 @@ ac
 uD
 Pl
 Pl
-dQ
-Io
-Io
-Io
-Io
-dQ
+cl
+IA
+IA
+IA
+IA
+cl
 Th
 Yq
 hU
@@ -45288,12 +45287,12 @@ ok
 AE
 IX
 cP
-dQ
+cl
 qu
 qu
-Io
-Io
-dQ
+IA
+IA
+cl
 Hj
 nq
 mK
@@ -45529,12 +45528,12 @@ fd
 HJ
 Hp
 Pl
-dQ
-Io
-Io
-Io
-Io
-dQ
+cl
+IA
+IA
+IA
+IA
+cl
 Th
 Th
 kE
@@ -45545,12 +45544,12 @@ Th
 Th
 gF
 Cr
-dQ
-Io
-Io
-Io
-Io
-dQ
+cl
+IA
+IA
+IA
+IA
+cl
 Hj
 nq
 mK
@@ -45786,28 +45785,28 @@ pj
 DB
 pa
 Pl
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
+cl
+cl
+cl
+cl
+cl
+cl
+cl
 Th
 bo
 nX
 lp
 YE
 Th
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
-dQ
+cl
+cl
+cl
+cl
+cl
+cl
+cl
+cl
+cl
 Hj
 nV
 Yb

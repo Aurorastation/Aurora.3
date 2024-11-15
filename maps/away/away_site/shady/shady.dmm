@@ -989,7 +989,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/shady,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
 /area/hideout)
 "nB" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -1148,12 +1149,6 @@
 /obj/random/civgun/rifle,
 /turf/simulated/floor/tiled,
 /area/hideout)
-"qr" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/asteroid/ash,
-/area/mine)
 "qu" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/decal/cleanable/dirt,
@@ -1278,7 +1273,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -1358,7 +1353,8 @@
 	pixel_y = -27;
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
 /area/hideout)
 "tI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1502,15 +1498,15 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shady,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -24;
-	dir = 4;
-	pixel_y = 6
-	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 7;
+	dir = 4;
+	pixel_x = -25
 	},
 /turf/simulated/floor/tiled,
 /area/hideout)
@@ -2486,7 +2482,8 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shady,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
 /area/hideout)
 "LV" = (
 /mob/living/simple_animal/hostile/giant_spider/hunter,
@@ -2762,9 +2759,6 @@
 /area/hideout)
 "Qv" = (
 /obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
 /obj/effect/map_effect/marker/airlock/shady,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -2772,7 +2766,11 @@
 	pixel_y = 7;
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
 /area/hideout)
 "QD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2784,13 +2782,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shady,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/hideout)
 "QF" = (
@@ -35500,7 +35501,7 @@ lf
 LI
 LI
 LI
-qr
+Be
 Be
 Be
 Be
@@ -36256,7 +36257,7 @@ lf
 LI
 LI
 LI
-qr
+Be
 Be
 Be
 Be

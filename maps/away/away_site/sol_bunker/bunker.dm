@@ -23,3 +23,11 @@
 /obj/effect/map_effect/marker/airlock/sol_bunker
 	name = "Entrance Airlock"
 	master_tag = "airlock_sol_bunker"
+
+/area/sol_bunker
+	name = "ASSN Naval Installation"
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	requires_power = FALSE
+	ambience = AMBIENCE_RUINS
+	base_turf = /turf/space
+	icon_state = "bluenew"
