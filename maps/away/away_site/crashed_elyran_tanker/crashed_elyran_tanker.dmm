@@ -1088,10 +1088,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_y = 4;
-	pixel_x = -7
-	},
 /obj/item/device/gps{
 	pixel_x = 5
 	},
@@ -1158,10 +1154,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
-"lB" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/crashed_elyran_tanker/tanks)
 "lN" = (
 /obj/structure/inflatable/wall,
 /obj/effect/decal/cleanable/dirt,
@@ -1702,10 +1694,6 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/tanks)
 "qU" = (
-/obj/structure/sign/flag/elyra{
-	pixel_y = 32;
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
@@ -2518,9 +2506,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/button/distress{
-	pixel_y = 25
-	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "zr" = (
@@ -3251,11 +3236,6 @@
 	},
 /area/crashed_elyran_tanker/engineering)
 "GZ" = (
-/obj/structure/sign/flag/elyra{
-	pixel_y = -32;
-	pixel_x = -32;
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
@@ -3666,6 +3646,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/elyra{
+	pixel_y = 32;
+	pixel_x = -32;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "Ld" = (
@@ -3714,7 +3699,7 @@
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/crashed_elyran_tanker/tanks)
 "Lw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4490,8 +4475,8 @@
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
-/obj/machinery/alarm/south{
-	req_one_access = null
+/obj/structure/sign/flag/elyra{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
@@ -4625,6 +4610,9 @@
 "Uw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/east,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "Uz" = (
@@ -29603,7 +29591,7 @@ jr
 qN
 qN
 FE
-lB
+Lf
 CD
 ih
 qN
@@ -29860,8 +29848,8 @@ mE
 mE
 Nd
 Vc
-lB
-lB
+Lf
+Lf
 oQ
 dG
 Ss

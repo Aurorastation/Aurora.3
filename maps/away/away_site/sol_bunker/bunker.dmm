@@ -48,7 +48,7 @@
 "cv" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_x = -32;
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -186,9 +186,6 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
-	},
-/obj/machinery/light/small/red{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -727,7 +724,6 @@
 /area/sol_bunker)
 "tS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "tV" = (
@@ -907,7 +903,7 @@
 	},
 /obj/structure/sign/flag/sol/old{
 	pixel_x = 32;
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -971,6 +967,7 @@
 /area/sol_bunker)
 "Dg" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "DF" = (
@@ -1198,6 +1195,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "Kq" = (
@@ -1408,7 +1408,7 @@
 	},
 /obj/structure/sign/flag/sol/old{
 	pixel_x = 32;
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -1585,7 +1585,7 @@
 /obj/effect/decal/remains/rat,
 /obj/structure/sign/flag/sol/old{
 	pixel_x = 32;
-	dir = 8
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -32381,7 +32381,7 @@ sI
 cA
 xU
 kP
-tS
+Dg
 Rk
 OV
 mo
@@ -33407,11 +33407,11 @@ Uq
 Uq
 Gp
 rP
-Dg
+tS
 WV
 Iy
 lg
-Dg
+tS
 iU
 oZ
 oZ
@@ -34169,14 +34169,14 @@ zM
 zM
 zM
 Uq
-gI
+JT
 oZ
 pd
 uk
 ku
 Ce
 Ry
-Dg
+tS
 Mf
 Kq
 Cs
@@ -34433,7 +34433,7 @@ uE
 GF
 Ce
 pA
-Dg
+tS
 Mf
 Kq
 kH
@@ -34444,7 +34444,7 @@ Nf
 mP
 Kq
 Ry
-Dg
+tS
 rp
 Uq
 aC
@@ -34683,14 +34683,14 @@ zM
 zM
 zM
 Uq
-JT
+gI
 oZ
 tD
-Dg
+tS
 IB
 ML
 Ry
-Dg
+tS
 lw
 ab
 Fn
@@ -34942,7 +34942,7 @@ zM
 Uq
 jF
 pV
-Dg
+tS
 vJ
 wR
 ML
@@ -35199,12 +35199,12 @@ zM
 Uq
 PW
 Hc
-Dg
+tS
 Hc
 IO
 Ce
 pA
-Dg
+tS
 lw
 Kq
 qZ
@@ -35215,7 +35215,7 @@ Rq
 tL
 Kq
 Ry
-Dg
+tS
 BV
 Uq
 aC
@@ -35461,7 +35461,7 @@ vN
 Jc
 Ce
 Zg
-Dg
+tS
 lw
 Kq
 HB
@@ -35472,7 +35472,7 @@ fy
 hl
 Kq
 Ry
-Dg
+tS
 od
 Uq
 fT
@@ -36238,8 +36238,8 @@ oZ
 oZ
 RO
 pV
-Dg
-Dg
+tS
+tS
 oZ
 oZ
 Yq
