@@ -214,7 +214,6 @@
 
 		. += skill.get_cost(pref.skills[skill.type])
 
-
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])
 		var/singleton/skill/skill_to_show = GET_SINGLETON(text2path(href_list["skillinfo"]))
