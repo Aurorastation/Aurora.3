@@ -58,4 +58,4 @@ changes:
   - bugfix: "Body/Cryo bags will now be above roller beds when deployed."
   - bugfix: "Body/Cryo bags will no longer be above player mobs after being buckled and dragged."
   - bugfix: "Bullets will no longer be on top of roller beds and body/cryo bags."
-  - bugfix: "Buckled atoms layer will now be reset upon being unbuckled."
+  - bugfix: "A buckled atom's layer will now be reset upon being unbuckled."
