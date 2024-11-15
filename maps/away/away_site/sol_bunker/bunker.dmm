@@ -187,6 +187,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
 "gS" = (
@@ -503,9 +506,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/sol_bunker,
-/obj/machinery/light/small{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "od" = (
@@ -726,11 +726,9 @@
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "tS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid{
-	dir = 8
-	},
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "tV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1000,9 +998,11 @@
 /turf/simulated/floor/wood,
 /area/sol_bunker)
 "Eg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/foamedmetal,
-/turf/simulated/floor/tiled/full,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor,
 /area/sol_bunker)
 "Em" = (
 /obj/structure/toilet,
@@ -1197,9 +1197,6 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
-	},
-/obj/machinery/light/small/red{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/sol_bunker)
@@ -32384,7 +32381,7 @@ sI
 cA
 xU
 kP
-Eg
+tS
 Rk
 OV
 mo
@@ -33924,14 +33921,14 @@ Ce
 us
 oZ
 FH
-tS
-tS
-tS
+Eg
+Eg
+Eg
 hS
 hS
-tS
-tS
-tS
+Eg
+Eg
+Eg
 Ry
 OK
 Mf
@@ -34172,7 +34169,7 @@ zM
 zM
 zM
 Uq
-JT
+gI
 oZ
 pd
 uk
@@ -34686,7 +34683,7 @@ zM
 zM
 zM
 Uq
-gI
+JT
 oZ
 tD
 Dg
@@ -35723,14 +35720,14 @@ Ce
 Ry
 oZ
 Mf
-tS
-tS
-tS
+Eg
+Eg
+Eg
 hS
 hS
-tS
-tS
-tS
+Eg
+Eg
+Eg
 sX
 oZ
 lw
