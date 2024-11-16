@@ -25,7 +25,7 @@ var/global/list/rad_collectors = list()
 	var/last_power_new = 0
 	/// Whether the radiation collector is active or not.
 	var/active = FALSE
-	/// Whether the radiation collector is locked or not.
+	/// Whether the radiation collector's controls are locked or not.
 	var/locked = FALSE
 	/// Determines the ratio of default draining of phoron while radiation collector is active
 	var/drainratio = 1
@@ -51,14 +51,14 @@ var/global/list/rad_collectors = list()
 	rad_collectors -= src
 	return ..()
 
-/obj/machinery/power/rad_collector/process()
+/obj/machinery/power/rad_collector/process(seconds_per_tick)
 	if((stat && BROKEN) || melted)
 		return
 	var/turf/T = get_turf(src)
 	if(T)
 		var/datum/gas_mixture/our_turfs_air = T.return_air()
 		if(our_turfs_air.temperature > max_safe_temp)
-			health -= ((our_turfs_air.temperature - max_safe_temp) / 10)
+			health -= ((our_turfs_air.temperature - max_safe_temp) / 10) * seconds_per_tick
 			if(health <= 0)
 				collector_break()
 
@@ -75,14 +75,14 @@ var/global/list/rad_collectors = list()
 					end_time = world.time + alert_delay
 					visible_message("[icon2html(src, viewers(get_turf(src)))] \the [src] beeps loudly as the radiation reaches dangerous levels, indicating imminent damage.")
 					playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
-			receive_pulse(12.5*(last_rads/max_rads)/(0.3+(last_rads/max_rads)))
+			receive_pulse(12.5*(last_rads/max_rads)/(0.3+(last_rads/max_rads)) * seconds_per_tick)
 
 	if(loaded_tank)
 		if(loaded_tank.air_contents.gas[GAS_PHORON] == 0)
 			investigate_log("[SPAN_COLOR("red", "out of fuel")].","singulo")
 			eject()
 		else
-			loaded_tank.air_contents.adjust_gas(GAS_PHORON, -0.01*drainratio*min(last_rads,max_rads)/max_rads) //fuel cost increases linearly with incoming radiation
+			loaded_tank.air_contents.adjust_gas(GAS_PHORON, (-0.01*drainratio*min(last_rads,max_rads)/max_rads) * seconds_per_tick) //fuel cost increases linearly with incoming radiation
 
 
 /obj/machinery/power/rad_collector/CanUseTopic(mob/user)
@@ -106,26 +106,26 @@ var/global/list/rad_collectors = list()
 		to_chat(user, SPAN_WARNING("The controls are locked!"))
 	..()
 
-/obj/machinery/power/rad_collector/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/tank/phoron))
+/obj/machinery/power/rad_collector/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("The [src] needs to be secured to the floor first."))
 			return TRUE
 		if(loaded_tank)
 			to_chat(user, SPAN_WARNING("There's already a phoron tank loaded."))
 			return TRUE
-		if(!user.unEquip(W, src))
+		if(!user.unEquip(attacking_item, src))
 			return TRUE
-		loaded_tank = W
+		loaded_tank = attacking_item
 		update_icon()
 		return TRUE
 
-	if(W.iscrowbar())
+	if(attacking_Item.iscrowbar())
 		if(loaded_tank && !locked)
 			eject()
 			return TRUE
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(loaded_tank)
 			to_chat(user, SPAN_NOTICE("Remove the phoron tank first."))
 			return TRUE
@@ -144,28 +144,29 @@ var/global/list/rad_collectors = list()
 			disconnect_from_network()
 		return TRUE
 
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
+	if(istype(attacking_item, /obj/item/card/id)||istype(attacking_item, /obj/item/modular_computer))
 		if (allowed(user))
 			if(active)
 				locked = !locked
 				to_chat(user, "The controls are now [locked ? "locked." : "unlocked."]")
 			else
-				locked = 0 //just in case it somehow gets locked
+				locked = FALSE //just in case it somehow gets locked while the collector is active
 				to_chat(user, SPAN_WARNING("The controls can only be locked when the [src] is active"))
 		else
-			to_chat(user, SPAN_WARNING("Access denied!"))
+			to_chat(user, SPAN_ALERT("Access denied!"))
 		return TRUE
 
 	return ..()
 
+/// Handles dealing with a breaking radiation collector
 /obj/machinery/power/rad_collector/proc/collector_break()
 	if(loaded_tank && loaded_tank.air_contents)
 		var/turf/T = get_turf(src)
 		if(T)
-			T.assume_air(P.air_contents)
+			T.assume_air(loaded_tank.air_contents)
 			audible_message(SPAN_DANGER("\The [loaded_tank] detonates, sending shrapnel flying!"))
 			explosion(T, -1, -1, 0)
-			QDEL_NULL(P)
+			QDEL_NULL(loaded_tank)
 	disconnect_from_network()
 	stat |= BROKEN
 	melted = TRUE
@@ -189,9 +190,10 @@ var/global/list/rad_collectors = list()
 			eject()
 	return ..()
 
+/// Ejects the stored phoron tank
 /obj/machinery/power/rad_collector/proc/eject()
 	locked = 0
-	var/obj/item/tank/phoron/Z = src.P
+	var/obj/item/tank/phoron/Z = src.loaded_tank
 	if (!Z)
 		return
 	Z.dropInto(loc)
@@ -202,10 +204,16 @@ var/global/list/rad_collectors = list()
 	else
 		update_icon()
 
+/**
+ * Handles the generation of power for the radiation collector
+ *
+ * Arguments:
+ * - pulse_strength: The strength of the pulse to calculate into power output
+ */
 /obj/machinery/power/rad_collector/proc/receive_pulse(pulse_strength)
-	if(P && active)
+	if(loaded_tank && active)
 		var/power_produced = 0
-		power_produced = min(100*P.air_contents.gas[GAS_PHORON]*pulse_strength*pulse_coeff,max_power)
+		power_produced = min(100*loaded_tank.air_contents.gas[GAS_PHORON]*pulse_strength*pulse_coeff,max_power)
 		add_avail(power_produced)
 		last_power_new = power_produced
 		return
