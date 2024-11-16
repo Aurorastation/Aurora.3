@@ -1043,9 +1043,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/hangar)
 "dB" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/hacked,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
