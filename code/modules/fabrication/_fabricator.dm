@@ -61,7 +61,6 @@
 	)
 
 /obj/machinery/fabricator/Initialize()
-	..()
 	wires = new(src)
 	print_loc = src
 	stored_material = list()
