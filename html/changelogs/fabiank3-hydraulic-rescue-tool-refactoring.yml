@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed bug allowing the hydraulic rescue tool to open doors instantly."
-  - refactor: "Refactored the robotic jawsoflife to an actual tool, now called Hydraulic rescue tool."
