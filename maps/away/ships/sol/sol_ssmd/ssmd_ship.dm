@@ -171,7 +171,7 @@
 
 /datum/shuttle/autodock/overmap/ssmd_shuttle
 	name = "SSMD Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ssmd_shuttle)
 	dock_target = "airlock_ssmd_shuttle"
 	current_location = "nav_hangar_ssmd"

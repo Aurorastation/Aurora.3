@@ -32,9 +32,15 @@
 
 //Fragmentation grenade projectile
 /obj/projectile/bullet/pellet/fragment
-	damage = 20
+	damage = 23
+	agony = 20
+	eyeblur = 2
 	armor_penetration = 35
+	embed_chance = 30
 	range_step = 2
+
+	ricochets_max = 2
+	ricochet_chance = 20
 
 	base_spread = 0 //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 20

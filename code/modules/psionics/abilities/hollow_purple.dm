@@ -80,10 +80,6 @@
 	explosion(target, 5, 5, 5)
 	. = ..()
 
-/obj/projectile/hollow_purple/check_penetrate(atom/A)
-	on_hit(A)
-	return TRUE
-
 // /obj/projectile/hollow_purple/after_move()
 // 	for(var/a in range(3, src))
 // 		if(isliving(a) && a != firer)

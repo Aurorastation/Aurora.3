@@ -310,3 +310,10 @@
   - refactor: Refactored movement observable away, use only the signal.
   - refactor: Refactored and fixed orbiter for ghosts.
   - code_imp: Some tweaks to the signal.
+2024-10-31:
+  SimpleMaroon:
+  - bugfix: Vaurca Myrmidons can now select the left overlay for mecha eyes and the
+      large right-side faceplate body markings when they previously couldn't.
+  - qol: Allowed Vaurca Attendants to use hair gradient styles.
+  Snowy1237:
+  - qol: Changed the SSRM patrol ship's shuttle docking time to speed it up.
