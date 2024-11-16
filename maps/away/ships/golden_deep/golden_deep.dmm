@@ -8528,9 +8528,7 @@
 /area/shuttle/golden_deep/cockpit)
 "Jf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/hacked,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
