@@ -1,4 +1,4 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+/// A global list of all radiation collectors.
 var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector
@@ -9,23 +9,38 @@ var/global/list/rad_collectors = list()
 	anchored = FALSE
 	density = TRUE
 	req_access = list(ACCESS_ENGINE_EQUIP)
-	var/obj/item/tank/phoron/P = null
+	/// The tank of phoron currently attached to the radiation collector
+	var/obj/item/tank/phoron/loaded_tank = null
 
+	/// Current health of the collector. Should be replaced with global health ideally.
 	var/health = 100
+	/// The maximum safe temperature that the radiation collector can handle
 	var/max_safe_temp = 1000 + T0C
-	var/melted
+	/// A boolean determining whether the collector has melted or not.
+	var/melted = FALSE
 
+	/// Internal variable storing last power generation amount
 	var/last_power = 0
+	/// Internal variable storing last power generation amount. Duplicate variable to account for the SM being processed first
 	var/last_power_new = 0
-	var/active = 0
-	var/locked = 0
+	/// Whether the radiation collector is active or not.
+	var/active = FALSE
+	/// Whether the radiation collector is locked or not.
+	var/locked = FALSE
+	/// Determines the ratio of default draining of phoron while radiation collector is active
 	var/drainratio = 1
 
+	/// Internal variable storing last radiation amount measured
 	var/last_rads
-	var/max_rads = 250 // rad collector will reach max power output at this value, and break at twice this value
+	/// Radiation collector will reach max power output at this value, and break at twice this value
+	var/max_rads = 250
+	/// Maximum power output for this radiation collector.
 	var/max_power = 5e5
+	/// Pulse coefficient, for multiplying power output by radiation input
 	var/pulse_coeff = 20
+	/// Internal variable storing last time an alert message was outputted
 	var/end_time = 0
+	/// How long to wait between alert messages, if radiation input exceeds safe levels
 	var/alert_delay = 10 SECONDS
 
 /obj/machinery/power/rad_collector/Initialize()
@@ -51,7 +66,7 @@ var/global/list/rad_collectors = list()
 	last_power = last_power_new
 	last_power_new = 0
 	last_rads = SSradiation.get_rads_at_turf(get_turf(src))
-	if(P && active)
+	if(loaded_tank && active)
 		if(last_rads > max_rads*2)
 			collector_break()
 		if(last_rads)
@@ -62,12 +77,12 @@ var/global/list/rad_collectors = list()
 					playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
 			receive_pulse(12.5*(last_rads/max_rads)/(0.3+(last_rads/max_rads)))
 
-	if(P)
-		if(P.air_contents.gas[GAS_PHORON] == 0)
+	if(loaded_tank)
+		if(loaded_tank.air_contents.gas[GAS_PHORON] == 0)
 			investigate_log("[SPAN_COLOR("red", "out of fuel")].","singulo")
 			eject()
 		else
-			P.air_contents.adjust_gas(GAS_PHORON, -0.01*drainratio*min(last_rads,max_rads)/max_rads) //fuel cost increases linearly with incoming radiation
+			loaded_tank.air_contents.adjust_gas(GAS_PHORON, -0.01*drainratio*min(last_rads,max_rads)/max_rads) //fuel cost increases linearly with incoming radiation
 
 
 /obj/machinery/power/rad_collector/CanUseTopic(mob/user)
@@ -96,22 +111,22 @@ var/global/list/rad_collectors = list()
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("The [src] needs to be secured to the floor first."))
 			return TRUE
-		if(P)
+		if(loaded_tank)
 			to_chat(user, SPAN_WARNING("There's already a phoron tank loaded."))
 			return TRUE
 		if(!user.unEquip(W, src))
 			return TRUE
-		P = W
+		loaded_tank = W
 		update_icon()
 		return TRUE
 
 	if(W.iscrowbar())
-		if(P && !locked)
+		if(loaded_tank && !locked)
 			eject()
 			return TRUE
 
 	if(W.iswrench())
-		if(P)
+		if(loaded_tank)
 			to_chat(user, SPAN_NOTICE("Remove the phoron tank first."))
 			return TRUE
 		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
@@ -144,11 +159,11 @@ var/global/list/rad_collectors = list()
 	return ..()
 
 /obj/machinery/power/rad_collector/proc/collector_break()
-	if(P && P.air_contents)
+	if(loaded_tank && loaded_tank.air_contents)
 		var/turf/T = get_turf(src)
 		if(T)
 			T.assume_air(P.air_contents)
-			audible_message(SPAN_DANGER("\The [P] detonates, sending shrapnel flying!"))
+			audible_message(SPAN_DANGER("\The [loaded_tank] detonates, sending shrapnel flying!"))
 			explosion(T, -1, -1, 0)
 			QDEL_NULL(P)
 	disconnect_from_network()
@@ -165,8 +180,8 @@ var/global/list/rad_collectors = list()
 		. += "The meter indicates that \the [src] is collecting [last_power] W."
 
 /obj/machinery/power/rad_collector/return_air()
-	if(P)
-		return P.return_air()
+	if(loaded_tank)
+		return loaded_tank.return_air()
 
 /obj/machinery/power/rad_collector/ex_act(severity)
 	switch(severity)
@@ -181,7 +196,7 @@ var/global/list/rad_collectors = list()
 		return
 	Z.dropInto(loc)
 	Z.reset_plane_and_layer()
-	src.P = null
+	src.loaded_tank = null
 	if(active)
 		toggle_power()
 	else
