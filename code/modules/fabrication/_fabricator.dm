@@ -78,6 +78,7 @@
 			else if(ispath(mat, /singleton/reagent))
 				var/singleton/reagent/reg = mat
 				stored_substances_to_names[mat] = initial(reg.name)
+	return INITIALIZE_HINT_NORMAL
 
 /obj/machinery/fabricator/Destroy()
 	print_loc = null
