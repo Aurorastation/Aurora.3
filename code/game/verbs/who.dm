@@ -141,13 +141,13 @@
 				modmsg += "\t[client.key] is a [client.holder.rank]"
 
 				if(isobserver(client.mob))
-					msg += " - Observing"
+					modmsg += " - Observing"
 				else if(isnewplayer(client.mob))
-					msg += " - Lobby"
+					modmsg += " - Lobby"
 				else if(isstoryteller(client.mob))
-					msg += "- Storytelling"
+					modmsg += "- Storytelling"
 				else
-					msg += " - Playing"
+					modmsg += " - Playing"
 
 				if(client.is_afk())
 					modmsg += " (AFK)"
@@ -158,13 +158,13 @@
 				cciaamsg += "\t[client.key]"
 
 				if(isobserver(client.mob))
-					msg += " - Observing"
+					cciaamsg += " - Observing"
 				else if(isnewplayer(client.mob))
-					msg += " - Lobby"
+					cciaamsg += " - Lobby"
 				else if(isstoryteller(client.mob))
-					msg += "- Storytelling"
+					cciaamsg += "- Storytelling"
 				else
-					msg += " - Playing"
+					cciaamsg += " - Playing"
 
 				if (client.is_afk())
 					cciaamsg += " (AFK)"
@@ -175,13 +175,13 @@
 				devmsg += "\t[client.key] is a [client.holder.rank]"
 
 				if(isobserver(client.mob))
-					msg += " - Observing"
+					devmsg += " - Observing"
 				else if(isnewplayer(client.mob))
-					msg += " - Lobby"
+					devmsg += " - Lobby"
 				else if(isstoryteller(client.mob))
-					msg += "- Storytelling"
+					devmsg += "- Storytelling"
 				else
-					msg += " - Playing"
+					devmsg += " - Playing"
 
 				if(client.is_afk())
 					devmsg += " (AFK)"
