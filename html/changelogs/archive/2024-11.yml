@@ -155,3 +155,6 @@
       rescue tool.
   hazelmouse:
   - bugfix: Fixed an incorrectly defined paramedic spawnpoint.
+2024-11-17:
+  MattAtlas:
+  - bugfix: Projectiles now gib limbs instead of slicing them off.
