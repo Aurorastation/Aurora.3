@@ -30,7 +30,6 @@ SUBSYSTEM_DEF(odyssey)
 	storytellers = SSodyssey.storytellers
 
 /datum/controller/subsystem/odyssey/fire()
-	. = ..()
 	if(!has_sent_roundstart_announcement)
 		// First of all, notify the Horizon.
 		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
