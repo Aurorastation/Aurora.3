@@ -31,7 +31,7 @@
 		. = ..()
 
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
-/atom/proc/attack_ghost(mob/abstract/ghost/user as mob)
+/atom/proc/attack_ghost(mob/abstract/ghost/user)
 	if(user.client && user.client.inquisitive_ghost)
 		examinate(user, src)
 	return
@@ -40,7 +40,7 @@
 // And here are some good things for free:
 // Now you can click through portals, wormholes, gateways, and teleporters while observing. -Sayu
 
-/obj/machinery/teleport/pad/attack_ghost(mob/user as mob)
+/obj/machinery/teleport/pad/attack_ghost(mob/user)
 	if(locked_obj)
 		var/obj/teleport_obj = locked_obj.resolve()
 		if(teleport_obj)
@@ -50,13 +50,13 @@
 	if(target)
 		user.forceMove(get_turf(target))
 
-/obj/machinery/gateway/centerstation/attack_ghost(mob/user as mob)
+/obj/machinery/gateway/centerstation/attack_ghost(mob/user)
 	if(awaygate)
 		user.forceMove(awaygate.loc)
 	else
 		to_chat(user, "[src] has no destination.")
 
-/obj/machinery/gateway/centeraway/attack_ghost(mob/user as mob)
+/obj/machinery/gateway/centeraway/attack_ghost(mob/user)
 	if(stationgate)
 		user.forceMove(stationgate.loc)
 	else
