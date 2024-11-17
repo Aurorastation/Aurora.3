@@ -923,13 +923,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!operable())
 		return FALSE
 	var/use_flags = issilicon(user) && USE_ALLOW_NON_ADJACENT // AIs and borgs can use it at range
-	use_flags |= (check_rights(R_ADMIN, FALSE, user) && USE_ALLOW_NONLIVING) // admins can use the UI when ghosting
-	if(use_check(user, use_flags, show_messages = TRUE))
-		return FALSE
 	if(isstoryteller(user))
 		return TRUE
 	if(isobserver(user))
 		return check_rights(R_ADMIN, FALSE, user)
+	if(use_check(user, use_flags, show_messages = TRUE))
+		return FALSE
 	if(!user.client)
 		return FALSE
 	if(user.restrained())
