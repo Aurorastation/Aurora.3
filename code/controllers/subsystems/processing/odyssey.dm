@@ -1,14 +1,12 @@
 SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
-	wait = 8
-	can_fire = FALSE
+	runlevels = RUNLEVELS_PLAYING
 
 	/// The selected scenario singleton.
 	var/singleton/scenario/scenario
-	/// The z-levels that the odyssey takes place in. If null, it means that there are no loaded zlevels for this odyssey.
-	/// It probably takes place on the Horizon in that case.
-	var/scenario_zlevel
+	/// The z-levels that the odyssey takes place in.
+	var/list/scenario_zlevels = list()
 	/// This is the site the odyssey takes place on. If null, then the mission takes place on a non-site zlevel.
 	/// Should only be changed through set_scenario_site().
 	var/datum/map_template/ruin/away_site/scenario_site
@@ -27,24 +25,35 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/Recover()
 	scenario = SSodyssey.scenario
 	scenario_site = SSodyssey.scenario_site
-	scenario_zlevel = SSodyssey.scenario_zlevel
+	scenario_zlevels = SSodyssey.scenario_zlevels
 	actors = SSodyssey.actors
 	storytellers = SSodyssey.storytellers
 
 /datum/controller/subsystem/odyssey/fire()
 	. = ..()
-	if(ROUND_IS_STARTED)
-		if(!has_sent_roundstart_announcement)
-			// First of all, notify the Horizon.
-			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
-			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
+	if(!has_sent_roundstart_announcement)
+		// First of all, notify the Horizon.
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
 
-			var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[scenario_zlevel]"]
-			if(odyssey_site)
-				// Next, notify the offships - these announcements can happen earlier to potentially give them a bit of an edge in reaching the objective area.
-				addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_offships), odyssey_site), rand(5 MINUTES, 30 MINUTES))
+		var/obj/effect/overmap/odyssey_site = get_odyssey_overmap_effect()
 
-			has_sent_roundstart_announcement = TRUE
+		if(odyssey_site)
+			// Next, notify the offships - these announcements can happen earlier to potentially give them a bit of an edge in reaching the objective area.
+			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_offships), odyssey_site), rand(5 MINUTES, 30 MINUTES))
+
+		has_sent_roundstart_announcement = TRUE
+
+/**
+ * Returns the current scenario's overmap effect. Returns null if there isn't any.
+ */
+/datum/controller/subsystem/odyssey/proc/get_odyssey_overmap_effect()
+	var/obj/effect/overmap/odyssey_site
+	for(var/z in scenario_zlevels)
+		odyssey_site = GLOB.map_sectors["[z]"]
+		if(!istype(odyssey_site))
+			continue
+	return odyssey_site
 
 /**
  * Picks a random odyssey while keeping in mind sector requirements.
@@ -65,7 +74,6 @@ SUBSYSTEM_DEF(odyssey)
 	scenario = pickweight(possible_scenarios)
 	gamemode_setup()
 	// Now that we actually have an odyssey, the subsystem can fire!
-	can_fire = TRUE
 	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 	return TRUE
 
@@ -163,7 +171,7 @@ SUBSYSTEM_DEF(odyssey)
 			if(player.incapacitated())
 				return
 
-			if(player.z != SSodyssey.scenario_zlevel)
+			if(!(player.z in SSodyssey.scenario_zlevels))
 				to_chat(player, SPAN_WARNING("You can't equip an outfit on a different z-level from the scenario's!"))
 				return
 

@@ -22,9 +22,6 @@
 	map = "Desert Oasis Planet"
 	descriptor = "Desert Oasis Planet."
 
-// /obj/abstract/weather_marker/cryo_outpost
-// 	weather_type = /singleton/state/weather/calm/desert_planet
-
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost

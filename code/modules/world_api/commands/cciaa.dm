@@ -163,7 +163,7 @@
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		to_world(SPAN_ALERT("New Stellar Corporate Conglomerate Update available at all communication consoles."))
+		to_world(SPAN_ALERT("New [SSatlas.current_map.boss_name] Update available at all communication consoles."))
 		sound_to_playing_players('sound/AI/commandreport.ogg')
 
 

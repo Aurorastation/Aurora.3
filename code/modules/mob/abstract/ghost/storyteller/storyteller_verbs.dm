@@ -229,7 +229,7 @@
 	//New message handling
 	post_comm_message(reporttitle, reportbody)
 
-	var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
+	var/obj/effect/overmap/odyssey_site = SSodyssey.get_odyssey_overmap_effect()
 	if(odyssey_site)
 		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
 			sensors.add_contact(odyssey_site)

@@ -96,7 +96,7 @@
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
-	if(SSodyssey.scenario && owner.z == SSodyssey.scenario_zlevel)
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)
@@ -316,7 +316,7 @@
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
-	if(SSodyssey.scenario && owner.z == SSodyssey.scenario_zlevel)
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)

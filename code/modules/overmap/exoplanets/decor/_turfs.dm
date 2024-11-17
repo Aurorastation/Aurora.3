@@ -20,8 +20,9 @@
 	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
 		// if exoplanet
-		if(istype(GLOB.map_sectors["[z]"], /obj/effect/overmap/visitable/sector/exoplanet))
-			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
+		var/datum/site = GLOB.map_sectors["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
 			if(exoplanet.atmosphere)
 				initial_gas = exoplanet.atmosphere.gas.Copy()
 				temperature = exoplanet.atmosphere.temperature
@@ -33,8 +34,8 @@
 			if(exoplanet.planetary_area && istype(loc, world.area))
 				ChangeArea(src, exoplanet.planetary_area)
 		// if away site
-		else if(istype(GLOB.map_sectors["[z]"], /datum/map_template/ruin/away_site))
-			var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
+		else if(istype(site, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = site
 			if(away_site.exoplanet_atmosphere)
 				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
 				temperature = away_site.exoplanet_atmosphere.temperature

@@ -18,12 +18,12 @@
 	if(!SSodyssey.pick_odyssey())
 		return FALSE
 
-	var/odyssey_message = "The scenario picked for this round is: [SPAN_BOLD(SPAN_NOTICE(SSodyssey.scenario.name))].\n\
-			[SPAN_ITALIC(SSodyssey.scenario.desc)]\n\
-			It is a [SPAN_BOLD(SSodyssey.scenario.scenario_type)] scenario.\n"
+	var/odyssey_message = "The scenario picked for this round is: [SPAN_BOLD(SPAN_NOTICE(SSodyssey.scenario.name))].<br>\
+			[SPAN_ITALIC(SSodyssey.scenario.desc)]<br>\
+			It is a [SPAN_BOLD(SSodyssey.scenario.scenario_type)] scenario.<br>"
 
 	if(SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON)
-		odyssey_message += SPAN_DANGER("A Canon Odyssey scenario follows the same rules as Extended canonicity, meaning that character deaths may be retconned if all parties agree. Adminhelp or refer to the rules for more information.\n")
+		odyssey_message += SPAN_DANGER("A Canon Odyssey scenario follows the same rules as Extended canonicity, meaning that character deaths may be retconned if all parties agree. Adminhelp or refer to the rules for more information.<br>")
 
 	odyssey_message += "Please keep in mind that the Storyteller and the Actors may alter the story as they see fit, and remember to go along with what they have planned!"
 

@@ -71,8 +71,9 @@
  */
 /singleton/scenario/proc/setup_away_site()
 	// load the site
-	scenario_site.load_new_z()
-	SSodyssey.scenario_zlevel = world.maxz
+	var/list/bounds = scenario_site.load_new_z()
+	for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+		SSodyssey.scenario_zlevels += world.maxz
 	base_area = new base_area()
 
 	// regenerate minimaps
@@ -96,7 +97,7 @@
 	// We want to have them control when to end their prep and when to tell the Horizon to come.
 	if(!length(SSodyssey.storytellers))
 		command_announcement.Announce(scenario_announcements.horizon_late_announcement_message, scenario_announcements.horizon_announcement_title, do_print = TRUE)
-		var/obj/effect/overmap/odyssey_site = GLOB.map_sectors["[SSodyssey.scenario_zlevel]"]
+		var/obj/effect/overmap/odyssey_site = SSodyssey.get_odyssey_overmap_effect()
 		if(odyssey_site)
 			for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
 				sensors.add_contact(odyssey_site)

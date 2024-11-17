@@ -913,7 +913,7 @@
 			if(V.comms_name)
 				name = "[V.comms_name] radio headset"
 	else
-		if(SSodyssey.scenario && (T.z == SSodyssey.scenario_zlevel))
+		if(SSodyssey.scenario && (GET_Z(T) in SSodyssey.scenario_zlevels))
 			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
