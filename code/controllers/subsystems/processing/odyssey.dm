@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(odyssey)
 
 	if(!length(possible_scenarios))
 		log_subsystem_odyssey("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
-		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
+		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
 		return FALSE
 
 	scenario = pickweight(possible_scenarios)
