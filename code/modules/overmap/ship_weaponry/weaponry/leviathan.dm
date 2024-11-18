@@ -164,10 +164,6 @@
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
 		explosion(target, 30, 30, 30)
 
-/obj/projectile/ship_ammo/leviathan/check_penetrate(atom/A)
-	on_hit(A)
-	return TRUE
-
 /obj/machinery/zat_lever
 	name = "activation lever"
 	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"

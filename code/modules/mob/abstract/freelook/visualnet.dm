@@ -119,7 +119,7 @@
 		return FALSE
 	sources += source
 	RegisterSignal(source, COMSIG_MOVABLE_MOVED, PROC_REF(source_moved))
-	GLOB.destroyed_event.register(source, src, PROC_REF(remove_source))
+	RegisterSignal(source, COMSIG_QDELETING, PROC_REF(remove_source))
 	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -129,7 +129,7 @@
 	if(!sources.Remove(source))
 		return FALSE
 	UnregisterSignal(source, COMSIG_MOVABLE_MOVED)
-	GLOB.destroyed_event.unregister(source, src)
+	UnregisterSignal(source, COMSIG_QDELETING)
 	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)

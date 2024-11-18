@@ -1322,6 +1322,14 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/reinforced/steel,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 32;
+	pixel_x = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 21;
+	pixel_x = 3
+	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "fw" = (
@@ -2420,6 +2428,7 @@
 	},
 /obj/item/stack/material/wood/full,
 /obj/random/dirt_75,
+/obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/engineering)
 "kk" = (
@@ -3071,14 +3080,14 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	req_one_access = list(229, 217);
 	name = "Repair & Maintenance";
 	door_color = "#8c792e"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
@@ -5620,6 +5629,9 @@
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
 	},
+/obj/machinery/atm{
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/golden_deep/passenger)
 "xX" = (
@@ -7014,7 +7026,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	req_access = list(229, 217)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
@@ -7061,22 +7075,15 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
-/obj/item/clothing/accessory/poncho/goldendeep{
-	color = "#394f81"
-	},
-/obj/item/clothing/accessory/poncho/goldendeep{
-	color = "#394f81"
-	},
+/obj/item/cargo_backpack,
+/obj/item/cargo_backpack,
 /obj/item/clothing/accessory/poncho/goldendeep/desertadornment{
 	color = "#394f81"
 	},
 /obj/item/clothing/accessory/poncho/goldendeep/desertadornment{
 	color = "#394f81"
 	},
-/obj/item/clothing/head/goldendeep{
-	color = "#394f81"
-	},
-/obj/item/clothing/head/goldendeep{
+/obj/item/clothing/accessory/poncho/goldendeep/desertadornment{
 	color = "#394f81"
 	},
 /obj/item/clothing/head/goldendeep/cowl{
@@ -7085,14 +7092,36 @@
 /obj/item/clothing/head/goldendeep/cowl{
 	color = "#394f81"
 	},
+/obj/item/clothing/head/goldendeep/cowl{
+	color = "#394f81"
+	},
+/obj/item/clothing/head/goldendeep{
+	color = "#394f81"
+	},
+/obj/item/clothing/head/goldendeep{
+	color = "#394f81"
+	},
+/obj/item/clothing/head/goldendeep{
+	color = "#394f81"
+	},
+/obj/item/clothing/accessory/storage/goldendeep{
+	color = "#444444"
+	},
 /obj/item/clothing/accessory/storage/goldendeep{
 	color = "#444444"
 	},
 /obj/item/clothing/accessory/storage/goldendeep{
 	color = "#444444"
 	},
-/obj/item/cargo_backpack,
-/obj/item/cargo_backpack,
+/obj/item/clothing/accessory/poncho/goldendeep{
+	color = "#394f81"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep{
+	color = "#394f81"
+	},
+/obj/item/clothing/accessory/poncho/goldendeep{
+	color = "#394f81"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
 "DV" = (
@@ -8358,13 +8387,6 @@
 /obj/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/golden_deep/aft_hallway)
-"IG" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/weapon_rack{
-	pixel_y = -32
-	},
-/turf/simulated/floor/wood,
-/area/golden_deep/lounge)
 "IL" = (
 /obj/structure/platform{
 	dir = 4
@@ -8672,6 +8694,9 @@
 	level = 2
 	},
 /obj/random/dirt_75,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Kf" = (
@@ -114053,7 +114078,7 @@ No
 lI
 RE
 MQ
-IG
+aT
 mA
 fk
 sr

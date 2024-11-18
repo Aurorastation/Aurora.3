@@ -720,6 +720,7 @@
 	reagent_state = SOLID
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
 	taste_description = "acid"
 	metabolism = REM
 	metabolism_min = 0.25
