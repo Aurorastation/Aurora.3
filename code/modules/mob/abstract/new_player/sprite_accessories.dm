@@ -658,6 +658,18 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "long hair"
 
+/datum/sprite_accessory/hair/gentle3
+	name = "Gentle 3"
+	icon_state = "hair_gentle3"
+	length = 3
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/gentle3_alt
+	name = "Gentle 3, Alt"
+	icon_state = "hair_gentle3_alt"
+	length = 3
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/glossy
 	name = "Glossy"
 	icon_state = "hair_glossy"
@@ -788,6 +800,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_long_verylong"
 	length = 4
 	chatname = "very long hair"
+
+/datum/sprite_accessory/hair/long_wavy
+	name = "Long Hair, Wavy"
+	icon_state = "hair_long_wavy"
+	length = 3
+	chatname = "long hair"
 
 /datum/sprite_accessory/hair/macaw
 	name = "Macaw"
@@ -1468,6 +1486,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "long hair"
 
+/datum/sprite_accessory/hair/surfer
+	name = "Surfer"
+	icon_state = "hair_surfer"
+	length = 2
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/thinning
 	name = "Thinning"
 	icon_state = "hair_thinning"
@@ -1575,6 +1599,18 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Wheeler"
 	icon_state = "hair_wheeler"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/wolfcut
+	name = "Wolfcut"
+	icon_state = "hair_wolfcut"
+	length = 3
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/wolfcut_alt
+	name = "Wolfcut, Alt"
+	icon_state = "hair_wolfcut_alt"
+	length = 3
+	chatname = "long hair"
 
 /datum/sprite_accessory/hair/fingerwave
 	name = "Fingerwave"
