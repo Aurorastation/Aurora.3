@@ -158,3 +158,6 @@
 2024-11-17:
   MattAtlas:
   - bugfix: Projectiles now gib limbs instead of slicing them off.
+2024-11-18:
+  MattAtlas:
+  - bugfix: Fixed a medbot hard deletion.
