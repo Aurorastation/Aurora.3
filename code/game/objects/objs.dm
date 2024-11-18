@@ -50,12 +50,12 @@
 	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
 	var/atom/movable/buckled = null
 	/**
- 	* Stores the original layer of a buckled atom.
- 	*
- 	* Set in `/obj/proc/buckle` when the atom's layer is adjusted.
+	* Stores the original layer of a buckled atom.
 	*
- 	* Used in `/unbuckle()` to restore the original layer.
- 	*/
+	* Set in `/obj/proc/buckle` when the atom's layer is adjusted.
+	*
+	* Used in `/unbuckle()` to restore the original layer.
+	*/
 	var/buckled_original_layer = null
 	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
 	/* END BUCKLING VARS */
