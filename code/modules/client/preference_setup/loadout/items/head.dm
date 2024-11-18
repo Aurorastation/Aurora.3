@@ -502,9 +502,6 @@
 	path = /obj/item/clothing/head/beret/artist/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/peacekeeper
-	display_name = "solarian army beret"
-	path = /obj/item/clothing/head/beret/sapk
 /*
 	Block Hair Adjustment
 */
