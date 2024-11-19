@@ -1,8 +1,15 @@
 /singleton/skill
 	/// The displayed name of the skill.
 	var/name
-	/// A description of this skill's effects.
+	/// A description of what this skill entails.
 	var/description
+	/// A detailed description of what a character should expect with their current level in this skill. Assoc list of skill level to string.
+	var/list/skill_level_descriptions = list(
+		SKILL_LEVEL_UNFAMILIAR = "You are clueless.",
+		SKILL_LEVEL_FAMILIAR = "You have read up on the subject or have prior real experience.",
+		SKILL_LEVEL_TRAINED = "You have received some degree of official training on the subject, whether through certifications or courses.",
+		SKILL_LEVEL_PROFESSIONAL = "You are an expert in this field, devoting many years of study or practice to it."
+	)
 	/// The maximum level someone with no education can reach in this skill. Typically, this should be FAMILIAR on occupational skills.
 	/// If null, then there is no cap.
 	var/uneducated_skill_cap

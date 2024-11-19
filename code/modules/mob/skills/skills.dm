@@ -44,6 +44,12 @@
 	return get_skill_level(skill_type) >= skill_level_needed
 
 /**
+ * Gets the skill difference in a given skill between two mobs.
+ */
+/mob/proc/get_skill_difference(mob/opponent, skill_type)
+	return get_skill_level(skill_type) - opponent.get_skill_level(skill_type)
+
+/**
  * Returns a multiplier based on the mob's skill. Takes a skill type and a minimum skill floor at least.
  * Bonus and malus are the modifiers added or removed for each skill level of difference from the required skill floor.
  */

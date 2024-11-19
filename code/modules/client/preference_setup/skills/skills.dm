@@ -127,7 +127,7 @@
 	var/current_level = pref.skills[skill.type]
 	var/maximum_skill_level = get_maximum_skill_level(skill, education)
 
-	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= SKILL_LEVEL_PROFESSIONAL, i++)
+	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= skill.maximum_level, i++)
 		dat += skill_to_button(skill, education, current_level, i, maximum_skill_level)
 
 	return JOINTEXT(dat)
@@ -136,10 +136,10 @@
 	var/base_maximum_level = skill.get_maximum_level(education)
 	var/remaining_skill_points = calculate_remaining_skill_points(GET_SINGLETON(skill.category))
 
-	for(var/skill_level = SKILL_LEVEL_UNFAMILIAR to base_maximum_level)
+	for(var/skill_level = 0 to base_maximum_level)
 		. = skill_level
 
-		var/skill_cost = skill.get_cost(skill_level)
+		var/skill_cost = skill.get_cost(skill_level + 1)
 		if(skill_cost > remaining_skill_points)
 			break
 
@@ -225,6 +225,10 @@
 		dat += "<hr>[skill_to_show.description]<br>"
 		if(skill_to_show.uneducated_skill_cap)
 			dat += "Without the relevant education, you may only reach the <b>[SSskills.skill_level_map[skill_to_show.uneducated_skill_cap]]</b> level.<br>"
+		dat += "<hr>"
+		var/skill_level = (skill_to_show.type in pref.skills) ? pref.skills[skill_to_show.type] : SKILL_LEVEL_UNFAMILIAR
+		dat += "Your current level in this skill is [SPAN_BOLD(SSskills.skill_level_map[skill_level])].<br>"
+		dat += SPAN_NOTICE("[skill_to_show.skill_level_descriptions[skill_level]]")
 		dat += "</html>"
 		skill_window.set_content(dat)
 		skill_window.open()

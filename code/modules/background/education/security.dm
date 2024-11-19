@@ -13,3 +13,12 @@
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/forensics = SKILL_LEVEL_PROFESSIONAL
 	)
+
+/singleton/education/protagonist
+	name = "Protagonist Degree"
+	description = "you are the protagonist of aurora"
+	skills = list(
+		/singleton/skill/unarmed_combat = SKILL_LEVEL_TRAINED,
+		/singleton/skill/armed_combat = SKILL_LEVEL_TRAINED,
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+	)

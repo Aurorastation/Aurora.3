@@ -1,16 +1,16 @@
 /singleton/skill/medicine
 	name = "Medicine"
 	description ="how to use health analyzers, ATKs, syringes"
-	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 
 /singleton/skill/surgery
 	name = "Surgery"
 	description = "the one everyone wants to do in medical to be the protag"
-	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_UNFAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 
@@ -24,6 +24,7 @@
 /singleton/skill/anatomy
 	name = "Anatomy"
 	description = "this one lets you know what's wrong with people"
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
