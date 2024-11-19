@@ -14,16 +14,15 @@
 	var/power_state = FALSE
 	var/is_powered = FALSE
 	var/wrenched = FALSE
-	var/steps = 0
-	var/last_check = 0
-	var/check_delay = 10
 	var/locked = TRUE
 	var/storedpower = 0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	//There have to be at least two posts, so these are effectively doubled
-	var/power_draw = 30000 //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
-	var/max_stored_power = 50000 //50 kW
+
+	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
+	var/power_draw = 30 KILO WATTS
+	var/max_stored_power = 50 KILO WATTS
 	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
 
 /obj/machinery/shieldwallgen/update_icon()
@@ -53,7 +52,7 @@
 	update_icon()
 	add_fingerprint(user)
 
-/obj/machinery/shieldwallgen/proc/power()
+/obj/machinery/shieldwallgen/proc/power(seconds_per_tick = 1)
 	if(!anchored)
 		is_powered = FALSE
 		return FALSE
@@ -71,7 +70,7 @@
 		is_powered = FALSE
 		return FALSE
 
-	var/shieldload = between(500, max_stored_power - storedpower, power_draw)	//what we try to draw
+	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
 	shieldload = PN.draw_power(shieldload) //what we actually get
 	storedpower += shieldload
 
@@ -83,10 +82,10 @@
 	is_powered = TRUE	// IVE GOT THE POWER!
 	return TRUE
 
-/obj/machinery/shieldwallgen/process()
-	power()
+/obj/machinery/shieldwallgen/process(seconds_per_tick)
+	power(seconds_per_tick)
 	if(is_powered)
-		storedpower -= 2500
+		storedpower -= (2500 * seconds_per_tick)
 
 	storedpower = clamp(storedpower, 0, max_stored_power)
 

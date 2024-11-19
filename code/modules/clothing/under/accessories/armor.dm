@@ -20,6 +20,14 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/accessory/leg_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/leg_guard/existing_guard = locate() in clothing.accessories
+	if(!existing_guard)
+		return
+	clothing.remove_accessory(user, existing_guard)
+
 /obj/item/clothing/accessory/leg_guard/generic
 	name = "standard leg guards"
 	icon_state = "legguards_generic"
@@ -194,6 +202,14 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+
+/obj/item/clothing/accessory/arm_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/arm_guard/existing_guard = locate() in clothing.accessories
+	if(!existing_guard)
+		return
+	clothing.remove_accessory(user, existing_guard)
 
 /obj/item/clothing/accessory/arm_guard/generic
 	name = "standard arm guards"

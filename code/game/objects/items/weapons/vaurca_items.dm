@@ -49,18 +49,30 @@
 	build_from_parts = TRUE
 	worn_overlay = "face"
 	contained_sprite = TRUE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/unathi
 	name = "unathi expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"

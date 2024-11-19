@@ -5,7 +5,7 @@
 	its large xeno population which enjoys various privileges compared to other space powers. With a very lax migration policy, virtually everyone is welcome to live here. However, \
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /obj/outfit/job/representative/consular/ceti
-	assistant_outfit = /obj/outfit/job/consular_assistant/ceti
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -64,7 +64,7 @@
 		/obj/item/stamp/biesel = 1,
 	)
 
-/obj/outfit/job/consular_assistant/ceti
+/obj/outfit/job/diplomatic_aide/ceti
 	name = "Tau Ceti Diplomatic Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
@@ -92,7 +92,7 @@
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /obj/outfit/job/representative/consular/sol
-	assistant_outfit = /obj/outfit/job/consular_assistant/sol
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/sol
 	job_species_blacklist = list(
 		"Consular Officer" = list(
 			SPECIES_HUMAN,
@@ -172,7 +172,7 @@
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
-/obj/outfit/job/consular_assistant/sol
+/obj/outfit/job/diplomatic_aide/sol
 	name = "Sol Consular Officer"
 
 	accessory = /obj/item/clothing/accessory/sol_pin
