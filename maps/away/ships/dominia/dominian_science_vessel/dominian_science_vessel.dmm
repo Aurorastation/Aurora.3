@@ -2906,14 +2906,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "iZU" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 26
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/map_effect/marker/airlock/docking/dominian_science_vessel/dock/stbd,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 20
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_science_vessel/aft_dock)
 "jeW" = (
