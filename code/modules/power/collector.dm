@@ -101,7 +101,7 @@ var/global/list/rad_collectors = list()
 		toggle_power()
 		user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
 		"You turn the [src.name] [active? "on":"off"].")
-		investigate_log("turned [active ? SPAN_COLOR("green", "on") : SPAN_COLOR("red", "off")] by [user.key]. [P ? "Fuel: [round(P.air_contents.gas[GAS_PHORON]/0.29)]%" : SPAN_COLOR("red", "It is empty")].","singulo")
+		investigate_log("turned [active ? SPAN_COLOR("green", "on") : SPAN_COLOR("red", "off")] by [user.key]. [P ? "Fuel: [round(loaded_tank.air_contents.gas[GAS_PHORON]/0.29)]%" : SPAN_COLOR("red", "It is empty")].","singulo")
 	else
 		to_chat(user, SPAN_WARNING("The controls are locked!"))
 	..()
@@ -120,7 +120,7 @@ var/global/list/rad_collectors = list()
 		update_icon()
 		return TRUE
 
-	if(attacking_Item.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(loaded_tank && !locked)
 			eject()
 			return TRUE
@@ -231,7 +231,7 @@ var/global/list/rad_collectors = list()
 	ClearOverlays()
 	underlays.Cut()
 
-	if(P)
+	if(loaded_tank)
 		AddOverlays(image(icon, "ptank"))
 		AddOverlays(emissive_appearance(icon, "ca_filling"))
 		underlays += image(icon, "ca_filling")
