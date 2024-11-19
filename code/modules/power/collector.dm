@@ -236,7 +236,7 @@ var/global/list/rad_collectors = list()
 		AddOverlays(emissive_appearance(icon, "ca_filling"))
 		underlays += image(icon, "ca_filling")
 	underlays += image(icon, "ca_inside")
-	if(inoperable())
+	if(!operable())
 		return
 	if(active)
 		var/rad_power = round(min(100 * last_rads / max_rads, 100), 20)
