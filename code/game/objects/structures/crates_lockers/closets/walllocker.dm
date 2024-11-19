@@ -87,6 +87,9 @@
 	desc = "It's wall-mounted storage unit for first aid supplies."
 	icon_state = "medical_wall"
 
+/obj/structure/closet/walllocker/medical/fill()
+	new /obj/item/storage/firstaid/regular
+
 /obj/structure/closet/walllocker/medical/secure
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
 	icon_door = "medical_wall_secure"
