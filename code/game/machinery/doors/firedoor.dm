@@ -16,7 +16,7 @@
 	density = 0
 	layer = OPEN_DOOR_LAYER
 	open_layer = OPEN_DOOR_LAYER // Just below doors when open
-	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
+	closed_layer = ABOVE_DOOR_LAYER // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -77,7 +77,7 @@
 	if(!mapload)
 		enable_smart_generation = 0
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		var/turf/T = get_step(src,direction)
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
@@ -186,7 +186,7 @@
 				users_to_open_string += ", [users_to_open[i]]"
 		. += "These people have opened \the [src] during an alert: [users_to_open_string]."
 
-/obj/machinery/door/firedoor/CollidedWith(atom/AM)
+/obj/machinery/door/firedoor/CollidedWith(atom/bumped_atom)
 	if(p_open || operating)
 		return
 	if(!density)

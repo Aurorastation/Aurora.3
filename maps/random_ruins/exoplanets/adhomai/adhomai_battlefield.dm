@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_battlefield.dmm")
+	suffix = "adhomai_battlefield.dmm"
 
 	unit_test_groups = list(3)
 
@@ -38,7 +38,7 @@
 			M.change_skin_color(192, 192, 192)
 
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/item/photo/soldier
 	name = "family photo"

@@ -10,7 +10,7 @@
 	icon_state = "simple"
 	item_state = "buildpipe"
 	randpixel = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -405,7 +405,7 @@
 /obj/item/pipe/Move()
 	..()
 	if ((pipe_type in list (PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT, PIPE_HE_BENT)) \
-		&& (src.dir in GLOB.cardinal))
+		&& (src.dir in GLOB.cardinals))
 		src.set_dir(src.dir|turn(src.dir, 90))
 	else if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_AUX_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_MVALVE))
 		if(dir==2)
@@ -1537,7 +1537,7 @@
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "meter"
 	item_state = "buildpipe"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())

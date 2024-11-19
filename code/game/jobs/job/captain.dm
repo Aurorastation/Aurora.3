@@ -24,7 +24,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /obj/outfit/job/captain
 
-	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	blacklisted_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 /obj/outfit/job/captain
 	name = "Captain"
@@ -34,7 +34,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	shoes = /obj/item/clothing/shoes/laceup/brown
 	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/scc/gold/captain
 
 	headset = /obj/item/device/radio/headset/heads/captain
 	bowman = /obj/item/device/radio/headset/heads/captain/alt
@@ -108,7 +108,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 							ACCESS_CREMATORIUM, ACCESS_KITCHEN, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE, ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
 							ACCESS_JANITOR,   ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_JOURNALIST, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/xo
 	name = "Executive Officer"
@@ -117,7 +117,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/laceup/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 
 	headset = /obj/item/device/radio/headset/heads/xo
 	bowman = /obj/item/device/radio/headset/heads/xo/alt
@@ -160,7 +160,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	access = list(ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS)
 	minimal_access = list(ACCESS_HEADS, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/bridge_crew
 	name = "Bridge Crew"
@@ -169,6 +169,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/laceup
+	id = /obj/item/card/id/scc/bridge
 
 	headset = /obj/item/device/radio/headset/headset_com
 	bowman = /obj/item/device/radio/headset/headset_com/alt
@@ -176,3 +177,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	wrist_radio = /obj/item/device/radio/headset/wrist/command
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/bridge
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
+	tablet = /obj/item/modular_computer/handheld/preset/bridge

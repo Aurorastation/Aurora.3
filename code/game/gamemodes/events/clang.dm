@@ -44,7 +44,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	var/starty = 0
 	var/endy = 0
 	var/endx = 0
-	var/startside = pick(GLOB.cardinal)
+	var/startside = pick(GLOB.cardinals)
 
 	switch(startside)
 		if(NORTH)
@@ -74,9 +74,9 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	spawn(0)
 		walk_towards(immrod, end,1)
 	sleep(1)
-	while (immrod)
-		if (isNotStationLevel(immrod.z))
-			immrod.z = pick(SSatlas.current_map.station_levels)
+	while(immrod)
+		if(!is_station_level(immrod.z))
+			immrod.z = pick(SSmapping.levels_by_trait(ZTRAIT_STATION))
 		if(immrod.loc == end)
 			qdel(immrod)
 		sleep(10)

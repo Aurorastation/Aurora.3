@@ -5,7 +5,7 @@
 	icon_state = "drillpointer"
 	item_state = "binoculars"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/has_dropped = 0 // Counter of how many times the targeter has been used
 	var/drop_amount = 2 // How many times can this item be used?
 
@@ -28,8 +28,8 @@
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
 
-/obj/item/device/orbital_dropper/attack(mob/living/M, mob/user)
-	laser_act(M, user)
+/obj/item/device/orbital_dropper/attack(mob/living/target_mob, mob/living/user, target_zone)
+	laser_act(target_mob, user)
 
 /obj/item/device/orbital_dropper/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the targetter on a table or in backpack
@@ -44,7 +44,7 @@
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
 		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
-			if (isStationLevel(targloc.z))
+			if (is_station_level(targloc.z))
 				to_chat(user, SPAN_WARNING("You can't request this orbital drop on the ship!"))
 				return
 			if (!isfloor(targloc))

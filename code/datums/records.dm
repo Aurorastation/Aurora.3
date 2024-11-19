@@ -254,10 +254,25 @@ var/warrant_uid = 0
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"
-	var/shuttle = "Unknown"
 	cmp_field = "name"
+	var/shuttle = "Unknown"
+	var/pilot = FALSE
+	var/lead = FALSE
 
 var/shuttle_uid = 0
 /datum/record/shuttle_manifest/New()
 	..()
 	id = shuttle_uid++
+
+/datum/record/shuttle_assignment
+	var/shuttle
+	var/destination = "Unknown"
+	var/heading = 0
+	var/mission = "Exploration"
+	var/departure_time
+	var/return_time
+	cmp_field = "destination"
+
+/datum/record/shuttle_assignment/New(var/for_shuttle)
+	. = ..()
+	shuttle = for_shuttle

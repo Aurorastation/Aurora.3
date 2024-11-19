@@ -22,13 +22,16 @@
 #pragma InvalidRange error
 #pragma InvalidSetStatement error
 #pragma InvalidOverride error
+#pragma InvalidIndexOperation error
 #pragma DanglingVarType error
 #pragma MissingInterpolatedExpression error
 #pragma AmbiguousResourcePath error
+#pragma UnimplementedAccess error
 
 //3000-3999
 #pragma EmptyBlock error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
+#pragma AmbiguousInOrder error
 
 #endif

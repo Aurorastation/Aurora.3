@@ -19,7 +19,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0
 	var/list/files = list(  )
 	var/last_flash = 0 //Spam limiter.
@@ -42,7 +42,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.name = "data disk- '[t]'"
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -185,16 +185,16 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []<br>", registered_name)
-	dat += text("Age: []<br>\n", age)
-	dat += text("Sex: []<br>\n", sex)
-	dat += text("Citizenship: []<br>\n", citizenship)
-	dat += text("Assignment and Employer: []<br>\n", assignment)
-	dat += text("Blood Type: []<br>\n", blood_type)
-	dat += text("Fingerprint Hash: []<br>\n", fingerprint_hash)
-	dat += text("DNA Hash: []\n", dna_hash)
+	dat += "Name: [registered_name]<br>"
+	dat += "Age: [age]<br>\n"
+	dat += "Sex: [sex]<br>\n"
+	dat += "Citizenship: [citizenship]<br>\n"
+	dat += "Assignment and Employer: [assignment]<br>\n"
+	dat += "Blood Type: [blood_type]<br>\n"
+	dat += "Fingerprint Hash: [fingerprint_hash]<br>\n"
+	dat += "DNA Hash: [dna_hash]\n"
 	if(mining_points)
-		dat += text("<br>Ore Redemption Points: []\n", mining_points)
+		dat += "<br>Ore Redemption Points: [mining_points]\n"
 	if(front && side)
 		dat +="<td align = center valign = top>Front and Side Photograph<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
@@ -234,22 +234,22 @@ var/const/NO_EMAG_ACT = -50
 		blind_message += " [blind_add_text]"
 	user.visible_message(message, blind_message)
 
-/obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
 
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
-		if(!ishuman(M))
+		if(!ishuman(target_mob))
 			return ..()
 
 		if (dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [M]'s now?", "Biometric Imprinting", "Yes", "No")
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
 
-				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
+				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
 					return
 
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/human/H = target_mob
 
 				if(H.gloves)
 					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
@@ -392,12 +392,32 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -447,7 +467,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom identification card"
-	desc = "An ID straight from CentCom."
+	desc = "A high-tech holocard displaying the commanding credentials of a Central Command official."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -459,7 +479,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "An ID straight from CentCom. Internal Affairs."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
@@ -472,7 +492,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia/bssb
 	name = "\improper Biesel Security Services Bureau identification card"
-	desc = "An ID straight from the Biesel Security Services Bureau."
+	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
 
 /obj/item/card/id/ert
@@ -500,7 +520,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress
 	name = "\improper Freelancer Mercenary identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
@@ -509,16 +529,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/fsf
 	name = "\improper Free Solarian Fleets identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Free Solarian Fleets Marine"
 
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Kataphract"
 
 /obj/item/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
 
@@ -627,6 +648,12 @@ var/const/NO_EMAG_ACT = -50
 	name = "\improper coalition identification card"
 	desc = "A rugged ID card denoting the wearer as a member of a Coalition of Colonies government organization."
 	icon_state = "coalition_card"
+	overlay_state = "nothing"
+
+/obj/item/card/id/tcaf // For ghostroles, rather than ERTs.
+	name = "\improper Tau Ceti Armed Forces identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
+	icon_state = "legion"
 	overlay_state = "nothing"
 
 /obj/item/card/id/bluespace

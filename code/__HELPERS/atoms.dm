@@ -65,3 +65,24 @@
 		c_dist++
 
 	return atom_list
+
+///Returns the last atom type in the specified loc
+/proc/get_highest_loc(atom/loc, type)
+	var/atom/last_found = null
+	while(loc)
+		if(istype(loc, type))
+			last_found = loc
+		loc = loc.loc
+	return last_found
+
+/// Returns an x and y value require to reverse the transformations made to center an oversized icon
+/atom/proc/get_oversized_icon_offsets()
+	if (pixel_x == 0 && pixel_y == 0)
+		return list("x" = 0, "y" = 0)
+	var/list/icon_dimensions = get_icon_dimensions(icon)
+	var/icon_width = icon_dimensions["width"]
+	var/icon_height = icon_dimensions["height"]
+	return list(
+		"x" = icon_width > world.icon_size && pixel_x != 0 ? (icon_width - world.icon_size) * 0.5 : 0,
+		"y" = icon_height > world.icon_size && pixel_y != 0 ? (icon_height - world.icon_size) * 0.5 : 0,
+	)

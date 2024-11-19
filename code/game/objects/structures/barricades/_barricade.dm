@@ -46,7 +46,8 @@
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/update_icon()
-	overlays.Cut()
+	CutOverlays()
+
 	if(!closed)
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_[damage_state]"
@@ -70,9 +71,9 @@
 
 	if(is_wired)
 		if(!closed)
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire"))
 		else
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
 
@@ -82,16 +83,18 @@
 	return prob(max(30,(100.0*health)/maxhealth))
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
 	else
 		return TRUE
 
-/obj/structure/barricade/proc/check_cover(obj/item/projectile/P, turf/from)
+/obj/structure/barricade/proc/check_cover(obj/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)
 	if(!cover)
 		return TRUE
@@ -110,6 +113,12 @@
 		return !density
 	else
 		return TRUE
+
+/obj/structure/barricade/can_climb(var/mob/living/user, post_climb_check=0)
+	if(is_wired)
+		to_chat(user, SPAN_WARNING("\The [src] has barbed wire over it, restricting you from climbing over!"))
+		return FALSE
+	return ..()
 
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
@@ -190,11 +199,14 @@
 			playsound(src, barricade_hitsound, 25, 1)
 		hit_barricade(attacking_item, user)
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P)
-	bullet_ping(P)
-	var/damage_to_take = P.damage * P.anti_materiel_potential
+/obj/structure/barricade/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	bullet_ping(hitting_projectile)
+	var/damage_to_take = hitting_projectile.damage * hitting_projectile.anti_materiel_potential
 	take_damage(damage_to_take)
-	return TRUE
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
 	if(deconstruct && is_wired)
@@ -212,7 +224,7 @@
 
 /obj/structure/barricade/ex_act(severity, direction, cause_data)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(B.dir == reverse_direction(dir))
+		if(B.dir == REVERSE_DIR(dir))
 			INVOKE_ASYNC(B, TYPE_PROC_REF(/atom, ex_act), severity, direction)
 	update_health(round(severity))
 
@@ -243,13 +255,13 @@
 
 /obj/structure/barricade/proc/take_damage(var/damage)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(B.dir == reverse_direction(dir))
+		if(B.dir == REVERSE_DIR(dir))
 			B.update_health(damage)
 	update_health(damage)
 
 /obj/structure/barricade/proc/update_health(damage, nomessage)
 	health -= damage
-	health = Clamp(health, 0, maxhealth)
+	health = clamp(health, 0, maxhealth)
 
 	if(!health)
 		if(!nomessage)

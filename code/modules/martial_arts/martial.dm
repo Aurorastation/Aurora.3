@@ -69,7 +69,7 @@
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
 				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
-				D.set_dir(pick(GLOB.cardinal))
+				D.set_dir(pick(GLOB.cardinals))
 			miss_type = 1
 
 	if(!miss_type && block)
@@ -88,8 +88,8 @@
 		D.visible_message(SPAN_DANGER("[attack_message]"))
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>")
-	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>")
+	A.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>"
+	D.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>"
 	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	if(miss_type)
@@ -163,6 +163,12 @@
 
 	return TRUE
 
+/datum/martial_art/proc/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
+	if(A.a_intent == I_DISARM)
+		A.visible_message("[SPAN_BOLD("\The [A]")] [D.response_disarm] \the [D]")
+		A.do_attack_animation(D)
+		D.poke(1)
+		D.handle_attack_by(A)
 
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)

@@ -11,7 +11,7 @@
 	throwforce = 1.0
 	throw_speed = 1
 	throw_range = 2
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/access = list()
 	access = ACCESS_CRATE_CASH
 	var/worth = 0
@@ -84,7 +84,7 @@
 	if(use_check_and_message(user,USE_FORCE_SRC_IN_USER))
 		return 0
 
-	amount = round(Clamp(amount, 0, src.worth))
+	amount = round(clamp(amount, 0, src.worth))
 	if(amount==0) return 0
 
 	src.worth -= amount

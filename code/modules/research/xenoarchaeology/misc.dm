@@ -74,6 +74,7 @@
 	new /obj/item/storage/box/excavation(src)
 	new /obj/item/taperoll/science(src)
 	new /obj/item/clothing/head/hardhat(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/excavation
 	name = "excavation tools"

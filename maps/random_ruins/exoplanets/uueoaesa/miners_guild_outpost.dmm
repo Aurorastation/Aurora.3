@@ -121,8 +121,7 @@
 /area/miners_guild_outpost/engineering)
 "bV" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -301,7 +300,7 @@
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -809,7 +808,7 @@
 /area/miners_guild_outpost/engineering)
 "qa" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -998,7 +997,7 @@
 	},
 /area/miners_guild_outpost/mess)
 "tF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
@@ -1196,7 +1195,7 @@
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
 	},
@@ -1231,8 +1230,7 @@
 /area/miners_guild_outpost/eva)
 "xe" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1252,7 +1250,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1347,7 +1345,7 @@
 /area/miners_guild_outpost/engineering)
 "Ax" = (
 /obj/machinery/vending/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1356,7 +1354,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1934,8 +1932,7 @@
 /area/miners_guild_outpost/mining)
 "Kr" = (
 /obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	dir = 2
+	id = "miners_guild_outpost"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8

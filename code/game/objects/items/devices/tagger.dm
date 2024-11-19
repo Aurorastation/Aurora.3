@@ -5,7 +5,7 @@
 	desc = "Used for tagging animals to be identified by a ear tag."
 	icon_state = "animal_tagger0"
 	force = 11
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
@@ -20,7 +20,7 @@
 	return ..()
 
 
-/obj/item/device/animaltagger/attack()
+/obj/item/device/animaltagger/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/device/animaltagger/afterattack(atom/A as mob|obj, mob/user as mob)

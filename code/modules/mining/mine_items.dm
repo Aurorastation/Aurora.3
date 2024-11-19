@@ -14,7 +14,7 @@
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -149,7 +149,7 @@
 		attack_self(usr)
 
 /obj/item/pickaxe/offhand
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = null
@@ -329,7 +329,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 4.0
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
@@ -353,7 +353,7 @@
 	item_state = "spade"
 	force = 11
 	throwforce = 7.0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/shovel/gadpathur
 	name = "trench shovel"
@@ -361,7 +361,7 @@
 	icon_state = "gadpathur_shovel"
 	item_state = "gadpathur_shovel"
 	force = 15
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
@@ -377,7 +377,7 @@
 	singular_name = "flag"
 	amount = 25
 	max_amount = 25
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/mining.dmi'
 	var/upright = FALSE
 	var/base_state
@@ -478,7 +478,7 @@
 	icon_state = "track15"
 	density = FALSE
 	anchored = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	layer = 2.44
 
 /obj/structure/track/Initialize()
@@ -488,13 +488,13 @@
 		qdel(src)
 		return
 	updateOverlays()
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -527,7 +527,7 @@
 
 	var/dir_sum = 0
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -609,7 +609,7 @@
 	desc = "A keyring with a small steel key, and a pickaxe shaped fob."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "mine_keys"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /**********************Pinpointer**********************/
 
@@ -620,7 +620,7 @@
 	icon_state = "pinoff"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -687,7 +687,7 @@
 	icon_state = "jaunter"
 	item_state = "jaunter"
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
 	slot_flags = SLOT_BELT
@@ -710,7 +710,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(isStationLevel(T.z))
+		if(is_station_level(T.z))
 			destinations += B
 
 	return destinations
@@ -725,7 +725,7 @@
 		return
 	var/chosen_beacon = pick(L)
 	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, null, 100)
-	J.target = chosen_beacon
+	J.set_target(chosen_beacon)
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
@@ -777,7 +777,7 @@
 	item_state = "lazarus_loaded"
 	contained_sprite = TRUE
 	throwforce = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
@@ -807,35 +807,37 @@
 	item_state = icon_state
 	update_held_icon()
 
-/obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
-	if(!loaded)
-		return
-	if(isliving(target) && proximity_flag)
-		if(istype(target, /mob/living/simple_animal))
-			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type) || !(M.tameable))
-				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
-				return
-			if(M.stat == DEAD)
-				if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
-					M.faction = user.faction
-				if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
-					M.faction = initial(M.faction)
-				M.revive()
-				M.icon_state = M.icon_living
-				M.desc = initial(M.desc)
-				loaded = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
-				feedback_add_details("lazarus_injector", "[M.type]")
-				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-				update_icon()
-				return
-			else
-				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
-				return
-		else
-			to_chat(user, SPAN_INFO("\The [src] is only effective on lesser beings."))
+/obj/item/lazarus_injector/attack(mob/living/target_mob, mob/living/user, target_zone)
+	//If we're not loaded, the target is not a living mob, or we're further from 1 tile away, not our problem
+	if(!loaded || !isliving(target_mob) || get_dist(target_mob, user) > 1)
+		return ..()
+
+	if(istype(target_mob, /mob/living/simple_animal))
+		var/mob/living/simple_animal/M = target_mob
+
+		if(!(M.find_type() & revive_type) || !(M.tameable))
+			to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 			return
+
+		if(M.stat == DEAD)
+			if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
+				M.faction = user.faction
+			if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
+				M.faction = initial(M.faction)
+			M.revive()
+			M.icon_state = M.icon_living
+			M.desc = initial(M.desc)
+			loaded = FALSE
+			user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
+			feedback_add_details("lazarus_injector", "[M.type]")
+			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+			update_icon()
+
+		else
+			to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
+
+	else
+		to_chat(user, SPAN_INFO("\The [src] is only effective on lesser beings."))
 
 /obj/item/lazarus_injector/emp_act()
 	. = ..()
@@ -890,7 +892,7 @@ var/list/total_extraction_beacons = list()
 	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "fulton"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/structure/extraction_point/beacon
 	var/list/beacon_networks = list("station")
 	var/uses_left = 3
@@ -1002,7 +1004,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "resonator"
 	item_state = "resonator"
 	desc = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field at the user's location, to act as a delayed time trap. It's more effective in a vacuum."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 22
 	throwforce = 10
 	var/burst_time = 30
@@ -1100,7 +1102,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "magneto"
 	item_state = "magneto"
 	desc = "A handheld device that creates a well of negative force that attracts minerals of a very specific type, size, and state to its user."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
@@ -1138,7 +1140,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "supermagneto"
 	item_state = "jaunter"
 	desc = "A handheld device that creates a well of warp energy that teleports minerals of a very specific type, size, and state to its user."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 22
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
@@ -1262,7 +1264,8 @@ var/list/total_extraction_beacons = list()
 
 			return TRUE
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE
@@ -1278,7 +1281,8 @@ var/list/total_extraction_beacons = list()
 				return TRUE
 			return FALSE
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE
@@ -1323,7 +1327,8 @@ var/list/total_extraction_beacons = list()
 			return TRUE
 
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE

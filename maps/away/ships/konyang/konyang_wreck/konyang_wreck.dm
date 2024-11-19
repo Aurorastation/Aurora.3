@@ -4,7 +4,7 @@
 	description = "Orion Express cargo ship, home to an unfortunate outbreak of infected IPCs."
 
 	prefix = "ships/konyang/konyang_wreck/"
-	suffixes = list("konyang_wreck.dmm")
+	suffix = "konyang_wreck.dmm"
 
 	spawn_cost = 1
 	spawn_weight = 1
@@ -95,7 +95,7 @@
 /obj/effect/landmark/corpse/orionexpress/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200,400))
 	M.change_skin_tone(rand(0, 100))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/orionexpress/captain
 	name = "Orion Express Captain"

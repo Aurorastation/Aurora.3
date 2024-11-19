@@ -8,7 +8,7 @@
 	icon = 'icons/obj/clothing/ears.dmi'
 	icon_state = "band_r"
 	item_state = "band_r"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 
 /obj/item/clothing/accessory/bandanna/get_ear_examine_text(var/mob/user, var/ear_text = "left")

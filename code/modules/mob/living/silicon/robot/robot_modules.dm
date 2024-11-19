@@ -14,7 +14,7 @@ var/global/list/robot_modules = list(
 	name = "robot module"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/channels = list()
@@ -230,7 +230,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/chemistry(src)
 	modules += new /obj/item/reagent_containers/dropper/cyborg_pipette(src)
 	modules += new /obj/item/roller_holder(src)
-	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/reagent_containers/syringe/robotic(src)
 	modules += new /obj/item/device/reagent_scanner/adv(src)
 	modules += new /obj/item/device/mass_spectrometer(src)
 	modules += new /obj/item/autopsy_scanner(src)
@@ -704,7 +704,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 		"Basic" =          list(ROBOT_CHASSIS = "robot_mine", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),

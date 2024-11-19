@@ -5,7 +5,7 @@
 	name = "Tret Industrial Complex"
 	description = "An industrial complex on Tret."
 	prefix = "away_site/uueoaesa/tret/"
-	suffixes = list("tret_industrial_complex.dmm")
+	suffix = "tret_industrial_complex.dmm"
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -29,6 +29,7 @@
 /obj/effect/overmap/visitable/sector/tret_industrial_complex
 	name = "Tret"
 	desc = "A large and inhospitable planet, now covered in mines, forges and factories - the new homeworld of the K'lax Hive."
+	alignment = "Izweski Hegemony"
 	icon_state = "globe3"
 	color = "#d69200"
 	initial_generic_waypoints = list(
@@ -110,3 +111,4 @@
 	master_tag = "airlock_tret_industrial_shuttle"
 	req_one_access = null
 	req_access = null
+	cycle_to_external_air = TRUE

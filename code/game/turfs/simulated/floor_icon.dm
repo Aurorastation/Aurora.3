@@ -23,7 +23,7 @@
 		ClearOverlays()
 		var/has_border = 0
 		//Check the cardinal turfs
-		for(var/step_dir in GLOB.cardinal)
+		for(var/step_dir in GLOB.cardinals)
 			var/turf/simulated/floor/T = get_step(src, step_dir)
 			var/is_linked = flooring.symmetric_test_link(src, T)
 
@@ -35,13 +35,13 @@
 				if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 					AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-broken-edge-[step_dir]", "[flooring.icon_base]_broken_edges", step_dir,(flooring.flags & TURF_HAS_EDGES)))
 				else if(flooring.flags & TURF_HAS_EDGES)
-					AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[step_dir]", "[flooring.icon_base]_edges", step_dir, (flooring.flags & TURF_HAS_EDGES)))
+					AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[step_dir]", "[flooring.icon_base]_edges", step_dir, (flooring.flags & TURF_OFFSET_EDGES)))
 
 		has_smooth = ~(has_border & (NORTH | SOUTH | EAST | WEST))
 
 		//We can only have inner corners if we're smoothed with something
 		if (has_smooth && flooring.flags & TURF_HAS_INNER_CORNERS)
-			for(var/direction in GLOB.cornerdirs)
+			for(var/direction in GLOB.diagonals)
 				if((has_smooth & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
@@ -51,13 +51,13 @@
 
 		//Next up, outer corners
 		if (has_border && flooring.flags & TURF_HAS_CORNERS)
-			for(var/direction in GLOB.cornerdirs)
+			for(var/direction in GLOB.diagonals)
 				if((has_border & direction) == direction)
 					if(!flooring.symmetric_test_link(src, get_step(src, direction)))
 						if(flooring.has_damage_state && !isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 							AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-broken-edge-[direction]", "[flooring.icon_base]_broken_edges", direction,(flooring.flags & TURF_HAS_EDGES)))
 						else
-							AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[direction]", "[flooring.icon_base]_edges", direction,(flooring.flags & TURF_HAS_EDGES)))
+							AddOverlays(get_flooring_overlay("[flooring.icon]_[flooring.icon_base]-edge-[direction]", "[flooring.icon_base]_edges", direction,(flooring.flags & TURF_OFFSET_EDGES)))
 
 		if(!isnull(broken) && (flooring.flags & TURF_CAN_BREAK))
 			if(flooring.has_damage_state)
@@ -97,7 +97,6 @@
 				I.pixel_x = -world.icon_size
 			else if (icon_dir & EAST)
 				I.pixel_x = world.icon_size
-		I.layer = flooring.decal_layer
 
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]

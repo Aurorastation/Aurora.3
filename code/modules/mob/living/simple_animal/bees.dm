@@ -59,7 +59,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/bee/Life()
+/mob/living/simple_animal/bee/Life(seconds_per_tick, times_fired)
 	if(!loner && strength && !parent && prob(7-strength))
 		strength -= 1
 
@@ -187,7 +187,7 @@
 				if(strength <= 0)
 					qdel(src)
 					return
-				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinal))
+				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinals))
 				if(istype(T))
 					Move(T)
 			break

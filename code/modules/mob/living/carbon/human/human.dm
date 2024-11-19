@@ -350,13 +350,13 @@
 		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
 			continue
 		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
-		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='?src=\ref[src];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
+		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
 
 	dat += "<BR><HR>"
 
 	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='?src=\ref[src];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='?src=\ref[src];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+		dat += "<BR><b>Left hand:</b> <A href='?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
+		dat += "<BR><b>Right hand:</b> <A href='?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -373,29 +373,29 @@
 		has_tank = TRUE
 
 	if((has_mask == 2|| has_helmet) && has_tank)
-		dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
 
 	// Other incidentals.
 	if(istype(suit) && suit.has_sensor == 1)
-		dat += "<BR><A href='?src=\ref[src];item=sensors'>Set sensors</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=sensors'>Set sensors</A>"
 	if(handcuffed)
-		dat += "<BR><A href='?src=\ref[src];item=[slot_handcuffed]'>Handcuffed</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
-		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
 
 	if(has_mask)
 		var/obj/item/clothing/mask/M = wear_mask
 		if(M.adjustable)
-			dat += "<BR><A href='?src=\ref[src];item=mask'>Adjust mask</A>"
+			dat += "<BR><A href='?src=[REF(src)];item=mask'>Adjust mask</A>"
 	if(has_tank && internal)
-		dat += "<BR><A href='?src=\ref[src];item=tank'>Check air tank</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=tank'>Check air tank</A>"
 	if(suit && LAZYLEN(suit.accessories))
-		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
-	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
-	dat += "<BR><A href='?src=\ref[src];item=pockets'>Empty pockets</A>"
-	dat += species.get_strip_info("\ref[src]")
-	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
-	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
+		dat += "<BR><A href='?src=[REF(src)];item=tie'>Remove accessory</A>"
+	dat += "<BR><A href='?src=[REF(src)];item=splints'>Remove splints</A>"
+	dat += "<BR><A href='?src=[REF(src)];item=pockets'>Empty pockets</A>"
+	dat += species.get_strip_info("[REF(src)]")
+	dat += "<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>"
+	dat += "<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>"
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
 	mob_win.set_content(dat)
@@ -403,10 +403,11 @@
 
 // called when something steps onto a human
 // this handles vehicles
-/mob/living/carbon/human/Crossed(var/atom/movable/AM)
+/mob/living/carbon/human/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+
+	if(istype(arrived, /obj/vehicle))
+		var/obj/vehicle/V = arrived
 		V.RunOver(src)
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
@@ -564,7 +565,7 @@
 			show_inv(machine)
 
 	if (href_list["mach_close"])
-		var/t1 = text("window=[]", href_list["mach_close"])
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 
@@ -624,7 +625,7 @@
 						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
 						+ "<b>Crimes:</b> [R.security.crimes]\n" \
 						+ "<b>Notes:</b> [R.security.notes]\n" \
-						+ "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='?src=[REF(src)];secrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 					read = 1
 
@@ -651,7 +652,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='?src=[REF(src)];secrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
@@ -672,10 +673,10 @@
 					return
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
-					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
+					R.security.comments += "Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
-					R.security.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
+					R.security.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 
 	if (href_list["medical"])
 		if(hasHUD(usr,"medical"))
@@ -725,7 +726,7 @@
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
 						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
-						+ "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 					read = 1
 
@@ -752,7 +753,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)
@@ -773,10 +774,10 @@
 					return
 				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
-					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
+					R.medical.comments += "Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
-					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]")
+					R.medical.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 
 	if(href_list["triagetag"])
 		if(hasHUD(usr, "medical"))
@@ -871,7 +872,7 @@
 	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 		return max(. - 1, FLASH_PROTECTION_REDUCED)
 
-/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
@@ -1048,8 +1049,8 @@
 			return
 		timevomit = max(timevomit, 5)
 
-	timevomit = Clamp(timevomit, 1, 10)
-	level = Clamp(level, 1, 3)
+	timevomit = clamp(timevomit, 1, 10)
+	level = clamp(level, 1, 3)
 
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
@@ -1185,7 +1186,7 @@
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
 	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -2104,14 +2105,14 @@
 		return BULLET_IMPACT_METAL
 	return BULLET_IMPACT_MEAT
 
-/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
-	..()
-	if(blocked_ratio > 0.7)
+/mob/living/carbon/human/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	. = ..()
+	if(blocked > 70)
 		return
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == DAMAGE_BRUTE)
-				var/hit_dir = get_dir(P.starting, src)
+			if(impacting_projectile.damage_type == DAMAGE_BRUTE)
+				var/hit_dir = get_dir(impacting_projectile.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				var/scale = min(1, round(damage / 50, 0.2))
@@ -2264,7 +2265,8 @@
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/above = GetAbove(src)
+		var/turf/T = get_turf(src)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
@@ -2285,14 +2287,14 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/T = get_turf(src)
-		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
-			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)

@@ -13,7 +13,7 @@
 	icon_state = "med_harness"
 	item_state = "med_harness"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 5, TECH_BIO = 3)
 	slot_flags = SLOT_OCLOTHING
 	var/panel_open = FALSE
@@ -140,7 +140,8 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/H, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
 	if(istype(H) && user.a_intent == I_HELP)
 		if(panel_open)
 			to_chat(user, SPAN_WARNING("You must screw \the [src]'s panel closed before fitting it onto anyone!"))

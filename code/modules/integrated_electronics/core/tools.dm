@@ -12,7 +12,7 @@
 	icon_state = "wirer-wire"
 	item_state = "wirer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/datum/integrated_io/selected_io
 	var/mode = WIRE
 
@@ -114,7 +114,7 @@
 	icon_state = "debugger"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/data_to_write = null
 	var/accepting_refs = 0
 
@@ -175,7 +175,7 @@
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "detailer"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/detail_color = COLOR_ASSEMBLY_WHITE
 	var/static/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
@@ -220,7 +220,7 @@
 	desc = "This kit is essential for any circuitry projects."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_kit"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	display_contents_with_number = 0
 	can_hold = list(
 		/obj/item/integrated_circuit,
@@ -281,7 +281,7 @@
 /obj/item/storage/bag/circuits/mini
 	name = "circuit box"
 	desc = "Used to partition categories of circuits, for a neater workspace."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	display_contents_with_number = TRUE
 	pickup_blacklist = list(
 						/obj/item/storage/bag/circuits

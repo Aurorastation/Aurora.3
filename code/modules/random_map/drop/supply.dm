@@ -89,5 +89,5 @@
 	choice = alert("Are you SURE you wish to deploy this supply drop? It will cause a sizable explosion and gib anyone underneath it.",,"No","Yes")
 	if(choice == "No")
 		return
-	log_admin("[key_name(usr)] dropped supplies at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] dropped supplies at ([usr.x],[usr.y],[usr.z])")
 	new /datum/random_map/droppod/supply(null, usr.x-2, usr.y-2, usr.z, supplied_drops = chosen_loot_types, supplied_drop = chosen_loot_type)

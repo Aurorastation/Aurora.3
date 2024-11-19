@@ -20,4 +20,4 @@
 /singleton/origin_item/origin/queendom/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	armor_component.RemoveComponent()
+	qdel(armor_component)

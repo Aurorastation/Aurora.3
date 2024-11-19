@@ -7,7 +7,7 @@
 	connections. A quick and easy way to upload your latest montage to the extranet."
 	desc_info = "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 	icon = 'icons/obj/gamehelm.dmi'
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	update_icon_on_init = TRUE
 
 	var/case_color = "white"

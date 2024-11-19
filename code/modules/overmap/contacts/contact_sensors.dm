@@ -163,14 +163,14 @@
 
 	if(tracker in trackers)
 		trackers -= tracker
-		GLOB.destroyed_event.unregister(tracker, src, PROC_REF(remove_tracker))
+		UnregisterSignal(tracker, COMSIG_QDELETING)
 		to_chat(user, SPAN_NOTICE("You unlink the tracker in \the [P]'s buffer from \the [src]."))
 		return
 	trackers += tracker
-	GLOB.destroyed_event.register(tracker, src, PROC_REF(remove_tracker))
+	RegisterSignal(tracker, COMSIG_QDELETING, PROC_REF(remove_tracker))
 	to_chat(user, SPAN_NOTICE("You link the tracker in \the [P]'s buffer to \the [src]."))
 
-/obj/machinery/computer/ship/sensors/proc/remove_tracker(var/obj/item/ship_tracker/tracker)
+/obj/machinery/computer/ship/sensors/proc/remove_tracker(obj/item/ship_tracker/tracker)
 	trackers -= tracker
 
 /obj/machinery/computer/ship/sensors/proc/datalink_process()

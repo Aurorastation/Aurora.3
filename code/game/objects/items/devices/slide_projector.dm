@@ -4,7 +4,7 @@
 	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 10
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	var/static/list/projection_types = list(
@@ -68,7 +68,7 @@
 /obj/item/storage/slide_projector/proc/stop_projecting()
 	if(projection)
 		QDEL_NULL(projection)
-	GLOB.moved_event.unregister(src, src, PROC_REF(check_projections))
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	set_light(0)
 	update_icon()
 
@@ -83,7 +83,7 @@
 			break
 	projection = new projection_type(target)
 	projection.set_source(current_slide)
-	GLOB.moved_event.register(src, src, PROC_REF(check_projections))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_projections))
 	set_light(1.4, 0.1, COLOR_WHITE) //Bit of light
 	update_icon()
 
@@ -93,7 +93,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=\ref[src];stop_projector=1'>Disable Projector</a>"
+		data += "<a href='?src=[REF(src)];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
 
@@ -104,13 +104,13 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=\ref[src];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='?src=[REF(src)];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"
 	data += jointext(table,null)
 
-	var/datum/browser/popup = new(user, "slides\ref[src]", "Slide Projector")
+	var/datum/browser/popup = new(user, "slides[REF(src)]", "Slide Projector")
 	popup.set_content(jointext(data, "<br>"))
 	popup.open()
 

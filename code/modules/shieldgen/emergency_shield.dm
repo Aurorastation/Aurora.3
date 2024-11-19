@@ -56,8 +56,13 @@
 	return ..()
 
 /obj/machinery/shield/CanPass(atom/movable/mover, turf/target, height, air_group)
-	if(!height || air_group) return FALSE
-	else return ..()
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
+	if(!height || air_group)
+		return FALSE
+	else
+		return ..()
 
 /obj/machinery/shield/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -74,9 +79,12 @@
 
 	..()
 
-/obj/machinery/shield/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.get_structure_damage()
-	..()
+/obj/machinery/shield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	health -= hitting_projectile.get_structure_damage()
 	check_failure()
 	opacity = 1
 	spawn(20) if(src) opacity = FALSE
@@ -106,16 +114,17 @@
 				qdel(src)
 
 
-/obj/machinery/shield/hitby(AM as mob|obj)
+/obj/machinery/shield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	//Let everyone know we've been hit!
-	visible_message(SPAN_NOTICE("<B>\[src] was hit by [AM].</B>"))
+	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"))
 
 	//Super realistic, resource-intensive, real-time damage calculations.
 	var/tforce = 0
-	if(ismob(AM))
+	if(ismob(hitting_atom))
 		tforce = 40
-	else
-		tforce = AM:throwforce
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce
 
 	src.health -= tforce
 
@@ -188,7 +197,7 @@
 		var/obj/item/tape/engineering/E = locate() in target_tile
 		if(E?.shield_marker)
 			deploy_shield(target_tile)
-		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless))
+		else if(istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/simulated/floor/exoplanet/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless))
 			if(malfunction && prob(33) || !malfunction)
 				deploy_shield(target_tile)
 

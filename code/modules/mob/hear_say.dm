@@ -208,11 +208,11 @@
 
 		if(changed_voice)
 			if(impersonating)
-				track = "<a class='ai_tracking' href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[impersonating]'>[speaker_name] ([jobname])</a>"
+				track = "<a class='ai_tracking' href='byond://?src=[REF(src)];trackname=[html_encode(speaker_name)];track=[REF(impersonating)]'>[speaker_name] ([jobname])</a>"
 			else
 				track = "[speaker_name] ([jobname])"
 		else
-			track = "<a class='ai_tracking' href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[speaker]'>[speaker_name] ([jobname])</a>"
+			track = "<a class='ai_tracking' href='byond://?src=[REF(src)];trackname=[html_encode(speaker_name)];track=[REF(speaker)]'>[speaker_name] ([jobname])</a>"
 
 	if(istype(src, /mob/abstract/observer))
 		if(speaker != null)

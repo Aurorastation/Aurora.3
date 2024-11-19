@@ -1,15 +1,8 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/proc/is_on_same_plane_or_station(var/z1, var/z2)
-	if(z1 == z2)
-		return 1
-	if(isStationLevel(z1) && isStationLevel(z2))
-		return 1
-	return 0
-
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in SSatlas.current_map.station_levels)
+	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		max_z = max(z, max_z)
 	for(var/z in SSatlas.current_map.admin_levels)
 		max_z = max(z, max_z)
@@ -112,7 +105,7 @@
 // Same as above but for alien candidates.
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
-	if(!isobj(O))	O = new /obj/screen/text()
+	if(!isobj(O))	O = new /atom/movable/screen/text()
 	O.maptext = maptext
 	O.maptext_height = maptext_height
 	O.maptext_width = maptext_width
@@ -216,13 +209,13 @@
 	return mixedcolor
 
 /**
-* Gets the highest and lowest pressures from the tiles in GLOB.cardinal directions
+* Gets the highest and lowest pressures from the tiles in GLOB.cardinals directions
 * around us, then checks the difference.
 */
 /proc/getOPressureDifferential(var/turf/loc)
 	var/minp=16777216;
 	var/maxp=0;
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/turf/simulated/T=get_turf(get_step(loc,dir))
 		var/cp=0
 		if(T && istype(T) && T.zone)
@@ -243,7 +236,7 @@
 
 /proc/getCardinalAirInfo(var/turf/loc, var/list/stats=list("temperature"))
 	var/list/temps = new/list(4)
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/direction
 		switch(dir)
 			if(NORTH)

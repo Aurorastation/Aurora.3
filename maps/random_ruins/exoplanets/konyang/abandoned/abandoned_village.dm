@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/abandoned/"
-	suffixes = list("abandoned_village.dmm")
+	suffix = "abandoned_village.dmm"
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_village)
 
@@ -25,4 +25,4 @@
 		M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/konyang(M), slot_wear_suit)
 	M.adjustBruteLoss(rand(200, 400))
 	M.change_skin_tone(rand(0, 100))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)

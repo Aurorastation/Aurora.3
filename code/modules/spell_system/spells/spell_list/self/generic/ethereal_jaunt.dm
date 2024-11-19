@@ -98,8 +98,6 @@
 
 /obj/effect/dummy/spell_jaunt/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if (!src.canmove || reappearing) return
 	var/turf/newLoc = get_step(src,direction)
@@ -114,6 +112,4 @@
 	spawn(2) src.canmove = 1
 
 /obj/effect/dummy/spell_jaunt/ex_act(blah)
-	return
-/obj/effect/dummy/spell_jaunt/bullet_act(blah)
 	return

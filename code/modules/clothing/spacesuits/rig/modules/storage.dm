@@ -9,7 +9,7 @@
 
 	var/obj/item/storage/internal/hardsuit/pockets
 	var/storage_slots = null
-	var/storage_max_w_class = ITEMSIZE_NORMAL
+	var/storage_max_w_class = WEIGHT_CLASS_NORMAL
 	var/storage_max_storage_space = 9
 
 /obj/item/rig_module/storage/Initialize()

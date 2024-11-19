@@ -14,7 +14,7 @@
 	slot_flags = SLOT_BACK
 	req_one_access = list()
 	req_access = list()
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	// These values are passed on to all component pieces.
 	armor = list(
@@ -179,7 +179,7 @@
 		if(islist(armor))
 			var/datum/component/armor/armor_component = piece.GetComponent(/datum/component/armor)
 			if(istype(armor_component))
-				armor_component.RemoveComponent()
+				qdel(armor_component)
 			piece.AddComponent(/datum/component/armor, armor, ARMOR_TYPE_STANDARD|ARMOR_TYPE_RIG)
 
 	if(chest.flags_inv & HIDEJUMPSUIT)
@@ -426,7 +426,9 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			slowdown = initial(slowdown)
+			if(slowdown != initial(slowdown))
+				slowdown = initial(slowdown)
+				wearer?.update_equipment_speed_mods()
 
 	set_vision(!offline)
 	if(offline)
@@ -435,7 +437,9 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			slowdown = offline_slowdown
+			if(slowdown != offline_slowdown)
+				slowdown = offline_slowdown
+				wearer?.update_equipment_speed_mods()
 		return
 
 	if(crushing)
@@ -972,7 +976,7 @@
 			wearer.inertia_dir = 0 //If not then we can reset inertia and move
 
 	if(malfunctioning)
-		direction = pick(GLOB.cardinal)
+		direction = pick(GLOB.cardinals)
 
 	// Inside an object, tell it we moved.
 	if(isobj(wearer.loc) || ismob(wearer.loc))

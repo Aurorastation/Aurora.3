@@ -51,7 +51,7 @@
 	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing)
 		if(!temp_vent)
 			continue
-		if(isStationLevel(temp_vent.z))
+		if(is_station_level(temp_vent.z))
 			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)

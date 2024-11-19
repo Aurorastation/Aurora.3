@@ -51,7 +51,7 @@
 	var/melee_damage_disguised = 0
 	var/eat_while_disguised = FALSE
 	var/atom/movable/form = null
-	var/static/list/blacklist_typecache = typecacheof(list(/obj/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect, /obj/structure/gore))
+	var/static/list/blacklist_typecache = typecacheof(list(/atom/movable/screen, /obj/singularity, /mob/living/simple_animal/hostile/morph, /obj/effect, /obj/structure/gore))
 
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
@@ -65,7 +65,7 @@
 	for(var/spell in morph_spells)
 		add_spell(new spell, "const_spell_ready")
 
-/mob/living/simple_animal/hostile/morph/Life()
+/mob/living/simple_animal/hostile/morph/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(stat == DEAD && healths)
 		healths.icon_state = "health6"
@@ -102,7 +102,7 @@
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
-		return form.examine(user)
+		return form.examine(arglist(args))
 	else
 		return ..()
 
@@ -212,7 +212,7 @@
 	if(morphed && user != src)
 		restore()
 
-/mob/living/simple_animal/hostile/morph/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hostile/morph/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	if(morphed)
 		restore()
@@ -233,8 +233,8 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/morph/add_spell(var/spell/spell_to_add, var/spell_base = "wiz_spell_ready", var/master_type = /obj/screen/movable/spell_master)
+/mob/living/simple_animal/hostile/morph/add_spell(var/spell/spell_to_add, var/spell_base = "wiz_spell_ready", var/master_type = /atom/movable/screen/movable/spell_master)
 	. = ..()
-	for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+	for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 		spell_master.open_state = "morph_open"
 		spell_master.closed_state = "morph_closed"

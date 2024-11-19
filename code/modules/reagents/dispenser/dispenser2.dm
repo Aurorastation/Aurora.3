@@ -202,6 +202,12 @@
 
 	add_fingerprint(usr)
 
+/obj/machinery/chemical_dispenser/ui_status(mob/user, datum/ui_state/state)
+	if(!operable())
+		return UI_DISABLED
+
+	. = ..()
+
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return

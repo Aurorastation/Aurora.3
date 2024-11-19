@@ -132,9 +132,7 @@
 /obj/structure/closet/crate/rad,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 2
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/idris_wreck/vault)
 "bp" = (
@@ -992,7 +990,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/closet/secure_closet/engineering_welding,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
 "jl" = (
@@ -2083,7 +2081,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/starbthrust)
 "vu" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
@@ -3681,7 +3679,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
 "Km" = (

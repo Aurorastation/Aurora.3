@@ -4,9 +4,9 @@
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 
 	prefix = "ships/sol/sol_ssmd/"
-	suffixes = list("ssmd_ship.dmm")
+	suffix = "ssmd_ship.dmm"
 
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ssmd_corvette"
@@ -171,7 +171,7 @@
 
 /datum/shuttle/autodock/overmap/ssmd_shuttle
 	name = "SSMD Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ssmd_shuttle)
 	dock_target = "airlock_ssmd_shuttle"
 	current_location = "nav_hangar_ssmd"
@@ -185,6 +185,7 @@
 	name = "SSMD Shuttle"
 	shuttle_tag = "SSMD Shuttle"
 	master_tag = "airlock_ssmd_shuttle"
+	cycle_to_external_air = TRUE
 
 /obj/effect/shuttle_landmark/ssmd_shuttle/hangar
 	name = "SSMD Shuttle Hangar"

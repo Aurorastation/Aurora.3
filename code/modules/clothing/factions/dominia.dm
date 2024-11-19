@@ -49,6 +49,7 @@
 	icon_override = null
 	contained_sprite = TRUE
 	var/cape_backing_state = "cape_backing"
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/white
 	name = "white dominian cape"
@@ -497,6 +498,9 @@
 /obj/item/clothing/under/dominia/dress/noble/black/zhao
 	name = "black zhao noble dress"
 	house = "zhao"
+
+/obj/item/clothing/accessory/poncho/dominia
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"

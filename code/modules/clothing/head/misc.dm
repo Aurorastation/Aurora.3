@@ -494,6 +494,33 @@
 	item_state = "leader_headband"
 	contained_sprite = TRUE
 
+//all by budg
+/obj/item/clothing/head/slouch
+	name = "slouch hat"
+	desc = "A wide brimmed hat folded to form a slouch."
+	icon_state = "slouch"
+
+/obj/item/clothing/head/tight_beanie
+	name = "tight beanie"
+	desc = "A rather tight beanie, blocks hair."
+	icon_state = "tight_beanie"
+	flags_inv = BLOCKHEADHAIR
+	cold_protection = HEAD
+
+/obj/item/clothing/head/sun_visor
+	name = "sun visor"
+	desc = "A stylish visor intended for blocking out harsh sunlight."
+	icon_state = "sun_visor"
+
+/obj/item/clothing/head/newsboy
+	name = "newsboy cap"
+	desc = "A fashionable peaked cap!"
+	icon_state = "newsboy"
+
+/obj/item/clothing/head/legionnaire
+	name = "legionnaire cap"
+	desc = "A hate made to protect your neck from sunlight, not affiliated with the TCAF."
+	icon_state = "legionnaire"
 //sol stuff
 
 /obj/item/clothing/head/sol

@@ -50,6 +50,7 @@
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -68,6 +69,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
@@ -91,8 +93,9 @@
 	max_co2 = 0
 	max_tox = 0
 	var/playable = TRUE
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-2)
 
@@ -111,6 +114,7 @@
 	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
@@ -127,6 +131,7 @@
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
@@ -145,6 +150,7 @@
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
@@ -241,7 +247,7 @@
 			if(!busy && prob(30))
 				//first, check for potential food nearby to cocoon
 				for(var/mob/living/C in view(src, world.view))
-					if(C.stat)
+					if(C.stat && !istype(C, /mob/living/simple_animal/hostile/giant_spider))
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
 						GLOB.move_manager.move_to(src, C, 1, move_to_delay)
@@ -249,9 +255,8 @@
 						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
 						return
 
-				//second, spin a sticky spiderweb on this tile
-				var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
-				if(!W)
+				//second, spin a sticky spiderweb on this tile if there isn't already a spiderweb there
+				if(!locate(/obj/effect/spider/stickyweb) in src.loc)
 					busy = SPINNING_WEB
 					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
 					stop_automated_movement = 1
@@ -306,7 +311,7 @@
 		stop_automated_movement = 0
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_web()
-	if(busy == SPINNING_WEB)
+	if(busy == SPINNING_WEB && !locate(/obj/effect/spider/stickyweb) in src.loc) // Additional check, to be extra-sure they don't stack webs.
 		new /obj/effect/spider/stickyweb(src.loc)
 		busy = 0
 		stop_automated_movement = 0
@@ -355,12 +360,13 @@
 	set desc = "Create a web that slows down movement."
 	set category = "Greimorian"
 
-	var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
-	if(!W)
-		to_chat(usr, SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
-		if(!do_after(src, 20))
+	if(!locate(/obj/effect/spider/stickyweb) in src.loc)
+		src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
+		if(!do_after(src, 20) || locate(/obj/effect/spider/stickyweb) in src.loc) // Additional check so you can't queue it multiple times at once to stack webs.
 			return
 		new /obj/effect/spider/stickyweb(get_turf(src))
+	else
+		to_chat(usr, SPAN_WARNING("You cannot secrete webs on a turf that is already webbed!"))
 
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/verb/cocoon()

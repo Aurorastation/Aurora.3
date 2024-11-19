@@ -3,16 +3,22 @@
 	full_name = "Runtime Debugging Ship"
 	path = "runtime"
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	force_spawnpoint = TRUE
 
 	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi', 'icons/misc/titlescreens/runtime/away.dmi')
 	lobby_transitions = 10 SECONDS
 
-	station_levels = list(1, 2, 3)
 	admin_levels = list(9)
-	contact_levels = list(1, 2, 3)
-	player_levels = list(1, 2, 3)
-	accessible_z_levels = list(1, 2, 3)
+	contact_levels = list(1, 2)
+	player_levels = list(1, 2)
+	accessible_z_levels = list(1, 2)
 
 	overmap_event_areas = 10
 
@@ -25,8 +31,11 @@
 	company_short = "BT"
 	station_type  = "dumpster"
 
+	//If you're testing overmap stuff, remove the conditional definition
+	#if defined(UNIT_TEST)
 	use_overmap = TRUE
 	overmap_size = 35
+	#endif
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
@@ -49,3 +58,26 @@
 
 	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)
 	warehouse_basearea = /area/storage/primary
+
+
+/area/turbolift/main_station
+	name = "Civilian Lift - Main"
+	lift_announce_str = "Arriving at the Main Level. Facilities on this floor include: Engineering, Medical, Security, Science, Command departments, Cargo Office, Chapel, Bar, Kitchen."
+
+	lift_floor_label = "Main Lvl."
+	lift_floor_name = "Main Lvl."
+
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/main_mid
+	name = "Civilian Lift - Mid Level"
+	lift_announce_str = "Arriving at (Unknown). Facilities on this floor include: (Unknown)."
+
+	lift_floor_label = "Under construction"
+	lift_floor_name = "Under construction"
+
+ABSTRACT_TYPE(/obj/item/paper/fluff/runtime)
+
+/obj/item/paper/fluff/runtime/dontforgetuseovermap
+	name = "Don't Forget use_overmap!"
+	info = SPAN_BOLD("Don't forget to remove the conditional preprocessor definition for use_overmap = TRUE in maps\\runtime\\code\\runtime.dm if you want to test overmap things, it's off to load even faster!")

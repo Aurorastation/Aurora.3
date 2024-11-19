@@ -19,7 +19,7 @@
 
 	// 100 attempts
 	for(var/i = 0, i < 100, i++)
-		var/turf/candidate = locate(rand(1, world.maxx), rand(1, world.maxy), pick(SSatlas.current_map.station_levels))
+		var/turf/candidate = locate(rand(1, world.maxx), rand(1, world.maxy), pick(SSmapping.levels_by_trait(ZTRAIT_STATION)))
 		if(istype(candidate, /turf/simulated/wall))
 			origin_turf = candidate
 			break

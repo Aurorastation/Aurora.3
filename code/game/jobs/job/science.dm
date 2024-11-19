@@ -32,7 +32,7 @@
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 
 /obj/outfit/job/rd
 	name = "Research Director"
@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -118,6 +118,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Anomalist")
+	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -148,6 +150,18 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
 	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
+
+/obj/outfit/job/scientist/anomalist
+	name = "Anomalist"
+	jobtype = /datum/job/xenoarchaeologist
+
+	uniform = /obj/item/clothing/under/rank/scientist/anomalist
+
+	headset = /obj/item/device/radio/headset/headset_anom
+	bowman = /obj/item/device/radio/headset/headset_anom/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/anom
+	wrist_radio = /obj/item/device/radio/headset/wrist/anom
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/anom
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"

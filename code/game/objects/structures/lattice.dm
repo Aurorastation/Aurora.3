@@ -7,8 +7,8 @@
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	w_class = ITEMSIZE_NORMAL
-	layer = LATTICE_LAYER
+	w_class = WEIGHT_CLASS_NORMAL
+	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -105,8 +105,8 @@
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			SSicon_smooth.add_to_queue(src)
-			SSicon_smooth.add_to_queue_neighbors(src)
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 	else
 		..()
 

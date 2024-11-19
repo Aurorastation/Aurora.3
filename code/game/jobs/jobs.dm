@@ -19,6 +19,7 @@ var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
 var/const/HRA              =(1<<14)
 var/const/CONSULAR_ASST	   =(1<<15)
+var/const/DIPLOMAT_AIDE	   =(1<<16)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -68,6 +69,7 @@ var/const/EVENTENG			=(1<<1)
 var/const/EVENTMED			=(1<<2)
 var/const/EVENTSCI			=(1<<3)
 var/const/EVENTOPS			=(1<<4)
+var/const/EVENTSRV			=(1<<5)
 
 
 // Positions Lists
@@ -86,7 +88,8 @@ var/list/command_support_positions = list(
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bridge Crew",
-	"Diplomatic Aide"
+	"Diplomatic Aide",
+	"Corporate Aide"
 )
 
 var/list/engineering_positions = list(
@@ -133,7 +136,8 @@ var/list/service_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Chaplain"
+	"Chaplain",
+	"Service Personnel"
 )
 
 var/list/civilian_positions = list(

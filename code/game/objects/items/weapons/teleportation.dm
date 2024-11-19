@@ -33,7 +33,7 @@
 	var/broadcasting = null
 	var/listening = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -44,17 +44,17 @@
 	user.set_machine(src)
 	var/dat
 	if (src.temp)
-		dat = "[src.temp]<BR><BR><A href='byond://?src=\ref[src];temp=1'>Clear</A>"
+		dat = "[src.temp]<BR><BR><A href='byond://?src=[REF(src)];temp=1'>Clear</A>"
 	else
 		dat = {"
 <B>Persistent Signal Locator</B><HR>
 Frequency:
-<A href='byond://?src=\ref[src];freq=-10'>-</A>
-<A href='byond://?src=\ref[src];freq=-2'>-</A> [format_frequency(src.frequency)]
-<A href='byond://?src=\ref[src];freq=2'>+</A>
-<A href='byond://?src=\ref[src];freq=10'>+</A><BR>
+<A href='byond://?src=[REF(src)];freq=-10'>-</A>
+<A href='byond://?src=[REF(src)];freq=-2'>-</A> [format_frequency(src.frequency)]
+<A href='byond://?src=[REF(src)];freq=2'>+</A>
+<A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
-<A href='?src=\ref[src];refresh=1'>Refresh</A>"}
+<A href='?src=[REF(src)];refresh=1'>Refresh</A>"}
 	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return
@@ -116,7 +116,7 @@ Frequency:
 									direct = "weak"
 							src.temp += "[W.id]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
-				src.temp += "<B>You are at \[[sr.x],[sr.y],[sr.z]\]</B> in orbital coordinates.<BR><BR><A href='byond://?src=\ref[src];refresh=1'>Refresh</A><BR>"
+				src.temp += "<B>You are at \[[sr.x],[sr.y],[sr.z]\]</B> in orbital coordinates.<BR><BR><A href='byond://?src=[REF(src)];refresh=1'>Refresh</A><BR>"
 			else
 				src.temp += "<B><span class='warning'>Processing Error:</span></B> Unable to locate orbital position.<BR>"
 		else
@@ -147,7 +147,7 @@ Frequency:
 	item_state = "electronic"
 	throwforce = 5
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
@@ -245,9 +245,9 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			GLOB.destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
+			RegisterSignal(linked_pad, COMSIG_QDELETING, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
-			GLOB.destroyed_event.unregister(old_pad, src)
+			UnregisterSignal(old_pad, COMSIG_QDELETING)
 		return
 	return ..()
 
@@ -267,7 +267,7 @@ Frequency:
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 400)
 	var/obj/structure/closet/attached_closet

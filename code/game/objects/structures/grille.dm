@@ -10,14 +10,14 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	var/health = 10
 	var/destroyed = 0
 
 /obj/structure/grille/over
 	name = "over-frame grille"
 	icon = 'icons/obj/smooth/window/grille_over.dmi'
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -72,9 +72,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/structure/grille/CollidedWith(atom/user)
-	if(ismob(user))
-		shock(user, 70)
+/obj/structure/grille/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(ismob(bumped_atom))
+		shock(bumped_atom, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
 
@@ -101,45 +103,54 @@
 	attack_generic(user,damage_dealt,attack_message)
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGRILLE)
-		return 1
+		return TRUE
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density
 
-/obj/structure/grille/bullet_act(var/obj/item/projectile/Proj)
-	if(!Proj)	return
+/obj/structure/grille/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(!hitting_projectile)
+		return BULLET_ACT_BLOCK
 
 	//Flimsy grilles aren't so great at stopping projectiles. However they can absorb some of the impact
-	var/damage = Proj.get_structure_damage()
+	var/damage = hitting_projectile.get_structure_damage()
 	var/passthrough = 0
 
-	if(!damage) return
+	if(!damage)
+		return BULLET_ACT_BLOCK
 
 	//20% chance that the grille provides a bit more cover than usual. Support structure for example might take up 20% of the grille's area.
 	//If they click on the grille itself then we assume they are aiming at the grille itself and the extra cover behaviour is always used.
-	switch(Proj.damage_type)
+	switch(hitting_projectile.damage_type)
 		if(DAMAGE_BRUTE)
 			//bullets
-			if(Proj.original == src || prob(20))
-				Proj.damage *= between(0, Proj.damage/60, 0.5)
+			if(hitting_projectile.original == src || prob(20))
+				hitting_projectile.damage *= between(0, hitting_projectile.damage/60, 0.5)
 				if(prob(max((damage-10)/25, 0))*100)
 					passthrough = 1
 			else
-				Proj.damage *= between(0, Proj.damage/60, 1)
+				hitting_projectile.damage *= between(0, hitting_projectile.damage/60, 1)
 				passthrough = 1
 		if(DAMAGE_BURN)
 			//beams and other projectiles are either blocked completely by grilles or stop half the damage.
-			if(!(Proj.original == src || prob(20)))
-				Proj.damage *= 0.5
+			if(!(hitting_projectile.original == src || prob(20)))
+				hitting_projectile.damage *= 0.5
 				passthrough = 1
 
 	if(passthrough)
-		. = PROJECTILE_CONTINUE
-		damage = between(0, (damage - Proj.damage)*(Proj.damage_type == DAMAGE_BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
+		. = BULLET_ACT_HIT
+		damage = between(0, (damage - hitting_projectile.damage)*(hitting_projectile.damage_type == DAMAGE_BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
 
 	src.health -= damage*0.2
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
@@ -311,7 +322,7 @@
 /obj/structure/grille/cult/CanPass(atom/movable/mover, turf/target, height = 1.5, air_group = 0)
 	if(air_group)
 		return 0 //Make sure air doesn't drain
-	..()
+	. = ..()
 
 /obj/structure/grille/crescent/attack_hand()
 	return
@@ -325,8 +336,5 @@
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)
 	return
 
-/obj/structure/grille/crescent/hitby()
-	return
-
-/obj/structure/grille/crescent/bullet_act()
+/obj/structure/grille/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return

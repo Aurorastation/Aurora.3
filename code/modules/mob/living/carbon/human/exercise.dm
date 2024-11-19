@@ -72,7 +72,7 @@ Exercise Verbs
 
 	var/list/extremities = list(BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	for(var/zone in extremities)
-		if(!get_organ(zone, TRUE))
+		if(!get_organ(zone))
 			to_chat(src, SPAN_WARNING("You can't do pushups with missing limbs."))
 			return FALSE
 
@@ -94,7 +94,7 @@ Exercise Verbs
 		stamina_loss += 2
 	if(get_shock() > 10)
 		stamina_loss += 3
-	var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
+	var/nut_factor = max_nutrition ? clamp(nutrition / max_nutrition, 0, 1) : 1
 	if(nut_factor <= CREW_NUTRITION_HUNGRY)
 		stamina_loss += 2
 	if(on_knees)

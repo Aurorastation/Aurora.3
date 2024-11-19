@@ -57,6 +57,15 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
+	/**
+	 * In case you have multiple types, you automatically use the most useful one.
+	 * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs. -- this isn't in our codebase yet, however
+	 */
+	var/movement_type = GROUND
+
+	var/datum/component/orbiter/orbiting
+
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
@@ -71,7 +80,6 @@
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
-	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	//Recalculate opacity
 	var/turf/T = loc
@@ -140,47 +148,94 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, TRUE)
+	Moved(oldloc, NONE, TRUE, null)
 
-// This is called when this atom is prevented from moving by atom/A.
-/atom/movable/proc/Collide(atom/A)
+// Make sure you know what you're doing if you call this
+// You probably want CanPass()
+/atom/movable/Cross(atom/movable/crossed_atom)
+	. = TRUE
+	SEND_SIGNAL(src, COMSIG_MOVABLE_CROSS, crossed_atom)
+	SEND_SIGNAL(crossed_atom, COMSIG_MOVABLE_CROSS_OVER, src)
+	// return CanPass(crossed_atom, get_dir(src, crossed_atom))
+	return CanPass(crossed_atom, get_step(src, get_dir(src, crossed_atom)), 1, 0)
+
+///default byond proc that is deprecated for us in lieu of signals. do not call
+/atom/movable/Crossed(atom/movable/crossed_atom, oldloc)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("atom/movable/Crossed() was called!") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * `Uncross()` is a default BYOND proc that is called when something is *going*
+ * to exit this atom's turf. It is prefered over `Uncrossed` when you want to
+ * deny that movement, such as in the case of border objects, objects that allow
+ * you to walk through them in any direction except the one they block
+ * (think side windows).
+ *
+ * While being seemingly harmless, most everything doesn't actually want to
+ * use this, meaning that we are wasting proc calls for every single atom
+ * on a turf, every single time something exits it, when basically nothing
+ * cares.
+ *
+ * This overhead caused real problems on Sybil round #159709, where lag
+ * attributed to Uncross was so bad that the entire master controller
+ * collapsed and people made Among Us lobbies in OOC.
+ *
+ * If you want to replicate the old `Uncross()` behavior, the most apt
+ * replacement is [`/datum/element/connect_loc`] while hooking onto
+ * [`COMSIG_ATOM_EXIT`].
+ */
+/atom/movable/Uncross()
+	. = TRUE
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("Uncross() should not be being called, please read the doc-comment for it for why.") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * default byond proc that is normally called on everything inside the previous turf
+ * a movable was in after moving to its current turf
+ * this is wasteful since the vast majority of objects do not use Uncrossed
+ * use connect_loc to register to COMSIG_ATOM_EXITED instead
+ */
+/atom/movable/Uncrossed(atom/movable/uncrossed_atom)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("/atom/movable/Uncrossed() was called") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * Pretend this is `Bump()`
+ */
+/atom/movable/proc/Collide(atom/bumped_atom)
 	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!bumped_atom)
+		CRASH("Bump was called with no argument.")
+	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, bumped_atom)
+	// . = ..() when we turn it into Bump()
+	if(!QDELETED(throwing))
+		throwing.finalize(hit = TRUE, target = bumped_atom)
+		. = TRUE
+		if(QDELETED(bumped_atom))
+			return
+	bumped_atom.CollidedWith(src)
+
+	//Aurora snowflake atom airflow hit
 	if(airflow_speed > 0 && airflow_dest)
-		airflow_hit(A)
+		airflow_hit(bumped_atom)
 	else
 		airflow_speed = 0
 		airflow_time = 0
 
-	if(!QDELETED(throwing))
-		. = TRUE
-		if(!QDELETED(A))
-			throw_impact(A, throwing)
-			A.CollidedWith(src)
-		throwing?.finalize(hit = TRUE, target = A)
 
-	else if (!QDELETED(A))
-		A.CollidedWith(src)
-
-//called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(isliving(hit_atom))
-		var/mob/living/M = hit_atom
-		M.hitby(src, throwingdatum.speed)
+	var/hitpush = TRUE
+	var/impact_signal = SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum)
+	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)
+		hitpush = FALSE // hacky, tie this to something else or a proper workaround later
 
-	else if(isobj(hit_atom))
-		var/obj/O = hit_atom
-		if(!O.anchored)
-			step(O, src.last_move)
-		O.hitby(src, throwingdatum.speed)
-
-	else if(isturf(hit_atom))
-		throwing?.finalize(hit = FALSE)
-		var/turf/T = hit_atom
-		if(T.density)
-			step(src, turn(src.last_move, 180))
-			if(isliving(src))
-				var/mob/living/M = src
-				M.turf_collision(T, throwingdatum.speed)
+	if(impact_signal && (impact_signal & COMPONENT_MOVABLE_IMPACT_NEVERMIND))
+		return // in case a signal interceptor broke or deleted the thing before we could process our hit
+	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
+	return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed, var/target)
@@ -227,7 +282,7 @@
 
 	//They are moving! Wouldn't it be cool if we calculated their momentum and added it to the throw?
 	if (thrower && thrower.last_move && thrower.client && thrower.client.move_delay >= world.time + world.tick_lag*2)
-		var/user_momentum = world.tick_lag //Used to be thrower.cached_multiplicative_slowdown but we don't have this
+		var/user_momentum = thrower.cached_multiplicative_slowdown
 		if (!user_momentum) //no movement_delay, this means they move once per byond tick, lets calculate from that instead.
 			user_momentum = world.tick_lag
 
@@ -312,7 +367,7 @@
 		if (EMISSIVE_BLOCK_UNIQUE)
 			if (!em_block && !QDELING(src))
 				appearance_flags |= KEEP_TOGETHER
-				render_target = ref(src)
+				render_target = REF(src)
 				em_block = emissive_blocker(
 					icon = icon,
 					icon_state = icon_state,
@@ -343,9 +398,9 @@
 	master = null
 	. = ..()
 
-/atom/movable/overlay/attackby(a, b)
+/atom/movable/overlay/attackby(obj/item/attacking_item, mob/user, params)
 	if (src.master)
-		return src.master.attackby(a, b)
+		return src.master.attackby(arglist(args))
 	return
 
 /atom/movable/overlay/attack_hand(a, b, c)
@@ -364,7 +419,7 @@
 		return
 
 	if(SSatlas.current_map.use_overmap)
-		overmap_spacetravel(get_turf(src), src)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(overmap_spacetravel), get_turf(src), src)
 		return
 
 	var/move_to_z = src.get_transit_zlevel()
@@ -438,7 +493,7 @@
 	var/old_loc = loc
 	loc = destination
 	loc.Entered(src, old_loc)
-	Moved(old_loc, TRUE)
+	Moved(old_loc, get_dir(old_loc, destination), TRUE)
 
 	//Zmimic
 	if(bound_overlay)
@@ -462,13 +517,20 @@
 
 	return TRUE
 
-/atom/movable/proc/Moved(atom/old_loc, forced)
+/**
+ * Called after a successful Move(). By this point, we've already moved.
+ * Arguments:
+ * * old_loc is the location prior to the move. Can be null to indicate nullspace.
+ * * movement_dir is the direction the movement took place. Can be NONE if it was some sort of teleport.
+ * * The forced flag indicates whether this was a forced move, which skips many checks of regular movement.
+ * * The old_locs is an optional argument, in case the moved movable was present in multiple locations before the movement.
+ **/
+/atom/movable/proc/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	SHOULD_CALL_PARENT(TRUE)
+
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
-	update_grid_location(old_loc, src)
-
-/atom/movable/proc/update_grid_location(atom/old_loc)
+	/* START Spatial grid stuffs */
 	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
 
@@ -487,6 +549,7 @@
 
 	else if(new_turf && !old_turf)
 		SSspatial_grid.enter_cell(src, new_turf)
+	/* END Spatial grid stuffs */
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -511,9 +574,6 @@
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
 
-	if(GLOB.moved_event.is_listening(src, gone, TYPE_PROC_REF(/atom/movable, recursive_move)))
-		GLOB.moved_event.unregister(src, gone)
-
 	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -534,9 +594,6 @@
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
-
-	if(GLOB.moved_event.has_listeners(arrived) && !GLOB.moved_event.is_listening(src, arrived))
-		GLOB.moved_event.register(src, arrived, TYPE_PROC_REF(/atom/movable, recursive_move))
 
 	if(GLOB.dir_set_event.has_listeners(arrived))
 		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
@@ -793,3 +850,17 @@
 	AddComponent(/datum/component/drift, direction, instant, start_delay)
 
 	return TRUE
+
+/**
+ * meant for movement with zero side effects. only use for objects that are supposed to move "invisibly" (like camera mobs or ghosts)
+ * if you want something to move onto a tile with a beartrap or recycler or tripmine or mouse without that object knowing about it at all, use this
+ * most of the time you want forceMove()
+ */
+/atom/movable/proc/abstract_move(atom/new_loc)
+	// RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
+	var/atom/old_loc = loc
+	var/direction = get_dir(old_loc, new_loc)
+	loc = new_loc
+
+	//is Moved(old_loc, direction, TRUE, momentum_change = FALSE) in tg
+	Moved(old_loc, direction, TRUE)

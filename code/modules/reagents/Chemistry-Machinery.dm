@@ -215,14 +215,14 @@
 		else if(action == "add")
 			if(params["amount"])
 				var/rtype = text2path(params["add"])
-				var/amount = Clamp((text2num(params["amount"])), 0, 200)
+				var/amount = clamp((text2num(params["amount"])), 0, 200)
 				beaker.reagents.trans_type_to(src, rtype, amount)
 			return TRUE
 
 		else if (action == "remove")
 			if(params["amount"])
 				var/rtype = text2path(params["remove"])
-				var/amount = Clamp((text2num(params["amount"])), 0, 200)
+				var/amount = clamp((text2num(params["amount"])), 0, 200)
 				if(mode)
 					reagents.trans_type_to(beaker, rtype, amount)
 				else
@@ -263,7 +263,7 @@
 
 		if (action == "createpill_multiple")
 			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, max_pill_count, 1)
-			count = Clamp(count, 1, max_pill_count)
+			count = clamp(count, 1, max_pill_count)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE
@@ -299,6 +299,11 @@
 		return TRUE
 	return TRUE
 
+/obj/machinery/chem_master/ui_status(mob/user, datum/ui_state/state)
+	if(!operable())
+		return UI_DISABLED
+
+	. = ..()
 
 
 /obj/machinery/chem_master/Topic(href, href_list)
@@ -462,11 +467,11 @@
 	[beaker_contents]<hr>
 	"}
 		if (is_beaker_ready && !is_chamber_empty && !(stat & (NOPOWER|BROKEN)))
-			dat += "<A href='?src=\ref[src];action=grind'>Process the reagents</a><BR>"
+			dat += "<A href='?src=[REF(src)];action=grind'>Process the reagents</a><BR>"
 		if(holdingitems && holdingitems.len > 0)
-			dat += "<A href='?src=\ref[src];action=eject'>Eject the reagents</a><BR>"
+			dat += "<A href='?src=[REF(src)];action=eject'>Eject the reagents</a><BR>"
 		if (beaker)
-			dat += "<A href='?src=\ref[src];action=detach'>Detach the beaker</a><BR>"
+			dat += "<A href='?src=[REF(src)];action=detach'>Detach the beaker</a><BR>"
 	else
 		dat += "Please wait..."
 
@@ -599,8 +604,8 @@
 			target.apply_damage(25, DAMAGE_PAIN)
 			target.say("*scream")
 
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
-			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>"
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return

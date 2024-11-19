@@ -185,6 +185,8 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/tesla_body)
 	)
 
+	flags = NO_EQUIP_SPEEDMODS
+
 	bump_flag = HEAVY
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT

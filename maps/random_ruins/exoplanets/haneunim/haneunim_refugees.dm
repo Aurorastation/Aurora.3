@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "haneunim/"
-	suffixes = list("haneunim_refugees.dmm")
+	suffix = "haneunim_refugees.dmm"
 
 	unit_test_groups = list(2)
 
@@ -29,7 +29,7 @@
 /obj/effect/landmark/corpse/ipc_refugee/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200, 400))
 	M.adjustFireLoss(rand(100, 200))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/item/paper/fluff/haneunim_refugees
 	name = "message"

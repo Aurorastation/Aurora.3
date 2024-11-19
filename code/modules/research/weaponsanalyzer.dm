@@ -174,7 +174,7 @@
 
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
-			var/obj/item/projectile/P = new E.projectile_type
+			var/obj/projectile/P = new E.projectile_type
 			data["gun"]["max_shots"] = initial(E.max_shots)
 			data["gun"]["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
 			data["gun"]["recharge_time"] = initial(E.recharge_time)
@@ -208,7 +208,7 @@
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)
-				var/obj/item/projectile/P_second = E.secondary_projectile_type
+				var/obj/projectile/P_second = E.secondary_projectile_type
 				data["gun"]["secondary_damage"] = initial(P_second.damage)
 				data["gun"]["secondary_damage_type"] = initial(P_second.damage_type)
 				data["gun"]["secondary_check_armor"] = initial(P_second.check_armor)
@@ -219,7 +219,7 @@
 		else
 			var/obj/item/gun/projectile/P_gun = gun
 			var/obj/item/ammo_casing/casing = new P_gun.ammo_type
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/projectile/P = new casing.projectile_type
 			data["gun"]["max_shots"] = P_gun.max_shells
 			data["gun"]["damage"] = initial(P.damage)
 			data["gun"]["damage_type"] = initial(P.damage_type)

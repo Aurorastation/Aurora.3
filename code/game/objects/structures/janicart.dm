@@ -360,8 +360,6 @@
 //Shamelessly copied from wheelchair code
 /obj/structure/janitorialcart/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)
@@ -425,13 +423,16 @@
 		return
 
 /obj/structure/janitorialcart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
-		return 1
+		return TRUE
 	if(istype(mover, /mob/living) && mover == pulling)
-		return 1
+		return TRUE
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density

@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("hivebot_burrows_2.dmm")
+	suffix = "hivebot_burrows_2.dmm"
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
 
@@ -49,7 +49,7 @@
 	M.ChangeToHusk()
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 	var/obj/item/clothing/under/U = M.w_uniform
 	var/obj/item/clothing/accessory/dressshirt/shirt = new()

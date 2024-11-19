@@ -1,6 +1,3 @@
-// If you add a more comprehensive system, just untick this file.
-// Because this shit before was, for some reason, a bitfield.
-GLOBAL_LIST_EMPTY(z_levels)
 var/list/list/connected_z_cache = list()
 
 // If the height is more than 1, we mark all contained levels as connected.
@@ -10,43 +7,16 @@ var/list/list/connected_z_cache = list()
 		return
 	if(_height)
 		height = _height
-	for(var/i = (loc.z - height + 1) to (loc.z-1))
-		if (GLOB.z_levels.len <i)
-			GLOB.z_levels.len = i
-		GLOB.z_levels[i] = TRUE
 
 /obj/effect/landmark/map_data/Initialize()
 	..()
 	return INITIALIZE_HINT_QDEL
 
-/proc/HasAbove(var/z)
-	if(z >= world.maxz || z < 1 || z > GLOB.z_levels.len)
-		return 0
-	return GLOB.z_levels[z]
-
-/proc/HasBelow(var/z)
-	if(z > world.maxz || z < 2 || (z-1) > GLOB.z_levels.len)
-		return 0
-	return GLOB.z_levels[z-1]
-
-// Thankfully, no bitwise magic is needed here.
-/proc/GetAbove(var/atom/atom)
-	var/turf/turf = get_turf(atom)
-	if(!turf)
-		return null
-	return HasAbove(turf.z) ? get_step(turf, UP) : null
-
-/proc/GetBelow(var/atom/atom)
-	var/turf/turf = get_turf(atom)
-	if(!turf)
-		return null
-	return HasBelow(turf.z) ? get_step(turf, DOWN) : null
-
 /proc/GetConnectedZlevels(z)
 	. = list(z)
-	for(var/level = z, HasBelow(level), level--)
+	for(var/level = z, SSmapping.multiz_levels[level][Z_LEVEL_DOWN], level--)
 		. |= level-1
-	for(var/level = z, HasAbove(level), level++)
+	for(var/level = z, SSmapping.multiz_levels[level][Z_LEVEL_UP], level++)
 		. |= level+1
 
 /proc/AreConnectedZLevels(var/zA, var/zB)
@@ -76,10 +46,11 @@ var/list/list/connected_z_cache = list()
 		CRASH("Expected atom.")
 	if (!ref.z)
 		ref = get_turf(ref)
+	var/turf/T = get_turf(ref)
 	switch (dir)
 		if (UP)
-			. = GET_ABOVE(ref)
+			. = GET_TURF_ABOVE(T)
 		if (DOWN)
-			. = GET_BELOW(ref)
+			. = GET_TURF_BELOW(T)
 		else
 			. = get_step(ref, dir)

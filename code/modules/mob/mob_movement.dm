@@ -1,5 +1,9 @@
 /mob/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
 
 	if(ismob(mover))
 		var/mob/moving_mob = mover
@@ -141,7 +145,7 @@
 
 	var/old_loc = loc
 
-	//Cardinal move
+	//Diagonal move
 	if(direction & (direction - 1))
 		if(direction & 1)
 			if(direction & 4)
@@ -173,7 +177,7 @@
 							if(step(src, WEST))
 								. = step(src, SOUTH)
 
-	//Diagonal move
+	//Cardinal move
 	else
 		var/atom/A = src.loc
 
@@ -181,10 +185,6 @@
 		. = ..(newloc, direction)
 
 		if(.)
-			// Events.
-			if(GLOB.moved_event.global_listeners[src])
-				GLOB.moved_event.raise_event(src, old_loc, loc)
-
 			// Lighting.
 			if(light_sources)
 				var/datum/light_source/L
@@ -209,7 +209,7 @@
 				if(bound_overlay.dir != dir)
 					bound_overlay.set_dir(dir)
 
-			Moved(old_loc, FALSE)
+			Moved(old_loc, direction, FALSE)
 
 		if(direction != olddir)
 			dir = olddir
@@ -267,6 +267,8 @@
 
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
+
+	var/add_delay = mob.cached_multiplicative_slowdown
 
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
@@ -354,7 +356,7 @@
 				move_delay = (old_move_delay + world.tick_lag > world.time) ? old_move_delay : world.time
 				//drunk driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				return mob.buckled_to.relaymove(mob,direct)
 
 			//TODO: Fuck wheelchairs.
@@ -370,7 +372,7 @@
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
-					direct = pick(GLOB.cardinal)
+					direct = pick(GLOB.cardinals)
 				move_delay += max((mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled_to.relaymove(mob,direct)
 
@@ -393,6 +395,7 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
+		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -425,13 +428,13 @@
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
-			step(mob, pick(GLOB.cardinal))
+			step(mob, pick(GLOB.cardinals))
 		else
 			. = mob.SelfMove(new_loc, direct)
 
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
-				mob.set_dir(GLOB.reverse_dir[direct])
+				mob.set_dir(REVERSE_DIR(direct))
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)

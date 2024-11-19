@@ -202,7 +202,7 @@
 			break
 		var/turf/T = pending_turfs[1]
 		pending_turfs -= T
-		for(var/dir in GLOB.cardinal)	// Floodfill to find all turfs contiguous with the randomly chosen start_turf.
+		for(var/dir in GLOB.cardinals)	// Floodfill to find all turfs contiguous with the randomly chosen start_turf.
 			var/turf/NT = get_step(T, dir)
 			if(!isturf(NT) || !(NT in selected_turfs) || (NT in pending_turfs) || (NT in checked_turfs))
 				continue
@@ -265,7 +265,7 @@
 	return SEE_TURFS|BLIND
 
 /mob/abstract/eye/blueprints/apply_visual(mob/living/M)
-	M.overlay_fullscreen("blueprints", /obj/screen/fullscreen/blueprints)
+	M.overlay_fullscreen("blueprints", /atom/movable/screen/fullscreen/blueprints)
 	M.client.screen += area_name_effect
 	M.add_client_color(/datum/client_color/monochrome)
 

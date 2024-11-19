@@ -68,10 +68,18 @@
 /atom/proc/on_reagent_change()
 	return
 
-// This is called when AM collides with us.
-/atom/proc/CollidedWith(atom/movable/AM)
-	set waitfor = FALSE
-	return
+/**
+ * Called when an `/atom` collides with this atom
+ *
+ * It's roughly equivalent to `Bumped()` in TG, but it's not sleepable and you have to call parent
+ *
+ * * bumped_atom - The `/atom` that collided with this atom
+ */
+/atom/proc/CollidedWith(atom/bumped_atom)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
 
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
@@ -107,12 +115,8 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity, protection)
 	return protection // Pass the protection value collected here upwards
 
-/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
-
-/atom/proc/bullet_act(obj/item/projectile/P, def_zone)
-	P.on_hit(src, 0, def_zone)
-	. = 0
 
 /atom/proc/in_contents_of(container) // Can take class or object instance as argument.
 	if(ispath(container))
@@ -248,9 +252,6 @@
 /atom/proc/melt()
 	return
 
-/atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	return
-
 /atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
 	if(!istype(M, /mob)) return
@@ -261,17 +262,17 @@
 			return 0
 		if (H.gloves)
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 0
 		if (!( src.fingerprints ))
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 1
 	else
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",M.real_name, M.key)
+			src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 			src.fingerprintslast = M.key
 	return
 
@@ -305,7 +306,7 @@
 		// Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
 			if(fingerprintslast != H.key)
-				fingerprintshidden += text("\[[]\](Wearing gloves). Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+				fingerprintshidden += "\[[time_stamp()]\](Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
@@ -318,7 +319,7 @@
 
 		// Admin related.
 		if(fingerprintslast != H.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [H.real_name], Key: [H.key]"
 			fingerprintslast = H.key
 
 		// Make the list if it does not exist.
@@ -370,7 +371,7 @@
 	else
 		// Smudge up the prints a bit.
 		if(fingerprintslast != M.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), M.real_name, M.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [M.real_name], Key: [M.key]"
 			fingerprintslast = M.key
 
 	// Cleaning up.
@@ -452,6 +453,9 @@
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!simulated)
 		return
 	fluorescent = 0
@@ -618,27 +622,30 @@
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
 
-/atom/proc/create_bullethole(obj/item/projectile/Proj)
+/atom/proc/create_bullethole(obj/projectile/Proj)
 	var/p_x = Proj.p_x + rand(-6, 6)
 	var/p_y = Proj.p_y + rand(-6, 6)
-	var/obj/effect/overlay/bmark/bullet_mark = new(src)
 
-	bullet_mark.pixel_x = p_x
-	bullet_mark.pixel_y = p_y
-
-	//Offset correction
-	bullet_mark.pixel_x--
-	bullet_mark.pixel_y--
-
-	if(Proj.damage_flags & DAMAGE_FLAG_BULLET)
-		bullet_mark.icon_state = "dent"
-	else if(Proj.damage_flags & DAMAGE_FLAG_LASER)
-		bullet_mark.name = "scorch mark"
+	var/bullet_mark_icon_state = "dent"
+	var/bullet_mark_dir = SOUTH
+	if(Proj.damage_flags & DAMAGE_FLAG_LASER)
 		if(Proj.damage >= 20)
-			bullet_mark.icon_state = "scorch"
-			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
+			bullet_mark_icon_state = "scorch"
+			bullet_mark_dir = pick(GLOB.cardinals) // Pick random scorch design
 		else
-			bullet_mark.icon_state = "light_scorch"
+			bullet_mark_icon_state = "light_scorch"
+
+	var/obj/effect/overlay/bmark/bullet_mark = locate() in src
+	if(!bullet_mark)
+		bullet_mark = new(src)
+		bullet_mark.icon_state = bullet_mark_icon_state
+		bullet_mark.set_dir(bullet_mark_dir)
+		bullet_mark.pixel_x = p_x
+		bullet_mark.pixel_y = p_y
+	// we limit to to 2 overlays, so 3 holes, to prevent decals from lagging the game
+	else if(length(bullet_mark.overlays) < 2)
+		var/image/bullet_overlay = image(bullet_mark.icon, icon_state = bullet_mark_icon_state, dir = bullet_mark_dir, pixel_x = p_x - bullet_mark.pixel_x, pixel_y = p_y - bullet_mark.pixel_y)
+		bullet_mark.AddOverlays(bullet_overlay)
 
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)

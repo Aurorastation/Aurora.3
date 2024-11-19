@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(records)
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_assignments
 	var/list/shuttle_manifests
 
 	var/list/excluded_fields
@@ -23,6 +24,10 @@ SUBSYSTEM_DEF(records)
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
+	for(var/shuttle in SSatlas.current_map.shuttle_manifests)
+		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
+		shuttle_assignments += A
+
 	InitializeCitizenships()
 	InitializeReligions()
 	InitializeAccents()
@@ -34,6 +39,7 @@ SUBSYSTEM_DEF(records)
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_assignments = list()
 	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
@@ -108,6 +114,8 @@ SUBSYSTEM_DEF(records)
 			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments += record
 	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
@@ -123,6 +131,8 @@ SUBSYSTEM_DEF(records)
 			viruses |= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests |= record
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -138,6 +148,8 @@ SUBSYSTEM_DEF(records)
 			viruses *= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests -= record
+		if(/datum/record/shuttle_assignment)
+			shuttle_assignments -= record
 	onDelete(record)
 	qdel(record)
 

@@ -47,7 +47,8 @@
 		if(TRANSFER_JUMP)
 			// Bluespace Jump
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSatlas.current_map.station_levels))
+			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSmapping.levels_by_trait(ZTRAIT_STATION)))
+
 		if(TRANSFER_CREW)
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.shuttle_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
@@ -170,7 +171,7 @@
 	if(evacuation_controller && evacuation_controller.cancel_evacuation())
 		log_and_message_admins("[key_name(user)] has cancelled the crew transfer.")
 
-/obj/screen/fullscreen/bluespace_overlay
+/atom/movable/screen/fullscreen/bluespace_overlay
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"

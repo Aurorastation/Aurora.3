@@ -14,7 +14,7 @@
 
 /obj/item/storage
 	name = "storage"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	///List of objects which this item can store (if set, it can't store anything else)
 	var/list/can_hold
@@ -29,7 +29,7 @@
 	var/list/is_seeing
 
 	///Max size of objects that this object can store (in effect only if can_hold isn't set)
-	var/max_w_class = ITEMSIZE_NORMAL
+	var/max_w_class = WEIGHT_CLASS_NORMAL
 
 	///The sum of the storage costs of all the items in this storage item
 	var/max_storage_space = 8
@@ -40,15 +40,15 @@
 	///The number of columns the storage item will appear to have
 	var/force_column_number
 
-	var/obj/screen/storage/boxes
+	var/atom/movable/screen/storage/boxes
 
 	///storage UI
-	var/obj/screen/storage/storage_start
+	var/atom/movable/screen/storage/storage_start
 
-	var/obj/screen/storage/storage_continue
-	var/obj/screen/storage/storage_end
+	var/atom/movable/screen/storage/storage_continue
+	var/atom/movable/screen/storage/storage_end
 	var/list/storage_screens = list()
-	var/obj/screen/close/closer
+	var/atom/movable/screen/close/closer
 	var/care_about_storage_depth = TRUE
 
 	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -208,15 +208,15 @@
 		return
 	if(!over_object || over_object == src)
 		return
-	if(istype(over_object, /obj/screen/inventory))
-		var/obj/screen/inventory/S = over_object
+	if(istype(over_object, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over_object
 		if(S.slot_id == src.equip_slot)
 			return
 	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return
-		if(!(istype(over_object, /obj/screen)))
+		if(!(istype(over_object, /atom/movable/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
@@ -420,9 +420,9 @@
 		startpoint = endpoint + 1
 		endpoint += storage_width * O.get_storage_cost()/max_storage_space
 
-		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
-		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
-		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
+		var/atom/movable/screen/storage/background/stored_start = new /atom/movable/screen/storage/background(null, O, "stored_start")
+		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
+		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
@@ -589,7 +589,7 @@
 					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
+				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
@@ -714,22 +714,7 @@
 	..()
 
 	if(!attacking_item.dropsafety())
-		return.
-
-	if(istype(attacking_item, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LP = attacking_item
-		var/amt_inserted = 0
-		var/turf/T = get_turf(user)
-		for(var/obj/item/light/L in src.contents)
-			if(L.status == 0)
-				if(LP.uses < LP.max_uses)
-					LP.AddUses(1)
-					amt_inserted++
-					remove_from_storage(L, T)
-					qdel(L)
-		if(amt_inserted)
-			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
-			return
+		return
 
 	if(!can_be_inserted(attacking_item))
 		return
@@ -847,22 +832,22 @@
 	if(!allow_quick_gather)
 		verbs -= /obj/item/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage{icon_state = "block"}
+	boxes = new /atom/movable/screen/storage{icon_state = "block"}
 	boxes.master = src
 
-	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
+	storage_start = new /atom/movable/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
 	storage_start.layer = HUD_BASE_LAYER
 
-	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
+	storage_continue = new /atom/movable/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
 	storage_continue.layer = HUD_BASE_LAYER
 
-	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
+	storage_end = new /atom/movable/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
 	storage_end.layer = HUD_BASE_LAYER
 
-	closer = new /obj/screen/close{
+	closer = new /atom/movable/screen/close{
 		icon_state = "x";
 	}
 	closer.master = src
@@ -981,15 +966,15 @@
 	if (storage_cost)
 		return storage_cost
 	else
-		if(w_class == ITEMSIZE_TINY)
+		if(w_class == WEIGHT_CLASS_TINY)
 			return 1
-		if(w_class == ITEMSIZE_SMALL)
+		if(w_class == WEIGHT_CLASS_SMALL)
 			return 2
-		if(w_class == ITEMSIZE_NORMAL)
+		if(w_class == WEIGHT_CLASS_NORMAL)
 			return 4
-		if(w_class == ITEMSIZE_LARGE)
+		if(w_class == WEIGHT_CLASS_BULKY)
 			return 8
-		if(w_class == ITEMSIZE_HUGE)
+		if(w_class == WEIGHT_CLASS_HUGE)
 			return 16
 		else
 			return 1000

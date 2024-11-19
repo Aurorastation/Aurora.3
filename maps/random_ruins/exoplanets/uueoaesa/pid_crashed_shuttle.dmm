@@ -67,8 +67,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)

@@ -123,7 +123,9 @@ var/global/Holiday = null
 				if(9)							Holiday = "K'lax Technology Day"
 				if(16)							Holiday = "Galatean Federation Day"
 				if(27)							Holiday = "New Kingdom of Adhomai Day of Rightful Restoration"
-				if(31)							Holiday = "Halloween"
+				if(31)
+					Holiday = "Halloween"
+					if(YY == 24)  				Holiday = "Halloween and the day of Shi-rra Arr’Kahata"
 
 		if(11)	//Nov
 			switch(DD)
@@ -166,7 +168,7 @@ var/global/Holiday = null
 	else if (T == "None")
 		Holiday = null
 		message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] unset today's Holiday."))
-		log_admin("[key_name(src)] unset today's Holiday",admin_key=key_name(src))
+		log_admin("[key_name(src)] unset today's Holiday")
 		return TRUE
 
 	Holiday = T
@@ -174,7 +176,7 @@ var/global/Holiday = null
 	Holiday_Game_Start()
 
 	message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\""))
-	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"",admin_key=key_name(src))
+	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"")
 	return TRUE
 
 //Run at the  start of a round

@@ -20,7 +20,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
@@ -37,8 +37,8 @@
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
-		hold.max_storage_space = slots * ITEMSIZE_SMALL
-		hold.max_w_class = ITEMSIZE_SMALL
+		hold.max_storage_space = slots * WEIGHT_CLASS_SMALL
+		hold.max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
@@ -216,11 +216,11 @@
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_PADDED
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 	)
 	siemens_coefficient = 0.35
 

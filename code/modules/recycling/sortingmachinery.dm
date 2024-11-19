@@ -254,7 +254,7 @@
 	item_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
@@ -263,13 +263,13 @@
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=[REF(src)];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
-	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
+	dat += "<br><a href='?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
 	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
@@ -312,25 +312,29 @@
 /obj/machinery/disposal/deliveryChute/update()
 	return
 
-/obj/machinery/disposal/deliveryChute/CollidedWith(var/atom/movable/AM) //Go straight into the chute
-	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	return
+/obj/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
+	. = ..()
+
+	if(istype(bumped_atom, /obj/projectile) || istype(bumped_atom, /obj/effect))
+		return
+
 	switch(dir)
 		if(NORTH)
-			if(AM.loc.y != src.loc.y+1) return
+			if(bumped_atom.loc.y != src.loc.y+1) return
 		if(EAST)
-			if(AM.loc.x != src.loc.x+1) return
+			if(bumped_atom.loc.x != src.loc.x+1) return
 		if(SOUTH)
-			if(AM.loc.y != src.loc.y-1) return
+			if(bumped_atom.loc.y != src.loc.y-1) return
 		if(WEST)
-			if(AM.loc.x != src.loc.x-1) return
+			if(bumped_atom.loc.x != src.loc.x-1) return
 
-	if(istype(AM, /obj))
-		var/obj/O = AM
+	if(istype(bumped_atom, /obj))
+		var/obj/O = bumped_atom
 		O.forceMove(src)
-	else if(istype(AM, /mob))
-		var/mob/M = AM
+	else if(istype(bumped_atom, /mob))
+		var/mob/M = bumped_atom
 		M.forceMove(src)
-	src.flush()
+	INVOKE_ASYNC(src, PROC_REF(flush))
 
 /obj/machinery/disposal/deliveryChute/flush()
 	flushing = 1

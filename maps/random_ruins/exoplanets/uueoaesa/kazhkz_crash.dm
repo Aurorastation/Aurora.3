@@ -6,7 +6,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("kazhkz_crash.dmm")
+	suffix = "kazhkz_crash.dmm"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kazhkz_crash)
 
 	unit_test_groups = list(3)
@@ -74,7 +74,7 @@
 /obj/effect/landmark/corpse/kazhkz_crash/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/kazhkz_crash/captain
 	corpsesuit = /obj/item/clothing/suit/space/void/mining

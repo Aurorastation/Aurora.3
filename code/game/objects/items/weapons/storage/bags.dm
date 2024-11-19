@@ -38,8 +38,8 @@
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 56
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
@@ -106,8 +106,8 @@
 	desc = "It's a very flimsy, very noisy alternative to a bag."
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -123,8 +123,8 @@
 	icon_state = "plantbag"
 	item_state = "plantbag"
 	max_storage_space = 100
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
 
 // -----------------------------
@@ -139,7 +139,7 @@
 	desc = "A patented storage system designed for any kind of mineral sheet."
 
 	var/capacity = 300; //the number of sheets it can carry.
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	storage_slots = 7
 
 	allow_quick_empty = 1 // this function is superceded
@@ -277,7 +277,7 @@
 	item_state = "moneybag"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
 /obj/item/storage/bag/money/Initialize(mapload)
@@ -305,8 +305,8 @@
 	icon_state = "bookbag"
 	storage_slots = 7
 	max_storage_space = 200
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/book)
 
 	// -----------------------------
@@ -318,6 +318,6 @@
 	item_state = "chembag"
 	desc = "A bag for storing pills and bottles of medicine."
 	max_storage_space = 200
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 1
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)

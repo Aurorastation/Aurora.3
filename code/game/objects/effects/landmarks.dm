@@ -11,7 +11,7 @@
 INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/Initialize(mapload)
 	. = ..()
-	tag = text("landmark*[]", name)
+	tag = "landmark*[name]"
 	GLOB.landmarks_list += src
 
 /obj/effect/landmark/Destroy()

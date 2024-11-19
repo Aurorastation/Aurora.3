@@ -118,7 +118,7 @@
 	updatemodules()
 
 	var/dat = "<h3>Cloning System Control</h3>"
-	dat += "<font size=-1><a href='byond://?src=\ref[src];refresh=1'>Refresh</a></font>"
+	dat += "<font size=-1><a href='byond://?src=[REF(src)];refresh=1'>Refresh</a></font>"
 
 	dat += "<br><tt>[temp]</tt><br>"
 
@@ -126,7 +126,7 @@
 		if(1)
 			// Modules
 			dat += "<h4>Modules</h4>"
-			//dat += "<a href='byond://?src=\ref[src];relmodules=1'>Reload Modules</a>"
+			//dat += "<a href='byond://?src=[REF(src)];relmodules=1'>Reload Modules</a>"
 			if (isnull(src.scanner))
 				dat += " <font color=red>DNA scanner not found.</font><br>"
 			else
@@ -150,11 +150,11 @@
 				if (src.scanner.occupant)
 					if(scantemp == "Scanner unoccupied") scantemp = "" // Stupid check to remove the text
 
-					dat += "<a href='byond://?src=\ref[src];scan=1'>Scan - [src.scanner.occupant]</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];scan=1'>Scan - [src.scanner.occupant]</a><br>"
 				else
 					scantemp = "Scanner unoccupied"
 
-				dat += "Lock status: <a href='byond://?src=\ref[src];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
+				dat += "Lock status: <a href='byond://?src=[REF(src)];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
 
 			if (pods.len)
 				for (var/obj/machinery/clonepod/pod in pods)
@@ -162,25 +162,25 @@
 
 			// Database
 			dat += "<h4>Database Functions</h4>"
-			dat += "<a href='byond://?src=\ref[src];menu=2'>View Records</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=2'>View Records</a><br>"
 			if (src.diskette)
-				dat += "<a href='byond://?src=\ref[src];disk=eject'>Eject Disk</a>"
+				dat += "<a href='byond://?src=[REF(src)];disk=eject'>Eject Disk</a>"
 
 
 		if(2)
 			dat += "<h4>Current records</h4>"
-			dat += "<a href='byond://?src=\ref[src];menu=1'>Back</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=1'>Back</a><br><br>"
 			for(var/datum/dna2/record/R in src.records)
-				dat += "<li><a href='byond://?src=\ref[src];view_rec=\ref[R]'>[R.dna.real_name]</a></li>"
+				dat += "<li><a href='byond://?src=[REF(src)];view_rec=[REF(R)]'>[R.dna.real_name]</a></li>"
 
 		if(3)
 			dat += "<h4>Selected Record</h4>"
-			dat += "<a href='byond://?src=\ref[src];menu=2'>Back</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=2'>Back</a><br>"
 
 			if (!src.active_record)
 				dat += "<font color=red>ERROR: Record not found.</font>"
 			else
-				dat += {"<br><font size=1><a href='byond://?src=\ref[src];del_rec=1'>Delete Record</a></font><br>
+				dat += {"<br><font size=1><a href='byond://?src=[REF(src)];del_rec=1'>Delete Record</a></font><br>
 					<b>Name:</b> [src.active_record.dna.real_name]<br>"}
 				var/obj/item/implant/health/H = null
 				if(src.active_record.implant)
@@ -192,11 +192,11 @@
 					dat += "<font color=red>Unable to locate implant.</font><br>"
 
 				if (!isnull(src.diskette))
-					dat += "<a href='byond://?src=\ref[src];disk=load'>Load from disk.</a>"
+					dat += "<a href='byond://?src=[REF(src)];disk=load'>Load from disk.</a>"
 
-					dat += " | Save: <a href='byond://?src=\ref[src];save_disk=ue'>UI + UE</a>"
-					dat += " | Save: <a href='byond://?src=\ref[src];save_disk=ui'>UI</a>"
-					dat += " | Save: <a href='byond://?src=\ref[src];save_disk=se'>SE</a>"
+					dat += " | Save: <a href='byond://?src=[REF(src)];save_disk=ue'>UI + UE</a>"
+					dat += " | Save: <a href='byond://?src=[REF(src)];save_disk=ui'>UI</a>"
+					dat += " | Save: <a href='byond://?src=[REF(src)];save_disk=se'>SE</a>"
 					dat += "<br>"
 				else
 					dat += "<br>" //Keeping a line empty for appearances I guess.
@@ -205,7 +205,7 @@
 				<b>SE:</b> [src.active_record.dna.struc_enzymes]<br><br>"}
 
 				if(pods.len)
-					dat += {"<a href='byond://?src=\ref[src];clone=\ref[src.active_record]'>Clone</a><br>"}
+					dat += {"<a href='byond://?src=[REF(src)];clone=[REF(src.active_record)]'>Clone</a><br>"}
 
 		if(4)
 			if (!src.active_record)
@@ -213,8 +213,8 @@
 			dat = "[src.temp]<br>"
 			dat += "<h4>Confirm Record Deletion</h4>"
 
-			dat += "<b><a href='byond://?src=\ref[src];del_rec=1'>Scan card to confirm.</a></b><br>"
-			dat += "<b><a href='byond://?src=\ref[src];menu=3'>No</a></b>"
+			dat += "<b><a href='byond://?src=[REF(src)];del_rec=1'>Scan card to confirm.</a></b><br>"
+			dat += "<b><a href='byond://?src=[REF(src)];menu=3'>No</a></b>"
 
 
 	user << browse(dat, "window=cloning")
@@ -412,13 +412,13 @@
 	if (isnull(imp))
 		imp = new /obj/item/implant/health(subject)
 		imp.implanted = subject
-		R.implant = "\ref[imp]"
+		R.implant = "[REF(imp)]"
 	//Update it if needed
 	else
-		R.implant = "\ref[imp]"
+		R.implant = "[REF(imp)]"
 
 	if (!isnull(subject.mind)) //Save that mind so traitors can continue traitoring after cloning.
-		R.mind = "\ref[subject.mind]"
+		R.mind = "[REF(subject.mind)]"
 
 	src.records += R
 	scantemp = "Subject successfully scanned."

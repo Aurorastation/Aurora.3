@@ -158,6 +158,7 @@
 	item_state = "nature_scarf"
 	icon_override = null
 	contained_sprite = TRUE
+	protects_against_weather = FALSE
 
 // Techno Outfit
 /obj/item/clothing/head/wizard/techno

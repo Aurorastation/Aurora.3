@@ -51,7 +51,7 @@
 		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.contents)
 			I.do_work()
 
-/obj/item/device/assembly/electronic_assembly/examine(mob/user, show_extended)
+/obj/item/device/assembly/electronic_assembly/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(EA)
 		for(var/obj/item/integrated_circuit/IC in EA.contents)
@@ -69,7 +69,7 @@
 	name = "electronic device"
 	icon_state = "setup_device"
 	desc = "It's a tiny electronic device with specific use for attaching to other devices."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE * 3/4
 	max_complexity = IC_COMPLEXITY_BASE * 3/4
 

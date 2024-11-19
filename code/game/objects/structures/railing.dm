@@ -8,7 +8,7 @@
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
-	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -88,7 +88,9 @@
 	. += FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor."))
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE

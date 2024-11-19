@@ -328,20 +328,19 @@
 	last_target_loc = get_turf(target.loc)
 
 	process_interval = 1 //Instantly wake up if we found a target
-	var/obj/item/projectile/beam/cult/A
+
+	var/projectile_type
 	if(empowered > 0)
-		A = new /obj/item/projectile/beam/cult/heavy(loc)
+		projectile_type = /obj/projectile/beam/cult/heavy
 		empowered = max(0, empowered-1)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 100, 1)
 		if(empowered <= 0)
 			update_icon()
 	else
-		A = new /obj/item/projectile/beam/cult(loc)
-		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
-	A.ignore = sacrificer
-	A.launch_projectile(target)
+		projectile_type = new /obj/projectile/beam/cult(loc)
+
+	src.fire_projectile(projectile_type, target, 'sound/weapons/laserdeep.ogg', src, list(sacrificer))
+
 	next_shot = world.time + shot_delay
-	A = null //So projectiles can GC
 	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/living/user)
@@ -398,8 +397,12 @@
 		return
 	return ..()
 
-/obj/structure/cult/pylon/bullet_act(var/obj/item/projectile/Proj)
-	attackpylon(Proj.firer, Proj.damage, Proj)
+/obj/structure/cult/pylon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	attackpylon(hitting_projectile.firer, hitting_projectile.damage, hitting_projectile)
 
 //Explosions will usually cause instant shattering, or heavy damage
 //Class 3 or lower blast is sometimes survivable. 2 or higher will always shatter
@@ -420,10 +423,10 @@
 			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
-	if(istype(source, /obj/item/projectile))
-		if(istype(source, /obj/item/projectile/beam/cult))
+	if(istype(source, /obj/projectile))
+		if(istype(source, /obj/projectile/beam/cult))
 			return //No feedback loops
-		var/obj/item/projectile/proj = source
+		var/obj/projectile/proj = source
 		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
 				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))

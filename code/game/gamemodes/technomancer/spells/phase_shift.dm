@@ -48,8 +48,6 @@
 
 /obj/effect/phase_shift/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat)
 		return

@@ -106,6 +106,12 @@
 	update_desc()
 	update_material()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/table/Destroy()
 	material = null
 	reinforced = null
@@ -367,7 +373,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir == REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 			else
@@ -378,7 +384,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir & GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir & REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 

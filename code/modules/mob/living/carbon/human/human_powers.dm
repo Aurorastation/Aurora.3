@@ -318,7 +318,7 @@
 		to_chat(src,SPAN_WARNING("[target] is too far for your mind to grasp!"))
 		return
 
-	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+	log_say("[key_name(src)] communed to [key_name(target)]: [text]")
 
 	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
@@ -351,7 +351,7 @@
 
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
-		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
+		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]")
 		to_chat(M, "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>")
 		to_chat(src, "<span class ='alium'>You said: \"[msg]\" to [M]</span>")
 	return
@@ -575,7 +575,7 @@
 		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
-	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
+	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))
@@ -1296,7 +1296,7 @@
 /mob/living/carbon/human/proc/intent_listen(var/source,var/message)
 	if(air_sound(src))
 		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
-			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+			var/sound_dir = angle2text(get_angle(get_turf(src), get_turf(source)))
 			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
 
 /mob/living/carbon/human/proc/listening_close()
@@ -1367,8 +1367,8 @@
 
 	say(",9!an enormous surge of encrypted data, surging out into the wider Hivenet.")
 
-	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
-	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[src]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
+	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
+	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=[REF(src)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(src)]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[REF(src)]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=[REF(src)]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
@@ -2234,6 +2234,8 @@
 
 	V.transmitting = TRUE
 	say("[message]", GLOB.all_languages[LANGUAGE_VAURCA])
+	custom_emote(VISIBLE_MESSAGE, "'s receiver antenna vibrates!")
+	playsound(src, 'sound/voice/vaurca_antenna_twitch.ogg', 60, 1)
 	V.transmitting = FALSE
 
 /mob/living/carbon/human/proc/hivenet_manifest()

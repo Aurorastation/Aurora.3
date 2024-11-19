@@ -4,7 +4,7 @@
 	description = "An abandoned Solarian listening post in the Uueoa-Esa system."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("sol_listening_post.dmm")
+	suffix = "sol_listening_post.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(1)
@@ -33,7 +33,7 @@
 /obj/effect/landmark/corpse/sol_marine_husk/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/sol_officer_husk
 	name = "Decayed Solarian Officer"
@@ -45,7 +45,7 @@
 /obj/effect/landmark/corpse/sol_officer_husk/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 
 /obj/effect/landmark/corpse/unathi_pirate
 	name = "Unathi Pirate"
@@ -58,7 +58,7 @@
 /obj/effect/landmark/corpse/unathi_pirate/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 	if(prob(10))
 		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt)
 

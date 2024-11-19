@@ -26,6 +26,12 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
+/obj/item/clothing/head/beret/artist/colourable
+	name = "artist beret"
+	desc = "A beret fit for an artist."
+	icon_state = "artist_colorable"
+	item_state = "artist_colorable"
+
 /obj/item/clothing/head/beret/red // Antag red.
 	name = "red beret"
 	desc = "It's a beret in a menacing crimson red."

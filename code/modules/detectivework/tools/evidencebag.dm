@@ -7,7 +7,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
 
@@ -95,7 +95,7 @@
 		icon_state = "evidenceobj"
 	return
 
-/obj/item/evidencebag/examine(mob/user, show_extended)
+/obj/item/evidencebag/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (stored_item)
 		examinate(user, stored_item, show_extended)

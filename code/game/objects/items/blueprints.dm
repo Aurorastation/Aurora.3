@@ -4,7 +4,7 @@
 	icon = 'icons/obj/item/tools/blueprints.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/valid_z_levels = list()
 	var/area_prefix
 	///Will these blueprints display the wire schema?
@@ -66,7 +66,7 @@
 		return TRUE
 	desc = "Blueprints of the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
 	area_prefix = station_name()
-	valid_z_levels = SSatlas.current_map.station_levels
+	valid_z_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 
 /obj/item/blueprints/proc/create_blueprint_component() //So that subtypes can override
 	AddComponent(/datum/component/eye/blueprints)
@@ -165,11 +165,16 @@
 	shuttle_name = "Canary"
 	shuttle_type = /obj/effect/overmap/visitable/ship/landable/canary
 
+/obj/item/blueprints/shuttle/quark
+	shuttle_name = "Quark"
+	shuttle_type = /obj/effect/overmap/visitable/ship/landable/quark
+
 /obj/item/storage/lockbox/shuttle_blueprints //Blueprints for modifying the Horizon's shuttles.
 	name = "shuttle blueprints lockbox"
 	req_access = list(ACCESS_CE)
 	starts_with = list(
 		/obj/item/blueprints/shuttle/intrepid = 1,
 		/obj/item/blueprints/shuttle/mining_shuttle = 1,
-		/obj/item/blueprints/shuttle/canary = 1
+		/obj/item/blueprints/shuttle/canary = 1,
+		/obj/item/blueprints/shuttle/quark = 1,
 	)

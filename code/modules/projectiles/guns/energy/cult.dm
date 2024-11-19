@@ -9,7 +9,7 @@
 	item_state = "bloodpike"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	max_shots = 5
 	fire_delay = 25
@@ -25,7 +25,7 @@
 	fire_delay_wielded = 1
 	accuracy_wielded = 2
 
-	projectile_type = /obj/item/projectile/bullet/shard
+	projectile_type = /obj/projectile/bullet/shard
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	firemodes = list()
@@ -75,4 +75,4 @@
 	self_recharge = TRUE
 	has_safety = FALSE
 	does_process = FALSE
-	projectile_type = /obj/item/projectile/bullet/shard/heavy
+	projectile_type = /obj/projectile/bullet/shard/heavy

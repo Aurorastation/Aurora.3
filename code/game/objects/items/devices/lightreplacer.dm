@@ -62,7 +62,7 @@
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs. Empty into a disposal or trashbag when full!"
 	icon_state = "adv_lightreplacer"
 	item_state = "adv_lightreplacer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	store_broken = 1
 	load_interval = 10
 	max_uses = 30
@@ -147,7 +147,7 @@
 			to_chat(user, SPAN_WARNING("There are no more working lights left in the box!"))
 			return
 
-		if (do_after(user, load_interval, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, load_interval, box, do_flags = DO_UNIQUE & ~DO_USER_SAME_HAND) && boxstartloc == box.loc && ourstartloc == src.loc)
 			if(uses >= max_uses) //catches loading from multiple boxes
 				break
 			uses++

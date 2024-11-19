@@ -8,7 +8,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2
 	throw_range = 10
 	force = 18
@@ -92,7 +92,7 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 10
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	throw_speed = 2
 	throw_range = 10
 	force = 15
@@ -117,7 +117,7 @@
 	hitsound = null	//it is much lighter, after all.
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 2
 	max_water = 60
 	spray_amount = 10
@@ -137,8 +137,8 @@
 		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
-	if(ismob(M) && user.a_intent != I_HURT)
+/obj/item/extinguisher/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ismob(target_mob) && user.a_intent != I_HURT)
 		return FALSE
 	return ..()
 
