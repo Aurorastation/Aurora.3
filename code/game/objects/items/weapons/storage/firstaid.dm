@@ -20,7 +20,8 @@
 /obj/item/storage/firstaid/regular
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/ointment = 3,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/stack/medical/splint = 1,
 		/obj/item/storage/pill_bottle/inaprovaline = 1,
 		/obj/item/storage/pill_bottle/perconol = 1,
 	)
