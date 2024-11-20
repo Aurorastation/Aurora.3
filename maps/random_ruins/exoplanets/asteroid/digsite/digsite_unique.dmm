@@ -157,34 +157,16 @@
 /turf/simulated/wall,
 /area/dungeon/anomaly_outpost)
 "aA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/airless,
 /area/dungeon/anomaly_outpost)
 "aB" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
-"aC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -196,11 +178,13 @@
 "aE" = (
 /obj/machinery/artifact_analyser,
 /obj/structure/table/standard,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aF" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aG" = (
@@ -223,6 +207,7 @@
 /area/dungeon/anomaly_outpost)
 "aI" = (
 /obj/machinery/artifact_scanpad,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aL" = (
@@ -265,6 +250,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aR" = (
@@ -278,6 +264,7 @@
 	pixel_y = 30;
 	req_access = null
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aT" = (
@@ -285,6 +272,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aU" = (
@@ -301,6 +289,7 @@
 "aW" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aX" = (
@@ -319,6 +308,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aZ" = (
@@ -331,6 +321,7 @@
 	unlocked = 1;
 	use_power = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "ba" = (
@@ -341,6 +332,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "bb" = (
@@ -365,6 +357,7 @@
 "be" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "bf" = (
@@ -404,28 +397,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "TD" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
-"Uv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "Vd" = (
@@ -620,7 +596,7 @@ ar
 aa
 aa
 aa
-aC
+aA
 af
 aw
 az
@@ -676,10 +652,10 @@ aa
 aa
 aa
 aa
-aB
+TD
 aG
 aQ
-aX
+aB
 be
 az
 "}
@@ -695,7 +671,7 @@ aa
 aa
 aa
 aa
-aB
+TD
 aH
 aR
 aX
@@ -714,7 +690,7 @@ aa
 aa
 aa
 aa
-aB
+TD
 aI
 aR
 aX
@@ -733,7 +709,7 @@ aa
 aa
 aa
 aa
-Uv
+TD
 aE
 aS
 aY
