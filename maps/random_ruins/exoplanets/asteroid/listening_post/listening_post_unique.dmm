@@ -212,7 +212,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/listening_post/servers)
 "aE" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -221,7 +220,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/listening_post/entrance)
 "aF" = (
