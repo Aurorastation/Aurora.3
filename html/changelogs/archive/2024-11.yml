@@ -161,3 +161,9 @@
 2024-11-18:
   MattAtlas:
   - bugfix: Fixed a medbot hard deletion.
+2024-11-21:
+  hazelmouse:
+  - rscadd: Implemented various QoL mapping improvements to the Shady Asteroid, Sol
+      Bunker, and Crashed Elyran Tanker offsites.
+  - bugfix: All shuttles should now be able to dock with the Shady Asteroid offsite's
+      primary docking landmarks.
