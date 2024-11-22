@@ -55,10 +55,7 @@
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
+/turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "ai" = (
 /obj/structure/grille,
@@ -81,7 +78,10 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "al" = (
-/obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "am" = (
@@ -148,9 +148,12 @@
 /area/template_noop)
 "at" = (
 /obj/structure/table/skrell,
-/obj/random/dirt_75,
+/obj/item/device/hearing_aid/skrell{
+	pixel_y = 4;
+	pixel_x = -3
+	},
 /obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
@@ -193,11 +196,11 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "ay" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "az" = (
 /obj/structure/window/reinforced{
@@ -219,7 +222,6 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "aC" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
@@ -323,10 +325,6 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aO" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
@@ -353,7 +351,7 @@
 /area/template_noop)
 "aR" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "aS" = (
 /obj/item/stack/rods{
@@ -407,19 +405,22 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aY" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
+/obj/machinery/light/skrell{
+	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "aZ" = (
 /obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
-	name = "dilapitated medical closet";
-	pixel_y = -32;
-	opened = 1
+	name = "Dilapitated medical closet";
+	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ba" = (
@@ -450,8 +451,11 @@
 /obj/item/landmine/frag{
 	deployed = 1
 	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "be" = (
 /obj/item/stack/material/steel{
@@ -497,9 +501,8 @@
 /area/template_noop)
 "bi" = (
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8
+	dir = 1
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "bj" = (
@@ -518,8 +521,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "bl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
@@ -645,6 +648,7 @@
 /area/template_noop)
 "bA" = (
 /obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "bB" = (
@@ -778,8 +782,8 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bX" = (
-/obj/machinery/light/skrell{
-	dir = 4
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
@@ -813,7 +817,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "cb" = (
 /obj/effect/decal/cleanable/blood{
@@ -862,11 +867,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cg" = (
-/obj/structure/computerframe,
-/obj/effect/floor_decal/spline/plain/black{
+/obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "ch" = (
 /obj/effect/decal/cleanable/blood{
@@ -880,9 +885,11 @@
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "ci" = (
-/obj/effect/floor_decal/spline/plain/black,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "ck" = (
 /obj/item/clothing/under/offworlder{
@@ -956,8 +963,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "cs" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue/airless,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "ct" = (
 /obj/item/trash/plate{
@@ -994,7 +1003,8 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cx" = (
 /obj/item/stack/rods{
@@ -1122,188 +1132,7 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"et" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"eW" = (
-/obj/structure/barricade/metal{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"fL" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"fR" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"fS" = (
-/obj/machinery/light/skrell,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"gL" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"hv" = (
-/obj/machinery/door/airlock/skrell{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"hB" = (
-/obj/structure/computerframe,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"iO" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"jb" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"ji" = (
-/obj/machinery/cryopod{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner/black,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"jm" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"ka" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"my" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/template_noop)
-"mB" = (
-/obj/item/landmine/frag{
-	deployed = 1
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"pG" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"pK" = (
-/obj/machinery/light/skrell{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"qd" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"qB" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"qN" = (
-/obj/structure/barricade/metal{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"rY" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"sT" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"uh" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"uu" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
-	},
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"wj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/template_noop)
-"wO" = (
+"cV" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
@@ -1313,22 +1142,191 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"yQ" = (
+"dg" = (
+/obj/item/material/shard/phoron{
+	pixel_x = -1;
+	pixel_y = 14
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"dy" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"dQ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"eR" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"fS" = (
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"gp" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"gS" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"hm" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"hx" = (
+/obj/structure/computerframe,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"if" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"iZ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"jU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"kB" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"yU" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
+"mF" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"mH" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"mJ" = (
+/obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Aw" = (
+"oX" = (
+/obj/structure/table/skrell,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"pK" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"qI" = (
+/obj/structure/closet/walllocker/medical{
+	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
+	name = "dilapitated medical closet";
+	pixel_y = -32;
+	opened = 1
+	},
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"rl" = (
+/obj/structure/computerframe,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"ud" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ul" = (
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"ut" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"vZ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"wT" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"yz" = (
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"yX" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"zk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -1336,29 +1334,123 @@
 	color = "#6e2c6e"
 	},
 /area/template_noop)
-"AK" = (
+"zT" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"zZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"AR" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"Bi" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
 /area/template_noop)
-"AL" = (
-/obj/effect/decal/cleanable/blood/drip{
-	basecolor = "#0081CD"
+"Dz" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"FP" = (
+/obj/machinery/light/skrell{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"FR" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"FS" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"FU" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Ha" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"Ik" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/template_noop)
+"Iv" = (
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"AP" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
-"Bf" = (
+"II" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"IS" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"JG" = (
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"JJ" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"La" = (
 /obj/machinery/cryopod,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -1366,89 +1458,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"Cm" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+"MJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"CH" = (
-/obj/machinery/light/skrell{
-	dir = 8
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"CT" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"Dz" = (
-/obj/structure/table/skrell,
-/obj/machinery/light/skrell,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"Fm" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"FF" = (
-/obj/machinery/light/skrell{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"FW" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"Gc" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"Ic" = (
-/obj/structure/table/skrell,
-/obj/item/device/hearing_aid/skrell{
-	pixel_y = 4;
-	pixel_x = -3
-	},
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"It" = (
-/obj/machinery/light/skrell{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"KC" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"KO" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"KZ" = (
+"MR" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
@@ -1458,30 +1476,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"Lc" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"MI" = (
-/obj/random/dirt_75,
+"Nm" = (
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/skrell/blue/airless,
-/area/template_noop)
-"MV" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 1
+	dir = 10
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"Oe" = (
-/obj/structure/inflatable/door,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "OB" = (
 /obj/structure/closet/skrell{
@@ -1493,63 +1493,42 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"Pe" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+"Pn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"RM" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"RX" = (
+/obj/structure/barricade/metal{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"Sg" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"Sr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/template_noop)
-"QH" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Rp" = (
-/obj/item/material/shard/phoron{
-	pixel_x = -1;
-	pixel_y = 14
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
-"RA" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"RI" = (
-/obj/machinery/atmospherics/unary/engine{
-	thrust_limit = 0.25;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"RP" = (
-/obj/structure/closet/walllocker/medical{
-	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
-	name = "Dilapitated medical closet";
-	pixel_y = -32
-	},
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Sp" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "Th" = (
 /obj/item/material/shard/phoron{
@@ -1559,15 +1538,25 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
-"TK" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
+"TH" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Ug" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"UI" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Vf" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
@@ -1579,36 +1568,40 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/template_noop)
-"Wo" = (
+"Vl" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Vx" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
-"Ww" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"Xa" = (
-/obj/machinery/light/skrell{
+"VO" = (
+/obj/machinery/door/airlock/skrell{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/template_noop)
-"ZD" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 1
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"ZZ" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
+"Ye" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"YG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -1694,15 +1687,15 @@ aq
 aq
 aq
 ap
-It
+pK
 cr
-aR
+FU
 ap
 aq
 aa
 aa
 aa
-aa
+ap
 ap
 ap
 ap
@@ -1759,17 +1752,17 @@ aq
 aq
 ap
 ce
-CH
+IS
 cd
 aM
 aT
-Rp
-iO
+dg
+zZ
 bb
 Ug
 bW
 Ug
-hv
+VO
 Ug
 Ug
 fS
@@ -1796,20 +1789,20 @@ aH
 cC
 aL
 ck
-FW
+II
 cb
-TK
+vZ
 cm
-bi
+if
 bU
-bi
+if
 cm
-bi
-CT
+if
+Nm
 aH
 cN
-AP
-my
+aR
+Du
 cH
 aa
 aq
@@ -1826,8 +1819,8 @@ ap
 ad
 ad
 ap
-fR
-qN
+gS
+RX
 cm
 cm
 bw
@@ -1839,12 +1832,12 @@ bc
 cm
 cm
 cm
-ci
+bA
 Ug
 ap
-AP
-bl
-wj
+aR
+Sr
+Ik
 aa
 aa
 aq
@@ -1861,24 +1854,24 @@ bt
 bz
 ap
 bV
-aO
+Iv
 cm
 aN
-yQ
-aZ
+kB
+qI
 cm
-ji
+wT
 co
 bD
-ZZ
-at
+mH
+oX
 cm
-Xa
+FP
 Ug
 ap
-ca
+aY
 bm
-Aw
+zk
 aa
 aa
 aa
@@ -1888,31 +1881,31 @@ aq
 aq
 ad
 ae
-ZD
+ah
 bW
 aH
 Ug
 Ug
 aB
 Ug
-et
+gp
 cm
 bY
-pG
-gL
+Bi
+yX
 cm
-al
-Fm
-Fm
-Fm
-sT
+JG
+aO
+aO
+aO
+mF
 cm
-bA
+yz
 Ug
 ap
-AP
+aR
 bn
-Aw
+zk
 ap
 aa
 aa
@@ -1921,10 +1914,10 @@ aa
 aq
 ab
 ag
-hB
-ka
-MI
-jb
+hx
+JJ
+RM
+Sg
 Ug
 cm
 cm
@@ -1932,21 +1925,21 @@ cm
 cm
 cm
 aP
-yU
+TH
 bp
 cm
 cm
-Wo
-Fm
+Vx
+aO
 ct
-qd
+iZ
 ak
-ci
+bA
 Ug
 ap
-AP
+aR
 bo
-Pe
+bl
 cH
 aa
 aa
@@ -1957,21 +1950,21 @@ af
 ax
 ao
 bF
-cs
+dQ
 ch
 Ug
 cm
 aA
 aF
 aQ
-yQ
+kB
 aU
-rY
+UI
 bh
 bT
 cm
 bB
-Fm
+aO
 bP
 cu
 cm
@@ -1980,7 +1973,7 @@ Ug
 cO
 cx
 bj
-Pe
+bl
 cH
 aa
 aa
@@ -1992,15 +1985,15 @@ aj
 av
 Th
 am
-uu
+dy
 aJ
 cm
 bf
 aV
-AL
-KO
-KO
+Vl
 aC
+aC
+mJ
 bH
 cc
 cm
@@ -2009,7 +2002,7 @@ cq
 bP
 bE
 cm
-ci
+bA
 cL
 cP
 cQ
@@ -2025,31 +2018,31 @@ Vf
 ba
 au
 az
-fL
+ut
 aI
 Ug
 cm
 aE
 aW
-QH
+ud
 aw
 as
-KC
+jU
 bS
-wO
+cV
 cm
 bK
 bL
 bP
 cv
 cm
-ci
+bA
 cM
 ap
-AP
+aR
 cK
-Pe
-RI
+bl
+cH
 aa
 aq
 "}
@@ -2057,33 +2050,33 @@ aq
 aa
 cy
 an
-cg
-ah
-cw
-uh
+rl
+hm
+FS
 ay
+bX
 cm
 cm
 cm
 cm
 cm
 by
-KO
+aC
 cB
 cm
 cm
 cp
-Fm
+aO
 bL
-sT
+mF
 ak
-ci
+bA
 Ug
 ap
-RA
+YG
 bq
-Pe
-RI
+bl
+cH
 aa
 aq
 "}
@@ -2092,31 +2085,31 @@ aa
 aq
 bR
 ae
-MV
-bX
+AR
+cg
 Ug
-ay
+bX
 bJ
 aD
-Oe
-Cm
+eR
+bi
 cm
 bZ
 aG
-gL
+yX
 cm
-jm
-Fm
+Pn
+aO
 bL
 cI
 OB
 cm
-ci
+bA
 Ug
 ap
-RA
+YG
 br
-Aw
+zk
 ap
 aa
 aq
@@ -2132,25 +2125,25 @@ ap
 ar
 Dz
 ap
-KZ
-et
+MR
+gp
 cm
 bv
-Lc
-RP
+Ye
+aZ
 cm
-Bf
+La
 cf
-qB
-qB
-Ic
+al
+al
+at
 cm
-Xa
+FP
 Ug
 ap
-ca
+aY
 bs
-Aw
+zk
 aa
 cA
 aq
@@ -2166,7 +2159,7 @@ ap
 ad
 ad
 ap
-eW
+ul
 aK
 cm
 cm
@@ -2179,12 +2172,12 @@ bc
 cm
 cm
 cm
-Ww
+zT
 Ug
 ap
 bG
-my
-AK
+Du
+MJ
 aa
 aa
 aq
@@ -2201,24 +2194,24 @@ aq
 aq
 ap
 ce
-mB
-aY
-aY
-aY
-pK
-aY
+bd
+cs
+cs
+cs
+Ha
+cs
 cm
-Sp
-Sp
-Sp
+cw
+cw
+cw
 cm
-aY
-Gc
+cs
+FR
 Ug
 cN
-AP
-bl
-RI
+aR
+Sr
+cH
 aa
 aq
 aq
@@ -2235,7 +2228,7 @@ aq
 aq
 ap
 Ug
-bX
+cg
 Ug
 Ug
 Ug
@@ -2243,11 +2236,11 @@ aH
 aH
 bb
 aH
-bX
+cg
 aH
 bb
 aH
-bd
+ci
 fS
 ap
 bk
@@ -2306,18 +2299,18 @@ aq
 aq
 aq
 ap
-FF
+ca
 bI
-aR
+FU
 ap
 aa
 aa
 aa
 aa
-aq
-aq
-aq
-aq
+ap
+ap
+ap
+ap
 aa
 aa
 aa
