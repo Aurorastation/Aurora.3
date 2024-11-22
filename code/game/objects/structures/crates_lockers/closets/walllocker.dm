@@ -84,12 +84,12 @@
 
 /obj/structure/closet/walllocker/medical //wall mounted medical closet
 	name = "medical closet"
-	desc = "It's wall-mounted storage unit for medical supplies."
+	desc = "It's a wall-mounted storage unit for medical supplies."
 	icon_state = "medical_wall"
 
 /obj/structure/closet/walllocker/medical/firstaid
 	name = "first-aid closet"
-	desc = "It's wall-mounted storage unit for first aid supplies."
+	desc = "It's a wall-mounted storage unit for first aid supplies."
 
 /obj/structure/closet/walllocker/medical/firstaid/fill()
 	new /obj/item/storage/firstaid/regular
