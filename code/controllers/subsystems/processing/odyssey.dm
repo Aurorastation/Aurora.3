@@ -81,7 +81,6 @@ SUBSYSTEM_DEF(odyssey)
  * Note that Storytellers spawn through a ghost role.
  */
 /datum/controller/subsystem/odyssey/proc/gamemode_setup()
-	SHOULD_CALL_PARENT(TRUE)
 	var/datum/game_mode/odyssey/ody_gamemode = GLOB.gamemode_cache["odyssey"]
 	if(scenario)
 		ody_gamemode.required_players = scenario.min_player_amount
@@ -136,7 +135,7 @@ SUBSYSTEM_DEF(odyssey)
 		data["scenario_name"] = SSodyssey.scenario.name
 		data["scenario_desc"] = SSodyssey.scenario.desc
 		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
-		data["is_storyteller"] = isstoryteller(user) || check_rights(R_ADMIN, user = user)
+		data["is_storyteller"] = isstoryteller(user) || check_rights(R_ADMIN, FALSE, user)
 
 		if(length(scenario.roles))
 			data["scenario_roles"] = list()
@@ -161,6 +160,8 @@ SUBSYSTEM_DEF(odyssey)
 	if(!ismob(odyssey_user))
 		return
 
+	var/is_admin = check_rights(R_ADMIN, FALSE, odyssey_user)
+
 	switch(action)
 		if("equip_outfit")
 			if(!ishuman(odyssey_user))
@@ -182,7 +183,7 @@ SUBSYSTEM_DEF(odyssey)
 				return TRUE
 
 		if("edit_scenario_name")
-			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN, user = odyssey_user))
+			if(!isstoryteller(odyssey_user) && !is_admin)
 				return
 
 			var/new_scenario_name = tgui_input_text(usr, "Insert the new name for your scenario. Remember that this will be visible for anyone in the Stat Panel.", "Odyssey Panel", max_length = MAX_NAME_LEN)
@@ -194,7 +195,7 @@ SUBSYSTEM_DEF(odyssey)
 			return TRUE
 
 		if("edit_scenario_desc")
-			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN, user = odyssey_user))
+			if(!isstoryteller(odyssey_user) && !is_admin)
 				return
 
 			var/new_scenario_desc = tgui_input_text(odyssey_user, "Insert the new description for your scenario. This is visible only in the Odyssey Panel.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
@@ -206,7 +207,7 @@ SUBSYSTEM_DEF(odyssey)
 			return TRUE
 
 		if("edit_role")
-			if(!isstoryteller(odyssey_user) && !check_rights(R_ADMIN))
+			if(!isstoryteller(odyssey_user) && !is_admin)
 				return
 
 			var/role_path = text2path(params["role_type"])

@@ -1,4 +1,3 @@
-
 /singleton/scenario/cryo_outpost
 	name = "Cryo Outpost #187-D"
 	desc = "An illegal cloning outpost on a desert oasis planet, that has just been noticed by megacorporations to be stealing proprietary tech. \

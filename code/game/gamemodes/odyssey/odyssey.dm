@@ -9,9 +9,6 @@
 	antag_tags = list(MODE_ACTOR)
 	antag_scaling_coeff = 1
 
-	// Unvotable while we don't have that many maps.
-	votable = FALSE
-
 /datum/game_mode/odyssey/pre_game_setup()
 	SSticker.prevent_unready = TRUE
 
@@ -19,7 +16,6 @@
 		return FALSE
 
 	var/odyssey_message = "The scenario picked for this round is: [SPAN_BOLD(SPAN_NOTICE(SSodyssey.scenario.name))].<br>\
-			[SPAN_ITALIC(SSodyssey.scenario.desc)]<br>\
 			It is a [SPAN_BOLD(SSodyssey.scenario.scenario_type)] scenario.<br>"
 
 	if(SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON)
