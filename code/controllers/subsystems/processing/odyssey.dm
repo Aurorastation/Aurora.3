@@ -172,7 +172,7 @@ SUBSYSTEM_DEF(odyssey)
 				return
 
 			if(!((player.z in SSodyssey.scenario_zlevels) || (isAdminLevel(player.z))))
-				to_chat(player, SPAN_WARNING("You can't equip an outfit on a different z-level from the scenario's!"))
+				to_chat(player, SPAN_WARNING("You can only equip outfits on the odyssey scenario z-level, or the actor prep area!"))
 				return
 
 			var/outfit_type = text2path(params["outfit_type"])
