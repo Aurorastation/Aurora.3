@@ -171,7 +171,7 @@ SUBSYSTEM_DEF(odyssey)
 			if(player.incapacitated())
 				return
 
-			if(!(player.z in SSodyssey.scenario_zlevels))
+			if(!((player.z in SSodyssey.scenario_zlevels) || (isAdminLevel(player.z))))
 				to_chat(player, SPAN_WARNING("You can't equip an outfit on a different z-level from the scenario's!"))
 				return
 
