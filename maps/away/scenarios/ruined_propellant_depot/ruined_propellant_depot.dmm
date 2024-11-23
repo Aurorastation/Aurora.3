@@ -8446,6 +8446,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/ruined_propellant_depot/propellant_tanks)
+"AV" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks,
+/mob/abstract/ghost/storyteller,
+/turf/simulated/floor/wood,
+/area/ruined_propellant_depot/directors_quarters)
 "AW" = (
 /obj/machinery/power/portgen/basic,
 /obj/random/dirt_75,
@@ -49444,7 +49450,7 @@ ad
 YH
 IC
 rh
-TS
+AV
 LX
 ZD
 KO

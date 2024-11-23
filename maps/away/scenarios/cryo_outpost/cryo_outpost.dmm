@@ -11850,6 +11850,10 @@
 /obj/item/reagent_containers/dropper,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_pharmacy)
+"nDk" = (
+/mob/abstract/ghost/storyteller,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_surgery)
 "nEr" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -66204,7 +66208,7 @@ cUr
 hBY
 dxJ
 rXJ
-mfB
+nDk
 rXJ
 tyD
 noY
