@@ -905,21 +905,27 @@
 	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
-	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/sector_z = get_sector_z()
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V))
 		if(V.comms_support)
 			default_frequency = assign_away_freq(V.name)
 			if(V.comms_name)
 				name = "[V.comms_name] radio headset"
 	else
-		if(SSodyssey.scenario && (GET_Z(T) in SSodyssey.scenario_zlevels))
+		if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
 			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
 
 	if (use_common)
 		set_frequency(PUB_FREQ)
+
+/obj/item/device/radio/headset/ship/proc/get_sector_z()
+	. = GET_Z(get_turf(src))
+
+/obj/item/device/radio/headset/ship/odyssey/get_sector_z()
+	. = SSodyssey.scenario_zlevels[1]
 
 /obj/item/device/radio/headset/ship/coalition_navy
 	icon_state = "coal_headset"
