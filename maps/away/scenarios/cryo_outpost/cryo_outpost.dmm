@@ -1697,11 +1697,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/cryo_outpost/inside/engineering)
 "bOK" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
 /obj/effect/landmark/minimap_poi{
-	name = "Cryo"
+	name = "Offices"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/labs_cryo_s)
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_offices)
 "bOY" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -2567,6 +2568,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Cloning"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
@@ -4490,12 +4494,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_w)
-"eXr" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Landing Pads"
-	},
-/turf/unsimulated/marker/khaki,
-/area/cryo_outpost/outside/surface)
 "eXG" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -5286,7 +5284,6 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "fPz" = (
@@ -5488,7 +5485,6 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "gdW" = (
@@ -5881,7 +5877,6 @@
 /area/cryo_outpost/inside/maint_habitation)
 "gzI" = (
 /obj/structure/bed/stool/chair/office/light,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "gAb" = (
@@ -9264,11 +9259,12 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
 "kzC" = (
+/obj/random/dirt_75,
 /obj/effect/landmark/minimap_poi{
-	name = "Cloning"
+	name = "Cryo"
 	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_rnd)
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_cryo_s)
 "kAr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -12962,7 +12958,6 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "oRy" = (
@@ -13491,12 +13486,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
-"ptQ" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Control Room"
-	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/comms)
 "pvi" = (
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -13725,16 +13714,6 @@
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/grass,
 /area/cryo_outpost/outside/surface)
-"pHS" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/pink{
-	dir = 1
-	},
-/mob/abstract/ghost/storyteller,
-/turf/simulated/floor/tiled/white,
-/area/cryo_outpost/inside/labs_offices)
 "pId" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/random/dirt_75,
@@ -16080,6 +16059,9 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Control Room"
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "ska" = (
@@ -18359,10 +18341,10 @@
 /area/cryo_outpost/inside/engi_atmos)
 "uKm" = (
 /obj/effect/landmark/minimap_poi{
-	name = "Surgery"
+	name = "Landing Pads"
 	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_surgery)
+/turf/simulated/floor/exoplanet/desert,
+/area/cryo_outpost/outside/surface)
 "uKt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19398,11 +19380,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
 "vQP" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Offices"
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
 	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_offices)
+/obj/effect/landmark/minimap_poi{
+	name = "Surgery"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_surgery)
 "vQQ" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating,
@@ -51224,9 +51209,9 @@ rvR
 rvR
 rvR
 rvR
-eXr
 rvR
-tqr
+rvR
+uKm
 loA
 tqr
 tqr
@@ -54921,7 +54906,7 @@ lxj
 aNa
 iZe
 jJE
-vQP
+xyG
 xyG
 xyG
 xyG
@@ -55682,7 +55667,7 @@ vRC
 jIU
 oVU
 ree
-pHS
+csw
 aHx
 tpb
 oyX
@@ -55946,7 +55931,7 @@ hZM
 luo
 qcC
 jKU
-iZe
+bOK
 veD
 fle
 hZM
@@ -57732,7 +57717,7 @@ pgW
 pgW
 pgW
 aGb
-ptQ
+aGb
 aGb
 bIe
 sjQ
@@ -60575,7 +60560,7 @@ tRT
 tRT
 dzI
 uqe
-lro
+kzC
 aCF
 tRT
 bzm
@@ -61343,7 +61328,7 @@ pok
 tRT
 uAQ
 cgB
-bOK
+bIT
 btB
 oFT
 tRT
@@ -63636,7 +63621,7 @@ pgW
 pgW
 pgW
 pgW
-kzC
+vdu
 vdu
 hDz
 cRb
@@ -66992,7 +66977,7 @@ fiw
 cbj
 bCb
 cbj
-bCb
+vQP
 iKZ
 jCm
 eim
@@ -67765,7 +67750,7 @@ soI
 xyP
 wUt
 hBY
-uKm
+hBY
 hBY
 gQn
 gQn

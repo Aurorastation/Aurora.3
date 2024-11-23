@@ -2445,7 +2445,6 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "hu" = (
@@ -3252,17 +3251,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/ruined_propellant_depot/eva)
-"ka" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Propellant Tanks"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ruined_propellant_depot/propellant_tanks)
 "kb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3400,12 +3388,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/docks_south_east)
-"kw" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Bridge"
-	},
-/turf/simulated/wall/r_wall,
-/area/ruined_propellant_depot/bridge)
 "kx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8587,7 +8569,6 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/abstract/ghost/storyteller,
 /obj/item/device/flashlight/lantern/on{
 	pixel_y = -3;
 	pixel_x = -7
@@ -12047,6 +12028,9 @@
 	pixel_x = -5;
 	pixel_y = -2
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Bridge"
+	},
 /turf/simulated/floor/tiled,
 /area/ruined_propellant_depot/bridge)
 "Md" = (
@@ -12580,7 +12564,6 @@
 /obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "NL" = (
@@ -13633,7 +13616,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "Rd" = (
@@ -14019,7 +14001,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "SG" = (
@@ -15125,7 +15106,6 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/actor_spawn,
 /turf/simulated/floor/wood,
 /area/ruined_propellant_depot/mess)
 "VX" = (
@@ -48735,7 +48715,7 @@ bh
 JX
 sv
 rZ
-ka
+rZ
 bh
 bh
 JX
@@ -53306,7 +53286,7 @@ Zi
 Zi
 Wl
 Zi
-kw
+cR
 cR
 cR
 cR
