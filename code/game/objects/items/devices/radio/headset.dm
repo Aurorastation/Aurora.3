@@ -924,6 +924,9 @@
 /obj/item/device/radio/headset/ship/proc/get_sector_z()
 	. = GET_Z(get_turf(src))
 
+/obj/item/device/radio/headset/ship/odyssey
+	ks1type = /obj/item/device/encryptionkey/ship/odyssey
+
 /obj/item/device/radio/headset/ship/odyssey/get_sector_z()
 	. = SSodyssey.scenario_zlevels[1]
 
