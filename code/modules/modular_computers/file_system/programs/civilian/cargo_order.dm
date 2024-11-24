@@ -102,7 +102,6 @@
 			co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
 			status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
 
-			log_subsystem_cargo("ORDER - '[usr.real_name]' ordered '[jointext(co.items, ", ")]' from cargo for '[co.price]' credits.")
 			co = null
 			return TRUE
 
