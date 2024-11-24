@@ -205,34 +205,32 @@
 	post_comm_message(reporttitle, reportbody)
 
 /mob/abstract/ghost/storyteller/verb/send_odyssey_message()
-	set name = "Send Odyssey Message"
+	set name = "Unrestrict Away Site Landing"
 	set category = "Storyteller"
+
+	if(!SSodyssey.site_landing_restricted)
+		to_chat(src, SPAN_WARNING("Site landing is already unrestricted!"))
+		return
 
 	var/reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the message the Horizon will get.", "Title"))
 	if(!reporttitle)
 		reporttitle = "SCC Sensors Report"
-	var/reportbody = sanitize(tgui_input_text(usr, "Enter the message the Horizon will get. Note that they will automatically receive the sensors data for the overmap object if applicable.", "Body", multiline = TRUE), extra = FALSE)
+	var/reportbody = sanitize(tgui_input_text(usr, "Enter the message the Horizon will get. It should at least describe what they're doing here in a general sense, along with the reason why they can land now.", "Body", multiline = TRUE), extra = FALSE)
 	if(!reportbody)
 		return
 
 	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
 	switch(announce)
 		if("Yes")
-			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1)
 		if("No")
-			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
-			sound_to_playing_players('sound/AI/commandreport.ogg')
+			command_announcement.Announce("New [SSatlas.current_map.company_name] update available at all communication consoles.", "[SSatlas.current_map.company_name] Report", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1)
 
-	log_admin("Storyteller [key_name(src)] has notified the Horizon about the current Odyssey: [reportbody]")
-	message_admins("Storyteller [key_name_admin(src)] has notified the Horizon about the current Odyssey:", 1)
+	SSodyssey.scenario.unrestrict_away_site_landing()
+	log_admin("Storyteller [key_name(src)] has lifted the away site landing restrictions: [reportbody]")
 
 	//New message handling
 	post_comm_message(reporttitle, reportbody)
-
-	var/obj/effect/overmap/odyssey_site = SSodyssey.get_odyssey_overmap_effect()
-	if(odyssey_site)
-		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
-			sensors.add_contact(odyssey_site)
 
 /mob/abstract/ghost/storyteller/verb/change_mob_name(var/mob/victim)
 	set name = "Change Mob Name"

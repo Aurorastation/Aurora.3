@@ -18,6 +18,8 @@ SUBSYSTEM_DEF(odyssey)
 	var/has_sent_roundstart_announcement = FALSE
 	/// The Horizon's overmap object. We keep it here for convenience.
 	var/obj/effect/overmap/visitable/ship/horizon
+	/// If ships can dock on the Odyssey site. True by default, edited by the scenario.
+	var/site_landing_restricted = TRUE
 
 /datum/controller/subsystem/odyssey/Initialize()
 	return SS_INIT_SUCCESS
@@ -32,14 +34,14 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/fire()
 	if(!has_sent_roundstart_announcement)
 		// First of all, notify the Horizon.
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_early), horizon), rand(4 MINUTES, 6 MINUTES))
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon_late), horizon), rand(20 MINUTES, 30 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, send_horizon_message), horizon), rand(4 MINUTES, 6 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, unrestrict_landing_and_message_horizon), horizon), 40 MINUTES)
 
 		var/obj/effect/overmap/odyssey_site = get_odyssey_overmap_effect()
 
 		if(odyssey_site)
 			// Next, notify the offships - these announcements can happen earlier to potentially give them a bit of an edge in reaching the objective area.
-			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_offships), odyssey_site), rand(5 MINUTES, 30 MINUTES))
+			addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_offships), odyssey_site), rand(20 MINUTES, 50 MINUTES))
 
 		has_sent_roundstart_announcement = TRUE
 
@@ -71,20 +73,21 @@ SUBSYSTEM_DEF(odyssey)
 		return FALSE
 
 	scenario = pickweight(possible_scenarios)
-	gamemode_setup()
+	setup_scenario_variables()
 	// Now that we actually have an odyssey, the subsystem can fire!
 	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 	return TRUE
 
 /**
- * This proc overrides the gamemode variables for the amount of actors.
+ * This proc overrides the gamemode variables for the amount of actors and takes care of overriding any other variables the scenario might set on external things.
  * Note that Storytellers spawn through a ghost role.
  */
-/datum/controller/subsystem/odyssey/proc/gamemode_setup()
+/datum/controller/subsystem/odyssey/proc/setup_scenario_variables()
 	var/datum/game_mode/odyssey/ody_gamemode = GLOB.gamemode_cache["odyssey"]
 	if(scenario)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount
+	site_landing_restricted = scenario.site_landing_restricted
 
 /**
  * This is the proc that should be used to set the odyssey away site.

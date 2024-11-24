@@ -26,9 +26,10 @@
 
 /singleton/scenario_announcements/cryo_outpost
 	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_late_announcement_message = "Greetings, SCCV Horizon. There's been some proprietary Zeng-Hu tech reported missing from nearby corporate facilities, \
+	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon. There's been some proprietary Zeng-Hu tech reported missing from nearby corporate facilities, \
 	recently tracked down to a planet, Juliett-Enderly, located in your current sector. You are the closest to this planet, and should investigate and \
-	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here."
+	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here. \
+	Landing sites have been registered and cleared, you may now depart to the planet."
 
 	offship_announcement_message = "An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck."
 
