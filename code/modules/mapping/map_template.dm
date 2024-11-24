@@ -88,7 +88,7 @@
 		SSatlas.current_map.player_levels |= z_index
 
 	smooth_zlevel(world.maxz)
-	resort_all_areas()
+	require_area_resort()
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)

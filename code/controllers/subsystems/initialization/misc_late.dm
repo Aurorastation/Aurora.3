@@ -38,8 +38,3 @@ SUBSYSTEM_DEF(misc_late)
 		update_admins_from_api(TRUE)
 
 	return SS_INIT_SUCCESS
-
-/proc/sorted_add_area(area/A)
-	GLOB.all_areas += A
-
-	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))

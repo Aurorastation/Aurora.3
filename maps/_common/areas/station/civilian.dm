@@ -3,13 +3,13 @@
 	name = "Dormitories"
 	icon_state = "Sleep"
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/sconference_room
 	name = "Surface - Conference Room"
 	icon_state = "Sleep"
-	station_area = 1
+	station_area = TRUE
 
 /area/crew_quarters/toilet
 	name = "Surface - Washroom"
@@ -115,10 +115,10 @@
 	name = "Library"
 	icon_state = "library"
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
-	station_area = 1
+	station_area = TRUE
 
 /area/chapel
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/chapel/main
@@ -161,7 +161,7 @@
 /area/quartermaster
 	name = "Operations Manager"
 	icon_state = "quart"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/quartermaster/office
@@ -202,7 +202,7 @@
 /area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
-	station_area = 1
+	station_area = TRUE
 	ambience = AMBIENCE_MAINTENANCE
 
 /area/janitor/stairs
@@ -212,7 +212,7 @@
 	name = "Hydroponics"
 	icon_state = "hydro"
 	no_light_control = TRUE
-	station_area = 1
+	station_area = TRUE
 
 /area/hydroponics/garden
 	name = "Garden"
@@ -221,9 +221,9 @@
 /area/store
 	name = "Surface - Commissary"
 	icon_state = "quartstorage"
-	station_area = 1
+	station_area = TRUE
 
 /area/journalistoffice
 	name = "Journalist's Office"
-	station_area = 1
+	station_area = TRUE
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
