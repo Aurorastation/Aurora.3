@@ -41,7 +41,8 @@
 
 	//None of these mobs can 'die' in any sense, and none of them should be able to become ghosts.
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
-	if (istype(src, /mob/living))
+	//Well, those and storytellers. This code is seriously shit and needs a rework, but who gives a fuck right now. Sue me.
+	if (istype(src, /mob/living) && !isstoryteller(src))
 		ghostize()
 
 	if (istype(src.loc, /atom/movable))
