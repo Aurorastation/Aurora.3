@@ -131,6 +131,9 @@
 /mob/abstract/ghost/storyteller/on_restricted_level(var/check)
 	return FALSE
 
+/mob/abstract/ghost/storyteller/can_ztravel(direction)
+	return TRUE
+
 /mob/abstract/ghost/storyteller/verb/odyssey_panel()
 	set name = "Odyssey Panel"
 	set category = "Storyteller"
