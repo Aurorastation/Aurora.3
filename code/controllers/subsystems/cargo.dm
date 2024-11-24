@@ -136,7 +136,6 @@ SUBSYSTEM_DEF(cargo)
 				item_supplier.items = list()
 			item_supplier.items += I
 			I.supplier_data = item_supplier
-			log_subsystem_cargo("Inserted item '[I.name]' into supplier '[I.supplier]'.")
 
 	log_subsystem_cargo("Finished loading cargo items.")
 
@@ -619,13 +618,10 @@ SUBSYSTEM_DEF(cargo)
 //Dumps the cargo orders to the database when the round ends
 /datum/controller/subsystem/cargo/proc/dump_orders()
 	if(dumped_orders)
-		log_subsystem_cargo("Order Data Dump Aborted - Orders already dumped")
-		return
-	if(GLOB.config.cargo_load_items_from != "sql")
-		log_subsystem_cargo("Order Data Dump Aborted - Cargo not loaded from database")
+		log_subsystem_cargo("SQL: Orders already dumped. Cargo data dump has been aborted.")
 		return
 	if(!establish_db_connection(GLOB.dbcon))
-		log_subsystem_cargo("SQL ERROR - Failed to connect. - Unable to dump order data")
+		log_subsystem_cargo("SQL: Unable to connect to SQL database. Cargo data dump has been aborted.")
 		return
 
 	dumped_orders = TRUE
@@ -665,7 +661,7 @@ SUBSYSTEM_DEF(cargo)
 			"time_paid"=co.time_paid,
 			"reason"=co.reason
 			)))
-			log_subsystem_cargo("SQL ERROR - Cound not write order to database")
+			log_subsystem_cargo("SQL: Cound not write order to database. Cargo data dump has been aborted.")
 			continue
 
 		//Run the query to get the inserted id
@@ -683,6 +679,8 @@ SUBSYSTEM_DEF(cargo)
 					"amount"=itemcount[item_id]
 				))
 		CHECK_TICK
+
+		log_subsystem_cargo("SQL: Saved cargo order log to database.")
 
 
 /hook/roundend/proc/dump_cargoorders()
