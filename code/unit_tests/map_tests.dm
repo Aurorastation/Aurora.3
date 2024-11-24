@@ -388,15 +388,16 @@
 			continue
 
 		//We get a turf from the area, to see if we are in the "station"
-		var/turf/turf_to_get_z = pick(get_area_turfs(possible_station_area))
+		var/list/turf/area_turfs = get_area_turfs(possible_station_area)
+		if(!length(area_turfs))
+			TEST_NOTICE("Skipping area [possible_station_area] ([possible_station_area.type]) as it has no turfs.")
+			continue
+
+		var/turf/turf_to_get_z = pick(area_turfs)
 
 		//See if the turf is in a station z-level, if not abort
 		if(!is_station_turf(turf_to_get_z))
-			if(turf_to_get_z)
-				TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is not in a station z-level (picked check turf: [turf_to_get_z] on Z [turf_to_get_z.z]).")
-			else
-				TEST_NOTICE("Skipping area [possible_station_area] ([possible_station_area.type]) as it somehow has no turfs.")
-
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is not in a station z-level (picked check turf: [turf_to_get_z] on Z [turf_to_get_z.z]).")
 			continue
 
 		/* At this point, we know the area must be checked and is present in the station z-level */
