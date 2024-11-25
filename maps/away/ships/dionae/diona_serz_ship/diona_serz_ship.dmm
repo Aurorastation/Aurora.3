@@ -6,7 +6,7 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
 "af" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/warehouse)
 "av" = (

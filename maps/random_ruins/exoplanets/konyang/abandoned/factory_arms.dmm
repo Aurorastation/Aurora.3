@@ -53,7 +53,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "cG" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "cL" = (
@@ -61,7 +61,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "cP" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
@@ -728,7 +728,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "CF" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/random/dirt_75,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
@@ -990,7 +990,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/arms_factory)
 "Oy" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/foundation,
 /area/konyang/arms_factory)
 "OO" = (

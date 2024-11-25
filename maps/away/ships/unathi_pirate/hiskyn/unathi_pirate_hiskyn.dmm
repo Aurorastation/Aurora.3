@@ -2009,7 +2009,7 @@
 	dir = 9
 	},
 /obj/machinery/light,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "aQp" = (

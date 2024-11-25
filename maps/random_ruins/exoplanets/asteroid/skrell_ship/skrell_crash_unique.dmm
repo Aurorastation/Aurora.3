@@ -384,7 +384,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bq" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
 "br" = (

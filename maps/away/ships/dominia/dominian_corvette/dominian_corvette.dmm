@@ -6384,7 +6384,7 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/recroom)
 "xoc" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;

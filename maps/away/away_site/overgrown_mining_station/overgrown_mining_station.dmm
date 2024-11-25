@@ -122,7 +122,7 @@
 /turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "bQ" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "bU" = (

@@ -5742,7 +5742,7 @@
 /area/space)
 "sSQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "sTm" = (

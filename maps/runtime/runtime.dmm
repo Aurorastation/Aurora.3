@@ -1421,7 +1421,7 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "dI" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "dK" = (

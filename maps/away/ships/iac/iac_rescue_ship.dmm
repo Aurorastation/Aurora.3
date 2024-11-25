@@ -6848,7 +6848,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/centralhallway)
 "pEN" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/machinery/power/apc/super/east{
 	req_access = list(211)
 	},

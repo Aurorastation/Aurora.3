@@ -602,7 +602,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship/exterior/west)
 "Ai" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "Ar" = (
