@@ -3,7 +3,7 @@
 	name = "mining voidsuit"
 	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
-	price = 4200
+	price = 1200
 	items = list(
 		/obj/item/clothing/suit/space/void/mining
 	)
@@ -17,7 +17,7 @@
 	name = "mining voidsuit helmet"
 	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating."
-	price = 2850
+	price = 850
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/mining
 	)

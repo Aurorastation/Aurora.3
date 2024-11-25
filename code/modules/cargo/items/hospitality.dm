@@ -12,6 +12,20 @@
 	groupable = TRUE
 	spawn_amount = 5
 
+/singleton/cargo_item/chicken
+	category = "hospitality"
+	name = "chicken breast (x5)"
+	supplier = "getmore"
+	description = "Boneless chicken breast fillets, for chicken-y recipes."
+	price = 160
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 5
+
 /singleton/cargo_item/synthmeat
 	category = "hospitality"
 	name = "synthetic meat (x5)"
@@ -45,7 +59,7 @@
 	name = "fish fillet (x5)"
 	supplier = "getmore"
 	description = "Raw fish fillets, sourced from an aquaponics farm. Freshly frozen."
-	price = 130
+	price = 150
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet
 	)
@@ -86,7 +100,7 @@
 	category = "hospitality"
 	name = "worm fillet (x5)"
 	supplier = "nanotrasen"
-	description = "Meat from a Cavern Dweller. Mildly toxic if prepared improperly."
+	description = "Exotic meat from a Cavern Dweller. Mildly toxic if prepared improperly."
 	price = 350
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
@@ -553,7 +567,7 @@
 	category = "hospitality"
 	name = "Wrapp Artiste patron"
 	supplier = "idris"
-	description = "Silver laced tequilla, served in space night clubs across the galaxy."
+	description = "Silver laced tequila, served in space night clubs across the galaxy."
 	price = 510
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/patron
@@ -568,7 +582,7 @@
 	name = "Sarezhi Wine"
 	supplier = "arizi"
 	description = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
-	price = 360
+	price = 400
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
 	)
@@ -646,21 +660,6 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
-/singleton/cargo_item/pizzabox_random
-	category = "hospitality"
-	name = "pizza box, random"
-	supplier = "orion"
-	description = "Mysterious Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 40
-	items = list(
-		/obj/random/pizzabox
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
 	name = "pizza box, vegetable"
@@ -669,6 +668,20 @@
 	price = 50
 	items = list(
 		/obj/item/pizzabox/vegetable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pizzabox_random
+	category = "hospitality"
+	name = "pizza box, random"
+	supplier = "orion"
+	description = "An order of Orion Express ready-to-eat pizza with special instructions, 'Surprise Me'."
+	price = 40
+	items = list(
+		/obj/random/pizzabox
 	)
 	access = 0
 	container_type = "crate"

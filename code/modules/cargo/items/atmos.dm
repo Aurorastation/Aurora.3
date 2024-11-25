@@ -184,7 +184,7 @@
 	category = "atmos"
 	name = "Canister (Phoron)"
 	supplier = "nanotrasen"
-	description = "Holds valuable phoron. Has a built-in valve to allow for filling portable tanks."
+	description = "Holds valuable phoron gas. Has a built-in valve to allow for filling portable tanks."
 	price = 5000
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/phoron
@@ -238,10 +238,10 @@
 
 /singleton/cargo_item/atmosvoidsuit
 	category = "atmos"
-	name = "atmos voidsuit"
+	name = "atmospherics voidsuit"
 	supplier = "hephaestus"
 	description = "A special suit that protects against hazardous, low pressure environments. Has unmatched thermal protection and minor radiation."
-	price = 4200
+	price = 1200
 	items = list(
 		/obj/item/clothing/suit/space/void/atmos
 	)
@@ -255,7 +255,7 @@
 	name = "atmospherics voidsuit helmet"
 	supplier = "hephaestus"
 	description = "A special helmet designed for work in a hazardous, low pressure environments. Has unmatched thermal and minor radiation protect."
-	price = 2850
+	price = 850
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/atmos
 	)

@@ -352,7 +352,7 @@
 	name = "engineering voidsuit"
 	supplier = "hephaestus"
 	description = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
-	price = 4200
+	price = 1200
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
@@ -366,7 +366,7 @@
 	name = "engineering voidsuit helmet"
 	supplier = "hephaestus"
 	description = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	price = 2850
+	price = 850
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)

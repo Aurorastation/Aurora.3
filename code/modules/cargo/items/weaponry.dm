@@ -60,7 +60,7 @@
 	name = "ballistic carbine"
 	supplier = "virgo"
 	description = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Uses 5.56mm rounds."
-	price = 4700
+	price = 2400
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/carbine
 	)
@@ -74,7 +74,7 @@
 	name = "Z8 bullpup assault carbine"
 	supplier = "zavodskoi"
 	description = "The ZI Bulldog 5.56mm bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
-	price = 5650
+	price = 2650
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/z8
 	)
@@ -88,7 +88,7 @@
 	name = "combat shotgun"
 	supplier = "hephaestus"
 	description = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
-	price = 5250
+	price = 2250
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
 	)
@@ -102,7 +102,7 @@
 	name = "energy carbine"
 	supplier = "nanotrasen"
 	description = "An energy-based carbine with two settings: Stun and kill."
-	price = 3200
+	price = 1800
 	items = list(
 		/obj/item/gun/energy/gun
 	)
@@ -116,7 +116,7 @@
 	name = "energy pistol"
 	supplier = "nanotrasen"
 	description = "A basic energy-based pistol gun with two settings: Stun and kill."
-	price = 2200
+	price = 1200
 	items = list(
 		/obj/item/gun/energy/pistol
 	)
@@ -130,7 +130,7 @@
 	name = "ion rifle"
 	supplier = "nanotrasen"
 	description = "The NT Mk60 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats."
-	price = 4500
+	price = 2500
 	items = list(
 		/obj/item/gun/energy/rifle/ionrifle
 	)
@@ -143,7 +143,7 @@
 	name = "marksman energy rifle"
 	supplier = "hephaestus"
 	description = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized bolts."
-	price = 6600
+	price = 3100
 	items = list(
 		/obj/item/gun/energy/sniperrifle
 	)
@@ -157,7 +157,7 @@
 	name = "laser rifle"
 	supplier = "nanotrasen"
 	description = "A common laser weapon, designed to kill with concentrated energy blasts."
-	price = 5200
+	price = 2200
 	items = list(
 		/obj/item/gun/energy/rifle/laser
 	)
@@ -171,7 +171,7 @@
 	name = "point entry anti-materiel cannon"
 	supplier = "nanotrasen"
 	description = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats. Spectacularly effective, though equally spectacularly unwieldy."
-	price = 7200
+	price = 3200
 	items = list(
 		/obj/item/gun/projectile/peac
 	)
@@ -185,7 +185,7 @@
 	name = "adhomian recoilless rifle"
 	supplier = "zharkov"
 	description = "Shoulder-fired man-portable anti-tank recoilless rifle with a single shot. Relatively inexpensive and does its job."
-	price = 2200
+	price = 1300
 	items = list(
 		/obj/item/gun/projectile/recoilless_rifle
 	)
@@ -199,7 +199,7 @@
 	name = "bolt action rifle"
 	supplier = "zharkov"
 	description = "An Adhomian bolt-action rifle."
-	price = 1850
+	price = 850
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle
 	)
@@ -213,7 +213,7 @@
 	name = "derringer"
 	supplier = "zharkov"
 	description = "A blast from the past that can fit in your pocket."
-	price = 1250
+	price = 650
 	items = list(
 		/obj/item/gun/projectile/revolver/derringer
 	)
@@ -227,7 +227,7 @@
 	name = "silenced pistol"
 	supplier = "zharkov"
 	description = "Internally silenced for stealthy operations."
-	price = 2950
+	price = 1950
 	items = list(
 		/obj/item/gun/projectile/silenced
 	)
@@ -243,7 +243,7 @@
 	name = "shotgun ammunition box (beanbag shells)"
 	supplier = "zavodskoi"
 	description = "A box of less-lethal beanbag shells."
-	price = 45
+	price = 65
 	items = list(
 		/obj/item/storage/box/beanbags
 	)
@@ -257,7 +257,7 @@
 	name = "shotgun ammunition box (haywire shells)"
 	supplier = "zavodskoi"
 	description = "A box of EMP-inducing 'haywire' shotgun shells."
-	price = 600
+	price = 120
 	items = list(
 		/obj/item/storage/box/haywireshells
 	)
@@ -271,7 +271,7 @@
 	name = "shotgun ammunition box (incendiary shells)"
 	supplier = "zavodskoi"
 	description = "A box of incendiary shotgun shells."
-	price = 100
+	price = 95
 	items = list(
 		/obj/item/storage/box/incendiaryshells
 	)
@@ -285,7 +285,7 @@
 	name = "shotgun ammunition box (buckshot)"
 	supplier = "zavodskoi"
 	description = "A box of shotgun buckshot shells."
-	price = 450
+	price = 85
 	items = list(
 		/obj/item/storage/box/shotgunshells
 	)
@@ -299,7 +299,7 @@
 	name = "shotgun ammunition box (slug)"
 	supplier = "zavodskoi"
 	description = "A box of shotgun slugs."
-	price = 500
+	price = 100
 	items = list(
 		/obj/item/storage/box/shotgunammo
 	)
@@ -313,7 +313,7 @@
 	name = "shotgun ammunition box (illumination)"
 	supplier = "zavodskoi"
 	description = "A box of illuminating shotgun shells."
-	price = 97
+	price = 65
 	items = list(
 		/obj/item/storage/box/flashshells
 	)
@@ -338,10 +338,10 @@
 
 /singleton/cargo_item/apcarbinemagazine_556
 	category = "weaponry"
-	name = "AP carbine magazine (5.56mm)"
+	name = "C-type armor-piercing carbine magazine (5.56mm)"
 	supplier = "zavodskoi"
-	description = "An AP 5.56 ammo magazine fit for a carbine, not an assault rifle."
-	price = 450
+	description = "Civilian-issue 5.56mm magazine with reduced capacity. Fits most private-issue 5.56mm weapons."
+	price = 60
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine/ap
 	)
@@ -352,10 +352,10 @@
 
 /singleton/cargo_item/carbinemagazine_556
 	category = "weaponry"
-	name = "carbine magazine (5.56mm)"
+	name = "C-type carbine magazine (5.56mm)"
 	supplier = "zavodskoi"
-	description = "A 5.56 ammo magazine fit for a carbine, not an assault rifle."
-	price = 250
+	description = "Civilian-issue 5.56mm magazine with reduced capacity. Fits most private-issue 5.56mm weapons."
+	price = 55
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine
 	)
@@ -366,9 +366,9 @@
 
 /singleton/cargo_item/magazine_556
 	category = "weaponry"
-	name = "rifle magazine (5.56mm)"
-	supplier = "nanotrasen"
-	description = "A 5.56 ammo magazine for assault rifles."
+	name = "M-type rifle magazine (5.56mm)"
+	supplier = "zavodskoi"
+	description = "A 5.56 ammo magazine for military assault rifles. Incompatible with weapons that take C-type magazines."
 	price = 65
 	items = list(
 		/obj/item/ammo_magazine/a556
@@ -411,7 +411,7 @@
 	name = "pistol magazine (.45)"
 	supplier = "nanotrasen"
 	description = "A .45-caliber pistol magazine."
-	price = 200
+	price = 50
 	items = list(
 		/obj/item/ammo_magazine/c45m
 	)
@@ -425,7 +425,7 @@
 	name = "pistol magazine (.45 flash)"
 	supplier = "nanotrasen"
 	description = "A .45-caliber less-lethal flash magazine."
-	price = 10
+	price = 40
 	items = list(
 		/obj/item/ammo_magazine/c45m/flash
 	)
@@ -439,7 +439,7 @@
 	name = "top mounted magazine (9mm)"
 	supplier = "zavodskoi"
 	description = "A top-mounted 9mm magazine designed for the ZI 550 machine pistol. Contains lethal rounds."
-	price = 25
+	price = 60
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt
 	)
@@ -453,7 +453,7 @@
 	name = "top mounted magazine (9mm rubber)"
 	supplier = "zavodskoi"
 	description = "A top-mounted 9mm magazine designed for the ZI 550 machine pistol. Contains less-lethal rubber rounds."
-	price = 25
+	price = 50
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt/rubber
 	)
@@ -467,7 +467,7 @@
 	name = "tranquilizer darts (.50 cal PPS)"
 	supplier = "nanotrasen"
 	description = "A magazine for some kind of gun."
-	price = 45
+	price = 60
 	items = list(
 		/obj/item/storage/box/tranquilizer
 	)
@@ -481,7 +481,7 @@
 	name = "compact tungsten slug"
 	supplier = "virgo"
 	description = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
-	price = 500
+	price = 125
 	items = list(
 		/obj/item/storage/box/tungstenslugs
 	)
@@ -508,8 +508,8 @@
 	category = "weaponry"
 	name = "francisca rotary cannon FMJ ammunition box"
 	supplier = "zavodskoi"
-	description = "A box of 40mm FMJ ammo for the francisca rotary cannon."
-	price = 1000
+	description = "A box of 40mm FMJ ammo for a Francisca-type rotary cannon."
+	price = 1100
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
 	)
@@ -520,9 +520,9 @@
 
 /singleton/cargo_item/grauwolfapflak
 	category = "weaponry"
-	name = "grauwolf AP flak"
+	name = "grauwolf AP flak shells"
 	supplier = "zavodskoi"
-	description = "Armor-Piercing shells for a flak battery."
+	description = "Armor-Piercing shells for a Grauwolf-type flak battery."
 	price = 2500
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle/ap
@@ -534,10 +534,10 @@
 
 /singleton/cargo_item/grauwolfheflak
 	category = "weaponry"
-	name = "grauwolf HE flak"
+	name = "grauwolf HE flak shells"
 	supplier = "zavodskoi"
-	description = "High-explosive shells for a flak battery."
-	price = 2000
+	description = "High-explosive shells for a Grauwolf-type flak battery."
+	price = 2200
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
 	)
@@ -550,7 +550,7 @@
 	category = "weaponry"
 	name = "longbow casing"
 	supplier = "zavodskoi"
-	description = "A casing for a 406mm warhead."
+	description = "A casing for a 406mm warhead, designed for a Longbow-type cannon."
 	price = 2000
 	items = list(
 		/obj/item/ship_ammunition/longbow
@@ -564,7 +564,7 @@
 	category = "weaponry"
 	name = "longbow AP warhead"
 	supplier = "zavodskoi"
-	description = "An armor-piercing 406mm warhead."
+	description = "An armor-piercing 406mm warhead, designed for a Longbow-type cannon."
 	price = 3500
 	items = list(
 		/obj/item/warhead/longbow/ap
@@ -578,7 +578,7 @@
 	category = "weaponry"
 	name = "longbow EP warhead"
 	supplier = "zavodskoi"
-	description = "A bunker-buster 406mm warhead."
+	description = "A bunker-buster 406mm warhead, designed for a Longbow-type cannon."
 	price = 3500
 	items = list(
 		/obj/item/warhead/longbow/bunker
@@ -592,8 +592,8 @@
 	category = "weaponry"
 	name = "longbow HE warhead"
 	supplier = "zavodskoi"
-	description = "A high-explosive 406mm warhead."
-	price = 3000
+	description = "A high-explosive 406mm warhead, designed for a Longbow-type cannon."
+	price = 3200
 	items = list(
 		/obj/item/warhead/longbow
 	)
@@ -606,7 +606,7 @@
 	category = "weaponry"
 	name = "high-power longbow primer"
 	supplier = "zavodskoi"
-	description = "A high-power primer for a 406mm warhead."
+	description = "A high-power primer for a 406mm warhead, designed for a Longbow-type cannon."
 	price = 2000
 	items = list(
 		/obj/item/primer/high
@@ -620,7 +620,7 @@
 	category = "weaponry"
 	name = "longbow warhead primer"
 	supplier = "zavodskoi"
-	description = "A standard primer for a 406mm warhead."
+	description = "A standard primer for a 406mm warhead, designed for a Longbow-type cannon."
 	price = 1200
 	items = list(
 		/obj/item/primer
@@ -634,8 +634,8 @@
 	category = "weaponry"
 	name = "low-power longbow primer"
 	supplier = "zavodskoi"
-	description = "A low-power primer for a 406mm warhead."
-	price = 800
+	description = "A low-power primer for a 406mm warhead, designed for a Longbow-type cannon."
+	price = 700
 	items = list(
 		/obj/item/primer/low
 	)

@@ -2,8 +2,8 @@
 	category = "robotics"
 	name = "positronic brain"
 	supplier = "hephaestus"
-	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of synthetics across the galaxy."
-	price = 7500
+	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of advanced synthetics across the galaxy."
+	price = 8000
 	items = list(
 		/obj/item/device/mmi/digital/posibrain
 	)

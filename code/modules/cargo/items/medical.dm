@@ -11,7 +11,7 @@
 		/obj/item/storage/firstaid/o2,
 		/obj/item/storage/firstaid/adv
 	)
-	access = 0
+	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -44,9 +44,9 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/advancedfirstaidkit
+/singleton/cargo_item/advancedfirstaidkit_large
 	category = "medical"
-	name = "advanced first-aid kit"
+	name = "large advanced first-aid kit"
 	supplier = "nanotrasen"
 	description = "A large emergency medical kit for many general severe injuries."
 	price = 900
@@ -118,7 +118,7 @@
 	category = "medical"
 	name = "O- blood pack (x1)"
 	supplier = "zeng_hu"
-	description = "A blood pack filled with O- Blood."
+	description = "A blood pack filled with universally-compatible O- Blood."
 	price = 300
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
@@ -156,40 +156,12 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/butazoline_autoinjector
-	category = "medical"
-	name = "butazoline autoinjector"
-	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat severe physical trauma."
-	price = 150
-	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/trauma
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/dermaline_autoinjector
-	category = "medical"
-	name = "dermaline autoinjector"
-	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat severe burns."
-	price = 150
-	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/burn
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/dexplus_autoinjector
 	category = "medical"
 	name = "dexalin plus autoinjector"
 	supplier = "nanotrasen"
 	description = "An autoinjector designed to treat oxygen deprivation."
-	price = 350
+	price = 150
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/oxygen
 	)
@@ -202,8 +174,8 @@
 	category = "medical"
 	name = "peridaxon autoinjector"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat minor organ damage."
-	price = 800
+	description = "An autoinjector designed to treat broad-spectrum organ damage."
+	price = 300
 	items = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
 	)
@@ -212,12 +184,26 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/pneumalin_inhaler
+	category = "medical"
+	name = "pneumalin autoinhaler"
+	supplier = "nanotrasen"
+	description = "An autoinhaler used to treat lung damage."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/inhaler/pneumalin
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/bodybags
 	category = "medical"
-	name = "body bags"
+	name = "body bags boxes (x3)"
 	supplier = "nanotrasen"
 	description = "This box contains body bags."
-	price = 255
+	price = 155
 	items = list(
 		/obj/item/storage/box/bodybags
 	)
@@ -231,7 +217,7 @@
 	name = "box of empty autoinjectors"
 	supplier = "nanotrasen"
 	description = "Contains empty autoinjectors."
-	price = 500
+	price = 120
 	items = list(
 		/obj/item/storage/box/autoinjectors
 	)
@@ -245,7 +231,7 @@
 	name = "box of sterile gloves"
 	supplier = "zeng_hu"
 	description = "Contains sterile gloves."
-	price = 98
+	price = 55
 	items = list(
 		/obj/item/storage/box/gloves
 	)
@@ -259,7 +245,7 @@
 	name = "box of sterile masks"
 	supplier = "zeng_hu"
 	description = "This box contains masks of sterility."
-	price = 98
+	price = 55
 	items = list(
 		/obj/item/storage/box/masks
 	)
@@ -273,7 +259,7 @@
 	name = "box of syringes"
 	supplier = "nanotrasen"
 	description = "A box full of syringes."
-	price = 200
+	price = 60
 	items = list(
 		/obj/item/storage/box/syringes
 	)
@@ -282,11 +268,39 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/dylovenebottle
+/singleton/cargo_item/butazoline_bottle
+	category = "medical"
+	name = "butazoline autoinjector"
+	supplier = "nanotrasen"
+	description = "A bottle of butazoline, a medicine used to treat severe trauma."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/butazoline
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dermaline_bottle
+	category = "medical"
+	name = "dermaline autoinjector"
+	supplier = "nanotrasen"
+	description = "A bottle of dermaline, a medicine used to treat severe burns."
+	price = 50
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/dermaline
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dylovene_bottle
 	category = "medical"
 	name = "dylovene bottle"
 	supplier = "nanotrasen"
-	description = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."
+	description = "A small bottle of dylovene, a broad-spectrum antitoxin and liver regenerative."
 	price = 20
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin
@@ -296,12 +310,12 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/hyronalinbottle
+/singleton/cargo_item/hyronalin_bottle
 	category = "medical"
 	name = "hyronalin bottle"
 	supplier = "nanotrasen"
-	description = "A small bottle. Contains hyronalin - used to treat radiation poisoning."
-	price = 1000
+	description = "A bottle containing hyronalin, used to treat radiation poisoning."
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/hyronalin
 	)
@@ -310,11 +324,11 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/inaprovalinebottle
+/singleton/cargo_item/inaprovaline_bottle
 	category = "medical"
 	name = "inaprovaline bottle"
 	supplier = "nanotrasen"
-	description = "A small bottle. Contains inaprovaline - used to stabilize patients."
+	description = "A bottle of inaprovaline, a broad-spectrum stimulant and cardiac stabilizer."
 	price = 25
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
@@ -324,14 +338,28 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/soporificbottle
+/singleton/cargo_item/soporific_bottle
 	category = "medical"
 	name = "soporific bottle"
 	supplier = "nanotrasen"
-	description = "A small bottle of soporific. Just the fumes make you sleepy."
+	description = "A bottle of soporific. Just the fumes make you sleepy."
 	price = 55
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/stoxin
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/mortaphenyl_bottle
+	category = "medical"
+	name = "inaprovaline bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of mortaphenyl, a strong non-opioid painkiller."
+	price = 85
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/mortaphenyl
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
@@ -357,7 +385,7 @@
 	name = "medical mask"
 	supplier = "nanotrasen"
 	description = "A close-fitting sterile mask that can be connected to an air supply."
-	price = 105
+	price = 35
 	items = list(
 		/obj/item/clothing/mask/breath/medical
 	)
@@ -371,7 +399,7 @@
 	name = "surgical cap"
 	supplier = "nanotrasen"
 	description = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
-	price = 200
+	price = 70
 	items = list(
 		/obj/item/clothing/head/surgery
 	)
@@ -385,7 +413,7 @@
 	name = "medical scrubs"
 	supplier = "nanotrasen"
 	description = "It's made of a special fiber that provides minor protection against biohazards."
-	price = 200
+	price = 100
 	items = list(
 		/obj/item/clothing/under/rank/medical/surgeon
 	)
@@ -413,7 +441,7 @@
 	name = "medical voidsuit"
 	supplier = "nanotrasen"
 	description = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
-	price = 4200
+	price = 1200
 	items = list(
 		/obj/item/clothing/suit/space/void/medical
 	)
@@ -427,7 +455,7 @@
 	name = "medical voidsuit helmet"
 	supplier = "nanotrasen"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has minor radiation shielding."
-	price = 2850
+	price = 850
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
@@ -486,6 +514,20 @@
 	price = 300
 	items = list(
 		/obj/item/auto_cpr
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/hypospray
+	category = "medical"
+	name = "hypospray"
+	supplier = "zeng_hu"
+	description = "A sterile, air-needle autoinjector for administration of drugs to patients."
+	price = 200
+	items = list(
+		/obj/item/reagent_containers/hypospray
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
