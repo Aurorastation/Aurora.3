@@ -19,6 +19,7 @@ var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
 var/const/HRA              =(1<<14)
 var/const/CONSULAR_ASST	   =(1<<15)
+var/const/DIPLOMAT_AIDE	   =(1<<16)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -87,7 +88,8 @@ var/list/command_support_positions = list(
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bridge Crew",
-	"Diplomatic Aide"
+	"Diplomatic Aide",
+	"Corporate Aide"
 )
 
 var/list/engineering_positions = list(

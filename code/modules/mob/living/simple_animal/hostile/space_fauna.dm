@@ -71,15 +71,15 @@
 
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
-	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
+	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (last_found_target in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		GLOB.move_manager.move_to(src, target_mob, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, last_found_target, 1, move_to_delay)
 		return 1
 	..()
 
 /mob/living/simple_animal/hostile/carp/AttackTarget()
 	stop_automated_movement = 1
-	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (get_dist(src, target_mob) <= 1))
+	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (get_dist(src, last_found_target) <= 1))
 		AttackingTarget()
 		attacked_times += 1
 		return 1
@@ -89,8 +89,8 @@
 	. = ..()
 	if(.)
 		return
-	if(istype(target_mob, /obj/effect/energy_field))
-		var/obj/effect/energy_field/e = target_mob
+	if(istype(last_found_target, /obj/effect/energy_field))
+		var/obj/effect/energy_field/e = last_found_target
 		e.Stress(rand(1,2))
 		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)

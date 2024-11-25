@@ -29,37 +29,6 @@
 		return 0
 	return ..()
 
-/obj/projectile/bullet/check_penetrate(var/atom/A)
-	if(!A || !A.density) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
-
-	if(ismob(A))
-		if(!mob_passthrough_check)
-			return 0
-		if(iscarbon(A))
-			damage *= 0.7 //squishy mobs absorb KE
-		return 1
-
-	var/chance = 0
-	if(istype(A, /turf/simulated/wall))
-		var/turf/simulated/wall/W = A
-		chance = round(damage/W.material.integrity*180)
-	else if(istype(A, /obj/machinery/door))
-		var/obj/machinery/door/D = A
-		chance = round(damage/D.maxhealth*180)
-		if(D.glass) chance *= 2
-	else if(istype(A, /obj/structure/girder))
-		chance = 100
-	else if(istype(A, /obj/machinery) || istype(A, /obj/structure))
-		chance = damage
-
-	if(prob(chance))
-		if(A.opacity)
-			//display a message so that people on the other side aren't so confused
-			A.visible_message(SPAN_WARNING("\The [src] pierces through \the [A]!"))
-		return 1
-
-	return 0
-
 /**
  * # Pellet projectiles
  *
@@ -281,7 +250,6 @@
 
 /obj/projectile/bullet/shotgun/moghes
 	name = "wall shot"
-	secondary_projectile = /obj/projectile/bullet/pellet/shotgun/canister
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -578,11 +546,6 @@
 	var/devastation_range = -1
 	var/heavy_impact_range = -1
 	var/light_impact_range = 2
-
-/obj/projectile/bullet/peac/check_penetrate(atom/hit_atom)
-	if(hit_atom == original)
-		return FALSE
-	return ..()
 
 /obj/projectile/bullet/peac/on_hit(atom/target, blocked, def_zone)
 	. = ..()

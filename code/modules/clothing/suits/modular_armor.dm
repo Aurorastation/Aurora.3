@@ -19,10 +19,11 @@
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_SMALL
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
 	)
 
 /obj/item/clothing/suit/armor/carrier/officer
@@ -149,6 +150,14 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
+/obj/item/clothing/accessory/armor_plate/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/armor_plate/existing_plate = locate() in clothing.accessories
+	if(!existing_plate)
+		return
+	clothing.remove_accessory(user, existing_plate)
+
 /obj/item/clothing/accessory/armor_plate/generic
 	name = "standard armor plate"
 	desc = "A light-weight kevlar armor plate in drab black colors. A galactic favourite of Zavodskoi fans."
@@ -179,7 +188,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -193,7 +202,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -206,7 +215,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 1
+	slowdown = 0.4
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -221,7 +230,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -235,14 +244,14 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 1
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0 // the SCC is hacking
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -274,13 +283,20 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0 // inherited the hacking from the scc
+	slowdown = 0.4
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF legionnaire light carapace"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
 	slowdown = 0
 
 /obj/item/clothing/accessory/armor_plate/military/navy
@@ -350,6 +366,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.4
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"

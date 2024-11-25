@@ -79,8 +79,9 @@
 #define NETWORK_FIRST_DECK "First Deck"
 #define NETWORK_SECOND_DECK "Second Deck"
 #define NETWORK_THIRD_DECK "Third Deck"
-#define NETWORK_INTREPID "Intrepid"
-#define NETWORK_CANARY "Canary"
+#define NETWORK_INTREPID "Intrepid" // horizon shuttle, expedition/transport
+#define NETWORK_CANARY "Canary" // horizon shuttle, scout/fighter
+#define NETWORK_QUARK "Quark" // horizon shuttle, xenoarch/science
 #define NETWORK_NEWS "News"
 
 

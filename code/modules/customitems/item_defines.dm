@@ -1971,3 +1971,43 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flag_path = "devorask_flag"
 	flag_size = TRUE
 	flag_item = /obj/item/flag/fluff/devorask_flag/l
+
+/obj/item/organ/external/arm/fluff/gracia_autakh // gracia's aut'akh left arm - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/arm/fluff/gracia_autakh/Initialize(mapload)
+	. = ..()
+	// adding the hand to the child here means only the arm has to be added to the DB
+	// since the hand will be attached automatically
+	LAZYADD(children, new /obj/item/organ/external/hand/fluff/gracia_autakh(src))
+
+/obj/item/organ/external/hand/fluff/gracia_autakh // gracia's aut'akh left hand - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/fluff/tokash_mantle //Consular Mantle - Suvek Tokash - Evandorf
+	name = "consular's mantle"
+	desc = "A long, ornate, and somewhat extravagant cloak-like mantle. Fashioned with Hegemony colors, it serves as a symbol of the wearer's station and allegiance. Scenes of Unathi history and legend etched into the golden crest surmount the trailing, blood-red fabric. "
+	icon = 'icons/obj/custom_items/tokash_mantle.dmi'
+	icon_override = 'icons/obj/custom_items/tokash_mantle.dmi'
+	icon_state = "tokash_mantle"
+	item_state = "tokash_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/fluff/kira_carrier //mictlan plate carrier adjustments - Kira Vazquez - Dessysalta
+	name = "mictlan plate carrier adjustments"
+	desc = "Various pieces of custom-made accessories and adjustments to better suit a plate carrier for its wearer. It has various notes scrawled along it in permanent marker, mostly \
+	in Tradeband and Spanish, such as the verse of Ephesians 6:13 and, 'Wishing you well!' The SCC's logo has been woven around the left arm flap, and Mictlan's flag \
+	around the right. The back reads K. VAZQUEZ in bold text."
+	icon = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_state = "kira_carrier"
+	item_state = "kira_carrier"
+	contained_sprite = TRUE

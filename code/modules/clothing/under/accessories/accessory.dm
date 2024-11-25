@@ -83,6 +83,10 @@
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
 
+/// Gets called before 'can_attach_accessory()' is called in clothing_accessories.dm
+/obj/item/clothing/accessory/proc/before_attached(var/obj/item/clothing/S, var/mob/user)
+	return
+
 //when user attached an accessory to S
 /obj/item/clothing/accessory/proc/on_attached(var/obj/item/clothing/S, var/mob/user)
 	if(!istype(S))
@@ -155,6 +159,11 @@
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+
+/obj/item/clothing/accessory/update_clothing_icon()
+	if (ismob(loc))
+		var/mob/mob = src.loc
+		mob.update_inv_wear_suit()
 
 /obj/item/clothing/accessory/red
 	name = "red tie"

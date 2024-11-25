@@ -18,7 +18,7 @@
 /obj/item/clothing/head/collectable/xenom
 	name = "collectable xenomorph helmet!"
 	desc = "Hiss hiss hiss!"
-	icon_state = "xenom"
+	icon_state = "xenos"
 	item_state_slots = list(
 		slot_l_hand_str = "xenos_helm",
 		slot_r_hand_str = "xenos_helm"

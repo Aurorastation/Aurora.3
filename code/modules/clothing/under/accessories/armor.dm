@@ -20,6 +20,14 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/accessory/leg_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/leg_guard/existing_guard = locate() in clothing.accessories
+	if(!existing_guard)
+		return
+	clothing.remove_accessory(user, existing_guard)
+
 /obj/item/clothing/accessory/leg_guard/generic
 	name = "standard leg guards"
 	icon_state = "legguards_generic"
@@ -41,6 +49,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+	slowdown = 0.3
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/leg_guard/ballistic
@@ -55,6 +64,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/riot
 	name = "riot leg guards"
@@ -68,6 +78,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/military
 	name = "sol army leg guards"
@@ -81,6 +92,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/heavy
 	name = "heavy leg guards"
@@ -94,11 +106,13 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/heavy/scc
 	name = "heavy SCC leg guards"
 	icon_state = "legguards_blue"
 	item_state = "legguards_blue"
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/heavy/sec
 	name = "heavy corporate leg guards"
@@ -111,6 +125,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/tcaf
 	name = "\improper TCAF legionnaire leg carapace"
@@ -126,6 +141,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/konyang_navy
 	name = "\improper Konyang navy leg guards"
@@ -138,6 +154,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/hoplan
 	name = "hoplan thigh protector"
@@ -154,6 +171,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt
 	name = "hoplan ballistic skirt"
@@ -162,6 +180,7 @@
 	icon_state = "hoplan_ballistic_skirt"
 	item_state = "hoplan_ballistic_skirt"
 	contained_sprite = TRUE
+	slowdown = 0.3
 
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
@@ -184,6 +203,14 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
+/obj/item/clothing/accessory/arm_guard/before_attached(var/obj/item/clothing/clothing, var/mob/user)
+	if(!clothing.valid_accessory_slots || !(slot in clothing.valid_accessory_slots))
+		return
+	var/obj/item/clothing/accessory/arm_guard/existing_guard = locate() in clothing.accessories
+	if(!existing_guard)
+		return
+	clothing.remove_accessory(user, existing_guard)
+
 /obj/item/clothing/accessory/arm_guard/generic
 	name = "standard arm guards"
 	icon_state = "armguards_generic"
@@ -205,6 +232,7 @@
 		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
+	slowdown = 0.3
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/arm_guard/ballistic
@@ -219,6 +247,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/riot
 	name = "riot arm guards"
@@ -232,6 +261,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/military
 	name = "sol army arm guards"
@@ -245,6 +275,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/heavy
 	name = "heavy arm guards"
@@ -258,11 +289,13 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/heavy/scc
 	name = "heavy SCC arm guards"
 	icon_state = "armguards_blue"
 	item_state = "armguards_blue"
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/heavy/sec
 	name = "heavy corporate arm guards"
@@ -275,6 +308,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/kala
 	name = "kala arm guards"
@@ -303,6 +337,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3
 
 /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe
 	name = "striped TCAF carapace arm guards"
@@ -324,3 +359,4 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+	slowdown = 0.3

@@ -121,6 +121,36 @@
 	desc = "A yellow smiley face. A meme 500 years old, the universal sign for positivity. :)"
 	icon_state = "smile"
 
+/obj/item/sticker/generic/redheart
+	name = "red heart sticker"
+	desc = "A red heart outlined in white, ready to declare love, seal secrets, or just make any surface 100% more adorable."
+	icon_state = "heart-red"
+
+/obj/item/sticker/generic/smallredheart
+	name = "small red heart sticker"
+	desc = "The smaller counterpart to its larger sticker. Perfect for when you want to add a hint of love without overwhelming the room."
+	icon_state = "smallheart-red"
+
+/obj/item/sticker/generic/pinkheart
+	name = "pink heart sticker"
+	desc = "A pink heart outlined in white, perfect for spreading a little sweetness without saying a word."
+	icon_state = "heart-pink"
+
+/obj/item/sticker/generic/smallpinkheart
+	name = "small pink heart sticker"
+	desc = "A tiny pink heart sticker, as cute as it is subtle—because who says you can't be sweet without making a big fuss?"
+	icon_state = "smallheart-pink"
+
+/obj/item/sticker/generic/blackheart
+	name = "black heart sticker"
+	desc = "A black heart sticker, because nothing says 'I'm complicated' like a heart that's too cool for color."
+	icon_state = "heart-black"
+
+/obj/item/sticker/generic/smallblackheart
+	name = "small black heart sticker"
+	desc = "A tiny black heart sticker, just like yours—dark and a little bit harder to find than you'd like to admit."
+	icon_state = "smallheart-black"
+
 //
 //All of the major corporations logos. Unless we add or remove a megacorp, these should remain unchanged.
 //
@@ -352,7 +382,7 @@
 	icon_state = "scarabpole"
 
 /obj/item/sticker/flagpole/coalition/xanu
-	name = "all xanu repiblic flag sticker"
+	name = "all xanu republic flag sticker"
 	desc = "The flag of the All Xanu-Republic on a flagpole."
 	icon_state = "xanupole"
 

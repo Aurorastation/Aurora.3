@@ -265,7 +265,7 @@
 
 /obj/item/mecha_equipment/catapult/proc/beamdestroyed()
 	if(beam)
-		GLOB.destroyed_event.unregister(beam, src, .proc/beamdestroyed)
+		UnregisterSignal(beam, COMSIG_QDELETING)
 		beam = null
 	if(locked)
 		if(owner)
@@ -316,7 +316,7 @@
 						return
 					locked = AM
 					beam = owner.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp)
-					GLOB.destroyed_event.register(beam, src, .proc/beamdestroyed)
+					RegisterSignal(beam, COMSIG_QDELETING, PROC_REF(beamdestroyed))
 
 					animate(target,pixel_y= initial(target.pixel_y) - 2,time=1 SECOND, easing = SINE_EASING, flags = ANIMATION_PARALLEL, loop = -1)
 					animate(pixel_y= initial(target.pixel_y) + 2,time=1 SECOND)
@@ -480,8 +480,8 @@
 								for(var/obj/item/ore/ore in range(owner,1))
 									if(get_dir(owner,ore)&owner.dir)
 										ore.Move(ore_box)
-				else if(istype(target, /turf/unsimulated/floor/asteroid))
-					for(var/turf/unsimulated/floor/asteroid/M in range(owner,1))
+				else if(istype(target, /turf/simulated/floor/exoplanet/asteroid))
+					for(var/turf/simulated/floor/exoplanet/asteroid/M in range(owner,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.gets_dug()
 							drill_head.durability -= 1
@@ -621,7 +621,7 @@
 
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
-	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+	if(is_type_in_list(target, list(/obj/item/stack/material/steel, /obj/item/stack/material/glass, /obj/item/stack/material/aluminium, /obj/item/stack/material/lead, /obj/item/stack/material/plastic)))
 		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 

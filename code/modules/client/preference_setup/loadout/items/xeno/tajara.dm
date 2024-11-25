@@ -645,6 +645,21 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	banner["Azubarre Banner"] = /obj/item/flag/azubarre
 	gear_tweaks += new /datum/gear_tweak/path(banner)
 
+/datum/gear/accessory/tajara_god_banners_set
+	display_name = "tajaran deity banners (set)"
+	description = "A selection of religious flag sets representing Adhomian faiths."
+	path = /obj/item/storage/box/suns_flags
+	cost = 2
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/accessory/tajara_god_banners_set/New()
+	..()
+	var/list/banners = list()
+	banners["S'rand'marr Worship Banners"] = /obj/item/storage/box/suns_flags
+	banners["Ma'ta'ke Pantheon Banners"] = /obj/item/storage/box/matake_flags
+	gear_tweaks += new /datum/gear_tweak/path(banners)
+
 /datum/gear/tajara_god_altars
 	display_name = "matakae deity altars"
 	description = "A selection of small altars used to worship the matake gods."
