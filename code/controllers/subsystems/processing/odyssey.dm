@@ -16,8 +16,8 @@ SUBSYSTEM_DEF(odyssey)
 	var/list/mob/abstract/ghost/storyteller/storytellers
 	/// Whether or not we've sent the odyssey's roundstart report yet.
 	var/has_sent_roundstart_announcement = FALSE
-	/// The Horizon's overmap object. We keep it here for convenience.
-	var/obj/effect/overmap/visitable/ship/horizon
+	/// The current station map's overmap object. We keep it here for convenience.
+	var/obj/effect/overmap/visitable/ship/main_map
 	/// If ships can dock on the Odyssey site. True by default, edited by the scenario.
 	var/site_landing_restricted = TRUE
 
@@ -34,8 +34,8 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/fire()
 	if(!has_sent_roundstart_announcement)
 		// First of all, notify the Horizon.
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, send_horizon_message), horizon), rand(4 MINUTES, 6 MINUTES))
-		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, unrestrict_landing_and_message_horizon), horizon), 40 MINUTES)
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, send_main_map_message), main_map), rand(4 MINUTES, 6 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, unrestrict_landing_and_message_horizon), main_map), 40 MINUTES)
 
 		var/obj/effect/overmap/odyssey_site = get_odyssey_overmap_effect()
 
@@ -75,7 +75,8 @@ SUBSYSTEM_DEF(odyssey)
 	scenario = pickweight(possible_scenarios)
 	setup_scenario_variables()
 	// Now that we actually have an odyssey, the subsystem can fire!
-	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
+	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
 	return TRUE
 
 /**

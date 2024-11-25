@@ -86,11 +86,11 @@
  * It essentially lets them move to the away site and prepare stuff for the expeditions, like shuttles, manpower and resources, without it being metagaming.
  * You can override it with an empty return if you don't want anything sent early on.
  */
-/singleton/scenario/proc/send_horizon_message(var/obj/effect/overmap/visitable/ship/horizon)
+/singleton/scenario/proc/send_main_map_message(var/obj/effect/overmap/visitable/ship/horizon)
 	command_announcement.Announce(scenario_announcements.horizon_early_announcement_message, scenario_announcements.horizon_announcement_title, do_print = TRUE)
 	var/obj/effect/overmap/odyssey_site = SSodyssey.get_odyssey_overmap_effect()
 	if(odyssey_site)
-		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.horizon.consoles)
+		for(var/obj/machinery/computer/ship/sensors/sensors in SSodyssey.main_map.consoles)
 			sensors.add_contact(odyssey_site)
 
 /**
@@ -117,7 +117,7 @@
 	for(var/obj/effect/overmap/visitable/ship/ship as anything in SSshuttle.ships)
 		// Don't duplicate the message for landable ships. We don't want to notify both the big ship and its shuttle.
 		// Or notify the Horizon again, for that matter...
-		if(istype(ship, /obj/effect/overmap/visitable/ship/landable) || (ship == SSodyssey.horizon))
+		if(istype(ship, /obj/effect/overmap/visitable/ship/landable) || (ship == SSodyssey.main_map))
 			continue
 
 		for(var/obj/machinery/computer/ship/sensors/sensors in ship.consoles)
