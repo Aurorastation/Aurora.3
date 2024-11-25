@@ -1,4 +1,4 @@
-// Their shuttle is a stolen Chainlink passeneger skiff.
+// Their shuttle is a stolen Chainlink passenger skiff.
 /obj/effect/overmap/visitable/ship/landable/splf_shuttle
 	name = "SPLF Transport Skiff"
 	class = "SPLFV"
