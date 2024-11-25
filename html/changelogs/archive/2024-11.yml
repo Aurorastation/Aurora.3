@@ -171,3 +171,13 @@
   CometBlaze:
   - rscadd: 'Added 6 new hairstyles to the game: Gentle 3, Gentle 3(Alt), Long Hair(Wavy),
       Surfer, Wolfcut and Wolfcut(Alt)'
+2024-11-25:
+  AlaunusLux:
+  - bugfix: Body/Cryo bags will now be above roller beds when deployed.
+  - bugfix: Body/Cryo bags will no longer be above player mobs after being buckled
+      and dragged.
+  - bugfix: Bullets will no longer be on top of roller beds and body/cryo bags.
+  - bugfix: A buckled atom's layer will now be reset upon being unbuckled.
+  Ben10083:
+  - bugfix: Adds Machinist access to Research borgs.
+  - qol: Research borgs can now hold slime scanners.
