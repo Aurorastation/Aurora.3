@@ -824,3 +824,8 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+#define ACCESS_SPLF 244
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
+

@@ -1,23 +1,212 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"ak" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/splf_raider/freezer)
 "am" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/floor_decal/spline/plain/yellow,
+/obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/splf_raider/bridge)
+"ao" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"aB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "aE" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1;
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/splf_raider/engine)
+"aJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Portside Hall";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"aN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/space/dynamic,
 /area/space)
+"aQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/command/gold{
+	name = "Captain's Quarters";
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/office)
+"aR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/splf_raider/starboard_slot)
 "aY" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4;
+	req_access = list(244);
+	name = "Sensitive Storage"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
-"bx" = (
+/area/splf_raider/ready)
+"bc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Starboard Hall";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"bd" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/washroom)
+"bf" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"bh" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/splf_raider,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/bridge)
+"bo" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"bq" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"bv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"bx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"by" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Infirmary";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
 "bD" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded,
@@ -26,13 +215,42 @@
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/quarters)
+"bF" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
+"bI" = (
+/obj/structure/table/steel,
+/obj/item/material/hatchet/butch{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/obj/machinery/alarm/freezer/north,
+/turf/simulated/floor/tiled/freezer,
+/area/splf_raider/freezer)
 "bJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/splf_raider/engine)
+"bU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
 "bW" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -41,47 +259,168 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"bY" = (
-/obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"ca" = (
-/obj/effect/floor_decal/corner/paleblue/full,
-/turf/simulated/floor/tiled,
-/area/space)
+/area/splf_raider/gunnery)
+"bX" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/gunnery)
 "cc" = (
-/turf/template_noop,
-/turf/simulated/wall/shuttle/raider,
-/area/space)
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"ce" = (
+/obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
 "cf" = (
 /turf/simulated/wall/shuttle/raider,
-/area/space)
-"cu" = (
-/obj/machinery/ship_weapon/francisca,
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/space)
+/area/splf_raider/docking)
+"ci" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
 "cA" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/office)
 "cE" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/splf_raider/ready)
+"cG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"cN" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"cQ" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"cU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"dg" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Lethal Firearms and Equipment";
+	req_access = list(204)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
 "do" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/central)
+"dp" = (
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"ds" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/starboard_slot)
 "dv" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/docking)
+"dw" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"dx" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"dA" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"dB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"dD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
 "dH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/arrow/yellow{
@@ -90,180 +429,961 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/gunnery)
+"dI" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/ready)
+"dJ" = (
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/gunnery)
 "dK" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/splf_raider/portside_hall)
+"dR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"dT" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"ea" = (
+/obj/machinery/power/smes/buildable/main_engine{
+	charge = 3e+007
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"ef" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"eh" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
 "ek" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/splf_raider/portside_hall)
+"ep" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/ship_weapon_dummy,
+/turf/space/dynamic,
+/area/splf_raider/gunnery)
 "ev" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"ex" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/docking)
+"eA" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/central)
+"eB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"eL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"eM" = (
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	name = "splf_co2";
+	master_tag = "splf_co2"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/splf_raider/propulsion)
+"eT" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
 "eV" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/splf_raider/medical)
+"eY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"fd" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/central)
+"ff" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"fm" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"fn" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"fp" = (
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "splf_sensor";
+	output = 31
+	},
+/obj/effect/map_effect/perma_light,
+/turf/simulated/floor/reinforced/airless,
+/area/splf_raider/engine)
 "fs" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/splf)
 "fA" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"fC" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"fN" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"fR" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"fU" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Cargo Hold #1";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/cargo_1)
+"fX" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"gg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/obj/structure/toilet,
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "splf_stall_2";
+	name = "Stall #2 Bolt Control";
+	specialfunctions = 4;
+	pixel_x = 23
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"gi" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/cargo_2)
+"gj" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/shuttle/splf)
 "gl" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/splf_raider/central)
+"gI" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"gL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_2)
+"gP" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"gU" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/gunnery)
+"hc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"ho" = (
+/obj/machinery/bodyscanner,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
 "hr" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/splf)
 "hs" = (
+/obj/structure/closet/crate/hydroponics/prespawned,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/docking)
+"hu" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"hw" = (
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"hz" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"hB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/splf)
 "hH" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/splf)
 "hL" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/ready)
 "hV" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/central)
 "ie" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/gunnery)
 "if" = (
 /obj/structure/platform,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
 "ih" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/gunnery)
 "in" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/docking)
+"iq" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"ir" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/splf_raider/quarters)
+"iv" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"iw" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"iy" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"iC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "iE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/portside_slot)
+"iJ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
 "iZ" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/cargo_2)
 "jh" = (
 /obj/effect/floor_decal/corner/brown,
 /obj/structure/platform,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"jn" = (
-/obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/turf/simulated/floor/tiled/freezer,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"jj" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"jk" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
+"js" = (
+/obj/structure/table/wood/maple,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
 "jy" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "splf_teg_in";
+	dir = 1
+	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/splf_raider/engine)
+"jA" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/lounge)
+"jC" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "jL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/splf)
+"jM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
 "jT" = (
 /obj/structure/table/steel,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/kitchen)
+"jW" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"ke" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/portside_slot)
+"kj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/central)
 "kq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/splf)
 "kz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 5
+	},
 /turf/simulated/floor,
-/area/space)
+/area/splf_raider/engine)
 "kC" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
-"kS" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
+/area/splf_raider/ready)
+"kH" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"kI" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"kS" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"kT" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 10
+	},
+/turf/space/dynamic,
 /area/space)
+"kU" = (
+/obj/structure/table/wood/maple,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"la" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
+"lc" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"ld" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"lf" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
 "lh" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/splf_raider/gunnery)
+"li" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"lk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/bridge)
 "ll" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/effect/overmap/visitable/ship/landable/splf_shuttle,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/splf)
+"ln" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"lt" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
 "lu" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/starboard_slot)
+"lv" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_service{
+	name = "Utilities Closet"
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/closet)
+"lE" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
 "lF" = (
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/space)
-"lH" = (
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
+"lN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"lP" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"lQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"lR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"lW" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"mb" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/turf/space/dynamic,
 /area/space)
+"mi" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
+/obj/machinery/alarm/south,
+/turf/simulated/floor/lino/diamond,
+/area/splf_raider/lounge)
+"ml" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"mm" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"mr" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "mv" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded,
@@ -272,45 +1392,3571 @@
 	},
 /obj/item/bedsheet/black,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/quarters)
+"mG" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
 "mJ" = (
 /obj/structure/platform_deco{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"mK" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	req_one_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/quarters)
 "mT" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/space)
+/area/shuttle/splf)
+"mV" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/splf_raider/gunnery)
+"mY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
 "ng" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/splf)
 "nn" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/splf_raider/engine)
+"nr" = (
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
 "ny" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/splf_raider/starboard_hall)
 "nQ" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/splf)
+"ob" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"oc" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"oe" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "og" = (
-/obj/effect/floor_decal/spline/plain/yellow{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/splf_raider/bridge)
+"ok" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/button/ignition{
+	id = "splf_igniter_tank";
+	pixel_y = -22;
+	dir = 1;
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"on" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/cargo_1)
+"oo" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/suit_cycler/offship/sol,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
+"os" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"ot" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/shipsensors,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/splf)
+"oA" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"oC" = (
+/obj/structure/bed/padded/bunk,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/item/bedsheet/brown{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"oF" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"oG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"oI" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"oK" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"oT" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"oV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
+"oY" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"pc" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	name = "Thrusters to Canister";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"pj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"po" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"pw" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"px" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"pE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"pH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 8;
+	name = "Combustion Engine";
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"pN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"pQ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/central)
+"pT" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/bridge)
+"pU" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"qf" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
+"qr" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"qt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"qx" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8;
+	target_pressure = 250;
+	name = "Air Supply to Distro"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"qz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 8;
+	name = "Propellant Management";
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"qL" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/closet)
+"qO" = (
+/obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"qT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/splf_raider/portside_hall)
+"qU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"qV" = (
+/obj/structure/platform_stairs/full/south_north_cap,
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"qW" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"qZ" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/splf_raider/gunnery)
+"rd" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"re" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"rf" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"rj" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"rm" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"ro" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"rq" = (
+/obj/structure/table/wood,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
+"rr" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"rs" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"rw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"rB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_2)
+"rC" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"rE" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"rG" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Canister to Tank";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"rQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"rU" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"rV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"rW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_slot)
+"rY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"rZ" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
+"sg" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"sj" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"sk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"sn" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"sr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"sx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"sz" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/freezer{
+	name = "Freezer"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/freezer)
+"sA" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Bridge";
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/bridge)
+"sD" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/pipedispenser,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"sE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"sN" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"sT" = (
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"td" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/splf_raider/gunnery)
+"th" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/office)
+"tj" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"tr" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/ready)
+"tv" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/space/dynamic,
 /area/space)
-"oj" = (
+"tw" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/splf_raider/quarters)
+"tz" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/splf_raider/portside_slot)
+"tD" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"tN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"tR" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/binary/pump{
+	target_pressure = 15000;
+	name = "Connectors to Cold Loop";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"tT" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	name = "Canister to Thrusters";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"tZ" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
+"uk" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
+"uy" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(244)
+	},
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"uI" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"uJ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"uP" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"uQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"uS" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
+"vb" = (
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/splf)
+"vk" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"vl" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"vp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"vt" = (
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
+"vH" = (
+/obj/machinery/door/airlock{
+	dir = 1;
+	name = "Stall #1";
+	id_tag = "splf_stall_1"
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/washroom)
+"vI" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/freezer)
+"vZ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/closet)
+"wc" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/splf_raider/quarters)
+"wh" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"wj" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"wr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/space/dynamic,
+/area/space)
+"ws" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/bridge)
+"wD" = (
+/obj/structure/table/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"wF" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"wH" = (
+/obj/structure/table/steel,
+/obj/item/clothing/accessory/armband/medgreen{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/obj/item/storage/belt/medical/paramedic/combat{
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
+"wI" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"wJ" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"wR" = (
+/obj/structure/platform_stairs,
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/template_noop,
+/area/splf_raider/gunnery)
+"wT" = (
+/obj/structure/platform_stairs,
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"wX" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"xa" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"xe" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/ready)
+"xg" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/portside_slot)
+"xi" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"xr" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Starboard Module";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/starboard_slot)
+"xy" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"xD" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/turf/space/dynamic,
+/area/space)
+"xL" = (
+/obj/machinery/appliance/cooker/grill,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"xT" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 9
+	},
+/obj/structure/platform,
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/bridge)
+"xX" = (
+/obj/structure/platform_deco{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"xZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"yb" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/central)
+"yc" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"yd" = (
+/obj/effect/floor_decal/corner_wide/brown,
+/obj/structure/platform,
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"yg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_1)
+"yi" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/freezer)
+"yk" = (
+/obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/atmospherics/omni/mixer{
+	tag_west = 1;
+	tag_west_con = 0.4;
+	active_power_usage = 7500;
+	tag_south = null;
+	tag_north_con = 0.6;
+	tag_north = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"yu" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"yw" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/large_tank{
+	name = "splf_co2";
+	master_tag = "splf_co2"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/splf_raider/propulsion)
+"yx" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
+"yF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_2)
+"yH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"yN" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"yO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"yW" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"yZ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"zo" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"zs" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"zx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/central)
+"zy" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"zB" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"zG" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/super/west{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"zJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"zP" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"zR" = (
+/obj/effect/shuttle_landmark/splf_shuttle/transit{
+	dir = 8
+	},
+/turf/space/transit/north,
+/area/space)
+"zV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8;
+	start_pressure = 6000
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
+"Af" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"Am" = (
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"An" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"Ao" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"Ar" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"Au" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"Aw" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Ay" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"AG" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Lethal Firearms and Equipment";
+	req_access = list(204)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
+"AK" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"AL" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/splf_raider/freezer)
+"AO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"AP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"AR" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"AS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"AT" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock{
+	name = "Washroom"
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/washroom)
+"AY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
+"Bc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"Bf" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"Bh" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"Bi" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"Bp" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/splf_raider/docking)
+"Bq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/ready)
+"Bs" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"Bt" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Bx" = (
+/obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"BA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"BG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"BK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"BM" = (
+/obj/machinery/ammunition_loader/autocannon,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"BQ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/west{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"BR" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"BS" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/lino/diamond,
+/area/splf_raider/lounge)
+"Cb" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Tank to Thrusters";
+	target_pressure = 15000;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"Ce" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"Cm" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/ready)
+"Co" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"Cq" = (
+/turf/template_noop,
+/area/space)
+"Cs" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/cargo_2)
+"Cx" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"CF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/medical)
+"CM" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"CS" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
+"CU" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"Db" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/space)
+"Dt" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"Dw" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"Dy" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Cargo Hold #2";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/cargo_2)
+"DA" = (
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"DB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"DC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"DE" = (
+/obj/machinery/power/generator{
+	anchored = 1;
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"DH" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/splf_raider/freezer)
+"DJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"DK" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"DM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"DO" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"DS" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"DW" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"DY" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/structure/platform_deco{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"DZ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"Eb" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/starboard_hall)
+"Ee" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/splf_raider/starboard_slot)
+"Ek" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
+"Em" = (
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Et" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Ew" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"EE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"EI" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"EJ" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"EN" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"EQ" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
+"Fb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/valve{
+	name = "Emergency Thermal Relief Valve"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"Fd" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Fg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"Fn" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"Fq" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"Fu" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"Fy" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/bridge)
+"FC" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"FE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"FG" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_y = -32;
+	req_access = list(244);
+	name = "O- Blood"
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"FH" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
+"FP" = (
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"FQ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"FW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Cooling Array to Generator";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"FX" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"Ga" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
+"Gb" = (
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	name = "Carbon Dioxide Supply Monitor";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/large_tank{
+	name = "splf_co2";
+	master_tag = "splf_co2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"Gg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(244)
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"Gh" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"Go" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"Gp" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Gs" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"Gw" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"Gy" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"GE" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"GH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"GK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"GO" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"GU" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/space/dynamic,
+/area/splf_raider/gunnery)
+"GY" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"Ha" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"Hf" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/medical)
+"Hh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Hr" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/splf_raider/quarters)
+"Hs" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
+"Hv" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"HR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"Ia" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"If" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/cargo_1)
+"Ig" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"Is" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"It" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Iz" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"IB" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/suit_cycler/offship/sol,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
+"IE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"II" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/portside_slot)
+"IW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_hall)
+"IX" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_1)
+"Jh" = (
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Portside Module";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/portside_slot)
+"Ji" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"Js" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/portside_hall)
+"Ju" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/splf)
+"Jv" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/structure/platform,
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/bridge)
+"Jz" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"JB" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"JG" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"JM" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"JO" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"JQ" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/space/dynamic,
+/area/space)
+"JW" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"JX" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"JY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
+"Kc" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"Kd" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"Ke" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"Kh" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"Kl" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"Km" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"Kn" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/ready)
+"Kv" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"KB" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/vending/cigarette/hacked,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"KD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"KL" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/docking)
+"KQ" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"KS" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Freebooter Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/splf_raider/gunnery)
+"KT" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Ld" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Lg" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/bridge)
+"Lp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"Lz" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/large_tank{
+	name = "splf_co2";
+	master_tag = "splf_co2"
+	},
+/obj/machinery/sparker{
+	id = "splf_igniter_tank";
+	pixel_x = -10
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/splf_raider/propulsion)
+"LA" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"LB" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"LC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
+"LK" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"LP" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/docking)
+"LR" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"LS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"LT" = (
+/obj/structure/platform,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"Mb" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"Mi" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"Mk" = (
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"Ml" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"Mz" = (
+/obj/structure/table/steel,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"MA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"MJ" = (
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"MO" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"MT" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"MU" = (
+/obj/machinery/ammunition_loader/francisca,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"MV" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/ready)
+"MW" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/platform,
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"Nb" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"Nl" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"No" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/cargo_2)
+"Np" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
+"Nx" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Nz" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	dir = 1;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"NA" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"NC" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"NF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"NK" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"NP" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"NS" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"Og" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4;
+	req_access = list(244);
+	name = "Sensitive Storage"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/ready)
+"Ok" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"Oo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"Oq" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Ow" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/ship_weapon_dummy,
+/turf/space/dynamic,
+/area/space)
+"OB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"OD" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"OI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8;
+	start_pressure = 6000
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
+"OO" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/kitchen)
+"OU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	pixel_y = -32;
+	name = "Fuel Injection Control";
+	input_tag = "splf_teg_fuel_in";
+	sensors = list("splf_sensor"="Combustion Chamber")
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/button/ignition{
+	id = "splf_igniter_engine";
+	pixel_y = -22;
+	dir = 1;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"Pd" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Array";
+	req_access = list(244);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/docking)
+"Pf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Ph" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_1)
+"Pk" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"Pp" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Pw" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"Py" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"Pz" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"PB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"PD" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	pixel_y = -32;
+	name = "Chamber Circulation Control";
+	input_tag = "splf_teg_in";
+	output_tag = "splf_teg_out";
+	sensors = list("splf_sensor"="Combustion Chamber")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"PE" = (
+/obj/machinery/sleeper,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/medical)
+"PI" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/airless,
+/area/space)
+"PO" = (
+/turf/space/transit/north,
+/area/space)
+"PS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_2)
+"Qb" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"Ql" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"Qm" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/portside_hall)
+"Qt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"Qz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"QI" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"QK" = (
+/obj/structure/table/wood/maple,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"QN" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"QQ" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1441;
+	id = "splf_teg_fuel_in"
+	},
+/obj/machinery/sparker{
+	id = "splf_igniter_engine";
+	pixel_x = -10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/splf_raider/engine)
+"QT" = (
+/obj/machinery/door/airlock{
+	dir = 1;
+	name = "Stall #2";
+	id_tag = "splf_stall_2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/washroom)
+"QX" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"QZ" = (
+/obj/structure/bed/padded/bunk,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black{
+	pixel_y = 16
+	},
+/obj/item/bedsheet/black,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"Rc" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"Rd" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"Ri" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"Ro" = (
+/obj/effect/floor_decal/corner_wide/brown/full,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/starboard_slot)
+"Rq" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"Rx" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/splf_raider/lounge)
+"RE" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"RF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
+"RO" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/item/storage/box/produce,
@@ -324,574 +4970,60 @@
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/sugar,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"oC" = (
-/obj/structure/bed/padded/bunk,
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/item/bedsheet/brown{
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"oK" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"po" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"pt" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"pU" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"qV" = (
-/obj/structure/platform_stairs/full/south_north_cap,
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"rd" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"rf" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"rm" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"rr" = (
-/obj/structure/lattice/catwalk/indoor/grate/gridded,
-/turf/simulated/floor/tiled/techmaint,
-/area/space)
-"rE" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"rY" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/bed/stool/bar/padded/brown{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"rZ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/space)
-"sz" = (
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"tj" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"tw" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/space)
-"uy" = (
-/obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
-/area/space)
-"uJ" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"vb" = (
-/turf/simulated/floor/plating,
-/area/space)
-"wc" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/space)
-"we" = (
-/obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"wj" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"wJ" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"wR" = (
-/obj/structure/platform_stairs,
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
-"wT" = (
-/obj/structure/platform_stairs,
-/obj/structure/platform{
-	dir = 8
-	},
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"wX" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"wY" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/space)
-"xe" = (
-/obj/effect/floor_decal/spline/plain/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"xT" = (
-/obj/structure/platform,
-/obj/effect/floor_decal/spline/plain/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"xV" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/space)
-"xX" = (
-/obj/structure/platform_deco{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"yd" = (
-/obj/effect/floor_decal/corner_wide/brown,
-/obj/structure/platform,
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"yk" = (
-/obj/effect/floor_decal/corner/brown/full,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"yH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"yN" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"yZ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"zs" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"zP" = (
-/obj/effect/floor_decal/corner_wide/brown/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"AG" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Lethal Firearms and Equipment";
-	req_access = list(204)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"AK" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"AL" = (
-/turf/simulated/floor/tiled/freezer,
-/area/space)
-"AO" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Bf" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"BM" = (
-/obj/machinery/ammunition_loader/autocannon,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Cm" = (
-/obj/effect/floor_decal/spline/plain/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Cq" = (
-/turf/template_noop,
-/area/space)
-"Cx" = (
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"CU" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"DA" = (
-/obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"DE" = (
-/obj/machinery/power/generator{
-	anchored = 1
-	},
-/turf/simulated/floor,
-/area/space)
-"DJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/space)
-"DM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/space)
-"DY" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 1
-	},
-/obj/structure/platform_deco{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Em" = (
-/obj/effect/floor_decal/corner/brown/full,
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Et" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Fl" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/structure/bed/stool/bar/padded/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Fn" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Fy" = (
-/turf/simulated/floor/tiled/full,
-/area/space)
-"FC" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"FG" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"FW" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/space)
-"Ga" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Go" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Gp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"GE" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Hh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Hr" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/space)
-"Hv" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Ia" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Ig" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Is" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/bed/stool/bar/padded/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"IB" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/suit_cycler/offship/sol,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Ji" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Jv" = (
-/obj/structure/platform,
-/obj/effect/floor_decal/spline/plain/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"JG" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"JX" = (
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Kn" = (
-/obj/effect/floor_decal/spline/plain/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"KT" = (
-/obj/effect/floor_decal/corner/brown/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"LA" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader/sol,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"LB" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"LK" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"LT" = (
-/obj/structure/platform,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Mf" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/vending/cigarette/hacked,
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Mk" = (
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"MJ" = (
-/turf/simulated/floor/carpet/lightblue,
-/area/space)
-"MT" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"MU" = (
-/obj/machinery/ammunition_loader/francisca,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"MW" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 10
-	},
-/obj/structure/platform,
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"NC" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"NS" = (
-/obj/machinery/computer/ship/helm/terminal{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"OB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Pg" = (
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Pi" = (
-/obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"Qp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/space)
-"QK" = (
-/obj/structure/table/wood/maple,
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"QZ" = (
-/obj/structure/bed/padded/bunk,
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black{
-	pixel_y = 16
-	},
-/obj/item/bedsheet/black,
-/turf/simulated/floor/tiled/gridded,
-/area/space)
-"Rc" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/space)
-"Ri" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"Rx" = (
-/obj/structure/bed/stool/bar/padded/black{
-	dir = 4
-	},
-/turf/simulated/floor/lino/diamond,
-/area/space)
-"RE" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
+/area/splf_raider/kitchen)
 "RR" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/cargo_1)
+"RU" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
+"RX" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"Sc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_hall)
+"Sd" = (
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "Sg" = (
 /obj/structure/platform_stairs/full/south_north_cap{
 	dir = 4
@@ -900,44 +5032,167 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/bridge)
+"So" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/glass{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "St" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/splf)
+"Su" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "SA" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
 "SG" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/splf)
 "SI" = (
 /obj/machinery/atmospherics/binary/circulator{
 	anchored = 1;
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/splf_raider/engine)
+"SL" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
+"SM" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/bridge)
+"ST" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
+"SZ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
+"Ta" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/gunnery)
 "Th" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/light/colored/decayed,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/splf_raider/propulsion)
+"Tx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
 "Ty" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 4
+	},
+/obj/machinery/meter,
 /turf/simulated/floor,
-/area/space)
+/area/splf_raider/engine)
+"TG" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"TH" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "TJ" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -946,7 +5201,54 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/central)
+"TL" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"TN" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"TU" = (
+/obj/machinery/vending/hydroseeds,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"Ua" = (
+/obj/structure/lattice/catwalk/indoor/grate/gridded,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"Uc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_1)
 "Uf" = (
 /obj/structure/platform_deco{
 	dir = 8
@@ -955,151 +5257,676 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/bridge)
+"Ul" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
+"Um" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"Un" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"Us" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"Uu" = (
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "Uw" = (
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/ready)
+"Uz" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/splf_raider/lounge)
+"UA" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"UC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
+"UF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/space)
-"UF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate/gridded,
-/turf/simulated/floor/tiled/techmaint,
-/area/space)
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/splf_raider/portside_hall)
 "UG" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/space)
+"US" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Vb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/splf)
+"Vd" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/space/dynamic,
+/area/space)
+"Vh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/valve{
+	name = "Emergency Thermal Relief Valve"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"Vi" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/splf_raider/office)
+"Vj" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 1;
+	target_pressure = 15000;
+	name = "Scrubbers to Waste"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
 "Vl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/space)
+/area/splf_raider/central)
 "Vo" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/splf)
+"Vr" = (
+/obj/effect/floor_decal/corner_wide/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/cargo_2)
 "Vt" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/docking)
 "VD" = (
-/obj/machinery/ship_weapon/autocannon{
-	weapon_id = "tcaf_autocannon";
-	pixel_y = -3
-	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/ship_weapon/autocannon{
+	weapon_id = "tcaf_autocannon"
+	},
 /turf/space/dynamic,
-/area/space)
+/area/splf_raider/gunnery)
 "VF" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/docking)
+"VJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
+"VK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"VS" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "VW" = (
 /obj/structure/table/steel,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(244)
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/splf_raider/kitchen)
+"VX" = (
+/obj/machinery/vending/boozeomat/abandoned,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"Wl" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
 "Wo" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
-"Wt" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor,
-/area/space)
-"Xk" = (
-/obj/structure/platform,
-/obj/effect/floor_decal/spline/plain/yellow{
+/area/splf_raider/central)
+"Wq" = (
+/obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"XG" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"Wt" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/splf_raider/engine)
+"Wv" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"WB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"WE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"WI" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"WL" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/quarters)
+"WM" = (
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/starboard_slot)
+"WV" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"WY" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Fuel Injection Pump";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"Xa" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
+"Xk" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 5
+	},
+/obj/structure/platform,
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/bridge)
+"Xm" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass_service{
+	dir = 8;
+	name = "Kitchen"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/kitchen)
+"Xq" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"Xs" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_y = -32;
+	req_access = list(244);
+	name = "Stabilization Kit"
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/medical)
+"Xt" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"Xv" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/obj/structure/toilet,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "splf_stall_1";
+	name = "Stall #1 Bolt Control";
+	specialfunctions = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
+"XC" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 1
+	},
+/turf/space/dynamic,
 /area/space)
+"XD" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"XE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
 "XK" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/central)
+"XM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"XO" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/ready)
+"XT" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
 "Yc" = (
+/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/splf_raider/propulsion)
+"Yf" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"Yg" = (
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/kitchen)
 "Yh" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
 /obj/machinery/computer/ship/navigation/terminal,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/lounge)
 "Yi" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"Yn" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 5
+	},
+/turf/space/dynamic,
 /area/space)
+"Yr" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/splf_raider/ready)
 "Yu" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/space)
-"Yy" = (
-/obj/structure/table/steel,
-/obj/item/material/hatchet/butch{
-	pixel_x = -1;
-	pixel_y = 3
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/freezer,
-/area/space)
-"YV" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/splf_raider/gunnery)
+"Yw" = (
+/obj/machinery/power/breakerbox,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/splf_raider/engine)
+"YB" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
+"YG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/closet)
+"YI" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/splf_raider/bridge)
+"YK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
+"YL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_1)
+"YM" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"Zb" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
+"Zd" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
 "Zj" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/closet)
+"Zm" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/starboard_hall)
+"Zp" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/bridge)
+"Zr" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
+"Zs" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/engine)
+"Zt" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/machinery/media/jukebox,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/space)
+/area/splf_raider/central)
 "Zv" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ZA" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 4
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled,
-/area/space)
+/obj/machinery/power/apc/north{
+	req_access = list(244)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
+"Zy" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/splf)
+"ZE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/splf)
 "ZK" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
-/area/space)
+/area/splf_raider/gunnery)
+"ZO" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	id_tag = "splf_teg_out";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/splf_raider/engine)
 "ZV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/splf)
+"ZY" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/splf_shuttle/hangar{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
 
 (1,1,1) = {"
 Cq
@@ -1331,32 +6158,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
 "}
 (2,1,1) = {"
 Cq
@@ -1588,32 +6415,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (3,1,1) = {"
 Cq
@@ -1845,32 +6672,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (4,1,1) = {"
 Cq
@@ -2102,32 +6929,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (5,1,1) = {"
 Cq
@@ -2359,32 +7186,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (6,1,1) = {"
 Cq
@@ -2616,32 +7443,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (7,1,1) = {"
 Cq
@@ -2873,32 +7700,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (8,1,1) = {"
 Cq
@@ -3130,32 +7957,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (9,1,1) = {"
 Cq
@@ -3387,32 +8214,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (10,1,1) = {"
 Cq
@@ -3644,32 +8471,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+zR
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (11,1,1) = {"
 Cq
@@ -3901,32 +8728,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (12,1,1) = {"
 Cq
@@ -4158,32 +8985,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (13,1,1) = {"
 Cq
@@ -4415,32 +9242,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (14,1,1) = {"
 Cq
@@ -4672,32 +9499,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (15,1,1) = {"
 Cq
@@ -4929,32 +9756,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (16,1,1) = {"
 Cq
@@ -5186,32 +10013,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (17,1,1) = {"
 Cq
@@ -5443,32 +10270,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (18,1,1) = {"
 Cq
@@ -5700,32 +10527,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (19,1,1) = {"
 Cq
@@ -5957,32 +10784,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (20,1,1) = {"
 Cq
@@ -6214,32 +11041,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (21,1,1) = {"
 Cq
@@ -6471,32 +11298,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (22,1,1) = {"
 Cq
@@ -6728,32 +11555,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (23,1,1) = {"
 Cq
@@ -6985,32 +11812,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+uS
 "}
 (24,1,1) = {"
 Cq
@@ -7242,32 +12069,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
+uS
 "}
 (25,1,1) = {"
 Cq
@@ -28436,18 +33263,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+tv
+UG
+UG
+UG
+UG
+tv
+UG
+UG
+UG
+UG
+tv
+UG
 Cq
 Cq
 Cq
@@ -28693,18 +33520,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+UG
+aN
+mb
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+Yn
+UG
 Cq
 Cq
 Cq
@@ -28950,18 +33777,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+UG
+XC
+mb
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+Yn
+Db
+UG
 Cq
 Cq
 Cq
@@ -28977,7 +33804,7 @@ UG
 UG
 UG
 UG
-cu
+UG
 Cq
 Cq
 Cq
@@ -29207,18 +34034,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cA
-cf
-Cq
-cf
-cf
-cf
-cf
-cf
-Cq
-Cq
+XT
+ob
+XT
+XT
+XT
+XT
+XT
+XT
+XT
+kT
+xD
+UG
 Cq
 Cq
 Cq
@@ -29233,7 +34060,7 @@ lF
 lF
 lF
 lF
-lF
+PI
 UG
 Cq
 Cq
@@ -29463,20 +34290,20 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-cf
-fs
-cf
-cf
-cf
-JG
-JG
-JG
-cf
-cf
-cf
-cf
+XT
+XT
+PB
+ea
+Yw
+DS
+mG
+rs
+zG
+XT
+XT
+XT
+XT
+XT
 Cq
 Cq
 Cq
@@ -29486,8 +34313,8 @@ Cq
 Cq
 Cq
 UG
-lF
-UG
+KS
+Ow
 UG
 UG
 UG
@@ -29719,21 +34546,21 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-cf
-cf
-ek
-zs
-zs
-zs
-zs
-zs
+XT
+XT
+eL
+QI
+dT
+tR
+RX
+Yf
+fR
 yk
-JG
-JG
-JG
-cf
+lc
+WY
+VK
+Kd
+XT
 Cq
 Cq
 Cq
@@ -29742,11 +34569,11 @@ Cq
 Cq
 Cq
 Cq
-cf
+gU
 MU
-cA
-cA
-cA
+pw
+pw
+pw
 Cq
 Cq
 Cq
@@ -29976,38 +34803,38 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Rc
-cf
-nn
+UA
+uk
+pj
+ci
 FW
 Ri
-Ri
-Ri
+Vh
+sx
 kz
-Th
-cf
-cf
-St
-cf
-cf
+OU
+XT
+XT
+Nl
+XT
+XT
 Cq
 Cq
 Cq
-cf
-cf
-cf
-cf
-cf
+Cq
+gU
+gU
+gU
+gU
+gU
 dH
 Ia
 ih
-cA
-cf
-cf
-cf
-cf
+pw
+gU
+gU
+gU
+gU
 Cq
 Cq
 Cq
@@ -30233,37 +35060,37 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Rc
-cf
+UA
+Hs
+eL
 nn
 bJ
 aE
 DE
 SI
 Wt
-Th
-JG
+Gh
+zJ
 FC
-jy
-jy
-cf
+ZO
+QQ
+XT
 Cq
 Cq
 Cq
-cf
-Fn
-pt
-DA
+Cq
+gU
+rQ
+dJ
+eY
 yd
 Yu
 Yi
-OB
-JG
-JG
+KD
+Py
+Py
 rf
-UG
+qZ
 VD
 Cq
 Cq
@@ -30490,38 +35317,38 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Rc
-cf
-nn
+UA
+oV
+Zs
+xi
 DM
-Ty
-Ty
+bv
+Fb
 Ty
 DJ
-Th
-JG
+Wv
+zJ
 FC
 jy
-jy
-cf
+fp
+XT
 Cq
 Cq
 Cq
-cf
-Fn
-Pg
-XG
+Cq
+gU
+sN
+bX
+Ay
 MW
-fs
+mV
 tj
 OB
-JG
-JG
+Py
+Py
 rf
-UG
-UG
+ep
+GU
 Cq
 Cq
 Cq
@@ -30747,38 +35574,38 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-cf
-cf
+XT
+XT
+Zs
 JX
-ny
-ny
-ny
-ny
-ny
-dK
-cf
-cf
-cf
-cf
-cf
+Zr
+JB
+Zr
+WV
+Zr
+PD
+XT
+XT
+XT
+XT
+XT
 Cq
 Cq
 Cq
-cf
+Cq
+gU
 LA
-JG
+Xq
 wR
 bW
-fs
+mV
 tj
 OB
-JG
-JG
+Py
+Py
 rf
-UG
-UG
+qZ
+qZ
 Cq
 Cq
 Cq
@@ -31005,37 +35832,37 @@ Cq
 Cq
 Cq
 Cq
+XT
+XT
+XT
+XT
+XT
+XT
+Eb
+Eb
+pH
+Eb
+Lp
+Sc
+zy
+Eb
+Eb
+Eb
 Cq
 Cq
-cf
-cf
-cf
-cf
-cf
-cf
-JG
-JG
-cf
-Hh
-Hh
-Hh
-cf
-cf
-cf
-Cq
-cf
-cf
-cf
-cf
+gU
+gU
+gU
+gU
 LB
-fs
-tj
-OB
+td
+Wq
+YK
 BM
-cf
-cf
-cf
-cf
+gU
+gU
+gU
+gU
 Cq
 Cq
 Cq
@@ -31268,28 +36095,28 @@ Cq
 Cq
 Cq
 Cq
+oI
+Zm
+rj
+Mb
+Au
+qU
+qU
+qO
+DC
+Eb
 Cq
-cA
-ek
-zs
-zs
-zs
-zs
-zs
-yk
-Hh
-cf
 Cq
-TJ
-Vl
-Vl
-TJ
+Iz
+Ta
+Ta
+Iz
 po
 lh
 ZK
-OB
+Qt
 ie
-cf
+gU
 Cq
 Cq
 Cq
@@ -31525,43 +36352,43 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cA
-JX
+oI
+YM
+Kh
+ny
+qW
 ny
 ny
-ny
-ny
-ny
-dK
-Hh
-cf
+kS
+ao
+Eb
 Cq
-cf
-cf
-cf
-cf
-iE
-iE
-cf
-cf
-cf
-cf
+Cq
+gU
+gU
+gU
+ds
+EN
+os
+ds
+gU
+gU
+gU
 Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-cf
-cf
-cA
-cA
-cf
-cf
-St
-St
-cf
+tr
+tr
+Hf
+Hf
+CF
+CF
+Hf
+jA
+qf
+qf
+jA
 Cq
 Cq
 Cq
@@ -31782,53 +36609,53 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cf
-cf
-cf
-cf
-cf
-JG
-JG
-cf
-cf
-Cq
-Cq
-Cq
-Cq
-cf
-fs
-fs
-cf
+Eb
+Eb
+Eb
+Eb
+Eb
+Eb
+iq
+bc
+Eb
+Eb
 Cq
 Cq
 Cq
 Cq
-cf
-cf
-cf
-cf
-cf
-cf
-Fy
+Cq
+ds
+aR
+Ee
+ds
+Cq
+Cq
+Cq
+Cq
+tr
+tr
+tr
+tr
+tr
+Hf
+ho
 NC
 Go
 uy
-cf
-Vl
-Vl
-cf
-Cq
-cf
+jA
+bf
+Uz
+jA
+th
+th
 cA
 cA
-cf
-cf
-cA
-cA
-cA
-cf
+th
+ws
+RF
+RF
+ws
+ws
 Cq
 Cq
 Cq
@@ -32039,55 +36866,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
 UG
 TJ
-Vl
-Vl
+HR
+HR
 TJ
-JG
-fA
-Gp
-do
-cf
-cf
-cf
-cf
-cf
-cf
-iE
-iE
-cf
-cf
+cc
+VS
+kI
+zx
+If
+If
+If
+If
+If
+ds
+ds
+EN
+os
+ds
+ds
 UG
 UG
-cf
-cf
+tr
+tr
 IB
 IB
 IB
-cf
-cf
-Fy
+tr
+Hf
+PE
 Ig
-RE
+An
 MT
-cf
-St
-St
-cf
-cf
-cf
+jA
+qf
+qf
+jA
+th
+th
 Ga
-JG
-cf
-Hh
-zs
-Hh
+rZ
+th
+Un
+QN
+yO
 LT
-cf
-cf
-cf
+ws
+ws
+ws
 Cq
 Cq
 Cq
@@ -32296,55 +37123,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cf
-cf
-cf
-cf
-cf
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
 AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
+OD
+dA
+If
+Uc
+DO
+ro
+Uc
+ds
+AS
 lu
-iZ
-Hh
-cf
-cf
-St
-cf
-AG
-zs
-zs
-zs
-IB
-cf
-Fy
+Ro
+hc
+ds
+yb
+AR
+tr
+dg
+MV
+Bq
+dI
+oo
+Hf
+wH
 Ig
 RE
-MT
-cf
-JG
-JG
-Hh
-cf
-JG
+Xs
+jA
+CS
+CS
+LC
+th
+vt
+dR
 MJ
-MJ
-cf
-nn
+th
+Rd
 Mk
 wT
 Uf
+DK
 Fn
-Fn
-cf
+ws
 Cq
 Cq
 Cq
@@ -32553,55 +37380,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-Uw
-rZ
-rZ
-ca
-cf
+vZ
+Rq
+TL
+pE
+yW
+Zj
 AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
-CU
-RR
-Hh
-cf
-Vl
-JG
-cf
+OD
+DZ
+If
+Ph
+Ao
+IX
+YL
+ds
+LS
+xy
+rU
+ai
+ds
+vp
+mm
+tr
 AG
 Kn
 xe
 kC
 IB
-cf
-Fy
+Hf
+nr
 eV
 oK
 FG
-cf
-JG
-JG
-Hh
-cf
-JG
-MJ
-MJ
-JG
-nn
-rE
+jA
+CS
+CS
+JY
+th
+bF
+dw
+TG
+aQ
+lf
+rd
 SA
 xT
-kC
+Lg
 Fn
-cA
+RF
 Cq
 Cq
 Cq
@@ -32810,55 +37637,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-Qp
-Fy
-Fy
-xV
-Fy
-AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
+vZ
+Ke
+YG
+qL
+Xa
+lv
+sk
+Su
+dA
+If
+yg
 CU
 RR
-Hh
-cf
-Vl
-JG
-cf
+yg
+ds
+IE
+Ml
+JM
+IE
+ds
+vp
+mm
+tr
 AG
 cE
 Cm
-og
+Yr
 IB
-cf
-cA
-cA
-Fy
-Fy
-cf
-aY
-aY
-cf
-cf
-JG
-MJ
-MJ
-cf
-nn
-YV
-Fn
+Hf
+Hf
+Hf
+tZ
+by
+jA
+jk
+jk
+jA
+th
+rq
+dB
+Vi
+th
+Xt
+bh
+CM
 Jv
 am
-wX
-cA
+vl
+RF
 Cq
 Cq
 Cq
@@ -33067,55 +37894,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-kS
-wY
-wY
-ZA
-cf
+vZ
+cN
+LR
+Gg
+oT
+Zj
 AK
-bx
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
+uQ
+dA
+If
+yg
 rm
 zP
-Hh
-cf
-cf
-St
-cf
+yg
+ds
+IE
+jW
+cQ
+mY
+ds
+yb
+AR
+tr
+yx
+Uw
+XO
+XO
 hL
-ny
-ny
-ny
-hL
-cf
+jA
 Yh
 rY
 Gp
+Aw
 Gp
-Mf
 Gp
 Gp
-do
-cf
-cf
-cf
-cf
-cf
+KB
+th
+th
+th
+th
+th
 DY
 rd
 wX
 Jv
 am
 NS
-cA
+RF
 Cq
 Cq
 Cq
@@ -33323,56 +38150,56 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cc
-cf
-cf
-cf
-cf
-cf
-cf
-AK
-UF
-yZ
-cf
-cf
-Fy
-cf
-cf
-cf
-Fy
-Fy
-cf
-cf
-Hh
-JG
-cf
-cf
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
+vZ
+MO
+rE
+jC
+If
+If
+on
+fU
+If
+ds
+ds
+WM
+xr
+ds
+ds
+sr
+Dw
+tr
+tr
+Og
+tr
 aY
-cf
-aY
-cf
-cf
-Fl
-rr
-bx
-bx
-bx
-bx
-rr
+tr
+jA
+bq
+dx
+Oq
+JW
+FP
+Oq
+dx
 yZ
-cf
+ws
 fA
-Gp
-do
-Fy
+Co
+WI
+lk
 if
 Mk
-Fn
+CM
 Jv
 am
-DA
-cA
+Am
+RF
 Cq
 Cq
 Cq
@@ -33580,56 +38407,56 @@ Cq
 Cq
 Cq
 Cq
-Cq
 TJ
 Vl
-Vl
-cf
-Hh
-Hh
-cf
+aB
+yb
+kj
+BA
+yb
 AK
-UF
+OD
 hV
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
-Gp
+Jz
+Af
+Jz
+eA
+Jz
+Jz
+Jz
+Jz
+eA
+Af
+wF
+Jz
+Jz
+Jz
+wF
+ST
+Af
+Jz
 do
 gl
-AK
-bx
+re
+fn
+Ok
+eT
+GY
 rr
-rr
-rr
-rr
-bx
-yZ
-Fy
-AK
-rr
-yZ
+Pp
+bU
+sA
+FQ
+pT
+sj
 qV
 xX
-rE
+rd
 DA
 Xk
 og
 Fn
-cA
+RF
 Cq
 Cq
 Cq
@@ -33837,56 +38664,56 @@ Cq
 Cq
 Cq
 Cq
-Cq
 TJ
-JG
-JG
+mm
+mm
 TJ
-Vl
-Vl
+gP
+GK
 yN
-AK
-rr
-rr
-rr
+Fg
+Bc
+EI
+EI
 bx
-rr
-rr
-rr
+EI
+Kv
+EI
 bx
-rr
-rr
-rr
+EI
+EI
+Kv
 bx
-rr
-rr
-rr
+Ha
+EI
+EI
 bx
-rr
-rr
-rr
-yZ
-gl
-AK
-rr
+oe
+Ua
+EI
 bx
-bx
-bx
-bx
-rr
+sE
+fd
+NA
+dx
+NF
+FP
+FP
+uP
+oA
 yZ
 Fy
-AK
-rr
-yZ
+YI
+SM
+Gs
 Sg
 mJ
 Mk
 wT
 Uf
+Nb
 Fn
-Fn
-cf
+ws
 Cq
 Cq
 Cq
@@ -34094,56 +38921,56 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
+yb
 Vl
-Vl
-cf
-Hh
-Hh
-cf
+QX
+yb
+iC
+XM
+yb
 AK
-UF
+OD
 XK
 Wo
+Zt
+Wo
+mr
 Wo
 Wo
 Wo
 Wo
+TH
+Zt
+Ce
 Wo
 Wo
 Wo
+cG
+mr
+Zt
 Wo
-Wo
-Wo
-Wo
-Wo
-Wo
-Wo
-Wo
-Wo
-wJ
+zB
 gl
-ev
-Wo
-Wo
-Wo
-Zj
-Wo
-Wo
+TN
+It
+It
+It
+It
+DB
+Um
 wJ
-cf
+ws
 ev
-Wo
-wJ
-Fy
+BG
+JO
+lk
 jh
-ny
-Hh
+Zp
+yu
 LT
-cf
-cf
-cf
+ws
+ws
+ws
 Cq
 Cq
 Cq
@@ -34351,44 +39178,43 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cc
-cf
-cf
-cf
-cf
-cf
-cf
-AK
-UF
-yZ
-cf
-cf
-Fy
-cf
-cf
-cf
-Fy
-Fy
-cf
-cf
-Hh
-JG
-cf
-cf
-JG
-cf
-cf
-Fy
-cf
+bd
+bd
+bd
+bd
+bd
+bd
+bd
+MO
+rE
+jC
+No
+No
+Cs
+Dy
+No
+II
+II
+ke
+Jh
+II
+II
+sr
+Gw
+WL
+WL
+mK
+WL
+yb
+pQ
+yb
+BS
 Rx
 Rx
-Rx
-Rx
+mi
 cf
-Fy
-Fy
-cf
+ex
+Pd
 cf
 cf
 cf
@@ -34398,7 +39224,8 @@ cf
 cf
 cf
 cf
-cf
+ws
+ws
 Cq
 Cq
 Cq
@@ -34609,50 +39436,50 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
+bd
+Xv
+vH
 Ji
-Fy
-Ji
-Ji
-cf
+Nz
+bd
 AK
-bx
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
-lu
+uQ
+dA
+No
+rB
+Ek
 iZ
-Hh
-cf
-cf
-St
-cf
-QK
+rB
+II
+UC
+oF
+lW
+UC
+II
+yb
+AR
+WL
+js
 Hr
-QK
-cf
-Fy
-cf
+js
+Yg
+Xm
+Yg
 jT
 jT
 jT
 jT
 cf
 KT
-uJ
-uJ
-uJ
-uJ
-uJ
-uJ
+oc
+lt
+Fd
+iJ
+Fd
+BQ
 uJ
 Em
-Hh
+MA
 cf
 Cq
 Cq
@@ -34866,50 +39693,50 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cf
-cf
-Ji
-Ji
-Fy
-AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
-CU
-RR
-Hh
-cf
-Vl
-JG
-cf
+bd
+bd
+bd
+Pk
+yc
+AT
+eB
+Su
+dA
+No
+rB
+RU
+SL
+rB
+II
+UC
+kH
+xg
+UC
+II
+vp
+mm
+WL
 mv
 wc
 bD
-cf
-Bf
-Bf
-Bf
-Bf
+Yg
+Pz
+YB
+ld
+sg
 Is
-Bf
+px
 cf
 in
 Et
+rw
 Et
 Et
 Et
-Et
-Et
+xZ
 Vt
 dv
-Hh
+MA
 cf
 Cq
 Cq
@@ -35123,46 +39950,46 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-Ji
-Fy
-Ji
-Ji
-cf
+bd
+gg
+QT
+Dt
+Nz
+bd
 AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
-CU
-RR
-Hh
-cf
-Vl
-JG
-cf
+OD
+DZ
+No
+PS
+la
+gi
+gL
+II
+Oo
+hu
+oY
+tN
+II
+vp
+mm
+WL
+kU
+ir
 QK
-wc
-QK
+Yg
+VX
+VW
+Zd
+fX
+iw
+RO
 cf
-VW
-VW
-VW
-lH
-Bf
-oj
-cf
-aY
-aY
+Fq
+Fq
 cf
 hs
 yH
-yH
+TU
 cf
 Hv
 dv
@@ -35380,55 +40207,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cf
-cf
-cf
-cf
-cf
+bd
+bd
+bd
+bd
+bd
+bd
 AK
-UF
-yZ
-cf
-Hh
-bx
-Hh
-cf
-Hh
-rm
-zP
-Hh
-cf
-cf
-St
-cf
+OD
+dA
+No
+yF
+Vr
+FH
+yF
+II
+Mi
+gI
+lE
+lQ
+II
+yb
+AR
+WL
 oC
 tw
 QZ
+yi
+yi
+yi
+yi
+EJ
+Kc
+Mz
 cf
-cf
-cf
-cf
-Pi
-Bf
-VW
-cf
-JG
-JG
+sT
+iy
 cf
 AO
-JG
+NP
 AO
 cf
-Hv
+Ld
 VF
 Em
-yN
-JG
-TJ
-Vl
-TJ
+So
+iy
+NK
+Bp
+NK
 Cq
 Cq
 Cq
@@ -35637,55 +40464,55 @@ Cq
 Cq
 Cq
 Cq
-Cq
 UG
 TJ
-Vl
-Vl
+WB
+WB
 TJ
-JG
-ev
-Wo
-wJ
-cf
-cf
-cf
-cf
-cf
-cf
+cc
+Fu
+ef
+zx
+No
+No
+No
+No
+No
+II
+II
 iE
-iE
-cf
-cf
+FX
+II
+II
 UG
 UG
-cf
-cf
-cf
-cf
-cf
-jn
+WL
+WL
+dp
+WL
+yi
+DH
 AL
 sz
+XD
 Bf
-Bf
-VW
+wD
 cf
-St
-St
+lP
+lP
 cf
-AO
-JG
-AO
+qt
+NP
+lN
 cf
 in
-Et
+Ul
 Cx
-yN
-JG
-TJ
-Vl
-TJ
+So
+Uu
+NK
+KL
+NK
 Cq
 Cq
 Cq
@@ -35894,49 +40721,49 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cf
-cf
-cf
-cf
-cf
-JG
-JG
-cf
-cf
-Cq
-Cq
-Cq
-Cq
-cf
-fs
-fs
-cf
+Js
+Js
+Js
+Js
+Js
+Js
+wI
+aJ
+Js
+Js
 Cq
 Cq
 Cq
 Cq
 Cq
+II
+rW
+tz
+II
 Cq
 Cq
+Cq
+Cq
+WL
+WL
+WL
+yi
+bI
+ak
+yi
+xL
+hw
+Yg
 cf
-Yy
-AL
+LP
+Bp
 cf
-bY
-we
+Bi
+Bi
+Bi
 cf
 cf
-Vl
-Vl
 cf
-cA
-cA
-cA
-cf
-Hh
-Hh
 cf
 cf
 cf
@@ -36151,50 +40978,50 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cA
+IW
 ek
+FE
 zs
-zs
-zs
-zs
-zs
-yk
-Hh
+Qm
+qT
+iv
+Bx
+sD
+Js
+Cq
+Cq
+Cq
+Cq
+Cq
+II
+ZY
+FX
+II
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+yi
+vI
+vI
+yi
+OO
+OO
+Yg
+cf
+lP
+lP
 cf
 Cq
 Cq
 Cq
 Cq
-cf
-iE
-iE
-cf
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-cf
-cA
-cA
-cf
-cA
-cA
-cf
-cf
-St
-St
-cf
-Cq
-Cq
-Cq
-cf
-cf
-cf
-cf
 Cq
 Cq
 Cq
@@ -36408,24 +41235,24 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cA
-JX
-ny
-ny
-ny
-ny
-ny
+IW
+Kl
+xa
+Bs
+DW
+GO
+uI
 dK
-Hh
-cf
+rV
+Js
+Cq
 Cq
 Cq
 Cq
 Cq
 mT
-iE
-iE
+St
+jj
 mT
 mT
 Cq
@@ -36659,30 +41486,30 @@ Cq
 Cq
 Cq
 Cq
+SZ
+SZ
+SZ
+SZ
+SZ
+SZ
+Js
+Js
+qz
+Js
+rV
+qx
+rV
+Js
+Js
+Js
 Cq
-Cq
-cf
-cf
-cf
-cf
-cf
-cf
-JG
-JG
-cf
-jL
-jL
-jL
-cf
-cf
-cf
 Cq
 Cq
 Cq
 Cq
 mT
 fs
-fs
+Zy
 fs
 mT
 Cq
@@ -36915,36 +41742,36 @@ Cq
 Cq
 Cq
 Cq
+SZ
+SZ
+Ql
+BR
+Zb
+WE
+sn
+bo
+bo
+ce
+Js
+AY
+EQ
+Tx
+Js
 Cq
 Cq
-cf
-cf
-ek
-zs
-zs
-zs
-zs
-zs
-yk
-cf
-Hh
-Hh
-Hh
-cf
 Cq
-Cq
-Cq
+Vb
 mT
 mT
 mT
 mT
-fs
-JG
-fs
+hB
+Sd
+gj
 mT
 mT
 mT
-Cq
+ot
 Cq
 Cq
 Cq
@@ -37172,32 +41999,32 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
 Rc
-cf
-nn
-JG
-JG
-JG
-JG
-JG
+Np
+GH
+Vj
+fN
+eh
+VJ
+hz
+wh
 Th
-cf
-cf
-cf
-cf
-cf
+Js
+UF
+zV
+OI
+Js
 Cq
 Cq
+Cq
 mT
 mT
-Hh
-Hh
+jL
+fm
 mT
-iE
+St
+jj
 mT
-iE
 mT
 Hh
 mT
@@ -37429,35 +42256,35 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
 Rc
-cf
-nn
-fs
-fs
-fs
-fs
-fs
-Th
-JG
-FC
-Yc
-Yc
-cf
+XE
+pN
+Km
+ln
+AP
+ln
+oG
+ln
+ok
+SZ
+SZ
+SZ
+SZ
+SZ
+Cq
 Cq
 Cq
 hr
 mT
 Zv
+Gy
+Pw
+qr
+li
 ng
-ng
-ng
-ng
-ng
-ng
+KQ
 SG
-jL
+zo
 nQ
 nQ
 Cq
@@ -37686,22 +42513,22 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
 Rc
-cf
-nn
-JG
-JG
-JG
-JG
-JG
-Th
-JG
-FC
-Yc
-Yc
-cf
+dD
+ml
+fC
+lR
+vk
+BK
+tD
+Ew
+Us
+Cb
+ff
+Lz
+eM
+SZ
+Cq
 Cq
 Cq
 hr
@@ -37714,8 +42541,8 @@ JG
 JG
 ll
 LK
-Hh
-jL
+Pf
+Nx
 nQ
 Cq
 Cq
@@ -37943,22 +42770,22 @@ Cq
 Cq
 Cq
 Cq
+SZ
+SZ
+jM
+Qb
+EE
+rC
+rC
+tT
+pc
+Bh
+rG
+ff
+yw
+Yc
+SZ
 Cq
-Cq
-cf
-cf
-JX
-ny
-ny
-ny
-ny
-ny
-dK
-cf
-cf
-cf
-cf
-cf
 Cq
 Cq
 hr
@@ -37971,7 +42798,7 @@ pU
 pU
 pU
 GE
-jL
+US
 nQ
 nQ
 Cq
@@ -38201,20 +43028,20 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-cf
-fs
-cf
-cf
-cf
-JG
-JG
-JG
-cf
-Cq
-Cq
-Cq
+SZ
+SZ
+Ar
+SZ
+SZ
+Gb
+Qz
+cU
+cU
+SZ
+SZ
+SZ
+SZ
+SZ
 Cq
 Cq
 Cq
@@ -38222,11 +43049,11 @@ mT
 mT
 vb
 hH
+Bt
 Vo
+Bt
 Vo
-Vo
-Vo
-Vo
+Bt
 Vo
 mT
 nQ
@@ -38459,23 +43286,23 @@ Cq
 Cq
 Cq
 Cq
-Cq
-cf
-cA
-cf
-Cq
-cf
-cf
-cf
-cf
-cf
-Cq
-Cq
-Cq
-Cq
+SZ
+Wl
+SZ
+SZ
+SZ
+SZ
+SZ
+SZ
+SZ
+Vd
+Yn
+UG
 Cq
 Cq
 Cq
+Cq
+ZE
 mT
 mT
 mT
@@ -38486,7 +43313,7 @@ mT
 mT
 mT
 mT
-Cq
+Ju
 Cq
 Cq
 Cq
@@ -38716,18 +43543,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+UG
+XC
+mb
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+xD
+Db
+UG
 Cq
 Cq
 Cq
@@ -38973,18 +43800,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+UG
+wr
+mb
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+JQ
+xD
+UG
 Cq
 Cq
 Cq
@@ -39230,18 +44057,18 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+tv
+UG
+UG
+UG
+UG
+tv
+UG
+UG
+UG
+UG
+tv
+UG
 Cq
 Cq
 Cq
