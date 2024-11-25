@@ -633,6 +633,16 @@ SUBSYSTEM_DEF(cargo)
 	VALUES (:cargo_orderlog_id:, :item_name:, :amount:)")
 	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	for(var/datum/cargo_order/co in all_orders)
+		//Iterate over the items in the order and build the a list with the item count
+		var/list/itemcount = list()
+		var/list/itemnames = list()
+		for(var/datum/cargo_order_item/coi in co.items)
+			if(!isnull(itemcount["[coi.ci.id]"]))
+				itemcount["[coi.ci.id]"] = itemcount["[coi.ci.id]"] + 1
+			else
+				itemcount["[coi.ci.id]"] = 1
+
+			itemnames["[coi.ci.id]"] = coi.ci.name
 
 		if(!dump_query.Execute(list(
 			"game_id"=GLOB.round_id,
@@ -654,7 +664,7 @@ SUBSYSTEM_DEF(cargo)
 			"time_paid"=co.time_paid,
 			"reason"=co.reason
 			)))
-			log_subsystem_cargo("SQL: Cound not write order to database. Cargo data dump has been aborted.")
+			log_subsystem_cargo("SQL: Could not write order to database. Cargo data dump has been aborted.")
 			continue
 
 		//Run the query to get the inserted id
@@ -665,16 +675,18 @@ SUBSYSTEM_DEF(cargo)
 			db_log_id = text2num(log_id.item[1])
 
 		if(db_log_id)
-			for(var/datum/cargo_order_item/coi in co.items)
-				if(co.items != null)
-					dump_item_query.Execute(list(
-						"cargo_orderlog_id"= db_log_id,
-						"item_name" = coi.ci.name,
-						"amount" = coi.ci.amount,
-					))
+			for(var/item_id in itemcount)
+				if(!dump_item_query.Execute(list(
+					"cargo_orderlog_id" = co.order_id,
+					"item_name"= itemnames[item_id],
+					"amount" = itemcount[item_id]
+					)))
+					log_subsystem_cargo("SQL: Cound not write details of a cargo order.")
+					continue
 		CHECK_TICK
 
 		log_subsystem_cargo("SQL: Saved cargo order log to database.")
+
 
 /hook/roundend/proc/dump_cargoorders()
 	SScargo.dump_orders()
