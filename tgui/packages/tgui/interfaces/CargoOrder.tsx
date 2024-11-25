@@ -142,7 +142,7 @@ export const MainPage = (props, context) => {
           <Stack.Item>
             <Button
               content="Details"
-              icon="shopping-cart"
+              icon="list"
               onClick={() => setDetails(!details)}
             />
             <Button
@@ -209,7 +209,7 @@ export const MainPage = (props, context) => {
                     disabled={
                       !item.supplier_data.available && item.price_adjusted <= 0
                     }
-                    tooltip="Add to basket"
+                    tooltip="Add to Basket"
                     icon="shopping-basket"
                     onClick={() =>
                       act('add_item', { add_item: item.name.toString() })
@@ -253,23 +253,19 @@ export const ShowDetails = (props, context) => {
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
-          <Table.Cell>Supplier</Table.Cell>
           <Table.Cell>Price</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Handling Fee</Table.Cell>
-          <Table.Cell>Operations</Table.Cell>
           <Table.Cell>{data.handling_fee} 电</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Crate Fee</Table.Cell>
-          <Table.Cell>Operations</Table.Cell>
           <Table.Cell>{data.crate_fee} 电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
           <Table.Row key={item.name}>
             <Table.Cell>{item.name}</Table.Cell>
-            <Table.Cell>{item.supplier_data.name}</Table.Cell>
             <Table.Cell>{item.price} 电</Table.Cell>
           </Table.Row>
         ))}
