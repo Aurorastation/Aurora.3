@@ -629,17 +629,10 @@ SUBSYSTEM_DEF(cargo)
 	// Loop through all the orders and dump them all
 	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
 	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
-	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
-	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
+	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `cargo_item_order_log` (`cargo_orderlog_id`, `item_name`, `amount`) \
+	VALUES (:cargo_orderlog_id:, :item_name:, :amount:)")
 	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	for(var/datum/cargo_order/co in all_orders)
-		//Iterate over the items in the order and build the a list with the item count
-		var/list/itemcount = list()
-		for(var/datum/cargo_order_item/coi in co.items)
-			if(!isnull(itemcount["[coi.ci.id]"]))
-				itemcount["[coi.ci.id]"] = itemcount["[coi.ci.id]"] + 1
-			else
-				itemcount["[coi.ci.id]"] = 1
 
 		if(!dump_query.Execute(list(
 			"game_id"=GLOB.round_id,
@@ -672,16 +665,16 @@ SUBSYSTEM_DEF(cargo)
 			db_log_id = text2num(log_id.item[1])
 
 		if(db_log_id)
-			for(var/item_id in itemcount)
-				dump_item_query.Execute(list(
-					"cargo_orderlog_id"=db_log_id,
-					"cargo_item_id"=item_id,
-					"amount"=itemcount[item_id]
-				))
+			for(var/datum/cargo_order_item/coi in co.items)
+				if(co.items != null)
+					dump_item_query.Execute(list(
+						"cargo_orderlog_id"= db_log_id,
+						"item_name" = coi.ci.name,
+						"amount" = coi.ci.amount,
+					))
 		CHECK_TICK
 
 		log_subsystem_cargo("SQL: Saved cargo order log to database.")
-
 
 /hook/roundend/proc/dump_cargoorders()
 	SScargo.dump_orders()
