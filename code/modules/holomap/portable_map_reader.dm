@@ -80,4 +80,5 @@
 
 /obj/item/portable_map_reader/odyssey/set_connected_z_levels()
 	connected_z_levels = SSodyssey.scenario_zlevels
-	z_override = connected_z_levels[1]
+	if(length(connected_z_levels))
+		z_override = connected_z_levels[1]
