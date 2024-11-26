@@ -57,4 +57,5 @@ delete-after: True
 changes:
   - bugfix: "AI can remote control mechs again."
   - bugfix: "Remote controlled exosuits now can travel between zlevels if capable."
+  - bugfix: "Remote control no longer makes the client lose verbs until restart."
   - qol: "Pressing eject in a remotely controlled mech now exits remote control."

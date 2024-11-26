@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(virtualreality)
 	var/mob/living/vr_mob = null // In which mob is our mind
 	var/mob/living/old_mob = null // Which mob is our old mob
 
-// Return to our original body
+/// Return to original body
 /mob/proc/body_return()
 	set name = "Return to Body"
 	set category = "IC"
@@ -68,6 +68,8 @@ SUBSYSTEM_DEF(virtualreality)
 	if(old_mob)
 		ckey_transfer(old_mob)
 		languages = list(GLOB.all_languages[LANGUAGE_TCB])
+		if(old_mob.client)
+			old_mob.client.init_verbs() // We need to have the stat panel to update, so we call this directly
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -81,6 +83,8 @@ SUBSYSTEM_DEF(virtualreality)
 	if(old_mob)
 		ckey_transfer(old_mob)
 		speech_synthesizer_langs = list(GLOB.all_languages[LANGUAGE_TCB])
+		if(old_mob.client)
+			old_mob.client.init_verbs()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -95,6 +99,8 @@ SUBSYSTEM_DEF(virtualreality)
 		ckey_transfer(old_mob)
 		languages = list(GLOB.all_languages[LANGUAGE_TCB])
 		internal_id.access = list()
+		if(old_mob.client)
+			old_mob.client.init_verbs()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -108,6 +114,8 @@ SUBSYSTEM_DEF(virtualreality)
 	if(old_mob)
 		ckey_transfer(old_mob)
 		languages = list(GLOB.all_languages[LANGUAGE_TCB])
+		if(old_mob.client)
+			old_mob.client.init_verbs()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 		qdel(src)
