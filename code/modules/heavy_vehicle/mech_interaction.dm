@@ -233,7 +233,7 @@
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
-	return 1
+	return TRUE
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))

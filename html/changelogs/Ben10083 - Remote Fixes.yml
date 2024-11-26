@@ -56,4 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "AI can remote control mechs again."
+  - bugfix: "Remote controlled exosuits now can travel between zlevels if capable."
   - qol: "Pressing eject in a remotely controlled mech now exits remote control."
