@@ -25,15 +25,27 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
-"aA" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
+"ap" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
+"as" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/central)
+/area/splf_raider/docking)
 "aB" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "aE" = (
@@ -64,6 +76,9 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
 "aN" = (
@@ -82,6 +97,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/office)
 "aR" = (
@@ -98,6 +114,9 @@
 	dir = 4;
 	req_access = list(244);
 	name = "Sensitive Storage"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
@@ -122,6 +141,9 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
 "bd" = (
@@ -129,9 +151,13 @@
 /area/splf_raider/washroom)
 "bf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/lounge)
 "bh" = (
@@ -157,14 +183,14 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/bed/stool/bar/padded/brown{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
 	req_access = list(244)
+	},
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
@@ -203,6 +229,9 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/medical)
 "bD" = (
@@ -211,6 +240,10 @@
 /obj/item/bedsheet/brown,
 /obj/item/bedsheet/black{
 	pixel_y = 16
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - splf_crewman";
+	identifier = "splf_crewman"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
@@ -238,6 +271,24 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/engine)
+"bR" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
+/obj/effect/shuttle_landmark/splf_raider/dock_fore{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "bU" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -263,10 +314,22 @@
 /turf/simulated/floor/carpet/rubber,
 /area/splf_raider/gunnery)
 "cc" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor,
-/area/splf_raider/propulsion)
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/machinery/access_button{
+	pixel_y = -24;
+	pixel_x = -27;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "ce" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -331,13 +394,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
-"cK" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/machinery/alarm/north,
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/docking)
 "cN" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -377,11 +433,21 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
+"dh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "do" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "dp" = (
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "ds" = (
@@ -390,6 +456,9 @@
 "dv" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
@@ -406,9 +475,10 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/splf_raider/office)
 "dx" = (
-/obj/machinery/smartfridge/foodheater,
-/turf/simulated/floor/tiled/full,
-/area/splf_raider/kitchen)
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "dA" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -498,6 +568,36 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/engine)
+"dW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
+"dX" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/access_button{
+	pixel_y = -28;
+	pixel_x = -2;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
 "ea" = (
 /obj/machinery/power/smes/buildable/main_engine{
 	charge = 3e+007
@@ -531,6 +631,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "eh" = (
@@ -659,6 +760,10 @@
 "ff" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_co2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/propulsion)
 "fm" = (
@@ -685,15 +790,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/splf_raider/engine)
 "fs" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /turf/simulated/floor,
 /area/shuttle/splf)
-"fy" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/docking)
 "fA" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -712,6 +818,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
+"fL" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"fM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "fN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -742,12 +866,25 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_1)
 "fX" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
+"gc" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "gg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
@@ -781,6 +918,10 @@
 "gj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /turf/simulated/floor,
 /area/shuttle/splf)
 "gl" = (
@@ -793,6 +934,9 @@
 "gI" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/portside_slot)
@@ -827,8 +971,17 @@
 /area/splf_raider/starboard_slot)
 "gP" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
+"gS" = (
+/obj/machinery/smartfridge/foodheater,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/kitchen)
+"gT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "gU" = (
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/gunnery)
@@ -913,10 +1066,17 @@
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /turf/simulated/floor,
 /area/shuttle/splf)
 "hH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/splf)
 "hL" = (
@@ -971,6 +1131,9 @@
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "iq" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
 "ir" = (
@@ -1014,6 +1177,23 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
+"iA" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -32;
+	pixel_y = -25;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "iC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -1030,6 +1210,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 "iZ" = (
@@ -1045,6 +1230,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/cargo_2)
+"jb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "jh" = (
 /obj/effect/floor_decal/corner/brown,
 /obj/structure/platform,
@@ -1063,6 +1255,8 @@
 	d1 = 4;
 	d2 = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "jk" = (
@@ -1071,13 +1265,16 @@
 	dir = 4;
 	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/lounge)
 "js" = (
-/obj/structure/table/wood/maple,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
+/obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "jy" = (
@@ -1091,6 +1288,19 @@
 "jA" = (
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/lounge)
+"jB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/light/small,
+/obj/machinery/airlock_sensor{
+	pixel_y = -24;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
+/turf/simulated/floor/plating,
+/area/splf_raider/docking)
 "jC" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -1100,15 +1310,15 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
-"jI" = (
-/obj/effect/floor_decal/corner/paleblue{
+"jF" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/splf_raider/closet)
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "jL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
@@ -1119,6 +1329,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "jM" = (
@@ -1127,7 +1340,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/propulsion)
 "jT" = (
-/obj/structure/table/steel,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/kitchen)
 "jW" = (
@@ -1137,6 +1350,10 @@
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/starboard_slot)
 "ke" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/portside_slot)
 "kj" = (
@@ -1154,8 +1371,19 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Canister to Thrusters";
+	target_pressure = 15000;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/splf)
+"kt" = (
+/obj/machinery/shipsensors,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/splf_raider/bridge)
 "kz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1197,8 +1425,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
+"kN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/portside_slot)
 "kS" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
@@ -1227,13 +1461,13 @@
 /turf/space/dynamic,
 /area/space)
 "kU" = (
-/obj/structure/table/wood/maple,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
 	req_access = list(244)
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "la" = (
@@ -1291,6 +1525,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/splf_raider/gunnery)
 "li" = (
@@ -1300,16 +1537,15 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "lk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/docking)
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/bridge)
 "ll" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1330,12 +1566,14 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "lu" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/starboard_slot)
 "lv" = (
@@ -1349,6 +1587,7 @@
 /obj/machinery/door/airlock/glass_service{
 	name = "Utilities Closet"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/closet)
 "lE" = (
@@ -1359,6 +1598,9 @@
 	icon_state = "4-8";
 	d1 = 4;
 	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/portside_slot)
@@ -1371,6 +1613,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
+/obj/effect/shuttle_landmark/splf_raider/dock_port{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "lQ" = (
@@ -1381,6 +1628,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 "lR" = (
@@ -1414,14 +1662,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/propulsion)
 "mm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -23;
+	dir = 1;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25;
+	pixel_x = 5
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
-"mo" = (
-/obj/structure/bed/stool/bar/padded/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/lounge)
 "mr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -1444,6 +1697,10 @@
 	pixel_y = 16
 	},
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - splf_crewman";
+	identifier = "splf_crewman"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "mG" = (
@@ -1480,6 +1737,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/quarters)
 "mT" = (
@@ -1498,12 +1758,41 @@
 "mY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_slot)
+"nc" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = 5;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
 "ng" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = -7;
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -25;
+	pixel_y = 5;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "nn" = (
@@ -1521,6 +1810,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/engine)
+"no" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/propulsion)
 "nr" = (
 /obj/structure/table/steel,
 /obj/machinery/light/small{
@@ -1534,6 +1832,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"nH" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
+"nO" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "nQ" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/tiled/dark/full,
@@ -1554,6 +1875,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "oe" = (
@@ -1577,11 +1899,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/splf_raider/bridge)
-"oj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/south,
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/cargo_2)
 "ok" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1592,17 +1909,27 @@
 	dir = 1;
 	pixel_x = -7
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "splf_co2";
+	name = "Chamber Blast Doors";
+	pixel_y = -21;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
 "on" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_1)
 "oo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/suit_cycler/offship/sol,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "os" = (
@@ -1619,6 +1946,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_slot)
 "ot" = (
@@ -1628,6 +1961,11 @@
 /obj/machinery/shipsensors,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/splf)
+"ov" = (
+/obj/structure/table/steel,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
 "oA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1644,8 +1982,26 @@
 /obj/item/bedsheet/brown{
 	pixel_y = 16
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - splf_crewman";
+	identifier = "splf_crewman"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
+"oD" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
 "oF" = (
 /obj/effect/floor_decal/corner_wide/brown/full{
 	dir = 8
@@ -1682,6 +2038,20 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/engine)
+"oW" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "oY" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -1723,6 +2093,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gunmetal,
 /area/splf_raider/gunnery)
 "pw" = (
@@ -1737,20 +2108,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
+"pB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_2)
 "pE" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/splf_raider/engine)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "pH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -1773,6 +2141,9 @@
 	dir = 8;
 	name = "Combustion Engine";
 	req_access = list(244)
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
@@ -1817,11 +2188,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
+"qb" = (
+/obj/structure/platform,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
 "qf" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/lounge)
 "qr" = (
@@ -1834,11 +2214,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "qt" = (
-/obj/structure/bed/stool/bar/padded/black{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -25
 	},
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/lounge)
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/turf/simulated/floor/plating,
+/area/splf_raider/gunnery)
 "qx" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8;
@@ -1869,6 +2257,9 @@
 	dir = 8;
 	name = "Propellant Management";
 	req_access = list(244)
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
@@ -2108,6 +2499,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
+"rT" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/kitchen)
 "rU" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -2130,21 +2525,24 @@
 /area/splf_raider/portside_hall)
 "rW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
 /turf/simulated/floor,
 /area/splf_raider/portside_slot)
 "rY" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/bed/stool/bar/padded/brown{
+/obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gridded,
-/area/splf_raider/lounge)
+/area/splf_raider/docking)
 "rZ" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
@@ -2225,6 +2623,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/freezer)
 "sA" = (
@@ -2237,6 +2636,7 @@
 	name = "Bridge";
 	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/bridge)
 "sD" = (
@@ -2280,6 +2680,29 @@
 	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
+"sZ" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "td" = (
@@ -2308,10 +2731,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/ready)
 "tv" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/perma_light/starlight/wide,
-/turf/space/dynamic,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "tw" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
@@ -2329,6 +2751,14 @@
 	d2 = 8
 	},
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -24;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
 /turf/simulated/floor,
 /area/splf_raider/portside_slot)
 "tD" = (
@@ -2339,11 +2769,11 @@
 /turf/simulated/floor,
 /area/splf_raider/propulsion)
 "tN" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/central)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "tR" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -2374,19 +2804,12 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
-"tW" = (
-/obj/structure/table/steel,
-/obj/machinery/alarm/south,
-/turf/simulated/floor/tiled/white,
-/area/splf_raider/kitchen)
 "tZ" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/medical)
-"uh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/south,
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/cargo_1)
 "uk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
@@ -2429,6 +2852,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "uP" = (
@@ -2440,7 +2864,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -2467,11 +2891,22 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"uX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "vb" = (
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/shuttle/splf)
 "vk" = (
@@ -2492,6 +2927,8 @@
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "vt" = (
@@ -2504,6 +2941,25 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/office)
+"vE" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -25;
+	pixel_y = 33;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "vH" = (
 /obj/machinery/door/airlock{
 	dir = 1;
@@ -2516,11 +2972,34 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/freezer)
+"vK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -25
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "vO" = (
-/obj/machinery/shipsensors,
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/splf_raider/bridge)
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "vZ" = (
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/closet)
@@ -2537,36 +3016,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/splf_raider/quarters)
-"wd" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/machinery/alarm/south,
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/obj/item/ship_ammunition/francisca/frag{
-	pixel_y = 6;
-	pixel_x = -4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/starboard_slot)
 "wh" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2576,6 +3025,13 @@
 "wj" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/fuel_port/phoron{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
@@ -2620,6 +3076,9 @@
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/medical)
 "wI" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
 "wJ" = (
@@ -2639,7 +3098,7 @@
 /obj/structure/platform{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
 "wT" = (
 /obj/structure/platform_stairs,
@@ -2732,6 +3191,10 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/starboard_slot)
 "xy" = (
@@ -2805,10 +3268,23 @@
 /obj/structure/platform,
 /turf/simulated/floor/tiled/gunmetal,
 /area/splf_raider/gunnery)
+"ye" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/cargo_1)
+"yh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "yi" = (
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/freezer)
@@ -2832,9 +3308,6 @@
 /area/splf_raider/engine)
 "yu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -2866,6 +3339,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
+"yC" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
 "yF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
@@ -2888,22 +3368,16 @@
 /obj/machinery/door/airlock/glass{
 	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "yO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
-"yT" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/white,
-/area/splf_raider/kitchen)
 "yW" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled,
@@ -2914,6 +3388,16 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
+"zh" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "zo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle{
@@ -2969,6 +3453,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/engine)
+"zH" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "zJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3003,6 +3492,19 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/portside_hall)
+"zY" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = 24;
+	dir = 8;
+	frequency = 1380
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "Af" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -3084,6 +3586,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
+"AB" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "AG" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Lethal Firearms and Equipment";
@@ -3129,6 +3642,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "AS" = (
@@ -3149,6 +3669,7 @@
 /obj/machinery/door/airlock{
 	name = "Washroom"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/washroom)
 "AY" = (
@@ -3209,8 +3730,33 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
+"Bj" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = -27;
+	pixel_y = -8
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
 "Bp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	frequency = 1380
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/docking)
 "Bq" = (
@@ -3244,6 +3790,9 @@
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
@@ -3299,6 +3848,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "BR" = (
@@ -3317,7 +3867,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -3348,35 +3898,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
-"Ck" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/ship_ammunition/autocannon/he{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/starboard_slot)
 "Cm" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
@@ -3403,6 +3924,10 @@
 /turf/template_noop,
 /area/space)
 "Cs" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_2)
 "Cx" = (
@@ -3430,12 +3955,21 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/cargo_1)
+"CZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "Db" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 8
 	},
 /turf/space/dynamic,
 /area/space)
+"Dj" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
 "Dt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
@@ -3462,6 +3996,10 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_2)
 "DA" = (
@@ -3493,6 +4031,28 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
+"DD" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/access_button{
+	pixel_x = -7;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "DE" = (
 /obj/machinery/power/generator{
 	anchored = 1;
@@ -3614,6 +4174,9 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/splf_raider/starboard_slot)
 "Ek" = (
@@ -3624,6 +4187,7 @@
 /area/splf_raider/cargo_2)
 "Em" = (
 /obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "Et" = (
@@ -3647,10 +4211,25 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
+"EM" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
 "EN" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_slot)
@@ -3679,6 +4258,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "Fg" = (
@@ -3689,6 +4269,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
+"Fh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/cargo_1)
 "Fn" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
@@ -3699,20 +4284,29 @@
 	dir = 4;
 	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "Fu" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "Fy" = (
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/bridge)
 "FC" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_burn";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/engine)
 "FE" = (
@@ -3787,6 +4381,13 @@
 	d1 = 4;
 	d2 = 8
 	},
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = 5;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 "Ga" = (
@@ -3867,9 +4468,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "Gz" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
+"GA" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -30;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/obj/effect/shuttle_landmark/splf_raider/dock_aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "GE" = (
@@ -3946,16 +4565,19 @@
 /area/splf_raider/medical)
 "Hh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
-"Hi" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 8
+"Hl" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
 	},
-/obj/machinery/meter,
-/turf/simulated/floor,
-/area/splf_raider/propulsion)
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/splf_raider/closet)
 "Hr" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -3983,12 +4605,32 @@
 /area/splf_raider/docking)
 "HR" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_x = -25
 	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
+"HU" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = 5;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "Ia" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4004,11 +4646,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/medical)
-"Is" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/bed/stool/bar/padded/brown{
+"Ir" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
+"Is" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -4028,6 +4679,23 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
+"Iw" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = -25;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "Iz" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -4035,39 +4703,47 @@
 /obj/machinery/door/airlock/external{
 	dir = 1
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
 "IB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/suit_cycler/offship/sol,
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "IE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/machinery/alarm/south,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
-/obj/item/ship_ammunition/francisca/ap{
-	pixel_x = -4;
-	pixel_y = 6
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 6;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_slot)
@@ -4107,6 +4783,10 @@
 	req_access = list(244);
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/portside_slot)
 "Ji" = (
@@ -4143,7 +4823,21 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
+"JB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
+"JF" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
 "JG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "JM" = (
@@ -4159,11 +4853,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/starboard_slot)
-"JN" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/iff_beacon/name_change,
-/turf/space/dynamic,
-/area/splf_raider/bridge)
 "JO" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -4187,7 +4876,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -4328,12 +5017,30 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
+"KG" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/turf/simulated/floor/plating,
+/area/splf_raider/central)
 "KL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/docking)
 "KQ" = (
@@ -4343,6 +5050,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "KS" = (
@@ -4367,6 +5075,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "Lg" = (
@@ -4382,15 +5093,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
-"Lt" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
-	},
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/splf_raider/propulsion)
 "Lz" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 1
@@ -4408,7 +5110,6 @@
 "LA" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
@@ -4443,10 +5144,13 @@
 /area/shuttle/splf)
 "LP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/port_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/docking)
 "LR" = (
@@ -4496,6 +5200,9 @@
 /area/splf_raider/starboard_slot)
 "LT" = (
 /obj/structure/platform,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/bridge)
 "Mb" = (
@@ -4514,25 +5221,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
-"Mf" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/docking)
 "Mi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 "Mk" = (
@@ -4629,6 +5324,22 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/propulsion)
+"Nu" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "Nx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/computer/ship/helm/terminal{
@@ -4674,7 +5385,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -4686,6 +5397,8 @@
 /obj/machinery/door/airlock/external{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/fore_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "NP" = (
@@ -4715,6 +5428,9 @@
 	dir = 4;
 	req_access = list(244);
 	name = "Sensitive Storage"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
@@ -4746,7 +5462,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/gridded,
@@ -4815,14 +5531,20 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/button/ignition{
-	id = "splf_igniter_engine";
-	pixel_y = -22;
-	dir = 1;
-	pixel_x = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/engine)
+"Pa" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -24;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/turf/simulated/floor,
+/area/shuttle/splf)
 "Pd" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Docking Array";
@@ -4982,6 +5704,40 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
+"Qe" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/autocannon/he{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
+"Qj" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/iff_beacon/name_change,
+/turf/space/dynamic,
+/area/splf_raider/bridge)
 "Ql" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
@@ -5006,10 +5762,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/portside_hall)
-"Qs" = (
-/obj/machinery/alarm/south,
-/turf/simulated/floor/lino/diamond,
-/area/splf_raider/lounge)
 "Qt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5019,6 +5771,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
+"Qy" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/space/dynamic,
+/area/space)
 "Qz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -5040,8 +5797,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/engine)
 "QK" = (
-/obj/structure/table/wood/maple,
 /obj/machinery/alarm/south,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "QN" = (
@@ -5076,7 +5833,16 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
 /turf/simulated/floor/plating,
+/area/splf_raider/central)
+"QY" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "QZ" = (
 /obj/structure/bed/padded/bunk,
@@ -5085,6 +5851,10 @@
 	pixel_y = 16
 	},
 /obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - splf_crewman";
+	identifier = "splf_crewman"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "Rc" = (
@@ -5121,6 +5891,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/starboard_slot)
 "Rq" = (
@@ -5129,8 +5902,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/splf_raider/closet)
+"Rt" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/meter,
+/turf/simulated/floor,
+/area/splf_raider/propulsion)
 "Rx" = (
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
@@ -5177,6 +5958,17 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/cargo_1)
+"RT" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/glass{
+	req_access = list(244)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "RU" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
@@ -5209,6 +6001,8 @@
 	d1 = 4;
 	d2 = 8
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "Sg" = (
@@ -5227,13 +6021,30 @@
 /obj/machinery/door/airlock/glass{
 	req_access = list(244)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
+"Sp" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -23;
+	dir = 1;
+	pixel_x = 5
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25;
+	pixel_x = -7
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "St" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "Su" = (
@@ -5263,8 +6074,28 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
+"SC" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = -5;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
+/obj/effect/shuttle_landmark/splf_raider/dock_starboard{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
 "SG" = (
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "SI" = (
@@ -5274,6 +6105,12 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/engine)
+"SK" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/lounge)
 "SL" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -5321,6 +6158,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
 /turf/simulated/floor/plating,
 /area/splf_raider/gunnery)
 "Th" = (
@@ -5336,6 +6175,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
+"Tm" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/quarters)
+"Tq" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
 "Tx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
@@ -5387,13 +6242,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "TL" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/machinery/alarm/west,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/splf_raider/closet)
 "TN" = (
@@ -5507,12 +6366,37 @@
 /area/splf_raider/ready)
 "Uz" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/obj/machinery/airlock_sensor{
+	pixel_y = -24;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/starboard_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/lounge)
 "UA" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
 /area/splf_raider/engine)
+"UB" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = -27;
+	pixel_y = -7
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "UC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -5544,6 +6428,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/splf)
 "Vd" = (
@@ -5591,6 +6482,14 @@
 /area/splf_raider/propulsion)
 "Vl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/aft_dock,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "Vo" = (
@@ -5623,6 +6522,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "VJ" = (
@@ -5642,6 +6544,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "VW" = (
@@ -5658,6 +6561,15 @@
 /obj/machinery/vending/boozeomat/abandoned,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
+"We" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "Wl" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -5709,6 +6621,8 @@
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "WE" = (
@@ -5732,8 +6646,16 @@
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/quarters)
 "WM" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/starboard_slot)
+"WU" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/lino/diamond,
+/area/splf_raider/lounge)
 "WV" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -5769,6 +6691,32 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/splf_raider/closet)
+"Xe" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/button/ignition{
+	id = "splf_igniter_engine";
+	pixel_y = -4;
+	dir = 8;
+	pixel_x = 23
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "splf_burn";
+	name = "Chamber Blast Doors";
+	pixel_y = 10;
+	pixel_x = 23;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
 "Xk" = (
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 5
@@ -5789,6 +6737,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/kitchen)
@@ -5843,6 +6794,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
+"XA" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/lounge)
 "XC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
@@ -5862,6 +6820,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/propulsion)
+"XF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "XK" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/gridded,
@@ -5902,7 +6867,9 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/machinery/computer/ship/navigation/terminal,
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
@@ -5927,6 +6894,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/splf_raider/ready)
+"Ys" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/splf)
 "Yu" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -5979,10 +6955,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
 "YL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/south,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -25;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
 /turf/simulated/floor/tiled/dark/full,
-/area/splf_raider/portside_slot)
+/area/splf_raider/central)
 "YM" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -5992,6 +6978,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"Za" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = 32;
+	pixel_y = -25;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/central)
 "Zb" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -6004,9 +7007,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/propulsion)
 "Zd" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/full,
-/area/splf_raider/bridge)
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/docking)
 "Zj" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/dark/full,
@@ -6065,18 +7078,55 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
 "Zy" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
 	icon_state = "4-8";
 	d1 = 4;
 	d2 = 8
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /turf/simulated/floor,
 /area/shuttle/splf)
+"ZC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/starboard_slot)
 "ZE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/splf)
 "ZK" = (
@@ -6100,6 +7150,11 @@
 	dir = 8
 	},
 /obj/machinery/alarm/north,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 400
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/splf)
 "ZY" = (
@@ -6110,6 +7165,8 @@
 /obj/effect/shuttle_landmark/splf_shuttle/hangar{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking/splf_raider/shuttle_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 
@@ -33448,17 +34505,17 @@ Cq
 Cq
 Cq
 Cq
-tv
+Qy
 UG
 UG
 UG
 UG
-tv
+Qy
 UG
 UG
 UG
 UG
-tv
+Qy
 UG
 Cq
 Cq
@@ -35764,10 +36821,10 @@ XT
 Zs
 JX
 Zr
-pE
+oD
 Zr
 WV
-Zr
+Xe
 PD
 XT
 XT
@@ -36294,8 +37351,8 @@ Cq
 Cq
 Iz
 Ta
-Ta
-Iz
+qt
+Bj
 po
 lh
 ZK
@@ -36572,7 +37629,7 @@ CF
 Hf
 jA
 qf
-qf
+SC
 jA
 Cq
 Cq
@@ -36841,7 +37898,7 @@ RF
 RF
 ws
 ws
-vO
+kt
 Cq
 Cq
 Cq
@@ -37052,11 +38109,11 @@ Cq
 Cq
 Cq
 UG
-TJ
+YL
+KG
 HR
-HR
-TJ
-aA
+Iw
+zH
 VS
 kI
 zx
@@ -37085,8 +38142,8 @@ Ig
 An
 MT
 jA
-qf
-qf
+EM
+nc
 jA
 th
 th
@@ -37096,7 +38153,7 @@ th
 Un
 QN
 yO
-LT
+qb
 ws
 ws
 ws
@@ -37343,7 +38400,7 @@ RE
 Xs
 jA
 CS
-CS
+yC
 LC
 th
 vt
@@ -37354,8 +38411,8 @@ Rd
 Mk
 wT
 Uf
-DK
 Fn
+DK
 ws
 Cq
 Cq
@@ -37567,8 +38624,8 @@ Cq
 Cq
 vZ
 Rq
-jI
 TL
+Hl
 yW
 Zj
 AK
@@ -37578,15 +38635,15 @@ If
 Ph
 Ao
 IX
-uh
+Fh
 ds
 LS
 xy
 rU
-wd
+IE
 ds
 vp
-mm
+Gz
 tr
 AG
 Kn
@@ -37600,7 +38657,7 @@ oK
 FG
 jA
 CS
-CS
+XA
 JY
 th
 bF
@@ -37837,13 +38894,13 @@ CU
 RR
 yg
 ds
-Ck
+Qe
 Ml
 JM
-IE
+ZC
 ds
 vp
-mm
+Sp
 tr
 AG
 cE
@@ -38100,7 +39157,7 @@ cQ
 mY
 ds
 yb
-AR
+Za
 tr
 yx
 Uw
@@ -38109,7 +39166,7 @@ XO
 hL
 jA
 Yh
-rY
+Gp
 Gp
 Aw
 Gp
@@ -38357,7 +39414,7 @@ xr
 ds
 ds
 sr
-tN
+jF
 tr
 tr
 Og
@@ -38369,7 +39426,7 @@ bq
 FP
 Oq
 JW
-mo
+SK
 Oq
 FP
 yZ
@@ -38377,7 +39434,7 @@ ws
 fA
 Co
 WI
-Zd
+lk
 if
 Mk
 CM
@@ -38592,7 +39649,7 @@ Cq
 Cq
 Cq
 Cq
-TJ
+GA
 Vl
 aB
 yb
@@ -38612,7 +39669,7 @@ Jz
 Jz
 eA
 Af
-wF
+zh
 Jz
 Jz
 Jz
@@ -38850,9 +39907,9 @@ Cq
 Cq
 Cq
 TJ
-mm
-mm
-TJ
+yh
+QY
+UB
 gP
 GK
 yN
@@ -38882,8 +39939,8 @@ fd
 NA
 FP
 NF
-qt
-qt
+nH
+nH
 uP
 oA
 yZ
@@ -38896,8 +39953,8 @@ mJ
 Mk
 wT
 Uf
-Nb
 Fn
+Nb
 ws
 Cq
 Cq
@@ -39107,7 +40164,7 @@ Cq
 Cq
 Cq
 yb
-Vl
+zY
 QX
 yb
 iC
@@ -39148,7 +40205,7 @@ ws
 ev
 BG
 JO
-Zd
+lk
 jh
 Zp
 yu
@@ -39385,7 +40442,7 @@ Jh
 II
 II
 sr
-Gz
+gc
 WL
 WL
 mK
@@ -39396,7 +40453,7 @@ yb
 BS
 Rx
 Rx
-Qs
+WU
 cf
 ex
 Pd
@@ -39411,7 +40468,7 @@ cf
 cf
 ws
 ws
-JN
+Qj
 Cq
 Cq
 Cq
@@ -39642,24 +40699,24 @@ lW
 UC
 II
 yb
-AR
+iA
 WL
 js
 Hr
-js
+Tm
 Yg
 Xm
 Yg
 jT
 jT
 jT
-dx
+gS
 cf
 KT
 oc
 lt
 Fd
-Mf
+Zd
 Fd
 BQ
 uJ
@@ -39898,7 +40955,7 @@ kH
 xg
 UC
 II
-vp
+dW
 mm
 WL
 mv
@@ -39912,7 +40969,7 @@ sg
 Is
 px
 cf
-in
+rY
 Et
 rw
 Et
@@ -39920,7 +40977,7 @@ Et
 Et
 xZ
 Vt
-dv
+Tq
 MA
 cf
 Cq
@@ -40148,15 +41205,15 @@ No
 PS
 la
 gi
-oj
+pB
 II
 Oo
 hu
 oY
-YL
+kN
 II
-vp
-mm
+dW
+XF
 WL
 kU
 ir
@@ -40164,12 +41221,12 @@ QK
 Yg
 VX
 VW
-yT
+rT
 fX
 iw
 RO
 cf
-Fq
+vO
 Fq
 cf
 hs
@@ -40413,7 +41470,7 @@ lE
 lQ
 II
 yb
-AR
+oW
 WL
 oC
 tw
@@ -40424,7 +41481,7 @@ yi
 yi
 EJ
 Kc
-tW
+ov
 cf
 sT
 iy
@@ -40433,12 +41490,12 @@ AO
 NP
 AO
 cf
-cK
+JF
 VF
 Em
-So
-iy
-NK
+RT
+dx
+vE
 Bp
 NK
 Cq
@@ -40650,11 +41707,11 @@ Cq
 Cq
 Cq
 UG
-TJ
+Nu
 WB
-WB
-TJ
-aA
+vK
+nO
+zH
 Fu
 ef
 zx
@@ -40666,7 +41723,7 @@ No
 II
 II
 iE
-FX
+dX
 II
 II
 UG
@@ -40683,21 +41740,21 @@ XD
 Bf
 wD
 cf
-lP
-lP
+fL
+cc
 cf
-lk
+as
 NP
-fy
+fM
 cf
 in
 Ul
 Cx
 So
 Uu
-NK
+sZ
 KL
-NK
+bR
 Cq
 Cq
 Cq
@@ -40941,7 +41998,7 @@ hw
 Yg
 cf
 LP
-Bp
+jB
 cf
 Bi
 Bi
@@ -41198,7 +42255,7 @@ OO
 Yg
 cf
 lP
-lP
+HU
 cf
 Cq
 Cq
@@ -41435,9 +42492,9 @@ Cq
 Cq
 Cq
 Cq
-mT
-St
-jj
+ye
+Ir
+DD
 mT
 mT
 Cq
@@ -41692,10 +42749,10 @@ Cq
 Cq
 Cq
 Cq
-mT
+sU
 fs
 Zy
-fs
+Pa
 mT
 Cq
 Cq
@@ -41946,10 +43003,10 @@ Cq
 Cq
 Cq
 Vb
-mT
-mT
-mT
-mT
+CZ
+CZ
+CZ
+pE
 hB
 Sd
 gj
@@ -42460,7 +43517,7 @@ Cq
 Cq
 Cq
 hr
-mT
+JB
 Zv
 Gy
 Pw
@@ -42704,26 +43761,26 @@ ml
 fC
 lR
 vk
-cc
+Dj
 tD
-Hi
+Rt
 Us
 Cb
 ff
 Lz
-eM
+Yc
 SZ
 Cq
 Cq
 Cq
 hr
-mT
+ap
 wj
+jb
+We
 JG
 JG
-JG
-JG
-JG
+uX
 ll
 LK
 Pf
@@ -42959,7 +44016,7 @@ SZ
 SZ
 jM
 Qb
-Lt
+no
 rC
 rC
 tT
@@ -42968,16 +44025,16 @@ Bh
 rG
 ff
 yw
-Yc
+eM
 SZ
 Cq
 Cq
 Cq
 hr
-mT
+tN
 ZV
 kq
-pU
+Ys
 pU
 pU
 pU
@@ -43236,9 +44293,9 @@ vb
 hH
 Bt
 Vo
-Bt
+AB
 Vo
-Bt
+AB
 Vo
 mT
 nQ
@@ -43488,10 +44545,10 @@ Cq
 Cq
 Cq
 ZE
-mT
-mT
-mT
-mT
+tv
+gT
+gT
+dh
 mT
 mT
 mT
@@ -44242,17 +45299,17 @@ Cq
 Cq
 Cq
 Cq
-tv
+Qy
 UG
 UG
 UG
 UG
-tv
+Qy
 UG
 UG
 UG
 UG
-tv
+Qy
 UG
 Cq
 Cq

@@ -37,6 +37,21 @@
 	sizeclass = "Laksamana-class hauler"
 	shiptype = "Remote hauling operations, long-term crew habitation"
 
+	initial_restricted_waypoints = list(
+		"Shuttle Port" = list("nav_hangar_splf")
+	)
+
+	initial_generic_waypoints = list(
+		"splf_raider_nav1",
+		"splf_raider_nav2",
+		"splf_raider_nav3",
+		"splf_raider_nav4",
+		"splf_raider_starboard_dock",
+		"splf_raider_port_dock",
+		"splf_raider_aft_dock",
+		"splf_raider_fore_dock"
+	)
+
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/splf_raider/New()

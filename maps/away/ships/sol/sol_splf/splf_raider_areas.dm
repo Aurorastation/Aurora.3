@@ -71,12 +71,7 @@
 /area/splf_raider/propulsion
 	name = "Independent Hauler - Propellant Management"
 
-// Shuttle area.
+// Shuttle area
 /area/shuttle/splf
 	name = "SPLF Shuttle"
 	requires_power = TRUE
-
-
-
-
-

@@ -28,4 +28,4 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/splf_crewman/get_id_access()
-	return list(ACCESS_SPLF)
+	return list(ACCESS_SPLF, ACCESS_EXTERNAL_AIRLOCKS)
