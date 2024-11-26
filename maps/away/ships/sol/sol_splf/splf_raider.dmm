@@ -3388,16 +3388,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
-"zh" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/machinery/alarm/west,
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "zo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle{
@@ -5298,6 +5288,16 @@
 /obj/structure/platform,
 /turf/simulated/floor/tiled/gunmetal,
 /area/splf_raider/gunnery)
+"MY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "Nb" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light/colored/decayed{
@@ -39669,7 +39669,7 @@ Jz
 Jz
 eA
 Af
-zh
+MY
 Jz
 Jz
 Jz
