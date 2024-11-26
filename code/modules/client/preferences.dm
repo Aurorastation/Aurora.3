@@ -93,16 +93,28 @@ var/list/preferences_datums = list()
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 
-		//Some faction information.
-	var/home_system = "Unset"           //System of birth.
-	var/citizenship = "None"            //Current home system.
-	var/faction = "None"                //Antag faction/general associated faction.
-	var/religion = "None"               //Religious association.
-	var/accent = "None"               //Character accent.
+	/// Character citizenship.
+	var/citizenship = "None"
+	/// Antag faction/general associated faction.
+	var/faction = "None"
+	/// Religious association.
+	var/religion = "None"
+	/// Character accent.
+	var/accent = "None"
 
+	/// The character's culture singleton.
 	var/culture
+	/// The character's origin singleton.
 	var/origin
+	/// The character's education singleton.
+	var/education
 
+	/// The character's skills list. JSON.
+	var/list/skills = list()
+	/// The character's current spent skill points. Assoc list of SKILL_CATEGORY define to number of remaining skill points.
+	var/list/skill_points_remaining
+
+	/// The character's psionics. JSON.
 	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
@@ -473,7 +485,6 @@ var/list/preferences_datums = list()
 	character.set_culture(GET_SINGLETON(text2path(culture)))
 	character.set_origin(GET_SINGLETON(text2path(origin)))
 
-
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
@@ -513,6 +524,8 @@ var/list/preferences_datums = list()
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
 				P.apply(character)
+
+	character.skills.set_skills_from_pref(src)
 
 	if(icon_updates)
 		character.force_update_limbs()
@@ -648,7 +661,6 @@ var/list/preferences_datums = list()
 		b_eyes = 0
 
 		species = SPECIES_HUMAN
-		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
