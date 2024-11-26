@@ -813,6 +813,9 @@ var/list/ai_verbs_default = list(
 	var/list/remote_mech = SSvirtualreality.mech_selection(src, REMOTE_AI_MECH, TRUE)
 	var/list/remote = flatten_list(list(remote_shell, remote_mech))
 
+	if(!length(remote))
+		to_chat(usr, SPAN_WARNING("No active remote units are available."))
+		return
 	var/choice = tgui_input_list(usr, "Please select what to take over.", "Remote Control Selection", remote)
 	if(!choice)
 		return
