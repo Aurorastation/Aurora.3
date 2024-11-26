@@ -238,6 +238,8 @@
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
 		return
+	if(remote)
+		usr.body_return()
 	if(hatch_closed)
 		if(hatch_locked)
 			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))

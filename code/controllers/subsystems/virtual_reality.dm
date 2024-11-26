@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(virtualreality)
 	if(null_vr_mob)
 		target.vr_mob = null
 
-/datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network)
+/datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network, var/return_list)
 	var/list/mech = list()
 
 	for(var/mob/living/heavy_vehicle/R in mechs[network])
@@ -194,8 +194,12 @@ SUBSYSTEM_DEF(virtualreality)
 		mech[R.name] = R
 
 	if(!length(mech))
-		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
+		if(!return_list)
+			to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
+
+	if(return_list)
+		return mech
 
 	var/choice = tgui_input_list(usr, "Please select a remote control compatible mech to take over.", "Remote Mech Selection", mech)
 	if(!choice)
@@ -230,7 +234,7 @@ SUBSYSTEM_DEF(virtualreality)
 
 	mind_transfer(user, robot[choice])
 
-/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network)
+/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network, var/return_list)
 	var/list/bound = list()
 
 	for(var/mob/living/silicon/R in bounded[network])
@@ -246,8 +250,12 @@ SUBSYSTEM_DEF(virtualreality)
 		bound += R
 
 	if(!length(bound))
-		to_chat(user, SPAN_WARNING("No active remote units are available."))
+		if(!return_list)
+			to_chat(user, SPAN_WARNING("No active remote units are available."))
 		return
+
+	if(return_list)
+		return bound
 
 	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", bound)
 	if(!(choice in bound))

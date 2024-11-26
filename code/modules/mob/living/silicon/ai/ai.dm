@@ -21,7 +21,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
-	/mob/living/silicon/ai/proc/remote_control_shell,
+	/mob/living/silicon/ai/proc/remote_control,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
@@ -800,14 +800,30 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
-/mob/living/silicon/ai/proc/remote_control_shell()
-	set name = "Remote Control Shell"
+/mob/living/silicon/ai/proc/remote_control()
+	set name = "Remote Control"
 	set category = "AI Commands"
-	set desc = "Remotely control any active shells on your AI shell network."
+	set desc = "Remotely control any active shells or mechs on your AI remote network."
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
-	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
+
+	// Grab from relevant networks
+	var/list/remote_shell = SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT, TRUE)
+	var/list/remote_mech = SSvirtualreality.mech_selection(src, REMOTE_AI_MECH, TRUE)
+	var/list/remote = flatten_list(list(remote_shell, remote_mech))
+
+	var/choice = tgui_input_list(usr, "Please select what to take over.", "Remote Control Selection", remote)
+	if(!choice)
+		return
+
+	// Transfer
+	if(choice in remote_mech)
+		var/mob/living/heavy_vehicle/chosen_mech = remote_mech[choice]
+		var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
+		SSvirtualreality.mind_transfer(src, remote_pilot)
+	else
+		SSvirtualreality.mind_transfer(src, choice)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"
