@@ -67,6 +67,19 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/phoronsheets
+	category = "engineering"
+	name = "phoron crystals"
+	supplier = "hephaestus"
+	description = "A bunch of 50 phoron crystals. Highly valuable."
+	price = 2200
+	items = list(
+		/obj/item/stack/material/phoron/full
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
+
 /singleton/cargo_item/cardboardsheets
 	category = "engineering"
 	name = "cardboard sheets"
@@ -736,7 +749,7 @@
 	items = list(
 		/obj/machinery/power/supermatter
 	)
-	access = ACCESS_HEADS
+	access = ACCESS_CAPTAIN
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1

@@ -187,8 +187,22 @@
 	category = "recreation"
 	name = "water balloons (x10)"
 	supplier = "nanotrasen"
-	description = "Ten empty water balloons."
+	description = "Ten empty water balloons for water balloon fights."
 	price = 100
+	items = list(
+		/obj/item/toy/waterballoon
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 10
+
+/singleton/cargo_item/balloons
+	category = "recreation"
+	name = "balloons (x10)"
+	supplier = "nanotrasen"
+	description = "Ten empty regular balloons. Can be filled using a tank of air or other gas. Warranty void if filled with hydrogen."
+	price = 80
 	items = list(
 		/obj/item/toy/balloon
 	)
@@ -215,24 +229,10 @@
 	category = "recreation"
 	name = "replica katana"
 	supplier = "nanotrasen"
-	description = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
+	description = "A cheap plastic katana. Useful for pretending you're a samurai or for tabletop roleplaying sessions."
 	price = 200
 	items = list(
 		/obj/item/toy/katana
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/electronicblinktoygame
-	category = "recreation"
-	name = "electronic blink toy game"
-	supplier = "nanotrasen"
-	description = "Blink.  Blink.  Blink. Ages 8 and up."
-	price = 55
-	items = list(
-		/obj/item/toy/blink
 	)
 	access = 0
 	container_type = "crate"
@@ -271,7 +271,7 @@
 	category = "recreation"
 	name = "gravitational singularity toy"
 	supplier = "getmore"
-	description = "'Singulo' brand spinning toy."
+	description = "'Singulo' brand spinning toy. Certified mesmerizing since 2440."
 	price = 100
 	items = list(
 		/obj/item/toy/spinningtoy
@@ -285,8 +285,8 @@
 	category = "recreation"
 	name = "random plushies (x4)"
 	supplier = "nanotrasen"
-	description = "Four random plushies. Barely used."
-	price = 400
+	description = "Four random surplus plushies from a local toy store's clearance sale. People grow old, apparently."
+	price = 250
 	items = list(
 		/obj/random/plushie
 	)
@@ -327,7 +327,7 @@
 	category = "recreation"
 	name = "red laser tag equipment set"
 	supplier = "nanotrasen"
-	description = "A two-player set of red laser tag equipment consisting of helmet, armor and gun."
+	description = "A two-player set of red-team laser tag equipment consisting of a helmet, armor, and a gun."
 	price = 200
 	items = list(
 		/obj/item/clothing/head/helmet/riot/laser_tag,
@@ -343,7 +343,7 @@
 	category = "recreation"
 	name = "blue laser tag equipment set"
 	supplier = "nanotrasen"
-	description = "A two-player set of blue-team laser blue equipment consisting of helmet, armor and gun."
+	description = "A two-player set of blue-team laser blue equipment consisting of a helmet, armor, and a gun."
 	price = 200
 	items = list(
 		/obj/item/clothing/head/helmet/riot/laser_tag/blue,

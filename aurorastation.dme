@@ -1799,6 +1799,7 @@
 #include "code\modules\cargo\items\atmos.dm"
 #include "code\modules\cargo\items\cargo_items.dm"
 #include "code\modules\cargo\items\cartridges.dm"
+#include "code\modules\cargo\items\custodial.dm"
 #include "code\modules\cargo\items\engineering.dm"
 #include "code\modules\cargo\items\hospitality.dm"
 #include "code\modules\cargo\items\hydroponics.dm"

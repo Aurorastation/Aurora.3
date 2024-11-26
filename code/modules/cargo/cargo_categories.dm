@@ -92,6 +92,13 @@
 	icon = "utensils"
 	price_modifier = 1
 
+/singleton/cargo_category/custodial
+	name = "custodial"
+	display_name = "Custodial"
+	description = "Cleaning and maintenance supplies for janitors and the neat freaks."
+	icon = "soap"
+	price_modifier = 1
+
 /singleton/cargo_category/hydroponics
 	name = "hydroponics"
 	display_name = "Hydroponics"
@@ -110,14 +117,14 @@
 	name = "medical"
 	display_name = "Medical"
 	description = "Medicine, chemicals, and supplies for the Medical department."
-	icon = "heart"
+	icon = "suitcase-medical"
 	price_modifier = 1
 
 /singleton/cargo_category/cartridges
 	name = "cartridges"
 	display_name = "Cartridges"
 	description = "Chemical cartridges for reagent dispensers."
-	icon = "flask"
+	icon = "prescription-bottle"
 	price_modifier = 1
 
 /singleton/cargo_category/science

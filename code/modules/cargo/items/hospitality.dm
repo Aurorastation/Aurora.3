@@ -152,6 +152,34 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/producebox
+	category = "hospitality"
+	name = "produce box"
+	supplier = "nanotrasen"
+	description = "A large box of random, leftover produce."
+	price = 50
+	items = list(
+		/obj/item/storage/box/produce
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/spacespices
+	category = "hospitality"
+	name = "space spices"
+	supplier = "getmore"
+	description = "An exotic blend of spices for cooking. It must flow."
+	price = 60
+	items = list(
+		/obj/item/reagent_containers/food/condiment/shaker/spacespice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/peppermill
 	category = "hospitality"
 	name = "pepper mill"

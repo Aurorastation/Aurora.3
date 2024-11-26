@@ -126,14 +126,14 @@
 /singleton/cargo_item/protohuman
 	category = "science"
 	name = "Proto-Human"
-	supplier = "zavodskoi"
+	supplier = "zeng_hu"
 	description = "A human body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2000
+	price = 2300
 	items = list(
 		/mob/living/carbon/human
 	)
 	access = ACCESS_RESEARCH
-	container_type = "box"
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -142,12 +142,12 @@
 	name = "Proto-Skrell"
 	supplier = "zeng_hu"
 	description = "A Skrell body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2000
+	price = 4000
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
 	access = ACCESS_RESEARCH
-	container_type = "box"
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -156,26 +156,26 @@
 	name = "Proto-Tajara"
 	supplier = "zeng_hu"
 	description = "A Tajara body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
-	price = 2000
+	price = 1800
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
 	access = ACCESS_RESEARCH
-	container_type = "box"
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
 /singleton/cargo_item/proto_unathi
 	category = "science"
 	name = "Proto-Unathi"
-	supplier = "zavodskoi"
+	supplier = "zeng_hu"
 	description = "An Unathi body, vat-grown and artificially raised without a functional brain. The everyman's relatively-ethical solution to organ harvesting."
 	price = 2000
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
 	access = ACCESS_RESEARCH
-	container_type = "box"
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -189,7 +189,7 @@
 		/mob/living/carbon/human/type_a/cargo
 	)
 	access = ACCESS_RESEARCH
-	container_type = "box"
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 

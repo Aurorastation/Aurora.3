@@ -12,20 +12,6 @@
 	groupable = TRUE
 	spawn_amount = 5
 
-/singleton/cargo_item/replacementlights_box
-	category = "supply"
-	name = "box of replacement lights"
-	supplier = "blam"
-	description = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	price = 100
-	items = list(
-		/obj/item/storage/box/lights/mixed
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/bucket
 	category = "supply"
 	name = "bucket"
@@ -48,20 +34,6 @@
 	price = 45
 	items = list(
 		/obj/structure/filingcabinet/chestdrawer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/cleanergrenade
-	category = "supply"
-	name = "cleaner grenade"
-	supplier = "blam"
-	description = "BLAM!-brand foaming space cleaner. In a special applicator for rapid cleaning of wide areas."
-	price = 225
-	items = list(
-		/obj/item/grenade/chem_grenade/cleaner
 	)
 	access = 0
 	container_type = "crate"
@@ -166,48 +138,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/lightreplacer
-	category = "supply"
-	name = "light replacer"
-	supplier = "blam"
-	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
-	price = 135
-	items = list(
-		/obj/item/device/lightreplacer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/mop
-	category = "supply"
-	name = "mop"
-	supplier = "blam"
-	description = "The world of janitalia wouldn't be complete without a mop."
-	price = 8
-	items = list(
-		/obj/item/mop
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/mopbucket
-	category = "supply"
-	name = "mop bucket"
-	supplier = "blam"
-	description = "Fits onto a standard janitorial cart. Fill it with water, but don't forget a mop!"
-	price = 40
-	items = list(
-		/obj/structure/mopbucket
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/paperbin
 	category = "supply"
 	name = "paper bin"
@@ -226,7 +156,7 @@
 	category = "supply"
 	name = "pen"
 	supplier = "nanotrasen"
-	description = "It's a normal black ink ballpen."
+	description = "A normal black ink ballpen."
 	price = 8
 	items = list(
 		/obj/item/pen
@@ -240,7 +170,7 @@
 	category = "supply"
 	name = "blue pen"
 	supplier = "nanotrasen"
-	description = "It's a normal blue ink ballpen."
+	description = "A normal blue ink ballpen."
 	price = 8
 	items = list(
 		/obj/item/pen/blue
@@ -252,9 +182,9 @@
 
 /singleton/cargo_item/penred
 	category = "supply"
-	name = "pen red"
+	name = "red pen"
 	supplier = "nanotrasen"
-	description = "It's a normal red ink ballpen."
+	description = "A normal red ink ballpen."
 	price = 8
 	items = list(
 		/obj/item/pen/red
@@ -264,59 +194,31 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/penfountain
+/singleton/cargo_item/pen_multi
 	category = "supply"
-	name = "pen red"
+	name = "multicolor pen"
+	supplier = "nanotrasen"
+	description = "A fancy pen that has several nibs in different colors that you can slide up and down."
+	price = 20
+	items = list(
+		/obj/item/pen/multi
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pen_fountain
+	category = "supply"
+	name = "fountain pen"
 	supplier = "nanotrasen"
 	description = "It's an expensive fountain pen."
-	price = 15
+	price = 30
 	items = list(
 		/obj/item/pen/fountain
 	)
 	access = 0
 	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/producebox
-	category = "supply"
-	name = "produce box"
-	supplier = "nanotrasen"
-	description = "A large box of random, leftover produce."
-	price = 50
-	items = list(
-		/obj/item/storage/box/produce
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/spacecleaner
-	category = "supply"
-	name = "space cleaner"
-	supplier = "blam"
-	description = "BLAM!-brand non-foaming space cleaner!"
-	price = 297
-	items = list(
-		/obj/item/reagent_containers/spray/cleaner
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/spacespices
-	category = "supply"
-	name = "space spices"
-	supplier = "getmore"
-	description = "An exotic blend of spices for cooking. It must flow."
-	price = 60
-	items = list(
-		/obj/item/reagent_containers/food/condiment/shaker/spacespice
-	)
-	access = 0
-	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -336,7 +238,7 @@
 
 /singleton/cargo_item/tonercartridge
 	category = "supply"
-	name = "toner cartridge"
+	name = "toner cartridge (x2)"
 	supplier = "nanotrasen"
 	description = "Toner is the back bone of any space based litigation."
 	price = 135
@@ -348,30 +250,32 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/trashbag
+/singleton/cargo_item/potted_plant_small
 	category = "supply"
-	name = "trash bag"
-	supplier = "blam"
-	description = "It's the heavy-duty black polymer kind. Time to take out the trash!"
-	price = 20
+	name = "small potted plant"
+	supplier = "nanotrasen"
+	description = "A random small potted plant, for when you want to add some greenery to your desk."
+	price = 100
 	items = list(
-		/obj/item/storage/bag/trash
+		/obj/random/pottedplant_small
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/wetfloorsign
+/singleton/cargo_item/potted_plant
 	category = "supply"
-	name = "wet floor sign"
-	supplier = "blam"
-	description = "Caution! Wet Floor!"
-	price = 15
+	name = "large potted plant"
+	supplier = "nanotrasen"
+	description = "A random large potted plant, for when you want to add some greenery to your office space."
+	price = 300
 	items = list(
-		/obj/item/clothing/suit/caution
+		/obj/random/pottedplant
 	)
 	access = 0
-	container_type = "crate"
-	groupable = TRUE
+	container_type = "box"
+	groupable = FALSE
 	spawn_amount = 1
+
+
