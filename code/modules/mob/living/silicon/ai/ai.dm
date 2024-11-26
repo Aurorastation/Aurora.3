@@ -803,7 +803,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/remote_control()
 	set name = "Remote Control"
 	set category = "AI Commands"
-	set desc = "Remotely control any active shells or mechs on your AI remote network."
+	set desc = "Remotely control any active shells or mechs on your AI network."
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
