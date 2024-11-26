@@ -1005,13 +1005,13 @@
 
 /obj/item/clothing/head/helmet/space/void/sol/splf
 	name = "solarian people's liberation fleet voidsuit helmet"
-	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstitant insurgents to others."
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstinate insurgents to others."
 	icon_state = "splf_helmet"
 	item_state = "splf_helmet"
 
 /obj/item/clothing/suit/space/void/sol/splf
 	name = "solarian people's liberation fleet voidsuit"
-	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstitant insurgents to others."
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been sprayed a dull grey, marking it as in the possession of the Solarian People's Liberation Fleet. Freedom fighters to some, obstinate insurgents to others."
 	icon_state = "splf_suit"
 	item_state = "splf_suit"
 
