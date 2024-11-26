@@ -1,3 +1,8 @@
+// CAMERA CHUNK
+//
+// A 16x16 grid of the map with a list of turfs that can be seen, are visible and are dimmed.
+// Allows the Eye to stream these chunks and know what it can and cannot see.
+
 #define UPDATE_BUFFER 25 // 2.5 seconds
 
 // CHUNK
@@ -109,13 +114,13 @@
 
 // Visualnet adds and removes eyes.
 
-/datum/chunk/proc/add_eye(mob/abstract/eye/eye)
+/datum/chunk/proc/add_eye(mob/abstract/eye/freelook/eye)
 	seenby += eye
 	eye.visibleChunks += src
 	if(eye.owner && eye.owner.client)
 		eye.owner.client.images += obscured
 
-/datum/chunk/proc/remove_eye(mob/abstract/eye/eye)
+/datum/chunk/proc/remove_eye(mob/abstract/eye/freelook/eye)
 	seenby -= eye
 	eye.visibleChunks -= src
 	if(eye.owner && eye.owner.client)

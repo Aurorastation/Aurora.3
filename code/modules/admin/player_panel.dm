@@ -43,7 +43,7 @@
 
 			var/mob/M = locate(params["jump_to"])
 
-			if(!isobserver(usr))
+			if(!isghost(usr))
 				C.admin_ghost()
 			sleep(2)
 			C.jumptomob(M)
@@ -264,4 +264,6 @@
 		return "Monkey"
 	if(isalien(M))
 		return "Alien"
+	if(isstoryteller(M))
+		return "Storyteller"
 	return "Unknown"

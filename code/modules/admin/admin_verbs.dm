@@ -51,6 +51,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -136,7 +137,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -392,6 +394,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
@@ -424,6 +427,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/dsay,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
 	/datum/admins/proc/paralyze_mob,
@@ -492,6 +496,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
 )
 
@@ -513,8 +518,8 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
+		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
 		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
 		if(holder.rights & R_CCIAA)			add_verb(src, admin_verbs_cciaa)
@@ -572,9 +577,9 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	set name = "Aghost"
 	if(!holder)	return
-	if(istype(mob,/mob/abstract/observer))
+	if(isobserver(mob))
 		//re-enter
-		var/mob/abstract/observer/ghost = mob
+		var/mob/abstract/ghost/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.")
@@ -589,7 +594,7 @@ var/list/admin_verbs_cciaa = list(
 	else
 		//ghostize
 		var/mob/body = mob
-		var/mob/abstract/observer/ghost = body.ghostize(1)
+		var/mob/abstract/ghost/observer/ghost = body.ghostize(1)
 		ghost.admin_ghosted = 1
 		if(body)
 			body.teleop = ghost
@@ -630,6 +635,13 @@ var/list/admin_verbs_cciaa = list(
 		global_check_antags.ui_interact(usr)
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
+
+/client/proc/odyssey_panel()
+	set name = "View Odyssey Panel"
+	set category = "Admin"
+
+	SSodyssey.ui_interact(mob)
+	feedback_add_details("admin_verb","ODP")
 
 /client/proc/jobbans()
 	set name = "Display Job bans"
@@ -704,9 +716,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = mob.loc
-	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
+	var/turf/epicenter = get_turf(mob)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if(null)
 			return 0

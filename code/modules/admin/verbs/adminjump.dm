@@ -1,7 +1,7 @@
 /mob/proc/on_mob_jump()
 	return
 
-/mob/abstract/observer/on_mob_jump()
+/mob/abstract/ghost/on_mob_jump()
 	QDEL_NULL(orbiting)
 
 /client/proc/Jump(var/area/A in GLOB.all_areas)

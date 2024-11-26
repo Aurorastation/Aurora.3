@@ -181,10 +181,10 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/user)
 	if(enabled)
 		ui_interact(user)
-	else if(check_rights(R_ADMIN, 0, user))
+	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)

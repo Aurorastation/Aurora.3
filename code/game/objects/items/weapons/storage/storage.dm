@@ -199,7 +199,7 @@
 
 /obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(isobserver(user))
+	if(isghost(user))
 		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
