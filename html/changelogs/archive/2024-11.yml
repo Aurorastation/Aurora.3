@@ -181,3 +181,33 @@
   Ben10083:
   - bugfix: Adds Machinist access to Research borgs.
   - qol: Research borgs can now hold slime scanners.
+2024-11-27:
+  Ben10083:
+  - qol: Holopads added to Xenobiology, Xenobotany, and Research Director's Office.
+  GeneralCamo:
+  - balance: Removed the Chief Medical Officer, Chief Engineer, and Research Director
+      from the list of armory roles.
+  MattAtlas, DreamySkrell:
+  - experiment: Added the Odyssey gamemode. This gamemode essentially revolves around
+      the Horizon visiting an away site, a planet, or an otherwise fulfilling important
+      mission.
+  - experiment: Added Storytellers to go along with the Odyssey gamemode. They are
+      essentially the gamemasters for the gamemode - they have quite a few admin tools
+      and can run the round as they wish. The only thing they cannot modify is the
+      canonicity of the round. To join as one during an Odyssey round, simply spawn
+      in from the Ghost Spawner menu. You must have a head of staff whitelist.
+  - experiment: Added Cryo Outpost Odyssey scenario.
+  - experiment: Added Ruined Propellant Depot Odyssey scenario.
+  - bugfix: Fixed planetary blueprints.
+  - refactor: Storytellers and Observers are now subtypes of the same mob type - the
+      ghost.
+  - admin: Changed how the Set Outfit verb works completely.
+  - rscadd: Added the Portable Map Reader item. Shows a map of the zlevel, with 'points
+      of interest' if any are mapped in.
+  OolongCow:
+  - rscadd: First aid wall lockers now consistently contain a basic first aid kit.
+  - rscadd: Several out-of-the-way or dangerous locations have received basic (white)
+      first aid kits.
+  hazelmouse:
+  - rscadd: Touches up a few exoplanet ruins to bring them up to standard, and entirely
+      remaps the Abandoned Listening Post ruin.
