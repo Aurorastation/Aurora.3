@@ -1,5 +1,5 @@
 /obj/item/clothing/head/diona/ekane
-	name = "ekane cap"
+	name = "feather cap"
 	desc = "a simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
 	icon = 'icons/obj/diona_items.dmi'
 	item_state = "ekanehat"
@@ -7,7 +7,7 @@
 	contained_sprite = FALSE
 
 /obj/item/clothing/head/diona/ekane/decorated
-	name = "decorated ekane cap"
+	name = "decorated feather cap"
 	desc = "an exuberant hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
 	item_state = "ekane_hat"
 	icon_state = "ekane_hat"
