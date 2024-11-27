@@ -11,15 +11,6 @@
 ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/suit/diona/eternal
-	display_name = "eternal ceremonial robes"
-	description = "A set of ceremonial robes used by various branches of the eternal faith."
-	path = /obj/item/clothing/suit/diona/eternal
-	cost = 1
-	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	sort_category = "Xenowear - Diona"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-
-/datum/gear/suit/diona/eternal
 	display_name = "mesh weave robes"
 	description = "A set of mesh weave robes worn almost exclusively by priests of the Orthodox Eternal faith."
 	path = /obj/item/clothing/suit/diona/eternal
@@ -27,6 +18,15 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
+
+/datum/gear/suit/diona/eternal/refined
+	display_name = "eternal ceremonial robes"
+	description = "A set of ceremonial robes used by various branches of the eternal faith."
+	path = /obj/item/clothing/suit/diona/eternal/refined
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/diona/eternal/iron
 	display_name = "grey mesh weave robes"
