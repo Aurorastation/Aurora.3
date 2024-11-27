@@ -63,7 +63,7 @@
 	if(href_list["setarea"])
 		if(!call_area_names)
 			call_area_names = list()
-			for(var/area/A as anything in GLOB.all_areas)
+			for(var/area/A as anything in get_sorted_areas())
 				if(A.station_area)
 					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.

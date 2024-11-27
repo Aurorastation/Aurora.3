@@ -89,7 +89,7 @@
 		GLOB.map_templates["[z_index]"] = src
 
 	smooth_zlevel(world.maxz)
-	resort_all_areas()
+	require_area_resort()
 
 	post_exoplanet_generation(bounds)
 

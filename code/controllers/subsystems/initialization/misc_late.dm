@@ -43,8 +43,3 @@ SUBSYSTEM_DEF(misc_late)
 		GLOB.outfit_cache[new_outfit.name] = new_outfit
 
 	return SS_INIT_SUCCESS
-
-/proc/sorted_add_area(area/A)
-	GLOB.all_areas += A
-
-	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))
