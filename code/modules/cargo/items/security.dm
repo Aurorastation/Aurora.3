@@ -189,7 +189,7 @@
 	name = "armored vest"
 	supplier = "zavodskoi"
 	description = "An armored vest that protects against some damage."
-	price = 250
+	price = 350
 	items = list(
 		/obj/item/clothing/suit/armor/vest
 	)
@@ -203,7 +203,7 @@
 	name = "standard helmet"
 	supplier = "zavodskoi"
 	description = "An armored helmet, for keeping that head of yours intact."
-	price = 380
+	price = 280
 	items = list(
 		/obj/item/clothing/head/helmet
 	)
@@ -217,7 +217,7 @@
 	name = "standard plate carrier"
 	supplier = "zavodskoi"
 	description = "A plate carrier with basic accessories and an armor plate."
-	price = 1100
+	price = 800
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
@@ -231,7 +231,7 @@
 	name = "ablative helmet"
 	supplier = "zavodskoi"
 	description = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	price = 550
+	price = 320
 	items = list(
 		/obj/item/clothing/head/helmet/ablative
 	)
@@ -245,7 +245,7 @@
 	name = "plate carrier - ablative"
 	supplier = "zavodskoi"
 	description = "A plate carrier equipped with ablative armor plates."
-	price = 1550
+	price = 875
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ablative
 	)
@@ -259,7 +259,7 @@
 	name = "ballistic helmet"
 	supplier = "zavodskoi"
 	description = "A helmet with reinforced plating to protect against ballistic projectiles."
-	price = 550
+	price = 360
 	items = list(
 		/obj/item/clothing/head/helmet/ballistic
 	)
@@ -273,7 +273,7 @@
 	name = "plate carrier - ballistic"
 	supplier = "zavodskoi"
 	description = "A plate carrier equipped with ballistic armor plates."
-	price = 1450
+	price = 850
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ballistic
 	)
