@@ -32,9 +32,13 @@
 	desc = "A set of ceremonial robes used by various branches of the eternal faith."
 	icon_state = "eternal_robes"
 	item_state = "eternal_robes"
+	build_from_parts = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/suit/diona/narrows
 	name = "antiquated hephaestus prison jacket"
 	desc = "An old prison jacket, showing some age, but with some care shown towards restoring it, featuring several pieces of colorful fabric patched into it."
 	icon_state = "narrows_vest"
 	item_state = "narrows_vest"
+	build_from_parts = TRUE
+	has_accents = TRUE
