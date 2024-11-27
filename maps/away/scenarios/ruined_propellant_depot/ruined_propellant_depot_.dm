@@ -6,8 +6,8 @@
 	prefix = "scenarios/ruined_propellant_depot/"
 	suffix = "ruined_propellant_depot.dmm"
 
-	spawn_cost = 0 // so it does not spawn as ordinary away site
-	spawn_weight = 1
+	spawn_cost = 1
+	spawn_weight = 0 // so it does not spawn as ordinary away site
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
 
