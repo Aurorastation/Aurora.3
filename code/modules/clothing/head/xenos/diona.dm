@@ -15,6 +15,8 @@
 /obj/item/clothing/head/diona/voidtamer
 	name = "carp hood"
 	desc = "a hood made of aged and tanned carp hide, decorated with gold, pointed structures across all sides."
+	icon = 'icons/obj/diona_items.dmi'
+	contained_sprite = TRUE
 	item_state = "void_hood"
 	icon_state = "void_hood"
 
