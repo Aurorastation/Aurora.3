@@ -1,8 +1,25 @@
-/obj/item/clothing/head/diona/rokz
-	name = "bone helmet"
-	desc = "A large helmet made out of the skull of some kind of large creature."
+/obj/item/clothing/head/diona/ekane
+	name = "ekane cap"
+	desc = "a simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
 	icon = 'icons/obj/diona_items.dmi'
-	item_state = "rokz_helm"
-	icon_state = "rokz_helm"
+	item_state = "ekanehat"
+	icon_state = "ekanehat"
 	contained_sprite = FALSE
-	species_restricted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+
+/obj/item/clothing/head/diona/ekane/decorated
+	name = "decorated ekane cap"
+	desc = "an exuberant hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
+	item_state = "ekane_hat"
+	icon_state = "ekane_hat"
+
+/obj/item/clothing/head/diona/voidtamer
+	name = "carp hood"
+	desc = "a hood made of aged and tanned carp hide, decorated with gold, pointed structures across all sides."
+	item_state = "void_hood"
+	icon_state = "void_hood"
+
+/obj/item/clothing/head/diona/voidtamer/open
+	name = "open carp hood"
+	desc = "a hood made of aged and tanned carp hide, decorated with gold, pointed structures across all sides. This one has an open visor, showing the wearer's face."
+	item_state = "void_hood_open"
+	icon_state = "void_hood_open"
