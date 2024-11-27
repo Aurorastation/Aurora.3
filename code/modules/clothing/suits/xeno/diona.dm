@@ -42,3 +42,9 @@
 	item_state = "narrows_vest"
 	build_from_parts = TRUE
 	has_accents = TRUE
+
+/obj/item/clothing/suit/diona/ekane
+	name = "feathered jacket"
+	desc = "A blue set of clothing mimicking a jacket, adorned with feathers along the jacket's collar, sleeves, and chest."
+	icon_state = "ekanejacket"
+	item_state = "ekanejacket"
