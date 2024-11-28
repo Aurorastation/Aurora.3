@@ -211,3 +211,13 @@
   hazelmouse:
   - rscadd: Touches up a few exoplanet ruins to bring them up to standard, and entirely
       remaps the Abandoned Listening Post ruin.
+2024-11-28:
+  CometBlaze:
+  - rscadd: Added a new sprite for sharps disposal boxes.
+  FluffyGhost:
+  - refactor: Refactored sorting.
+  - server: Added test to verify all horizon areas (outside exceptions) are marked
+      as station areas.
+  - server: Added test to verify shuttle areas are not marked as station areas.
+  - refactor: Refactored how the area sorting var is made and used.
+  - refactor: Added a global list of all areas.
