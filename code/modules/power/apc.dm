@@ -875,7 +875,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/ui_data(mob/user)
 	var/list/data = list()
-	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
+	var/isAdmin = (isobserver(user) && check_rights(R_ADMIN, FALSE, user)) || isstoryteller(user)
 	data["locked"] = (locked && !emagged)
 	data["power_cell_inserted"] = cell != null
 	data["power_cell_charge"] = cell?.percent()
@@ -902,7 +902,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Apc", "[area.name] - APC", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user)) ? 540 : 480)
+		ui = new(user, src, "Apc", "[area.name] - APC", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user) || isstoryteller(user)) ? 540 : 480)
 		ui.open()
 
 /obj/machinery/power/apc/proc/update()
@@ -923,11 +923,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!operable())
 		return FALSE
 	var/use_flags = issilicon(user) && USE_ALLOW_NON_ADJACENT // AIs and borgs can use it at range
-	use_flags |= (check_rights(R_ADMIN, FALSE, user) && USE_ALLOW_NONLIVING) // admins can use the UI when ghosting
-	if(use_check(user, use_flags, show_messages = TRUE))
-		return FALSE
+	if(isstoryteller(user))
+		return TRUE
 	if(isobserver(user))
 		return check_rights(R_ADMIN, FALSE, user)
+	if(use_check(user, use_flags, show_messages = TRUE))
+		return FALSE
 	if(!user.client)
 		return FALSE
 	if(user.restrained())
@@ -970,7 +971,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!can_use(usr, 1))
 		return
 
-	var/isAdmin = isobserver(usr) && check_rights(R_ADMIN, FALSE)
+	var/isAdmin = (isobserver(usr) && check_rights(R_ADMIN, FALSE)) || isstoryteller(usr)
 	switch(action)
 		if("lmode")
 			toggle_nightlight(params["lmode"])

@@ -256,7 +256,7 @@
 	for(var/mob/player in GLOB.player_list)
 		if(player == speaker)
 			to_chat(player, msg)
-		else if(isobserver(player))
+		else if(isghost(player))
 			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)

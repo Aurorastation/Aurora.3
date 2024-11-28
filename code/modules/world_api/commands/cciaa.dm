@@ -163,8 +163,8 @@
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		to_world(SPAN_ALERT("New NanoTrasen Update available at all communication consoles."))
-		sound_to(world, ('sound/AI/commandreport.ogg'))
+		to_world(SPAN_ALERT("New [SSatlas.current_map.boss_name] Update available at all communication consoles."))
+		sound_to_playing_players('sound/AI/commandreport.ogg')
 
 
 	log_admin("[senderkey] has created a command report via the api: [reportbody]")

@@ -5,7 +5,7 @@
 	name = "Engineering"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/engineering/atmos

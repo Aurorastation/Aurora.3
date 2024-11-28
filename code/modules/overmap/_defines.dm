@@ -1,7 +1,15 @@
 //How far from the edge of overmap zlevel could randomly placed objects spawn
 #define OVERMAP_EDGE 2
-//Dimension of overmap (squares 4 lyfe)
+
+/// All sector overmap objects.
+/// Assoc list of stringified zlevel integer value (like `"1"` or `"42"` etc)
+/// to an instance of `/obj/effect/overmap/visitable`.
 GLOBAL_LIST_EMPTY(map_sectors)
+
+/// All sector map templates. Analogous to the list above.
+/// Assoc list of stringified zlevel integer value
+/// to an instance of `/datum/map_template`.
+GLOBAL_LIST_EMPTY(map_templates)
 
 /area/overmap/
 	name = "System Map"

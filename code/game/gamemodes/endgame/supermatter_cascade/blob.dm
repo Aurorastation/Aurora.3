@@ -73,7 +73,7 @@
 	return
 
 // /vg/: Don't let ghosts fuck with this.
-/turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_ghost(mob/user)
 	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
@@ -118,7 +118,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/abstract/observer))
+	if(isobserver(user))
 		return
 
 	qdel(user)

@@ -90,7 +90,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
