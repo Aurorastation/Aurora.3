@@ -20,3 +20,7 @@
 	desc = "A blue, seeming high-quality dress with a colorful strap of fabric running along it, typically seen by Dionae hailing from the Hieroaetherian Ekane."
 	icon_state = "ekane_under_white"
 	item_state = "ekane_under_white"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
