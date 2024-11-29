@@ -310,7 +310,10 @@
 	if(QDELETED(thrower))
 		thrower = null //Let's not pass a qdeleting reference if any.
 	else
-		target_zone = thrower.zone_sel
+		if(ismob(thrower))
+			target_zone = thrower.zone_sel
+		else // non mobs that throw items (like Vending Machines) default to chest
+			target_zone = BP_CHEST
 
 	var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
 
