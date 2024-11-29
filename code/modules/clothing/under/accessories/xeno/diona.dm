@@ -34,7 +34,7 @@
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "void_jacket"
 	item_state = "void_jacket"
-	icon_override = null
+	icon_override = 'icons/obj/diona_items.dmi'
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 
@@ -57,7 +57,7 @@
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "ekane_cloak"
 	item_state = "ekane_cloak"
-	icon_override = null
+	icon_override = 'icons/obj/diona_items.dmi'
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	has_accents = TRUE
