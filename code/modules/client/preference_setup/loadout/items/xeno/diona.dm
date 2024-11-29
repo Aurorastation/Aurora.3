@@ -56,7 +56,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
 
 /datum/gear/suit/narrows
-	display_name = "antiquated hephaestus prison suit""
+	display_name = "antiquated hephaestus prison suit"
 	description = "An old prison uniform decorated with colorful cloth dictating one's position within the narrows."
 	path = /obj/item/clothing/suit/diona/narrows
 	cost = 1
