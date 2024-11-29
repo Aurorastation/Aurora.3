@@ -4,7 +4,7 @@
 	icon = 'icons/obj/diona_items.dmi'
 	item_state = "ekanehat"
 	icon_state = "ekanehat"
-	contained_sprite = FALSE
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/diona/ekane/decorated
 	name = "decorated feather cap"
