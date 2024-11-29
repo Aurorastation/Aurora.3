@@ -125,7 +125,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/ekane_cloak
-	display_name = "ekane feathered jacket"
+	display_name = "ekane feathered cloak"
 	description = "A colorful cloak featuring a myriad of feathers adorned across its surface. While not exclusive, the cloak is typically worn by Ekane Dionae in more higher-end & skilled positions."
 	path = /obj/item/clothing/accessory/poncho/ekane_cloak
 	cost = 1
