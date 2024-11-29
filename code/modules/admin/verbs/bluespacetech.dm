@@ -24,7 +24,8 @@
 		to_chat(src, "You've used this verb too recently, please wait a moment before trying again.")
 		return
 
-	if(!check_rights(R_DEV|R_ADMIN))	return
+	if(!check_rights(R_DEV|R_ADMIN))
+		return
 
 	if(!holder)
 		return //how did they get here?
@@ -35,15 +36,13 @@
 
 	bst_cooldown = TRUE
 
-	if(istype(mob, /mob/living))
-		if(!holder.original_mob)
-			holder.original_mob = mob
-
 	//I couldn't get the normal way to work so this works.
 	//This whole section looks like a hack, I don't like it.
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
-//	bst.original_mob = usr
+	if(istype(mob, /mob/living))
+		bst.original_mob = mob
+
 	bst.anchored = 1
 	bst.ckey = usr.ckey
 	bst.name = "Bluespace Technician"
@@ -138,6 +137,13 @@
 	universal_understand = 1
 	status_flags = GODMODE|NOFALL
 
+	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
+	var/mob/original_mob
+
+/mob/living/carbon/human/bst/Destroy(force)
+	original_mob = null
+	return ..()
+
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
 	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
 	user.drop_item()
@@ -168,11 +174,11 @@
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
-		if(client.holder && client.holder.original_mob)
-			client.holder.original_mob.key = key
+		if(original_mob)
+			client.key = key
 			client.init_verbs()
 		else
-			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/ghost/observer/ghost = new(src, src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"
@@ -320,14 +326,13 @@
 	set desc = "Jump into bluespace and continue wherever you left off. Deletes the BSTech and returns to your original mob if you have one."
 	set category = "BST"
 
-	var/client/C = src.client
-	if(C.holder && C.holder.original_mob)
-		if(C.holder.original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
+	if(original_mob)
+		if(original_mob.key)//Thanks for kicking Tish off the Server Meow, wouldn't have spotted this otherwise.
 			//suicide()
 			return
 
-		C.holder.original_mob.key = key
-		C.holder.original_mob = null
+		original_mob.key = key
+		original_mob = null
 	suicide()
 
 /mob/living/carbon/human/bst/verb/tgm()
@@ -519,3 +524,8 @@
 
 /mob/living/carbon/human/bst/restrained()
 	return 0
+
+/mob/living/carbon/human/bst/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, original_mob))
+		return FALSE
+	return ..()

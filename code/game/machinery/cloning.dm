@@ -87,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/abstract/observer/G in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break

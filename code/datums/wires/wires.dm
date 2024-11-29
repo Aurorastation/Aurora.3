@@ -248,7 +248,7 @@ var/global/list/wire_name_directory = list()
  */
 /datum/wires/proc/can_reveal_wires(mob/user)
 	// Admin ghost can see a purpose of each wire.
-	if(isobserver(user) && check_rights(R_MOD, FALSE, user))
+	if(isghost(user) && check_rights(R_MOD, FALSE, user))
 		return TRUE
 
 	// Station blueprints do that too, but only if the wires are not randomized.

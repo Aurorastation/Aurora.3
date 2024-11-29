@@ -41,7 +41,8 @@
 
 	//None of these mobs can 'die' in any sense, and none of them should be able to become ghosts.
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
-	if (istype(src, /mob/living))
+	//Well, those and storytellers. This code is seriously shit and needs a rework, but who gives a fuck right now. Sue me.
+	if (istype(src, /mob/living) && !isstoryteller(src))
 		ghostize()
 
 	if (istype(src.loc, /atom/movable))
@@ -180,7 +181,7 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		if((get_turf(M) in messageturfs) || (show_observers && isghost(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/o in GLOB.listening_objects)
@@ -191,7 +192,7 @@
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(isobserver(M))
+		if(isghost(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
 			continue
 		if(self_message && M == src)

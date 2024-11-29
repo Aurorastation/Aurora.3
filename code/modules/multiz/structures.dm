@@ -81,7 +81,8 @@
 	if (!istype(G))
 		G = M.r_hand
 
-	if(!M.Move(get_turf(src)))
+	var/turf/T = get_turf(src)
+	if(M.loc != T && !M.Move(T))
 		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
@@ -147,7 +148,7 @@
 		return FALSE
 	return TRUE
 
-/mob/abstract/observer/may_climb_ladders(var/ladder)
+/mob/abstract/ghost/observer/may_climb_ladders(var/ladder)
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)

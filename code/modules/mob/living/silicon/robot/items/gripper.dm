@@ -286,6 +286,7 @@
 		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
+		/obj/item/device/slime_scanner,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
 		/obj/item/seeds, // To be able to plant things for Xenobotany

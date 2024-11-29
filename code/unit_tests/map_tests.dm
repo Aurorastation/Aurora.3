@@ -35,7 +35,7 @@
 	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
 	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(get_sorted_areas(), exempt_areas))
 		if(is_station_level(A.z))
 			area_test_count++
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
@@ -363,6 +363,55 @@
 
 #endif
 
+
+	return test_status
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas
+	name = "MAP: Areas in station z-levels must be marked as station areas"
+
+	/**
+	 * A list of types of areas that we do not want to check
+	 */
+	var/list/do_not_check_areas_types = list(
+		/area/space,
+		/area/shuttle,
+		/area/template_noop,
+	)
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/area/possible_station_area in GLOB.areas)
+
+		if(is_type_in_list(possible_station_area, do_not_check_areas_types))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is in the do not check list.")
+			continue
+
+		//We get a turf from the area, to see if we are in the "station"
+		var/list/turf/area_turfs = get_area_turfs(possible_station_area)
+		if(!length(area_turfs))
+			TEST_NOTICE("Skipping area [possible_station_area] ([possible_station_area.type]) as it has no turfs.")
+			continue
+
+		var/turf/turf_to_get_z = pick(area_turfs)
+
+		//See if the turf is in a station z-level, if not abort
+		if(!is_station_turf(turf_to_get_z))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is not in a station z-level (picked check turf: [turf_to_get_z] on Z [turf_to_get_z.z]).")
+			continue
+
+		/* At this point, we know the area must be checked and is present in the station z-level */
+
+		if(!possible_station_area.station_area)
+			test_status = TEST_FAIL("Area [possible_station_area] ([possible_station_area.type]) is not marked as a station area, despite being in a station z-level.")
+		else
+			TEST_DEBUG("Area [possible_station_area] ([possible_station_area.type]) is marked as a station area.")
+
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All areas in station z-levels are marked as station areas.")
+	else
+		TEST_FAIL("Some areas in station z-levels are not marked as station areas.")
 
 	return test_status
 

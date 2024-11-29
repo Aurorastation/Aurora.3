@@ -27,7 +27,11 @@
 	if (isliving(user))
 		return UI_INTERACTIVE
 
-	if(isobserver(user))
+	if(isghost(user))
+		// Storytellers can always interact.
+		if(isstoryteller(user))
+			return UI_INTERACTIVE
+
 		// If they turn on ghost AI control, admins can always interact.
 		if(user.can_admin_interact())
 			return UI_INTERACTIVE
