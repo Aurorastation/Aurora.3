@@ -102,6 +102,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	sort_category = "Xenowear - Diona"
 	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/head/ekane/decorated
 	display_name = "decorated feather cap"
@@ -111,6 +112,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	sort_category = "Xenowear - Diona"
 	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/ekane
 	display_name = "ekane feathered jacket"
@@ -120,6 +122,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/ekane_cloak
 	display_name = "ekane feathered jacket"
@@ -129,6 +132,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/hieroaetherian_poncho
 	display_name = "hieroaetherian poncho"
