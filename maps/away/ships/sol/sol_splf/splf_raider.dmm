@@ -3749,19 +3749,19 @@
 	pixel_x = -9;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	pixel_x = 7;
-	pixel_y = 8
-	},
 /obj/item/storage/firstaid/adv{
 	pixel_y = 1;
 	pixel_x = -9
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 7;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
 	pixel_x = 7;
 	pixel_y = 1
 	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/medical)
 "wI" = (

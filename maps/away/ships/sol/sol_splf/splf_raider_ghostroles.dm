@@ -36,7 +36,7 @@
 /datum/ghostspawner/human/splf_crewman/chief
 	name = "SPLF Auxiliary Liaison Officer"
 	short_name = "splf_chief"
-	desc = "You are a petty officer of the Solarian People's Liberation Fleet, and a former member of the 35th fleet before it entered the Hinterlands, now assigned as a liasion officer to command a gaggle of rowdy civilian volunteers in a supply raid into Biesellite territory. Stop the miltia from doing anything stupid, ensure the success of the operation, and get everyone back to their homes intact. Remember, no heroics."
+	desc = "You are a petty officer of the Solarian People's Liberation Fleet, and a former member of the 35th Fleet before it entered the Hinterlands, now assigned as a Liasion Officer to command a gaggle of rowdy volunteers in a supply raid into Biesellite territory. Stop the miltia from doing anything stupid, ensure the success of the operation, and get everyone back to their homes intact. Remember, no heroics."
 
 	max_count = 1
 	spawnpoints = list("splf_chief")
@@ -55,7 +55,7 @@
 /datum/ghostspawner/human/splf_ipc
 	short_name = "splf_ipc"
 	name = "SPLF Auxiliary Synthetic"
-	desc = "Plucked from prior civilian ownership in the Hinterlands, you are a synthetic that has been appropriated and hastily repurposed by the Solarian People's Liberation Fleet for its ends. You serve as non-combatant equipment, ensuring the functionality of the ship and the survival of its crew. Whatever you were in your civilian life, you now serve to forward the cause of national liberation - not that it probably means that much to you."
+	desc = "Plucked from prior civilian ownership in the Hinterlands, you are a synthetic that has been appropriated and hastily repurposed by the Solarian People's Liberation Fleet for its ends. You serve as non-combatant equipment, ensuring the functionality of the ship and the survival of its crew. Whatever you were in your civilian life, you now exist to forward the cause of national liberation - not that it probably means that much to you."
 	tags = list("External")
 
 	spawnpoints = list("splf_ipc")
