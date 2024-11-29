@@ -1323,6 +1323,10 @@
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
+"ip" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/washroom)
 "iq" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -1662,6 +1666,10 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/engine)
+"kA" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/bridge)
 "kC" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
@@ -2248,6 +2256,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/splf_raider/bridge)
+"oj" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "ok" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -2654,6 +2668,31 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
+"qB" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = 2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/toothbrush{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/toothbrush/green{
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/splf_raider/washroom)
 "qL" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -2684,6 +2723,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"qS" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/ready)
 "qT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -3356,6 +3401,12 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/engine)
+"un" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/kitchen)
 "uy" = (
 /obj/effect/floor_decal/corner/green/full,
 /obj/structure/cable/green{
@@ -3395,6 +3446,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
+"uO" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "uP" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3684,6 +3739,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/bridge)
+"wV" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/freezer)
 "wX" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
@@ -3950,6 +4011,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/lounge)
+"yE" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/gunnery)
 "yF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
@@ -3992,6 +4057,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
+"yT" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/medical)
 "yW" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/trashcart,
@@ -6360,9 +6431,6 @@
 	dir = 1;
 	pixel_y = -8
 	},
-/obj/machinery/light/small{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
 "NA" = (
@@ -7033,6 +7101,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/splf_raider/lounge)
+"RA" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "splf_windows"
+	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
 "RE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -7414,31 +7491,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
-"TS" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/steel,
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = 2;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = 2;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothbrush{
-	pixel_x = 4;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/toothbrush/green{
-	pixel_x = -4;
-	pixel_y = -2
-	},
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/splf_raider/washroom)
 "TU" = (
 /obj/machinery/vending/hydroseeds,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7734,6 +7786,7 @@
 /obj/machinery/ship_weapon/autocannon{
 	weapon_id = "tcaf_autocannon"
 	},
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,
 /area/splf_raider/gunnery)
 "VF" = (
@@ -8287,6 +8340,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"YY" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
 "Za" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
@@ -29714,7 +29773,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+fZ
 Cq
 Cq
 Cq
@@ -30742,7 +30801,7 @@ Cq
 Cq
 Cq
 Cq
-fZ
+Cq
 Cq
 Cq
 Cq
@@ -31515,6 +31574,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -31535,8 +31595,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -32286,6 +32345,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -32306,8 +32366,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -33057,6 +33116,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -33077,8 +33137,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -33826,30 +33885,30 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
 zl
 Cq
+uO
 Cq
 Cq
 Cq
 Cq
 Cq
 Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+uO
 Cq
 Cq
 Cq
@@ -34599,6 +34658,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -34619,8 +34679,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -35370,6 +35429,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -35390,8 +35450,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -36141,6 +36200,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -36161,8 +36221,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -36912,6 +36971,7 @@ UG
 UG
 UG
 Cq
+uO
 Cq
 Cq
 Cq
@@ -36932,8 +36992,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -37704,7 +37763,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -38400,34 +38459,34 @@ Cq
 Cq
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+YY
 XT
 XT
-XT
-XT
+YY
 XT
 XT
 Eb
@@ -38454,7 +38513,7 @@ BM
 gU
 gU
 gU
-gU
+yE
 Cq
 Cq
 Cq
@@ -38475,7 +38534,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -38943,7 +39002,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 oI
 YM
 Kh
@@ -38970,24 +39029,24 @@ Cq
 Cq
 Cq
 Cq
-tr
+qS
 tr
 Hf
-Hf
+yT
 CF
 CF
-Hf
+yT
 jA
 qf
 SC
 jA
+oj
 Cq
 Cq
+oj
 Cq
 Cq
-Cq
-Cq
-Cq
+oj
 Cq
 Cq
 Cq
@@ -39714,7 +39773,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 vZ
 vZ
 vZ
@@ -40279,34 +40338,34 @@ am
 vl
 HQ
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+oj
 Cq
 Cq
 Cq
@@ -40485,7 +40544,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 vZ
 cN
 LR
@@ -40791,7 +40850,15 @@ AC
 Jv
 am
 Am
-HQ
+RA
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
+Cq
 Cq
 Cq
 Cq
@@ -40819,14 +40886,6 @@ Cq
 Cq
 Cq
 ZI
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
 Cq
 Cq
 Cq
@@ -40968,12 +41027,12 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
 wO
+Cq
+Cq
+Cq
+Cq
+Cq
 Cq
 Cq
 Cq
@@ -41562,7 +41621,7 @@ yu
 LT
 ws
 ws
-ws
+kA
 Cq
 Cq
 Cq
@@ -41770,7 +41829,7 @@ Cq
 Cq
 Cq
 Cq
-bd
+ip
 bd
 bd
 bd
@@ -42333,7 +42392,7 @@ cf
 Cq
 Cq
 Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -42541,12 +42600,12 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 bd
 gg
 QT
 Dt
-TS
+qB
 bd
 AK
 OD
@@ -43312,7 +43371,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 Js
 Js
 Js
@@ -43596,29 +43655,29 @@ Cq
 Cq
 Cq
 Cq
-yi
+wV
 vI
 vI
-yi
+wV
 OO
 OO
-Yg
+un
 cf
 lP
 HU
 cf
+oj
+Cq
+Cq
+oj
+Cq
+Cq
+oj
 Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -43797,34 +43856,34 @@ Cq
 Cq
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+oj
 Cq
 Cq
 IW
@@ -44108,6 +44167,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -44128,8 +44188,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -44389,7 +44448,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -44879,6 +44938,7 @@ SG
 zo
 nQ
 nQ
+uO
 Cq
 Cq
 Cq
@@ -44899,8 +44959,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -45160,7 +45219,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -45434,7 +45493,7 @@ Cq
 Cq
 Cq
 Cq
-zl
+Cq
 Cq
 Cq
 Cq
@@ -45650,6 +45709,7 @@ Vo
 mT
 nQ
 Cq
+uO
 Cq
 Cq
 Cq
@@ -45670,40 +45730,39 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
+oj
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
-Cq
+oj
 Cq
 Cq
 Cq
@@ -46205,7 +46264,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+zl
 Cq
 Cq
 Cq
@@ -46421,6 +46480,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -46441,8 +46501,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -47192,6 +47251,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -47212,8 +47272,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -47721,7 +47780,7 @@ Cq
 Cq
 Cq
 Cq
-zl
+Cq
 Cq
 Cq
 Cq
@@ -47961,6 +48020,9 @@ Cq
 Cq
 Cq
 Cq
+zl
+Cq
+uO
 Cq
 Cq
 Cq
@@ -47981,10 +48043,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -48734,6 +48793,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -48754,8 +48814,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -49505,6 +49564,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -49525,8 +49585,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -50276,6 +50335,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -50296,8 +50356,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -51047,6 +51106,7 @@ Cq
 Cq
 Cq
 Cq
+uO
 Cq
 Cq
 Cq
@@ -51067,8 +51127,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
-Cq
+uO
 Cq
 Cq
 Cq
@@ -51302,7 +51361,7 @@ Cq
 Cq
 Cq
 Cq
-hb
+Cq
 Cq
 Cq
 Cq
@@ -52330,7 +52389,7 @@ Cq
 Cq
 Cq
 Cq
-Cq
+hb
 Cq
 Cq
 Cq
