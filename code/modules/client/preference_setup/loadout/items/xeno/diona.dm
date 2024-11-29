@@ -158,7 +158,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
 
 /datum/gear/head/diona/voidtamer/open
-	display_name = "closed voidtamer hood"
+	display_name = "open voidtamer hood"
 	description = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions. This one is open, exposing the face."
 	path = /obj/item/clothing/head/diona/voidtamer/open
 	cost = 1
