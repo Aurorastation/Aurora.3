@@ -92,6 +92,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/head/ekane
 	display_name = "feather cap"
