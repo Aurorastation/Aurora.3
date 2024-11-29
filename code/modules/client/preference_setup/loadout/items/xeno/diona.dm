@@ -149,7 +149,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/head/diona/voidtamer
 	display_name = "closed voidtamer hood"
-	desc = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions."
+	description = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions."
 	path = /obj/item/clothing/head/diona/voidtamer
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -159,7 +159,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/head/diona/voidtamer/open
 	display_name = "closed voidtamer hood"
-	desc = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions. This one is open, exposing the face."
+	description = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions. This one is open, exposing the face."
 	path = /obj/item/clothing/head/diona/voidtamer/open
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
