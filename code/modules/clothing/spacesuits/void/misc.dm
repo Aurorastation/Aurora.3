@@ -1126,3 +1126,24 @@
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+
+/obj/item/clothing/head/helmet/space/void/sci/assunzione
+	name = "\improper Assunzionii research voidsuit helmet"
+	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
+	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
+	icon_state = "assunzione_helmet"
+	item_state = "assunzione_helmet"
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
+	icon_supported_species_tags = list("ipc")
+
+/obj/item/clothing/suit/space/void/sci/assunzione
+	name = "\improper Assunzionii research voidsuit"
+	desc = "Based on the common Coalition Vulture design, the ZH-A45 'Rook' has rapidly become commonplace equipment among the Republic of Assunzione's scientific and military forces. In addition to being a servicable combat voidsuit model, it is equipped with state-of-the-art anomalous energy shielding developed by Zeng-Hu Pharmaceuticals."
+	desc_extended = "Rook suits are largely seen in the hands of Assunzionii military patrols in Light's Edge, as well as scientific expeditions into the darkness of the Lemurian Sea. The current model was developed in 2412 as a joint effort between Assunzionii government R&D and Zeng-Hu Parmaceuticals."
+	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
+	icon_state = "assunzione_suit"
+	item_state = "assunzione_suit"
+	icon_supported_species_tags = list("ipc")
+
