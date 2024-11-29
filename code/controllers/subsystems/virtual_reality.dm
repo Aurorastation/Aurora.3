@@ -146,10 +146,17 @@ SUBSYSTEM_DEF(virtualreality)
 		target.client.screen |= global_hud.vr_control
 
 	if(istype(target, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/spider = target
 		var/obj/item/card/id/original_id = M.GetIdCard()
 		if(original_id)
 			var/mob/living/simple_animal/spiderbot/SB = target
 			SB.internal_id.access = original_id.access
+		// Update radio
+		var/obj/item/device/encryptionkey/Key = spider.radio.keyslot
+		var/obj/item/device/radio/Radio = M.get_radio()
+		if(Key && Radio)
+			Key.channels = Radio.channels
+			spider.radio.recalculateChannels()
 
 	target.client.init_verbs()
 	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
