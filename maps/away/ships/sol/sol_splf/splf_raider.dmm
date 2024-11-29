@@ -105,7 +105,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/command/gold{
-	name = "Captain's Quarters";
+	name = "Officer's Quarters";
 	req_access = list(246)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -447,6 +447,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
+"cH" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
 "cN" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
@@ -476,6 +482,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/propulsion)
+"db" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thrusters"
+	},
+/turf/simulated/floor,
 /area/splf_raider/propulsion)
 "dg" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -634,6 +647,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/portside_hall)
+"dM" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows";
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, rotary"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
 "dR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -878,6 +902,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
+"eZ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, hydroponics"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/docking)
 "fd" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -907,6 +941,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/propulsion)
+"fi" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, gunnery"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/gunnery)
 "fm" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1418,6 +1458,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
+"iL" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, utilities closet"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/closet)
 "iZ" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /obj/structure/cable/green{
@@ -1675,6 +1721,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/splf_raider/ready)
+"kF" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ready room"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/splf_raider/ready)
 "kH" = (
 /obj/effect/floor_decal/corner_wide/brown{
@@ -2703,6 +2755,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/closet)
+"qN" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, washroom"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/washroom)
 "qO" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4185,6 +4243,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/cargo_1)
+"zQ" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, propellant tank"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
 "zR" = (
 /obj/effect/shuttle_landmark/splf_shuttle/transit{
 	dir = 8
@@ -4738,6 +4802,11 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
+"CR" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/splf)
 "CS" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/random/dirt_75,
@@ -4853,6 +4922,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
+/obj/effect/landmark/entry_point/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/splf)
 "DE" = (
@@ -5069,6 +5139,10 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/portside_hall)
+"ER" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/splf)
 "Fb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5311,6 +5385,11 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/lounge)
+"Gr" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/plating,
+/area/shuttle/splf)
 "Gs" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -5402,6 +5481,9 @@
 "GU" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, autocannon"
+	},
 /turf/space/dynamic,
 /area/splf_raider/gunnery)
 "GY" = (
@@ -5479,6 +5561,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
+"HM" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thrusters"
+	},
+/turf/simulated/floor,
+/area/splf_raider/engine)
 "HP" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -5914,6 +6003,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"Kk" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/bridge)
 "Kl" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -6013,6 +6113,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/splf_raider/docking)
+"KP" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, combustion chamber"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/engine)
 "KQ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -6299,6 +6405,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
+"MF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, infirmary"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/medical)
 "MJ" = (
 /turf/simulated/floor/carpet/lightblue,
 /area/splf_raider/office)
@@ -6663,6 +6779,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/engine)
+"OZ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, officer's quarters"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/office)
 "Pa" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -6854,6 +6980,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/cargo_2)
+"PX" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, kitchen"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/kitchen)
 "Qb" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -6989,6 +7125,12 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/bridge)
+"QP" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, propulsion"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/propulsion)
 "QQ" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -7087,6 +7229,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/closet)
+"Rs" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/regular/open{
+	id = "splf_windows"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, rotary"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/splf_raider/gunnery)
 "Rt" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -8178,6 +8330,12 @@
 /obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/splf_raider/propulsion)
+"Yd" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew quarters"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/splf_raider/quarters)
 "Yf" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -36689,7 +36847,7 @@ XT
 ob
 XT
 XT
-XT
+cH
 XT
 XT
 XT
@@ -36952,7 +37110,7 @@ rs
 zG
 XT
 XT
-XT
+KP
 XT
 XT
 Cq
@@ -37222,9 +37380,9 @@ Cq
 Cq
 gU
 MU
+Rs
 xQ
-xQ
-pw
+dM
 Cq
 Cq
 Cq
@@ -37475,7 +37633,7 @@ Cq
 Cq
 gU
 gU
-gU
+fi
 gU
 gU
 dH
@@ -37711,7 +37869,7 @@ Cq
 Cq
 Cq
 Cq
-UA
+HM
 Hs
 eL
 nn
@@ -39033,7 +39191,7 @@ qS
 tr
 Hf
 yT
-CF
+MF
 CF
 yT
 jA
@@ -39285,7 +39443,7 @@ Cq
 Cq
 tr
 tr
-tr
+kF
 tr
 tr
 Hf
@@ -39299,7 +39457,7 @@ Uz
 zF
 th
 th
-cA
+OZ
 cA
 th
 ws
@@ -40288,7 +40446,7 @@ Cq
 Cq
 Cq
 Cq
-vZ
+iL
 Ke
 YG
 qL
@@ -40593,7 +40751,7 @@ wX
 Jv
 am
 NS
-HQ
+Kk
 Cq
 Cq
 Cq
@@ -42344,7 +42502,7 @@ Cq
 Cq
 Cq
 Cq
-bd
+qN
 bd
 bd
 Pk
@@ -43396,7 +43554,7 @@ Cq
 Cq
 Cq
 WL
-WL
+Yd
 WL
 yi
 bI
@@ -43410,7 +43568,7 @@ LP
 jB
 cf
 Bi
-Bi
+eZ
 Bi
 cf
 cf
@@ -43659,7 +43817,7 @@ wV
 vI
 vI
 wV
-OO
+PX
 OO
 un
 cf
@@ -44907,7 +45065,7 @@ Cq
 Cq
 Cq
 Cq
-Rc
+db
 XE
 pN
 Km
@@ -45182,7 +45340,7 @@ SZ
 Cq
 Cq
 Cq
-hr
+Gr
 ap
 wj
 jb
@@ -45194,7 +45352,7 @@ ll
 LK
 Pf
 Nx
-nQ
+CR
 Cq
 Cq
 Cq
@@ -45690,7 +45848,7 @@ cU
 cU
 SZ
 SZ
-SZ
+zQ
 SZ
 SZ
 Cq
@@ -45941,7 +46099,7 @@ SZ
 Wl
 SZ
 SZ
-SZ
+QP
 SZ
 SZ
 SZ
@@ -45959,7 +46117,7 @@ gT
 gT
 dh
 mT
-mT
+ER
 mT
 mT
 mT
