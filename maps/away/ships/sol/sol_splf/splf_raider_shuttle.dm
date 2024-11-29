@@ -2,13 +2,13 @@
 /obj/effect/overmap/visitable/ship/landable/splf_shuttle
 	name = "SPLF Shuttle"
 	class = "SPLFV"
-	desc = "Man, they stole that!"
+	desc = "This appears to be a Bluebell-class passenger skiff, quite a mundane design utilised widely to transport Stellar Corporate Conglomerate personnel over short distances, such as in and out of a planet's atmosphere. Sensors indicate that the outward hull of this one is unusually badly denatured, implying a clumsily performed orbital re-entry."
 	shuttle = "Transport Skiff"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	designer = "Stellar Corporate Conglomerate, Commonwealth of Valkyrie"
 	sizeclass = "Bluebell-class passenger craft"
-	shiptype = "Remote hauling operations, long-term crew habitation"
+	shiptype = "Short-distance passenger transportation"
 	colors = list("#aaafd4", "#78adf8")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
