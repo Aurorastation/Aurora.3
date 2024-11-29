@@ -1741,7 +1741,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/structure/extinguisher_cabinet/north,
+/obj/structure/extinguisher_cabinet/north{
+	pixel_y = 28
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
