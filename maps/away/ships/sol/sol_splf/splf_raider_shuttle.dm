@@ -3,7 +3,7 @@
 	name = "SPLF Shuttle"
 	class = "SPLFV"
 	desc = "This appears to be a Bluebell-class passenger skiff, quite a mundane design utilised widely to transport Stellar Corporate Conglomerate personnel over short distances, such as in and out of a planet's atmosphere. Sensors indicate that the outward hull of this one is unusually badly denatured, implying a clumsily performed orbital re-entry."
-	shuttle = "Transport Skiff"
+	shuttle = "SPLF Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	designer = "Stellar Corporate Conglomerate, Commonwealth of Valkyrie"
@@ -17,7 +17,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/splf_shuttle/New()
-	designation = "[pick("Ours Now")]"
+	designation = "[pick("Ours Now", "Better Use", "Watch It Closer", "Repurposed", "Liberated", "People's Mule", "You're Welcome")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle

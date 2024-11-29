@@ -897,7 +897,6 @@
 	name = "sink";
 	pixel_x = 21
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/medical)
 "eY" = (
@@ -1571,6 +1570,10 @@
 /obj/item/eightball,
 /obj/item/material/knife/butterfly/switchblade,
 /obj/item/material/knife/butterfly/switchblade,
+/obj/structure/sign/flag/mictlan{
+	dir = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "jv" = (
@@ -4411,6 +4414,8 @@
 /obj/item/grenade/stinger,
 /obj/item/grenade/smokebomb,
 /obj/item/grenade/frag,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
@@ -4669,7 +4674,9 @@
 /turf/simulated/floor/tiled,
 /area/splf_raider/bridge)
 "BM" = (
-/obj/machinery/ammunition_loader/autocannon,
+/obj/machinery/ammunition_loader/autocannon{
+	weapon_id = "SPLF Goshawk"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
 "BQ" = (
@@ -4845,6 +4852,10 @@
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 13
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
@@ -6144,7 +6155,7 @@
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
-	weapon_id = "Freebooter Francisca Rotary Gun"
+	weapon_id = "SPLF Rotary"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
@@ -6454,7 +6465,9 @@
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/medical)
 "MU" = (
-/obj/machinery/ammunition_loader/francisca,
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "SPLF Rotary"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
 "MV" = (
@@ -6555,8 +6568,9 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
-	dir = 1;
-	pixel_y = -8
+	dir = 4;
+	pixel_y = 3;
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
@@ -7563,6 +7577,9 @@
 	},
 /obj/structure/undies_wardrobe,
 /obj/random/dirt_75,
+/obj/structure/sign/flag/sol{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "Tq" = (
@@ -7940,7 +7957,7 @@
 "VD" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/ship_weapon/autocannon{
-	weapon_id = "tcaf_autocannon"
+	weapon_id = "SPLF Goshawk"
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,

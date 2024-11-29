@@ -38,7 +38,7 @@
 	shiptype = "Remote hauling operations, long-term crew habitation"
 
 	initial_restricted_waypoints = list(
-		"Shuttle Port" = list("nav_hangar_splf")
+		"SPLF Shuttle" = list("nav_hangar_splf")
 	)
 
 	initial_generic_waypoints = list(
@@ -55,7 +55,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/splf_raider/New()
-	designation = "[pick("Not A Fan Of The Government")]"
+	designation = "[pick("Not A Fan Of The Government", "National Liberation", "Free Spirit", "Not Wanted Here", "Tight-knit", "Silat", "Sejarah Melayu", "As They Were Before", "Hand of Cabanas", "Justice for Mictlan", "Not One Step More", "Fraternity", "Culpability", "Magistrate", "Equity")]"
 	..()
 
 // Using the freighter sprite.
@@ -71,14 +71,14 @@
 	desc = "This is a series of harshly written notes on how to operate the combustion engine of a Laksamana-class hauling vessel."
 	info = "<font face=\"Verdana\"><b>Follow these notes and you should be fine. Don't burn the ship down again, yeah? Christ.<BR>\
 	<BR>Step one: Enable the connectors to cold loop pump and the cooling array to generator pump. This circulates the cold look through the turbine.<BR>\
-	<BR>Step two: Set the gas mixer to output south, enable the pump, enable fuel injection. This will inject fuel mix into the chamber.\
-	Feel free to put in as many canisters as you like, just make sure they're being mixed at a ratio of 60% oxidiser to 40% fuel.\
+	<BR>Step two: Set the gas mixer to output south, enable the pump, enable fuel injection. This will inject fuel mix into the chamber. \
+	Feel free to put in as many canisters as you like, just make sure they're being mixed at a ratio of 60% oxidiser to 40% fuel. \
 	The more burning mix you inject into there, the longer it'll last before you need to vent the inject more.<BR>\
 	<BR>Step three: Disable injection on the fuel injection console. If you leave injection on, we'll have a bad time.<BR>\
-	<BR>Step four: Ignition! Wait for the fire to fully burn out before proceeding to the next step.\
+	<BR>Step four: Ignition! Wait for the fire to fully burn out before proceeding to the next step. \
 	If the glass makes a weird noise, that's normal.<BR>\
-	<BR>Step five: After the fire has stopped, the contents of the chamber should be entirely carbon dioxidie. At this point,\
-	enable circulation: 700L/s input and 1500kpa output should suffice. The higher you raise the output,\
+	<BR>Step five: After the fire has stopped, the contents of the chamber should be entirely carbon dioxidie. At this point, \
+	enable circulation: 700L/s input and 1500kpa output should suffice. The higher you raise the output, \
 	the more power it produces, but the quicker it cools.<BR>\
 	<BR>If you get the feeling the glass will break, immediately vent the chamber and report to your commanding officer.</b></font>"
 	language = LANGUAGE_SOL_COMMON
