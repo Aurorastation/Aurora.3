@@ -36,6 +36,7 @@
 	item_state = "void_jacket"
 	icon_override = null
 	contained_sprite = TRUE
+	build_from_parts = TRUE
 
 
 /obj/item/clothing/accessory/poncho/voidtamer/apron
