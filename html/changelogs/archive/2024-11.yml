@@ -224,3 +224,7 @@
 2024-11-29:
   DreamySkrell:
   - bugfix: Ruined Propellant Depot Scenario - away site fix.
+2024-11-30:
+  FluffyGhost:
+  - bugfix: Fixed Odyssey subsystem processing even when there's no Odyssey scenario
+      running.
