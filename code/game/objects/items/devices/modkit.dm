@@ -374,7 +374,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/suit/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/suit/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/suit/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/sci/assunzione
 	)
 	helmet_options = list(
 		"Coalition Vulture" = /obj/item/clothing/head/helmet/space/void/coalition,
@@ -382,7 +382,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/head/helmet/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/head/helmet/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/sci/assunzione
 	)
 
 /obj/item/storage/box/unathi_pirate
@@ -404,6 +404,22 @@
 	name = "coalition of colonies modkit box"
 	desc = "Contains modkits to convert Coalition voidsuits into member-state variants."
 	starts_with = list(/obj/item/voidsuit_modkit_multi/coalition = 4)
+
+/obj/item/voidsuit_modkit/assunzione
+	name = "assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione,
+	)
+
+/obj/item/voidsuit_modkit/assunzione/ipc
+	name = "synthetic assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit fitted for an IPC."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione/ipc,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc,
+	)
 
 #undef MODKIT_HELMET
 #undef MODKIT_SUIT
