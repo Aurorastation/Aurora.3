@@ -1094,7 +1094,6 @@
 	icon_state = "assunzione_helmet"
 	item_state = "assunzione_helmet"
 	species_restricted = list(BODYTYPE_HUMAN)
-	icon_supported_species_tags = list("ipc")
 
 /obj/item/clothing/suit/space/void/sci/assunzione
 	name = "\improper Assunzionii research voidsuit"
@@ -1104,7 +1103,6 @@
 	icon_state = "assunzione_suit"
 	item_state = "assunzione_suit"
 	species_restricted = list(BODYTYPE_HUMAN)
-	refittable_species = null
 
 /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc
 	icon_state = "ipc_assunzione_helmet"
