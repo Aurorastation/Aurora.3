@@ -29,11 +29,12 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
+/obj/random/dirt_75,
+/obj/item/storage/bag/inflatable,
 /obj/item/storage/backpack/duffel/eng{
 	pixel_y = 6;
 	pixel_x = -1
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
 "ap" = (
@@ -502,16 +503,16 @@
 /obj/item/gun/projectile/automatic/rifle/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump,
 /obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shotgunshells,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
-/obj/random/civgun/rifle,
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "dh" = (
@@ -6523,12 +6524,12 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/external{
 	dir = 4;
-	locked = 1;
 	id_tag = "splf_chamber"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/lock,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/engine)
 "No" = (
