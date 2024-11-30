@@ -28,6 +28,10 @@
 /obj/item/ammo_magazine/c38/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"bh" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "bv" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -260,6 +264,18 @@
 "it" = (
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
+"iS" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/plastic{
+	pixel_y = -5;
+	pixel_x = -6
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 7
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "kh" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
@@ -276,6 +292,14 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"lE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "lM" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
@@ -371,6 +395,11 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"pf" = (
+/obj/structure/table/steel,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "pg" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -410,6 +439,10 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"qh" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "qB" = (
 /obj/structure/weapons_rack{
 	req_one_access = list(247)
@@ -441,6 +474,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"qM" = (
+/obj/structure/bed/stool/bar{
+	dir = 2
+	},
+/turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "qR" = (
 /obj/structure/bed/stool/chair,
@@ -508,6 +547,21 @@
 /obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"rE" = (
+/obj/structure/table/wood,
+/obj/random/smokable{
+	pixel_y = 1;
+	pixel_x = -8
+	},
+/obj/item/flame/lighter/random{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/flame/candle{
+	pixel_y = 19
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "rW" = (
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
@@ -569,6 +623,12 @@
 	dir = 4
 	},
 /obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"uZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "vs" = (
@@ -747,6 +807,26 @@
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Dy" = (
+/obj/structure/table/wood,
+/obj/random/booze{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/random/booze{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/random/booze{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/random/booze{
+	pixel_y = 7;
+	pixel_x = -7
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "DF" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -791,6 +871,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Ei" = (
+/turf/simulated/floor/tiled,
+/area/space)
 "Ez" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -894,6 +977,13 @@
 /obj/item/gun/energy/rifle/icelance,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Hd" = (
+/obj/structure/closet/cabinet,
+/obj/random/gift,
+/obj/random/loot,
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Hf" = (
 /obj/structure/closet,
 /obj/outfit/admin/generic,
@@ -903,6 +993,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"Hh" = (
+/obj/structure/bed/stool/bar{
+	dir = 1
+	},
+/turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "HH" = (
 /obj/structure/weapons_rack{
@@ -1101,6 +1197,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"NE" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Oe" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/wood/maple,
@@ -1160,6 +1262,12 @@
 /obj/item/ammo_magazine/mc9mm/flash,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"QS" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Rm" = (
 /obj/structure/table/steel,
 /obj/random/desktoy{
@@ -1173,7 +1281,7 @@
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/random/junk,
-/obj/random/highvalue,
+/obj/random/watches,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "Sa" = (
@@ -1241,6 +1349,15 @@
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/template_noop)
+"WO" = (
+/obj/structure/table/wood,
+/obj/random/booze{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/random/pizzabox,
+/turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "WT" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -2090,10 +2207,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+Yn
+uZ
+Hd
+Dd
 au
 Yn
 uf
@@ -2347,10 +2464,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+qh
+qh
+qh
+qh
 au
 zr
 zr
@@ -2604,10 +2721,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+pf
+NE
+lE
+QS
 au
 FZ
 Yn
@@ -3375,10 +3492,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+WO
+Hh
+bh
+Dy
 au
 nZ
 pg
@@ -3632,10 +3749,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+nx
+nx
+nx
+nx
 au
 zr
 zr
@@ -3889,10 +4006,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+qM
+iS
+rE
+Hh
 au
 sp
 Yn
@@ -4660,10 +4777,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+Ei
+Ei
+Ei
+Ei
 au
 Yn
 Yb
@@ -4917,10 +5034,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+Ei
+Ei
+Ei
+Ei
 au
 wp
 zr
@@ -5174,10 +5291,10 @@ au
 au
 au
 au
-au
-au
-au
-au
+Ei
+Ei
+Ei
+Ei
 au
 Rm
 Yn
