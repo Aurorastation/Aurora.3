@@ -824,6 +824,8 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+// for Odyssey scenarios
+
 #define ACCESS_CRYO_OUTPOST 244
 /datum/access/cryo_outpost_access
 	id = ACCESS_CRYO_OUTPOST
@@ -833,3 +835,13 @@
 /datum/access/ruined_propellant_depot_access
 	id = ACCESS_RUINED_PROPELLANT_DEPOT
 	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO 246
+/datum/access/nuclear_missile_silo_access
+	id = ACCESS_NUCLEAR_MISSILE_SILO
+	desc = "Nuclear Missile Silo Access"
+// For access to the nuke and armoury
+#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 247
+/datum/access/nuclear_missile_silo_access_high
+	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
+	desc = "Nuclear Missile Silo Access High Security"

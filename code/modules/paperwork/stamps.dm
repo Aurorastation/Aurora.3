@@ -50,6 +50,10 @@
 /obj/item/stamp/denied
 	name = "\improper DENIED rubber stamp"
 	icon_state = "stamp-deny"
+//----- Finally. I can do papers please LARP.
+/obj/item/stamp/accepted
+	name = "\improper ACCEPTED rubber stamp"
+	icon_state = "stamp-accept"
 
 /obj/item/stamp/clown
 	name = "clown's rubber stamp"
