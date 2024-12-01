@@ -9,8 +9,9 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(ACCESS_MERCHANT)
-	required_access_download = list(ACCESS_MERCHANT)
+	requires_access_to_download = PROGRAM_ACCESS_LIST_ONE
+	required_access_run = list(ACCESS_MERCHANT, ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED, ACCESS_MERCHANTS_GUILD, ACCESS_NKA)
+	required_access_download = list(ACCESS_MERCHANT, ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED, ACCESS_MERCHANTS_GUILD, ACCESS_NKA)
 	tgui_id = "Merchant"
 	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0

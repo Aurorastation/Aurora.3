@@ -4105,7 +4105,7 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "qU" = (
-/obj/item/modular_computer/console/preset/merchant/golden_deep{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12650,7 +12650,9 @@
 /area/golden_deep/portmaints)
 "ZV" = (
 /obj/machinery/light/small/floor,
-/obj/machinery/media/jukebox/gramophone,
+/obj/machinery/media/jukebox/gramophone{
+	anchored = 1
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "ZX" = (
