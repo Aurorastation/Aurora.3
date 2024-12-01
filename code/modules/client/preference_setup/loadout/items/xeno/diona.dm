@@ -86,7 +86,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/uniform/diona/ekane
 	display_name = "woven ekane dress"
-	description = "A blue, seeming high-quality dress with a colorful strap of fabric running along it, typically seen by Dionae hailing from the Hieroaetherian Ekane."
+	description = "A blue, seemingly high-quality dress with a colorful strap of fabric running along it, typically seen by Dionae hailing from the Hieroaetherian Ekane."
 	path = /obj/item/clothing/under/diona/ekane
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
