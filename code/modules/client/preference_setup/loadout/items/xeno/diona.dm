@@ -67,7 +67,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/head/narrows
 	display_name = "narrows hardhat"
-	description = "An old hardhat painted in Hephestus colors, fabric hanging off the sides to protect the wearer's ears."
+	description = "An old hard hat painted in Hephaestus colors, fabric hanging off the sides to protect the wearer's ears."
 	path = /obj/item/clothing/head/hardhat/narrows
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
