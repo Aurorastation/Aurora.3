@@ -31,12 +31,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	ui_interact(user)
 
 /obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		req_access = list()
-		req_one_access = list()
-		emagged = TRUE
-		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
-		return TRUE
+	if(emagged)
+		to_chat(user, SPAN_WARNING("The [src] has already been subverted."))
+		return FALSE
+	req_access = list()
+	req_one_access = list()
+	emagged = TRUE
+	to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
+	return TRUE
 
 /obj/machinery/computer/ship/Topic(href, href_list)
 	if(..())

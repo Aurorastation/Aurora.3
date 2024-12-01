@@ -163,12 +163,14 @@
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		req_access = list()
-		req_one_access = list()
-		emagged = TRUE
-		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
-		return TRUE
+	if(emagged)
+		to_chat(user, SPAN_WARNING("The [src] has already been subverted."))
+		return FALSE
+	req_access = list()
+	req_one_access = list()
+	emagged = TRUE
+	to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
+	return TRUE
 
 /obj/machinery/computer/shuttle_control/ex_act()
 	return
