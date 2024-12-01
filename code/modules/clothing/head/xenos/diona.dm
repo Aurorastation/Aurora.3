@@ -32,7 +32,7 @@
 
 /obj/item/clothing/head/hardhat/narrows
 	name = "narrows hard hat"
-	desc = "An old hardhat painted in Hephestus colors, fabric hanging off the sides to protect the wearer's ears."
+	desc = "An old hard hat painted in Hephaestus colors, fabric hanging off the sides to protect the wearer's ears."
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "narrows_hardhat"
 	item_state = "narrows_hardhat"
