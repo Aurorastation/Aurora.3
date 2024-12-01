@@ -2649,7 +2649,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -5199,7 +5200,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
@@ -5311,7 +5313,9 @@
 /area/hephmining_ship/cyclops)
 "ZH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "ZI" = (

@@ -1705,7 +1705,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/ship/engines/terminal,
+/obj/machinery/computer/ship/engines/terminal{
+	req_access = list(204)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -3628,7 +3630,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(204)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -7221,7 +7224,8 @@
 /area/tcaf_corvette/engine)
 "BW" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/carpet/rubber,
@@ -7851,7 +7855,9 @@
 /obj/structure/platform_deco{
 	dir = 4
 	},
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(204)
+	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal,
@@ -8494,7 +8500,8 @@
 /area/tcaf_corvette/captain)
 "HA" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/carpet/rubber,
@@ -10941,7 +10948,8 @@
 /area/tcaf_corvette/messhall)
 "Rt" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
@@ -11238,7 +11246,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(204)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
