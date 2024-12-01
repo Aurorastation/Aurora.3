@@ -308,6 +308,12 @@
 	if(istype(HA))
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
+		if(HA.fullScan)
+			icon_state = "mecha_healthyanalyzer_alt"
+		else
+			icon_state = "mecha_healthyanalyzer"
+		update_icon()
+		owner.update_icon()
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
