@@ -55,6 +55,16 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Stripper Clips"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "cc" = (
@@ -85,7 +95,8 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/random/smokable,
+/obj/machinery/recharger,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dU" = (
@@ -114,10 +125,6 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/template_noop)
-"ez" = (
-/obj/item/flame/lighter/random,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "eL" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -216,6 +223,17 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hC" = (
@@ -280,19 +298,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"kx" = (
-/obj/item/device/flashlight/lamp/lava/red,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"lD" = (
-/obj/structure/table/steel,
-/obj/item/gun/launcher/grenade,
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "lE" = (
 /obj/machinery/light{
 	dir = 4
@@ -313,6 +318,9 @@
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "mS" = (
+/obj/structure/weapons_rack{
+	req_one_access = list(247)
+	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -324,6 +332,10 @@
 	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "mX" = (
@@ -825,6 +837,7 @@
 	pixel_y = 7;
 	pixel_x = -7
 	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "DF" = (
@@ -874,13 +887,6 @@
 "Ei" = (
 /turf/simulated/floor/tiled,
 /area/space)
-"Ez" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "EF" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
@@ -958,15 +964,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Gh" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Gv" = (
 /obj/structure/weapons_rack{
@@ -1122,15 +1119,6 @@
 	specialfunctions = 4;
 	req_one_access = list(247);
 	name = "Armoury Bolts"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Kz" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -1360,14 +1348,13 @@
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "WT" = (
+/obj/structure/weapons_rack{
+	req_one_access = list(247)
+	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/gun/energy/sniperrifle,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "WU" = (
@@ -6068,11 +6055,11 @@ au
 au
 au
 mS
-cb
-Gh
+aI
+Ag
 dy
 cb
-Ez
+ib
 au
 au
 qB
@@ -6324,8 +6311,8 @@ au
 au
 au
 au
-dw
-dw
+OZ
+Ny
 dw
 dw
 dw
@@ -6581,12 +6568,12 @@ au
 au
 au
 au
-dw
-ez
-kx
-dw
-dw
-dw
+AW
+Ny
+kh
+kh
+kh
+kh
 au
 au
 OZ
@@ -6838,12 +6825,12 @@ au
 au
 au
 au
-hx
-Kz
-hx
-hx
 WT
-lD
+TD
+hx
+XJ
+hx
+XJ
 au
 au
 xC

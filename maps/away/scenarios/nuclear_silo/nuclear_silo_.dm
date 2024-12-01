@@ -22,7 +22,7 @@
 	exoplanet_themes = list(
 		/turf/unsimulated/marker = /datum/exoplanet_theme/snow/nuclear_silo,
 		/turf/unsimulated/marker/gray   = /datum/exoplanet_theme/snow/nuclear_silo/mountain,
-		/turf/unsimulated/marker/green = /datum/exoplanet_theme/snow/tundra/nuclear_silo
+		/turf/unsimulated/marker/green = /datum/exoplanet_theme/snow/foothills/nuclear_silo
 	)
 	unit_test_groups = list(1)
 

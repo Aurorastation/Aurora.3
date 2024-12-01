@@ -13,39 +13,20 @@
 /area/nuclear_silo/outside
 	is_outside = OUTSIDE_YES
 
-
 /area/nuclear_silo/outside/landing
 	name = "Landing Pad"
 	icon_state = "dk_yellow"
-	luminosity = 1
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
 
 /area/nuclear_silo/outside/surface
 	name = "Surface"
 	area_blurb = "An arctic valley, the air around you frigid and stinging. In the distance can be seen the illumination from lanterns and streetlights."
-	luminosity = 1
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
-
-/area/nuclear_silo/outside/cave
-	name = "Cave"
-	icon_state = "cave"
-	is_outside = OUTSIDE_NO
-	holomap_color = "#382405"
-
 
 /area/nuclear_silo/outside/mountain
 	name = "Mountain"
 	icon_state = "unexplored"
 	is_outside = OUTSIDE_NO
 	holomap_color = "#382405"
-	luminosity = 1
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
+	base_turf = /turf/simulated/floor/exoplanet/barren
 
 /area/nuclear_silo/outside/cave/bunker
 	name = "Bunker"
@@ -56,10 +37,11 @@
 	name = "Building"
 	icon_state = "away"
 	is_outside = OUTSIDE_NO
-	luminosity = 1
-	requires_power = 0
-	dynamic_lighting = 1
-	no_light_control = 1
+
+/area/nuclear_silo/outside/buildings/town
+	name = "Building"
+	icon_state = "away1"
+	area_blurb = "As you step foot into the town, the quiet hum of electric streetlights can be heard. Overhead are powerlines, strung across from building to building, some reaching up into the streetlights."
 
 // --- Lower Level
 
@@ -91,7 +73,6 @@
 	name = "Security"
 	icon_state = "security"
 	holomap_color = "#3906b1"
-
 
 /area/nuclear_silo/lower_level/brig
 	name = "Brig"
