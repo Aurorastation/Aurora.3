@@ -31,10 +31,10 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	ui_interact(user)
 
 /obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user)
-	if(!hacked)
+	if(!emagged)
 		req_access = list()
 		req_one_access = list()
-		hacked = TRUE
+		emagged = TRUE
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
 		return TRUE
 

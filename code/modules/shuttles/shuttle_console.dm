@@ -5,8 +5,8 @@
 	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
-	var/shuttle_tag      // Used to coordinate data in shuttle controller.
-	var/hacked = FALSE   // Has been emagged, no access restrictions.
+	/// Used to coordinate data in shuttle controller.
+	var/shuttle_tag
 
 	var/ui_template = "ShuttleControlConsole"
 	var/list/linked_helmets = list()
@@ -163,10 +163,10 @@
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
-	if(!hacked)
+	if(!emagged)
 		req_access = list()
 		req_one_access = list()
-		hacked = TRUE
+		emagged = TRUE
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
 		return TRUE
 
