@@ -209,6 +209,10 @@
 
 /atom/movable/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
+	if(SSticker.prevent_unready && player.ready)
+		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
+		return
+
 	sound_to(player, click_sound)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
@@ -287,11 +291,15 @@
 			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
+		if(SSticker.prevent_unready && !readying)
+			tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")
+			return
+
 		ready = readying
 		if(ready)
 			last_ready_name = client.prefs.real_name
 		SSticker.update_ready_list(src)
-	else
+	else if(!SSticker.prevent_unready)
 		ready = FALSE
 
 /mob/abstract/new_player/proc/join_game(href, href_list)
@@ -315,7 +323,7 @@
 		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
 			return FALSE
 
-	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
+	var/mob/abstract/ghost/observer/observer = new /mob/abstract/ghost/observer(null, src)
 	spawning = 1
 	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for observers
 
@@ -342,7 +350,7 @@
 	observer.real_name = client.prefs.real_name
 	observer.name = observer.real_name
 	if(!client.holder && !GLOB.config.antag_hud_allowed)
-		remove_verb(observer, /mob/abstract/observer/verb/toggle_antagHUD)
+		remove_verb(observer, /mob/abstract/ghost/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
 	observer.initialise_postkey()
 	observer.client.init_verbs()

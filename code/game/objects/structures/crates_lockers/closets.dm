@@ -136,7 +136,7 @@
 				content_size += Ceiling(I.w_class/2)
 		. += content_info(user, content_size)
 
-	if(!src.opened && isobserver(user))
+	if(!src.opened && isghost(user))
 		. += "It contains: [counting_english_list(contents)]"
 
 	if(src.opened && linked_teleporter && is_adjacent)

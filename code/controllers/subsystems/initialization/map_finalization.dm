@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(finalize)
 		log_subsystem_mapfinalization("Generated asteroid in [(world.time - time)/10] seconds.")
 
 	// Generate the area list.
-	resort_all_areas()
+	require_area_resort()
 
 	// This is dependant on markers.
 	populate_antag_spawns()
@@ -33,13 +33,6 @@ SUBSYSTEM_DEF(finalize)
 	generate_contact_report()
 
 	return SS_INIT_SUCCESS
-
-/proc/resort_all_areas()
-	GLOB.all_areas = list()
-	for (var/area/A in world)
-		GLOB.all_areas += A
-
-	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
 	maploader = new

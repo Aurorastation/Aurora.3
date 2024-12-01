@@ -366,7 +366,7 @@ var/const/enterloopsanity = 100
 
 	if(tracks_footprint && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		H.species.deploy_trail(H, src)
+		H.species?.deploy_trail(H, src)
 
 	..()
 

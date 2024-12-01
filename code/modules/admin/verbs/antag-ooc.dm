@@ -3,7 +3,7 @@
 	set name = "AOOC"
 	set desc = "Antagonist OOC"
 
-	if (istype(src.mob, /mob/abstract/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
+	if (istype(src.mob, /mob/abstract/ghost/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
 		to_chat(src, SPAN_WARNING("You cannot use AOOC while ghosting/observing!"))
 		return
 

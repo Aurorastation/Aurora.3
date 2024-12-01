@@ -11,7 +11,7 @@
 
 /obj/item/book/tome/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isobserver(target_mob))
-		var/mob/abstract/observer/D = target_mob
+		var/mob/abstract/ghost/observer/D = target_mob
 		D.manifest(user)
 		attack_admins(D, user)
 		return

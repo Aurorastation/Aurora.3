@@ -250,7 +250,7 @@
 	if(mob.control_object)
 		Move_object(direct)
 
-	if(mob.incorporeal_move && isobserver(mob))
+	if(mob.incorporeal_move && isabstractmob(mob))
 		Process_Incorpmove(direct, mob)
 		return
 

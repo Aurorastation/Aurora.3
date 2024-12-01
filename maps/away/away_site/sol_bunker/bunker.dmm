@@ -3,115 +3,170 @@
 /obj/machinery/door/airlock/centcom{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
-/area/derelict)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "aC" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "aL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "bJ" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"bK" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "cn" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"cv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/derelict)
-"cA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"cv" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_x = -32;
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"cA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"cW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "du" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282";
-	dir = 8
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
-/obj/item/gun/projectile/automatic/rifle/sol,
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
+"dU" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
+"et" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/icarus_drone/malf,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "fr" = (
 /obj/effect/shuttle_landmark/automatic,
 /turf/template_noop,
 /area/space)
+"fu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "fv" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "fy" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"fB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "fJ" = (
-/obj/structure/computerframe,
+/obj/structure/computerframe{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "fT" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/launcher/grenade{
 	pixel_y = 6
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "fY" = (
 /obj/structure/sink{
 	dir = 8;
@@ -122,53 +177,98 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "gd" = (
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "gI" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
+"gS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
+"hl" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "ht" = (
 /obj/machinery/appliance/cooker/fryer,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "hE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/derelict)
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"hT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
 "ia" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"ik" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "iv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "iU" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"jb" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "jC" = (
-/obj/structure/sign/flag/sol{
-	pixel_x = -32
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
-/obj/machinery/light_construct{
+/obj/machinery/light/small/red{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "jD" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/table/rack,
@@ -183,94 +283,148 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "jF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282";
-	dir = 1
-	},
 /obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
-"jK" = (
-/obj/structure/sign/flag/sol/large/north,
-/obj/machinery/light_construct{
+/area/sol_bunker)
+"jV" = (
+/obj/random/junk,
+/obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "kc" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"ki" = (
-/obj/structure/sign/flag/sol/large/north,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "kj" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "ku" = (
 /obj/structure/table/reinforced,
 /obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/derelict)
-"kL" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"kH" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"kL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/storage/box/shotgunshells,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "kP" = (
-/turf/simulated/floor/foamedmetal,
-/area/derelict)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 33;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "ld" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/snack,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
+"le" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
 "lg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "li" = (
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "lp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "lu" = (
 /obj/structure/curtain/open/shower,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/soap/blue_soap,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
-"lU" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
+/area/sol_bunker)
+"lw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"lU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	locked = 0;
+	opened = 1;
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "mg" = (
 /obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "mo" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -284,87 +438,138 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "mH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/mucus,
 /obj/structure/sink{
 	dir = 8;
-	pixel_x = -12;
-	pixel_y = 6
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
+"mJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "mM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/door_assembly,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/structure/door_assembly{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "mP" = (
 /obj/structure/table/wood,
 /obj/item/pen,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/light/small/red,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"mR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "nj" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "nx" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "nR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/foamedmetal,
-/area/derelict)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"od" = (
+/obj/random/junk,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "om" = (
 /obj/machinery/photocopier,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "op" = (
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "oM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/rat,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "oU" = (
 /obj/structure/door_assembly{
-	anchored = 1
+	anchored = 1;
+	dir = 8
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "oZ" = (
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "pd" = (
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "pA" = (
-/obj/machinery/light_construct{
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/light/small/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "pV" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "qy" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "qH" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -377,142 +582,199 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/sign/flag/sol{
+/obj/structure/sign/flag/sol/old{
+	dir = 1;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
+"qT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
 "qZ" = (
 /obj/structure/table/wood,
 /obj/item/phone,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "rp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/securearea{
-	pixel_y = -32
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "rr" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
 "rF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
+/obj/machinery/light/small/red,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
+"rP" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "sk" = (
-/obj/structure/door_assembly/door_assembly_hatch,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/structure/door_assembly/door_assembly_hatch{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"su" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "sv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"sI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"sz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
 	},
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"sG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"sI" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "sJ" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "sN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
 	name = "dead greimorian"
 	},
-/obj/machinery/light{
-	brightness_color = "#FA8282"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/machinery/light/small/red,
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"sX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "tz" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "tD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
 	name = "dead greimorian"
 	},
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "tL" = (
 /obj/structure/safe,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/light/small/red,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "tS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/derelict)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "tV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
 /obj/item/grenade/frag,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "uk" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/remains/rat,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "un" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"us" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
 	},
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"us" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "uA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/ballistic,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "uE" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/flour,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "uG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
@@ -524,32 +786,48 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "vJ" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "vN" = (
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "vY" = (
 /obj/structure/curtain/open/shower,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "wi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/foamedmetal,
-/area/derelict)
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"wR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "wY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
@@ -557,48 +835,84 @@
 	name = "dead greimorian"
 	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "xU" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/foamedmetal,
-/area/derelict)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "xW" = (
 /obj/effect/decal/cleanable/mucus,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = -6
 	},
-/turf/simulated/floor/foamedmetal,
-/area/derelict)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 7;
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "yt" = (
 /obj/machinery/shower{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "yT" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "zs" = (
 /obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "zJ" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "zM" = (
 /turf/simulated/mineral,
 /area/space)
+"zP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"zU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Bi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "Bl" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/cobweb2{
@@ -607,21 +921,24 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "Bq" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"BV" = (
-/obj/structure/sign/securearea{
-	pixel_y = -32
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
 	},
-/obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"BV" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Ce" = (
 /turf/simulated/wall,
-/area/derelict)
+/area/sol_bunker)
 "Cs" = (
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
@@ -629,67 +946,143 @@
 	info = "\[center]\[flag_sol]\[/center]\[center]\[small]\[i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet\[/i]\[/small]\[/center]\[hr]\[hr]\[small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
 	},
 /obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "CD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/sol/marine,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"DF" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"Eb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282";
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"CV" = (
+/obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"Dg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"DF" = (
+/obj/random/junk,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"Eb" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"Ef" = (
+/obj/structure/computerframe{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"Eg" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/sol_bunker)
 "Em" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
+"EJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "EK" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/mucus,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "EO" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
+"Fh" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Fn" = (
 /obj/random/junk,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"FH" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "FJ" = (
 /obj/structure/door_assembly,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "FK" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
-/obj/machinery/light_construct{
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/light/small/red{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"Gd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Gf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
+"Gp" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Gt" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -699,40 +1092,45 @@
 /obj/machinery/door/window/eastleft,
 /obj/item/clothing/head/helmet/space/void/sol,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "Gw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "Gy" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/derelict)
+/area/sol_bunker)
 "GF" = (
 /obj/structure/bed/stool/padded/red,
-/obj/machinery/light{
-	brightness_color = "#FA8282"
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
+/obj/machinery/light/small/red,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "GU" = (
-/obj/machinery/light{
-	brightness_color = "#FA8282";
-	dir = 1;
-	status = 2
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "GX" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
+"Hc" = (
+/obj/structure/bed/stool/padded/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "HB" = (
 /obj/structure/table/wood,
 /obj/random/junk,
@@ -741,12 +1139,23 @@
 	},
 /obj/item/ammo_magazine/mc9mm,
 /obj/structure/closet/crate/drop,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"Iy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "IB" = (
 /obj/effect/decal/cleanable/spiderling_remains,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "II" = (
 /obj/structure/sink{
 	dir = 8;
@@ -758,136 +1167,197 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "IJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/rat,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "IO" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282"
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
+/obj/machinery/light/small/red,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "Jc" = (
 /obj/structure/table/reinforced,
 /obj/random/booze,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
-/area/derelict)
-"Kq" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/area/sol_bunker)
+"JT" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/machinery/light/small/red{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"Kq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
-/area/derelict)
+/area/sol_bunker)
 "Ku" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/obj/machinery/light/small/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "KG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
 	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/machinery/light/small/red,
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "KL" = (
 /obj/structure/boulder,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/derelict)
+/area/sol_bunker)
 "KZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"Lc" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Lu" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -33;
+	pixel_y = 7;
 	dir = 1
 	},
-/turf/simulated/floor,
-/area/derelict)
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "LH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "LJ" = (
-/obj/structure/sign/flag/sol{
-	pixel_x = 32
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
 	},
-/obj/machinery/light_construct{
+/obj/machinery/light/small/red{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"LP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "Mf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Mh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "Mi" = (
-/obj/structure/sign/flag/sol/large/south,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/obj/structure/sign/flag/sol/old/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "MJ" = (
 /obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/ballistic,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "ML" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/derelict)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Nf" = (
 /obj/random/junk,
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"Nz" = (
+/obj/effect/floor_decal/corner/brown,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Oe" = (
 /obj/effect/decal/remains/rat,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
+"Of" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Oh" = (
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "Oi" = (
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "OK" = (
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "OL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/machinery/light_construct,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "OR" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -897,73 +1367,106 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol,
 /turf/simulated/floor/tiled,
-/area/derelict)
+/area/sol_bunker)
 "OV" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Pe" = (
 /obj/effect/decal/cleanable/generic,
-/obj/structure/sign/flag/sol{
-	pixel_x = 32
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
 	},
-/obj/machinery/light_construct{
+/obj/machinery/light/small/red{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Pz" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"PW" = (
+/obj/structure/table/reinforced,
+/obj/random/junk,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"Qf" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "QX" = (
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Rb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
 "Re" = (
 /obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "Rk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
+"Ry" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "RB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "RO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Sv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "SC" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -975,44 +1478,60 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/airless,
-/area/derelict)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "SI" = (
 /obj/machinery/door/airlock/vault/bolted{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
+"SU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An old cryogenic freezer .";
+	dir = 4;
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "SW" = (
 /obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
+"Tv" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "TC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "TN" = (
 /obj/effect/overmap/visitable/sector/abandoned_bunker,
 /turf/simulated/floor/wood,
-/area/derelict)
-"TO" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/derelict)
+/area/sol_bunker)
 "TP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
 "Uq" = (
 /turf/simulated/wall/r_wall,
-/area/derelict)
+/area/sol_bunker)
 "UK" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/vending/wallmed2{
@@ -1021,90 +1540,106 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/derelict)
+/area/sol_bunker)
+"UU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/sol_bunker)
 "Va" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/derelict)
+/area/sol_bunker)
 "Vs" = (
-/obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/derelict)
+/area/sol_bunker)
+"VC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"Wj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "Wn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/rat,
-/obj/structure/sign/flag/sol{
-	pixel_x = 32
-	},
-/turf/simulated/floor/wood/airless,
-/area/derelict)
-"WE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32;
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
-"WG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
-"WS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/wood,
+/area/sol_bunker)
+"WV" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Xd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "Xu" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict)
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_bunker)
+"XD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/sol/marine,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/sol_bunker)
 "XK" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/derelict)
+/area/sol_bunker)
 "Ya" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	brightness_color = "#FA8282";
-	dir = 4
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
-	req_access = list(150)
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/derelict)
+/area/sol_bunker)
 "Yp" = (
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/derelict)
+/area/sol_bunker)
+"Yq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/brown,
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 "YV" = (
 /turf/template_noop,
 /area/space)
@@ -1113,16 +1648,30 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
+/obj/structure/foamedmetal,
+/turf/simulated/floor/tiled/full,
+/area/sol_bunker)
 "Zg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"ZJ" = (
+/obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/derelict)
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
+"ZZ" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/sol_bunker)
 
 (1,1,1) = {"
 YV
@@ -31828,11 +32377,11 @@ Yp
 Yp
 Yp
 Yp
-Lu
-xU
+sI
+cA
 xU
 kP
-xU
+Dg
 Rk
 OV
 mo
@@ -32090,7 +32639,7 @@ Uq
 Uq
 Uq
 kc
-Mf
+tz
 LH
 qH
 Uq
@@ -32600,14 +33149,14 @@ Yp
 Yp
 Uq
 Uq
-gd
-Mf
-gd
+Gp
+un
+cv
 jC
-Mf
-Mf
+un
+un
 FK
-gd
+Of
 DF
 gd
 Uq
@@ -32856,17 +33405,17 @@ Yp
 Yp
 Uq
 Uq
-gd
-gd
-Mf
-DF
-aL
+Gp
+rP
+tS
+WV
+Iy
 lg
-Mf
+tS
 iU
-gd
-gd
-Mf
+oZ
+oZ
+sG
 gd
 Uq
 Uq
@@ -33113,18 +33662,18 @@ Uq
 Uq
 Uq
 QX
-Mf
+fB
 uA
-gd
-Mf
-gd
-gd
-gd
-gd
-gd
+Tv
+cW
+Tv
+Tv
+Tv
+Tv
+Tv
 aL
 uA
-gd
+ik
 gd
 Uq
 Uq
@@ -33365,22 +33914,22 @@ zM
 Uq
 fv
 mH
-tz
+sz
 qy
-zs
+jb
 Ce
-Mf
-gd
-Bq
-TO
-tS
-WE
+us
+oZ
+FH
+Eg
+Eg
+Eg
 hS
 hS
-cA
-tS
-Gw
-gd
+Eg
+Eg
+Eg
+Ry
 OK
 Mf
 Uq
@@ -33388,7 +33937,7 @@ Ku
 kL
 du
 tV
-GX
+qT
 Uq
 Uq
 zM
@@ -33620,32 +34169,32 @@ zM
 zM
 zM
 Uq
-gI
+JT
 oZ
 pd
 uk
 ku
 Ce
-ki
+Ry
+tS
 Mf
-Mf
-WG
+Kq
 Cs
 nx
-li
-XK
+su
+mR
 nx
 Re
-us
+Kq
 Bq
-gd
-gd
+oZ
+Lc
 Uq
 aC
 Xu
 GX
 GX
-GX
+le
 Uq
 Uq
 zM
@@ -33884,25 +34433,25 @@ uE
 GF
 Ce
 pA
+tS
 Mf
-Mf
-WS
-Re
+Kq
+kH
 ia
 Xd
 XK
 Nf
 mP
-cv
-gd
-Mf
+Kq
+Ry
+tS
 rp
 Uq
 aC
 GX
 GX
 Gf
-GX
+le
 Uq
 Uq
 zM
@@ -34137,25 +34686,25 @@ Uq
 gI
 oZ
 tD
-tz
+tS
 IB
 ML
-gd
-Mf
-gd
+Ry
+tS
+lw
 ab
 Fn
 li
-fJ
-fJ
+Ef
+Ef
 Oi
-XK
+zP
 ab
-gd
-gd
-Bq
+Ry
+oZ
+FH
 SI
-GX
+gS
 GX
 EO
 GX
@@ -34393,26 +34942,26 @@ zM
 Uq
 jF
 pV
-tz
+tS
 vJ
-tz
+wR
 ML
-Mf
-gd
+sX
+oZ
 Mf
 ab
-li
+Oh
 Xd
 fJ
 fJ
 TN
-Xd
+LP
 ab
-gd
+Ry
 sJ
-gd
+lw
 SI
-GX
+gS
 GX
 GX
 GX
@@ -34648,15 +35197,15 @@ zM
 zM
 zM
 Uq
-ku
-qy
-tz
-qy
+PW
+Hc
+tS
+Hc
 IO
 Ce
-jK
-Mf
-gd
+pA
+tS
+lw
 Kq
 qZ
 ia
@@ -34664,16 +35213,16 @@ wY
 oM
 Rq
 tL
-bK
-gd
-Mf
+Kq
+Ry
+tS
 BV
 Uq
 aC
 Oe
 GX
 Rb
-GX
+le
 Uq
 Uq
 zM
@@ -34906,25 +35455,25 @@ zM
 zM
 Uq
 ld
-qy
+Hc
 pV
 vN
 Jc
 Ce
-gd
-Mf
-gd
-WG
+Zg
+tS
+lw
+Kq
 HB
 om
-li
-XK
+Gw
+mJ
 fy
-Re
-us
-gd
-Mf
-DF
+hl
+Kq
+Ry
+tS
+od
 Uq
 fT
 rr
@@ -35163,31 +35712,31 @@ zM
 zM
 Uq
 mg
-oZ
-tz
-zs
+ZZ
+Wj
+Fh
 zs
 Ce
-gd
-gd
+Ry
+oZ
 Mf
-sI
-tS
-WE
+Eg
+Eg
+Eg
 hS
 hS
-cA
-tS
-Zg
-Mf
-gd
-gd
+Eg
+Eg
+Eg
+sX
+oZ
+lw
 Uq
-aC
+dU
 lU
 Ya
-GX
-GX
+hT
+UU
 Uq
 Uq
 zM
@@ -35425,20 +35974,20 @@ Uq
 Uq
 Uq
 Uq
-gd
-Mf
+CV
+Gd
 MJ
-Mf
-gd
-gd
-lg
-gd
-gd
-Mf
-gd
+un
+Of
+Of
+fu
+Of
+Of
+un
+Of
 MJ
-gd
-gd
+Nz
+ZJ
 Uq
 Uq
 Uq
@@ -35683,18 +36232,18 @@ zM
 zM
 Uq
 Uq
-DF
-Mf
-gd
-gd
+jV
+Gd
+oZ
+oZ
 RO
-Bq
-Mf
-Mf
-gd
-gd
-Mf
-gd
+pV
+tS
+tS
+oZ
+oZ
+Yq
+ZJ
 Uq
 Uq
 Uq
@@ -35941,16 +36490,16 @@ zM
 zM
 Uq
 Uq
-gd
-gd
-gd
+CV
+Tv
+Qf
 LJ
-Mf
-gd
+cW
+Tv
 Pe
-Mf
-Mf
-gd
+zU
+cW
+ZJ
 Uq
 Uq
 zM
@@ -36202,7 +36751,7 @@ Ce
 Ce
 Ce
 Uq
-hE
+EJ
 oU
 Ce
 Ce
@@ -36457,12 +37006,12 @@ II
 fY
 Ce
 CD
-hE
+mR
 mM
-hE
+mR
 cn
 SC
-uG
+SU
 uG
 Uq
 zM
@@ -36717,9 +37266,9 @@ GU
 aj
 aj
 Bi
-hE
-hE
-hE
+XK
+XK
+XK
 KG
 Uq
 zM
@@ -36972,12 +37521,12 @@ TC
 FJ
 hE
 Bi
-hE
-hE
-hE
-hE
-Oh
-hE
+XK
+XK
+XK
+XK
+li
+VC
 Uq
 Yp
 Yp
@@ -37230,11 +37779,11 @@ FJ
 Oh
 aj
 nj
-hE
+XK
 aj
 lp
 lp
-lp
+et
 Uq
 zM
 Yp
@@ -37485,12 +38034,12 @@ vY
 op
 Ce
 Eb
-Oh
-hE
+li
+XK
 iv
-hE
-hE
-un
+XK
+XK
+Xd
 sN
 Uq
 zM
@@ -37741,9 +38290,9 @@ UK
 lu
 yt
 Ce
-CD
-hE
-hE
+XD
+mJ
+mJ
 sv
 Wn
 bJ

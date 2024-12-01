@@ -153,7 +153,7 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
+/obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/ghost/user)
 	if(!(seed && ispath(seed.product_type, /mob)))
 		to_chat(user, SPAN_WARNING("This tray doesn't have any seeds, or the planted seeds does not spawn a mob!"))
 		return

@@ -4,7 +4,7 @@
 	if(!istype(src, /mob/living/test) && cant_hear())
 		return
 
-	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
+	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/ghost/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
@@ -14,7 +14,7 @@
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isobserver(src))
+	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isghost(src))
 	if(T && !vacuum_proof) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
@@ -31,7 +31,7 @@
 
 	//non-verbal languages are garbled if you can't see the speaker. Yes, this includes if they are inside a closet.
 	if (language && (language.flags & NONVERBAL))
-		if((!speaker || (src.sdisabilities & BLIND || src.blinded) || !(speaker in view(src))) && !isobserver(src))
+		if((!speaker || (src.sdisabilities & BLIND || src.blinded) || !(speaker in view(src))) && !isghost(src))
 			message = stars(message)
 
 	if(!(language && (language.flags & INNATE)) && !say_understands(speaker, language)) // skip understanding checks for INNATE languages
@@ -47,7 +47,7 @@
 		message = "<i>[message]</i>"
 
 	var/track = null
-	if(isobserver(src))
+	if(isghost(src))
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
@@ -214,7 +214,7 @@
 		else
 			track = "<a class='ai_tracking' href='byond://?src=[REF(src)];trackname=[html_encode(speaker_name)];track=[REF(speaker)]'>[speaker_name] ([jobname])</a>"
 
-	if(istype(src, /mob/abstract/observer))
+	if(isghost(src))
 		if(speaker != null)
 			if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 				speaker_name = "[speaker.real_name] ([speaker_name])"
@@ -240,7 +240,7 @@
 	if(vr_mob)
 		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
-/mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
+/mob/abstract/ghost/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
