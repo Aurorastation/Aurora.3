@@ -26,7 +26,7 @@
 
 /obj/item/clothing/head/diona/voidtamer/open
 	name = "open carp hood"
-	desc = "a hood made of aged and tanned carp hide, decorated with gold, pointed structures across all sides. This one has an open visor, showing the wearer's face."
+	desc = "A hood made of aged and tanned carp hide, decorated with gold pointed structures across all sides. This one has an open visor, showing the wearer's face."
 	item_state = "void_hood_open"
 	icon_state = "void_hood_open"
 
