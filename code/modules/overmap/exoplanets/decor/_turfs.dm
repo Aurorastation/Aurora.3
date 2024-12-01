@@ -17,20 +17,33 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	// try to get the the atmos and area of the exoplanet
+	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
-		if(istype(E))
-			if(E.atmosphere)
-				initial_gas = E.atmosphere.gas.Copy()
-				temperature = E.atmosphere.temperature
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
 			else
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, E.lightcolor)
-			if(E.planetary_area && istype(loc, world.area))
-				ChangeArea(src, E.planetary_area)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+			if(exoplanet.planetary_area && istype(loc, world.area))
+				ChangeArea(src, exoplanet.planetary_area)
+		// if away site
+		else if(istype(site, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = site
+			if(away_site.exoplanet_atmosphere)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+			else
+				initial_gas = list()
+				temperature = T0C
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.lightlevel, away_site.lightcolor)
+
 	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
 

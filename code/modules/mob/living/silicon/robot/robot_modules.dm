@@ -794,7 +794,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
-	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist)
+	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/machinist)
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()

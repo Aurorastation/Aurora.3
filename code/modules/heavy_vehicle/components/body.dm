@@ -67,7 +67,7 @@
 	. = ..()
 
 	if(!cell)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=cell'>power cell</a>.")
+		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=cell'>power core</a>.")
 	if(!diagnostics)
 		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
@@ -79,7 +79,7 @@
 		return
 	switch(href_list["info"])
 		if("cell")
-			to_chat(usr, SPAN_NOTICE("A power cell can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A power core can be created at a mechatronic fabricator."))
 		if("diagnostics")
 			to_chat(usr, SPAN_NOTICE("A diagnostics unit can be created at a mechatronic fabricator."))
 		if("armor")
@@ -132,9 +132,9 @@
 			return
 		if(install_component(attacking_item, user))
 			diagnostics = attacking_item
-	else if(istype(attacking_item, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell/mecha))
 		if(cell)
-			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
+			to_chat(user, SPAN_WARNING("\The [src] already has a core installed."))
 			return
 		if(install_component(attacking_item,user))
 			cell = attacking_item

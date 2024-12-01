@@ -44,7 +44,10 @@
 
 	var/msg = FormMessage(message, message_title)
 	for(var/mob/M in GLOB.player_list)
-		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | SSatlas.current_map.admin_levels)))
+		if(isnewplayer(M))
+			continue
+
+		if(isghost(M) || (!isdeaf(M) && (GET_Z(M) in (zlevels | SSatlas.current_map.admin_levels))))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)

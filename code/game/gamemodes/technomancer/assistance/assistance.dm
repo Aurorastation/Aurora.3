@@ -14,7 +14,7 @@
 /datum/technomancer/assistance/apprentice/additional_info()
 	var/technomancer_count = 0
 	var/ghost_count = 0
-	for(var/mob/abstract/observer/O in GLOB.player_list)
+	for(var/mob/abstract/ghost/observer/O in GLOB.player_list)
 		if(O.client && (O.client.inactivity < 5 MINUTES))
 			if("technomancer" in O.client.prefs.be_special_role)
 				technomancer_count++

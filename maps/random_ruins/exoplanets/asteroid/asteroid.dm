@@ -129,23 +129,6 @@
 
 	unit_test_groups = list(3)
 
-/datum/map_template/ruin/exoplanet/abandoned_listening_post
-	name = "Abandoned Listening Post"
-	id = "abandoned_listening_post"
-	description = "An abandoned listening post."
-
-	spawn_weight = 1
-	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-
-	prefix = "asteroid/listening_post/"
-	suffix = "listening_post_unique.dmm"
-
-	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
-	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE
-
-	unit_test_groups = list(1)
-
 /datum/map_template/ruin/exoplanet/crashed_escape_pod_1
 	name = "Crashed Escape Pod"
 	id = "crashed_escape_pod_1"

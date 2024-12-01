@@ -55,6 +55,7 @@
 		buckling_atom.anchored = TRUE
 
 	post_buckle(buckling_atom)
+	buckled_original_layer = buckling_atom.layer
 	buckling_atom.layer = layer + 0.1
 	return TRUE
 
@@ -63,6 +64,9 @@
 	if(MA && MA.buckled_to == src)
 		. = MA
 		MA.buckled_to = null
+		if(buckled_original_layer)
+			MA.layer = buckled_original_layer
+			buckled_original_layer = null
 		MA.anchored = initial(MA.anchored)
 		buckled = null
 		if(istype(MA, /mob/living))

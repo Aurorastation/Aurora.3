@@ -1,5 +1,5 @@
 /area/assembly
-	station_area = 1
+	station_area = TRUE
 
 /area/assembly/chargebay
 	name = "Mech Bay"
@@ -27,7 +27,7 @@
 
 //rnd (Research and Development
 /area/rnd
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/rnd/hallway
@@ -197,9 +197,9 @@
 	area_flags = AREA_FLAG_FIRING_RANGE
 
 /area/toxins
-	station_area = 1
+	station_area = TRUE
 
 /area/toxins/server
 	name = "Research - Server Room"
 	icon_state = "server"
-	station_area = 1
+	station_area = TRUE

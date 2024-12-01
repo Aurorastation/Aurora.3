@@ -7,6 +7,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
+	layer = BELOW_TABLE_LAYER
 	w_class = WEIGHT_CLASS_TINY
 
 	var/leaves_residue = 1

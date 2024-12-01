@@ -232,7 +232,7 @@
 /mob/abstract/new_player/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
 	return
 
-/mob/abstract/observer/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
+/mob/abstract/ghost/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
 	if(speaker.name == speaker_name || antagHUD)
 		to_chat(src, "[ghost_follow_link(speaker, src)] <i><span class='game say'>[language.name], <span class='name'>[speaker_name]</span> [message]</span></i>")
 	else

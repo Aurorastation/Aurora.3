@@ -21,7 +21,7 @@
 	SIGNAL_HANDLER
 	if(!H || H == src)
 		return
-	if(isobserver(H) && !affect_ghosts)
+	if(isghost(H) && !affect_ghosts)
 		return
 	if(!ismob(H) && mobs_only)
 		return
