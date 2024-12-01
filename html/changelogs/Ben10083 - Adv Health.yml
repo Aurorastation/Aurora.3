@@ -56,3 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "AI shell and Exosuit adv health analyser now works properly."
+  - qol: "Increased feedback for which mode the exosuit health analyser is on."
