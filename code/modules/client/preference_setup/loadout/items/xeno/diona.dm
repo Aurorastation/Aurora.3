@@ -184,7 +184,7 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 
 /datum/gear/suit/voidtamer/apron
 	display_name = "voidtamer apron"
-	description = "A apron made of woven carp hide and adorned with golden, typically worn by various voidtamer-alligned factions.."
+	description = "A apron made of woven carp hide and adorned with gold, typically worn by various voidtamer-aligned factions."
 	path = /obj/item/clothing/accessory/poncho/voidtamer/apron
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
