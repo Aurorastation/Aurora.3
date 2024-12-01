@@ -44,6 +44,9 @@
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
 	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/attack_ai(mob/user)
@@ -162,6 +165,7 @@
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if(!hacked)
 		req_access = list()
+		req_one_access = list()
 		hacked = TRUE
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
 		return TRUE

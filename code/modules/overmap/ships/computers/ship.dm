@@ -18,7 +18,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/attack_hand(mob/user)
 	if(use_check_and_message(user))
 		return
-
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -27,6 +29,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return
 	src.add_hiddenprint(user)
 	ui_interact(user)
+
+/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user)
+	if(!hacked)
+		req_access = list()
+		req_one_access = list()
+		hacked = TRUE
+		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
+		return TRUE
 
 /obj/machinery/computer/ship/Topic(href, href_list)
 	if(..())
