@@ -280,9 +280,15 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 
-/obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
+/// Special health analyzer used by the exosuit health analyzer.
+/obj/item/device/healthanalyzer/mech
+	name = "mounted health analyzer"
 	var/obj/machinery/body_scanconsole/connected = null
-	var/fullScan = FALSE //Toggle whether to do full or basic scan
+	/// Toggle whether to do full or basic scan
+	var/fullScan = FALSE
+
+/obj/item/device/healthanalyzer/mech/get_hardpoint_maptext()
+	return "[(fullScan ? "Full" : "Basic")]"
 
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
@@ -316,14 +322,17 @@
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
-		if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
-			print_scan(target_mob, user_vehicle)
+		for(var/mob/pilot in user_vehicle.pilots)
+			if(!do_after(pilot, 7 SECONDS, target_mob, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK)) // Pilots must not move while scanning
+				return FALSE
+		print_scan(target_mob, user_vehicle)
 
 /obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user_vehicle.loc, connected.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	for(var/mob/pilot in user_vehicle.pilots)
 		R.show_content(pilot)
 	user_vehicle.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
+	playsound(user_vehicle.loc, /singleton/sound_category/print_sound, 50, 1)
 	R.forceMove(user_vehicle.loc)
 
 /obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
