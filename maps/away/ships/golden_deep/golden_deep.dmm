@@ -1874,7 +1874,7 @@
 "hN" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Accounting";
 	pixel_y = 6;
 	req_one_access = list(229, 217)
 	},
@@ -10023,7 +10023,7 @@
 "Pb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Merchant";
 	req_one_access = list(229, 217);
 	pixel_y = 6
 	},
