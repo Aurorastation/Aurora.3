@@ -1,6 +1,6 @@
 /obj/item/clothing/head/diona/ekane
 	name = "feather cap"
-	desc = "a simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
+	desc = "A simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
 	icon = 'icons/obj/diona_items.dmi'
 	item_state = "ekanehat"
 	icon_state = "ekanehat"
