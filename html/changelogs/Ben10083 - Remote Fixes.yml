@@ -60,3 +60,4 @@ changes:
   - bugfix: "Remote control no longer makes the client lose verbs until restart."
   - bugfix: "Remote controlled exosuit radios now will use the channels the user has access to."
   - qol: "Pressing eject in a remotely controlled mech now exits remote control."
+  - code_imp: "DMdoced lists.dm"
