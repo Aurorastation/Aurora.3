@@ -23,13 +23,13 @@
 /area/crumbling_station/medical/hallway)
 "ae" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/effect/floor_decal/plaque,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/administrator)
 "af" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -120,6 +120,15 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
+"aH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "aJ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -245,6 +254,13 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_approach)
+"bm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "bn" = (
 /turf/simulated/floor/carpet/brown,
 /area/crumbling_station/service/smoking)
@@ -275,6 +291,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/control)
 "bu" = (
@@ -333,6 +350,12 @@
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/docking_ports)
+"bK" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "bL" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/machinery/light/small{
@@ -383,11 +406,11 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "bV" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "bW" = (
@@ -566,8 +589,12 @@
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "cG" = (
-/obj/machinery/power/generator{
-	anchored = 1
+/obj/machinery/atmospherics/valve{
+	name = "Thermal Relief Valve"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
@@ -776,6 +803,33 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/solar2)
+"dr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/atmospherics/unary/vent_pump/engine{
+	external_pressure_bound = 100;
+	external_pressure_bound_default = 0;
+	id_tag = "crumbling_cooling_out";
+	initialize_directions = 1;
+	pump_direction = 0;
+	use_power = 1;
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/reactor,
+/area/crumbling_station/engi/reactor)
+"dt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/air_sensor{
+	id_tag = "crumbling_supermatter_sensor";
+	output = 63
+	},
+/turf/simulated/floor/reinforced/reactor,
+/area/crumbling_station/engi/reactor)
 "dw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -862,6 +916,19 @@
 "dM" = (
 /turf/simulated/mineral/lava,
 /area/space)
+"dQ" = (
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/engi/reactor)
 "dR" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
@@ -969,12 +1036,13 @@
 /turf/simulated/wall,
 /area/crumbling_station/maints/hydroponics)
 "er" = (
+/obj/structure/closet/radiation,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
-	},
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
@@ -1001,6 +1069,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/disposals)
+"eD" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
+"eE" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/engi/reactor)
 "eF" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -1253,6 +1343,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/security/hallway)
+"fN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
+"fQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "fU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -1278,8 +1380,9 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crumbling_station/engi/hard_storage)
 "fZ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
@@ -1380,6 +1483,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
+"gx" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 2;
+	tag_north = 2;
+	tag_south = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "gy" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -1450,6 +1565,12 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
+"gW" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "gX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1597,9 +1718,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/light/small{
+/obj/structure/sink{
 	dir = 4;
-	must_start_working = 1
+	pixel_x = 13
+	},
+/obj/machinery/light/small,
+/obj/machinery/shower{
+	dir = 8;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
@@ -1700,6 +1826,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/shop_storage)
+"ir" = (
+/obj/machinery/light/colored/decayed,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "is" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/foyer)
@@ -1710,6 +1846,15 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"ix" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "iA" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -1785,13 +1930,10 @@
 /turf/simulated/floor/lino,
 /area/crumbling_station/service/shop)
 "iT" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
 	},
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "iU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2050,6 +2192,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/shop_storage)
+"kr" = (
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "ks" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
@@ -2176,6 +2326,14 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
+"lb" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small{
+	dir = 1;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "ld" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -2255,6 +2413,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/washroom)
+"lo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/civilian/hallway_central)
 "lp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -2273,6 +2435,13 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/security)
+"lt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "lv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2430,8 +2599,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/control)
 "mg" = (
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 5
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	frequency = 1439;
+	id = "crumbling_cooling_in";
+	name = "Reactor Coolant Injector";
+	pixel_y = 1;
+	power_rating = 30000;
+	use_power = 1;
+	volume_rate = 700
 	},
 /turf/simulated/floor/reinforced/reactor,
 /area/crumbling_station/engi/reactor)
@@ -2507,9 +2687,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/hallway_west)
 "mA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/reactor,
 /area/crumbling_station/engi/reactor)
 "mB" = (
@@ -2605,6 +2783,11 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/service/custodial)
+"mX" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "mY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -2612,8 +2795,8 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
 "mZ" = (
-/obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/smartfridge/foodheater,
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/dining)
 "na" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
@@ -2969,10 +3152,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/shop_storage)
 "oD" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "oE" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3029,12 +3214,12 @@
 /turf/simulated/floor/tiled/gridded,
 /area/crumbling_station/command/administrator)
 "oO" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
 	},
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/crumbling_station/asteroid/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/service/dining)
 "oR" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -3074,11 +3259,10 @@
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
 "oZ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
-	dir = 8
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "pa" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -3142,6 +3326,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/security/brig)
+"pr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "ps" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3260,6 +3451,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/crumbling_station/service/shop)
+"pR" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "pX" = (
 /turf/simulated/wall/r_wall,
 /area/crumbling_station/engi/hallway)
@@ -3344,6 +3542,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"qu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "qv" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -3409,6 +3613,14 @@
 "qV" = (
 /turf/simulated/wall,
 /area/crumbling_station/civilian/quarters_3)
+"qW" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/sign/radiation{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/hallway)
 "qX" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -3473,6 +3685,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
+"ro" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/computer/general_air_control/supermatter_core{
+	frequency = 1439;
+	input_tag = "crumbling_cooling_in";
+	name = "Supermatter Monitoring Terminal";
+	output_tag = "crumbling_cooling_out";
+	sensors = list("crumbling_supermatter_sensor"="Supermatter Core");
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "rp" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/machinery/vending/dinnerware/plastic,
@@ -3481,6 +3707,10 @@
 "rq" = (
 /turf/simulated/wall,
 /area/crumbling_station/civilian/quarters_2)
+"rs" = (
+/obj/machinery/smartfridge,
+/turf/simulated/floor/lino,
+/area/crumbling_station/service/kitchen)
 "rt" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -3530,6 +3760,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
+"rA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for engine core.";
+	dir = 10;
+	id = "crumbling_engine_vent";
+	name = "Supermatter Reactor Emergency Vent";
+	pixel_y = 27;
+	req_access = list(10)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "rB" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3590,6 +3837,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/storage)
+"rO" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "rQ" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3603,6 +3856,12 @@
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/crumbling_station/engi/atmospherics)
+"rU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "rV" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/cable/green{
@@ -3618,7 +3877,7 @@
 /area/crumbling_station/command/control)
 "rZ" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3747,6 +4006,16 @@
 /obj/effect/floor_decal/corner/dark_green,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_west)
+"sF" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "sG" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -3798,9 +4067,12 @@
 /turf/simulated/floor,
 /area/crumbling_station/civilian/hallway_east)
 "sU" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/carpet/red,
-/area/crumbling_station/command/administrator)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/command/control)
 "sW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
@@ -3886,12 +4158,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "tq" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "ts" = (
 /obj/structure/cable/green{
@@ -3949,6 +4225,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/security/hallway)
+"tC" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "tE" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -4114,6 +4396,22 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crumbling_station/civilian/quarters_7)
+"uk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
+"ul" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "um" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -4142,10 +4440,29 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crumbling_station/command/administrator)
+"uq" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Intake to Cold Loop";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "ur" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/workshop)
+"us" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "uv" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4408,6 +4725,10 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
+"vw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "vx" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/atmospherics)
@@ -4419,10 +4740,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/auxiliary)
 "vA" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/reactor,
+/obj/machinery/door/blast/regular{
+	id = "crumbling_engine_vent"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/crumbling_station/engi/reactor)
+"vD" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "vF" = (
 /obj/effect/floor_decal/corner/brown{
@@ -4438,6 +4767,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/hallway)
+"vG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "vJ" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 4
@@ -4510,12 +4845,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/maints/auxiliary)
 "wf" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/reinforced/airless,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "wg" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4551,9 +4882,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/hydro)
 "wr" = (
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/power/supermatter,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/mass_driver{
+	dir = 8;
+	id = "crumbling_ejection"
 	},
 /turf/simulated/floor/reinforced/reactor,
 /area/crumbling_station/engi/reactor)
@@ -4628,6 +4961,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/hallway_central)
+"wC" = (
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "wE" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -4657,6 +4998,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/maints/atmospherics)
 "wJ" = (
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
@@ -4754,10 +5099,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "xg" = (
-/obj/machinery/smartfridge/foodheater,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/service/kitchen)
 "xi" = (
@@ -4804,7 +5149,7 @@
 /area/crumbling_station/maints/civilian)
 "xs" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/chair/holochair{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4821,8 +5166,17 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
+"xx" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/service/dining)
 "xz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Intake to Hot Loop";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "xA" = (
@@ -4862,6 +5216,13 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
+"xJ" = (
+/obj/machinery/power/generator{
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "xL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -4958,6 +5319,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/reactor)
+"ym" = (
+/obj/machinery/power/emitter{
+	dir = 8;
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "yn" = (
 /turf/template_noop,
 /area/space)
@@ -4973,7 +5345,17 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/engi/reactor)
+"yr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "ys" = (
 /obj/machinery/light/colored/decayed{
@@ -5010,6 +5392,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/control)
 "yA" = (
@@ -5048,6 +5431,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/quarters_6)
+"yH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "yI" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -5089,6 +5481,11 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
+"yU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "yV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -5157,6 +5554,11 @@
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
 /area/crumbling_station/asteroid/exterior)
+"zo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "zp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5183,9 +5585,24 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
-"zv" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+"zt" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/sign/radiation{
+	pixel_x = -32
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
+"zv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
@@ -5234,6 +5651,11 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/security/hallway)
+"zE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "zH" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -5386,7 +5808,9 @@
 /area/crumbling_station/maints/engi)
 "Am" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light/colored/decayed,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "Aq" = (
@@ -5400,7 +5824,10 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "As" = (
 /obj/effect/floor_decal/corner/purple{
@@ -5528,6 +5955,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/command/control)
 "Ba" = (
@@ -5591,12 +6019,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/maints/atmospherics)
 "Bn" = (
+/obj/structure/closet/radiation,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
-	},
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
@@ -5627,6 +6054,10 @@
 /obj/machinery/light/floor/decayed,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/control)
+"Bu" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "Bv" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/hydro)
@@ -5701,6 +6132,17 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
+"BM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/button/remote/driver{
+	dir = 1;
+	id = "crumbling_ejection";
+	name = "Supermatter Reactor Emergency Crystal Ejection";
+	req_access = list(10);
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "BO" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -5741,12 +6183,16 @@
 /area/crumbling_station/command/control)
 "BU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "BW" = (
-/obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
@@ -5858,6 +6304,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crumbling_station/maints/civilian)
+"Cw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Cx" = (
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 1
@@ -5882,6 +6334,12 @@
 "CA" = (
 /turf/simulated/wall,
 /area/crumbling_station/maints/auxiliary)
+"CB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "CC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5891,6 +6349,12 @@
 "CE" = (
 /turf/simulated/floor/carpet/rubber,
 /area/crumbling_station/civilian/quarters_5)
+"CG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "CH" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -5972,6 +6436,14 @@
 "CY" = (
 /turf/simulated/wall,
 /area/crumbling_station/service/washroom)
+"Db" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/space,
+/area/crumbling_station/asteroid/exterior)
 "De" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -6048,8 +6520,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "Dx" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
@@ -6103,6 +6579,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/custodial)
+"DG" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Supermatter Waste to Scrubbers";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "DH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -6144,6 +6629,19 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
+"DU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
+"DV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "DX" = (
 /turf/simulated/wall/r_wall,
 /area/crumbling_station/command/control)
@@ -6205,6 +6703,15 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
+"El" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "Em" = (
 /obj/machinery/power/solar{
 	id = "starboardsadarsolar";
@@ -6360,8 +6867,8 @@
 	pixel_y = 15
 	},
 /obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = -9;
-	pixel_y = 6
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
@@ -6430,6 +6937,12 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/docking/storage)
+"Fp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Fq" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -6467,6 +6980,15 @@
 "Fx" = (
 /turf/simulated/wall,
 /area/crumbling_station/medical/gtr)
+"Fz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "FB" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
@@ -6498,6 +7020,9 @@
 /area/crumbling_station/service/hydro_secure)
 "FI" = (
 /obj/effect/floor_decal/corner/brown/full,
+/obj/structure/sign/radiation{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/hallway)
 "FK" = (
@@ -6695,6 +7220,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/civilian/hallway_east)
+"GT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "GU" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -6967,6 +7498,16 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"Ia" = (
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform/cutout{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "Ib" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7013,14 +7554,10 @@
 /turf/simulated/floor,
 /area/crumbling_station/command/control)
 "Ip" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "Ir" = (
 /obj/machinery/alarm/north,
@@ -7058,7 +7595,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/maints/solar2)
 "IA" = (
-/obj/structure/bed/stool/bar/padded/black{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7088,6 +7625,15 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/gridded,
 /area/crumbling_station/service/shop)
+"IG" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "II" = (
 /turf/simulated/wall,
 /area/crumbling_station/medical/recovery2)
@@ -7114,6 +7660,9 @@
 "IQ" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light/colored/decayed,
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/dining)
 "IR" = (
@@ -7166,6 +7715,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
+"Jd" = (
+/obj/machinery/atmospherics/valve{
+	name = "Thermal Relief Valve"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Jg" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -7306,8 +7865,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/hangar)
 "JF" = (
-/obj/machinery/power/supermatter,
-/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/reactor,
 /area/crumbling_station/engi/reactor)
 "JH" = (
@@ -7789,6 +8352,12 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/crumbling_station/maints/disposals)
+"LQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "LR" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -7826,8 +8395,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/civilian)
 "Mg" = (
-/obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
+/obj/machinery/atmospherics/pipe/manifold/hidden/green{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -7902,6 +8474,11 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"My" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "MA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
@@ -7938,6 +8515,13 @@
 /obj/machinery/power/apc/north,
 /turf/simulated/floor,
 /area/crumbling_station/maints/auxiliary)
+"MH" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/reactor)
 "MI" = (
 /turf/simulated/wall/r_wall,
 /area/crumbling_station/command/foyer)
@@ -8009,7 +8593,10 @@
 	},
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "Nb" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8225,6 +8812,11 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
+"NX" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "NY" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
@@ -8264,6 +8856,11 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hydroponics)
+"Og" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/hallway)
 "Oh" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -8473,7 +9070,10 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "Pa" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -8818,6 +9418,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/solar2)
+"QR" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "QT" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
@@ -8937,6 +9544,15 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/radiator)
+"Rs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "Rt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -8961,6 +9577,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/command/washroom)
+"RA" = (
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "RB" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -9055,11 +9677,17 @@
 /turf/simulated/floor/reinforced/reactor,
 /area/crumbling_station/engi/reactor)
 "RX" = (
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Cooling Array to Generators";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/reactor,
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "RY" = (
 /turf/simulated/wall,
@@ -9073,6 +9701,10 @@
 "Sc" = (
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/atmospherics)
+"Sd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Sf" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -9260,6 +9892,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
+"SU" = (
+/obj/structure/platform_deco{
+	dir = 8
+	},
+/obj/structure/platform_deco{
+	icon_state = "ledge_deco"
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "SW" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -9297,9 +9938,10 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "Te" = (
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/reactor,
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/crumbling_station/engi/reactor)
 "Th" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -9335,9 +9977,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/kitchen)
 "Tm" = (
-/obj/machinery/light/colored/decayed,
-/turf/simulated/floor/plating,
-/area/crumbling_station/engi/reactor)
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/crumbling_station/asteroid/exterior)
 "Tn" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -9416,6 +10061,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"TG" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "TH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -9438,6 +10089,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/hallway_east)
 "TN" = (
+/obj/machinery/alarm/north,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -9468,7 +10121,10 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "TS" = (
 /obj/structure/table/reinforced/steel,
@@ -9481,6 +10137,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/auxiliary)
+"TV" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular{
+	id = "crumbling_engine_vent"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/crumbling_station/engi/reactor)
 "TY" = (
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crumbling_station/engi/hard_storage)
@@ -9574,10 +10241,13 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "Ux" = (
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "UB" = (
@@ -9699,6 +10369,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/storage)
+"Vd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "Ve" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -9726,6 +10405,14 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
+"Vm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Vn" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -9909,6 +10596,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/hydroponics)
+"VT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "VU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
@@ -9958,9 +10651,16 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/light/small{
+/obj/structure/sink{
 	dir = 4;
-	must_start_working = 1
+	pixel_x = 13
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/shower{
+	dir = 8;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
@@ -9970,10 +10670,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/foyer)
+"Wc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Wd" = (
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/lino,
 /area/crumbling_station/service/shop)
+"Wf" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "Wh" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -10013,7 +10726,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "Ws" = (
 /obj/machinery/alarm/south,
@@ -10103,6 +10819,16 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/civilian)
+"WP" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "WQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -10439,8 +11165,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_central)
 "Yi" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/colored/decayed,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
@@ -10496,6 +11224,21 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/command/washroom)
+"Yw" = (
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 2;
+	tag_north = 2;
+	tag_south = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
+"Yx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/reactor,
+/area/crumbling_station/engi/reactor)
 "Yz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -10772,7 +11515,10 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/reactor)
 "ZP" = (
 /turf/simulated/floor/wood,
@@ -10793,6 +11539,13 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/civilian)
+"ZW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/reactor)
 "ZX" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -22777,7 +23530,7 @@ yn
 yn
 zn
 nn
-oG
+dn
 bX
 bX
 bX
@@ -23291,7 +24044,7 @@ yn
 yn
 zn
 nn
-nn
+Db
 Px
 Px
 Px
@@ -23539,16 +24292,16 @@ Px
 Px
 Px
 Px
-Px
 yn
 yn
 yn
-Ls
-tq
-Ls
+yn
+yn
+yn
+yn
 zn
-oO
-oO
+nn
+nn
 Px
 Px
 Px
@@ -23796,17 +24549,17 @@ Px
 Px
 Px
 Px
-Ls
-la
-la
-Ls
-Ls
-AB
-Ls
-Ls
-la
-la
-Ls
+Px
+yn
+yn
+yn
+yn
+yn
+yn
+zn
+Tm
+Tm
+Px
 Px
 Px
 Px
@@ -24054,14 +24807,14 @@ Px
 Px
 Px
 Ls
-lU
-sJ
-Zk
 la
-AB
 la
-Ip
-sJ
+Ls
+Ls
+TV
+Ls
+Ls
+pR
 fZ
 Ls
 Px
@@ -24311,15 +25064,15 @@ Px
 Px
 Px
 Ls
-to
-uS
-iF
+lU
+sJ
+Zk
 la
 AB
 la
 Dx
 oD
-Lw
+Vm
 Ls
 Px
 Px
@@ -24564,23 +25317,23 @@ Px
 Px
 Px
 Px
-Ls
-Ls
-Ls
-Ls
-to
-Am
-Ls
-Ls
-wf
-Ls
+Px
+Px
+Px
 Ls
 GM
-Lw
+uS
+iF
+la
+AB
+la
+DV
+tq
+ir
 Ls
-Ls
-Ls
-Ls
+Px
+Px
+Px
 Px
 Px
 nf
@@ -24818,26 +25571,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Oc
+Oc
 Ls
-xz
-xz
-oZ
+Ls
+Ls
+Ls
 to
-Lw
-la
-RW
+BM
+Ls
+Ls
 vA
-Xt
-la
-to
-Lw
-oZ
-xz
-xz
 Ls
+Ls
+rA
+Wf
+Ls
+Ls
+Ls
+Px
 Px
 Px
 nf
@@ -25075,26 +25828,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ef
+Ch
 Ls
-WH
-WH
-WH
-to
+NA
+LQ
+gx
+yH
 Lw
 la
-RX
+RW
 JF
-Te
+Xt
 la
-to
-Lw
-WH
-WH
-WH
+Rs
+Wf
+My
+zE
 Ls
+Px
 Px
 Px
 nf
@@ -25332,26 +26085,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
-Ls
-WJ
-WH
-WH
-to
-Lw
-la
+Oc
+Ds
+Vk
+Wt
+DG
+Sd
+rU
+lt
+NX
+rO
 mg
 wr
 mA
-la
-to
-Lw
+mX
+Rs
+Wf
 WH
 WH
-Tm
 Ls
+Px
 Px
 Px
 nf
@@ -25589,26 +26342,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+Vk
 Ls
-WH
-WH
-WH
-to
+NA
+vG
+Yw
+ul
 Am
-Ls
+yU
+dr
+Yx
+dt
 la
-la
-la
+Rs
+Wf
+zE
+zE
 Ls
-GM
-Lw
-WH
-WH
-WH
-Ls
+Px
 Px
 Px
 Px
@@ -25846,26 +26599,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+QR
 Ls
-WH
-WH
-WH
-to
+Ls
+Ls
+WJ
+Fz
 Yi
-sJ
-sJ
-sJ
-sJ
-sJ
-zv
-Lw
-WH
-WH
-WH
 Ls
+la
+la
+la
+Ls
+zv
+Wf
+Ls
+Ls
+Ls
+Px
 Px
 Px
 Px
@@ -26103,26 +26856,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+lb
+Vk
+ou
+Bu
 Ls
-WH
-WH
-WH
-Dx
-mk
-mk
-mk
-mk
-mk
-mk
-mk
-iF
-WH
-WH
-WH
+RA
+Fz
+ix
+sJ
+sJ
+ZW
+sJ
+sJ
+eD
+Wf
+tC
 Ls
+Px
+Px
 Px
 Px
 Px
@@ -26360,26 +27113,26 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+Vk
+ou
+Bu
 Ls
-WJ
 WH
+us
+aH
+mk
+mk
+ym
+mk
+mk
+El
+Vd
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-Tm
 Ls
+Px
+Px
 Px
 Px
 Px
@@ -26617,25 +27370,25 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+za
+Vk
+Ls
+Ls
 Ls
 WH
+Ip
+GT
 WH
 WH
 WH
 WH
 WH
+Wc
+CG
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+Ls
+Ls
 Ls
 Px
 Px
@@ -26874,24 +27627,24 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+Vk
 Ls
 NA
 xz
-WH
-WH
-WH
-WH
-BW
-cG
-Mg
-WH
-WH
-WH
-WH
-WH
+CB
+Ip
+VT
+zo
+WP
+Jd
+sF
+bm
+fN
+gW
+fQ
+uq
 ST
 Ls
 Px
@@ -27131,24 +27884,24 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+lb
+Vk
 Ls
 NA
 xz
+bK
+wf
 WH
+vD
+kr
+xJ
+wC
+Cw
 WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+CG
+Fp
+uq
 ST
 Ls
 Px
@@ -27388,22 +28141,22 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+Vk
 Ls
 Ji
 WH
 WH
-WH
-WH
-WH
+qu
+DU
+yr
 BW
 cG
 Mg
-WH
-WH
-Ji
+RX
+vw
+IG
 WH
 WH
 WH
@@ -27645,21 +28398,21 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Ds
+Vk
 Ls
 Ls
 Wt
 Ls
 Ls
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+Te
+Te
+Te
+SU
+Te
+Te
+Te
 Ls
 Ls
 Wt
@@ -27902,24 +28655,24 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
 Oc
+Ds
+Vk
+RM
 bV
 Vk
-ou
+zt
 Ls
-WH
-WH
-WH
-WH
-WH
-WH
-WH
+dQ
+pr
+pr
+Ia
+pr
+ro
+eE
 Ls
 fK
-kP
+MH
 BA
 Px
 Px
@@ -28159,21 +28912,21 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
 Oc
-Ds
+KP
+uk
+Oc
+KH
 Vk
 ou
 Ls
 iT
-sJ
-sJ
-sJ
-sJ
-sJ
-sJ
+TG
+Wt
+Wt
+Wt
+TG
+oZ
 Ls
 XP
 MC
@@ -28416,9 +29169,9 @@ Px
 Px
 Px
 Px
-Px
-Px
-Px
+Oc
+Oc
+Oc
 Oc
 Ds
 Vk
@@ -29456,7 +30209,7 @@ JD
 pX
 TN
 zW
-wJ
+Og
 pX
 NT
 YY
@@ -30224,7 +30977,7 @@ Oc
 Ds
 Qw
 pX
-BU
+qW
 KX
 pu
 Lu
@@ -30670,8 +31423,8 @@ Px
 Px
 Px
 se
-SX
-hR
+se
+jq
 se
 se
 Px
@@ -30928,7 +31681,7 @@ Px
 Px
 se
 SX
-oE
+hR
 se
 Px
 Px
@@ -36083,8 +36836,8 @@ Bs
 Fn
 Jy
 Nc
-Nc
-Nc
+TS
+TS
 mf
 DX
 DX
@@ -37113,7 +37866,7 @@ Jy
 Nc
 Cl
 Nc
-mf
+sU
 DX
 DX
 MI
@@ -39215,7 +39968,7 @@ ns
 HL
 bp
 zQ
-zQ
+rs
 Es
 BH
 Nd
@@ -39679,7 +40432,7 @@ VV
 HF
 JT
 pk
-sU
+pk
 pk
 cg
 lG
@@ -41273,10 +42026,10 @@ ez
 ez
 hd
 ez
-mZ
-mZ
-mZ
-mZ
+xx
+xx
+xx
+xx
 mZ
 ez
 ez
@@ -41534,7 +42287,7 @@ IA
 IA
 IA
 IA
-IA
+ug
 XR
 md
 ez
@@ -42049,7 +42802,7 @@ hD
 rZ
 rZ
 rZ
-rZ
+hD
 hD
 ez
 kP
@@ -42306,8 +43059,8 @@ hD
 mb
 mb
 mb
-mb
 hD
+oO
 ez
 lT
 hT
@@ -42563,8 +43316,8 @@ hD
 xs
 xs
 xs
-xs
 hD
+mb
 ez
 kP
 eL
@@ -44353,7 +45106,7 @@ Ty
 VY
 ns
 HL
-hY
+lo
 Ie
 Ie
 Ie
@@ -44610,7 +45363,7 @@ wp
 VY
 ns
 HL
-hY
+lo
 Xk
 Ie
 ZB
