@@ -810,8 +810,8 @@ var/list/ai_verbs_default = list(
 		return
 
 	// Grab from relevant networks
-	var/list/remote_shell = SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT, TRUE)
-	var/list/remote_mech = SSvirtualreality.mech_selection(src, REMOTE_AI_MECH, TRUE)
+	var/list/remote_shell = SSvirtualreality.bound_choices(src, REMOTE_AI_ROBOT)
+	var/list/remote_mech = SSvirtualreality.mech_choices(src, REMOTE_AI_MECH)
 	var/list/remote = flatten_list(list(remote_shell, remote_mech))
 
 	if(!length(remote))

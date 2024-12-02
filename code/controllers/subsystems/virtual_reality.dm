@@ -145,7 +145,7 @@ SUBSYSTEM_DEF(virtualreality)
 	if(target.client)
 		target.client.screen |= global_hud.vr_control
 
-	if(istype(target, /mob/living/simple_animal/spiderbot))
+	if(istype(target, /mob/living/simple_animal/spiderbot) && !istype(target, /mob/living/simple_animal/spiderbot/ai))
 		var/mob/living/simple_animal/spiderbot/spider = target
 		var/obj/item/card/id/original_id = M.GetIdCard()
 		if(original_id)
@@ -188,7 +188,8 @@ SUBSYSTEM_DEF(virtualreality)
 	if(null_vr_mob)
 		target.vr_mob = null
 
-/datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network, var/return_list)
+/// Returns a list with all remote controlable exosuits on the given network
+/datum/controller/subsystem/virtualreality/proc/mech_choices(var/user, var/network)
 	var/list/mech = list()
 
 	for(var/mob/living/heavy_vehicle/R in mechs[network])
@@ -208,23 +209,26 @@ SUBSYSTEM_DEF(virtualreality)
 			continue
 		mech[R.name] = R
 
-	if(!length(mech))
-		if(!return_list)
-			to_chat(user, SPAN_WARNING("No active remote mechs are available."))
+	return mech
+
+/// Retrieves a list returned by mech_choices and prompts user to select an option to transfer to
+/datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network)
+	var/list/remote = mech_choices(user, network)
+	if(!length(remote))
+		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
 
-	if(return_list)
-		return mech
-
-	var/choice = tgui_input_list(usr, "Please select a remote control compatible mech to take over.", "Remote Mech Selection", mech)
+	var/choice = tgui_input_list(usr, "Please select a remote control compatible mech to take over.", "Remote Mech Selection", remote)
 	if(!choice)
 		return
 
-	var/mob/living/heavy_vehicle/chosen_mech = mech[choice]
+	var/mob/living/heavy_vehicle/chosen_mech = remote[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
 
-/datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
+
+/// Returns a list with all remote controlable robots on the given network
+/datum/controller/subsystem/virtualreality/proc/robot_choices(var/user, var/network)
 	var/list/robot = list()
 
 	for(var/mob/living/R in robots[network])
@@ -239,17 +243,22 @@ SUBSYSTEM_DEF(virtualreality)
 			continue
 		robot[R.name] = R
 
-	if(!length(robot))
-		to_chat(user, SPAN_WARNING("No active remote robots are available."))
+	return robot
+
+/// Retrieves a list returned by robot_choices and prompts user to select an option to transfer to
+/datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
+	var/list/remote = robot_choices(user, network)
+	if(!length(remote))
+		to_chat(user, SPAN_WARNING("No active remote units are available."))
+
+	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", remote)
+	if(!(choice in remote))
 		return
 
-	var/choice = tgui_input_list(usr, "Please select a remote control robot to take over.", "Remote Robot Selection", robot)
-	if(!choice)
-		return
+	mind_transfer(user, choice)
 
-	mind_transfer(user, robot[choice])
-
-/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network, var/return_list)
+/// Returns a list with all remote controlable bound on the given network
+/datum/controller/subsystem/virtualreality/proc/bound_choices(var/user, var/network)
 	var/list/bound = list()
 
 	for(var/mob/living/silicon/R in bounded[network])
@@ -264,19 +273,20 @@ SUBSYSTEM_DEF(virtualreality)
 			continue
 		bound += R
 
-	if(!length(bound))
-		if(!return_list)
-			to_chat(user, SPAN_WARNING("No active remote units are available."))
-		return
+	return bound
 
-	if(return_list)
-		return bound
+/// Retrieves a list returned by bound_choices and prompts user to select an option to transfer to
+/datum/controller/subsystem/virtualreality/proc/bound_selection(var/user, var/network)
+	var/list/remote = bound_choices(user, network)
+	if(!length(remote))
+		to_chat(user, SPAN_WARNING("No active remote units are available."))
 
-	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", bound)
-	if(!(choice in bound))
+	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", remote)
+	if(!(choice in remote))
 		return
 
 	mind_transfer(user, choice)
+
 
 /datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
 	if(GLOB.virtual_reality_spawn.len)
