@@ -8,3 +8,7 @@
       sensors consoles.
   OolongCow:
   - bugfix: Fixes a coding oversight causing first aid lockers to not spawn kits.
+2024-12-02:
+  hazelmouse:
+  - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
+      secure locker in the Pilot Room.
