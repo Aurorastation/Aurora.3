@@ -23,8 +23,16 @@
 ///from base of atom/has_gravity(): (turf/location, list/forced_gravities)
 #define COMSIG_ATOM_HAS_GRAVITY "atom_has_gravity"
 
+///called when an atom starts orbiting another atom: (atom)
+#define COMSIG_ATOM_ORBIT_BEGIN "atom_orbit_begin"
+///called when an atom stops orbiting another atom: (atom)
+#define COMSIG_ATOM_ORBIT_STOP "atom_orbit_stop"
+
 ///from base of atom/throw_impact, sent by the target hit by a thrown object. (hit_atom, thrown_atom, datum/thrownthing/throwingdatum)
 #define COMSIG_ATOM_PREHITBY "atom_pre_hitby"
 	#define COMSIG_HIT_PREVENTED (1<<0)
 ///from base of atom/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 #define COMSIG_ATOM_HITBY "atom_hitby"
+
+/// Called on [/atom/SpinAnimation()] : (speed, loops, segments, angle)
+#define COMSIG_ATOM_SPIN_ANIMATION "atom_spin_animation"

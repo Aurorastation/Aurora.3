@@ -29,7 +29,7 @@
 /obj/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
 	ports = new()
-	for(var/d in GLOB.cardinal)
+	for(var/d in GLOB.cardinals)
 		var/datum/omni_port/new_port = new(src, d)
 		switch(d)
 			if(NORTH)

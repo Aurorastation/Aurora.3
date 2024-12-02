@@ -213,9 +213,9 @@
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	GLOB.moved_event.register(owner, src, PROC_REF(update_aiming))
-	GLOB.moved_event.register(aiming_at, src, PROC_REF(target_moved))
-	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(update_aiming))
+	RegisterSignal(aiming_at, COMSIG_MOVABLE_MOVED, PROC_REF(target_moved))
+	RegisterSignal(aiming_at, COMSIG_QDELETING, PROC_REF(cancel_aiming))
 
 /obj/aiming_overlay/proc/aim_cooldown(seconds)
 	aimcooldown = world.time + seconds SECONDS
@@ -258,10 +258,10 @@
 			SPAN_NOTICE("You lower \the [aiming_with].")
 		)
 
-	GLOB.moved_event.unregister(owner, src)
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	if(aiming_at)
-		GLOB.moved_event.unregister(aiming_at, src)
-		GLOB.destroyed_event.unregister(aiming_at, src)
+		UnregisterSignal(aiming_at, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(aiming_at, COMSIG_QDELETING)
 		LAZYREMOVE(aiming_at.aimed_at_by, src)
 		aiming_at = null
 

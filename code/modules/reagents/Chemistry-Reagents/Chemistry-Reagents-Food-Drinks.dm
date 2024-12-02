@@ -6795,7 +6795,7 @@
 	name = "Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey."
 	strength = 15
-	color = "f1f1f1"
+	color = "#f1f1f1"
 	taste_description = "yeast"
 
 	glass_icon_state = "pulque"

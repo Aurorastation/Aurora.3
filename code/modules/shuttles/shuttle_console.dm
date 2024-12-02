@@ -51,7 +51,7 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/observer/user)
+/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/ghost/observer/user)
 	if(check_rights(R_ADMIN, 0, user))
 		ui_interact(user)
 
@@ -82,6 +82,10 @@
 	if(!shuttle.next_location.is_valid(shuttle))
 		to_chat(user, SPAN_WARNING("Destination zone is invalid or obstructed."))
 		return FALSE
+	if(GET_Z(shuttle.next_location) in SSodyssey.scenario_zlevels)
+		if(SSodyssey.site_landing_restricted)
+			to_chat(user, SPAN_WARNING("You are not cleared to land on this site yet! You must wait for your ship's sensor scans to be done first!"))
+			return FALSE
 	return TRUE
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)

@@ -137,7 +137,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
-/obj/item/organ/process()
+/obj/item/organ/process(seconds_per_tick)
 	if(loc != owner)
 		owner = null
 

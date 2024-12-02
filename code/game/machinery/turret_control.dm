@@ -53,7 +53,7 @@
 	if(!control_area)
 		control_area = get_area(src)
 	else if(istext(control_area))
-		for(var/area/A in GLOB.all_areas)
+		for(var/area/A in get_sorted_areas())
 			if(A.name && A.name==control_area)
 				control_area = A
 				break

@@ -71,7 +71,13 @@ var/global/list/area_blurb_stated_to = list()
 	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
 	var/emergency_lights = FALSE
 
+	/**
+	 * Boolean, if the area is part of the station (aka main map)
+	 *
+	 * This includes any non-space area, including maintenance; it doesn't include space or shuttles (as they could be outside the station)
+	 */
 	var/station_area = FALSE
+
 	var/centcomm_area = FALSE
 
 	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
@@ -86,6 +92,7 @@ var/global/list/area_blurb_stated_to = list()
 	// DMMS hook - Required for areas to work properly.
 	if (!GLOB.areas_by_type[type])
 		GLOB.areas_by_type[type] = src
+	GLOB.areas += src
 	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
 	if(isnull(area_blurb_category))
@@ -130,6 +137,22 @@ var/global/list/area_blurb_stated_to = list()
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
 			turf_initializer.initialize(T)
+
+/area/Destroy()
+	if(GLOB.areas_by_type[type] == src)
+		GLOB.areas_by_type[type] = null
+	//this is not initialized until get_sorted_areas() is called so we have to do a null check
+	if(!isnull(GLOB.sortedAreas))
+		GLOB.sortedAreas -= src
+	//just for sanity sake cause why not
+	if(!isnull(GLOB.areas))
+		GLOB.areas -= src
+
+	GLOB.centcom_areas -= src
+	GLOB.the_station_areas -= src
+
+	//parent cleanup
+	return ..()
 
 /area/proc/is_prison()
 	return area_flags & AREA_FLAG_PRISON
@@ -516,7 +539,7 @@ var/list/mob/living/forced_ambiance_list = new
 			blurb_verb.do_area_blurb(src, TRUE)
 
 /// A ghost version of the view area blurb verb so you can view it while observing.
-/mob/abstract/observer/verb/ghost_show_area_blurb()
+/mob/abstract/ghost/observer/verb/ghost_show_area_blurb()
 	set name = "Show Area Blurb"
 	set category = "IC"
 

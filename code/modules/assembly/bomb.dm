@@ -12,7 +12,7 @@
 	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
 	var/obj/item/tank/bombtank = null //the second part of the bomb is a phoron tank
 
-/obj/item/device/onetankbomb/examine(mob/user, show_extended)
+/obj/item/device/onetankbomb/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	examinate(user, bombtank, show_extended)
 

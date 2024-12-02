@@ -90,7 +90,7 @@
 	if(click_handler_type)
 		owner.PushClickHandler(click_handler_type)
 	setLoc(owner)
-	visualnet.update_eye_chunks(src, TRUE)
+	visualnet?.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
 	if(owner != user || !user)
@@ -125,7 +125,7 @@
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 
-	visualnet.update_eye_chunks(src)
+	visualnet?.update_eye_chunks(src)
 	return TRUE
 
 /mob/abstract/eye/proc/getLoc()

@@ -230,7 +230,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/chemistry(src)
 	modules += new /obj/item/reagent_containers/dropper/cyborg_pipette(src)
 	modules += new /obj/item/roller_holder(src)
-	modules += new /obj/item/reagent_containers/syringe(src)
+	modules += new /obj/item/reagent_containers/syringe/robotic(src)
 	modules += new /obj/item/device/reagent_scanner/adv(src)
 	modules += new /obj/item/device/mass_spectrometer(src)
 	modules += new /obj/item/autopsy_scanner(src)
@@ -794,7 +794,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
-	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist)
+	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/machinist)
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()

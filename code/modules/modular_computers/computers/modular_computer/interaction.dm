@@ -1,3 +1,11 @@
+/obj/item/modular_computer/proc/force_shutdown()
+	set name = "Force Shutdown"
+	set category = "Object"
+	set src in view(1)
+
+	to_chat(usr, SPAN_NOTICE("You long-press the power button on \the [src], causing it to forcibly power off."))
+	shutdown_computer(TRUE)
+
 /obj/item/modular_computer/proc/eject_id()
 	set name = "Eject ID"
 	set category = "Object"
@@ -173,10 +181,10 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/user)
 	if(enabled)
 		ui_interact(user)
-	else if(check_rights(R_ADMIN, 0, user))
+	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)

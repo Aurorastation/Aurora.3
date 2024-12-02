@@ -183,9 +183,14 @@
 			receive -= R
 
 	// Add observers who have ghost radio enabled
-	for (var/mob/abstract/observer/M in GLOB.player_list)
+	for (var/mob/abstract/ghost/observer/M in GLOB.player_list)
 		if(M.client && (M.client.prefs?.toggles & CHAT_GHOSTRADIO))
 			receive |= M
+
+	// a lot more efficient than checking big lists again
+	if(length(SSodyssey.storytellers))
+		for(var/mob/abstract/ghost/storyteller/storyteller in SSodyssey.storytellers)
+			receive |= storyteller
 
 	/* --- Some miscellaneous variables to format the string output --- */
 	var/freq_text = get_frequency_name(frequency)

@@ -123,3 +123,31 @@
 
 /obj/machinery/teleport/pad/ninja
 	ignore_distance = TRUE
+
+// -------------- odyssey teleporter
+
+/// Teleports actors to the odyssey scenario away site.
+/// Uses holomap POIs as possible destinations.
+/obj/machinery/teleport_odyssey
+	name = "teleport"
+	icon = 'icons/obj/teleporter.dmi'
+	icon_state = "pad_active"
+	density = TRUE
+	anchored = TRUE
+
+/obj/machinery/teleport_odyssey/attack_hand(mob/user)
+	// find valid POIs for the odyssey scenario site
+	var/list/obj/effect/landmark/minimap_poi/possible_pois = list()
+	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)
+		if(poi.z in SSodyssey.scenario_zlevels)
+			possible_pois += poi
+
+	// ask the user
+	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(usr,
+		"Choose teleport destination, to go to the Odyssey Scenario site. You cannot go back to this area after teleporting.", "Teleport Destination",
+		possible_pois
+	)
+
+	// teleport them
+	if(poi)
+		user.forceMove(get_turf(poi))

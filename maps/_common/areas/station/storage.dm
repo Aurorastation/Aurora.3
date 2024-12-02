@@ -1,7 +1,7 @@
 
 //Storage
 /area/storage
-	station_area = 1
+	station_area = TRUE
 
 /area/storage/tools
 	name = "Auxiliary Tool Storage"

@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(holomap)
 		/turf/unsimulated/mineral,
 	))
 	var/static/list/mineral_floor_tcache = typecacheof(list(
-		/turf/unsimulated/floor/asteroid,
+		/turf/simulated/floor/exoplanet/asteroid,
 		/turf/simulated/mineral,
 		/turf/simulated/floor/exoplanet,
 	))
@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(holomap)
 
 	var/static/list/rock_tcache = typecacheof(list(
 		/turf/simulated/mineral,
-		/turf/unsimulated/floor/asteroid,
+		/turf/simulated/floor/exoplanet/asteroid,
 		/turf/simulated/open
 	))
 	var/static/list/obstacle_tcache = typecacheof(list(
@@ -57,7 +57,7 @@ SUBSYSTEM_DEF(holomap)
 	var/static/list/path_tcache = typecacheof(list(
 		/turf/simulated/floor,
 		/turf/unsimulated/floor
-	)) - typecacheof(/turf/unsimulated/floor/asteroid)
+	)) - typecacheof(/turf/simulated/floor/exoplanet/asteroid)
 
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()

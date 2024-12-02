@@ -260,5 +260,5 @@
 	required_access_download = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(ACCESS_GOLDEN_DEEP)
-	required_access_download = list(ACCESS_GOLDEN_DEEP)
+	required_access_run = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
+	required_access_download = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)

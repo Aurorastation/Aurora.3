@@ -51,7 +51,7 @@ In short:
 	SScult.rune_boost += 9001	//basically removing the rune cap
 
 /datum/universal_state/hell/proc/AreaSet()
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
