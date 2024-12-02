@@ -66,10 +66,16 @@
 // --------------------------------------------------- mapmanip
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room
-	name = "Crew Quarters Room"
+	name = "Crew Quarters Room South"
 
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room
-	name = "Crew Quarters Room"
+	name = "Crew Quarters Room South"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room_north
+	name = "Crew Quarters Room North"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north
+	name = "Crew Quarters Room North"
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/armoury
 	name = "Armoury"

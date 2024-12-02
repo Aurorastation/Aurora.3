@@ -152,6 +152,12 @@
 /area/nuclear_silo/lower_level/maintenance/south
 	name = "Maintenance, Southern Tunnels"
 
+/area/nuclear_silo/lower_level/maintenance/central
+	name = "Maintenance, Central"
+
+/area/nuclear_silo/lower_level/maintenance/north
+	name = "Maintenance, North"
+
 // --- Lifts
 
 /area/nuclear_silo/lower_level_lift

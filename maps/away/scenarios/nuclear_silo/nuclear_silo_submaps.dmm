@@ -1,4 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"ah" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "au" = (
 /turf/template_noop,
 /area/space)
@@ -12,6 +28,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aW" = (
@@ -28,8 +47,16 @@
 /obj/item/ammo_magazine/c38/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"aZ" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
 "bh" = (
 /obj/random/pottedplant,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "bv" = (
@@ -86,9 +113,49 @@
 /area/template_noop)
 "cf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"cA" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"cD" = (
+/obj/structure/table/steel,
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"dg" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"do" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "dw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dy" = (
@@ -97,6 +164,7 @@
 	},
 /obj/machinery/recharger,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dU" = (
@@ -106,6 +174,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "dX" = (
@@ -119,6 +188,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ee" = (
@@ -126,11 +196,41 @@
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
+"em" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/template_noop)
+"et" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"eH" = (
+/obj/structure/table/rack,
+/obj/random/gift{
+	pixel_x = -8
+	},
+/obj/random/gift{
+	pixel_x = 7
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "eL" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "eM" = (
@@ -153,14 +253,39 @@
 "eO" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"eU" = (
+/obj/random/dirt_75,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "fd" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"fh" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"fr" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "fw" = (
 /obj/structure/weapons_rack{
@@ -175,7 +300,19 @@
 /area/template_noop)
 "fI" = (
 /obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"fU" = (
+/obj/structure/table/steel,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "fW" = (
 /obj/structure/closet,
@@ -184,7 +321,19 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"gw" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/item/gamehelm/pink,
+/obj/random/gift,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "gy" = (
 /obj/structure/weapons_rack{
@@ -207,33 +356,51 @@
 /obj/item/gun/projectile/automatic/rifle/sts35,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"gB" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gC" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"gU" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "gW" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
+"hr" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/template_noop)
 "hx" = (
+/obj/structure/weapons_rack{
+	req_one_access = list(247)
+	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/table/rack,
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/suit/armor/carrier/ablative,
-/obj/item/clothing/head/helmet/ablative,
-/obj/item/clothing/head/helmet/ablative,
+/obj/item/gun/energy/sniperrifle,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hC" = (
@@ -241,7 +408,29 @@
 /obj/random/desktoy{
 	pixel_y = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/template_noop)
+"hG" = (
+/obj/random/dirt_75,
+/obj/random/spacecash,
+/obj/structure/table/rack/folding_table,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/random/desktoy{
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"hU" = (
+/obj/machinery/light,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hW" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -279,11 +468,26 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"ie" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"ip" = (
+/obj/structure/bed/stool/bar{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "it" = (
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "iS" = (
-/obj/structure/table/wood,
 /obj/item/material/ashtray/plastic{
 	pixel_y = -5;
 	pixel_x = -6
@@ -292,11 +496,75 @@
 	pixel_x = 9;
 	pixel_y = 7
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"iU" = (
+/obj/random/dirt_75,
+/turf/template_noop,
+/area/space)
+"iV" = (
+/obj/structure/bed/stool/chair,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"jd" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "kh" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ki" = (
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"kq" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"kO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"kV" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"ld" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"lC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "lE" = (
 /obj/machinery/light{
@@ -304,6 +572,7 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "lM" = (
@@ -316,6 +585,22 @@
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"ml" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/plushie,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"mB" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/plushie,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "mS" = (
 /obj/structure/weapons_rack{
@@ -340,14 +625,48 @@
 /area/template_noop)
 "mX" = (
 /obj/random/junk,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"mZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "ng" = (
 /obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
+"nh" = (
+/obj/structure/bed/stool/chair,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"nj" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"np" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "nx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"nA" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "nF" = (
 /obj/structure/table/steel,
@@ -356,6 +675,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
@@ -378,6 +700,8 @@
 /area/template_noop)
 "nZ" = (
 /obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "or" = (
@@ -397,6 +721,23 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"ou" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"oW" = (
+/obj/structure/table/rack,
+/obj/random/gift{
+	pixel_x = -8
+	},
+/obj/random/gift{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "pa" = (
 /obj/structure/weapons_rack{
 	req_one_access = list(247)
@@ -410,6 +751,10 @@
 "pf" = (
 /obj/structure/table/steel,
 /obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "pg" = (
@@ -418,6 +763,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -443,17 +791,67 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"pB" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"pD" = (
+/obj/random/pottedplant,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"pO" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"pT" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/softcap{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/random/hoodie{
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "pU" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/item/gamehelm,
 /obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "qh" = (
 /obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"qm" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qB" = (
 /obj/structure/weapons_rack{
@@ -491,20 +889,43 @@
 /obj/structure/bed/stool/bar{
 	dir = 2
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "qR" = (
 /obj/structure/bed/stool/chair,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"rf" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/off{
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "rh" = (
 /obj/structure/table/steel,
 /obj/random/plushie,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "rp" = (
 /obj/structure/table/steel,
 /obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "rt" = (
@@ -512,6 +933,7 @@
 /obj/outfit/admin/generic,
 /obj/random/loot,
 /obj/random/hoodie,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "rw" = (
@@ -560,7 +982,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "rE" = (
-/obj/structure/table/wood,
 /obj/random/smokable{
 	pixel_y = 1;
 	pixel_x = -8
@@ -572,21 +993,44 @@
 /obj/item/flame/candle{
 	pixel_y = 19
 	},
+/obj/structure/table/rack/folding_table,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
+"rI" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"rU" = (
+/obj/random/pottedplant,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "rW" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "se" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"sf" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "sp" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /obj/random/junk,
 /obj/random/gift,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "sB" = (
@@ -615,19 +1059,72 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"sS" = (
+/obj/random/junk,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"ti" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/template_noop,
+/area/space)
+"tn" = (
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"tx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot{
+	pixel_x = 6;
+	pixel_y = -9
+	},
+/obj/random/loot{
+	pixel_y = -8;
+	pixel_x = -6
+	},
+/obj/random/firstaid{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"tJ" = (
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
 "uf" = (
 /obj/structure/table/steel,
 /obj/random/mre,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"uu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "uv" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "uy" = (
@@ -637,14 +1134,53 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"uK" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "uZ" = (
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"vg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"vj" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "vs" = (
 /obj/structure/bed/stool/chair,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"vE" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/off{
+	pixel_y = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "vH" = (
@@ -668,11 +1204,41 @@
 /obj/item/storage/box/beanbags,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"we" = (
+/obj/structure/table/rack,
+/obj/random/syrup{
+	pixel_x = 8
+	},
+/obj/random/kitchen_staples{
+	pixel_y = -5;
+	pixel_x = -6
+	},
+/obj/random/booze{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"wj" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "wp" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"wy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "wA" = (
 /obj/structure/table/steel,
@@ -682,7 +1248,33 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"wI" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
+/obj/structure/table/rack,
+/obj/random/syrup{
+	pixel_x = 8
+	},
+/obj/random/kitchen_staples{
+	pixel_y = -5;
+	pixel_x = -6
+	},
+/obj/random/booze{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"wK" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "wN" = (
 /obj/structure/bed/stool/chair{
@@ -690,6 +1282,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
@@ -700,6 +1295,13 @@
 	},
 /obj/item/gamehelm/brown,
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"xw" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "xC" = (
 /obj/structure/weapons_rack{
@@ -712,8 +1314,32 @@
 /obj/item/gun/energy/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"xE" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/obj/random/junk,
+/obj/random/watches,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"xJ" = (
+/obj/structure/table/steel,
+/obj/random/desktoy{
+	pixel_y = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
 "xL" = (
 /obj/machinery/light,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "yo" = (
@@ -740,6 +1366,31 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
+"zA" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"zE" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"zG" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "zO" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -748,7 +1399,40 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/template_noop)
+"zU" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"zW" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"zZ" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Aa" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "Ag" = (
 /obj/machinery/vending/security,
@@ -760,6 +1444,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Av" = (
+/turf/simulated/floor/tiled/slate/full,
+/area/template_noop)
+"AS" = (
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/template_noop)
 "AW" = (
 /obj/structure/weapons_rack{
 	req_one_access = list(247)
@@ -768,22 +1461,67 @@
 /obj/item/gun/energy/laser/shotgun,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"AZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"Bk" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Bx" = (
+/obj/structure/bed/stool/bar{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "By" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
+"BE" = (
+/obj/structure/bed/stool/bar{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"BF" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"BK" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "BZ" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Ck" = (
 /obj/structure/closet,
 /obj/outfit/admin/generic,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "CG" = (
@@ -794,10 +1532,27 @@
 /obj/item/gun/projectile/automatic/mini_uzi,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"CH" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/outfit/admin/generic,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"CZ" = (
+/obj/structure/table/steel,
+/obj/random/plushie,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
 "Dd" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Do" = (
@@ -819,6 +1574,12 @@
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Dx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Dy" = (
 /obj/structure/table/wood,
 /obj/random/booze{
@@ -838,12 +1599,34 @@
 	pixel_x = -7
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"Dz" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "DF" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"DL" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/softcap{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/random/hoodie{
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "DZ" = (
 /obj/structure/table/steel,
@@ -860,6 +1643,10 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
@@ -885,8 +1672,40 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ei" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/template_noop)
+"Er" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"EB" = (
+/obj/structure/table/wood,
+/obj/random/booze{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/random/booze{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/random/booze{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/random/booze{
+	pixel_y = 7;
+	pixel_x = -7
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "EF" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
@@ -948,11 +1767,15 @@
 /area/template_noop)
 "FS" = (
 /obj/random/pottedplant,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "FZ" = (
 /obj/random/pottedplant,
 /obj/random/junk,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Gf" = (
@@ -962,6 +1785,9 @@
 /obj/random/gift,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -973,6 +1799,14 @@
 /obj/item/gun/energy/rifle/icelance,
 /obj/item/gun/energy/rifle/icelance,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"GK" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Hd" = (
 /obj/structure/closet/cabinet,
@@ -989,13 +1823,42 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "Hh" = (
 /obj/structure/bed/stool/bar{
 	dir = 1
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"Hi" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Ht" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"HC" = (
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "HH" = (
 /obj/structure/weapons_rack{
@@ -1021,6 +1884,16 @@
 "HI" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"HO" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 "HP" = (
@@ -1053,6 +1926,15 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"HX" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Id" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/off{
@@ -1061,7 +1943,32 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/carpet/orange,
+/area/template_noop)
+"Ih" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"Iy" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"IB" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "IW" = (
 /obj/structure/weapons_rack{
@@ -1070,6 +1977,16 @@
 /obj/item/gun/projectile/dragunov,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"IZ" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/obj/random/gift,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Jm" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/off{
@@ -1077,12 +1994,32 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
+"Jo" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
 "Js" = (
 /obj/structure/bed/stool/chair,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"Jv" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "Jy" = (
 /obj/structure/table/rack,
@@ -1100,6 +2037,14 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"JH" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "Ko" = (
 /obj/structure/weapons_rack{
@@ -1122,8 +2067,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"KG" = (
+/obj/structure/closet,
+/obj/outfit/admin/generic,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/template_noop)
 "Li" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"Ls" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "LG" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
@@ -1140,6 +2100,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "LN" = (
@@ -1148,7 +2111,59 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"Mk" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/off{
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/template_noop)
+"Ml" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"Mq" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot{
+	pixel_y = -6;
+	pixel_x = -4
+	},
+/obj/random/lavalamp{
+	pixel_x = 10
+	},
+/obj/random/smokable{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"Mw" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"MA" = (
+/obj/random/pottedplant,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "MD" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1163,6 +2178,57 @@
 /obj/item/storage/box/flashbangs,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ME" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"MH" = (
+/obj/random/dirt_75,
+/obj/random/spacecash,
+/obj/structure/table/rack/folding_table,
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/random/desktoy{
+	pixel_y = -1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
+"Nc" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Np" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Ns" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Nu" = (
+/obj/structure/bed/stool/bar{
+	dir = 2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "Ny" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1191,9 +2257,54 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"NL" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "Oe" = (
 /obj/random/pottedplant,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"Oj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Ok" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Op" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/plushie,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"OJ" = (
+/obj/structure/table/steel,
+/obj/random/mre,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"OQ" = (
+/obj/random/pottedplant,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "OT" = (
 /obj/structure/closet/cabinet,
@@ -1202,7 +2313,18 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"OX" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/gift,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "OZ" = (
 /obj/structure/weapons_rack{
@@ -1215,11 +2337,20 @@
 "Ps" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/table/steel,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "PK" = (
 /obj/random/keg,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"PU" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/wood/maple,
 /area/template_noop)
 "Qd" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1231,6 +2362,30 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Qi" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"Qn" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Qx" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north,
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "Qz" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1250,16 +2405,39 @@
 /obj/item/ammo_magazine/mc9mm/flash,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"QK" = (
+/obj/structure/table/steel,
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
 "QS" = (
 /obj/structure/closet,
 /obj/random/loot,
 /obj/outfit/admin/generic,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"QZ" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/slate/full,
 /area/template_noop)
 "Rm" = (
 /obj/structure/table/steel,
 /obj/random/desktoy{
 	pixel_y = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -1272,18 +2450,47 @@
 /obj/random/watches,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
+"Rr" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
 "Sa" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/plushie,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Sf" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/plushie,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"Sl" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Sm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "SH" = (
 /obj/structure/weapons_rack{
@@ -1292,6 +2499,39 @@
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Ti" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Tp" = (
+/obj/structure/table/steel,
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
+"Tu" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "TD" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1303,11 +2543,79 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"TW" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"Ur" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "UI" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/plushie,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"UX" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"UY" = (
+/obj/effect/decal/cleanable/draftingchalk/red,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Vc" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/off{
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Vl" = (
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"VD" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"VN" = (
+/obj/random/keg,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "VP" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -1329,32 +2637,70 @@
 /obj/item/ammo_magazine/d762,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"VQ" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"VV" = (
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/junk,
+/obj/random/gift,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"VW" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Wb" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Wq" = (
 /obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "WC" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "WO" = (
-/obj/structure/table/wood,
 /obj/random/booze{
 	pixel_x = 9;
 	pixel_y = 9
 	},
 /obj/random/pizzabox,
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "WT" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/item/gun/energy/sniperrifle,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/suit/armor/carrier/ablative,
+/obj/item/clothing/head/helmet/ablative,
+/obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "WU" = (
@@ -1378,7 +2724,24 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"Xj" = (
+/obj/structure/table/steel,
+/obj/random/pottedplant_small{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/template_noop)
+"Xk" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "Xn" = (
 /obj/structure/weapons_rack{
@@ -1388,6 +2751,15 @@
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/projectile/tanto,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Xx" = (
+/obj/structure/table/steel,
+/obj/random/desktoy{
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "XJ" = (
 /obj/structure/table/rack,
@@ -1411,11 +2783,30 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Yn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"YJ" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/mahogany,
+/area/template_noop)
+"YN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Zg" = (
@@ -1450,6 +2841,7 @@
 	pixel_x = -5;
 	pixel_y = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/maple,
 /area/template_noop)
 
@@ -2164,41 +3556,41 @@ au
 au
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+Er
+wj
+Hd
+zW
+iU
 Yn
+OJ
+cA
+xw
+au
+au
+ry
+Tp
+kq
+xE
+au
+au
+WC
+OX
+em
+AS
+au
+au
+dX
+Ih
+gw
+Qx
+au
+au
+au
+Er
 uZ
 Hd
-Dd
-au
+Ok
+iU
 Yn
 uf
 fd
@@ -2421,63 +3813,63 @@ au
 au
 au
 au
+qh
+np
+UY
+Qn
+iU
+zr
+et
+Ns
+YN
+au
+au
+zr
+Nc
+Ei
+HX
+au
+au
+et
+Nc
+gU
+ld
+au
+au
+nx
+nx
+ou
+Jv
 au
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+zZ
+wK
 qh
 qh
-qh
-qh
-au
-zr
-zr
-zr
+iU
+Oj
+GK
+Nc
 zr
 au
 au
+Oj
+Sl
 zr
-zr
-zr
-zr
+et
 au
 au
-zr
-zr
+fh
+Sl
 HQ
-zr
+Nc
 au
 au
-nx
-nx
-nx
-nx
+ie
+fr
+sf
+sf
 au
 au
 "}
@@ -2678,33 +4070,33 @@ au
 au
 au
 au
+cD
+NE
+lE
+CH
+au
+rU
+Er
+LJ
+vE
 au
 au
+jd
+qR
+wA
+Qi
 au
 au
+Zs
+hC
+dU
+JH
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+ml
+Jm
+FB
+MA
 au
 au
 au
@@ -2714,18 +4106,18 @@ lE
 QS
 au
 FZ
-Yn
+Er
 LJ
 DZ
 au
 au
-se
+af
 qR
 wA
-se
+rI
 au
 au
-Zs
+JH
 hC
 dU
 Zs
@@ -3449,33 +4841,33 @@ au
 au
 au
 au
+WO
+BE
+ki
+EB
+au
+nZ
+do
+Vl
+mB
 au
 au
+vs
+fU
+Mw
+pD
 au
 au
+ee
+Mk
+uu
+OQ
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+DF
+xJ
+pB
+aZ
 au
 au
 au
@@ -3492,7 +4884,7 @@ au
 au
 vs
 BZ
-Yn
+uK
 az
 au
 au
@@ -3706,61 +5098,61 @@ au
 au
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-nx
-nx
-nx
-nx
-au
-zr
-zr
-zr
-zr
+sf
+sf
+ou
+Sm
+ti
+Nc
+Nc
+ah
+ld
 au
 au
 it
 mX
-it
-it
+AZ
+NL
 au
 au
 zr
 zr
+Tu
+YN
+au
+au
+Li
+Li
+vj
+vg
+au
+au
+au
+YJ
+ME
+sf
+nx
+au
+pO
+Sl
+et
+Nc
+au
+au
+kO
+zA
+it
+Xk
+au
+au
+Oj
+Dx
 uy
 zr
 au
 au
-Li
-Li
+lC
+VD
 Wq
 Li
 au
@@ -3963,45 +5355,45 @@ au
 au
 au
 au
+Nu
+iS
+rE
+Bx
+au
+VV
+Er
+dY
+zG
 au
 au
+Op
+pU
+uv
+Ht
 au
 au
+KG
+ee
+zz
+hr
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
+tJ
+rt
+qI
+Rr
 au
 au
 au
 qM
 iS
 rE
-Hh
+ip
 au
 sp
-Yn
+Er
 dY
-Yn
+Er
 au
 au
 Sf
@@ -4734,54 +6126,54 @@ au
 au
 au
 au
+eU
+BK
+MH
+we
+au
+Er
+sS
+rf
+pD
+au
+au
+tn
+IZ
+VN
+xw
+au
+au
+IB
+nh
+QK
+kV
+au
+au
+xl
+TW
+PU
+HO
 au
 au
 au
+eU
+zE
+hG
+wI
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-Ei
-Ei
-Ei
-Ei
-au
-Yn
+Er
 Yb
-DZ
+Vc
 az
 au
 au
-FS
+tn
 Gf
 PK
 Dd
 au
 au
-eO
+IB
 Js
 rp
 Xe
@@ -4991,61 +6383,61 @@ au
 au
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-Ei
-Ei
-Ei
-Ei
+mZ
+Av
+Aa
+Ls
 au
 wp
-zr
-zr
-zr
+et
+Ns
+HX
 au
 au
-zr
-zr
-zr
-zr
+Nc
+Nc
+ah
+ld
 au
 au
-HQ
+nA
 zr
-zr
-zr
+Ei
+ld
 au
 au
 WZ
 rW
+UX
+Jo
+au
+au
+au
+QZ
+wy
+mZ
+mZ
+au
+Ur
+GK
+Nc
+et
+au
+au
+pO
+Sl
+et
+Nc
+au
+au
+Dz
+Dx
+zr
+Nc
+au
+au
+dg
+Ml
 rW
 rW
 au
@@ -5248,49 +6640,49 @@ au
 au
 au
 au
+oW
+Mq
+tx
+pT
+au
+Xx
+uK
+OT
+Ht
+au
+au
+Yn
+iV
+WU
+Ht
+au
+au
+CZ
+eO
+Hf
+HC
+au
+au
+zU
+Oe
+fW
+Xj
 au
 au
 au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-au
-Ei
-Ei
-Ei
-Ei
+eH
+Mq
+tx
+DL
 au
 Rm
-Yn
+uK
 OT
 Yn
 au
 au
-Yn
-vs
+Ht
+iV
 WU
 Yn
 au
@@ -6312,27 +7704,27 @@ au
 au
 au
 OZ
-Ny
+gB
 dw
-dw
-dw
+BF
+BF
 xL
 au
 au
 Xn
 cf
-dw
-dw
+Hi
+BF
 dw
 xL
 au
 au
 gy
-cf
+Wb
 dw
 dw
-dw
-xL
+BF
+hU
 au
 au
 "}
@@ -6570,26 +7962,26 @@ au
 au
 AW
 Ny
-kh
-kh
-kh
-kh
+Bk
+Bk
+Bk
+Iy
 au
 au
 OZ
-Ny
-kh
-kh
-kh
-kh
+nj
+Bk
+VW
+VW
+Iy
 au
 au
 sB
-Ny
+nj
+Bk
 kh
-kh
-kh
-kh
+Iy
+Iy
 au
 au
 "}
@@ -6825,16 +8217,16 @@ au
 au
 au
 au
-WT
+hx
 TD
-hx
+WT
 XJ
-hx
+WT
 XJ
 au
 au
 xC
-TD
+Ti
 or
 Jy
 eM
@@ -7597,7 +8989,7 @@ au
 au
 au
 HH
-aI
+qm
 Ag
 rA
 Zg
@@ -7613,7 +9005,7 @@ ib
 au
 au
 Eh
-aI
+qm
 Ag
 rw
 VP
@@ -7854,27 +9246,27 @@ au
 au
 au
 pa
-Ny
-dw
-dw
-dw
+Np
+BF
+BF
+BF
 xL
 au
 au
 CG
-Ny
+Np
+Hi
 dw
 dw
-dw
-xL
+hU
 au
 au
 AW
-Ny
-dw
-dw
-dw
-xL
+Np
+Hi
+BF
+BF
+hU
 au
 au
 "}
@@ -8111,27 +9503,27 @@ au
 au
 au
 Gv
-Ny
-kh
-kh
-kh
-kh
+nj
+Bk
+Bk
+Bk
+Bk
 au
 au
 fw
-Ny
-kh
-kh
-kh
-kh
+nj
+Bk
+Bk
+Bk
+Bk
 au
 au
 IW
-Ny
+VQ
+Bk
 kh
 kh
-kh
-kh
+Bk
 au
 au
 "}
@@ -8368,7 +9760,7 @@ au
 au
 au
 ES
-TD
+Ti
 hW
 NC
 eM
@@ -8376,7 +9768,7 @@ bv
 au
 au
 yo
-TD
+Ti
 hW
 NC
 eM
@@ -8633,7 +10025,7 @@ au
 au
 au
 au
-au
+iU
 au
 au
 au
