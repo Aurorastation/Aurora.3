@@ -2745,8 +2745,6 @@
 /obj/item/clothing/accessory/leg_guard/hoplan/skirt,
 /obj/item/clothing/head/helmet/hoplan,
 /obj/item/clothing/head/helmet/hoplan,
-/obj/item/stack/nanopaste/surge,
-/obj/item/stack/nanopaste/surge,
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
 "lv" = (
