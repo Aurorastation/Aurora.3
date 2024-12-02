@@ -5103,6 +5103,12 @@
 /obj/item/folder/sec,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"BH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "BJ" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -5256,6 +5262,10 @@
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"Cx" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/bastion_station/east_maintenance)
 "Cy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -5314,6 +5324,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bastion_station/medbay)
+"CQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "CS" = (
 /obj/structure/platform{
 	dir = 1
@@ -5942,6 +5958,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"Gx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "Gz" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
@@ -6477,6 +6499,14 @@
 /obj/structure/sign/examroom,
 /turf/simulated/wall,
 /area/bastion_station/medbay)
+"JW" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/weapons_bay)
 "JY" = (
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled/dark,
@@ -6723,6 +6753,12 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/hydro)
+"Li" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "Lk" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
@@ -7371,6 +7407,10 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/bastion_station/east_maintenance)
+"OH" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "OI" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
@@ -7557,6 +7597,12 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/engineering)
+"PG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "PH" = (
 /obj/machinery/iv_drip,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7667,6 +7713,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bastion_station/medbay)
+"Qg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "Qi" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca/frag,
@@ -7810,6 +7862,7 @@
 /obj/effect/landmark/minimap_poi{
 	name = "CIC"
 	},
+/obj/effect/overmap/visitable/sector/bastion_station,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/bridge)
 "QL" = (
@@ -9099,6 +9152,10 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/engineering)
+"XH" = (
+/obj/machinery/shipsensors/strong/relay,
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "XI" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9331,6 +9388,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/ai_core)
+"YZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/bastion_station/east_maintenance)
 "Za" = (
 /obj/machinery/chem_master,
 /obj/machinery/light{
@@ -109699,8 +109762,8 @@ ND
 Ws
 VL
 VL
-kW
-kW
+JW
+zf
 iJ
 im
 im
@@ -109956,7 +110019,7 @@ dt
 Ws
 VL
 VL
-kW
+zf
 kW
 iJ
 im
@@ -111494,13 +111557,13 @@ qW
 bs
 HZ
 Qy
-iJ
+Cx
+PG
+CQ
+YZ
 im
-im
-im
-im
-im
-im
+kW
+hf
 im
 im
 kW
@@ -111751,13 +111814,13 @@ Gh
 bs
 ks
 Qy
-iJ
-im
-im
-im
-im
-im
-im
+Cx
+Li
+XH
+OH
+kW
+kW
+hf
 im
 im
 im
@@ -112008,13 +112071,13 @@ VS
 gF
 gF
 Yi
-iJ
+Cx
+Gx
+Qg
+BH
 im
-im
-im
-im
-im
-im
+kW
+hf
 im
 im
 im
@@ -112266,11 +112329,11 @@ bs
 Dp
 Qy
 iJ
+hf
+kW
+hf
 im
-im
-im
-im
-im
+kW
 im
 im
 im
@@ -112524,10 +112587,10 @@ Dp
 Qy
 iJ
 im
+kW
 im
 im
-im
-im
+kW
 im
 im
 im
@@ -112781,10 +112844,10 @@ Xm
 Qy
 iJ
 im
+kW
 im
 im
-im
-im
+kW
 im
 im
 im
