@@ -800,6 +800,7 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
+/// Retrieves all mobs assigned to REMOTE_AI_ROBOT or REMOTE_AI_MECH and allows the user to select one to control using SSvirtualreality
 /mob/living/silicon/ai/proc/remote_control()
 	set name = "Remote Control"
 	set category = "AI Commands"
@@ -823,8 +824,7 @@ var/list/ai_verbs_default = list(
 	// Transfer
 	if(choice in remote_mech)
 		var/mob/living/heavy_vehicle/chosen_mech = remote_mech[choice]
-		var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
-		SSvirtualreality.mind_transfer(src, remote_pilot)
+		SSvirtualreality.mind_transfer(src, chosen_mech.pilots[1]) // the first pilot
 	else
 		SSvirtualreality.mind_transfer(src, choice)
 
