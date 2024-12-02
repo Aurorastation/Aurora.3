@@ -245,18 +245,18 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 	allowed_roles = list("Head of Security")
 
 /*
-	Skrellian Social Score
+	Skrellian Social Compatability Index
 */
 var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 
 /datum/gear_tweak/social_credit/get_contents(var/metadata)
-	return "Social Credit Score: [metadata]"
+	return "Social Compatability Index: [metadata]"
 
 /datum/gear_tweak/social_credit/get_default()
 	return 5
 
 /datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE, max_value = 10)
+	var/credit_score = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatability Index", round_value = FALSE, max_value = 10)
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
@@ -416,7 +416,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/ears/skrell/tailband
-	display_name = "SCS tailband"
+	display_name = "SCI tailband"
 	path = /obj/item/clothing/ears/skrell/tailband
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
