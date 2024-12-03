@@ -6056,6 +6056,7 @@
 /area/crumbling_station/command/control)
 "Bu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "Bv" = (
@@ -10157,6 +10158,12 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_approach)
+"Ue" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/crumbling_station/engi/reactor)
 "Uf" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25832,7 +25839,7 @@ Oc
 Ef
 Ch
 Ls
-NA
+Ue
 LQ
 gx
 yH
@@ -26346,7 +26353,7 @@ Oc
 Ds
 Vk
 Ls
-NA
+Ue
 vG
 Yw
 ul
@@ -26615,7 +26622,7 @@ la
 Ls
 zv
 Wf
-Ls
+WH
 Ls
 Ls
 Px
