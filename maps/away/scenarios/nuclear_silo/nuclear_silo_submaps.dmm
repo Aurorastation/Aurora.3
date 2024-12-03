@@ -133,6 +133,17 @@
 /obj/structure/table/steel,
 /obj/random/junk,
 /obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
+	pixel_x = -8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
+	pixel_x = 9;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "dg" = (
@@ -995,6 +1006,9 @@
 	},
 /obj/structure/table/rack/folding_table,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "rI" = (
@@ -1093,6 +1107,9 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "tJ" = (
@@ -1112,6 +1129,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"ut" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "uu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1380,6 +1404,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "zG" = (
@@ -1494,6 +1521,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "BF" = (
@@ -1503,6 +1533,9 @@
 /area/template_noop)
 "BK" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "BZ" = (
@@ -1834,6 +1867,9 @@
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
@@ -2793,6 +2829,12 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"Yq" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "YJ" = (
 /obj/random/dirt_75,
@@ -7965,7 +8007,7 @@ Ny
 Bk
 Bk
 Bk
-Iy
+ut
 au
 au
 OZ
@@ -7973,7 +8015,7 @@ nj
 Bk
 VW
 VW
-Iy
+ut
 au
 au
 sB
@@ -7981,7 +8023,7 @@ nj
 Bk
 kh
 Iy
-Iy
+ut
 au
 au
 "}
@@ -9507,7 +9549,7 @@ nj
 Bk
 Bk
 Bk
-Bk
+Yq
 au
 au
 fw
@@ -9515,7 +9557,7 @@ nj
 Bk
 Bk
 Bk
-Bk
+Yq
 au
 au
 IW
@@ -9523,7 +9565,7 @@ VQ
 Bk
 kh
 kh
-Bk
+Yq
 au
 au
 "}
