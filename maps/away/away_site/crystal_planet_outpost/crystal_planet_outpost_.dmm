@@ -1549,21 +1549,6 @@
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/crystal_planet_outpost/living)
-"sx" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/random/dirt_75,
-/turf/unsimulated/marker/teal,
-/area/crystal_planet_outpost/caves)
 "sB" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
 /obj/structure/flora/pottedplant/bluefern,
@@ -1722,22 +1707,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/engineering)
-"uo" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/machinery/floodlight/randomcharge,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/random/dirt_75,
-/turf/unsimulated/marker/teal,
-/area/crystal_planet_outpost/caves)
 "up" = (
 /obj/random/dirt_75,
 /obj/machinery/space_heater,
@@ -1834,26 +1803,6 @@
 	temperature = 250
 	},
 /area/crystal_planet_outpost/landing)
-"vO" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/structure/table/steel,
-/obj/random/powercell{
-	pixel_x = -10
-	},
-/obj/random/loot{
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/obj/random/dirt_75,
-/turf/unsimulated/marker/teal,
-/area/crystal_planet_outpost/caves)
 "vP" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
@@ -34496,7 +34445,7 @@ Hq
 Hq
 Hq
 Hq
-uo
+Hq
 Hq
 Hq
 Hq
@@ -34755,7 +34704,7 @@ Hq
 Hq
 Hq
 Hq
-sx
+Hq
 Hq
 Hq
 Hq
@@ -35033,7 +34982,7 @@ Hq
 Hq
 Hq
 Hq
-vO
+Hq
 Hq
 Hq
 Hq
