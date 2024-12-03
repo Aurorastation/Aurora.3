@@ -1,7 +1,7 @@
 /singleton/scenario/nuclear_silo
 	name = "Arctic Valley"
 	desc = "A small wooden village within a valley in an arctic environment, entirely unlabelled on starcharts. Scans indicate \
-	 		there may be more under the surface. As the SCCV Horizon is the closest vessel within range, it has been dispatched to make contact."
+			there may be more under the surface. As the SCCV Horizon is the closest vessel within range, it has been dispatched to make contact."
 	scenario_site_id = "nuclear_silo"
 
 	min_player_amount = 0
