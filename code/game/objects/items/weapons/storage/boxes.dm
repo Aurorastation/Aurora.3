@@ -1015,21 +1015,44 @@
 
 /obj/item/storage/box/hadii_manifesto
 	name = "hadiist manifesto box"
-	desc = "A box full of hadiist manifesto books."
+	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
-	desc = "A box full of al'mariist manifesto books."
+	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
-	desc = "A box full of royalist manifesto books."
+	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/nka = 6)
+
+/obj/item/storage/box/suns_flags
+	name = "s'rand'marr Worship flag box"
+	desc = "A box filled with flags of the S'rend'marr faith."
+	illustration = "flags"
+	starts_with = list(
+		/obj/item/flag/srendarr = 1,
+		/obj/item/flag/messa = 1
+	)
+
+/obj/item/storage/box/matake_flags
+	name = "ma'ta'ke pantheon flag box"
+	desc = "A box filled to the brim with the various flags of the Ma'ta'ke Pantheon."
+	illustration = "flags"
+	starts_with = list(
+		/obj/item/flag/matake = 1,
+		/obj/item/flag/marryam = 1,
+		/obj/item/flag/rredouane = 1,
+		/obj/item/flag/shumaila = 1,
+		/obj/item/flag/kraszar = 1,
+		/obj/item/flag/dhrarmela = 1,
+		/obj/item/flag/azubarre = 1
+	)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
@@ -1046,8 +1069,9 @@
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
-	icon_state = "redbox"
-	illustration = "biohazard"
+	illustration = null
+	icon_state = "sharpsbox"
+	use_sound = 'sound/items/storage/briefcase.ogg'
 	max_storage_space = 20
 	chewable = FALSE
 	foldable = null
@@ -1095,18 +1119,6 @@
 	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
 	CT_1.linked_teleporter = CT_2
 	CT_2.linked_teleporter = CT_1
-
-/obj/item/storage/box/googly
-	name = "googly eye box"
-	desc = "A box containing googly eyes."
-	illustration = "googlyeyes"
-	starts_with = list(/obj/item/sticker/googly_eye = 8)
-
-/obj/item/storage/box/goldstar
-	name = "gold star box"
-	desc = "A box containing gold star stickers."
-	illustration = "goldstar"
-	starts_with = list(/obj/item/sticker/goldstar = 8)
 
 /obj/item/storage/box/folders
 	name = "box of folders"

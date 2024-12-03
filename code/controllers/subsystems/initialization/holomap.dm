@@ -24,6 +24,41 @@ SUBSYSTEM_DEF(holomap)
 	/// List of all `/obj/effect/landmark/minimap_poi`.
 	var/list/obj/effect/landmark/minimap_poi/pois = list()
 
+
+	/*#############################################
+		Typecaches used for map icon generation
+	#############################################*/
+	var/static/list/mineral_wall_tcache = typecacheof(list(
+		/turf/simulated/mineral,
+		/turf/unsimulated/mineral,
+	))
+	var/static/list/mineral_floor_tcache = typecacheof(list(
+		/turf/simulated/floor/exoplanet/asteroid,
+		/turf/simulated/mineral,
+		/turf/simulated/floor/exoplanet,
+	))
+	var/static/list/hull_tcache = typecacheof(list(
+		/turf/simulated/wall,
+		/turf/simulated/floor,
+		/turf/unsimulated/wall,
+		/turf/unsimulated/floor,
+	))
+
+	var/static/list/rock_tcache = typecacheof(list(
+		/turf/simulated/mineral,
+		/turf/simulated/floor/exoplanet/asteroid,
+		/turf/simulated/open
+	))
+	var/static/list/obstacle_tcache = typecacheof(list(
+		/turf/simulated/wall,
+		/turf/unsimulated/mineral,
+		/turf/unsimulated/wall
+	))
+	var/static/list/path_tcache = typecacheof(list(
+		/turf/simulated/floor,
+		/turf/unsimulated/floor
+	)) - typecacheof(/turf/simulated/floor/exoplanet/asteroid)
+
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
@@ -40,6 +75,7 @@ SUBSYSTEM_DEF(holomap)
 		generate_minimap(z)
 		generate_minimap_area_colored(z)
 		generate_minimap_scan(z)
+		CHECK_TICK
 
 /datum/controller/subsystem/holomap/proc/generate_minimap(zlevel = 1)
 	// Sanity checks - Better to generate a helpful error message now than have DrawBox() runtime
@@ -49,39 +85,18 @@ SUBSYSTEM_DEF(holomap)
 	if(world.maxy > canvas.Height())
 		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
-	var/list/rock_tcache = typecacheof(list(
-		/turf/simulated/mineral,
-		/turf/unsimulated/floor/asteroid,
-		/turf/simulated/open
-	))
-	var/list/obstacle_tcache = typecacheof(list(
-		/turf/simulated/wall,
-		/turf/unsimulated/mineral,
-		/turf/unsimulated/wall
-	))
-	var/list/path_tcache = typecacheof(list(
-		/turf/simulated/floor,
-		/turf/unsimulated/floor
-	)) - typecacheof(/turf/unsimulated/floor/asteroid)
-
-	var/turf/T
-	var/area/A
-	var/Ttype
-	for (var/thing in Z_TURFS(zlevel))
-		T = thing
-		A = T.loc
-		Ttype = T.type
+	for(var/turf/T as anything in Z_TURFS(zlevel))
+		var/area/A = T.loc
+		var/Ttype = T.type
 
 		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
 			continue
 		if (rock_tcache[Ttype])
 			continue
-		if (obstacle_tcache[Ttype] || (T.contents.len && locate(/obj/structure/grille, T)))
+		if (obstacle_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/grille, T)))
 			canvas.DrawBox(HOLOMAP_OBSTACLE + "DD", T.x, T.y)
-		else if(path_tcache[Ttype] || (T.contents.len && locate(/obj/structure/lattice/catwalk, T)))
+		else if(path_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/lattice/catwalk, T)))
 			canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
-
-		CHECK_TICK
 
 	minimaps[zlevel] = canvas
 	minimaps_base64[zlevel] = icon2base64(canvas)
@@ -94,11 +109,9 @@ SUBSYSTEM_DEF(holomap)
 	if(world.maxy > canvas.Height())
 		crash_with("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
-	var/turf/T
-	var/area/A
-	for (var/thing in Z_TURFS(zlevel))
-		T = thing
-		A = T.loc
+	for (var/turf/T as anything in Z_TURFS(zlevel))
+		var/area/A = T.loc
+
 		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
 			continue
 		if (A.holomap_color)
@@ -121,27 +134,8 @@ SUBSYSTEM_DEF(holomap)
 	if(world.maxy > canvas.Height())
 		CRASH("Minimap for z=[zlevel] : world.maxy ([world.maxy]) must be <= [canvas.Height()]")
 
-	var/list/mineral_wall_tcache = typecacheof(list(
-		/turf/simulated/mineral,
-		/turf/unsimulated/mineral,
-	))
-	var/list/mineral_floor_tcache = typecacheof(list(
-		/turf/unsimulated/floor/asteroid,
-		/turf/simulated/mineral,
-		/turf/simulated/floor/exoplanet,
-	))
-	var/list/hull_tcache = typecacheof(list(
-		/turf/simulated/wall,
-		/turf/simulated/floor,
-		/turf/unsimulated/wall,
-		/turf/unsimulated/floor,
-	))
-
-	var/turf/T
-	var/Ttype
-	for (var/thing in Z_TURFS(zlevel))
-		T = thing
-		Ttype = T.type
+	for(var/turf/T as anything in Z_TURFS(zlevel))
+		var/Ttype = T.type
 
 		if (mineral_wall_tcache[Ttype])
 			canvas.DrawBox(HOLOMAP_MINERAL_WALL, T.x, T.y)
@@ -149,7 +143,5 @@ SUBSYSTEM_DEF(holomap)
 			canvas.DrawBox(HOLOMAP_MINERAL_FLOOR, T.x, T.y)
 		else if(hull_tcache[Ttype])
 			canvas.DrawBox(HOLOMAP_OBSTACLE, T.x, T.y)
-
-		CHECK_TICK
 
 	minimaps_scan_base64[zlevel] = icon2base64(canvas)

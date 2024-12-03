@@ -69,19 +69,6 @@ GLOBAL_PROTECT(config)
 		GLOB.round_id = "[c[(t % l) + 1]][GLOB.round_id]"
 		t = round(t / l)
 
-/world
-	mob = /mob/abstract/new_player
-	turf = /turf/space
-	area = /area/space
-	view = "15x15"
-	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
-	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
-	maxy = WORLD_MIN_SIZE
-	fps = 20
-#ifdef FIND_REF_NO_CHECK_TICK
-	loop_checks = FALSE
-#endif
-
 #define RECOMMENDED_VERSION 515
 /world/New()
 	//logs
@@ -268,52 +255,6 @@ var/list/world_api_rate_limit = list()
 	shutdown_logging()
 	..(reason)
 
-/world/Error(var/exception/e)
-	var/static/inerror = 0
-
-	//runtime while processing runtimes
-	if (inerror)
-		inerror = 0
-		return ..(e)
-
-	inerror = 1
-
-// A horrible hack for unit tests but fuck runtiming timers.
-// They don't provide any useful information, and as such, are being suppressed.
-#ifdef UNIT_TEST
-
-	if (findtextEx(e.name, "Invalid timer:") || findtextEx(e.desc, "Invalid timer:"))
-		inerror = 0
-		return
-
-#endif // UNIT_TEST
-
-	e.time_stamp()
-	log_exception(e)
-
-	inerror = 0
-	return ..(e)
-
-// We need this elsewhere!
-/exception/var/time_stamped = 0
-
-/exception/proc/time_stamp()
-	if (time_stamped)
-		return
-
-	//newline at start is because of the "runtime error" byond prints that can't be timestamped.
-	name = "\n\[[time2text(world.timeofday,"hh:mm:ss")]\][name]"
-
-	//this is done this way rather then replace text to pave the way for processing the runtime reports more thoroughly
-	//	(and because runtimes end with a newline, and we don't want to basically print an empty time stamp)
-	var/list/split = splittext(desc, "\n")
-	for (var/i in 1 to split.len)
-		if (split[i] != "")
-			split[i] = "\[[time2text(world.timeofday,"hh:mm:ss")]\][split[i]]"
-	desc = jointext(split, "\n")
-
-	time_stamped = 1
-
 /proc/load_configuration()
 	GLOB.config = new()
 	GLOB.config.load("config/config.txt")
@@ -323,6 +264,8 @@ var/list/world_api_rate_limit = list()
 		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
 
 /world/proc/update_status()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/list/s = list()
 
 	if (GLOB.config && GLOB.config.server_name)

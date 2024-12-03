@@ -44,14 +44,14 @@
 		recession = owner.chem_effects[CE_ANTIPARASITE]/10
 
 	if((stage < max_stage) && !recession)
-		stage_ticker = Clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
+		stage_ticker = clamp(stage_ticker+=infection_speed, 0, stage_interval*max_stage)
 		if(stage_ticker >= stage*stage_interval)
 			process_stage()
 			get_infect_speed() //Each stage may progress faster or slower than the previous one
 			stage_effect()
 
 	if(recession)
-		stage_ticker = Clamp(stage_ticker-=recession, 0, stage_interval*max_stage)
+		stage_ticker = clamp(stage_ticker-=recession, 0, stage_interval*max_stage)
 		if(stage_ticker <= stage*stage_interval-stage_interval)
 			stage = max(stage-1, 1)
 			stage_effect()

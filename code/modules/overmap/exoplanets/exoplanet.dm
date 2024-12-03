@@ -260,7 +260,7 @@
 					var/mob/S = new mob_type(T)
 					animals += S
 					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
-					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
+					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -279,10 +279,10 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
+/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
 	GLOB.death_event.unregister(M, src)
-	GLOB.destroyed_event.unregister(M, src)
+	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
@@ -484,6 +484,7 @@
 	. += "<br><large><b>[name]</b></large></center>"
 	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
 	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Governing Body: </b><small>[alignment]</small>"
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"

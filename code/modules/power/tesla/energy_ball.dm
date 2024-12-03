@@ -31,9 +31,6 @@
 
 /obj/singularity/energy_ball/Destroy()
 	walk(src, 0) // Stop walking
-	if(orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/EB = orbiting.orbiting
-		EB.orbiting_balls -= src
 
 	for(var/ball in orbiting_balls)
 		var/obj/singularity/energy_ball/EB = ball
@@ -257,10 +254,6 @@
 	. = ..()
 
 /obj/singularity/energy_ball/stop_orbit()
-	if (orbiting && istype(orbiting.orbiting, /obj/singularity/energy_ball))
-		var/obj/singularity/energy_ball/orbitingball = orbiting.orbiting
-		orbitingball.orbiting_balls -= src
-		orbitingball.dissipate_strength = orbitingball.orbiting_balls.len
 	. = ..()
 	if (!loc && !QDELETED(src))
 		qdel(src)
@@ -431,7 +424,7 @@
 		closest_emitter.tesla_act(power, melt)
 
 	else if(closest_mob)
-		var/shock_damage = Clamp(round(power/400), 10, 90) + rand(-5, 5)
+		var/shock_damage = clamp(round(power/400), 10, 90) + rand(-5, 5)
 		closest_mob.electrocute_act(shock_damage, source, 1, tesla_shock = 1)
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob

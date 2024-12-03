@@ -1,5 +1,4 @@
-/datum/gear/shoes/tajara
-	abstract_type = /datum/gear/shoes/tajara
+ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
@@ -381,7 +380,7 @@
 /datum/gear/accessory/tajaranbooks
 	display_name = "tajaran political books"
 	description = "Tajaran books on the Adhomian ideologies."
-	path = /obj/item/book/manual/pra_manifesto
+	path = /obj/item/device/versebook/pra
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -389,9 +388,9 @@
 /datum/gear/accessory/tajaranbooks/New()
 	..()
 	var/list/card = list()
-	card["hadiist manifesto"] = /obj/item/book/manual/pra_manifesto
-	card["in defense of al'mari's legacy"] = /obj/item/book/manual/dpra_manifesto
-	card["the new kingdom"] = /obj/item/book/manual/nka_manifesto
+	card["hadiist manifesto"] = /obj/item/device/versebook/pra
+	card["in defense of al'mari's legacy"] = /obj/item/device/versebook/dpra
+	card["the new kingdom"] = /obj/item/device/versebook/nka
 	gear_tweaks += new /datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
@@ -477,6 +476,7 @@
 	charm["bone charm"] = /obj/item/clothing/accessory/tajaran/charm/bone
 	charm["silver seashell charm"] = /obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell
 	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
+	charm["twin suns charm"] = /obj/item/clothing/accessory/tajaran/charm/twin_suns
 	charm["Kin of S'rendarr rosette"] = /obj/item/clothing/accessory/tajaran/kin_srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
@@ -645,6 +645,21 @@
 	banner["Azubarre Banner"] = /obj/item/flag/azubarre
 	gear_tweaks += new /datum/gear_tweak/path(banner)
 
+/datum/gear/accessory/tajara_god_banners_set
+	display_name = "tajaran deity banners (set)"
+	description = "A selection of religious flag sets representing Adhomian faiths."
+	path = /obj/item/storage/box/suns_flags
+	cost = 2
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/accessory/tajara_god_banners_set/New()
+	..()
+	var/list/banners = list()
+	banners["S'rand'marr Worship Banners"] = /obj/item/storage/box/suns_flags
+	banners["Ma'ta'ke Pantheon Banners"] = /obj/item/storage/box/matake_flags
+	gear_tweaks += new /datum/gear_tweak/path(banners)
+
 /datum/gear/tajara_god_altars
 	display_name = "matakae deity altars"
 	description = "A selection of small altars used to worship the matake gods."
@@ -696,3 +711,25 @@
 	sort_category = "Xenowear - Tajara"
 	path = /obj/item/typewriter_case
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/prosthetic_tail
+	display_name = "prosthetic tail selection"
+	description = "A selection of colourable prosthetics tails for tajara. Only useable with the Hakh'jar tail."
+	path = /obj/item/clothing/tail_accessory/prosthetic
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/prosthetic_tail/tajara/New()
+	..()
+	var/list/tail_pros = list()
+	tail_pros["solid prosthetic"] = /obj/item/clothing/tail_accessory/prosthetic
+	tail_pros["flexible prosthetic"] = /obj/item/clothing/tail_accessory/prosthetic/flexible
+	gear_tweaks += new /datum/gear_tweak/path(tail_pros)
+
+/datum/gear/tesla_prosthetic_tail
+	display_name = "tesla prosthetic tail"
+	path = /obj/item/clothing/tail_accessory/prosthetic/tesla
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

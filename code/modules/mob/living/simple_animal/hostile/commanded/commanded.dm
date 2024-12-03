@@ -1,6 +1,4 @@
-/mob/living/simple_animal/hostile/commanded
-	abstract_type = /mob/living/simple_animal/hostile/commanded
-
+ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	name = "commanded"
 	var/short_name = null
 	stance = COMMANDED_STOP
@@ -176,7 +174,7 @@
 
 
 /mob/living/simple_animal/hostile/commanded/proc/attack_command(var/mob/speaker, var/text, var/mob/mob_target)
-	target_mob = null //want me to attack something? Well I better forget my old target.
+	unset_last_found_target() //want me to attack something? Well I better forget my old target.
 	walk_to(src,0)
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	if(text == "attack" || findtext(text,"everyone") || findtext(text,"anybody") || findtext(text, "somebody") || findtext(text, "someone")) //if its just 'attack' then just attack anybody, same for if they say 'everyone', somebody, anybody. Assuming non-pickiness.
@@ -193,7 +191,7 @@
 	return targets.len != 0
 
 /mob/living/simple_animal/hostile/commanded/proc/stay_command(var/mob/speaker,var/text)
-	target_mob = null
+	unset_last_found_target()
 	change_stance(COMMANDED_STOP)
 	stop_automated_movement = 1
 	walk_to(src, 0)
@@ -265,12 +263,12 @@
 	// We forgive our master
 	if(user == master)
 		change_stance(HOSTILE_STANCE_IDLE)
-		target_mob = null
+		unset_last_found_target()
 		audible_emote("[pick(sad_emote)].",0)
 		return
 	if(. && retribution)
 		change_stance(HOSTILE_STANCE_ATTACK)
-		target_mob = user
+		set_last_found_target(user)
 		allowed_targets += user //fuck this guy in particular.
 		if(user in friends) //We were buds :'(
 			friends -= user
@@ -282,20 +280,20 @@
 	// We forgive our master
 	if(M == master)
 		change_stance(HOSTILE_STANCE_IDLE)
-		target_mob = null
+		unset_last_found_target()
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
 		return
 	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance.
 		change_stance(HOSTILE_STANCE_IDLE)
-		target_mob = null
+		unset_last_found_target()
 		audible_emote("growls at [M].")
 		to_chat(M, SPAN_WARNING("Maybe you should keep your hands to yourself..."))
 		return
 
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
 
-		target_mob = M
+		set_last_found_target(M)
 		allowed_targets += M
 		change_stance(HOSTILE_STANCE_ATTACK)
 		if(M in friends)
@@ -306,16 +304,18 @@
 
 	// We forgive our master
 	if(user == master)
-		target_mob = null
+		unset_last_found_target()
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/projectile/P, var/def_zone)
-	..()
+/mob/living/simple_animal/hostile/commanded/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	// We forgive our master
-	if (ismob(P.firer) && P.firer == master)
-		target_mob = null
+	if (ismob(hitting_projectile.firer) && hitting_projectile.firer == master)
+		unset_last_found_target()
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
@@ -323,7 +323,7 @@
 	..()
 	// We forgive our master
 	if(user == master)
-		target_mob = null
+		unset_last_found_target()
 		change_stance(HOSTILE_STANCE_IDLE)
 		if(!istype(O, brush)) //we don't get sad if we're brushed!
 			audible_emote("[pick(sad_emote)].",0)
@@ -334,6 +334,6 @@
 	if(isobj(hitting_atom))
 		if(ismob(throwingdatum?.thrower?.resolve()))
 			if(throwingdatum.thrower.resolve() == master)
-				target_mob = null
+				unset_last_found_target()
 				change_stance(HOSTILE_STANCE_IDLE)
 				audible_emote("[pick(sad_emote)].",0)

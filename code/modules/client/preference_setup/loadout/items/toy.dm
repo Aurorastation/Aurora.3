@@ -100,6 +100,7 @@
 	plushies["plushie, jeweler cockatoo"] = /obj/item/toy/plushie/cockatoo
 	plushies["plushie, Norinori"] = /obj/item/toy/plushie/norinori
 	plushies["plushie, space carp"] = /obj/item/toy/plushie/carp
+	plushies["plushie, Domadice"] = /obj/item/toy/plushie/domadice
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
 /datum/gear/toy/mecha
@@ -119,3 +120,61 @@
 	description = "A small, squishy stress ball. This one has a squeaker inside."
 	path = /obj/item/toy/stressball
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/toy/stickersheet
+	display_name = "sticker sheet selection"
+	description = "A selection of various sticker sheets."
+	cost = 1
+	path = /obj/item/storage/stickersheet
+
+/datum/gear/toy/stickersheet/New()
+	..()
+	var/list/stickersheet = list()
+	stickersheet["Generic sticker sheet"] = /obj/item/storage/stickersheet/generic
+	stickersheet["Heart sticker sheet"] = /obj/item/storage/stickersheet/hearts
+	stickersheet["Religious sticker sheet"] = /obj/item/storage/stickersheet/religion
+	stickersheet["Domadice sticker sheet"] = /obj/item/storage/stickersheet/domadice
+	stickersheet["Republic of Biesel sticker sheet"] = /obj/item/storage/stickersheet/biesel
+	stickersheet["Republic of Elyra sticker sheet"] = /obj/item/storage/stickersheet/elyra
+	stickersheet["Solarian Alliance sticker sheet"] = /obj/item/storage/stickersheet/sol
+	stickersheet["Coalition of Colonies sticker sheet"] = /obj/item/storage/stickersheet/coc
+	stickersheet["Empire of Dominia sticker sheet"] = /obj/item/storage/stickersheet/dominia
+	stickersheet["Nralakk Federation sticker sheet"] = /obj/item/storage/stickersheet/nralakk
+	stickersheet["Tajaran Governments sticker sheet"] = /obj/item/storage/stickersheet/adhomai
+	stickersheet["Hieroaetheria sticker sheet"] = /obj/item/storage/stickersheet/hieroaetheria
+	stickersheet["Uueoa-Esa sticker sheet"] = /obj/item/storage/stickersheet/hegemony
+	stickersheet["Anti-Establishment sticker sheet"] = /obj/item/storage/stickersheet/resistance
+	gear_tweaks += new /datum/gear_tweak/path(stickersheet)
+
+/datum/gear/toy/stickersheet_custom
+	display_name = "sticker sheet (custom)"
+	description = "A sticker sheet that can hold a variety of stickers."
+	cost = 1
+	path = /obj/item/storage/stickersheet
+
+/datum/gear/toy/stickersheet_custom/New()
+	..()
+	var/list/stickersheet = list()
+
+	for(var/sticker as anything in subtypesof(/obj/item/sticker))
+		var/obj/O = sticker
+		stickersheet[initial(O.name)] = sticker
+	gear_tweaks += new /datum/gear_tweak/contents/stickersheet(stickersheet,stickersheet,stickersheet,stickersheet)
+
+// Same as contents/tweak_item except it adds 3 of each item into the stickersheet (4 * 3 = 12)
+/datum/gear_tweak/contents/stickersheet/tweak_item(var/obj/item/storage/stickersheet/sheet, var/list/metadata, var/mob/living/carbon/human/H)
+	if(length(metadata) != length(valid_contents))
+		return
+	for(var/i = 1 to length(valid_contents))
+		var/path
+		var/list/contents = valid_contents[i]
+		if(metadata[i] == "Random")
+			path = pick(contents)
+			path = contents[path]
+		else if(metadata[i] == "None")
+			continue
+		else
+			path = 	contents[metadata[i]]
+		if(path) // repeat 3 times for each item
+			for(i = 0, i < 3, ++i)
+				new path(sheet)

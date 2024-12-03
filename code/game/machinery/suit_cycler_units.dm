@@ -293,3 +293,70 @@
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/coalition/xanu
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition/xanu
+
+/obj/machinery/suit_cycler/offship/skrell
+	model_text = "Qerr'Zolvq Industries"
+	req_access = list(ACCESS_SKRELL)
+	departments = list("Nralakk")
+	species = list(BODYTYPE_SKRELL)
+	mask = /obj/item/clothing/mask/breath/skrell
+
+/obj/machinery/suit_cycler/offship/skrell/black
+	suit = /obj/item/clothing/suit/space/void/skrell/black
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/black
+
+/obj/machinery/suit_cycler/offship/skrell/white
+	suit = /obj/item/clothing/suit/space/void/skrell/white
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/white
+
+/obj/machinery/suit_cycler/offship/skrell/kala
+	model_text = "Qukala"
+	suit = /obj/item/clothing/suit/space/void/kala
+	helmet = /obj/item/clothing/head/helmet/space/void/kala
+
+/obj/machinery/suit_cycler/offship/skrell/kala/engineering
+	suit = /obj/item/clothing/suit/space/void/kala/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/engineering
+
+/obj/machinery/suit_cycler/offship/skrell/kala/med
+	suit = /obj/item/clothing/suit/space/void/kala/med
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/med
+
+/obj/machinery/suit_cycler/offship/skrell/kala/leader
+	suit = /obj/item/clothing/suit/space/void/kala/leader
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/leader
+
+/obj/machinery/suit_cycler/offship/tarwa
+	model_text = "Tarwa Conglomerate"
+	req_access = list(ACCESS_UNATHI_PIRATE)
+	departments = list("Tarwa Conglomerate")
+	species = list(BODYTYPE_UNATHI)
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
+
+/obj/machinery/suit_cycler/offship/tarwa/captain
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain
+
+// For owned Golden Deep synthetics, Thesians, and other non-combatants.
+/obj/machinery/suit_cycler/offship/golden_deep
+	model_text = "Golden Deep"
+	req_one_access = list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP)
+	departments = list("Golden Deep")
+	species = list(BODYTYPE_IPC)
+	suit = /obj/item/clothing/suit/space/void/golden_deep/menial
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep/menial
+
+// For the Hoplan, armed guards of the ships of the Golden Deep.
+/obj/machinery/suit_cycler/offship/golden_deep/hoplan
+	model_text = "Golden Deep Hoplan"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/golden_deep/hoplan
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
+
+// For merchants of the Golden Deep. Only they're rich enough, duh.
+/obj/machinery/suit_cycler/offship/golden_deep/merchant
+	model_text = "Golden Deep Merchant"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/golden_deep
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep

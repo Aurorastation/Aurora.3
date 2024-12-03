@@ -10,7 +10,8 @@
 		player.role_alt_title = role_text
 	player.special_role = role_text
 
-	if(istype(player.current, /mob/abstract))
+	if(istype(player.current, /mob/abstract) && !isstoryteller(player.current))
+		// some snowflake code to allow storytellers to read and use AOOC
 		create_default(player.current)
 	else
 		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)
@@ -32,15 +33,14 @@
 		return 0
 	current_antagonists |= player
 
-	if(faction_verb && player.current)
-		add_verb(player.current.client, faction_verb)
+	if(LAZYLEN(faction_verbs) && player.current)
+		add_verb(player.current.client, faction_verbs)
 
 	if(player.current.client)
 		add_verb(player.current.client, /client/proc/aooc)
 		add_verb(player.current.client, /mob/living/proc/write_ambition)
 
 	to_chat(player.current, SPAN_NOTICE("Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round."))
-	add_verb(player.current.client, /mob/living/proc/write_ambition)
 
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
@@ -59,8 +59,8 @@
 	if(!istype(player))
 		return 0
 
-	if(player.current && faction_verb)
-		remove_verb(player.current.client, faction_verb)
+	if(player.current && LAZYLEN(faction_verbs))
+		remove_verb(player.current.client, faction_verbs)
 
 	if(player in current_antagonists)
 		log_antagonist_remove()

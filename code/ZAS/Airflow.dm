@@ -43,7 +43,7 @@ Contains helper procs for airflow, handled in /connection_group.
 		return 0
 	return 1
 
-/mob/abstract/observer/check_airflow_movable()
+/mob/abstract/ghost/observer/check_airflow_movable()
 	return 0
 
 /mob/living/silicon/check_airflow_movable()

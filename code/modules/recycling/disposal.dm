@@ -229,8 +229,8 @@
 				for (var/mob/C in viewers(src))
 					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
 				qdel(G)
-				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
-				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
+				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>"
+				GM.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>"
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return TRUE
 	if(!attacking_item.dropsafety())
@@ -287,8 +287,8 @@
 		msg = "[user.name] stuffs [target.name] into the [src]!"
 		to_chat(user, "You stuff [target.name] into the [src]!")
 
-		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>")
-		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>")
+		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>"
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>"
 		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 	else
 		return
@@ -366,21 +366,21 @@
 
 	if(!ai)  // AI can't pull flush handle
 		if(flush)
-			dat += "Disposal handle: <A href='?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
+			dat += "Disposal handle: <A href='?src=[REF(src)];handle=0'>Disengage</A> <B>Engaged</B>"
 		else
-			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
+			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=[REF(src)];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+		dat += "<BR><HR><A href='?src=[REF(src)];eject=1'>Eject contents</A><HR>"
 
 	if(uses_air)
 		if(mode <= 0)
-			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+			dat += "Pump: <B>Off</B> <A href='?src=[REF(src)];pump=1'>On</A><BR>"
 		else if(mode == 1)
-			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
 		else
-			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+			dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+		dat += "Pump: <A href='?src=[REF(src)];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
 	if(!uses_air)
@@ -596,6 +596,8 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover, /obj/projectile))
 		return 1
 	if(istype(mover,/obj/item) && mover.throwing)
@@ -603,22 +605,6 @@
 
 	else
 		return ..(mover, target, height, air_group)
-
-/obj/machinery/disposal/CollidedWith(atom/bumped_atom)
-	. = ..()
-	var/atom/movable/AM = bumped_atom
-	if(!istype(AM))
-		return
-
-	if(isobj(AM))
-		var/obj/O = AM
-		O.forceMove(src)
-	else if(ismob(AM))
-		var/mob/M = AM
-		if(prob(2)) // to prevent mobs being stuck in infinite loops
-			to_chat(M, SPAN_WARNING("You hit the edge of the chute."))
-			return
-		M.forceMove(src)
 
 /obj/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(hitting_atom))
@@ -809,7 +795,7 @@
 
 	level = 1			// underfloor only
 	var/dpdir = 0		// bitmask of pipe directions
-	dir = 0				// dir will contain dominant direction for junction pipes
+	//dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
 	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
@@ -944,7 +930,7 @@
 // remains : set to leave broken pipe pieces in place
 /obj/structure/disposalpipe/proc/broken(var/remains = 0)
 	if(remains)
-		for(var/D in GLOB.cardinal)
+		for(var/D in GLOB.cardinals)
 			if(D & dpdir)
 				var/obj/structure/disposalpipe/broken/P = new(src.loc)
 				P.set_dir(D)
@@ -1578,29 +1564,29 @@
 	// expel the contents of the holder object, then delete it
 	// called when the holder exits the outlet
 /obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] expel(\ref[H])")
+	disposal_log("[src] [REF(src)] expel([REF(H)])")
 
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	disposal_log("[src] (\ref[src]) registering timers.")
+	disposal_log("[src] ([REF(src)]) registering timers.")
 	addtimer(CALLBACK(src, PROC_REF(post_expel, H)), 20, TIMER_UNIQUE|TIMER_CLIENT_TIME)			// Sound + gas.
 	addtimer(CALLBACK(src, PROC_REF(post_post_expel, H)), 20 + 5, TIMER_UNIQUE|TIMER_CLIENT_TIME)	// Actually throwing the items.
 
 /obj/structure/disposaloutlet/proc/post_expel(obj/structure/disposalholder/H)
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
-	disposal_log("[src] (\ref[src]) post_expel() timer fired.")
+	disposal_log("[src] ([REF(src)]) post_expel() timer fired.")
 	if(H)
 		H.vent_gas(src.loc)
 
 /obj/structure/disposaloutlet/proc/throw_object(atom/movable/thing)
-	disposal_log("[src] (\ref[src]) throw_object([thing] \ref[thing]) at [target] \ref[target] origin [loc] \ref[loc]")
+	disposal_log("[src] ([REF(src)]) throw_object([thing] [REF(thing)]) at [target] [REF(target)] origin [loc] [REF(loc)]")
 	thing.forceMove(loc)
 	thing.pipe_eject(dir)
 	if (!istype(thing, /mob/living/silicon/robot/drone))
 		thing.throw_at(target, 3, 1)
 
 /obj/structure/disposaloutlet/proc/post_post_expel(obj/structure/disposalholder/H)
-	disposal_log("[src] \ref[src] post_post_expel(\ref[H]), [H.contents.len] movables")
+	disposal_log("[src] [REF(src)] post_post_expel([REF(H)]), [H.contents.len] movables")
 	for(var/atom/movable/AM in H)
 		AM.forceMove(src.loc)
 		AM.pipe_eject(dir)

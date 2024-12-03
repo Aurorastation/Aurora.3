@@ -86,13 +86,13 @@
 
 	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant modified.\""))
 
-/obj/item/device/holowarrant/attack(mob/living/victim, mob/living/user)
+/obj/item/device/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!selected_warrant)
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> holds \the [src] up to \the [victim].", SPAN_NOTICE("You hold up \the [src] to \the [victim]."))
-	show_content(victim)
+	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
+	show_content(target_mob)
 
 /obj/item/device/holowarrant/update_icon()
 	if(selected_warrant)

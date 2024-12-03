@@ -4,7 +4,6 @@
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
-	nodamage = FALSE
 	check_armor = "bullet"
 	embed = TRUE
 	sharp = TRUE
@@ -13,12 +12,11 @@
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
-/obj/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if (..(target, blocked, def_zone))
+/obj/projectile/bullet/on_hit(atom/target, blocked, def_zone)
+	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
-/obj/projectile/bullet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
 	if(penetrating > 0 && damage > 20 && prob(damage))
 		mob_passthrough_check = 1
 	else
@@ -30,37 +28,6 @@
 	if(mob_passthrough_check)
 		return 0
 	return ..()
-
-/obj/projectile/bullet/check_penetrate(var/atom/A)
-	if(!A || !A.density) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
-
-	if(ismob(A))
-		if(!mob_passthrough_check)
-			return 0
-		if(iscarbon(A))
-			damage *= 0.7 //squishy mobs absorb KE
-		return 1
-
-	var/chance = 0
-	if(istype(A, /turf/simulated/wall))
-		var/turf/simulated/wall/W = A
-		chance = round(damage/W.material.integrity*180)
-	else if(istype(A, /obj/machinery/door))
-		var/obj/machinery/door/D = A
-		chance = round(damage/D.maxhealth*180)
-		if(D.glass) chance *= 2
-	else if(istype(A, /obj/structure/girder))
-		chance = 100
-	else if(istype(A, /obj/machinery) || istype(A, /obj/structure))
-		chance = damage
-
-	if(prob(chance))
-		if(A.opacity)
-			//display a message so that people on the other side aren't so confused
-			A.visible_message(SPAN_WARNING("\The [src] pierces through \the [A]!"))
-		return 1
-
-	return 0
 
 /**
  * # Pellet projectiles
@@ -88,9 +55,16 @@
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
 
-/obj/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+/obj/projectile/bullet/pellet/on_hit(atom/target, blocked, def_zone)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/living_target = target
+
 	if (pellets < 0)
-		return TRUE
+		return BULLET_ACT_BLOCK
+
+	var/distance = get_dist(src.starting, get_turf(living_target))
 
 	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
@@ -102,7 +76,7 @@
 
 	var/hits = 0
 	for (var/i in 1 to total_pellets)
-		if(target_mob.lying && target_mob != original && prob(prone_chance))
+		if(living_target.lying && living_target != original && prob(prone_chance))
 			continue
 
 		// pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
@@ -112,20 +86,22 @@
 		// relatively hacky way of basing a shotgun pellet's likelihood of hitting on the first pellet of the burst while not affecting shrapnel explosions.
 		if (base_spread > 0)
 			if (i == 1)
-				if (..())
+				if (..() == BULLET_ACT_HIT)
 					hits++
 				else
 					return 0
-			else if (..(target_mob, distance, -100))
+			else if (..() == BULLET_ACT_HIT)
 				hits++
-		else if (..())
+		else if (..() == BULLET_ACT_HIT)
 			hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left
-	if (hits >= total_pellets || pellets <= 0)
-		return TRUE
-	return FALSE
+	// if (hits >= total_pellets || pellets <= 0)
+	// 	return TRUE
+	if(hits)
+		return BULLET_ACT_HIT //Technically not everything, but good enough
+	return BULLET_ACT_BLOCK //Nothing hit
 
 /obj/projectile/bullet/pellet/get_structure_damage()
 	var/distance = get_dist(loc, starting)
@@ -157,7 +133,13 @@
 	var/ball_loss = round((distance - 1)/range_step)
 	return max(balls - ball_loss, 1)
 
-/obj/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+/obj/projectile/bullet/rubberball/on_hit(atom/target, blocked, def_zone)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/target_mob = target
+	var/distance = get_dist(src.starting, get_turf(target_mob))
+
 	if (balls < 0)
 		return TRUE
 
@@ -268,7 +250,6 @@
 
 /obj/projectile/bullet/shotgun/moghes
 	name = "wall shot"
-	secondary_projectile = /obj/projectile/bullet/pellet/shotgun/canister
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -323,9 +304,7 @@
 	penetrating = 5
 	armor_penetration = 70
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
-	maiming = 1
 	maim_rate = 3
-	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
 /obj/projectile/rifle/kumar_super
@@ -349,18 +328,15 @@
 	weaken = 3
 	penetrating = 5
 	armor_penetration = 10
-	maiming = TRUE
 	maim_rate = 3
-	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
-/obj/projectile/bullet/rifle/slugger/on_hit(var/atom/movable/target, var/blocked = 0)
-	if(!istype(target))
-		return FALSE
-	var/throwdir = get_dir(firer, target)
-	target.throw_at(get_edge_target_turf(target, throwdir), 3, 3)
-	..()
-	return TRUE
+/obj/projectile/bullet/rifle/slugger/on_hit(atom/target, blocked, def_zone)
+	var/atom/movable/movable_target = target
+	if(istype(movable_target))
+		var/throwdir = get_dir(firer, movable_target)
+		movable_target.throw_at(get_edge_target_turf(movable_target, throwdir), 3, 3)
+	. = ..()
 
 /obj/projectile/bullet/rifle/tranq
 	name = "dart"
@@ -375,26 +351,51 @@
 
 /obj/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/mob/living/L = target
-	if(!(isanimal(target)))
-		if(!(isipc(target)))
-			if(!isrobot(target))
-				L.apply_effect(5, DROWSY, 0)
-				if(def_zone == "torso")
-					if(blocked < 100 && !(blocked < 20))
-						L.emote("yawns")
-					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 10)
-				if(def_zone == BP_HEAD && blocked < 100)
-					if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 15)
-				if(def_zone != "torso" && def_zone != BP_HEAD)
-					if(blocked < 100 && !(blocked < 20))
-						L.emote("yawns")
-					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 5)
 
 	if(isanimal(target))
-		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.")
 		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
+
+		//Determine in how long the mob will be put to rest, depending on its size
+		var/sleep_in = 10 SECONDS
+		switch(L.mob_size)
+			if(MOB_TINY)
+				sleep_in = 3 SECOND
+			if(MOB_SMALL)
+				sleep_in = 6 SECONDS
+			if(MOB_MEDIUM)
+				sleep_in = 10 SECONDS
+			if(MOB_LARGE)
+				sleep_in = 40 SECONDS
+
+		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, Weaken), (L.weakened + 40)), sleep_in)
+
+	else
+
+		if(!(isipc(target)) && !isrobot(target))
+			L.apply_effect(5, DROWSY, 0)
+
+			switch(def_zone)
+
+				if(BP_CHEST)
+					if(blocked < 20)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 10)
+					else if(blocked < 100)
+						L.emote("yawns")
+
+				if(BP_HEAD)
+					if(blocked < 100)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 15)
+
+				else
+					if(blocked < 20)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 5)
+					else if(blocked < 100)
+						L.emote("yawns")
+
 	..()
 
 /* Miscellaneous */
@@ -423,7 +424,6 @@
 	name = "cap"
 	damage_type = DAMAGE_PAIN
 	damage = 0
-	nodamage = 1
 	embed = 0
 	sharp = 0
 
@@ -468,17 +468,13 @@
 	damage = 10
 	armor_penetration = 30
 
-/obj/projectile/bullet/gauss/highex/on_impact(var/atom/A)
-	explosion(A, -1, 0, 2)
-	..()
-
-/obj/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	explosion(target, -1, 0, 2)
 	if(ismovable(target))
 		var/atom/movable/T = target
 		var/throwdir = get_dir(firer,target)
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(target, throwdir), 3, 3)
-	return TRUE
 
 /obj/projectile/bullet/cannonball
 	name = "cannonball"
@@ -494,9 +490,9 @@
 	penetrating = 0
 	armor_penetration = 5
 
-/obj/projectile/bullet/cannonball/explosive/on_impact(var/atom/A)
-	explosion(A, -1, 1, 2)
-	..()
+/obj/projectile/bullet/cannonball/explosive/on_hit(atom/target, blocked, def_zone)
+	explosion(target, -1, 1, 2)
+	. = ..()
 
 /obj/projectile/bullet/nuke
 	name = "miniaturized nuclear warhead"
@@ -504,15 +500,15 @@
 	damage = 25
 	anti_materiel_potential = 2
 
-/obj/projectile/bullet/nuke/on_impact(var/atom/A)
+/obj/projectile/bullet/nuke/on_hit(atom/target, blocked, def_zone)
 	for(var/mob/living/carbon/human/mob in GLOB.human_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))
 				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-	new /obj/effect/temp_visual/nuke(A.loc)
-	explosion(A,2,5,9)
-	..()
+	new /obj/effect/temp_visual/nuke(target.loc)
+	explosion(target,2,5,9)
+	. = ..()
 
 /obj/projectile/bullet/shard
 	name = "shard"
@@ -534,9 +530,9 @@
 	penetrating = FALSE
 	var/heavy_impact_range = 1
 
-/obj/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
-	explosion(A, -1, heavy_impact_range, 2)
-	..()
+/obj/projectile/bullet/recoilless_rifle/on_hit(atom/target, blocked, def_zone)
+	explosion(target, -1, heavy_impact_range, 2)
+	. = ..()
 
 /obj/projectile/bullet/peac
 	name = "anti-tank missile"
@@ -551,13 +547,10 @@
 	var/heavy_impact_range = -1
 	var/light_impact_range = 2
 
-/obj/projectile/bullet/peac/check_penetrate(atom/hit_atom)
-	if(hit_atom == original)
-		return FALSE
-	return ..()
+/obj/projectile/bullet/peac/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 
-/obj/projectile/bullet/peac/on_impact(var/atom/hit_atom)
-	explosion(hit_atom, devastation_range, heavy_impact_range, light_impact_range)
+	explosion(target, devastation_range, heavy_impact_range, light_impact_range)
 
 /obj/projectile/bullet/peac/he
 	name = "high-explosive missile"
@@ -575,12 +568,13 @@
 
 	light_impact_range = 1
 
-/obj/projectile/bullet/peac/shrapnel/preparePixelProjectile()
+/obj/projectile/bullet/peac/shrapnel/preparePixelProjectile(atom/target, atom/source, list/modifiers, deviation)
 	. = ..()
 	range = get_dist(firer, original)
 
-/obj/projectile/bullet/peac/shrapnel/on_impact(var/atom/hit_atom)
-	..()
+/obj/projectile/bullet/peac/shrapnel/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
 	spawn_shrapnel(starting ? get_dir(starting, original) : dir)
 
 /obj/projectile/bullet/peac/shrapnel/proc/spawn_shrapnel(var/shrapnel_dir)
@@ -597,7 +591,9 @@
 		P.damage = 30
 		P.pellets = 4
 		P.range_step = 3
-		P.shot_from = src
 		P.range = 15
 		P.name = "shrapnel"
-		P.launch_projectile(T)
+		P.preparePixelProjectile(T, src)
+		P.firer = src
+		P.fired_from = src
+		P.fire()

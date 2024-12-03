@@ -7,7 +7,7 @@
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
 	consular_outfit = /obj/outfit/job/representative/consular/nralakk
-	assistant_outfit = /obj/outfit/job/consular_assistant/nralakk
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -28,6 +28,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK
 		),
 		"Diplomatic Aide" = list(
@@ -90,7 +91,8 @@
 
 	uniform = /obj/item/clothing/under/skrell
 	backpack_contents = list(
-		/obj/item/device/camera = 1
+		/obj/item/device/camera = 1,
+		/obj/item/storage/box/psireceiver = 1
 	)
 
 /obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -111,5 +113,5 @@
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
-/obj/outfit/job/consular_assistant/nralakk
+/obj/outfit/job/diplomatic_aide/nralakk
 	uniform = /obj/item/clothing/under/skrell

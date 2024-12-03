@@ -634,11 +634,11 @@ var/list/asset_datums = list()
 			var/icon_states_string
 			for(var/s in icon_states_list)
 				if(!icon_states_string)
-					icon_states_string = "[json_encode(s)](\ref[s])"
+					icon_states_string = "[json_encode(s)]([REF(s)])"
 				else
-					icon_states_string += ", [json_encode(s)](\ref[s])"
+					icon_states_string += ", [json_encode(s)]([REF(s)])"
 
-			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)](\ref[icon_state]), icon_states=[icon_states_string]")
+			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([REF(icon_state)]), icon_states=[icon_states_string]")
 			continue
 		#endif
 

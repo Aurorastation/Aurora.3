@@ -20,7 +20,7 @@
 /obj/effect/landmark/corpse/moghes_dead_guwandi/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 	if(M?.w_uniform)
 		M.w_uniform.color = "#181a19"
 	if(M?.wear_suit)
@@ -48,7 +48,7 @@
 /obj/effect/landmark/corpse/moghes_dead_raider/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
 	M.adjustBruteLoss(rand(200,400))
-	M.dir = pick(GLOB.cardinal)
+	M.dir = pick(GLOB.cardinals)
 	var/uniform_color = "[pick("#42330f", "#DBC684")]"
 	if(M?.w_uniform)
 		M.w_uniform.color = uniform_color

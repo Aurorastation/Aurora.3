@@ -36,7 +36,7 @@
 
 	// Should this all be in Touch()?
 	if(istype(H))
-		if(H != src && check_shields(0, null, H, H.zone_sel.selecting, H.name))
+		if(H != src && (check_shields(0, null, H, H.zone_sel.selecting, H.name) != BULLET_ACT_HIT))
 			H.do_attack_animation(src)
 			return 0
 
@@ -47,8 +47,8 @@
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
 						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
-						M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>")
-						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
+						M.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>"
+						src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>"
 
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
@@ -229,7 +229,7 @@
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
 						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
-						src.set_dir(pick(GLOB.cardinal))
+						src.set_dir(pick(GLOB.cardinals))
 					miss_type = 1
 
 			if(!miss_type && block)
@@ -248,8 +248,8 @@
 				H.visible_message(SPAN_DANGER("[attack_message]"))
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-			H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>")
-			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>")
+			H.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>"
+			src.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>"
 			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
 
 			if(miss_type)
@@ -327,16 +327,16 @@
 					if(M.stamina <= disarm_cost)
 						to_chat(M, SPAN_DANGER("You're too tired to disarm someone!"))
 						return FALSE
-					M.stamina = Clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+					M.stamina = clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				else if(M.max_stamina <= 0)
 					disarm_cost = M.max_nutrition / 6
 					if(M.nutrition <= disarm_cost)
 						to_chat(M, SPAN_DANGER("You don't have enough power to disarm someone!"))
 						return FALSE
-					M.nutrition = Clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
+					M.nutrition = clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
 
-			M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>")
-			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
+			M.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>"
+			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
 
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
@@ -380,7 +380,7 @@
 						problem_railing = R
 						break
 				for(var/obj/structure/railing/R in get_step(T, dir))
-					if(R.dir == GLOB.reverse_dir[dir])
+					if(R.dir == REVERSE_DIR(dir))
 						problem_railing = R
 						same_loc = TRUE
 						break
@@ -546,10 +546,10 @@
 	if(!damage)
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
-	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>"
+	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
 	user.do_attack_animation(src)
-	if(damage < 15 && check_shields(damage, null, user, null, "\the [user]"))
+	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") != BULLET_ACT_HIT))
 		return
 
 	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
@@ -665,7 +665,7 @@
 		dat += "<b>Primarily [u_attack.attack_name] </b><br/><br/><br/>"
 
 	if(default_attack)
-		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/><br/>"
+		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=[REF(src)];default_attk=reset_attk'>Reset</a><br/><br/>"
 
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		var/sparring_variant = ""
@@ -675,11 +675,11 @@
 			sparring_variant = " | Sparring Variant: [capitalize_first_letters(initial(spar_attack.attack_name))]"
 			sparring_variant_desc = "[initial(spar_attack.desc)]<br/>"
 		if(u_attack == default_attack)
-			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - default - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - default - <a href='byond://?src=[REF(src)];default_attk=reset_attk'>Reset</a><br/>"
 			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
 			dat += "<br/>"
 		else
-			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - <a href='byond://?src=\ref[src];default_attk=\ref[u_attack]'>Set Default</a><br/>"
+			dat += "<b>Primarily [capitalize_first_letters(u_attack.attack_name)][sparring_variant]</b> - <a href='byond://?src=[REF(src)];default_attk=[REF(u_attack)]'>Set Default</a><br/>"
 			dat += "Description: [u_attack.desc]<br/>[sparring_variant_desc]"
 			dat += "<br/>"
 

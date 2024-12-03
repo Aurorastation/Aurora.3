@@ -332,7 +332,6 @@
 /obj/item/gun/projectile/automatic/rifle/dominia/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "acr" : "acr-empty"
-	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
@@ -854,7 +853,6 @@
 /obj/item/gun/projectile/automatic/rifle/dominia_lmg/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "dom_lmg" : "dom_lmg-empty"
-	item_state = icon_state
 
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"

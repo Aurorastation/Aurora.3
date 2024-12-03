@@ -8,7 +8,7 @@
 	required_access_download = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 12
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON_AI
 	network_destination = "station long-range communication array"
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "CommandCommunications"
@@ -226,6 +226,9 @@
 					intercept = !intercept
 
 	return TRUE
+
+/datum/computer_file/program/comm/intercept/New(obj/item/modular_computer/comp, intercept_printing, shuttle_call)
+	. = ..(comp, TRUE, shuttle_call)
 
 /*
 General message handling stuff

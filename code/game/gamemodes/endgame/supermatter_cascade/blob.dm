@@ -73,7 +73,7 @@
 	return
 
 // /vg/: Don't let ghosts fuck with this.
-/turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_ghost(mob/user)
 	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
@@ -88,7 +88,7 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/living/user)
+/turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/user)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -118,7 +118,7 @@
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
-	if(istype(user,/mob/abstract/observer))
+	if(isobserver(user))
 		return
 
 	qdel(user)

@@ -140,8 +140,7 @@
 	goldendeep["golden deep skirtsuit"] = /obj/item/clothing/under/goldendeep/skirtsuit
 	gear_tweaks += new /datum/gear_tweak/path(goldendeep)
 
-/datum/gear/augment/machine
-	abstract_type = /datum/gear/augment/machine
+ABSTRACT_TYPE(/datum/gear/augment/machine)
 
 /datum/gear/augment/machine/gustatorial
 	display_name = "gustatorial centre (tongue)"
@@ -260,6 +259,42 @@
 	goldendeephat["golden deep cowl"] = /obj/item/clothing/head/goldendeep/cowl
 	goldendeephat["golden deep cube hood"] = /obj/item/clothing/head/goldendeep/cubehood
 	gear_tweaks += new /datum/gear_tweak/path(goldendeephat)
+
+// Hoplan uniforms are restricted to Golden Deep Consulars and Diplomatic Aides. As military uniforms, they aren't something you'd see among the general crew.
+/datum/gear/uniform/goldendeephoplan
+	display_name = "golden deep hoplan uniform"
+	description = "An ornate piece of clothing usually worn by members of the Hoplan, but known to circulate elsewhere."
+	path = /obj/item/clothing/under/goldendeep/hoplan
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	allowed_roles = list("Consular Officer", "Diplomatic Aide")
+	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
+
+/datum/gear/head/goldendeephoplan
+	display_name = "golden deep hoplan hat"
+	description = "A large poofy hat typically worn by members of the Hoplan, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/hoplan
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+	allowed_roles = list("Consular Officer", "Diplomatic Aide")
+	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
+
+/datum/gear/uniform/goldendeepporter
+	display_name = "golden deep porter uniform"
+	description = "A plain and durable suit popular among the menial synthetics fo the Golden Deep, but known to ciculate elsewhere."
+	path = /obj/item/clothing/under/goldendeep/porter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/head/goldendeepporter
+	display_name = "golden deep porter hat"
+	description = "A plain and durable piece of headwear popular among the menial synthetics of the Golden Deep, but known to circulate elsewhere."
+	path = /obj/item/clothing/head/goldendeep/porter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeepchainjewelry
 	display_name = "golden deep chain jewelry"

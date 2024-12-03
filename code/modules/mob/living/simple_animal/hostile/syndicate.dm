@@ -78,13 +78,16 @@
 		visible_message(SPAN_WARNING("[user] gently taps [src] with the [attacking_item]."))
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/projectile/Proj)
-	if(!Proj)	return
-	if(prob(65))
-		src.health -= Proj.damage
-	else
-		visible_message(SPAN_DANGER("[src] blocks [Proj] with its shield!"))
-	return 0
+/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(prob(35))
+		visible_message(SPAN_DANGER("[src] blocks [hitting_projectile] with its shield!"))
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	src.health -= hitting_projectile.damage
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space

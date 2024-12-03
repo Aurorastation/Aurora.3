@@ -558,3 +558,6 @@
 
 /mob/living/carbon/proc/should_have_limb(var/organ_check)
 	return FALSE
+
+/mob/living/carbon/get_equipped_speed_mod_items()
+	return ..() + get_equipped_items()

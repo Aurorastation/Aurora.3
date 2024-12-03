@@ -27,8 +27,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	return
 
-/obj/item/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
-	if (!M.ckey || M.ckey != allowed_ckey)
+/obj/item/implanter/fluff/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if (!target_mob.ckey || target_mob.ckey != allowed_ckey)
 		return
 
 	..()
@@ -415,11 +415,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 		has_spear = FALSE
 		update_icon()
 
-/obj/item/fluff/tokash_spear/attackby(var/obj/item/W, var/mob/user)
-	if(!has_spear && istype(W, /obj/item/fluff/tokash_spearhead))
-		to_chat(user, SPAN_NOTICE("You place \the [W] on the [src]."))
-		user.drop_from_inventory(W,src)
-		qdel(W)
+/obj/item/fluff/tokash_spear/attackby(obj/item/attacking_item, mob/user, params)
+	if(!has_spear && istype(attacking_item, /obj/item/fluff/tokash_spearhead))
+		to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on the [src]."))
+		user.drop_from_inventory(attacking_item,src)
+		qdel(attacking_item)
 		has_spear = TRUE
 		update_icon()
 	else
@@ -821,13 +821,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
 	var/collapsed = TRUE
 
-/obj/item/fluff/akinyi_stand/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/device/megaphone/fluff/akinyi_mic))
+/obj/item/fluff/akinyi_stand/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/device/megaphone/fluff/akinyi_mic))
 		if(!mic && !collapsed)
-			user.unEquip(O)
-			O.forceMove(src)
-			mic = O
-			to_chat(user, SPAN_NOTICE("You place \the [O] on \the [src]."))
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			mic = attacking_item
+			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on \the [src]."))
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
@@ -994,15 +994,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	return ..()
 
-/obj/item/fluff/holoconsole/attackby(obj/item/I, mob/user)
-	switch(I.type)
+/obj/item/fluff/holoconsole/attackby(obj/item/attacking_item, mob/user, params)
+	switch(attacking_item.type)
 		if(/obj/item/fluff/holoconsole_controller)
 			if(left_controller)
 				to_chat(user, SPAN_WARNING("\The [src] already has its left controller connected!"))
 				return
-			user.visible_message("<b>[user]</b> slots \the [I] back into to \the [src].", SPAN_NOTICE("You slot \the [I] back into \the [src]."))
-			user.drop_from_inventory(I, src)
-			left_controller = I
+			user.visible_message("<b>[user]</b> slots \the [attacking_item] back into to \the [src].", SPAN_NOTICE("You slot \the [attacking_item] back into \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			left_controller = attacking_item
 			left_controller.parent_console = null
 			verbs += /obj/item/fluff/holoconsole/proc/remove_left
 			update_icon()
@@ -1011,9 +1011,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 			if(right_controller)
 				to_chat(user, SPAN_WARNING("\The [src] already has its right controller connected!"))
 				return
-			user.visible_message("<b>[user]</b> slots \the [I] back into to \the [src].", SPAN_NOTICE("You slot \the [I] back into \the [src]."))
-			user.drop_from_inventory(I, src)
-			right_controller = I
+			user.visible_message("<b>[user]</b> slots \the [attacking_item] back into to \the [src].", SPAN_NOTICE("You slot \the [attacking_item] back into \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			right_controller = attacking_item
 			right_controller.parent_console = null
 			verbs += /obj/item/fluff/holoconsole/proc/remove_right
 			update_icon()
@@ -1123,13 +1123,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	return ..()
 
-/obj/item/fluff/holocase/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/fluff/holoconsole))
+/obj/item/fluff/holocase/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/fluff/holoconsole))
 		if(contained_console)
 			to_chat(user, SPAN_WARNING("\The [src] already contains a holoconsole!"))
 			return
-		user.drop_from_inventory(I, src)
-		contained_console = I
+		user.drop_from_inventory(attacking_item, src)
+		contained_console = attacking_item
 		user.visible_message("<b>[usr]</b> puts \the [contained_console] into \the [src], zipping it back up.", SPAN_NOTICE("You put \the [contained_console] into \the [src], zipping it back up."))
 		update_icon()
 		return
@@ -1547,25 +1547,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/fluff/nasira_burner/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/fluff/nasira_burner/attackby(obj/item/attacking_item, mob/user, params)
 	..()
-	if(W.isFlameSource())
+	if(attacking_item.isFlameSource())
 		var/text = matchmsg
-		if(istype(W, /obj/item/flame/match))
+		if(istype(attacking_item, /obj/item/flame/match))
 			text = matchmsg
-		else if(istype(W, /obj/item/flame/lighter/zippo))
+		else if(istype(attacking_item, /obj/item/flame/lighter/zippo))
 			text = zippomsg
-		else if(istype(W, /obj/item/flame/lighter))
+		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermsg
-		else if(W.iswelder())
+		else if(attacking_item.iswelder())
 			text = weldermsg
-		else if(istype(W, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
 			text = ignitermsg
 		else
 			text = genericmsg
 		text = replacetext(text, "USER", "\the [user]")
 		text = replacetext(text, "NAME", "\the [name]")
-		text = replacetext(text, "FLAME", "\the [W.name]")
+		text = replacetext(text, "FLAME", "\the [attacking_item.name]")
 		light(text)
 
 /obj/item/fluff/nasira_burner/process()
@@ -1919,9 +1919,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 
 /obj/item/rig/light/offworlder/fluff/aayun
-	name = "prototype exo-stellar skeleton module"
-	suit_type = "exoskeleton voidsuit"
-	desc = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
+	name = "command exo-stellar skeleton module"
+	suit_type = "exo-stellar skeleton"
+	desc = "A prototype, exo-stellar skeleton suit finished in SCC blue and gold, evidently built for someone in authority. Made of extremely expensive and custom-made parts, and bears an integrated golden metal scarf as a fashion statement."
+	desc_extended = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
 	Features microdoses of medicine in the air supply to aid in lung pain, electrostimulants to assist in muscle rehabilitation, and innumerable other features. Unfortunately, due to design limitations, \
 	it is only capable of maintaining a lower internal pressure when exposed to normal environments, and is not spaceworthy nor immune to environmental conditions. This particular model bears a small mark \
 	of Zeng-Hu Pharmaceuticals on the main back piece, and was largely designed by a collaborative effort of experts in their fields on the Horizon. A new future for off-worlders, or a money pit?"
@@ -1970,3 +1971,43 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flag_path = "devorask_flag"
 	flag_size = TRUE
 	flag_item = /obj/item/flag/fluff/devorask_flag/l
+
+/obj/item/organ/external/arm/fluff/gracia_autakh // gracia's aut'akh left arm - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/arm/fluff/gracia_autakh/Initialize(mapload)
+	. = ..()
+	// adding the hand to the child here means only the arm has to be added to the DB
+	// since the hand will be attached automatically
+	LAZYADD(children, new /obj/item/organ/external/hand/fluff/gracia_autakh(src))
+
+/obj/item/organ/external/hand/fluff/gracia_autakh // gracia's aut'akh left hand - Gracia Hiza - cometblaze
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/gracia_arm.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/fluff/tokash_mantle //Consular Mantle - Suvek Tokash - Evandorf
+	name = "consular's mantle"
+	desc = "A long, ornate, and somewhat extravagant cloak-like mantle. Fashioned with Hegemony colors, it serves as a symbol of the wearer's station and allegiance. Scenes of Unathi history and legend etched into the golden crest surmount the trailing, blood-red fabric. "
+	icon = 'icons/obj/custom_items/tokash_mantle.dmi'
+	icon_override = 'icons/obj/custom_items/tokash_mantle.dmi'
+	icon_state = "tokash_mantle"
+	item_state = "tokash_mantle"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/fluff/kira_carrier //mictlan plate carrier adjustments - Kira Vazquez - Dessysalta
+	name = "mictlan plate carrier adjustments"
+	desc = "Various pieces of custom-made accessories and adjustments to better suit a plate carrier for its wearer. It has various notes scrawled along it in permanent marker, mostly \
+	in Tradeband and Spanish, such as the verse of Ephesians 6:13 and, 'Wishing you well!' The SCC's logo has been woven around the left arm flap, and Mictlan's flag \
+	around the right. The back reads K. VAZQUEZ in bold text."
+	icon = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/kira_carrier.dmi'
+	icon_state = "kira_carrier"
+	item_state = "kira_carrier"
+	contained_sprite = TRUE

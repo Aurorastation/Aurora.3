@@ -14,50 +14,69 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
-	/// The type of damage this mob deals.
+	/// The type of damage this mob deals
 	var/damage_type = DAMAGE_BRUTE
 
-	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
+	/// Does the percentage health show in the stat panel for the mob
+	var/show_stat_health = 1
 	var/in_stasis = FALSE
 
 	var/icon_living = ""
 	var/icon_dead = ""
-	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+	/// We only try to show a gibbing animation if this exists
+	var/icon_gib = null
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
+
+	/// Blood colour for impact visuals
+	var/blood_type = COLOR_HUMAN_BLOOD
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
 
+	/// If the animal is bleeding.
 	var/bleeding = FALSE
-	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
-	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
-	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
+	/// Set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/blood_amount = 20
+	/// They only bleed for as many seconds as force damage was applied to them
+	var/previous_bleed_timer = 0
+	/// Tweak to change the amount of seconds a mob will bleed
+	var/blood_timer_mod = 0.25
 
+	/// What language a animal would speak by default. Try not to think about it too hard
 	var/simple_default_language = LANGUAGE_TCB
 	universal_speak = TRUE // since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
 
 	var/list/speak = list()
 	var/speak_chance = 0
-	var/list/emote_hear = list()	//Hearable emotes
-	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	/// Hearable emotes
+	var/list/emote_hear = list()
+	/// Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_see = list()
 
-	///A list of sounds that this animal will randomly play, lazy list
+	/// A list of sounds that this animal will randomly play, lazy list
 	var/list/emote_sounds
 	var/sound_time = TRUE
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
 	universal_speak = 0		//No, just no.
+	/// How much meat is provided when butchering
 	var/meat_amount = 0
+	/// What kind of meat is provided. Do not set this to non meats, use butchering_products instead
 	var/meat_type
-	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
-	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
-	var/wander = 1	// Does the mob wander around when idle?
-	var/wanders_diagonally = FALSE // does the mob move diagonally when wandering?
-	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
-	var/atom/movement_target = null//Thing we're moving towards
+	/// Prevents them from doing any AI stuff whatsoever
+	var/stop_thinking = FALSE
+	/// Use this to temporarely stop random movement or to if you write special movement code for animals
+	var/stop_automated_movement = FALSE
+	/// Does the mob wander around when idle?
+	var/wander = TRUE
+	/// does the mob move diagonally when wandering?
+	var/wanders_diagonally = FALSE
+	/// When set to TRUE this stops the animal from moving when someone is pulling it
+	var/stop_automated_movement_when_pulled = TRUE
+	/// Thing we're moving towards
+	var/atom/movement_target = null
 	var/turns_since_scan = 0
 
 	//Interaction
@@ -65,18 +84,22 @@
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
-	var/harm_intent_damage = 3 //The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
+	/// The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
+	var/harm_intent_damage = 3
 
 	//Temperature effect
 	var/minbodytemp = 250
 	var/maxbodytemp = 350
-	var/heat_damage_per_tick = 3	//amount of damage applied if animal's body temperature is higher than maxbodytemp
-	var/cold_damage_per_tick = 2	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
+	/// Amount of damage applied if animal's body temperature is higher than maxbodytemp
+	var/heat_damage_per_tick = 3
+	/// Same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
+	var/cold_damage_per_tick = 2
 	var/fire_alert = 0
 
 	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
+	//Leaving something at 0 means it's off - has no maximum
 	var/min_oxy = 5
-	var/max_oxy = 0					//Leaving something at 0 means it's off - has no maximum
+	var/max_oxy = 0
 	var/min_tox = 0
 	var/max_tox = 1
 	var/min_co2 = 0
@@ -85,8 +108,10 @@
 	var/max_n2 = 0
 	var/min_h2 = 0
 	var/max_h2 = 5
-	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
-	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
+	/// This damage is taken when atmos doesn't fit all the requirements above
+	var/unsuitable_atoms_damage = 2
+	/// Higher speed is slower, negative speed is faster
+	var/speed = 0 // LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING!!!
 
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
@@ -97,8 +122,10 @@
 	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
-	var/resistance		  = 0	// Damage reduction
-	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
+	/// Damage reduction
+	var/resistance = 0
+	/// A multiplier for the chance the animal has to break out
+	var/resist_mod = 1
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -106,55 +133,79 @@
 
 
 	//Hunger/feeding vars
-	var/hunger_enabled = 1//If set to 0, a creature ignores hunger
+	/// If set to FALSE, creature ignores hunger
+	var/hunger_enabled = TRUE
 	max_nutrition = 50
-	var/metabolic_factor = 1//A multiplier on how fast nutrition is lost. used to tweak the rates on a per-animal basis
-	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.2 is a fallback
+	/// A multiplier on how fast nutrition is lost. used to tweak the rates on a per-animal basis
+	var/metabolic_factor = 1
+	/// Nutrition lost per tick and per step, calculated from mob_size, 0.2 is a fallback
+	var/nutrition_step = 0.2
 	var/bite_factor = 0.4
-	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
+	/// A multiplier on how quickly reagents are digested
+	var/digest_factor = 0.2
 	var/stomach_size_mult = 5
-	var/list/forbidden_foods = list()	//Foods this animal should never eat
+	/// Foods this animal should never eat
+	var/list/forbidden_foods = list()
 
 	//Seeking/Moving behaviour vars
-	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
+	var/min_scan_interval = 1
 	var/max_scan_interval = 15
-	var/scan_interval = 5//current scan interval, clamped between min and max
-	//It gradually increases up to max when its left alone, to save performance
+	/// current scan interval, clamped between min and max.
+	/// It gradually increases up to max when its left alone, to save performance
+	var/scan_interval = 5
 
-	var/seek_speed = 2//How many tiles per second the animal will move towards something
+	/// How many tiles per second the animal will move towards something
+	var/seek_speed = 2
 	var/seek_move_delay
-	var/scan_range = 6//How far around the animal will look for something
+	/// How far around the animal will look for something
+	var/scan_range = 6
 
-	var/kitchen_tag = "animal" //Used for cooking with animals
+	/// Used for cooking with animals
+	var/kitchen_tag = "animal"
 
 	//brushing
-	var/canbrush = FALSE //can we brush this beautiful creature?
-	var/brush = /obj/item/haircomb //What can we brush it with? Use a rag for things with scales/carapaces/etc
+	/// Can we brush this beautiful creature?
+	var/canbrush = FALSE
+	/// What can we brush it with? Use a rag for things with scales/carapaces/etc
+	var/brush = /obj/item/haircomb
 
 	//Napping
 	var/can_nap = 0
 	var/icon_rest = null
 
-	var/tameable = TRUE //if you can tame it, used by the dociler for now
+	/// If you can tame it, used by the dociler for now
+	var/tameable = TRUE
 
-	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
+	/// If they can fly, which stops them from falling down and allows z-space travel
+	var/flying = FALSE
 
-	var/has_udder = FALSE
+	/// Whether this animal can be milked or not.
+	var/can_be_milked = FALSE
+	/// The reagent storage for the animal's milking product.
 	var/datum/reagents/udder = null
+	/// The size of the udder's reagent storage.
+	var/udder_size = 50
+	/// The minimum and upper floor of the per-tick milk regeneration to feed into rand(). This list should always have both minimum and upper floor.
+	/// This is also how much milk is taken from the animal at once.
+	var/list/milk_regeneration = list(5, 10)
+	/// What the animal's milking product is.
 	var/milk_type = /singleton/reagent/drink/milk
 
-	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+	/// If anything else is created when butchering this creature, like bones and leather
+	var/list/butchering_products
 
 	var/psi_pingable = TRUE
 
 	var/armor_type = /datum/component/armor
-	var/list/natural_armor //what armor animal has
+	/// What armor animal has
+	var/list/natural_armor
 
 	//for simple animals that reflect damage when attacked in melee
 	var/return_damage_min
 	var/return_damage_max
 
-	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
+	/// If true, kills the mob when it spawns (it is for mapping)
+	var/dead_on_map = FALSE
 	var/vehicle_version = null
 
 	/**
@@ -181,8 +232,8 @@
 		reagents = new/datum/reagents(20, src)
 	nutrition = max_nutrition
 
-	if(has_udder)
-		udder = new(50)
+	if(can_be_milked)
+		udder = new(udder_size)
 		udder.my_atom = src
 
 	if(LAZYLEN(natural_armor))
@@ -311,10 +362,10 @@
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
-	if(has_udder)
+	if(can_be_milked)
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
-				udder.add_reagent(milk_type, rand(5, 10))
+				udder.add_reagent(milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 	return 1
 
@@ -432,9 +483,9 @@
 	if(food_choices.len) //Only when sufficiently hungry
 		UnarmedAttack(pick(food_choices))
 
-//Simple reagent processing for simple animals
-//This allows animals to digest food, and only food
-//Most drugs, poisons etc, are designed to work on carbons and affect many values a simple animal doesnt have
+/// Simple reagent processing for simple animals
+/// This allows animals to digest food, and only food
+/// Most drugs, poisons etc, are designed to work on carbons and affect many values a simple animal doesnt have
 /mob/living/simple_animal/proc/process_food()
 	if (hunger_enabled)
 		if (nutrition)
@@ -481,7 +532,7 @@
 	if(act)
 		..(act, type, desc)
 
-//This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
+/// This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
 	if(LAZYLEN(emote_sounds))
 		make_noise(TRUE)
@@ -500,6 +551,7 @@
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	var/datum/martial_art/attacker_style = M.primary_martial_art
 	switch(M.a_intent)
 
 		if(I_HELP)
@@ -508,6 +560,8 @@
 				poke()
 
 		if(I_DISARM)
+			if(attacker_style && attacker_style.disarm_act(M, src))
+				return TRUE
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
@@ -574,21 +628,13 @@
 		qdel(attacking_item)
 		qdel(src)
 
-	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
-		attacked_with_item(attacking_item, user)
-		return
-	if(has_udder)
+	if(can_be_milked)
 		var/obj/item/reagent_containers/glass/G = attacking_item
-		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
-			if(udder.total_volume <= 0)
-				to_chat(user, SPAN_WARNING("The udder is dry."))
-				return
-			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
-				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
-			udder.trans_type_to(G, milk_type, rand(5, 10))
+		if(istype(G, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
+			attacked_with_item(attacking_item, user)
 			return
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			handle_milking(user, G)
 
 	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()
@@ -651,10 +697,13 @@
 	if(ismob(throwingdatum.thrower?.resolve()))
 		handle_attack_by(throwingdatum.thrower.resolve())
 
-/mob/living/simple_animal/bullet_act(obj/projectile/P, def_zone)
+/mob/living/simple_animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(ismob(P.firer))
-		handle_attack_by(P.firer)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(ismob(hitting_projectile.firer))
+		handle_attack_by(hitting_projectile.firer)
 
 /mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
@@ -807,7 +856,7 @@
 			named = TRUE
 			do_nickname(M) //This is for commanded mobs who can have a short name, like guard dogs
 
-//This is for commanded mobs who can have a short name, like guard dogs. Does nothing for other mobs for now
+/// This is for commanded mobs who can have a short name, like guard dogs. Does nothing for other mobs for now
 /mob/living/simple_animal/proc/do_nickname(var/mob/living/M)
 
 
@@ -837,7 +886,7 @@
 	item_to_equip.forceMove(get_turf(src))
 	return FALSE
 
-// Harvest an animal's delicious byproducts
+/// Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
@@ -860,7 +909,7 @@
 			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
 			gib()
 
-//For picking up small animals
+/// For picking up small animals
 /mob/living/simple_animal/MouseDrop(atom/over_object)
 	if (holder_type)//we need a defined holder type in order for picking up to work
 		var/mob/living/carbon/H = over_object
@@ -873,14 +922,14 @@
 
 
 //I wanted to call this proc alert but it already exists.
-//Basically makes the mob pay attention to the world, resets sleep timers, awakens it from a sleeping state sometimes
+/// Basically makes the mob pay attention to the world, resets sleep timers, awakens it from a sleeping state sometimes
 /mob/living/simple_animal/proc/poke(var/force_wake = 0)
 	if (stat != DEAD)
 		scan_interval = min_scan_interval
 		if (force_wake || (!client && prob(30)))
 			wake_up()
 
-//Puts the mob to sleep
+/// Puts the mob to sleep
 /mob/living/simple_animal/proc/fall_asleep()
 	if (stat != DEAD)
 		resting = 1
@@ -891,7 +940,7 @@
 		movement_target = null
 		update_icon()
 
-//Wakes the mob up from sleeping
+/// Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
 		set_stat(CONSCIOUS)
@@ -962,12 +1011,12 @@
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/mob/living/simple_animal/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage)
-	..()
+/mob/living/simple_animal/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	. = ..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == DAMAGE_BRUTE)
-				var/hit_dir = get_dir(P.starting, src)
+			if(impacting_projectile.damage_type == DAMAGE_BRUTE)
+				var/hit_dir = get_dir(impacting_projectile.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = blood_type
@@ -1014,6 +1063,16 @@
 
 /mob/living/simple_animal/InStasis()
 	return in_stasis
+
+/mob/living/simple_animal/proc/handle_milking(mob/user, obj/item/reagent_containers/container)
+	if(udder.total_volume <= 0)
+		to_chat(user, SPAN_WARNING("There is nothing left to collect."))
+		return
+	if(container.reagents.total_volume >= container.volume)
+		to_chat(user, SPAN_WARNING("The [container] is full."))
+		return
+	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
+	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

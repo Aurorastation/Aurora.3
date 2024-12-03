@@ -1,5 +1,5 @@
 /mob/living/simple_animal/carp
-	name = "space carp"
+	name = "tame space carp"
 	desc = "A domesticated, floating space carp. Careful around the teeth."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "carp"
@@ -9,10 +9,10 @@
 	icon_gib = "carp_gib"
 	icon_rest = "carp_rest"
 	can_nap = TRUE
-	speak = list("Glub!")
+	speak = list("Glub!", "Glub?", "Glub.")
 	speak_emote = list("glubs", "glibs")
 	emote_hear = list("glubs","glibs")
-	emote_see = list("floats steadily", "inflates its gills")
+	emote_see = list("floats steadily", "inflates its gills", "flaps its flippers", "wiggles", "waggles")
 	speak_chance = 1
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
@@ -24,6 +24,11 @@
 	gender = NEUTER
 	faction = "carp"
 	flying = TRUE
+
+	can_be_milked = TRUE
+	udder_size = 3
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 2)
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
@@ -138,10 +143,16 @@
 
 	gender = FEMALE
 
-	emote_see = list("floats steadily", "inflates her gills")
+	emote_see = list("floats steadily", "inflates her gills", "flaps her flippers", "wiggles", "waggles")
 
 	can_nap = TRUE
 	mob_size = 3.5
+
+	// Actually cannot be milked, but this way we get the error message.
+	can_be_milked = TRUE
+	udder_size = 2
+	milk_type = /singleton/reagent/toxin/carpotoxin
+	milk_regeneration = list(1, 1)
 
 	befriend_job = "Chief Engineer"
 	holder_type = /obj/item/holder/carp/baby
@@ -149,6 +160,10 @@
 /mob/living/simple_animal/carp/fluff/ginny/death()
 	.=..()
 	desc = "WHO KILLED GINNY?!"
+
+/mob/living/simple_animal/carp/fluff/ginny/handle_milking(mob/user, obj/item/reagent_containers/container)
+	//user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.")
+	user.visible_message("[pick("[SPAN_BOLD("Ginny")] shies away from the [container] and stares at [SPAN_BOLD("[user]")] judgementally.", "[SPAN_BOLD("Ginny")] recoils from [SPAN_BOLD("[user]")] with an indignant glub.", "[SPAN_BOLD("Ginny")] bares her tiny fangs and evades the [container].", "[SPAN_BOLD("Ginny")] stretches a flipper out and pushes the [container] away.")]")
 
 /mob/living/simple_animal/carp/baby
 	name = "baby space carp"

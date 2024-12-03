@@ -78,7 +78,7 @@ steam.start() -- spawns the effect
 			var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 			var/direction
 			if(src.cardinals)
-				direction = pick(GLOB.cardinal)
+				direction = pick(GLOB.cardinals)
 			else
 				direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(1,2,3), i++)
@@ -184,11 +184,17 @@ steam.start() -- spawns the effect
 			M.coughedtime = 0
 
 /obj/effect/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0)) return 1
+	if(air_group || (height==0))
+		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	if(istype(mover, /obj/projectile/beam))
 		var/obj/projectile/beam/B = mover
 		B.damage = (B.damage/2)
-	return 1
+
+	return TRUE
 /////////////////////////////////////////////
 // Sleep smoke
 /////////////////////////////////////////////
@@ -276,7 +282,7 @@ steam.start() -- spawns the effect
 			var/direction = src.direction
 			if(!direction)
 				if(src.cardinals)
-					direction = pick(GLOB.cardinal)
+					direction = pick(GLOB.cardinals)
 				else
 					direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)

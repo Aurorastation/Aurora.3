@@ -1,5 +1,4 @@
-#define Clamp(x, low, high) 	max(low, min(high, x))
-#define CLAMP01(x) 		(Clamp(x, 0, 1))
+#define CLAMP01(x) (clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 
@@ -9,6 +8,7 @@
 #define EXAMINE_BLOCK_BLUE(str) ("<div class='examine_block--blue'>" + str + "</div>")
 #define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
 #define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
+#define EXAMINE_BLOCK_ODYSSEY(str) ("<div class='examine_block--odyssey'>" + str + "</div>")
 
 #define MATRIX_DANGER(str) (FONT_LARGE(SPAN_DANGER(str)))
 #define MATRIX_NOTICE(str) (FONT_LARGE(SPAN_NOTICE(str)))

@@ -285,16 +285,6 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
-/obj/item/clothing/gloves/tcaf
-	name = "\improper TCAF armsman gloves"
-	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
-	contained_sprite = TRUE
-	icon_state = "tcaf_armsman_gloves"
-	item_state = "tcaf_armsman_gloves"
-	build_from_parts = TRUE
-	worn_overlay = "over"
-
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
 	desc = "A metal gauntlet armed with a wrist-mounted shotgun."
@@ -405,7 +395,13 @@
 			var/turf/T = get_turf(user)
 			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
 			var/obj/projectile/beam/tesla/LE = new (T)
-			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
+
+			LE.preparePixelProjectile(A, user)
+			LE.firer = user
+			LE.fired_from = src
+			LE.def_zone = user.zone_sel? user.zone_sel.selecting : null
+			LE.fire()
+
 			spark(src, 3, GLOB.alldirs)
 			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)
 			charged = FALSE
@@ -435,3 +431,25 @@
 	icon_state = "forensic"
 	item_state = "forensicgloves"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
+
+/obj/item/clothing/gloves/single
+	name = "single glove"
+	desc = "A single glove. This one is for the right hand."
+	icon = 'icons/clothing/gloves/single.dmi'
+	contained_sprite = TRUE
+	icon_state = "single"
+	item_state = "single"
+
+/obj/item/clothing/gloves/single/left
+	desc = "A single glove. This one is for the left hand."
+	icon_state = "single_left"
+	item_state = "single_left"
+
+/obj/item/clothing/gloves/multi_color
+	name = "multi-color gloves"
+	desc = "A pair of gloves, each is a different color."
+	icon = 'icons/clothing/gloves/multi_color.dmi'
+	contained_sprite = TRUE
+	icon_state = "multi_color"
+	item_state = "multi_color"
+	has_accents = TRUE

@@ -1,0 +1,14 @@
+2024-12-01:
+  Ben10083:
+  - bugfix: Xenobiology North cells now have access requirements.
+  - bugfix: Players can no longer actidently insert power cells instead of power cores
+      into exosuit chassis. Chassis description updated to reflect this.
+  MattAtlas:
+  - bugfix: Fixed sensor reports or comm messages in general not being printed at
+      sensors consoles.
+  OolongCow:
+  - bugfix: Fixes a coding oversight causing first aid lockers to not spawn kits.
+2024-12-02:
+  hazelmouse:
+  - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
+      secure locker in the Pilot Room.

@@ -357,7 +357,7 @@
 	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=[REF(src)];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
@@ -443,9 +443,9 @@
 
 /obj/item/proc/get_volume_by_throwforce_and_or_w_class()
 		if(throwforce && w_class)
-				return Clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
+				return clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
 		else if(w_class)
-				return Clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
+				return clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
 		else
 				return 0
 
@@ -488,7 +488,7 @@
  * This is called after the _new_ location (`loc`) is set on the object, so if it's eg. put in a container,
  * the loc inside here would point to the container, not the mob that had it in hand
  *
- * * user - The `/mob` that dropped the object
+ * * user - The `/mob` that dropped the object (was removed from, not necessarily who clicked the button)
  */
 /obj/item/proc/dropped(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
@@ -507,6 +507,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user?.update_equipment_speed_mods()
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -615,6 +617,8 @@
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+	user.update_equipment_speed_mods()
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE
@@ -772,12 +776,17 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/ui_action_click()
 	attack_self(usr)
 
-//RETURN VALUES
-//handle_shield
-//Return a negative value corresponding to the degree an attack is blocked. PROJECTILE_STOPPED stops the attack entirely, and is the default for projectile and non-projectile attacks
-//Otherwise should return 0 to indicate that the attack is not affected in any way.
+/**
+ * Called when a mob is hit by a projectile, item or by an attack
+ *
+ * Return one of the `BULLET_ACT_*` defines
+ *
+ * BULLET_ACT_HIT will let the attack continue, BULLET_ACT_BLOCK will block the attack
+ */
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	return FALSE
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return BULLET_ACT_HIT
 
 /obj/item/proc/can_shield_back()
 	return
@@ -844,7 +853,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		CutOverlays(blood_overlay, TRUE)
+		CutOverlays(blood_overlay, ATOM_ICON_CACHE_ALL)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
@@ -903,7 +912,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
 		if(!user.is_invisible_to(M))
-			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+			M.show_message("<b>[user]</b> holds up [icon2html(src, viewers(get_turf(src)))] [src]. <a HREF=?src=[REF(M)];lookitem=[REF(src)]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"

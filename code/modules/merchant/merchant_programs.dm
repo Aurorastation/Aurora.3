@@ -201,7 +201,7 @@
 					scrolled = 1
 				if("left")
 					scrolled = -1
-			var/new_merchant  = Clamp(current_merchant + scrolled, 1, SStrade.traders.len)
+			var/new_merchant  = clamp(current_merchant + scrolled, 1, SStrade.traders.len)
 			if(new_merchant != current_merchant)
 				hailed_merchant = 0
 				last_comms = null
@@ -260,5 +260,5 @@
 	required_access_download = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(ACCESS_GOLDEN_DEEP)
-	required_access_download = list(ACCESS_GOLDEN_DEEP)
+	required_access_run = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
+	required_access_download = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)

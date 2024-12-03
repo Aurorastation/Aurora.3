@@ -32,7 +32,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	var/smoketime = 5
+	var/smoketime = 10
 	var/type_burnt = /obj/item/trash/match
 	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -142,8 +142,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //////////////////
 //FINE SMOKABLES//
 //////////////////
-/obj/item/clothing/mask/smokable
-	abstract_type = /obj/item/clothing/mask/smokable
+ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/obj/smokables.dmi'
@@ -165,7 +164,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
-	var/burn_rate = 0 // Do not make lower than MINIMUM_CHEMICAL_VOLUME 0.01
+	var/burn_rate = 0
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -306,7 +305,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.006 //Lasts ~166 seconds)
+	burn_rate = 0.003 //Lasts ~353 seconds)
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
@@ -334,7 +333,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit)
 		die(TRUE)
 
-/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
+/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/H = target_mob
+
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
@@ -374,11 +375,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
-	burn_rate = 0.015
 	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
-	burn_rate = 0.015
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco = 5,
 		/singleton/reagent/mental/nicotine = 5,
@@ -387,7 +386,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
-	burn_rate = 0.015
 	chem_volume = 15
 	reagents_to_add = null
 
@@ -466,7 +464,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	burn_rate = 0.015
 	chem_volume = 60
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to offend their NAME by lighting it with FLAME.")
@@ -586,9 +583,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"
 	icon_off = "pipeoff"
-	burn_rate = 0.015
 	w_class = WEIGHT_CLASS_TINY
 	chem_volume = 30
+	burn_rate = 0.003
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
 	zippomes = SPAN_NOTICE("With much care, USER lights their NAME with their FLAME.")
@@ -886,6 +883,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
+/obj/item/flame/lighter/callisto
+	name = "\improper Callistean lighter"
+	desc = "A cheap plastic lighter bearing the flag of Callisto."
+	desc_extended = "It's debated whether this (recently) discontinued line of cheap lighters was a money laundering scheme or a publicity stunt - extremely cheap, extremely flimsy, these Idris made lighters became an unintended social phenomenon among Callistean smokers; running competitions amongst them as to how long they can keep those lighters alive."
+	icon_state = "lightercallisto"
+	item_state = "lightercallisto"
+
 /obj/item/flame/lighter/zippo/nralakk
 	name = "\improper Nralakk Federation Zippo lighter"
 	desc = "An advanced zippo lighter depicting the flag of the Nralakk Federation."
@@ -970,8 +974,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
 	handle_lighting()
 
-/obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!istype(M, /mob))
+/obj/item/flame/lighter/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
+	if(!istype(M))
 		return
 
 	if(lit && M.IgniteMob())

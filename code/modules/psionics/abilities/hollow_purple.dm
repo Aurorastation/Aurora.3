@@ -72,35 +72,23 @@
 /obj/projectile/hollow_purple/Destroy()
 	return ..()
 
-/obj/projectile/hollow_purple/on_impact(var/atom/A)
-	if(ismob(A))
-		if(A != firer)
-			var/mob/M = A
-			M.gib()
-	explosion(A, 5, 5, 5)
-	..()
-
 /obj/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
 	if(ismob(target))
 		if(target != firer)
 			var/mob/M = target
 			M.gib()
 	explosion(target, 5, 5, 5)
-	..()
+	. = ..()
 
-/obj/projectile/hollow_purple/check_penetrate(atom/A)
-	on_hit(A)
-	return TRUE
-
-/obj/projectile/hollow_purple/after_move()
-	for(var/a in range(3, src))
-		if(isliving(a) && a != firer)
-			var/mob/living/M = a
-			M.gib()
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
-		else if(isturf(a) || isobj(a))
-			var/atom/A = a
-			if(!A.density)
-				continue
-			A.ex_act(3)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// /obj/projectile/hollow_purple/after_move()
+// 	for(var/a in range(3, src))
+// 		if(isliving(a) && a != firer)
+// 			var/mob/living/M = a
+// 			M.gib()
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// 		else if(isturf(a) || isobj(a))
+// 			var/atom/A = a
+// 			if(!A.density)
+// 				continue
+// 			A.ex_act(3)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)

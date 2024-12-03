@@ -230,7 +230,6 @@
 	projectile.desc = SA.desc
 	projectile.ammo = SA
 	projectile.dir = barrel.dir
-	projectile.shot_from = name
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
 	SA.origin = linked
@@ -243,7 +242,9 @@
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
 	var/turf/target = get_step(projectile, barrel.dir)
-	projectile.launch_projectile(target)
+	projectile.preparePixelProjectile(target, firing_turf)
+	projectile.fired_from = barrel
+	projectile.fire()
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()
@@ -279,7 +280,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(connected)
-		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return connected.examine(arglist(args))
 	else
 		return TRUE
 
@@ -300,8 +301,12 @@
 			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)
-	connected.bullet_act(P)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	connected.bullet_act(hitting_projectile)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)
 	connected.ex_act(severity)

@@ -1615,7 +1615,7 @@
 	sensors = list("xanufrigate_stbdco2_sensor"="Tank");
 	name = "Starboard Fuel Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "fC" = (
@@ -3683,7 +3683,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4024,7 +4023,6 @@
 /area/ship/xanu_frigate/galley)
 "nN" = (
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4542,7 +4540,6 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -4873,7 +4870,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -7766,7 +7762,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -8863,7 +8858,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -10354,7 +10348,7 @@
 	sensors = list("xanufrigate_air_sensor"="Tank");
 	name = "Air Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "JN" = (
@@ -14155,7 +14149,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable{

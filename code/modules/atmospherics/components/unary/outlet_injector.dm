@@ -158,3 +158,17 @@
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)
 	update_underlays()
+
+// ---------- subtypes
+
+/obj/machinery/atmospherics/unary/outlet_injector/supply
+	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/machinery/atmospherics/unary/outlet_injector/scrubber
+	connect_types = CONNECT_TYPE_SCRUBBER
+
+/obj/machinery/atmospherics/unary/outlet_injector/fuel
+	connect_types = CONNECT_TYPE_FUEL
+
+/obj/machinery/atmospherics/unary/outlet_injector/aux
+	connect_types = CONNECT_TYPE_AUX

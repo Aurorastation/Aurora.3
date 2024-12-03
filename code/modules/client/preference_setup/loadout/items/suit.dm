@@ -230,6 +230,19 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(trenches)
 
+/datum/gear/suit/greatcoats
+	display_name = "greatcoat selection"
+	description = "A selection of greatcoats."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/greatcoats/New()
+	..()
+	var/list/greatcoat = list()
+	greatcoat["greatcoat, black"] = /obj/item/clothing/suit/storage/toggle/greatcoat
+	greatcoat["greatcoat, brown"] = /obj/item/clothing/suit/storage/toggle/greatcoat/brown
+	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
@@ -380,8 +393,7 @@
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
-/datum/gear/suit/miscellaneous
-	abstract_type = /datum/gear/suit/miscellaneous
+ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
@@ -583,3 +595,15 @@
 	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)

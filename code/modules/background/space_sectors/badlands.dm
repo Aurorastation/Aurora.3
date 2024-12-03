@@ -18,6 +18,13 @@
 	starlight_power = 2
 	starlight_range = 4
 
+	lore_radio_stations = list(
+		"72.9 Nowa Bratislava Independent Radio" = 'texts/lore_radio/badlands/72.9_Nowa_Bratislava_Independent_Radio.txt',
+		"83.6 Shipping Radio Traffic" = 'texts/lore_radio/badlands/83.6_Shipping_Radio_Traffic.txt',
+		"86.2 Shipping Advisory Channel" = 'texts/lore_radio/badlands/86.2_Shipping_Advisory_Channel.txt',
+		"91.1 Morozian Classics" = 'texts/lore_radio/badlands/91.1_Morozian_Classics.txt'
+	)
+
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
 	description = "Nestled in the narrow Frontier space between the Republic of Elyra and the former borders of the Solarian Alliance is Valley Hale, a large region filled with a large \

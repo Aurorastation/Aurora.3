@@ -46,7 +46,7 @@
 /obj/item/gun/launcher/spikethrower/special_check(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
+		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR || SPECIES_VAURCA_ATTENDANT)
 			to_chat(user, SPAN_WARNING("\The [src] does not respond to you!"))
 			return FALSE
 	return ..()
@@ -83,7 +83,7 @@
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			if(H.species.name == SPECIES_VAURCA_WARRIOR)
+			if(H.species.name == SPECIES_VAURCA_WARRIOR || SPECIES_VAURCA_ATTENDANT)
 				..()
 				return
 		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))

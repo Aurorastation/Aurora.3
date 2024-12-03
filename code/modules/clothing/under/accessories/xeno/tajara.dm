@@ -349,14 +349,14 @@
 /obj/item/clothing/accessory/tajaran/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/clothing/accessory/tajaran/charm/attack(mob/M as mob, mob/living/user as mob, target_zone = BP_CHEST)
-	if(user.a_intent != I_HURT && M != user)
-		if(target_zone == BP_HEAD | M.lying)
-			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [M]</b>")
+/obj/item/clothing/accessory/tajaran/charm/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(user.a_intent != I_HURT && target_mob != user)
+		if(target_zone == BP_HEAD | target_mob.lying)
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>")
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>")
 		else
-			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [M]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>")
 	else
 		return ..()
 
@@ -406,6 +406,15 @@
 	desc = "A hand carved charm of one of the mythical tajani."
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
+
+/obj/item/clothing/accessory/tajaran/charm/twin_suns
+	name = "twin suns charm"
+	desc = "A talisman with the symbol of the Adhomian suns, the deities of the S'rand'marr faith."
+	desc_extended = "The Twin Suns Icon is an ancient icon representing Adhomai's suns. While the Church of S'rand'marr claims it was originally a religious symbol, \
+	archeological evidence traces its origins to the Tajaran pre-history. The Twin Suns Icon represents auspiciousness, protection, and perseverance. \
+	It is commonly found on clothing, weapons, vehicles, and carved on the entrance of homes. When used on flags, it is considered to be a symbol of incontestable rulership."
+	icon_state = "suns_talisman"
+	item_state = "suns_talisman"
 
 /obj/item/clothing/accessory/tajaran/charm/raskariim
 	name = "metal amulet"

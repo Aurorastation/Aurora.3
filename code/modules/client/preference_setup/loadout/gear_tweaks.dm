@@ -91,7 +91,7 @@ Alpha adjustment
 
 /datum/gear_tweak/alpha/get_metadata(var/user, var/metadata, var/title = "Character Preference")
 	var/selected_alpha = tgui_input_number(user, "Choose a color.", title, 255)
-	selected_alpha = Clamp(selected_alpha, 0, 255)
+	selected_alpha = clamp(selected_alpha, 0, 255)
 	return selected_alpha
 
 /datum/gear_tweak/alpha/tweak_item(var/obj/item/item, var/metadata, var/mob/living/carbon/human/H)
@@ -192,7 +192,7 @@ Content adjustment
 	for(var/i = metadata.len to (valid_contents.len - 1))
 		metadata += "Random"
 	for(var/i = 1 to valid_contents.len)
-		var/entry = tgui_input_list(user, "Choose an entry.", "Character Preference", (valid_contents[i] + list("Random", "None")), metadata[i])
+		var/entry = tgui_input_list(user, "Choose an entry.", "Character Preference", (list("None", "Random") + valid_contents[i]), metadata[i])
 		if(entry)
 			. += entry
 		else

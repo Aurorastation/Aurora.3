@@ -131,14 +131,14 @@
 		update_force()
 
 
-/obj/item/storage/toolbox/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/toolbox/attack(mob/living/target_mob, mob/living/user, target_zone)
 	update_force()
 	if (..())
 		if (contents.len)
-			spill(3, get_turf(M))
-			playsound(M, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
+			spill(3, get_turf(target_mob))
+			playsound(target_mob, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"))
 
 /obj/item/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"

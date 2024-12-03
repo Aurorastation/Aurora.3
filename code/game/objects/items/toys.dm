@@ -51,7 +51,7 @@
 	reagents = R
 	R.my_atom = src
 
-/obj/item/toy/waterballoon/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/toy/waterballoon/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/toy/waterballoon/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -168,7 +168,11 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/item/toy/balloon/bullet_act()
+/obj/item/toy/balloon/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	burst()
 
 /obj/item/toy/balloon/fire_act(temperature, volume)
@@ -482,17 +486,17 @@
 
 		return
 
-/obj/item/toy/crossbow/attack(mob/M, mob/user)
+/obj/item/toy/crossbow/attack(mob/living/target_mob, mob/living/user, target_zone)
 	src.add_fingerprint(user)
 
-	if (src.dart_count > 0 && M.lying) // Check
-		for(var/mob/O in viewers(M, null))
+	if (src.dart_count > 0 && target_mob.lying) // Check
+		for(var/mob/O in viewers(target_mob, null))
 			if(O.client)
-				O.show_message(SPAN_NOTICE("\The [user] casually lines up a shot with [M]'s head and pulls the trigger."), 1)
-				O.show_message(SPAN_WARNING("\The [M] was hit in the head by the foam dart!"), 1)
+				O.show_message(SPAN_NOTICE("\The [user] casually lines up a shot with [target_mob]'s head and pulls the trigger."), 1)
+				O.show_message(SPAN_WARNING("\The [target_mob] was hit in the head by the foam dart!"), 1)
 
 		playsound(src, 'sound/items/syringeproj.ogg', 50, TRUE)
-		new /obj/item/toy/ammo/crossbow(M.loc)
+		new /obj/item/toy/ammo/crossbow(target_mob.loc)
 		src.dart_count--
 	return
 
@@ -1143,6 +1147,13 @@
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 
+/obj/item/toy/plushie/domadice
+	name = "Domadice plushie"
+	desc = "A marketable plushie of the Kessvalankan Domadice"
+	desc_extended = "Resurrected by the Golden Deep, the Kessvalankan Domadice is a Purpose adjacent synthetic. They hail from a time long before any of the current spur's inhabitants were even thoughts on the evolutionary track. Currently Domadice works as a leader in the Golden Deep, on the same footing as Midas Control."
+	icon_state = "domadiceplushie"
+	phrase = "♫Plin Plin Plon♫"
+
 //Squid Plushies
 
 /obj/item/toy/plushie/squid
@@ -1365,7 +1376,8 @@
 	activate(user)
 
 /obj/item/toy/desk/AltClick(mob/user)
-	activate(user)
+	if(!use_check_and_message(user))
+		activate(user)
 
 /obj/item/toy/desk/proc/activate(mob/user)
 	on = !on

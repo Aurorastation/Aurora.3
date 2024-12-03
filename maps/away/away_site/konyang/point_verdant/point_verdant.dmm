@@ -1186,7 +1186,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
 "aGH" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
@@ -10348,7 +10348,7 @@
 	dir = 8
 	},
 /obj/effect/decal/road_marking/thin,
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -14008,7 +14008,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
 "hTd" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -14378,7 +14378,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "icr" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/effect/decal/road_marking{
@@ -14646,7 +14646,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "iko" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -15989,7 +15989,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "iYD" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -16127,7 +16127,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "jbX" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -17260,7 +17260,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/cafe)
 "jKN" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8;
 	pixel_y = 12
 	},
@@ -18911,7 +18911,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "kCv" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -26332,7 +26332,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "oRh" = (
-/obj/structure/automobile/random,
+/obj/random/automobile,
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
@@ -27744,7 +27744,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
 "pMy" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -28092,7 +28092,7 @@
 /area/point_verdant/interior/offices/kaf)
 "qar" = (
 /obj/machinery/portable_atmospherics/canister,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "qas" = (
@@ -30277,7 +30277,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -32280,7 +32280,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/restaurant)
 "sEl" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -34037,7 +34037,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/tailor)
 "tGw" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 8
 	},
 /obj/effect/decal/road_marking{
@@ -34357,7 +34357,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/offices)
 "tQY" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -35420,7 +35420,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -37399,7 +37399,7 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
 "vFh" = (
-/obj/structure/automobile/random,
+/obj/random/automobile,
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
@@ -41156,7 +41156,7 @@
 	dir = 8
 	},
 /obj/effect/decal/curb,
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -41497,7 +41497,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "xUF" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,

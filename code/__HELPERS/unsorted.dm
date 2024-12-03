@@ -23,36 +23,16 @@
 	textg = num2hex(255 - g, 0)
 	textb = num2hex(255 - b, 0)
 	if (length(textr) < 2)
-		textr = text("0[]", textr)
+		textr = "0[textr]"
 	if (length(textg) < 2)
-		textr = text("0[]", textg)
+		textr = "0[textg]"
 	if (length(textb) < 2)
-		textr = text("0[]", textb)
-	return text("#[][][]", textr, textg, textb)
+		textr = "0[textb]"
+	return "#[textr][textg][textb]"
 
 //Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))
-
-//Returns whether or not A is the middle most value
-/proc/InRange(var/A, var/lower, var/upper)
-	if(A < lower) return 0
-	if(A > upper) return 0
-	return 1
-
-
-/proc/Get_Angle(atom/movable/start, atom/movable/end) //For beams.
-	if(!start || !end)
-		return FALSE
-	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
-	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
-	if(!dy)
-		return (dx >= 0) ? 90 : 270
-	. = arctan(dx / dy)
-	if(dy < 0)
-		. += 180
-	else if(dx < 0)
-		. += 360
 
 /**
  * Gets all turfs inside a cone, return a `/list` of `/turf` that are inside the cone
@@ -86,7 +66,7 @@
 	var/angle_right = (middle_angle + angle_spread) % 360
 
 	for(var/turf/turf in range(distance, source))
-		var/angle_between_source_and_target = Get_Angle(source, turf)
+		var/angle_between_source_and_target = get_angle(source, turf)
 
 		// Ensure correct handling of angles spanning the 0-degree mark
 		if(angle_left <= angle_right)
@@ -394,7 +374,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		var/mob/M = old_list[named]
 		if(issilicon(M))
 			AI_list |= M
-		else if(isobserver(M) || M.stat == 2)
+		else if(isghost(M))
 			Dead_list |= M
 		else if(M.key && M.client)
 			keyclient_list |= M
@@ -428,8 +408,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			namecounts[name] = 1
 		if (M.real_name && M.real_name != M.name)
 			name += " \[[M.real_name]\]"
-		if (M.stat == 2)
-			if(istype(M, /mob/abstract/observer/))
+		if (M.stat == DEAD)
+			if(isobserver(M))
 				name += " \[ghost\]"
 			else
 				name += " \[dead\]"
@@ -455,7 +435,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/carbon/alien/M in sortmob)
 		moblist.Add(M)
-	for(var/mob/abstract/observer/M in sortmob)
+	for(var/mob/abstract/ghost/observer/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/abstract/new_player/M in sortmob)
 		moblist.Add(M)
@@ -463,18 +443,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		moblist.Add(M)
 	for(var/mob/living/simple_animal/M in sortmob)
 		moblist.Add(M)
+	for(var/mob/abstract/ghost/storyteller/M in sortmob)
+		moblist.Add(M)
 //	for(var/mob/living/silicon/hivebot/M in world)
 //		mob_list.Add(M)
 //	for(var/mob/living/silicon/hive_mainframe/M in world)
 //		mob_list.Add(M)
 	return moblist
-
-///Forces a variable to be posative
-/proc/modulus(var/M)
-	if(M >= 0)
-		return M
-	if(M < 0)
-		return -M
 
 /**
  * Returns the turf located at the map edge in the specified direction relative to A
@@ -542,10 +517,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		rsq=x*x+y*y
 	while(rsq>1 || !rsq)
 	return sigma*y*sqrt(-2*log(rsq)/rsq)
-
-///Returns random gauss number, rounded to 'roundto'
-/proc/GaussRandRound(var/sigma,var/roundto)
-	return round(GaussRand(sigma),roundto)
 
 ///Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
@@ -867,24 +838,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		else
 			return NORTH
 
-//chances are 1:value. anyprob(1) will always return true
-/proc/anyprob(value)
-	return (rand(1,value)==value)
-
 /proc/view_or_range(distance = world.view , center = usr , type)
 	switch(type)
 		if("view")
 			. = view(distance,center)
 		if("range")
 			. = range(distance,center)
-	return
-
-/proc/oview_or_orange(distance = world.view , center = usr , type)
-	switch(type)
-		if("view")
-			. = oview(distance,center)
-		if("range")
-			. = orange(distance,center)
 	return
 
 /proc/get_mob_with_client_list()
@@ -1031,25 +990,6 @@ var/global/list/common_tools = list(
 		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
 	return surgery_attempt
 
-/proc/reverse_direction(var/dir)
-	switch(dir)
-		if(NORTH)
-			return SOUTH
-		if(NORTHEAST)
-			return SOUTHWEST
-		if(EAST)
-			return WEST
-		if(SOUTHEAST)
-			return NORTHWEST
-		if(SOUTH)
-			return NORTH
-		if(SOUTHWEST)
-			return NORTHEAST
-		if(WEST)
-			return EAST
-		if(NORTHWEST)
-			return SOUTHEAST
-
 /*
 Checks if that loc and dir has a item on the wall
 */
@@ -1116,7 +1056,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 	if(ispath(V))
 		return details && path_names ? "path([V])" : "path"
 	if(istext(V))
-		return details && text_lengths ? "text([length(V) ])" : "text"
+		return details && text_lengths ? "text ([length(V) ])" : "text"
 	if(isnum(V)) // Byond doesn't really differentiate between floats and ints, but we can sort of guess here
 		// also technically we could also say that 0 and 1 are boolean but that'd be quite silly
 		if(IsInteger(V) && V < 16777216 && V > -16777216)
@@ -1187,8 +1127,8 @@ var/global/known_proc = /proc/get_type_ref_bytes
 		return "appearance"
 	return "unknown-object([refType])" // If you see this you found a new undetectable type. Feel free to add it here.
 
-/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from \ref which denote the object type (for objects that is)
-	return lowertext(copytext(ref(V), 4, 6))
+/proc/get_type_ref_bytes(var/V) // returns first 4 bytes from a ref which denote the object type (for objects that is)
+	return lowertext(copytext(ref(V), 4, 6)) //Only allowed to remain the builtin ref proc because this shit depends on it and wasn't updated yet
 
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
@@ -1196,7 +1136,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour
@@ -1209,10 +1149,6 @@ var/global/known_proc = /proc/get_type_ref_bytes
 				temp_col  = "0[temp_col]"
 			colour += temp_col
 	return "#[colour]"
-
-/proc/color_square(red, green, blue, hex)
-	var/color = hex ? hex : "#[num2hex(red, 2)][num2hex(green, 2)][num2hex(blue, 2)]"
-	return "<span style='font-face: fixedsys; font-size: 14px; background-color: [color]; color: [color]'>___</span>"
 
 // call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)

@@ -20,4 +20,5 @@
 /obj/item/device/binoculars/high_power
 	name = "high power binoculars"
 	desc = "A pair of high power binoculars."
+	icon_state = "binoculars_high"
 	tileoffset = 14*3

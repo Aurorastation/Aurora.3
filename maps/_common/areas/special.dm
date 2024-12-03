@@ -146,6 +146,9 @@
 	icon_state = "wizard"
 	dynamic_lighting = FALSE
 
+/area/antag/actor
+	name = "Actor Preparation"
+	icon_state = "loner"
 
 //THUNDERDOME
 

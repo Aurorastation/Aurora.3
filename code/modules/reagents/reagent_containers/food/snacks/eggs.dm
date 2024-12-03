@@ -7,7 +7,18 @@
 	filling_color = "#FDFFD1"
 	volume = 10
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3)
+	/// What can be hatched from this egg
 	var/hatchling = /mob/living/simple_animal/chick
+	/// Tracks how much the egg has grown. At 100, egg hatches
+	var/amount_grown = 0
+	/// If set to TRUE, egg is currently growing and will eventually spawn a hatchling if left alone on a turf.
+	/// Set to TRUE for eggs mapped in, but meant to be able to hatch.
+	var/fertile = FALSE
+
+/obj/item/reagent_containers/food/snacks/egg/Initialize(mapload)
+	. = ..()
+	if(fertile)
+		fertilize()
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
@@ -40,9 +51,13 @@
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/egg
-	var/amount_grown = 0
+/// Call this proc to have the given egg start growing. Should only be called if hatching is set
+/obj/item/reagent_containers/food/snacks/egg/proc/fertilize()
+	if(hatchling)
+		fertile = TRUE
+		START_PROCESSING(SSprocessing,src)
 
+/// Handles hatching. Eggs only grow when on a turf.
 /obj/item/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
@@ -51,8 +66,6 @@
 			new hatchling(get_turf(src))
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/reagent_containers/food/snacks/egg/blue
 	icon_state = "egg-blue"
@@ -92,7 +105,12 @@
 	icon_state = "schlorrgo_egg"
 	filling_color = "#e9ffd1"
 	volume = 20
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6) // Big egg
 	hatchling = /mob/living/simple_animal/schlorrgo/baby
+
+/// Cursed subtype due to cargo code. A subtype like this will be needed for any cargo orders of eggs that we want to be fertilized.
+/obj/item/reagent_containers/food/snacks/egg/schlorrgo/fertile
+	fertile = TRUE
 
 /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 	name = "ice tunneler egg"

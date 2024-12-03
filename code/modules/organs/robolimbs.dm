@@ -38,6 +38,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 		SPECIES_UNATHI,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_IPC,
 		SPECIES_IPC_SHELL,
 		SPECIES_IPC_BISHOP,
@@ -193,14 +194,16 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	company = PROSTHETIC_VAURCA
 	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenance to most of the basic Vaurcesian bioforms."
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
-	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allows_internal = FALSE
+	paintable = TRUE
 
 /datum/robolimb/vaurca/warrior
 	company = PROSTHETIC_VAURCA_WARRIOR
 	icon = 'icons/mob/human_races/vaurca/r_vaurcawarriorlimbs.dmi'
-	species_can_use = list(SPECIES_VAURCA_WARRIOR)
+	species_can_use = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allowed_external_organs = list(BP_L_HAND, BP_R_HAND)
+	paintable = TRUE
 
 /datum/robolimb/hoplan
 	company = PROSTHETIC_HOPLAN
@@ -227,4 +230,28 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	species_can_use = list(SPECIES_IPC)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/selen
+	company = PROSTHETIC_SELEN
+	desc = "A seamless white monoplane covers the majority of the head, concealing various optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/selen.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/sienna
+	company = PROSTHETIC_SIENNA
+	desc = "A delicate-looking head covered in eight state-of-the-art optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/sienna.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/siseyo
+	company = PROSTHETIC_SISEYO
+	desc = "A sleek vertical gap in the head opens up to allow various optical sensors, running lights and slots for additional modules."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/siseyo.dmi'
 	allowed_external_organs = list(BP_HEAD)

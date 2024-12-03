@@ -3,7 +3,7 @@
 
 /area/security
 	no_light_control = 1
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/security/main
