@@ -3500,7 +3500,10 @@
 /area/ship/ssmd_corvette/grauwolf)
 "iMd" = (
 /obj/structure/railing/mapped,
-/obj/machinery/shipsensors,
+/obj/machinery/shipsensors/strong{
+	pixel_y = 6;
+	pixel_x = -3
+	},
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/canteen)
 "iNn" = (
@@ -6305,10 +6308,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "rbT" = (
-/obj/machinery/shipsensors/strong{
-	pixel_y = 6;
-	pixel_x = -3
-	},
+/obj/machinery/shipsensors,
 /turf/simulated/floor/reinforced,
 /area/shuttle/ssmd_shuttle)
 "rdB" = (

@@ -125,7 +125,7 @@
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 
 /mob/living/heavy_vehicle/premade/light/recon
-	name = "gremlin exosuit"
+	name = "goblin exosuit"
 	desc = "A light and nimble recon exosuit, bearing the colour scheme of the Solarian Armed Forces."
 
 	e_color = COLOR_DARK_GREEN_GRAY
@@ -140,7 +140,7 @@
 
 /mob/living/heavy_vehicle/premade/light/coalition
 	name = "tomahawk recon exosuit"
-	desc = "A reconnaissance exosuit pioneered by dNA Defense & Aerospace in partnership with Zavodskoi Interstellar for use in Coalition of Colonies mechanized military operations. Based off of the Solarian gremlin-type exosuit design."
+	desc = "A reconnaissance exosuit pioneered by dNA Defense & Aerospace in partnership with Zavodskoi Interstellar for use in Coalition of Colonies mechanized military operations. Based off of the Solarian goblin-type exosuit design."
 
 	e_color = COLOR_COALITION
 	e_arms = /obj/item/mech_component/manipulators/combat
