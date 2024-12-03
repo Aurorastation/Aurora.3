@@ -1621,6 +1621,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portfoyer)
 "dUR" = (
@@ -1796,6 +1797,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portfoyer)
 "epH" = (
@@ -1830,6 +1832,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "evz" = (
@@ -2584,6 +2587,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
+"ghg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/ship/ssmd_corvette/dorms)
 "glc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2629,6 +2636,9 @@
 	name = "airlock_ssrm_shuttle";
 	req_one_access = list(203);
 	shuttle_tag = "SSRM Gunship"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/ssmd_shuttle)
@@ -2823,6 +2833,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gPn" = (
@@ -3017,6 +3028,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hwL" = (
@@ -4307,6 +4319,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "lkB" = (
@@ -4355,6 +4368,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
+"lnW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/ssmd_corvette/hangar)
 "lpe" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4414,6 +4434,13 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
+"lAJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/ssmd_corvette/hangar)
 "lCE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/closet/crate/bin{
@@ -4475,6 +4502,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "lOX" = (
@@ -5308,6 +5336,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "ode" = (
@@ -5647,6 +5676,7 @@
 /obj/structure/sign/flag/ssrm/large/north{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "piu" = (
@@ -5968,6 +5998,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "qhH" = (
@@ -6885,6 +6916,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "tfA" = (
@@ -8120,6 +8152,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "wqS" = (
@@ -8305,11 +8338,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/francisca)
-"wUg" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/ship/ssmd_corvette/hangar)
 "wUJ" = (
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
@@ -8435,6 +8463,7 @@
 	req_access = list(203);
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "xkK" = (
@@ -36415,7 +36444,7 @@ xdp
 xPN
 mNH
 xdp
-xWT
+ghg
 qhC
 euz
 xyG
@@ -36672,7 +36701,7 @@ xdp
 vvV
 ejY
 xdp
-xWT
+ghg
 qhC
 hvs
 xyG
@@ -37443,7 +37472,7 @@ xdp
 qDa
 sdu
 xdp
-xWT
+ghg
 ocH
 sUe
 xyG
@@ -39237,7 +39266,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+qbB
 qbB
 qbB
 qbB
@@ -39747,7 +39776,7 @@ xRX
 xRX
 xRX
 bcf
-hhf
+lAJ
 hhf
 hhf
 hhf
@@ -42317,7 +42346,7 @@ xRX
 xRX
 xRX
 bcf
-wUg
+lnW
 aMB
 aMB
 aMB
@@ -42329,7 +42358,7 @@ aMB
 aMB
 wql
 aMB
-wUg
+aMB
 aMB
 aMB
 aMB
