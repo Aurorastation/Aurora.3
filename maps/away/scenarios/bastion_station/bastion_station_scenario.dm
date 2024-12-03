@@ -12,9 +12,15 @@
 	scenario_announcements = /singleton/scenario_announcements/bastion_station
 // FIX THE ADD THIS'S BUTTERROBBER202!!!
 	roles = list(
-		/singleton/role/ADDTHIS
+		/singleton/role/bastion_station
+		/singleton/role/bastion_station/sec
+		/singleton/role/bastion_station/engi
+		/singleton/role/bastion_station/med
+		/singleton/role/bastion_station/officer
+		/singleton/role/bastion_station/pilot
+		/singleton/role/bastion_station/captain
 	)
-	default_outfit = /obj/outfit/admin/generic/ADDTHIS
+	default_outfit = /obj/outfit/admin/generic/bastion_station_crew
 
 	base_area = /area/bastion_station
 

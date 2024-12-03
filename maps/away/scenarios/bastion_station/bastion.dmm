@@ -783,6 +783,9 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/industrial/hatch/emergency_closet{
+	name = "blue outline"
+	},
 /turf/simulated/floor/plating,
 /area/bastion_station/hangar)
 "dT" = (
@@ -904,14 +907,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/hydro)
 "ex" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 1
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "Fuel Tank to Thrusters"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/bastion/blue)
@@ -1203,6 +1206,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/bastion_station/hangar)
 "gr" = (
@@ -3443,7 +3447,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/plating,
 /area/shuttle/bastion/red)
 "to" = (
@@ -4104,7 +4107,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/plating,
 /area/shuttle/bastion/blue)
 "wr" = (
@@ -5928,18 +5930,6 @@
 /obj/random/balloon,
 /turf/simulated/floor/plating,
 /area/bastion_station/east_maintenance)
-"Gp" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/binary/pump/fuel{
-	name = "Fuel Tank to Thrusters"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/plating,
-/area/bastion_station/hangar)
 "Gr" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/highsecurity{
@@ -6895,14 +6885,14 @@
 /turf/simulated/floor/tiled/white,
 /area/bastion_station/medbay)
 "LO" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 1
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "Fuel Tank to Thrusters"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/bastion/red)
@@ -6991,14 +6981,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/binary/pump/fuel{
-	name = "Fuel Tank to Thrusters"
-	},
-/obj/effect/floor_decal/industrial/hatch/emergency_closet{
-	name = "blue outline"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/door/airlock/external,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/plating,
-/area/bastion_station/hangar)
+/area/shuttle/bastion/red)
 "Ms" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -105593,7 +105580,7 @@ im
 az
 ZR
 LF
-bS
+RE
 RE
 sM
 cz
@@ -105850,7 +105837,7 @@ im
 az
 ZR
 gq
-Gp
+Mo
 LO
 tn
 IX
@@ -106107,7 +106094,7 @@ im
 az
 ZR
 LS
-bS
+RE
 RE
 RE
 iO
@@ -108163,7 +108150,7 @@ im
 az
 ZR
 LS
-bS
+RE
 NC
 is
 cg
@@ -108677,7 +108664,7 @@ im
 az
 ZR
 bS
-bS
+RE
 NC
 NC
 nq
