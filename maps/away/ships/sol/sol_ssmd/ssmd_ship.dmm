@@ -164,6 +164,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/flag/old_visegrad/l,
+/obj/item/flag/old_visegrad,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/storage)
 "aEq" = (
@@ -336,7 +338,7 @@
 /area/ship/ssmd_corvette/hangar)
 "aMK" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/shuttle_landmark/tcaf_shuttle/hangar{
+/obj/effect/shuttle_landmark/ssmd_shuttle/hangar{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -949,6 +951,8 @@
 /obj/item/clothing/mask/gas/tactical,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/helmet/pilot,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/firstaid/stab,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ssmd_shuttle)
 "cFM" = (
@@ -958,6 +962,17 @@
 /obj/item/tent/big,
 /obj/item/tent/big,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/flag/ssrm/l,
+/obj/item/flag/ssrm/l,
+/obj/item/flag/ssrm,
+/obj/item/flag/ssrm,
+/obj/item/flag/ssrm,
+/obj/item/flag/sol,
+/obj/item/flag/sol,
+/obj/item/flag/sol,
+/obj/item/flag/sol/l,
+/obj/item/flag/sol/l,
+/obj/item/flag/sol/l,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/storage)
 "cGw" = (
@@ -1584,6 +1599,12 @@
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/flagpatch/ssmd,
+/obj/item/clothing/accessory/flagpatch/ssmd,
+/obj/item/clothing/accessory/flagpatch/ssmd,
+/obj/item/clothing/accessory/flagpatch/ssmd,
+/obj/item/clothing/accessory/flagpatch/ssmd,
+/obj/item/clothing/accessory/flagpatch/ssmd,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "dTL" = (
@@ -1806,9 +1827,6 @@
 /turf/space/transit/north,
 /area/space)
 "euz" = (
-/obj/structure/sign/flag/sol/large/south{
-	pixel_y = -32
-	},
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
@@ -2181,7 +2199,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "tcaf_shuttle";
+	id = "ssrm_shuttle";
 	name = "Blast Doors";
 	opacity = 0
 	},
@@ -2246,14 +2264,7 @@
 	pixel_x = 7;
 	pixel_y = -5
 	},
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "The half-built chassis of some kind of outdated mech. It's rather dusty.";
-	icon = 'icons/mecha/mech_construction.dmi';
-	icon_state = "hermes7";
-	name = "half-built mech";
-	pixel_y = 3
-	},
+/mob/living/heavy_vehicle/premade/ripley/loader/sol,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
 "ftA" = (
@@ -2551,10 +2562,6 @@
 	desc = "An issue of the Visegradi People's Voice, the newspaper circulating around most of Visegrad. This one's headline mentions the success of the First Middle Ring Battlefleet in a recent operation, circa 2460";
 	pixel_x = -10
 	},
-/obj/item/clothing/accessory/flagpatch/visegrad{
-	anchored = 1;
-	pixel_x = 32
-	},
 /obj/structure/sign/kiddieplaque{
 	desc = "A commendation the First Middle Ring Battlefleet recieved during better times...";
 	name = "First Middle Ring Battlefleet commendation";
@@ -2570,6 +2577,10 @@
 /obj/machinery/door/window{
 	dir = 1;
 	req_access = list(203)
+	},
+/obj/structure/sign/flag/ssrm{
+	pixel_x = 32;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
@@ -3570,6 +3581,9 @@
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
+/obj/structure/sign/flag/ssrm{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardfoyer)
 "iZL" = (
@@ -3623,6 +3637,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/south,
+/obj/structure/sign/flag/visegrad{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "jsi" = (
@@ -3669,6 +3686,14 @@
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
 /obj/machinery/light/colored/blue,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "jxV" = (
@@ -3991,9 +4016,6 @@
 /obj/item/bedsheet/black{
 	pixel_y = 13
 	},
-/obj/structure/sign/flag/sol{
-	pixel_y = 32
-	},
 /obj/structure/bed/padded{
 	name = "bottom bunk"
 	},
@@ -4009,6 +4031,9 @@
 	name = "top bunk"
 	},
 /obj/item/toy/plushie/shark,
+/obj/structure/sign/flag/ssrm{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "kBr" = (
@@ -4481,7 +4506,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "lXq" = (
-/obj/structure/sign/flag/sol/large/south{
+/obj/structure/sign/flag/ssrm/large/south{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4619,7 +4644,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "pdoor0";
-	id = "tcaf_shuttle";
+	id = "ssrm_shuttle";
 	name = "Blast Doors";
 	opacity = 0
 	},
@@ -4842,6 +4867,12 @@
 /obj/item/storage/box/shotgunshells,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "mNH" = (
@@ -4967,6 +4998,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
+"nje" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/curtain/open{
+	color = "#4A4A4A"
+	},
+/obj/structure/sign/flag/ssrm/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ssmd_corvette/dorms)
 "njo" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4994,7 +5035,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "tcaf_shuttle";
+	id = "ssrm_shuttle";
 	name = "Blast Doors";
 	opacity = 0
 	},
@@ -5600,6 +5641,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/sign/flag/ssrm/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "piu" = (
@@ -5710,6 +5754,22 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
 /obj/item/ship_ammunition/autocannon{
 	pixel_y = 4;
 	pixel_x = -1
@@ -5964,6 +6024,22 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/red{
 	dir = 1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/item/ship_ammunition/autocannon{
+	pixel_y = 4;
+	pixel_x = -1
 	},
 /obj/item/ship_ammunition/autocannon{
 	pixel_y = 4;
@@ -6418,7 +6494,7 @@
 /obj/machinery/light/colored/blue{
 	dir = 1
 	},
-/obj/structure/sign/flag/visegrad{
+/obj/structure/sign/flag/ssrm{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6520,7 +6596,7 @@
 /area/ship/ssmd_corvette/grauwolf)
 "sof" = (
 /obj/machinery/button/remote/blast_door{
-	id = "tcaf_shuttle";
+	id = "ssrm_shuttle";
 	name = "Window Shielding";
 	req_access = list(204);
 	dir = 8;
@@ -7018,10 +7094,10 @@
 	master_tag = "airlock_ssrm_corvette_dock_port";
 	name = "airlock_ssrm_corvette_dock_port"
 	},
-/obj/effect/shuttle_landmark/elyran_corvette/dock/port{
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/shuttle_landmark/ssmd_corvette/dock/port{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/portfoyer)
 "tNo" = (
@@ -7723,10 +7799,6 @@
 /area/ship/ssmd_corvette/brig)
 "vMk" = (
 /obj/structure/closet/crate,
-/obj/item/flag/sol,
-/obj/item/flag/sol,
-/obj/item/flag/sol/l,
-/obj/item/flag/sol/l,
 /obj/item/device/spaceflare,
 /obj/item/device/spaceflare,
 /obj/item/clothing/accessory/holster/utility/machete,
@@ -7736,6 +7808,11 @@
 /obj/item/gun/projectile/shotgun/doublebarrel/flare,
 /obj/item/storage/box/flashshells,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/firstaid/light,
+/obj/item/storage/firstaid/light,
+/obj/item/storage/firstaid/sleekstab,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/storage)
 "vMq" = (
@@ -8271,12 +8348,12 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/structure/sign/flag/sol/large/south{
-	pixel_y = -32
-	},
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
+	},
+/obj/structure/sign/flag/ssrm/large/south{
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
@@ -8441,10 +8518,10 @@
 	name = "airlock_ssrm_corvette_dock_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/shuttle_landmark/elyran_corvette/dock/starboard{
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/shuttle_landmark/ssmd_corvette/dock/starboard{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/ssmd_corvette/dorms)
 "xon" = (
@@ -36342,7 +36419,7 @@ xWT
 qhC
 euz
 xyG
-cVA
+nje
 xyG
 cVA
 xyG

@@ -122,7 +122,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/ssmd_corvette/New()
-	designation = "[pick("Asparuh", "Magyar", "Hussar", "Black Army", "Hunyadi", "Piast", "Hussite", "Tepes", "Komondor", "Turul", "Vistula", "Sikorski", "Mihai", "Blue Army", "Strzyga", "Leszy", "Danube", "Sokoly", "Patriotism", "Duty", "Loyalty", "Florian Geyer", "Pilsudski", "Chopin", "Levski", "Valkyrie", "Tresckow", "Olbricht", "Dubcek", "Kossuth", "Nagy", "Clausewitz", "Poniatowski", "Orzel", "Turul", "Skanderbeg", "Ordog", "Perun", "Poroniec", "Klobuk", "Cavalryman", "Szalai's Own", "Upior", "Szalai's Pride", "Kuvasz", "Fellegvar", "Nowa Bratislawa", "Zbior", "Stadter", "Homesteader", "Premyslid", "Bohemia", "Discipline", "Cavalryman", "Order", "Law", "Tenacity", "Diligence", "Valiant", "Konik", "Victory", "Triumph", "Vanguard", "Jager", "Grenadier", "Honor Guard", "Visegrad", "Nil", "Warsaw", "Budapest", "Prague", "Sofia", "Bucharest", "Home Army", "Kasimir", "Veles", "Blyskawica", "Kubus")]"
+	designation = "[pick("Asparuh", "Magyar", "Hussar", "Black Army", "Hunyadi", "Piast", "Hussite", "Tepes", "Komondor", "Turul", "Vistula", "Sikorski", "Mihai", "Blue Army", "Strzyga", "Leszy", "Danube", "Sokoly", "Patriotism", "Duty", "Loyalty", "Florian Geyer", "Pilsudski", "Chopin", "Levski", "Valkyrie", "Tresckow", "Olbricht", "Dubcek", "Kossuth", "Nagy", "Clausewitz", "Poniatowski", "Orzel", "Turul", "Skanderbeg", "Ordog", "Perun", "Poroniec", "Klobuk", "Cavalryman", "Szalai's Own", "Upior", "Szalai's Pride", "Kuvasz", "Fellegvar", "Nowa Bratislava", "Zbior", "Stadter", "Homesteader", "Premyslid", "Bohemia", "Discipline", "Cavalryman", "Order", "Law", "Tenacity", "Diligence", "Valiant", "Konik", "Victory", "Triumph", "Vanguard", "Jager", "Grenadier", "Honor Guard", "Visegrad", "Nil", "Warsaw", "Budapest", "Prague", "Sofia", "Bucharest", "Home Army", "Kasimir", "Veles", "Blyskawica", "Kubus")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/ssmd_corvette/get_skybox_representation()
@@ -153,7 +153,7 @@
 	name = "Sol Recon Corvette Shuttle"
 	class = "SAMV"
 	designation = "Vizsla"
-	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
+	desc = "Intended to replace the unarmed Cutter-class, the Harrier-class naval shuttle is equipped with a modernized autocannon, an advanced sensor suite, better armor, and better engines. It is commonly used by Solarian Navy forces entrusted with keeping the Alliance's borders safe from pirates and other nations."
 	shuttle = "SSMD Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -194,6 +194,20 @@
 	base_area = /area/ship/ssmd_corvette
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/ssmd_corvette/dock/port
+	name = "Port Dock"
+	landmark_tag = "nav_ssmd_corvette_dock_port"
+	docking_controller = "airlock_ssmd_corvette_dock_port"
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ssmd_corvette/dock/starboard
+	name = "Starboard Dock"
+	landmark_tag = "nav_ssmd_corvette_dock_starboard"
+	docking_controller = "airlock_ssmd_corvette_dock_starboard"
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ssmd_shuttle/transit
 	name = "In transit"
