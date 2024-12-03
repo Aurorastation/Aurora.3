@@ -40,7 +40,7 @@
 /obj/outfit/admin/generic/bastion_station_crew
 	name = "Bastion Station Uniform"
 	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/card/id/data
+	id = /obj/item/card/data
 	l_pocket = /obj/item/device/radio/hailing
 	r_pocket = /obj/item/portable_map_reader
 	uniform = list(
@@ -132,7 +132,7 @@
 		/obj/item/clothing/under/rank/sol/dress/subofficer
 	)
 	head = list(
-		/obj/item/clothing/head/sol/dress/subofficer
+		/obj/item/clothing/head/sol
 	)
 
 /obj/outfit/admin/generic/bastion_station/get_id_access()
