@@ -655,6 +655,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/bastion_station/east_maintenance)
+"dj" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/space)
 "dl" = (
 /obj/structure/closet/sol/navy_dress,
 /obj/machinery/light{
@@ -754,6 +757,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"dI" = (
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1138,6 +1144,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bastion_station/operating)
+"fO" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled,
+/area/space)
 "fR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1353,6 +1363,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/bastion_station/docks)
+"hc" = (
+/obj/machinery/computer/ship/helm/terminal,
+/turf/simulated/floor/tiled,
+/area/space)
 "hd" = (
 /obj/structure/platform{
 	dir = 8
@@ -2141,6 +2155,12 @@
 /obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/plating,
 /area/bastion_station/east_maintenance)
+"lS" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "lW" = (
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /turf/simulated/floor/tiled/freezer{
@@ -2405,6 +2425,9 @@
 "nv" = (
 /turf/simulated/wall,
 /area/bastion_station/kitchen_freezer)
+"nw" = (
+/turf/simulated/floor/plating,
+/area/space)
 "ny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/noid,
@@ -2474,6 +2497,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/checkpoint)
+"nK" = (
+/turf/simulated/floor/tiled,
+/area/space)
 "nL" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
@@ -2640,6 +2666,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/checkpoint)
+"oB" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "oD" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 4
@@ -2795,6 +2828,10 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/dock_stairwell)
+"pE" = (
+/obj/machinery/atmospherics/unary/vent_pump,
+/turf/simulated/floor/plating,
+/area/space)
 "pH" = (
 /obj/structure/survey_probe/sol,
 /obj/structure/survey_probe/sol,
@@ -2882,6 +2919,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/hallways_center)
+"qh" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "qi" = (
 /obj/effect/landmark/entry_point/starboard,
 /turf/simulated/wall/r_wall,
@@ -4132,6 +4176,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"wu" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/turf/simulated/floor/tiled,
+/area/space)
 "wB" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -4483,6 +4531,12 @@
 "yl" = (
 /turf/simulated/wall/r_wall,
 /area/bastion_station/ai_core)
+"yn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "yo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -4778,6 +4832,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bastion_station/operating)
+"zQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "zS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5041,6 +5101,18 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/shuttle/bastion/blue)
+"Bo" = (
+/obj/machinery/computer/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"Bs" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Bu" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -5105,6 +5177,12 @@
 /obj/item/folder/sec,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"BF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "BH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -6057,6 +6135,10 @@
 "Hg" = (
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"Ho" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/tiled,
+/area/space)
 "Hp" = (
 /obj/structure/cable/green{
 	icon_state = "4-8";
@@ -6701,6 +6783,10 @@
 "KO" = (
 /turf/template_noop,
 /area/bastion_station/weapons_bay)
+"KR" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled,
+/area/space)
 "KS" = (
 /obj/effect/floor_decal/industrial/hatch/medical,
 /obj/structure/cable/green{
@@ -6788,6 +6874,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"Lv" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/bastion_station/docks)
 "Lx" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -7115,6 +7206,12 @@
 "Nh" = (
 /turf/simulated/wall,
 /area/bastion_station/dock_stairwell)
+"Ni" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Nk" = (
 /obj/machinery/shield_gen/external,
 /turf/simulated/floor/tiled/dark,
@@ -7381,6 +7478,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/engineering)
+"OB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "OC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -7580,6 +7683,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/engineering)
+"PD" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "PE" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/dark,
@@ -8549,6 +8659,10 @@
 /obj/item/device/flashlight/maglight,
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/brig)
+"Ue" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/space)
 "Ug" = (
 /turf/simulated/wall/r_wall,
 /area/bastion_station/engineering)
@@ -8632,6 +8746,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bastion_station/engineering)
+"UB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "UC" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -31789,34 +31909,34 @@ im
 im
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+RA
 im
 im
 im
@@ -32301,6 +32421,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -32331,8 +32452,7 @@ im
 im
 im
 im
-im
-im
+mM
 im
 im
 im
@@ -32578,16 +32698,16 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
 im
 im
 im
@@ -32834,18 +32954,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+nK
+nK
+nK
+nK
+nK
+Ni
+nK
+nK
+dj
+dj
 im
 im
 im
@@ -33072,6 +33192,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -33090,20 +33211,19 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+nK
+nK
+nK
+nK
+nK
+nK
+Ni
+nK
+nK
+nK
+dj
+mM
 im
 im
 im
@@ -33348,18 +33468,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+Ho
+nK
+nK
+nK
+nK
+nK
+Ni
+nK
+nK
+nK
+dj
 im
 im
 im
@@ -33605,18 +33725,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+hc
+Bs
+nK
+nK
+nK
+nK
+Ni
+nK
+nK
+nK
+dj
 im
 im
 im
@@ -33843,6 +33963,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -33861,20 +33982,19 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+wu
+Bo
+nK
+nK
+nK
+nK
+OB
+UB
+UB
+UB
+dj
+mM
 im
 im
 im
@@ -33891,8 +34011,8 @@ im
 im
 im
 Wj
-Hr
-Hr
+Lv
+Lv
 Wj
 Wj
 im
@@ -34119,37 +34239,37 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+dj
+dj
+nK
+nK
+nK
+nK
+dj
+dj
+dj
+dj
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
 Wj
-cZ
-cZ
+Hr
+Hr
 Wj
 im
 im
@@ -34376,35 +34496,35 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-Wj
+fO
+nw
+nw
+fO
+nK
+nK
+nK
+nK
+fO
+nw
+nw
+fO
+Ue
+nw
+pE
+qh
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+Hr
 qq
 Hr
 Wj
@@ -34633,35 +34753,35 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-Wj
+fO
+nw
+nw
+fO
+nK
+nK
+nK
+nK
+fO
+nw
+nw
+fO
+Ue
+nw
+pE
+PD
+lS
+yn
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+dI
+Hr
 gZ
 Hr
 Wj
@@ -34890,32 +35010,32 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+dj
+dj
+nK
+nK
+nK
+nK
+dj
+dj
+dj
+dj
+mD
+mD
+mD
+mD
+oB
+oB
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
 pM
 pM
 pM
@@ -35128,6 +35248,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -35146,25 +35267,24 @@ im
 im
 im
 im
+dj
+nK
+nK
+nK
+nK
+nK
+nK
+zQ
+BF
+BF
+BF
+dj
+mM
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+mD
+mD
+mD
 im
 im
 im
@@ -35404,18 +35524,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+KR
+nK
+Bs
+KR
+nK
+Bs
+Ni
+nK
+nK
+nK
+dj
 im
 im
 im
@@ -35661,18 +35781,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+KR
+nK
+Bs
+KR
+nK
+Bs
+Ni
+nK
+nK
+nK
+dj
 im
 im
 im
@@ -35684,8 +35804,8 @@ im
 im
 Wj
 Wj
-sG
-sG
+Wj
+Wj
 Wj
 pM
 pM
@@ -35899,6 +36019,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -35917,20 +36038,19 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+KR
+nK
+Bs
+KR
+nK
+Bs
+Ni
+nK
+nK
+nK
+dj
+mM
 im
 im
 im
@@ -36175,18 +36295,18 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+nK
+Bs
+KR
+nK
+Bs
+Ni
+nK
+nK
+dj
+dj
 im
 im
 im
@@ -36433,16 +36553,16 @@ im
 im
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
+dj
 im
 im
 im
@@ -36670,6 +36790,7 @@ im
 im
 im
 im
+mM
 im
 im
 im
@@ -36700,8 +36821,7 @@ im
 im
 im
 im
-im
-im
+mM
 im
 im
 im
@@ -37186,34 +37306,34 @@ im
 im
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
+RA
 im
 im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
+RA
 im
 im
 im

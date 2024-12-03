@@ -10,15 +10,15 @@
 	min_actor_amount = 6
 
 	scenario_announcements = /singleton/scenario_announcements/bastion_station
-// FIX THE ADD THIS'S BUTTERROBBER202!!!
+
 	roles = list(
-		/singleton/role/bastion_station
-		/singleton/role/bastion_station/sec
-		/singleton/role/bastion_station/engi
-		/singleton/role/bastion_station/med
-		/singleton/role/bastion_station/officer
-		/singleton/role/bastion_station/pilot
-		/singleton/role/bastion_station/captain
+		/singleton/role/bastion_station,
+		/singleton/role/bastion_station/sec,
+		/singleton/role/bastion_station/engi,
+		/singleton/role/bastion_station/med,
+		/singleton/role/bastion_station/officer,
+		/singleton/role/bastion_station/pilot,
+		/singleton/role/bastion_station/captain,
 	)
 	default_outfit = /obj/outfit/admin/generic/bastion_station_crew
 
