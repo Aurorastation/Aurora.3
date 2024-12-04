@@ -99,6 +99,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "aQ" = (
@@ -289,12 +290,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/office)
 "bI" = (
-/obj/structure/table/steel,
-/obj/item/material/hatchet/butch{
-	pixel_x = -1;
-	pixel_y = 3
-	},
 /obj/machinery/alarm/freezer/north,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/freezer,
 /area/splf_raider/freezer)
 "bJ" = (
@@ -973,7 +976,6 @@
 	id_tag = "splf_sensor";
 	output = 31
 	},
-/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/airless,
 /area/splf_raider/engine)
 "fs" = (
@@ -1575,6 +1577,8 @@
 	dir = 4;
 	pixel_y = 32
 	},
+/obj/item/clothing/accessory/flagpatch/mictlan,
+/obj/item/clothing/accessory/flagpatch/mictlan,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "jv" = (
@@ -1801,6 +1805,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "kU" = (
@@ -2032,6 +2037,7 @@
 /area/splf_raider/portside_slot)
 "mb" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "ml" = (
@@ -3220,15 +3226,17 @@
 /area/splf_raider/engine)
 "sz" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/freezer{
-	name = "Freezer"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass{
+	door_color = "#909299";
+	name = "Freezer";
+	id_tag = "splf_freezer"
+	},
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/freezer)
 "sA" = (
@@ -3720,6 +3728,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "ws" = (
@@ -3729,6 +3738,9 @@
 /obj/structure/table/steel,
 /obj/machinery/light/colored/decayed{
 	dir = 4
+	},
+/obj/item/material/hatchet/butch{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
@@ -3921,6 +3933,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "xL" = (
@@ -4838,6 +4851,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 8
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "Dj" = (
@@ -4951,13 +4965,6 @@
 /turf/simulated/floor,
 /area/splf_raider/engine)
 "DH" = (
-/obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -5122,6 +5129,13 @@
 /area/splf_raider/central)
 "EJ" = (
 /obj/machinery/appliance/cooker/stove,
+/obj/machinery/button/remote/airlock{
+	dir = 10;
+	id = "splf_freezer";
+	name = "Freezer Bolt Control";
+	specialfunctions = 4;
+	pixel_y = 27
+	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
 "EM" = (
@@ -5932,6 +5946,7 @@
 /area/splf_raider/bridge)
 "JQ" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "JW" = (
@@ -7095,11 +7110,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
-"Qy" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/perma_light/starlight/wide,
-/turf/space/dynamic,
-/area/space)
 "Qz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -7882,6 +7892,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "Vh" = (
@@ -8309,6 +8320,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "XD" = (
@@ -8354,7 +8366,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/splf_raider/engine)
 "Yc" = (
-/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/splf_raider/propulsion)
 "Yd" = (
@@ -8399,6 +8410,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 5
 	},
+/obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
 "Yr" = (
@@ -36099,17 +36111,17 @@ Cq
 Cq
 Cq
 Cq
-Qy
 UG
 UG
 UG
 UG
-Qy
 UG
 UG
 UG
 UG
-Qy
+UG
+UG
+UG
 UG
 Cq
 Cq
@@ -46893,17 +46905,17 @@ Cq
 Cq
 Cq
 Cq
-Qy
 UG
 UG
 UG
 UG
-Qy
 UG
 UG
 UG
 UG
-Qy
+UG
+UG
+UG
 UG
 Cq
 Cq
