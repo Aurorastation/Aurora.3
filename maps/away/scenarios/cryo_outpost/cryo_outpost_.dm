@@ -15,15 +15,14 @@
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/desert/cryo_outpost/mountain,
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/grass/cryo_outpost
 	)
-	exoplanet_atmosphere = /datum/gas_mixture/earth_hot
-	exoplanet_lightlevel = 2
-	exoplanet_lightcolor = "#ffffd4" // light white-yellowish
+	exoplanet_atmosphere = list(/datum/gas_mixture/earth_hot)
+	exoplanet_lightlevel = list(1, 2, 5)
+	exoplanet_lightcolor = list("#ffffd4") // light white-yellowish
 
 	spawn_weight = 0 // so it does not spawn as ordinary away site
 	spawn_cost = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/cryo_outpost
 	map = "Desert Oasis Planet"

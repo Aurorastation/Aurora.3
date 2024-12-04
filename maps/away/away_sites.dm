@@ -16,13 +16,15 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	var/list/exoplanet_themes = null
 
 	/// Light level of exoplanet turfs if they're generated on this away site.
+	/// If list, picks one from the list.
 	var/exoplanet_lightlevel = 0
 	/// Light color of exoplanet turfs if they're generated on this away site.
+	/// If list, picks one from the list.
 	var/exoplanet_lightcolor = COLOR_WHITE
 
 	/// The atmosphere that exoplanet turfs should spawn with.
 	/// If null, ignored, and turfs keep their default or mapped in atmosphere.
-	/// If set, this atmosphere is used.
+	/// If set, this atmosphere is used. If list, picks one from the list.
 	/// Should be set to a `/datum/gas_mixture` path.
 	var/datum/gas_mixture/exoplanet_atmosphere
 
@@ -30,6 +32,14 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 
 	//Apply the subfolder that all ruins are in, as the prefix will get overwritten
 	prefix = "maps/away/[prefix]"
+
+	// Randomisation
+	if(islist(exoplanet_lightlevel))
+		exoplanet_lightlevel = pick(exoplanet_lightlevel)
+	if(islist(exoplanet_lightcolor))
+		exoplanet_lightcolor = pick(exoplanet_lightcolor)
+	if(islist(exoplanet_atmosphere))
+		exoplanet_atmosphere = pick(exoplanet_atmosphere)
 
 	// Instantiate the theme and atmos, if set
 	if(exoplanet_theme_base)

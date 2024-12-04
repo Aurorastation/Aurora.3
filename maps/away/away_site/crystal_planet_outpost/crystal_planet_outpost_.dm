@@ -14,9 +14,9 @@
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
-	exoplanet_atmosphere = /datum/gas_mixture/earth_cold
-	exoplanet_lightlevel = 2
-	exoplanet_lightcolor = COLOR_TEAL
+	exoplanet_atmosphere = list(/datum/gas_mixture/earth_cold)
+	exoplanet_lightlevel = list(1, 2)
+	exoplanet_lightcolor = list("#00ffff", "#33cccc") // teal-ish colors
 
 	spawn_cost = 1
 	spawn_weight = 1
