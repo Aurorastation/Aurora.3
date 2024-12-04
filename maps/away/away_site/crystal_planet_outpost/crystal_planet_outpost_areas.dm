@@ -4,15 +4,18 @@
 	requires_power = TRUE
 	has_gravity = TRUE
 	is_outside = OUTSIDE_NO
+	base_turf = /turf/simulated/floor/exoplanet/crystal
 
 /area/crystal_planet_outpost/caves
 	name = "Crystal Planet Outpost Caves"
 	icon_state = "cave"
 	ambience = AMBIENCE_OTHERWORLDLY
+	base_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /area/crystal_planet_outpost/cave_entrance
 	name = "Crystal Planet Outpost Cave Entrance"
 	icon_state = "mining"
+	base_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /area/crystal_planet_outpost/surface
 	name = "Crystal Planet Outpost Surface"

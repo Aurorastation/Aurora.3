@@ -2,7 +2,7 @@
 	name = "Crystalline"
 
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/crystal
 	)
 	surface_color = "#6fb1b5"
 

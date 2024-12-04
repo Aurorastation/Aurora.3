@@ -9,9 +9,6 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	/// Instantiated on init.
 	var/datum/exoplanet_theme/exoplanet_theme_base = null
 
-	/// Analogous to the base exoplanet theme above.
-	// var/area/exoplanet_base_area = null
-
 	/// If null, ignored, and exoplanet generation is not used.
 	/// If set, away site spawning includes partial exoplanet generation.
 	/// Should be assoc map of `/turf/unsimulated/marker/...` path to `/datum/exoplanet_theme/...` path,
@@ -34,11 +31,9 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	//Apply the subfolder that all ruins are in, as the prefix will get overwritten
 	prefix = "maps/away/[prefix]"
 
-	// Instantiate the theme, area, atmos, if set
+	// Instantiate the theme and atmos, if set
 	if(exoplanet_theme_base)
 		exoplanet_theme_base = new exoplanet_theme_base()
-	// if(exoplanet_base_area)
-	// 	exoplanet_base_area = new exoplanet_base_area()
 	if(exoplanet_atmosphere)
 		exoplanet_atmosphere = new exoplanet_atmosphere()
 
