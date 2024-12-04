@@ -4,16 +4,42 @@ with an /obj/effect/overmap/visitable/ship present elsewhere on that z level, or
 somewhere on that shuttle. Subtypes of these can be then used to perform ship overmap movement functions.
 */
 /obj/machinery/computer/ship
-	var/list/viewers // Weakrefs to mobs in direct-view mode.
-	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.
-	var/obj/effect/overmap/visitable/ship/connected //The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
-	var/targeting = FALSE //Are we targeting anything right now?
+	desc_antag = "These consoles, especially the ones that handle landing/takeoff and piloting, may be access-locked.\
+	You can remove this lock with <b>wirecutters</b>, but it would take awhile!"
+	/// Weakrefs to mobs in direct-view mode.
+	var/list/viewers
+	/// How much the view is increased by when the mob is in overmap mode.
+	var/extra_view = 0
+	/// The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
+	var/obj/effect/overmap/visitable/ship/connected
+	/// Are we targeting anything right now?
+	var/targeting = FALSE
 	var/linked_type = /obj/effect/overmap/visitable/ship
+	/// Set by emag_act(), stores the old access to be restored at a later time.
+	var/list/req_access_old
+	/// Set by emag_act(), stores the old access to be restored at a later time.
+	var/list/req_one_access_old
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
 	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='?src=[REF(src)];sync=1'>Reconnect</a></center>")
 	popup.open()
+
+/obj/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswirecutter()) // Hotwiring
+		if(!req_access && !req_one_access && !emagged) // Already fixed/no need to hack
+			to_chat(user, SPAN_NOTICE("[src] is not access-locked."))
+			return
+		// Begin hotwire
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_NOTICE("You open the maintenance panel and start to [emagged ? "repair" : "hotwire"] \the [src] (This will take around two minutes)..."))
+		if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
+			if(!emagged)
+				emag_act(user=user, hotwired=TRUE)
+				return
+			else
+				restore_access(user)
+				return
+	return ..()
 
 /obj/machinery/computer/ship/attack_hand(mob/user)
 	if(use_check_and_message(user))
@@ -30,14 +56,38 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	src.add_hiddenprint(user)
 	ui_interact(user)
 
-/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/computer/ship/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(emagged)
-		to_chat(user, SPAN_WARNING("The [src] has already been subverted."))
+		. += "Its bottom panel appears open with wires hanging out. It can be repaired with <b>wirecutters</b>."
+
+/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
+	if(emagged)
+		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
+	// save old access and clear
+	req_access_old = req_access
+	req_one_access_old = req_one_access
 	req_access = list()
 	req_one_access = list()
 	emagged = TRUE
-	to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
+	if(hotwired)
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and wires spill out!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+	else
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+	spark(src, 2, 0)
+	return TRUE
+
+/// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
+/obj/machinery/computer/ship/proc/restore_access(var/mob/user)
+	if(!req_access_old && !req_one_access_old)
+		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
+		return FALSE
+	req_access = req_access_old
+	req_one_access = req_one_access_old
+	emagged = FALSE
+	to_chat(user, "You repair out the console's ID checking system. It's access restrictions have been restored.")
+	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
 
 /obj/machinery/computer/ship/Topic(href, href_list)

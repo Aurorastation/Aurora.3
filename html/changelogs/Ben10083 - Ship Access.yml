@@ -57,5 +57,5 @@ delete-after: True
 changes:
   - code_imp: "Adds ID check functionality to ship/shuttle consoles."
   - rscadd: "ID Checks added to SCCV Horizon ship/shuttle consoles. Bridge Crew given access to all shuttles."
-  - balance: "Emagging a ship console will allow it to be usable by anyone."
+  - balance: "Emagging or using wirecutters on a ship console will allow it to be usable by anyone."
   - rscadd: "Many offships and their shuttles given access checks."

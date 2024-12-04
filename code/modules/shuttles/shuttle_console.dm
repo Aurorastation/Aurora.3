@@ -1,5 +1,7 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
+	desc_antag = "These consoles, especially the ones that handle landing/takeoff and piloting, may be access-locked.\
+	You can remove this lock with <b>wirecutters</b>, but it would take awhile!"
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
 	icon_keyboard_emis = "cyan_key_mask"
@@ -11,6 +13,10 @@
 	var/ui_template = "ShuttleControlConsole"
 	var/list/linked_helmets = list()
 	var/can_rename_ship = FALSE
+	/// Set by emag_act(), stores the old access to be restored at a later time.
+	var/list/req_access_old
+	/// Set by emag_act(), stores the old access to be restored at a later time.
+	var/list/req_one_access_old
 
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
@@ -41,6 +47,19 @@
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
+	if(attacking_item.iswirecutter()) // Hotwiring
+		if(!req_access && !req_one_access && !emagged) // Already fixed/no need to hack
+			to_chat(user, SPAN_NOTICE("[src] is not access-locked."))
+			return
+		// Begin hotwire
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_NOTICE("You open the maintenance panel and start to [emagged ? "repair" : "hotwire"] \the [src] (This will take around two minutes)..."))
+		if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
+			if(!emagged)
+				emag_act(user=user, hotwired=TRUE)
+				return
+			else
+				restore_access(user)
+				return
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
@@ -162,14 +181,38 @@
 	for(var/obj/item/clothing/head/helmet/pilot/PH as anything in linked_helmets)
 		PH.set_hud_maptext("Shuttle Status: [shuttle_status]")
 
-/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/computer/shuttle_control/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(emagged)
-		to_chat(user, SPAN_WARNING("The [src] has already been subverted."))
+		. += "Its bottom panel appears open with wires hanging out. It can be repaired with <b>wirecutters</b>."
+
+/obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
+	if(emagged)
+		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
+	// save old access and clear
+	req_access_old = req_access
+	req_one_access_old = req_one_access
 	req_access = list()
 	req_one_access = list()
 	emagged = TRUE
-	to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
+	if(hotwired)
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and wires spill out!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+	else
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+	spark(src, 2, 0)
+	return TRUE
+
+/// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
+/obj/machinery/computer/shuttle_control/proc/restore_access(var/mob/user)
+	if(!req_access_old && !req_one_access_old)
+		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
+		return FALSE
+	req_access = req_access_old
+	req_one_access = req_one_access_old
+	emagged = FALSE
+	to_chat(user, "You repair out the console's ID checking system. It's access restrictions have been restored.")
+	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	return TRUE
 
 /obj/machinery/computer/shuttle_control/ex_act()
