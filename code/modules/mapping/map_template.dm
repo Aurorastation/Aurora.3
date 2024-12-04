@@ -73,12 +73,6 @@
 			base_level = level
 		GLOB.map_templates["[level.z_value]"] = src
 
-	// need to do this first, for atoms that need to know the template in their init
-	// bounds = preload_size(mappath)
-	// if(bounds)
-	// 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
-	// 		GLOB.map_templates["[z_index]"] = src
-
 	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
 
 	if(M)

@@ -34,7 +34,7 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	//Apply the subfolder that all ruins are in, as the prefix will get overwritten
 	prefix = "maps/away/[prefix]"
 
-	// Instantiate the theme and area if set
+	// Instantiate the theme, area, atmos, if set
 	if(exoplanet_theme_base)
 		exoplanet_theme_base = new exoplanet_theme_base()
 	// if(exoplanet_base_area)

@@ -4,4 +4,5 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Crystal Planet Outpost update"
+  - rscadd: "Crystal Planet Outpost update."
+  - rscadd: "Away Site Exoplanet Generation Improvements."
