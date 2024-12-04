@@ -37,10 +37,7 @@
 "bs" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "bM" = (
 /obj/item/stack/cable_coil{
@@ -48,10 +45,7 @@
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "bW" = (
 /obj/structure/bed/padded,
@@ -79,10 +73,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "dD" = (
 /obj/structure/cable{
@@ -121,25 +112,18 @@
 /area/template_noop)
 "eU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "eX" = (
 /obj/item/stack/cable_coil{
 	pixel_y = -5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ff" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -156,9 +140,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/floodlight/randomcharge{
-	dir = 2
-	},
+/obj/machinery/floodlight/randomcharge,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -245,10 +227,7 @@
 	pixel_x = 3;
 	pixel_y = 9
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ju" = (
 /turf/simulated/wall,
@@ -258,10 +237,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "kl" = (
 /obj/structure/cable{
@@ -276,10 +252,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "kU" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -295,10 +268,7 @@
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "lh" = (
 /obj/random/dirt_75,
@@ -314,10 +284,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "lK" = (
 /obj/random/dirt_75,
@@ -331,10 +298,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "lR" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -355,19 +319,13 @@
 "mh" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_01,
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "mq" = (
 /obj/machinery/floodlight/randomcharge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "mz" = (
 /obj/structure/closet/cabinet,
@@ -424,19 +382,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "nA" = (
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#777777"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "oc" = (
 /obj/structure/closet/cabinet,
@@ -463,20 +415,14 @@
 /area/template_noop)
 "ox" = (
 /obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "oK" = (
 /turf/template_noop,
 /area/crystal_planet_outpost/surface)
 "oV" = (
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "pA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -495,17 +441,11 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "pI" = (
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "pO" = (
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "pT" = (
 /obj/structure/table/wood,
@@ -523,10 +463,7 @@
 /obj/machinery/floodlight/randomcharge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "qz" = (
 /obj/structure/cable{
@@ -540,10 +477,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "qU" = (
 /obj/structure/cable{
@@ -553,10 +487,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "qZ" = (
 /obj/random/medical{
@@ -569,10 +500,7 @@
 "rh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/floodlight/randomcharge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ri" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_03,
@@ -602,10 +530,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "sm" = (
 /obj/random/dirt_75,
@@ -627,10 +552,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "tv" = (
 /turf/simulated/floor/tiled,
@@ -691,10 +613,7 @@
 /area/template_noop)
 "uS" = (
 /obj/machinery/shieldgen,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "uT" = (
 /obj/item/stack/material/graphite/full{
@@ -702,10 +621,7 @@
 	pixel_y = 3
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "vr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -718,10 +634,7 @@
 "vs" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "vx" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -733,10 +646,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "wq" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -763,13 +673,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"xx" = (
-/obj/machinery/floodlight/randomcharge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
-/area/template_noop)
 "yr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -784,10 +687,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "yF" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -832,10 +732,7 @@
 "zn" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "zu" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -851,27 +748,18 @@
 	icon_state = "1-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Ap" = (
 /obj/random/dirt_75,
 /obj/machinery/floodlight/randomcharge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Aw" = (
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#999999"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "AW" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -889,10 +777,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Bd" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -912,8 +797,7 @@
 /area/template_noop)
 "Bo" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/structure/table/steel,
 /obj/random/powercell{
@@ -940,10 +824,7 @@
 /obj/item/stack/flag/green,
 /obj/structure/closet/crate/miningcart,
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Bs" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -972,20 +853,14 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "BD" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "BN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -996,18 +871,12 @@
 /area/template_noop)
 "Cc" = (
 /obj/structure/crystal_madness,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Cy" = (
 /obj/machinery/shieldgen,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "CG" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -1075,27 +944,18 @@
 	pixel_x = -5;
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "DC" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "DD" = (
 /obj/random/dirt_75,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "DK" = (
 /obj/random/dirt_75,
@@ -1103,10 +963,7 @@
 /obj/machinery/floodlight/randomcharge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "EK" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1161,10 +1018,7 @@
 "FE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "FG" = (
 /obj/structure/table/wood,
@@ -1258,10 +1112,7 @@
 /obj/effect/floor_decal/crystal/random/dark{
 	color = "#BBBBBB"
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "HM" = (
 /obj/structure/table/wood,
@@ -1282,10 +1133,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Iw" = (
 /turf/unsimulated/marker/teal,
@@ -1308,21 +1156,13 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "IP" = (
-/obj/machinery/floodlight/randomcharge{
-	dir = 2
-	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/obj/machinery/floodlight/randomcharge,
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "IX" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Jv" = (
 /obj/structure/table/steel,
@@ -1349,10 +1189,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "JF" = (
 /obj/structure/structural_support,
@@ -1360,10 +1197,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "JL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1392,10 +1226,7 @@
 	pixel_y = 12
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Ky" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1418,10 +1249,7 @@
 /area/template_noop)
 "LM" = (
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ME" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1473,10 +1301,7 @@
 "Ny" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "NR" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1549,10 +1374,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "PS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1566,17 +1388,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Qj" = (
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Qu" = (
 /mob/living/simple_animal/cosmozoan,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "QQ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_s,
@@ -1603,19 +1419,13 @@
 	pixel_x = -9;
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Sb" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/floodlight/randomcharge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Ss" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1644,10 +1454,7 @@
 /obj/item/pickaxe{
 	pixel_x = -12
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "TI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1707,10 +1514,7 @@
 "Vv" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Vz" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -1734,10 +1538,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "VW" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_03,
@@ -1772,10 +1573,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "Wz" = (
 /obj/random/dirt_75,
@@ -1817,10 +1615,7 @@
 	pixel_x = 13;
 	pixel_y = -3
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "XY" = (
 /obj/structure/cable{
@@ -1832,10 +1627,7 @@
 /area/template_noop)
 "YB" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "YI" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -1861,10 +1653,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/template_noop)
 "ZU" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3464,7 +3253,7 @@ Nu
 Nu
 Nu
 oV
-xx
+IP
 Qj
 wb
 YB
@@ -5353,7 +5142,7 @@ VW
 Nu
 Nu
 Nu
-xx
+IP
 Qj
 Qj
 Nu

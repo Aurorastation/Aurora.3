@@ -16,6 +16,8 @@
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
 	exoplanet_atmosphere = null
+	exoplanet_lightlevel = 2
+	exoplanet_lightcolor = COLOR_TEAL
 
 	spawn_cost = 1
 	spawn_weight = 1

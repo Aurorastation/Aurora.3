@@ -3,6 +3,7 @@
 	name = "Crystal Planet Outpost (abstract/base)"
 	requires_power = TRUE
 	has_gravity = TRUE
+	is_outside = OUTSIDE_NO
 
 /area/crystal_planet_outpost/caves
 	name = "Crystal Planet Outpost Caves"
@@ -16,10 +17,12 @@
 /area/crystal_planet_outpost/surface
 	name = "Crystal Planet Outpost Surface"
 	icon_state = "yellow"
+	is_outside = OUTSIDE_YES
 
 /area/crystal_planet_outpost/landing
 	name = "Crystal Planet Outpost Landing Pads"
 	icon_state = "blue"
+	is_outside = OUTSIDE_YES
 
 /area/crystal_planet_outpost/engineering
 	name = "Crystal Planet Outpost Caves"
@@ -36,4 +39,3 @@
 /area/crystal_planet_outpost/living
 	name = "Crystal Planet Outpost Crew Area"
 	icon_state = "crew_area"
-

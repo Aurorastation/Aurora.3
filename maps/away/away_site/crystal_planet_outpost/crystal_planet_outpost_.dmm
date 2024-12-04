@@ -5,13 +5,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "aD" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -92,13 +86,7 @@
 /area/crystal_planet_outpost/caves)
 "bN" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "bS" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
@@ -266,13 +254,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_1c{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "dp" = (
 /obj/random/dirt_75,
@@ -286,9 +268,8 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "dA" = (
@@ -311,9 +292,8 @@
 /area/crystal_planet_outpost/cave_entrance)
 "dK" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/cave_entrance)
 "dL" = (
@@ -343,25 +323,13 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "eq" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_1a{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "eu" = (
 /obj/structure/cable{
@@ -436,13 +404,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "fr" = (
 /obj/random/dirt_75,
@@ -452,13 +414,7 @@
 "fv" = (
 /obj/structure/chainlink_fence,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "fy" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -485,13 +441,7 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "fO" = (
 /obj/item/storage/bag/ore,
@@ -522,13 +472,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_1d{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "gm" = (
 /obj/random/dirt_75,
@@ -547,20 +491,13 @@
 "gu" = (
 /obj/effect/decal/road_marking,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "gA" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "gC" = (
@@ -574,13 +511,7 @@
 "gQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "gU" = (
 /obj/structure/bed/stool/chair/sofa/beige{
@@ -623,12 +554,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "hy" = (
 /obj/structure/cable{
@@ -645,13 +571,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "ih" = (
 /obj/random/dirt_75,
@@ -701,9 +621,8 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/cave_entrance)
 "iL" = (
@@ -713,9 +632,8 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "iS" = (
@@ -728,12 +646,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "ji" = (
 /obj/structure/closet/cabinet,
@@ -752,9 +665,8 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "jo" = (
@@ -779,9 +691,8 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "jA" = (
@@ -797,9 +708,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -926,12 +835,7 @@
 /area/crystal_planet_outpost/living)
 "kZ" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_1b,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "lt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -959,9 +863,8 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "lK" = (
@@ -972,9 +875,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -1017,18 +918,12 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "mt" = (
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "mz" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1049,13 +944,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "mK" = (
 /obj/structure/table/standard,
@@ -1077,37 +966,19 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "na" = (
 /obj/effect/decal/road_marking,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "nl" = (
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "nn" = (
 /obj/structure/cable{
@@ -1121,12 +992,7 @@
 "no" = (
 /obj/structure/flora/rock/spire,
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "np" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -1134,13 +1000,7 @@
 /area/crystal_planet_outpost/engineering)
 "nv" = (
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "nA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1149,13 +1009,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "nC" = (
 /obj/structure/cable{
@@ -1238,33 +1092,21 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "ol" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3b{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "on" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "oq" = (
 /obj/machinery/shower{
@@ -1289,13 +1131,7 @@
 /area/crystal_planet_outpost/engineering)
 "oA" = (
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "oB" = (
 /turf/simulated/wall,
@@ -1320,13 +1156,7 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "pn" = (
 /obj/machinery/optable,
@@ -1343,9 +1173,8 @@
 "pv" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "pz" = (
@@ -1394,13 +1223,7 @@
 /turf/simulated/floor/carpet/green,
 /area/crystal_planet_outpost/living)
 "qA" = (
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "qF" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -1417,12 +1240,7 @@
 /area/crystal_planet_outpost/cave_entrance)
 "qH" = (
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "qJ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1449,13 +1267,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "qY" = (
 /obj/structure/table/wood,
@@ -1471,9 +1283,8 @@
 /area/crystal_planet_outpost/living)
 "rj" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "ru" = (
@@ -1487,40 +1298,22 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2a{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "sa" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "sf" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "sg" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "sh" = (
 /obj/structure/closet/crate/medical,
@@ -1563,13 +1356,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "sG" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -1648,12 +1435,7 @@
 /area/crystal_planet_outpost/living)
 "tG" = (
 /obj/structure/flora/tree/crystal,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "tJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1694,12 +1476,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "tX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -1728,13 +1505,7 @@
 /area/crystal_planet_outpost/engineering)
 "uB" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3c,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "uH" = (
 /turf/unsimulated/mineral/asteroid,
@@ -1762,9 +1533,7 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -1784,31 +1553,18 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "vN" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "vP" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "vZ" = (
@@ -1858,9 +1614,8 @@
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/engineering)
 "xm" = (
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "xv" = (
@@ -1895,31 +1650,19 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "xS" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2b,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "xX" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/cave_entrance)
 "yb" = (
@@ -1946,13 +1689,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_4d{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "yn" = (
 /obj/structure/table/steel,
@@ -1963,22 +1700,15 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "yt" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2d{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "yu" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -1996,25 +1726,14 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3a{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "yE" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "yQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2026,9 +1745,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -2047,25 +1764,13 @@
 "zA" = (
 /obj/effect/decal/road_marking,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "zH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "zM" = (
 /obj/structure/table/standard,
@@ -2117,9 +1822,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -2155,13 +1858,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_4a{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "AM" = (
 /obj/structure/bed/stool/chair/plastic,
@@ -2190,9 +1887,7 @@
 "Bd" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -2201,13 +1896,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Bp" = (
 /obj/machinery/power/apc/empty/north{
@@ -2271,13 +1960,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Cj" = (
 /obj/machinery/light/broken,
@@ -2455,12 +2138,7 @@
 "DX" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "Ee" = (
 /obj/structure/table/wood,
@@ -2491,13 +2169,7 @@
 /obj/machinery/atmospherics/binary/passive_gate/fuel{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Er" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2512,24 +2184,12 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Fa" = (
 /obj/effect/decal/road_marking,
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Ff" = (
 /obj/structure/bed/padded,
@@ -2640,13 +2300,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "GW" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -2655,13 +2309,7 @@
 "GY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Hc" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -2681,13 +2329,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Hm" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -2776,13 +2418,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Ib" = (
 /obj/structure/bed/padded,
@@ -2848,22 +2484,15 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "IP" = (
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Jk" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -2890,13 +2519,7 @@
 "JG" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/decal/road_marking,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "JJ" = (
 /obj/structure/bed/stool/chair/padded/orange{
@@ -2948,13 +2571,7 @@
 /obj/effect/decal/road_marking,
 /obj/structure/chainlink_fence,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Kz" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -2993,12 +2610,7 @@
 /area/crystal_planet_outpost/living)
 "KJ" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "KO" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -3015,13 +2627,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Lb" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -3059,13 +2665,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "LK" = (
 /obj/machinery/space_heater,
@@ -3192,13 +2792,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "MV" = (
 /obj/structure/structural_support,
@@ -3206,9 +2800,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "Na" = (
@@ -3226,9 +2819,7 @@
 /area/crystal_planet_outpost/living)
 "Nj" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -3248,12 +2839,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_4b{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "NO" = (
 /obj/structure/cable{
@@ -3273,9 +2859,8 @@
 /area/crystal_planet_outpost/living)
 "NV" = (
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "Ob" = (
@@ -3313,34 +2898,18 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "Ow" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "Ox" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Oz" = (
 /obj/structure/structural_support,
@@ -3348,9 +2917,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/cave_entrance)
 "OE" = (
@@ -3410,44 +2978,25 @@
 /obj/random/loot,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Po" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3d{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Ps" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Pt" = (
 /obj/effect/overmap/visitable/sector/crystal_planet_outpost,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "Pu" = (
@@ -3471,13 +3020,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "PB" = (
 /obj/structure/table/standard,
@@ -3532,24 +3075,12 @@
 /area/crystal_planet_outpost/medbay)
 "Qh" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Qq" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_4c,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Qu" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3576,12 +3107,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "QD" = (
 /obj/structure/table/wood,
@@ -3600,9 +3126,8 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/caves)
 "QH" = (
@@ -3612,13 +3137,7 @@
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "QL" = (
 /obj/structure/table/steel,
@@ -3652,13 +3171,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Rl" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -3695,9 +3208,7 @@
 "RN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -3733,13 +3244,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "SO" = (
 /obj/structure/bed/stool/chair/sofa/right/beige,
@@ -3774,9 +3279,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250;
+/turf/simulated/floor/exoplanet/basalt/crystal{
 	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/engineering)
@@ -3897,12 +3400,7 @@
 /area/crystal_planet_outpost/surface)
 "TY" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "TZ" = (
 /obj/structure/flora/pottedplant/crystal,
@@ -3911,26 +3409,14 @@
 /area/crystal_planet_outpost/cave_entrance)
 "Ur" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Uv" = (
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Uy" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/cave_01,
@@ -3938,13 +3424,7 @@
 /area/crystal_planet_outpost/caves)
 "UE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "UF" = (
 /obj/structure/table/steel,
@@ -3971,13 +3451,7 @@
 /area/crystal_planet_outpost/medbay)
 "US" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "UV" = (
 /obj/structure/cable{
@@ -4000,13 +3474,7 @@
 "Vj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Vk" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -4019,13 +3487,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Vs" = (
 /obj/structure/cable{
@@ -4052,9 +3514,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt{
-	color = "#a9d8e0";
-	temperature = 250
+/turf/simulated/floor/exoplanet/basalt/crystal{
+	initial_gas = list("carbon_dioxide" = 25000)
 	},
 /area/crystal_planet_outpost/cave_entrance)
 "VM" = (
@@ -4192,21 +3653,11 @@
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/surface)
 "XY" = (
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "Yf" = (
 /obj/effect/floor_decal/crystal/random,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/surface)
 "Yi" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -4260,22 +3711,11 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
 "YS" = (
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "Zc" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/crystal{
-	light_color = "#67aaad";
-	light_range = 5;
-	light_power = 0.05;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/crystal_planet_outpost/landing)
 "Zo" = (
 /obj/structure/closet/crate/freezer{
@@ -4288,13 +3728,7 @@
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2c{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	color = "#95c2d9";
-	light_color = "#67aaad";
-	light_range = 3;
-	light_power = 0.10;
-	temperature = 250
-	},
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
 "ZK" = (
 /obj/structure/bed/stool/chair/padded/green,

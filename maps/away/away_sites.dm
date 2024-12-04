@@ -18,11 +18,15 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	/// where exoplanet generation with the map value is applied only on marker turfs of the applicable map key.
 	var/list/exoplanet_themes = null
 
-	/// Light level of exoplanet turfs if they're generated on this away site. See code\modules\overmap\exoplanets\decor\_turfs.dm:36
-	var/lightlevel = 0
-	/// Light color of exoplanet turfs if they're generated on this away site. See code\modules\overmap\exoplanets\decor\_turfs.dm:36
-	var/lightcolor = COLOR_WHITE
+	/// Light level of exoplanet turfs if they're generated on this away site.
+	var/exoplanet_lightlevel = 0
+	/// Light color of exoplanet turfs if they're generated on this away site.
+	var/exoplanet_lightcolor = COLOR_WHITE
+
 	/// The atmosphere that exoplanet turfs should spawn with.
+	/// If null, ignored, and turfs keep their default or mapped in atmosphere.
+	/// If set, this atmosphere is used.
+	/// Should be set to a `/datum/gas_mixture` path.
 	var/datum/gas_mixture/exoplanet_atmosphere
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
@@ -34,11 +38,9 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	if(exoplanet_theme_base)
 		exoplanet_theme_base = new exoplanet_theme_base()
 	// if(exoplanet_base_area)
-		// exoplanet_base_area = new exoplanet_base_area()
-
-	// Instantiate the theme
-	if(exoplanet_theme_base)
-		exoplanet_theme_base = new exoplanet_theme_base()
+	// 	exoplanet_base_area = new exoplanet_base_area()
+	if(exoplanet_atmosphere)
+		exoplanet_atmosphere = new exoplanet_atmosphere()
 
 	..()
 
