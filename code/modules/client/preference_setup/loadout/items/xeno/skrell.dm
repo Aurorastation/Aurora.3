@@ -256,15 +256,15 @@ var/datum/gear_tweak/compat_index/compat_index_tweak = new()
 	return 5
 
 /datum/gear_tweak/compat_index/get_metadata(var/user, var/metadata)
-	var/credit_score = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatability Index", round_value = FALSE, max_value = 10)
-	if(credit_score)
-		return round(credit_score, 0.01)
+	var/compat_index = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatability Index", round_value = FALSE, max_value = 10)
+	if(compat_index)
+		return round(compat_index, 0.01)
 	return metadata
 
 /datum/gear_tweak/compat_index/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
 	if(!istype(PP))
 		return
-	PP.credit_score = metadata + pick(-0.01, 0, 0.01)
+	PP.compat_index = metadata + pick(-0.01, 0, 0.01)
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
