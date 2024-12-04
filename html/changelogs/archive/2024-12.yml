@@ -12,3 +12,22 @@
   hazelmouse:
   - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
       secure locker in the Pilot Room.
+2024-12-04:
+  Ben10083:
+  - bugfix: AI can remote control mechs again.
+  - bugfix: Remote controlled exosuits now can travel between zlevels if capable.
+  - bugfix: Remote control no longer makes the client lose verbs until restart.
+  - bugfix: Remote controlled exosuit radios now will use the channels the user has
+      access to.
+  - qol: Pressing eject in a remotely controlled mech now exits remote control.
+  - code_imp: DMdoced lists.dm
+  - bugfix: AI shell and Exosuit adv health analyser now works properly.
+  - qol: Increased feedback for which mode the exosuit health analyser is on.
+  OolongCow:
+  - rscadd: Adds a pill bottle of inaprovaline and an emergency autoinjector to basic
+      first aid kits
+  - rscdel: Removes the cough syrup pills and health analyzer from basic first aid
+      kits.
+  notagonk:
+  - qol: Rearranges the HOS' office and surrounding maintenance to smooth out some
+      accessibility issues.
