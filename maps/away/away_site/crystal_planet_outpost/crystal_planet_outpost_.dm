@@ -15,7 +15,7 @@
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
-	exoplanet_atmosphere = null
+	exoplanet_atmosphere = /datum/gas_mixture/earth_cold
 	exoplanet_lightlevel = 2
 	exoplanet_lightcolor = COLOR_TEAL
 

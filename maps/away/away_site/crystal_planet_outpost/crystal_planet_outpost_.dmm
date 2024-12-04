@@ -57,7 +57,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -268,9 +268,7 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "dA" = (
 /obj/structure/cable{
@@ -292,9 +290,7 @@
 /area/crystal_planet_outpost/cave_entrance)
 "dK" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "dL" = (
 /obj/machinery/computer/operating/terminal,
@@ -496,9 +492,7 @@
 "gA" = (
 /obj/effect/floor_decal/crystal/random/dark,
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "gC" = (
 /turf/simulated/floor/tiled/white,
@@ -621,9 +615,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "iL" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -632,9 +624,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "iS" = (
 /obj/machinery/door/airlock/hatch{
@@ -665,9 +655,7 @@
 	light_color = "#67aaad";
 	light_power = 0.75
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "jo" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -691,9 +679,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "jA" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -863,9 +849,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "lK" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -918,9 +902,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "mt" = (
 /turf/simulated/floor/exoplanet/crystal,
@@ -985,7 +967,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -1016,7 +998,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -1092,9 +1074,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "ol" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3b{
@@ -1173,9 +1153,7 @@
 "pv" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "pz" = (
 /obj/random/dirt_75,
@@ -1199,7 +1177,7 @@
 /area/crystal_planet_outpost/living)
 "pZ" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -1283,9 +1261,7 @@
 /area/crystal_planet_outpost/living)
 "rj" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "ru" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1306,9 +1282,7 @@
 /area/crystal_planet_outpost/landing)
 "sf" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "sg" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -1563,9 +1537,7 @@
 "vP" = (
 /obj/structure/structural_support,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "vZ" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -1614,9 +1586,7 @@
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/engineering)
 "xm" = (
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "xv" = (
 /turf/simulated/wall,
@@ -1635,7 +1605,7 @@
 "xJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -1661,9 +1631,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "yb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1700,9 +1668,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "yt" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2d{
@@ -2484,9 +2450,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "IP" = (
 /obj/effect/decal/road_marking{
@@ -2800,9 +2764,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "Na" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2847,7 +2809,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -2859,9 +2821,7 @@
 /area/crystal_planet_outpost/living)
 "NV" = (
 /obj/effect/floor_decal/crystal/random/dark,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "Ob" = (
 /obj/structure/table/standard,
@@ -2917,9 +2877,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "OE" = (
 /obj/structure/cable{
@@ -2995,9 +2953,7 @@
 /area/crystal_planet_outpost/landing)
 "Pt" = (
 /obj/effect/overmap/visitable/sector/crystal_planet_outpost,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "Pu" = (
 /obj/structure/cable{
@@ -3126,9 +3082,7 @@
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/caves)
 "QH" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -3287,7 +3241,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
@@ -3514,9 +3468,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/crystal{
-	initial_gas = list("carbon_dioxide" = 25000)
-	},
+/turf/simulated/floor/exoplanet/basalt/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "VM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -3577,7 +3529,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
 "WQ" = (
-/turf/simulated/floor/sidewalk{
+/turf/simulated/floor/exoplanet/sidewalk{
 	color = "#BDF3FC"
 	},
 /area/crystal_planet_outpost/surface)
