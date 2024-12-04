@@ -4,7 +4,8 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Crystal Planet Outpost update."
+  - rscadd: "Crystal Planet Outpost Update. Adds submaps and exoplanet generation."
+  - rscadd: "Cryo Outpost Update. Updates exoplanet generation with hot air and light."
   - rscadd: "Away Site Exoplanet Generation Improvements. Allows setting atmos for all exoplanet turfs on the map."
   - rscadd: "Away Site Exoplanet Generation Improvements. Exoplanet turfs can have light if they are outside."
   - rscadd: "Away Site Exoplanet Generation Improvements. Base Turf fixes, explosions do not turn turfs into space, and destroying or mining turfs is generally better handled."

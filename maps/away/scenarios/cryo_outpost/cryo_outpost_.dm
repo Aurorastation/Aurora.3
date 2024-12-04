@@ -4,19 +4,26 @@
 /datum/map_template/ruin/away_site/cryo_outpost
 	name = "Desert Oasis Planet"
 	description = "Desert Oasis Planet."
+	id = "cryo_outpost"
+
 	prefix = "scenarios/cryo_outpost/"
 	suffix = "cryo_outpost.dmm"
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 0 // so it does not spawn as ordinary away site
-	spawn_cost = 1
-	id = "cryo_outpost"
+
 	exoplanet_theme_base = /datum/exoplanet_theme/desert/cryo_outpost
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/khaki = /datum/exoplanet_theme/desert/cryo_outpost,
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/desert/cryo_outpost/mountain,
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/grass/cryo_outpost
 	)
+	exoplanet_atmosphere = /datum/gas_mixture/earth_hot
+	exoplanet_lightlevel = 2
+	exoplanet_lightcolor = "#ffffd4" // light white-yellowish
+
+	spawn_weight = 0 // so it does not spawn as ordinary away site
+	spawn_cost = 1
+	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(3)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/cryo_outpost
 	map = "Desert Oasis Planet"
