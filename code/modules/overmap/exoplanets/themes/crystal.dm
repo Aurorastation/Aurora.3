@@ -7,7 +7,9 @@
 	surface_color = "#6fb1b5"
 
 	perlin_zoom = 21
+
 	mountain_threshold = 0.5
+	mountain_biome = /singleton/biome/crystal/mountain
 
 	heat_levels = list(
 		BIOME_EQUATOR = 1.0
