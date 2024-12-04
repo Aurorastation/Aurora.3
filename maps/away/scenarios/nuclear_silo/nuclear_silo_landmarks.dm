@@ -1,12 +1,8 @@
-// --------------------- shuttle
+/obj/effect/shuttle_landmark/nuclear_silo
+	base_area = /area/nuclear_silo/outside/landing
+	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
 
-// /obj/effect/shuttle_landmark/nuclear_silo/transit
-// 	name = "In transit"
-// 	landmark_tag = "nav_nuclear_silo_shuttle_transit"
-// 	base_turf = /turf/space/transit/north
-// 	base_area = /area/space
-
-//---------------------- Lift
+// --- Lift
 /datum/shuttle/autodock/multi/lift/nuclear_silo
 	name = "Bunker Lift"
 	current_location = "nav_nuclear_silo_lift_upper_level"
