@@ -284,10 +284,12 @@
 	},
 /area/nuclear_silo/outside/buildings)
 "aH" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aI" = (
@@ -367,9 +369,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/engineering)
 "aT" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aU" = (
@@ -424,7 +430,6 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "bc" = (
-/obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/cave/bunker)
@@ -440,9 +445,11 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
@@ -451,7 +458,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "bh" = (
 /obj/structure/light_pole/decayed/r,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -659,7 +666,7 @@
 /turf/simulated/floor/reinforced,
 /area/nuclear_silo/lower_level/engineering)
 "bJ" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/floor/decayed,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/buildings)
 "bK" = (
@@ -1481,7 +1488,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "dB" = (
 /obj/random_produce,
 /obj/random_produce,
@@ -1959,6 +1966,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
+"eG" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "eH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -2027,7 +2038,7 @@
 "eO" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_green/full,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2363,7 +2374,7 @@
 "fD" = (
 /obj/effect/decal/cleanable/floor_damage/burned0,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "fE" = (
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/wood,
@@ -2522,7 +2533,7 @@
 /obj/item/material/shard/wood,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "fW" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -3133,9 +3144,8 @@
 /area/nuclear_silo/lower_level/hallway)
 "hs" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/bitile{
-	dir = 1
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "hu" = (
 /turf/simulated/floor/plating,
@@ -3401,7 +3411,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "ic" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/window/reinforced{
@@ -3615,7 +3625,14 @@
 /obj/item/material/shard/wood,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
+"iA" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/nuclear_silo/lower_level/medbay)
 "iC" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/carpet/purple,
@@ -3720,6 +3737,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
+"iO" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "iP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/dirt_75,
@@ -4041,9 +4062,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
@@ -4404,6 +4427,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/gym)
@@ -5001,7 +5027,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "lI" = (
 /obj/machinery/door/airlock/medical{
 	name = "CBRN Treatment Chamber";
@@ -5021,6 +5047,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
+"lK" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "lL" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -5047,7 +5077,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "lO" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -5142,6 +5172,9 @@
 /area/nuclear_silo/lower_level/maintenance/south)
 "lY" = (
 /obj/machinery/vending/coffee,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
@@ -5164,13 +5197,10 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "mb" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "mc" = (
 /obj/structure/table/wood/mahogany,
@@ -5314,7 +5344,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "ms" = (
 /obj/structure/railing/mapped,
 /obj/machinery/light/colored/dying{
@@ -5389,9 +5419,6 @@
 	dir = 4;
 	name = "Kitchen";
 	req_one_access = list(247,248)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5597,8 +5624,11 @@
 /turf/simulated/floor/concrete,
 /area/nuclear_silo/outside/buildings)
 "mZ" = (
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "na" = (
@@ -5674,6 +5704,9 @@
 /turf/simulated/floor/wood,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "nh" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
@@ -5706,6 +5739,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/bathrooms)
+"nm" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/lower_level/hallway)
 "nn" = (
 /obj/structure/flora/rock/pile/random,
 /obj/random/dirt_75,
@@ -6017,7 +6061,7 @@
 /obj/structure/table/wood,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/magenta,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "nX" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -6107,6 +6151,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
+"oj" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "ok" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/closet/secure_closet/freezer,
@@ -6381,7 +6429,7 @@
 "oR" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "oS" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/random/dirt_75,
@@ -6616,7 +6664,7 @@
 /obj/structure/table,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "pu" = (
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/dirt_75,
@@ -6737,7 +6785,7 @@
 "pM" = (
 /obj/structure/window_frame/wood,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "pN" = (
 /obj/structure/girder,
 /obj/structure/railing/mapped{
@@ -7137,13 +7185,13 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/alarm/east{
 	req_one_access = list(247,248)
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "qM" = (
@@ -7686,7 +7734,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "rZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7698,10 +7746,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/outside/cave/bunker)
 "sb" = (
-/obj/structure/lattice/catwalk/indoor/planks,
-/obj/structure/lattice/catwalk/indoor/planks,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/nuclear_silo/outside/mountain)
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "sc" = (
 /obj/structure/table/wood/mahogany,
 /obj/random/desktoy,
@@ -7880,6 +7929,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/civilian/gym)
+"sz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/nuclear_silo/outside/cave/bunker)
 "sA" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -7951,7 +8006,8 @@
 /area/nuclear_silo/lower_level/civilian/bathrooms)
 "sF" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "sG" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -8102,6 +8158,16 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/cave/bunker)
+"tb" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "tc" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering,
 /obj/machinery/computer/terminal{
@@ -8135,8 +8201,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "th" = (
@@ -8199,7 +8265,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash{
 	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "to" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -8365,7 +8431,7 @@
 "tD" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/magenta,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "tE" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -8386,7 +8452,7 @@
 "tF" = (
 /obj/effect/decal/cleanable/floor_damage/burned2,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "tH" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8625,7 +8691,7 @@
 /obj/effect/decal/cleanable/floor_damage/burned0,
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "uj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9147,11 +9213,11 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/east)
 "vt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "vu" = (
@@ -9175,9 +9241,12 @@
 /turf/simulated/floor/carpet/green,
 /area/nuclear_silo/outside/buildings)
 "vx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/outline_door/red,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "vy" = (
@@ -9432,11 +9501,6 @@
 /turf/simulated/wall/r_wall,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "vZ" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/missile_silo.dmi';
-	icon_state = "silo";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/concrete{
 	dir = 1
 	},
@@ -9447,7 +9511,10 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/barren,
+/obj/structure/missile_silo{
+	pixel_x = -32
+	},
+/turf/simulated/open,
 /area/nuclear_silo/outside/buildings)
 "wa" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -9558,6 +9625,7 @@
 "wm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "wn" = (
@@ -9991,6 +10059,9 @@
 "xo" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "xp" = (
@@ -10517,9 +10588,8 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "yC" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/bitile,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "yD" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room,
@@ -10940,6 +11010,9 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "zw" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
@@ -10993,7 +11066,7 @@
 /obj/effect/decal/cleanable/floor_damage/burned2,
 /obj/structure/bonfire/fireplace,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "zE" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -11045,6 +11118,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
+"zL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "zM" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -11589,8 +11667,9 @@
 /area/nuclear_silo/lower_level/checkpoint)
 "Bg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -11759,7 +11838,7 @@
 /obj/effect/decal/cleanable/floor_damage/burned2,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "BA" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/plating,
@@ -11971,6 +12050,9 @@
 /obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
@@ -12871,7 +12953,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Ei" = (
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_3c,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -12943,7 +13025,7 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Er" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/item/material/shard/wood,
@@ -13061,10 +13143,12 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/nuclear_silo/outside/landing)
 "EH" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "EJ" = (
@@ -13077,7 +13161,7 @@
 "EL" = (
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "EN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -13119,7 +13203,7 @@
 "ES" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "ET" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -13313,7 +13397,7 @@
 "Fp" = (
 /obj/item/stack/material/cloth,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Fq" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -13539,9 +13623,6 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "FT" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -13654,6 +13735,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/hallway)
 "Gi" = (
@@ -13753,8 +13837,13 @@
 /turf/simulated/floor/ice,
 /area/nuclear_silo/outside/surface)
 "Gv" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/bitile,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "Gw" = (
 /obj/effect/spider/stickyweb,
@@ -14123,7 +14212,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Hk" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/warning{
@@ -14173,7 +14262,7 @@
 /area/nuclear_silo/lower_level/civilian/cryogenics)
 "Hr" = (
 /turf/simulated/wall/ebonywood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Hs" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -14183,7 +14272,7 @@
 "Ht" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/carpet/magenta,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Hu" = (
 /obj/structure/cable/green{
 	icon_state = "11-1"
@@ -14216,7 +14305,8 @@
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "HB" = (
 /obj/machinery/door/window{
-	pixel_y = -17
+	pixel_y = -17;
+	name = "DO NOT ENTER - BIOHAZARD"
 	},
 /obj/structure/platform_stairs/full/south_north_cap{
 	dir = 1
@@ -14369,6 +14459,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/medbay)
+"HV" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "HW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -14384,10 +14478,10 @@
 /area/nuclear_silo/lower_level/hallway)
 "HX" = (
 /obj/machinery/appliance/cooker/stove,
-/obj/machinery/light{
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "HY" = (
@@ -14696,10 +14790,8 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "IL" = (
-/obj/structure/lattice/catwalk/indoor/planks,
-/obj/structure/lattice/catwalk/indoor/planks,
-/turf/simulated/floor/exoplanet/barren,
-/area/nuclear_silo/outside/mountain)
+/turf/simulated/wall/wood,
+/area/nuclear_silo/outside/buildings/town)
 "IM" = (
 /obj/structure/table/standard,
 /obj/random/firstaid{
@@ -14878,7 +14970,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Je" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
@@ -15048,6 +15140,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "Jz" = (
@@ -15369,6 +15464,12 @@
 /obj/random/soap,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/bathrooms)
+"Kn" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "Ko" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/asteroid/ash{
@@ -15459,6 +15560,9 @@
 "KB" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -15652,12 +15756,11 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "KU" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "KV" = (
 /obj/structure/closet,
@@ -15843,6 +15946,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/hallway)
 "Ls" = (
@@ -15960,7 +16064,7 @@
 "LG" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "LH" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -16420,7 +16524,7 @@
 /obj/item/stack/material/wood,
 /obj/structure/window_frame/wood,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "MK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -16458,9 +16562,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "MQ" = (
@@ -16671,10 +16775,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -17010,7 +17114,7 @@
 "Om" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/magenta,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Oo" = (
 /obj/structure/table/standard,
 /obj/item/airlock_electronics,
@@ -17195,14 +17299,13 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "OI" = (
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/porta_turret/ballistic{
 	req_one_access = list(247,248)
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/bitile{
-	dir = 1
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "OJ" = (
 /obj/random/dirt_75,
@@ -17249,7 +17352,7 @@
 "OQ" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "OR" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -17560,7 +17663,7 @@
 /obj/item/stack/material/wood/branch,
 /obj/structure/window_frame/wood,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "PD" = (
 /obj/structure/platform/dark{
 	dir = 1
@@ -17961,10 +18064,21 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nuclear_silo/outside/buildings/town)
 "QB" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/track,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
+"QC" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "QD" = (
@@ -18045,7 +18159,7 @@
 "QL" = (
 /obj/effect/decal/cleanable/floor_damage/burned0,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "QM" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -18089,7 +18203,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "QS" = (
@@ -18104,6 +18218,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
+"QT" = (
+/obj/random/junk{
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "QU" = (
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_3d,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -18367,8 +18487,8 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/freezer)
 "Ru" = (
-/turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "Rv" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(247,248)
@@ -18393,13 +18513,16 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce,
 /obj/random/dirt_75,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "Rz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/circuitboard/bluespacerelay,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19045,6 +19168,11 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/security)
+"SW" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "SX" = (
 /obj/structure/table/rack,
 /obj/item/towel/random,
@@ -19478,8 +19606,11 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "TX" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "TY" = (
@@ -19490,11 +19621,15 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/wood,
 /area/nuclear_silo/lower_level/nuke_monitoring)
+"TZ" = (
+/obj/structure/window_frame/wood,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings/town)
 "Ua" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -19955,7 +20090,7 @@
 "Vg" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Vh" = (
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
@@ -20593,11 +20728,6 @@
 	},
 /area/nuclear_silo/outside/buildings)
 "Wx" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/missile_silo.dmi';
-	icon_state = "silo";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/concrete{
 	dir = 1
 	},
@@ -21448,7 +21578,7 @@
 /area/nuclear_silo/outside/cave/bunker)
 "Yj" = (
 /turf/simulated/floor/carpet/magenta,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "Yk" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -21567,10 +21697,12 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/nuclear_silo/outside/landing)
 "YA" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "YB" = (
@@ -21580,7 +21712,8 @@
 "YC" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "YD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21605,7 +21738,7 @@
 "YF" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/wood/ebony,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "YG" = (
 /obj/structure/light_pole/decayed/r,
 /turf/simulated/floor/exoplanet/barren,
@@ -21901,6 +22034,13 @@
 /obj/item/trash/plate/steak,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
+"Zu" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "Zw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/reagent_dispensers/extinguisher,
@@ -21985,10 +22125,10 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -22113,7 +22253,7 @@
 /obj/structure/bookcase,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nuclear_silo/outside/buildings)
+/area/nuclear_silo/outside/buildings/town)
 "ZT" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -35197,7 +35337,7 @@ aQ
 aW
 fs
 AR
-DS
+nm
 Lr
 Dq
 Vr
@@ -36456,7 +36596,7 @@ XW
 AS
 vH
 pc
-Iu
+iA
 pJ
 kv
 AS
@@ -92521,7 +92661,7 @@ ar
 uf
 XG
 Cc
-Tr
+sz
 wm
 yo
 yo
@@ -92781,7 +92921,7 @@ mZ
 Tr
 TX
 uR
-ah
+tb
 MO
 nh
 Sh
@@ -93292,10 +93432,10 @@ pS
 Gt
 XG
 Dr
-tW
+yC
 TX
 uR
-ah
+tb
 WF
 QB
 ux
@@ -93548,11 +93688,11 @@ BD
 Db
 jq
 cZ
-ah
+Gv
 sF
-vx
+aH
 uR
-ah
+tb
 qd
 vx
 Sh
@@ -93806,12 +93946,12 @@ jq
 Zj
 XG
 Dr
-YC
+mb
 TX
 IK
 zw
 PM
-TX
+QC
 FQ
 Pq
 Lm
@@ -94063,7 +94203,7 @@ Ku
 ta
 XG
 AI
-tW
+yC
 tl
 yo
 mF
@@ -94320,7 +94460,7 @@ XG
 XG
 XG
 lY
-tW
+yC
 tl
 yo
 wt
@@ -95085,14 +95225,14 @@ xe
 yo
 Ir
 yo
-mb
 Zo
-Zo
+iN
+iN
+Zu
+iN
+iN
+iN
 FB
-iN
-iN
-EH
-iN
 yo
 XG
 XG
@@ -95344,11 +95484,11 @@ Ir
 yo
 FT
 OI
-Gv
-YC
-YC
 hs
-yC
+YC
+KU
+hs
+YC
 bc
 yo
 mW
@@ -95599,14 +95739,14 @@ yo
 yo
 yo
 yo
-KU
-Zx
+iH
+we
 aT
+Zx
 we
-we
+Zx
+Zx
 iH
-iH
-aH
 yo
 mW
 mW
@@ -96372,7 +96512,7 @@ BN
 VW
 XU
 ZB
-tW
+hs
 YC
 el
 yo
@@ -99211,7 +99351,7 @@ mW
 mW
 mW
 mW
-IL
+LZ
 Ts
 Ts
 wb
@@ -99470,7 +99610,7 @@ mW
 mW
 wc
 as
-sb
+Ts
 Ym
 ps
 Ys
@@ -115917,15 +116057,15 @@ DN
 qo
 DN
 DN
-lD
-lD
-lD
-zI
-Ru
+IL
+IL
+IL
+eG
+DN
 pM
 PC
-lD
-lD
+IL
+IL
 DN
 Lq
 Lq
@@ -116174,15 +116314,15 @@ qo
 DN
 DN
 DN
-nx
-Vh
-PV
-oR
+iO
 Ru
+HV
+oR
+DN
 Yj
 tD
 Om
-lD
+IL
 DN
 Lq
 Lq
@@ -116431,15 +116571,15 @@ qo
 qo
 DN
 DN
-nx
-ra
-Vh
-aX
+iO
+SW
+Ru
+oj
 EL
 iz
 Yj
 nW
-lD
+IL
 DN
 DN
 Lq
@@ -116688,15 +116828,15 @@ DN
 qo
 qo
 qo
-KY
-Vh
-ra
-PV
-OQ
+lK
 Ru
+SW
+HV
+OQ
+DN
 Yj
 Yj
-lD
+IL
 DN
 DN
 Lq
@@ -116945,15 +117085,15 @@ DN
 DN
 DN
 DN
-lD
-Vh
-PV
+IL
 Ru
-Ru
+HV
+DN
+DN
 OQ
 tD
 Yj
-lD
+IL
 DN
 DN
 Lq
@@ -117202,15 +117342,15 @@ qo
 DN
 qo
 DN
-lD
+IL
 Eq
 Eq
 ZS
 EL
-Ru
+DN
 Yj
 Ht
-lD
+IL
 DN
 DN
 Lq
@@ -117459,15 +117599,15 @@ DN
 DN
 DN
 DN
-lD
-lD
-lD
+IL
+IL
+IL
 MJ
-hc
+qo
 EL
 LG
-zI
-lD
+eG
+IL
 DN
 DN
 Lq
@@ -118744,10 +118884,10 @@ DN
 DN
 DN
 DN
-lD
-Dd
-lD
-lD
+IL
+sb
+IL
+IL
 DN
 Lq
 Lq
@@ -119001,10 +119141,10 @@ DN
 DN
 DN
 Vg
-aX
+oj
 rY
-ra
-lD
+SW
+IL
 DN
 DN
 Lq
@@ -119258,10 +119398,10 @@ DN
 DN
 DN
 Fp
-aX
-ra
+oj
+SW
 iz
-lD
+IL
 DN
 DN
 Lq
@@ -119514,10 +119654,10 @@ DN
 DN
 DN
 DN
-TM
-TM
-ra
-Vh
+zL
+zL
+SW
+Ru
 DN
 DN
 DN
@@ -119770,10 +119910,10 @@ DN
 DN
 DN
 DN
-xC
+TZ
 lN
-Yy
-UP
+Kn
+QT
 DN
 DN
 DN
@@ -120027,12 +120167,12 @@ lD
 DN
 DN
 DN
-xC
+TZ
 fV
-TM
+zL
 Jd
 pt
-lD
+IL
 DN
 DN
 Lq
@@ -120284,12 +120424,12 @@ lD
 DN
 DN
 DN
-lD
-lD
-zI
-zI
-lD
-lD
+IL
+IL
+eG
+eG
+IL
+IL
 DN
 DN
 Lq

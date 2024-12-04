@@ -37,6 +37,8 @@
 	name = "Building"
 	icon_state = "away"
 	is_outside = OUTSIDE_NO
+	holomap_color = "#7c4d14"
+	area_blurb = "As you enter the building, the quiet hum of electric lights is magnified as the dim bulbs around you flicker gently, the floorboards under your feet creaking and straining with every step."
 
 /area/nuclear_silo/outside/buildings/town
 	name = "Building"
@@ -82,7 +84,7 @@
 /area/nuclear_silo/lower_level/nuke_monitoring
 	name = "Nuclear Missile Silo Monitoring"
 	icon_state = "conference"
-	holomap_color = "#220d0d"
+	holomap_color = "#641c1c"
 
 /area/nuclear_silo/lower_level/nuke_silo
 	name = "Nuclear Missile Silo"
