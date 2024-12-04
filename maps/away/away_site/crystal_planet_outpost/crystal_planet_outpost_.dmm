@@ -13,7 +13,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "aJ" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -34,6 +34,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
+"aO" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
+/area/crystal_planet_outpost/engineering)
 "aR" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
@@ -65,7 +70,7 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/ore_box,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "bE" = (
 /obj/machinery/light/colored/dying{
@@ -114,7 +119,7 @@
 /area/crystal_planet_outpost/living)
 "cc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/medbay)
 "co" = (
 /obj/structure/table/standard,
@@ -139,14 +144,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "cr" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "cx" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -176,7 +181,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "cG" = (
 /obj/structure/table/standard,
@@ -196,7 +201,7 @@
 /obj/item/stack/material/graphite/full{
 	pixel_y = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "cO" = (
 /obj/structure/cable{
@@ -228,7 +233,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "df" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -248,6 +253,7 @@
 /obj/item/clothing/under/cheongsam/red,
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /obj/random/dirt_75,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/carpet/green,
 /area/crystal_planet_outpost/living)
 "di" = (
@@ -300,19 +306,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "ec" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "ed" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/obj/machinery/space_heater,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "el" = (
 /obj/effect/decal/road_marking{
@@ -368,7 +375,7 @@
 /area/crystal_planet_outpost/cave_entrance)
 "eO" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "fe" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -418,7 +425,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "fA" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_02,
@@ -431,7 +438,7 @@
 /obj/item/tank/emergency_oxygen/engi,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "fJ" = (
 /obj/effect/decal/road_marking{
@@ -451,7 +458,7 @@
 /obj/item/stack/flag/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "fS" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -523,19 +530,19 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "hi" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "hk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "hl" = (
 /obj/machinery/light/broken{
@@ -558,7 +565,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "hM" = (
 /obj/effect/decal/road_marking{
@@ -578,14 +585,14 @@
 	sensors = list("co2_sensor"="Tank")
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "il" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "im" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -662,7 +669,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "jq" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -685,7 +692,7 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/closet/hazmat/research,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "jG" = (
 /obj/machinery/air_sensor{
@@ -721,7 +728,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "jX" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -753,7 +760,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "km" = (
 /obj/structure/table/standard,
@@ -770,12 +777,12 @@
 "kn" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/rad/gear,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "kt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "kz" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -843,7 +850,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "lw" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -873,7 +880,7 @@
 "lU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "lY" = (
 /obj/structure/cable{
@@ -1010,7 +1017,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "nJ" = (
 /obj/structure/bed/stool/chair/office/light,
@@ -1061,7 +1068,7 @@
 /area/crystal_planet_outpost/medbay)
 "nW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/living)
 "nZ" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -1123,7 +1130,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "oU" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -1148,7 +1155,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "pv" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
@@ -1164,7 +1171,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "pW" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -1193,7 +1200,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "qy" = (
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -1268,7 +1275,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "rG" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_2a{
@@ -1336,7 +1343,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "sM" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1344,7 +1351,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "sR" = (
 /obj/structure/sink{
@@ -1367,13 +1374,13 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/ore_box,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "tp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "tq" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1381,7 +1388,7 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "ts" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -1416,7 +1423,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "tK" = (
 /obj/machinery/light/broken{
@@ -1475,7 +1482,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "uB" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_3c,
@@ -1489,13 +1496,13 @@
 /obj/item/pickaxe{
 	pixel_x = -12
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "vb" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "vi" = (
 /turf/simulated/wall,
@@ -1567,9 +1574,13 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
+"wA" = (
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled,
+/area/crystal_planet_outpost/living)
 "wB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "wK" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -1579,11 +1590,11 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "wQ" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "xm" = (
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1595,7 +1606,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "xE" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -1635,7 +1646,7 @@
 /area/crystal_planet_outpost/cave_entrance)
 "yb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "yc" = (
 /obj/machinery/power/apc/empty/north{
@@ -1645,13 +1656,13 @@
 	icon_state = "0-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "yd" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "yf" = (
 /obj/effect/shuttle_landmark/crystal_planet_outpost/landing_pad_4d{
@@ -1705,7 +1716,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -1764,7 +1775,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -1907,7 +1918,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "BI" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1937,7 +1948,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "CD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -1945,7 +1956,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "CF" = (
 /obj/structure/bed/padded,
@@ -1957,7 +1968,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "CH" = (
 /obj/machinery/light/colored/dying,
@@ -1979,7 +1990,7 @@
 /obj/item/pickaxe/drill{
 	pixel_y = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "CN" = (
 /obj/structure/table/steel,
@@ -1996,14 +2007,14 @@
 /area/crystal_planet_outpost/engineering)
 "CS" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "CX" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "CY" = (
 /obj/machinery/light/colored/dying{
@@ -2028,7 +2039,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "Di" = (
 /obj/structure/table/standard,
@@ -2052,7 +2063,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "Dw" = (
 /obj/machinery/light/broken{
@@ -2081,7 +2092,7 @@
 /obj/item/stack/flag/green,
 /obj/structure/closet/crate/miningcart,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "DP" = (
 /obj/structure/table/standard,
@@ -2127,7 +2138,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/living)
 "Eo" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2200,7 +2211,7 @@
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/living)
 "FP" = (
 /obj/structure/cable{
@@ -2208,7 +2219,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "Ge" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -2283,13 +2294,13 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Hh" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/dispenser/oxygen,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "Hi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2302,7 +2313,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Hq" = (
 /turf/unsimulated/marker/teal,
@@ -2351,7 +2362,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "HT" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -2375,7 +2386,7 @@
 "HY" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "HZ" = (
 /obj/machinery/atmospherics/portables_connector/fuel,
@@ -2416,7 +2427,7 @@
 "Iq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "IA" = (
 /obj/item/stack/material/tritium/ten,
@@ -2430,7 +2441,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "IL" = (
 /obj/structure/cable{
@@ -2458,6 +2469,12 @@
 	},
 /turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/landing)
+"IR" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
+/area/crystal_planet_outpost/engineering)
 "Jk" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /turf/simulated/floor/tiled,
@@ -2467,7 +2484,7 @@
 	pixel_x = -11
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "JB" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2522,7 +2539,7 @@
 "Kg" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "Kp" = (
 /obj/machinery/light/colored/dying{
@@ -2544,7 +2561,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "KA" = (
 /obj/structure/table/wood,
@@ -2562,7 +2579,7 @@
 "KG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "KI" = (
 /obj/structure/table/wood,
@@ -2599,7 +2616,7 @@
 	icon_state = "1-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Ll" = (
 /obj/structure/curtain/open/medical,
@@ -2656,7 +2673,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "LY" = (
 /obj/structure/table/standard,
@@ -2721,7 +2738,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "My" = (
 /obj/structure/closet/cabinet,
@@ -2736,7 +2753,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "MM" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -2838,7 +2855,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Om" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -2884,7 +2901,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "OG" = (
 /obj/structure/cable{
@@ -2894,7 +2911,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "OO" = (
 /obj/machinery/power/terminal{
@@ -2905,7 +2922,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "OU" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -2919,7 +2936,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "Pj" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -3044,7 +3061,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "Qx" = (
 /obj/structure/table/standard,
@@ -3149,7 +3166,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/engineering)
 "RF" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -3157,7 +3174,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "RN" = (
 /obj/random/dirt_75,
@@ -3249,7 +3266,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/loot,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "Tj" = (
 /obj/structure/table/standard,
@@ -3261,7 +3278,7 @@
 "Tq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/hazmat/research,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "TD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -3321,7 +3338,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "TQ" = (
 /obj/structure/cable/green,
@@ -3329,7 +3346,7 @@
 /obj/machinery/power/portgen/basic/fusion,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "TS" = (
 /obj/structure/cable{
@@ -3337,7 +3354,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "TT" = (
 /obj/structure/table/standard,
@@ -3350,7 +3367,7 @@
 "TU" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "TY" = (
 /obj/structure/flora/rock/ice,
@@ -3393,7 +3410,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "UJ" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal,
@@ -3423,7 +3440,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "Vj" = (
 /obj/random/dirt_75,
@@ -3478,12 +3495,17 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "VO" = (
 /obj/structure/flora/pottedplant/crystal,
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
+"Wp" = (
+/obj/random/dirt_75,
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled,
+/area/crystal_planet_outpost/medbay)
 "Ws" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
 /obj/structure/table/steel,
@@ -3538,12 +3560,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "Xk" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/cave_entrance)
 "Xp" = (
 /turf/simulated/floor/wood,
@@ -3583,7 +3605,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "XS" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3602,7 +3624,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/surface)
 "XY" = (
 /turf/simulated/floor/exoplanet/crystal,
@@ -3633,7 +3655,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/power)
 "YK" = (
 /obj/structure/cable{
@@ -3642,7 +3664,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/crystal_planet_outpost/engineering)
 "YL" = (
 /obj/effect/floor_decal/corner_wide/beige/diagonal,
@@ -3700,7 +3722,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating/asteroid/crystal,
 /area/crystal_planet_outpost/caves)
 "ZZ" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
@@ -22592,7 +22614,7 @@ NV
 xm
 Hq
 PN
-qP
+wA
 Mm
 ji
 PN
@@ -33152,7 +33174,7 @@ XY
 XY
 XY
 cc
-mN
+Wp
 cV
 Hw
 mN
@@ -36978,7 +37000,7 @@ JO
 ds
 AV
 tJ
-ed
+aO
 XH
 Ds
 ds
@@ -37235,7 +37257,7 @@ JO
 ds
 AV
 ed
-UH
+IR
 XH
 uy
 ds

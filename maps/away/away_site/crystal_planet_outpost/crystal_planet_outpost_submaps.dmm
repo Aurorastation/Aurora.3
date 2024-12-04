@@ -8,7 +8,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "an" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -60,7 +60,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "cZ" = (
 /obj/random/dirt_75,
@@ -129,7 +129,7 @@
 	icon_state = "0-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "fk" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -145,7 +145,7 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "fV" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -153,7 +153,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "ga" = (
 /obj/machinery/power/portgen/basic,
@@ -161,7 +161,7 @@
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "gm" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -204,6 +204,7 @@
 /obj/item/clothing/under/suit_jacket/tan,
 /obj/item/clothing/wrists/beaded,
 /obj/item/clothing/suit/storage/toggle/labcoat/accent,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "iO" = (
@@ -216,6 +217,7 @@
 /obj/structure/closet/cabinet,
 /obj/random/hoodie,
 /obj/item/clothing/under/qipao2,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "jn" = (
@@ -244,7 +246,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "kB" = (
 /obj/structure/structural_support,
@@ -276,7 +278,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "ly" = (
 /obj/random/dirt_75,
@@ -333,6 +335,7 @@
 /obj/item/clothing/shoes/winter,
 /obj/item/clothing/suit/storage/toggle/highvis,
 /obj/item/clothing/gloves/brassknuckles,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "mT" = (
@@ -364,7 +367,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "ni" = (
 /obj/structure/cable{
@@ -375,7 +378,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "nu" = (
 /obj/random/dirt_75,
@@ -400,6 +403,7 @@
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/suit/storage/toggle/himeo,
 /obj/random/dirt_75,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "ol" = (
@@ -438,6 +442,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/item/clothing/suit/storage/toggle/longcoat,
 /obj/random/dirt_75,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "pI" = (
@@ -471,7 +476,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "qK" = (
 /obj/structure/cable{
@@ -514,6 +519,7 @@
 	pixel_x = 2
 	},
 /obj/item/clothing/under/kimono/ronin,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "rC" = (
@@ -535,7 +541,7 @@
 "sm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "sT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -582,7 +588,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "tM" = (
 /obj/random/dirt_75,
@@ -629,7 +635,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "vs" = (
 /obj/random/dirt_75,
@@ -679,7 +685,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "yD" = (
 /obj/structure/cable{
@@ -704,7 +710,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "yT" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_04,
@@ -716,7 +722,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "zm" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -727,7 +733,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "zn" = (
 /obj/structure/structural_support,
@@ -737,7 +743,7 @@
 "zu" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "zI" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_03,
@@ -785,7 +791,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Be" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -793,7 +799,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Bo" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -835,7 +841,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Bu" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -930,7 +936,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Ds" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -972,7 +978,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "EO" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1010,7 +1016,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "FA" = (
 /turf/space,
@@ -1030,7 +1036,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Gj" = (
 /turf/unsimulated/marker/red,
@@ -1041,7 +1047,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "GA" = (
 /obj/effect/floor_decal/corner_wide/grey{
@@ -1062,7 +1068,7 @@
 	icon_state = "0-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "GG" = (
 /obj/machinery/power/emitter{
@@ -1076,7 +1082,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "GP" = (
 /obj/item/storage/belt/archaeology,
@@ -1179,7 +1185,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "JE" = (
 /obj/item/pickaxe{
@@ -1207,7 +1213,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "JN" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1234,7 +1240,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "KK" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -1247,6 +1253,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"KS" = (
+/obj/random/dirt_75,
+/obj/machinery/space_heater,
+/turf/simulated/floor/wood,
+/area/template_noop)
 "LM" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/basalt/crystal,
@@ -1257,7 +1268,7 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "MO" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1309,7 +1320,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Op" = (
 /obj/random/medical{
@@ -1350,7 +1361,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "OZ" = (
 /obj/structure/bed/padded,
@@ -1405,7 +1416,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "RK" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1461,7 +1472,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Uc" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1485,7 +1496,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Vb" = (
 /obj/random/dirt_75,
@@ -1509,6 +1520,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang/pants,
 /obj/item/clothing/shoes/konyang,
 /obj/item/clothing/under/konyang/male,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Vv" = (
@@ -1527,7 +1539,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "VO" = (
 /obj/random/dirt_75,
@@ -1586,7 +1598,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Xs" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -1595,7 +1607,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Xu" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1607,7 +1619,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "Xv" = (
 /obj/random/dirt_75,
@@ -1623,7 +1635,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "YB" = (
 /obj/random/dirt_75,
@@ -1646,7 +1658,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 "ZM" = (
 /obj/random/dirt_75,
@@ -1675,7 +1687,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/plating,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -2387,7 +2399,7 @@ Nu
 Nu
 Nu
 Nu
-VO
+KS
 ol
 tv
 Nu
