@@ -10,7 +10,6 @@
 	ship_cost = 1
 	id = "splf_raider"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/splf_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
