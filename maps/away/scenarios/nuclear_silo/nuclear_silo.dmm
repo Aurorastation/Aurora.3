@@ -122,7 +122,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/janitor)
@@ -204,7 +204,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
@@ -228,7 +228,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -260,7 +260,7 @@
 /area/nuclear_silo/lower_level/checkpoint)
 "aE" = (
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -268,7 +268,7 @@
 "aF" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/buildings)
@@ -332,7 +332,7 @@
 /obj/random/dirt_75,
 /obj/random/loot,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/south)
@@ -538,7 +538,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	dir = 2;
 	name = "Secondary Checkpoint";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/steel,
@@ -632,7 +632,7 @@
 /area/nuclear_silo/lower_level/medbay)
 "bE" = (
 /obj/machinery/door/airlock/glass_security{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Security Office"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -795,7 +795,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -1134,7 +1134,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor,
 /area/nuclear_silo/lower_level/engineering)
@@ -1147,7 +1147,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
 	name = "Delivery Storage Room";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -1266,7 +1266,7 @@
 /obj/random/dirt_75,
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
@@ -1319,7 +1319,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1759,7 +1759,7 @@
 	},
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
@@ -1788,7 +1788,7 @@
 "eh" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
@@ -2120,7 +2120,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -2508,7 +2508,7 @@
 "fR" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/glass_medical{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Surgical Theatre"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -2622,7 +2622,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -2988,7 +2988,7 @@
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -3248,7 +3248,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Secondary Checkpoint Hallway";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3261,7 +3261,7 @@
 "hE" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -3496,7 +3496,7 @@
 "ih" = (
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Morgue"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -3524,7 +3524,7 @@
 /obj/random/loot,
 /obj/random/dirt_75,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/wood,
 /area/nuclear_silo/lower_level/maintenance/south)
@@ -3564,7 +3564,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3615,7 +3615,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/white,
@@ -3753,7 +3753,7 @@
 	pixel_y = 0;
 	dir = 4;
 	pixel_x = 21;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
@@ -3840,7 +3840,7 @@
 "iZ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3899,7 +3899,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/nuke_monitoring)
@@ -3978,7 +3978,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/nuclear_silo/lower_level/civilian/cryogenics)
@@ -4057,7 +4057,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -4283,7 +4283,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/central)
@@ -4405,14 +4405,14 @@
 "kl" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "km" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
@@ -4484,7 +4484,7 @@
 /area/nuclear_silo/lower_level/hallway)
 "ks" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/junk,
 /obj/structure/cable/green{
@@ -4522,7 +4522,7 @@
 	name = "Emergency Barricade Storage";
 	id = "bunker_upper_barricades";
 	pixel_x = 21;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -4565,7 +4565,7 @@
 /area/nuclear_silo/lower_level/medbay)
 "kA" = (
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/maple,
@@ -4805,7 +4805,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/white,
@@ -5084,7 +5084,7 @@
 "lI" = (
 /obj/machinery/door/airlock/medical{
 	name = "CBRN Treatment Chamber";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor/noid,
@@ -5187,7 +5187,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/north)
@@ -5295,7 +5295,7 @@
 	pixel_y = 7
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -5473,7 +5473,7 @@
 /obj/machinery/door/airlock/service{
 	dir = 4;
 	name = "Kitchen";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5655,7 +5655,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5703,7 +5703,7 @@
 "nb" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5723,7 +5723,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5942,7 +5942,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/nuke_monitoring)
@@ -6356,7 +6356,7 @@
 /area/nuclear_silo/outside/mountain)
 "oz" = (
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
@@ -6529,7 +6529,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -6552,7 +6552,7 @@
 "oY" = (
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -6769,7 +6769,7 @@
 "pz" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
@@ -7251,7 +7251,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7353,7 +7353,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/checkpoint)
@@ -7598,7 +7598,7 @@
 /area/nuclear_silo/lower_level/engineering)
 "rz" = (
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -7608,7 +7608,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -7618,7 +7618,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/rubber,
@@ -7665,7 +7665,7 @@
 /obj/structure/roller_rack/three,
 /obj/machinery/light/colored/decayed/dimmed,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -7788,7 +7788,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -7827,7 +7827,7 @@
 /obj/machinery/door/airlock/glass_security{
 	dir = 4;
 	name = "Communal Cell";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7975,7 +7975,7 @@
 	},
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Medbay Office"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -8057,7 +8057,7 @@
 	must_start_working = 1
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8327,7 +8327,7 @@
 	},
 /obj/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
@@ -8403,14 +8403,14 @@
 	pixel_x = -6;
 	id = "bunker_upper_checkpoint_inner";
 	name = "Inner Checkpoint";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_x = 6;
 	id = "bunker_upper_checkpoint_outer";
 	name = "Outer Checkpoint";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/item/stamp/denied{
 	pixel_y = 12;
@@ -8448,7 +8448,7 @@
 "ty" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/glass_engineering{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Engineering"
 	},
 /obj/structure/cable/green{
@@ -8464,7 +8464,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
@@ -8555,7 +8555,7 @@
 "tJ" = (
 /obj/machinery/door/airlock/engineering{
 	dir = 8;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Power Generation"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -8619,7 +8619,7 @@
 "tP" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
@@ -8722,7 +8722,7 @@
 "ue" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Nuclear Missile Monitoring Room"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -8791,7 +8791,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = 4;
 	dir = 1;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Inner Gate Control";
 	pixel_x = -6;
 	pixel_y = 7
@@ -8799,7 +8799,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = 4;
 	dir = 1;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Outer Gate Control";
 	pixel_x = 7;
 	pixel_y = 7
@@ -8923,7 +8923,7 @@
 /obj/machinery/door/airlock/blue{
 	dir = 4;
 	name = "Bedroom";
-	req_access = list(248)
+	req_access = list(247)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9154,7 +9154,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "CBRN Wing Morgue";
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -9221,7 +9221,7 @@
 "vg" = (
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -9331,7 +9331,7 @@
 	},
 /obj/machinery/biogenerator,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9455,7 +9455,7 @@
 /obj/machinery/door/airlock/security{
 	dir = 4;
 	id_tag = "bunker_lower_armoury";
-	req_access = list(248);
+	req_access = list(247);
 	name = "Armoury"
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -9625,7 +9625,7 @@
 "wa" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -9753,7 +9753,7 @@
 	},
 /obj/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -10027,7 +10027,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -10087,7 +10087,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -10130,7 +10130,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -10155,7 +10155,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_security{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Security"
 	},
 /turf/simulated/floor/tiled,
@@ -10206,7 +10206,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -10425,7 +10425,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
@@ -10455,7 +10455,7 @@
 	name = "Bunker Turrets Control";
 	pixel_x = 32;
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -10469,7 +10469,7 @@
 "xY" = (
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -10550,7 +10550,7 @@
 	id = "bunker_lower_armoury";
 	pixel_x = 24;
 	specialfunctions = 4;
-	req_one_access = list(248);
+	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
 /obj/structure/table/standard,
@@ -10701,7 +10701,7 @@
 	pixel_y = -2;
 	id = "bunker_lower_checkpoint";
 	name = "Checkpoint Shutters";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
@@ -10743,7 +10743,7 @@
 "yF" = (
 /obj/machinery/door/airlock/medical{
 	name = "CBRN Wing Decontamination";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -10756,7 +10756,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -10838,7 +10838,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Tool Storage"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -11095,7 +11095,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/brig)
@@ -11393,7 +11393,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
@@ -11403,7 +11403,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -11746,7 +11746,7 @@
 	},
 /obj/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -11907,7 +11907,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
 	name = "Interrogation Chamber";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -11975,7 +11975,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12022,7 +12022,7 @@
 /obj/random/dirt_75,
 /obj/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
@@ -12084,7 +12084,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -12123,7 +12123,7 @@
 /area/nuclear_silo/lower_level/engineering)
 "BN" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/upper_level_lift)
@@ -12152,7 +12152,7 @@
 /obj/random/dirt_75,
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -12225,7 +12225,7 @@
 "Cb" = (
 /obj/machinery/door/airlock/security{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Armoury Office"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -12630,7 +12630,7 @@
 	pixel_x = -9
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12770,7 +12770,7 @@
 	},
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/north)
@@ -12906,7 +12906,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -12996,7 +12996,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
@@ -13315,7 +13315,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/light/colored/dying{
 	dir = 4
@@ -13526,7 +13526,7 @@
 "Fh" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -13652,7 +13652,7 @@
 "Fx" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13717,7 +13717,7 @@
 /area/nuclear_silo/outside/buildings)
 "FG" = (
 /obj/machinery/door/airlock/glass_security{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Security"
 	},
 /obj/structure/cable/green{
@@ -13871,7 +13871,7 @@
 "FX" = (
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -13899,7 +13899,7 @@
 "Gb" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/blast/regular{
 	name = "Emergency Barricade Storage";
@@ -14259,7 +14259,7 @@
 "GT" = (
 /obj/structure/closet/secure_closet{
 	icon_state = "sec";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/item/clothing/head/bandana/security,
 /obj/item/clothing/head/beret/security,
@@ -14313,7 +14313,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -14393,7 +14393,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -14460,7 +14460,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/north)
@@ -14643,7 +14643,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -14826,7 +14826,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/south)
@@ -14915,7 +14915,7 @@
 /area/nuclear_silo/lower_level/checkpoint)
 "Ix" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/full,
@@ -15140,7 +15140,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
@@ -15162,7 +15162,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/north)
@@ -15411,7 +15411,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/medbay)
@@ -15432,7 +15432,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
@@ -15496,7 +15496,7 @@
 /area/nuclear_silo/lower_level/medbay)
 "JM" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
@@ -15552,7 +15552,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/glass_engineering{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Engineering"
 	},
 /turf/simulated/floor/tiled,
@@ -15958,7 +15958,7 @@
 "KQ" = (
 /obj/structure/closet/secure_closet{
 	icon_state = "sec";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/item/clothing/head/bandana/security,
 /obj/item/clothing/head/beret/security,
@@ -16070,7 +16070,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
@@ -16254,7 +16254,7 @@
 /area/nuclear_silo/outside/buildings)
 "LC" = (
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
@@ -16451,7 +16451,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -16617,7 +16617,7 @@
 /area/nuclear_silo/lower_level/medbay)
 "Mu" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16668,7 +16668,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -16708,7 +16708,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -16861,7 +16861,7 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "MY" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -17079,7 +17079,7 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "ND" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "HIGH SECURITY - Monitoring Sector"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -17194,7 +17194,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -17254,7 +17254,7 @@
 "Oc" = (
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -17274,7 +17274,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -17359,7 +17359,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/engineering)
@@ -17426,7 +17426,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
 	name = "Secondary Checkpoint";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -17526,7 +17526,7 @@
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "OI" = (
 /obj/machinery/porta_turret/ballistic{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -17549,7 +17549,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -17652,7 +17652,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/random/contraband,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
@@ -17668,7 +17668,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
@@ -17727,7 +17727,7 @@
 "Pi" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/glass_medical{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Medbay Office"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -17791,7 +17791,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
@@ -17836,7 +17836,7 @@
 "Pu" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "DANGER, RADIATION - Nuclear Missile Silo"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -18075,7 +18075,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
 	name = "Secondary Checkpoint";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -18124,7 +18124,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east)
@@ -18135,7 +18135,7 @@
 /obj/structure/table/steel,
 /obj/random/pottedplant_small,
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/nuclear_silo/lower_level/civilian/cryogenics)
@@ -18438,7 +18438,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
@@ -18499,7 +18499,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -18559,7 +18559,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
@@ -18603,7 +18603,7 @@
 /obj/machinery/door/airlock/blue{
 	dir = 4;
 	name = "Bedroom";
-	req_access = list(248)
+	req_access = list(247)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -18701,7 +18701,7 @@
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18719,7 +18719,7 @@
 /area/nuclear_silo/outside/buildings/town)
 "Rv" = (
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -19021,7 +19021,7 @@
 "Si" = (
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Medical Storage"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -19246,7 +19246,7 @@
 /area/nuclear_silo/lower_level/hallway)
 "SF" = (
 /obj/machinery/door/airlock/glass_security{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Security Storage"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -19309,7 +19309,7 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "SL" = (
 /obj/machinery/alarm/north{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
@@ -19511,7 +19511,7 @@
 /area/nuclear_silo/lower_level/checkpoint)
 "Ti" = (
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -19549,7 +19549,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor,
 /area/nuclear_silo/lower_level/engineering)
@@ -19876,7 +19876,7 @@
 /area/nuclear_silo/lower_level/civilian/freezer)
 "Uc" = (
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
@@ -19925,7 +19925,7 @@
 /obj/structure/curtain/open/shower,
 /obj/effect/floor_decal/industrial/hatch/blue,
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
@@ -20031,7 +20031,7 @@
 "Uw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/north)
@@ -20130,7 +20130,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "HIGH SECURITY - Monitoring Sector"
 	},
 /obj/random/dirt_75,
@@ -20150,7 +20150,7 @@
 "UK" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Heavy Items Storage"
 	},
 /obj/machinery/door/firedoor/noid{
@@ -20555,7 +20555,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -20869,7 +20869,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/east{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/random/dirt_75,
@@ -20932,7 +20932,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/south{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/janitor)
@@ -20955,7 +20955,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
@@ -20978,7 +20978,7 @@
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
@@ -21080,7 +21080,7 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "WF" = (
 /obj/machinery/porta_turret/ballistic{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/full,
@@ -21110,7 +21110,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
@@ -21145,7 +21145,7 @@
 	pixel_y = -4;
 	id = "bunker_lower_messhall";
 	name = "Messhall Shutters";
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/item/storage/box/produce{
 	pixel_y = 9
@@ -21178,7 +21178,7 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -21238,7 +21238,7 @@
 "WX" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Atmosphere Recycling and Scrubbing"
 	},
 /obj/structure/cable/green{
@@ -21412,7 +21412,7 @@
 /area/nuclear_silo/outside/buildings)
 "Xo" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21546,7 +21546,7 @@
 "XE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/glass_medical{
-	req_one_access = list(247,248);
+	req_one_access = list(246,247);
 	name = "Pharmacy"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -21666,7 +21666,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "CBRN Wing Decontamination";
 	dir = 4;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -21702,7 +21702,7 @@
 /area/nuclear_silo/lower_level/security)
 "XU" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/random/dirt_75,
@@ -21833,7 +21833,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/west{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
@@ -21894,7 +21894,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/power/apc/west{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -21939,7 +21939,7 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
@@ -22425,7 +22425,7 @@
 "ZH" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -22496,7 +22496,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_corner/red,
 /obj/machinery/alarm/east{
-	req_one_access = list(247,248)
+	req_one_access = list(246,247)
 	},
 /turf/simulated/floor/tiled/ridged{
 	temperature = 315.15

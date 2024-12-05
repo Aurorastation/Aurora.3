@@ -836,12 +836,12 @@
 	id = ACCESS_RUINED_PROPELLANT_DEPOT
 	desc = "Propellant Depot AG5 Access"
 
-#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 247
+#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 246
 /datum/access/nuclear_missile_silo_access_high
 	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
 	desc = "Nuclear Missile Silo Access High Security"
 
-#define ACCESS_NUCLEAR_MISSILE_SILO 248
+#define ACCESS_NUCLEAR_MISSILE_SILO 247
 /datum/access/nuclear_missile_silo_access
 	id = ACCESS_NUCLEAR_MISSILE_SILO
 	desc = "Nuclear Missile Silo Access"
