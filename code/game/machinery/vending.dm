@@ -103,23 +103,26 @@
 	// Variables used to initialize advertising
 	/// String of slogans spoken out loud, separated by semicolons
 	var/product_slogans = ""
+	/// Set on init. Populated by `product_slogans`
+	var/list/slogan_list = list()
 	/// String of small ad messages in the vending screen
 	var/product_ads = ""
-
+	/// Set on init. Populated by `product_ads`
 	var/list/ads_list = list()
+	/// String of messages spoken when item is vended, seperated by semicolons
+	var/vend_reply = ""
+	/// Set on init. Populated by `vend_reply`
+	var/list/reply_list = list()
 
 	// Stuff relating vocalizations
-	var/list/slogan_list = list()
 	/// Stop spouting those godawful pitches!
 	var/shut_up = TRUE
-	/// Thank you for shopping!
-	var/vend_reply = ""
 	/// When did we last reply?
 	var/last_reply = 0
 	/// When did we last pitch?
 	var/last_slogan = 0
 	/// How long until we can pitch again?
-	var/slogan_delay = 6000
+	var/slogan_delay = 10 MINUTES
 
 	// Things that can go wrong
 	/// Ignores if somebody doesn't have card access to that machine.
@@ -180,6 +183,9 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
+
+	if(src.vend_reply)
+		src.reply_list += text2list(src.vend_reply, ";")
 
 	reset_light()
 	build_products()
@@ -733,8 +739,9 @@
 		R.amount--
 		SStgui.update_uis(src)
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		src.speak(src.vend_reply)
+	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && (src.reply_list.len > 0) && !src.shut_up)
+		var/reply = pick(src.reply_list)
+		src.speak(reply)
 		src.last_reply = world.time
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
@@ -801,14 +808,14 @@
 
 /obj/machinery/vending/proc/speak(var/message)
 	if(stat & NOPOWER)
-		return
+		return FALSE
 
 	if (!message)
-		return
+		return FALSE
 
 	for(var/mob/O in hearers(src, null))
 		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
-	return
+	return TRUE
 
 /obj/machinery/vending/power_change()
 	..()
