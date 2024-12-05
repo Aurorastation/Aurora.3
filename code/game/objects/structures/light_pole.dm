@@ -14,16 +14,8 @@
 	icon_state = "rustlamp_r"
 
 /obj/structure/light_pole/decayed
-	name = "light pole"
 	desc = "A tall light source. The bulb appears to be decayed."
-	icon = 'icons/effects/32x96.dmi'
-	icon_state = "rustlamp_l"
-	anchored = TRUE
-	density = TRUE
-	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_DECAYED
-	light_range = 8
-	light_power = 8
 
 /obj/structure/light_pole/decayed/r
 	icon_state = "rustlamp_r"
