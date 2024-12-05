@@ -56,9 +56,9 @@
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_NOTICE("\The [src] does not require repairs."))
 		else
+			to_chat(usr, SPAN_NOTICE("You attempt to replace some cabling for \the [src]..."))
 			while(C.can_use(2, user))
-				to_chat(usr, SPAN_NOTICE("You begin to replace some cabling for \the [src]..."))
-				if (do_after(user, 15 SECONDS, src, DO_UNIQUE))
+				if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 					if(hotwire_progress < initial(hotwire_progress))
 						C.use(2)
 						hotwire_progress++
