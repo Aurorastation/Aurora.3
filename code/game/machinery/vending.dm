@@ -133,7 +133,8 @@
 	var/shoot_inventory = FALSE
 	var/shoot_inventory_chance = 1
 
-	var/scan_id = 1
+	/// If `TRUE`, this vendor checks IDs.
+	var/scan_id = TRUE
 	var/obj/item/coin/coin
 	var/datum/wires/vending/wires = null
 
@@ -343,7 +344,10 @@
 		user.drop_from_inventory(attacking_item,src)
 		coin = attacking_item
 		categories |= CAT_COIN
-		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
+		if(coin.string_attached)
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src], but with the attached string hanging outside the vendor ready to be pulled out!"))
+		else
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
 	else if(attacking_item.iswrench())
@@ -720,11 +724,13 @@
 		if(coin.string_attached)
 			if(prob(50))
 				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
+				var/obj/item/coin/returned_coin = new(coin)
+				returned_coin.AddOverlays("coin_string_overlay")
+				returned_coin.string_attached = TRUE
+				user.put_in_hands(returned_coin)
 			else
 				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
-				QDEL_NULL(coin)
-		else
-			QDEL_NULL(coin)
+		QDEL_NULL(coin)
 
 		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
 		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
