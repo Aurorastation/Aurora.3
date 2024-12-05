@@ -210,9 +210,9 @@
 	. = ..()
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)
-			. += "The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>"
+			. += SPAN_SUBTLE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
 		else
-			. += "The bottom panel appears open with wires hanging out. It can be repaired with additional cabling."
+			. += SPAN_SUBTLE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
 	if(emagged)
