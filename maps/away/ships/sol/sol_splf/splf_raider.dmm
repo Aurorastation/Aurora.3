@@ -583,7 +583,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/structure/closet/crate/bin,
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/structure/bedsheetbin{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "dB" = (
@@ -1578,7 +1582,7 @@
 /obj/item/material/knife/butterfly/switchblade,
 /obj/item/material/knife/butterfly/switchblade,
 /obj/structure/sign/flag/mictlan{
-	dir = 4;
+	dir = 8;
 	pixel_y = 32
 	},
 /obj/item/clothing/accessory/flagpatch/mictlan,
@@ -2026,13 +2030,6 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/propulsion)
-"lV" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "lW" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /obj/structure/cable/green{
@@ -2075,6 +2072,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
+"mn" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "mr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -2109,9 +2113,6 @@
 	},
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/engine)
@@ -2206,6 +2207,22 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/splf)
+"nj" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/splf_raider/engine)
 "nn" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -2277,22 +2294,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
-"nD" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/structure/table/standard,
-/obj/random/dirt_75,
-/obj/random/pottedplant_small{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "nH" = (
 /obj/structure/bed/stool/bar/padded/red{
 	dir = 8
@@ -2702,6 +2703,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/lounge)
+"qi" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/central)
 "qr" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -2787,14 +2798,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
-"qC" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/washing_machine,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "qL" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3181,11 +3184,10 @@
 /area/splf_raider/office)
 "sa" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 6
+	dir = 10
 	},
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = 32
-	},
+/obj/machinery/washing_machine,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "sg" = (
@@ -3540,16 +3542,6 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/medical)
-"uA" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
-/area/splf_raider/central)
 "uI" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -4216,6 +4208,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/closet)
+"yY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "yZ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -4786,13 +4787,6 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/splf_raider/lounge)
-"BX" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "Cb" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Tank to Thrusters";
@@ -4924,17 +4918,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor,
 /area/splf_raider/propulsion)
-"Dk" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/random/dirt_75,
-/obj/structure/table/standard,
-/obj/structure/bedsheetbin{
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/splf_raider/central)
 "Dt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5091,6 +5074,9 @@
 	},
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/engine)
 "DW" = (
@@ -5148,7 +5134,6 @@
 	pixel_x = 6
 	},
 /obj/item/towel{
-	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
@@ -7082,6 +7067,30 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
 /area/space)
+"PJ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/obj/random/pottedplant_small{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = 11;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/spray{
+	pixel_x = 17;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "PO" = (
 /turf/space/transit/north,
 /area/space)
@@ -7269,6 +7278,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/washroom)
+"QU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "QX" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -8235,9 +8251,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "splf_chamber_vent";
 	name = "Emergency Chamber Vent";
@@ -8489,6 +8502,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/gunmetal,
 /area/splf_raider/gunnery)
+"Yk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "Yn" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 5
@@ -38511,7 +38531,7 @@ Zs
 JX
 Zr
 oD
-Zr
+nj
 WV
 Xe
 PD
@@ -40833,7 +40853,7 @@ oT
 vZ
 HP
 uQ
-dA
+QU
 If
 yg
 rm
@@ -41348,12 +41368,12 @@ yb
 AK
 OD
 hV
-BX
+mn
 Af
 Jz
 eA
 Jz
-lV
+Yk
 Jz
 Jz
 eA
@@ -41862,7 +41882,7 @@ yb
 AK
 OD
 XK
-sa
+yY
 Zt
 Wo
 mr
@@ -42375,7 +42395,7 @@ Nz
 bd
 Zj
 uQ
-qC
+sa
 No
 tA
 Ek
@@ -42632,7 +42652,7 @@ yc
 AT
 eB
 Su
-nD
+PJ
 No
 rB
 RU
@@ -43146,7 +43166,7 @@ bd
 bd
 AK
 OD
-Dk
+dA
 No
 yF
 Vr
@@ -43403,7 +43423,7 @@ nO
 zH
 Fu
 ef
-uA
+qi
 No
 No
 No
