@@ -56,4 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Vending Machines can now launch inventory at people again (Yippee!)"
+  - bugfix: "Fixed functionality relating to attaching a string to a coin to cheat vending machines."
   - code_imp: "DMdocs for vending.dm."
