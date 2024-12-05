@@ -13,10 +13,14 @@
 	var/ui_template = "ShuttleControlConsole"
 	var/list/linked_helmets = list()
 	var/can_rename_ship = FALSE
+
 	/// Set by emag_act(), stores the old access to be restored at a later time.
 	var/list/req_access_old
 	/// Set by emag_act(), stores the old access to be restored at a later time.
 	var/list/req_one_access_old
+
+	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
+	var/hotwire_progress = 8
 
 /obj/machinery/computer/shuttle_control/Initialize()
 	. = ..()
@@ -47,18 +51,39 @@
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
+	if(attacking_item.iscoil()) // Repair from hotwire
+		var/obj/item/stack/cable_coil/C = attacking_item
+		if(hotwire_progress >= initial(hotwire_progress))
+			to_chat(usr, SPAN_NOTICE("\The [src] does not require repairs."))
+		else
+			while(C.can_use(2, user))
+				to_chat(usr, SPAN_NOTICE("You begin to replace some cabling for \the [src]..."))
+				if (do_after(user, 15 SECONDS, src, DO_UNIQUE))
+					if(hotwire_progress < initial(hotwire_progress))
+						C.use(2)
+						hotwire_progress++
+						if(hotwire_progress >= initial(hotwire_progress))
+							restore_access(user)
+							return
+						to_chat(usr, SPAN_NOTICE("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
+						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+			return
+
 	if(attacking_item.iswirecutter()) // Hotwiring
-		if(!req_access && !req_one_access && !emagged) // Already fixed/no need to hack
+		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
 			to_chat(user, SPAN_NOTICE("[src] is not access-locked."))
 			return
 		// Begin hotwire
-		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_NOTICE("You open the maintenance panel and start to [emagged ? "repair" : "hotwire"] \the [src] (This will take around two minutes)..."))
-		if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
-			if(!emagged)
-				emag_act(user=user, hotwired=TRUE)
-				return
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_NOTICE("You open the maintenance panel and attempt to hotwire \the [src]..."))
+		while(hotwire_progress > 0)
+			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
+				hotwire_progress--
+				if(hotwire_progress <= 0)
+					emag_act(user=user, hotwired=TRUE)
+					return
+				to_chat(user, SPAN_NOTICE("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 			else
-				restore_access(user)
 				return
 	return ..()
 
@@ -183,8 +208,11 @@
 
 /obj/machinery/computer/shuttle_control/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(emagged)
-		. += "Its bottom panel appears open with wires hanging out. It can be repaired with <b>wirecutters</b>."
+	if(initial(hotwire_progress) != hotwire_progress)
+		if(hotwire_progress != 0)
+			. += "The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>"
+		else
+			. += "The bottom panel appears open with wires hanging out. It can be repaired with additional cabling."
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
 	if(emagged)
@@ -201,6 +229,7 @@
 	else
 		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
 	spark(src, 2, 0)
+	hotwire_progress = 0
 	return TRUE
 
 /// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
@@ -213,6 +242,7 @@
 	emagged = FALSE
 	to_chat(user, "You repair out the console's ID checking system. It's access restrictions have been restored.")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
+	hotwire_progress = initial(hotwire_progress)
 	return TRUE
 
 /obj/machinery/computer/shuttle_control/ex_act()
