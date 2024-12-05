@@ -27,3 +27,37 @@
 	build_from_parts = TRUE
 	worn_overlay = "chain"
 	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/voidtamer
+	name = "decorated carp robes"
+	desc = "An aged, but well-crafted set of robes made of tanned carp hide and adorned with woven gold throughout."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "void_jacket"
+	item_state = "void_jacket"
+	icon_override = 'icons/obj/diona_items.dmi'
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+
+
+/obj/item/clothing/accessory/poncho/voidtamer/apron
+	name = "decorated carp apron"
+	desc = "An aged, but well-crafted apron made of tanned carp hide and adorned with woven gold throughout."
+	icon_state = "void_apron"
+	item_state = "void_apron"
+
+/obj/item/clothing/accessory/poncho/voidtamer/vest
+	name = "decorated carp robes"
+	desc = "An aged, but well-crafted suit made of tanned carp hide and adorned with woven gold throughout."
+	icon_state = "void_vest"
+	item_state = "void_vest"
+
+/obj/item/clothing/accessory/poncho/ekane_cloak
+	name = "feathered cloak"
+	desc = "A colorful cloak featuring a myriad of feathers adorned across its surface."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "ekane_cloak"
+	item_state = "ekane_cloak"
+	icon_override = 'icons/obj/diona_items.dmi'
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE

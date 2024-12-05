@@ -332,6 +332,13 @@
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
 
+/mob/living/simple_animal/spiderbot/zMove(direction)
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		mech.zMove(direction)
+		return
+	..()
+
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
