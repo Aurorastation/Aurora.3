@@ -31,3 +31,6 @@
   notagonk:
   - qol: Rearranges the HOS' office and surrounding maintenance to smooth out some
       accessibility issues.
+2024-12-05:
+  Ben10083:
+  - bugfix: Restores missing wiring behind Head of Security Office.
