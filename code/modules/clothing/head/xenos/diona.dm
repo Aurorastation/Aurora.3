@@ -8,7 +8,7 @@
 
 /obj/item/clothing/head/diona/ekane/decorated
 	name = "decorated feather cap"
-	desc = "an exuberant hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
+	desc = "An exuberant hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
 	item_state = "ekane_hatd"
 	icon_state = "ekane_hatd"
 	icon_override = null
