@@ -583,6 +583,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "dB" = (
@@ -1249,12 +1250,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/splf)
 "hs" = (
-/obj/structure/closet/crate/hydroponics/prespawned,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/closet/crate/hydroponics,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/minihoe,
+/obj/item/material/scythe/sickle,
+/obj/item/wirecutters/clippers,
+/obj/item/material/hatchet,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "hu" = (
@@ -1310,11 +1316,9 @@
 	must_start_working = 1
 	},
 /obj/machinery/alarm/south,
-/obj/machinery/suit_cycler/offship/sol{
-	req_access = list(246)
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "hT" = (
@@ -1370,8 +1374,8 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/watertank,
 /obj/random/dirt_75,
-/obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "ip" = (
@@ -1579,6 +1583,8 @@
 	},
 /obj/item/clothing/accessory/flagpatch/mictlan,
 /obj/item/clothing/accessory/flagpatch/mictlan,
+/obj/random/arcade,
+/obj/random/arcade,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/quarters)
 "jv" = (
@@ -2020,6 +2026,13 @@
 	},
 /turf/simulated/floor,
 /area/splf_raider/propulsion)
+"lV" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "lW" = (
 /obj/effect/floor_decal/corner_wide/brown/full,
 /obj/structure/cable/green{
@@ -2264,6 +2277,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/splf_raider/starboard_hall)
+"nD" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/obj/random/pottedplant_small{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "nH" = (
 /obj/structure/bed/stool/bar/padded/red{
 	dir = 8
@@ -2369,9 +2398,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/machinery/suit_cycler/offship/sol{
-	req_access = list(246)
-	},
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "os" = (
@@ -2760,6 +2787,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/washroom)
+"qC" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/washing_machine,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "qL" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3085,9 +3120,9 @@
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/drinks/flask/barflask{
+/obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = -6;
-	pixel_y = 16
+	pixel_y = 21
 	},
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/kitchen)
@@ -3144,6 +3179,15 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/office)
+"sa" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "sg" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
@@ -3329,6 +3373,7 @@
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/random/dirt_75,
+/obj/random/smokable,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_slot)
 "sZ" = (
@@ -3495,6 +3540,16 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/splf_raider/medical)
+"uA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/splf_raider/central)
 "uI" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -4638,6 +4693,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "Bx" = (
@@ -4678,13 +4734,14 @@
 /obj/machinery/alarm/east,
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
-	pixel_y = 10;
+	pixel_y = 17;
 	pixel_x = 3
 	},
 /obj/item/pen{
 	pixel_x = 3;
-	pixel_y = 10
+	pixel_y = 18
 	},
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled,
 /area/splf_raider/bridge)
 "BM" = (
@@ -4729,6 +4786,13 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/splf_raider/lounge)
+"BX" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "Cb" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	name = "Tank to Thrusters";
@@ -4761,6 +4825,7 @@
 	},
 /obj/machinery/light/colored/decayed,
 /obj/random/dirt_75,
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "Cm" = (
@@ -4859,6 +4924,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor,
 /area/splf_raider/propulsion)
+"Dk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/structure/bedsheetbin{
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/splf_raider/central)
 "Dt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5063,6 +5139,19 @@
 	dir = 10
 	},
 /obj/machinery/light/colored/decayed,
+/obj/structure/table/standard,
+/obj/item/towel{
+	pixel_x = 15;
+	pixel_y = 7
+	},
+/obj/item/towel{
+	pixel_x = 6
+	},
+/obj/item/towel{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "Eb" = (
@@ -5736,9 +5825,7 @@
 /area/splf_raider/gunnery)
 "IB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/suit_cycler/offship/sol{
-	req_access = list(246)
-	},
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "IE" = (
@@ -5912,9 +5999,6 @@
 	},
 /obj/machinery/alarm/north,
 /obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/item/towel,
-/obj/item/towel,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "JG" = (
@@ -7004,9 +7088,7 @@
 "PQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
-/obj/machinery/suit_cycler/offship/sol{
-	req_access = list(246)
-	},
+/obj/machinery/suit_cycler/offship/sol/splf,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "PS" = (
@@ -7408,8 +7490,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/structure/closet/crate/bin,
 /obj/random/dirt_75,
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/central)
 "So" = (
@@ -7756,6 +7838,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/splf_raider/docking)
 "Um" = (
@@ -41265,12 +41348,12 @@ yb
 AK
 OD
 hV
-Jz
+BX
 Af
 Jz
 eA
 Jz
-Jz
+lV
 Jz
 Jz
 eA
@@ -41779,7 +41862,7 @@ yb
 AK
 OD
 XK
-Wo
+sa
 Zt
 Wo
 mr
@@ -42292,7 +42375,7 @@ Nz
 bd
 Zj
 uQ
-dA
+qC
 No
 tA
 Ek
@@ -42549,7 +42632,7 @@ yc
 AT
 eB
 Su
-dA
+nD
 No
 rB
 RU
@@ -43063,7 +43146,7 @@ bd
 bd
 AK
 OD
-dA
+Dk
 No
 yF
 Vr
@@ -43320,7 +43403,7 @@ nO
 zH
 Fu
 ef
-zx
+uA
 No
 No
 No
