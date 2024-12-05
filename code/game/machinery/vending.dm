@@ -160,7 +160,8 @@
 	/// Lighting mask for vending machine
 	var/light_mask
 
-	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	/// This is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	var/ui_size = 80
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
