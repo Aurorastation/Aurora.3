@@ -284,19 +284,17 @@
 	},
 /area/nuclear_silo/outside/buildings)
 "aH" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aI" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /obj/structure/curtain/open/bed{
 	name = "curtain";
-	color = "#00bfff"
+	color = "#868E96"
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
@@ -766,11 +764,6 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/structure/cable/green,
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(247,248)
-	},
 /turf/simulated/floor/exoplanet/lino,
 /area/nuclear_silo/outside/buildings)
 "bZ" = (
@@ -1007,9 +1000,17 @@
 /obj/random_produce,
 /obj/random_produce,
 /obj/random_produce,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/nuclear_silo/outside/buildings)
+"cA" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/structure/bookcase/manuals/medical,
+/turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
 "cB" = (
 /obj/structure/closet/crate/hydroponics,
@@ -1027,6 +1028,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
+"cD" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
+"cE" = (
+/obj/structure/bookcase/manuals/engineering,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "cF" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/corner/blue{
@@ -2245,6 +2259,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/medical2,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
 "fm" = (
@@ -3103,6 +3118,12 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
+"hm" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/nuclear_silo/outside/cave/bunker)
 "ho" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/random,
@@ -3143,10 +3164,19 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/hallway)
 "hs" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/nuclear_silo/outside/cave/bunker)
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 16;
+	pixel_x = -7
+	},
+/turf/simulated/floor/carpet/green,
+/area/nuclear_silo/outside/buildings)
+"ht" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings)
 "hu" = (
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
@@ -3388,6 +3418,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
+"hX" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "hY" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -3513,9 +3547,6 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "im" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
@@ -3555,6 +3586,11 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/medbay)
+"ir" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "is" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -3634,7 +3670,7 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "iC" = (
-/obj/structure/bookcase,
+/obj/structure/bookcase/libraryspawn,
 /turf/simulated/floor/carpet/purple,
 /area/nuclear_silo/outside/buildings)
 "iD" = (
@@ -3679,9 +3715,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Messhall"
-	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "iH" = (
@@ -3739,6 +3772,10 @@
 /area/nuclear_silo/outside/cave/bunker)
 "iO" = (
 /obj/effect/map_effect/window_spawner/full/wood,
+/obj/structure/curtain/open/bed{
+	name = "curtain";
+	color = "#00bfff"
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings/town)
 "iP" = (
@@ -3795,9 +3832,9 @@
 /area/nuclear_silo/outside/surface)
 "iX" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/outfit/admin/generic,
 /obj/random/arcade,
 /obj/random/hoodie,
+/obj/outfit/admin/generic/nuclear_silo_crew/upper/villager,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
 "iZ" = (
@@ -3868,7 +3905,11 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "jf" = (
 /obj/structure/table/wood/mahogany,
-/turf/simulated/floor/exoplanet/wood,
+/obj/item/material/ashtray/plastic{
+	pixel_y = 10;
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/tiled,
 /area/nuclear_silo/outside/buildings)
 "jg" = (
 /obj/machinery/door/airlock{
@@ -4051,6 +4092,7 @@
 	name = "autopsy sink";
 	pixel_x = -20
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -4095,6 +4137,7 @@
 	pixel_y = 8;
 	pixel_x = -3
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -4277,9 +4320,6 @@
 "kb" = (
 /obj/structure/railing/fence{
 	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
@@ -4497,6 +4537,10 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/cave/bunker)
+"kx" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
+/area/nuclear_silo/outside/cave/bunker)
 "ky" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/reagent_containers/chem_disp_cartridge,
@@ -4604,6 +4648,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
+"kI" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "kJ" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -4718,6 +4767,9 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "kT" = (
 /obj/structure/table/wood,
+/obj/item/storage/backpack/satchel/pocketbook{
+	pixel_y = 9
+	},
 /turf/simulated/floor/carpet/green,
 /area/nuclear_silo/outside/buildings)
 "kV" = (
@@ -4908,7 +4960,8 @@
 /area/nuclear_silo/outside/buildings)
 "ls" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/random/junk,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -5197,11 +5250,13 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "mb" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/exoplanet/plating,
-/area/nuclear_silo/outside/cave/bunker)
+/obj/effect/map_effect/window_spawner/full/wood,
+/obj/structure/curtain/open/bed{
+	name = "curtain";
+	color = "#A25204"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "mc" = (
 /obj/structure/table/wood/mahogany,
 /obj/random/booze{
@@ -5959,6 +6014,16 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
+"nK" = (
+/obj/random/dirt_75,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "nL" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -6077,6 +6142,7 @@
 	pixel_y = 6;
 	pixel_x = -6
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -6176,8 +6242,8 @@
 /area/nuclear_silo/lower_level/hallway)
 "on" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/meat,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -6230,12 +6296,6 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "ot" = (
 /obj/structure/stairs/north,
-/obj/structure/cable/green{
-	icon_state = "12-0"
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "ou" = (
@@ -6302,8 +6362,8 @@
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "oA" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/outfit/admin/generic,
 /obj/random/coin,
+/obj/outfit/admin/generic/nuclear_silo_crew/upper/villager,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
 "oB" = (
@@ -6424,7 +6484,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/lino,
 /area/nuclear_silo/outside/buildings)
 "oR" = (
 /obj/structure/closet/cabinet,
@@ -6727,6 +6787,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
+"pC" = (
+/obj/vehicle/bike/snow{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "pD" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -6814,9 +6882,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Gym"
-	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/gym)
 "pR" = (
@@ -6881,7 +6946,7 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "qa" = (
-/obj/structure/bookcase,
+/obj/structure/bookcase/libraryspawn,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "qb" = (
@@ -7929,12 +7994,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/civilian/gym)
-"sz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/nuclear_silo/outside/cave/bunker)
 "sA" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -8159,15 +8218,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/cave/bunker)
 "tb" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
+/obj/vehicle/bike/snow{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/nuclear_silo/outside/cave/bunker)
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "tc" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering,
 /obj/machinery/computer/terminal{
@@ -8334,6 +8389,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
+"tu" = (
+/obj/machinery/door/blast/shutters{
+	name = "Dusty Shutter";
+	id = "bunker_upper_snowmobiles"
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "tv" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -8428,6 +8490,21 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
+"tC" = (
+/obj/structure/table/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_y = -1;
+	pixel_x = 6;
+	id = "bunker_upper_snowmobiles";
+	name = "Dusty Button"
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "tD" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/magenta,
@@ -8453,6 +8530,14 @@
 /obj/effect/decal/cleanable/floor_damage/burned2,
 /turf/simulated/floor/wood/ebony,
 /area/nuclear_silo/outside/buildings/town)
+"tG" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/obj/structure/curtain/open/bed{
+	name = "curtain";
+	color = "#328E63"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "tH" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9060,6 +9145,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Messhall"
+	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "uW" = (
@@ -9126,6 +9214,10 @@
 "ve" = (
 /turf/simulated/wall,
 /area/nuclear_silo/lower_level/civilian/bathrooms)
+"vf" = (
+/obj/random/junk,
+/turf/simulated/floor/wood/walnut,
+/area/nuclear_silo/outside/buildings)
 "vg" = (
 /obj/machinery/power/apc/north{
 	req_access = null;
@@ -9150,11 +9242,11 @@
 /turf/simulated/floor/exoplanet/wood/walnut,
 /area/nuclear_silo/lower_level/hallway)
 "vh" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/lino,
-/area/nuclear_silo/outside/buildings)
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "vi" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room_north,
 /turf/simulated/floor/tiled,
@@ -9212,6 +9304,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/maintenance/east)
+"vs" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "vt" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -9238,12 +9339,17 @@
 /area/nuclear_silo/lower_level/civilian/hydroponics)
 "vw" = (
 /obj/structure/closet/cabinet,
+/obj/random/hoodie,
+/obj/structure/coatrack{
+	pixel_y = -1;
+	pixel_x = -14
+	},
 /turf/simulated/floor/carpet/green,
 /area/nuclear_silo/outside/buildings)
 "vx" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner/dark_blue{
+/obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
@@ -9768,6 +9874,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
+"wH" = (
+/obj/structure/bookcase/libraryspawn,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "wI" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
@@ -9988,6 +10099,11 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
+"xh" = (
+/obj/structure/railing/fence,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "xi" = (
 /obj/structure/table/steel,
 /obj/item/material/kitchen/utensil/fork/plastic{
@@ -10326,6 +10442,11 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/medbay)
+"xW" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/wood/maple,
+/area/nuclear_silo/outside/buildings)
 "xX" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp,
@@ -10362,6 +10483,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/nuke_monitoring)
+"ya" = (
+/obj/machinery/door/blast/shutters{
+	name = "Dusty Shutter";
+	id = "bunker_upper_snowmobiles"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "yb" = (
 /obj/effect/spider/stickyweb,
 /obj/random/dirt_75,
@@ -10459,6 +10587,12 @@
 	temperature = 278.15
 	},
 /area/nuclear_silo/lower_level/medbay)
+"yk" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/closet/crate/bin/filled,
+/turf/simulated/floor/exoplanet/lino,
+/area/nuclear_silo/outside/buildings)
 "yl" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -10539,9 +10673,6 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
 "yx" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/exoplanet/sidewalk/flat,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "yy" = (
@@ -10588,9 +10719,14 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "yC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/exoplanet/plating,
-/area/nuclear_silo/outside/cave/bunker)
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "yD" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room,
 /turf/simulated/floor/tiled,
@@ -10864,6 +11000,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/buildings/town)
+"zh" = (
+/obj/vehicle/bike/snow{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "zj" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -10973,6 +11116,18 @@
 	temperature = 278.15
 	},
 /area/nuclear_silo/lower_level/medbay)
+"zs" = (
+/obj/random/dirt_75,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/structural_support,
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "zt" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -11209,6 +11364,11 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/nuclear_silo/outside/buildings)
+"zW" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/closet/crate/bin/filled,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "zX" = (
 /obj/effect/shuttle_landmark/nuclear_silo/surface/south_1c,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -11251,6 +11411,10 @@
 /obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/civilian/hydroponics)
+"Ac" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/exoplanet/lino,
+/area/nuclear_silo/outside/buildings)
 "Ad" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -11541,6 +11705,10 @@
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/medbay)
+"AT" = (
+/obj/structure/bookcase/libraryspawn,
+/turf/simulated/floor/wood/maple,
+/area/nuclear_silo/outside/buildings)
 "AU" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -11702,7 +11870,7 @@
 	pixel_y = 4;
 	pixel_x = -2
 	},
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nuclear_silo/outside/buildings)
 "Bl" = (
 /obj/structure/table/standard,
@@ -11723,6 +11891,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
+"Bn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Bo" = (
 /obj/item/mech_component/chassis/combat,
 /obj/structure/table/rack/folding_table,
@@ -11952,6 +12127,11 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/upper_level_lift)
+"BO" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/wood/walnut,
+/area/nuclear_silo/outside/buildings)
 "BP" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/wood,
@@ -12021,6 +12201,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
+"BY" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "BZ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -12029,9 +12214,14 @@
 /turf/simulated/floor/wood/maple,
 /area/nuclear_silo/outside/buildings)
 "Ca" = (
-/obj/random/pottedplant,
-/turf/simulated/floor/wood/maple,
-/area/nuclear_silo/outside/buildings)
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "Cb" = (
 /obj/machinery/door/airlock/security{
 	dir = 4;
@@ -12096,6 +12286,7 @@
 "Ci" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood/maple,
 /area/nuclear_silo/outside/buildings)
 "Cj" = (
@@ -12491,6 +12682,11 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
+/obj/structure/table/wood,
+/obj/random/booze{
+	pixel_y = 12;
+	pixel_x = -6
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "Dg" = (
@@ -12609,8 +12805,8 @@
 /obj/structure/closet/secure_closet/cabinet,
 /obj/random/firstaid,
 /obj/random/medical,
-/obj/outfit/admin/generic,
 /obj/item/clothing/suit/storage/toggle/labcoat/accent/alt,
+/obj/outfit/admin/generic/nuclear_silo_crew/upper/villager,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
 "Dt" = (
@@ -12862,6 +13058,13 @@
 	temperature = 315.15
 	},
 /area/nuclear_silo/outside/buildings)
+"DW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/nuclear_silo/outside/cave/bunker)
 "DX" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window{
@@ -12997,6 +13200,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/nuclear_silo/outside/mountain)
+"En" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Eo" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
@@ -13123,16 +13333,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east)
 "EE" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/exoplanet/concrete/square,
-/area/nuclear_silo/lower_level/maintenance/east/cellar)
+/turf/simulated/wall/wood,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "EF" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
@@ -13460,6 +13662,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
+"Fy" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Fz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -13837,13 +14046,9 @@
 /turf/simulated/floor/ice,
 /area/nuclear_silo/outside/surface)
 "Gv" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "Gw" = (
 /obj/effect/spider/stickyweb,
@@ -13969,9 +14174,6 @@
 "GJ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Hydroponics"
-	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/civilian/hydroponics)
 "GK" = (
@@ -14213,6 +14415,17 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
 /area/nuclear_silo/outside/buildings/town)
+"Hj" = (
+/obj/structure/closet/cabinet,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/item/cell/high,
+/obj/random/dirt_75,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Hk" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/floor_decal/industrial/warning{
@@ -14274,11 +14487,15 @@
 /turf/simulated/floor/carpet/magenta,
 /area/nuclear_silo/outside/buildings/town)
 "Hu" = (
-/obj/structure/cable/green{
-	icon_state = "11-1"
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
-/turf/simulated/open,
-/area/nuclear_silo/outside/buildings)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "Hv" = (
 /obj/structure/closet,
 /obj/random/junk,
@@ -14299,6 +14516,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
+"Hz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
+/area/nuclear_silo/outside/cave/bunker)
 "HA" = (
 /obj/machinery/papershredder,
 /turf/simulated/floor/exoplanet/carpet/darkblue,
@@ -14391,7 +14614,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/random/pottedplant,
+/obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/buildings)
 "HN" = (
@@ -15016,6 +15239,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/maintenance/east)
+"Ji" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/white,
+/area/nuclear_silo/outside/buildings)
 "Jj" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -15064,7 +15292,7 @@
 /area/nuclear_silo/outside/buildings)
 "Jo" = (
 /obj/structure/closet/cabinet,
-/obj/outfit/admin/generic,
+/obj/outfit/admin/generic/nuclear_silo_crew/upper/villager,
 /turf/simulated/floor/carpet/purple,
 /area/nuclear_silo/outside/buildings)
 "Jp" = (
@@ -15353,6 +15581,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/buildings)
+"JY" = (
+/obj/structure/bookcase/libraryspawn,
+/turf/simulated/floor/carpet/green,
+/area/nuclear_silo/outside/buildings)
 "JZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled,
@@ -15498,7 +15730,7 @@
 "Ks" = (
 /obj/structure/table/wood/mahogany,
 /obj/random/booze,
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nuclear_silo/outside/buildings)
 "Kt" = (
 /obj/structure/table/wood/mahogany,
@@ -15612,6 +15844,10 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
+/area/nuclear_silo/outside/buildings)
+"KG" = (
+/obj/structure/closet/crate/bin/filled,
+/turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "KH" = (
 /obj/structure/platform{
@@ -15745,6 +15981,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/light/colored/decayed,
 /obj/item/trash/plate/steak,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -15756,12 +15993,12 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "KU" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/nuclear_silo/outside/cave/bunker)
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/structure/closet/crate/bin/filled,
+/turf/simulated/floor/tiled/white,
+/area/nuclear_silo/outside/buildings)
 "KV" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -15925,9 +16162,6 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
 "Lo" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "Lp" = (
@@ -16013,6 +16247,7 @@
 /obj/structure/table/stone/marble,
 /obj/random/dirt_75,
 /obj/machinery/reagentgrinder,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -16093,11 +16328,9 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
 "LK" = (
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 6
-	},
-/obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/exoplanet/lino,
 /area/nuclear_silo/outside/buildings)
 "LL" = (
 /obj/structure/undies_wardrobe,
@@ -16602,9 +16835,6 @@
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "MU" = (
 /obj/machinery/light,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "MV" = (
@@ -16807,11 +17037,12 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Nv" = (
 /obj/structure/table/wood/mahogany,
-/obj/item/material/ashtray/plastic{
-	pixel_y = 10;
-	pixel_x = -6
+/obj/structure/cash_register{
+	pixel_y = 5;
+	dir = 8;
+	pixel_x = 5
 	},
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nuclear_silo/outside/buildings)
 "Nx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -17257,15 +17488,10 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "OC" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/surgery,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
 "OD" = (
@@ -17395,11 +17621,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/cave/bunker)
 "OW" = (
-/obj/effect/floor_decal/corner_wide/green/full{
-	dir = 4
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
 	},
-/obj/structure/bed/chair,
-/turf/simulated/floor/tiled/white,
 /area/nuclear_silo/outside/buildings)
 "OX" = (
 /obj/machinery/light{
@@ -17547,7 +17773,7 @@
 /obj/structure/bed/stool/bar/padded/black{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/lino,
 /area/nuclear_silo/outside/buildings)
 "Pn" = (
 /obj/machinery/shower{
@@ -17601,6 +17827,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
+"Pt" = (
+/obj/machinery/space_heater,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Pu" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 8;
@@ -18073,14 +18305,6 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
-"QC" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/nuclear_silo/outside/cave/bunker)
 "QD" = (
 /obj/effect/floor_decal/industrial/outline_corner/red{
 	dir = 4
@@ -18460,6 +18684,10 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/cabinet,
+/obj/item/storage/box/fancy/yoke/random,
+/obj/item/storage/box/fancy/yoke/random,
+/obj/item/storage/box/fancy/yoke/random,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "Rs" = (
@@ -19038,6 +19266,15 @@
 /obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/messhall)
+"SI" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/nuclear_silo/outside/buildings)
 "SJ" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -19818,7 +20055,7 @@
 /area/nuclear_silo/lower_level/security)
 "Uz" = (
 /obj/structure/closet/cabinet,
-/obj/outfit/admin/generic,
+/obj/outfit/admin/generic/nuclear_silo_crew/upper/villager,
 /turf/simulated/floor/carpet/lightblue,
 /area/nuclear_silo/outside/buildings)
 "UA" = (
@@ -20043,6 +20280,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
+"UZ" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "Va" = (
 /obj/machinery/computer/terminal{
 	dir = 4
@@ -20223,6 +20464,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/nuclear_silo/lower_level/engineering)
+"Vw" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/structure/table/standard,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white,
+/area/nuclear_silo/outside/buildings)
 "Vx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -20664,6 +20915,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
+"Wo" = (
+/obj/vehicle/bike/snow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "Wp" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -20706,6 +20966,14 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
+"Wt" = (
+/obj/structure/window_frame/wood,
+/obj/structure/curtain/open/bed{
+	name = "curtain";
+	color = "#BC6A07"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "Wu" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south{
@@ -21082,7 +21350,7 @@
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "Xi" = (
 /obj/machinery/smartfridge/drinks,
-/turf/simulated/floor/exoplanet/wood,
+/turf/simulated/floor/exoplanet/tiled,
 /area/nuclear_silo/outside/buildings)
 "Xj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -21545,6 +21813,11 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/civilian/messhall)
+"Ye" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "Yf" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -21829,6 +22102,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
+"YQ" = (
+/obj/structure/bed/stool/chair/padded/blue,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/nuclear_silo/outside/buildings/snowmobiles)
 "YR" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer{
@@ -21969,9 +22251,6 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/lino,
 /area/nuclear_silo/outside/buildings)
@@ -22034,13 +22313,6 @@
 /obj/item/trash/plate/steak,
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
-"Zu" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/nuclear_silo/outside/cave/bunker)
 "Zw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/reagent_dispensers/extinguisher,
@@ -22132,6 +22404,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
+"ZF" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "ZG" = (
 /obj/random/junk,
 /obj/structure/cable/green{
@@ -22250,7 +22530,7 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "ZS" = (
-/obj/structure/bookcase,
+/obj/structure/bookcase/libraryspawn,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nuclear_silo/outside/buildings/town)
@@ -49965,7 +50245,7 @@ mW
 mW
 bi
 Oc
-EE
+wG
 wG
 AZ
 Bs
@@ -92661,7 +92941,7 @@ ar
 uf
 XG
 Cc
-sz
+hm
 wm
 yo
 yo
@@ -92921,7 +93201,7 @@ mZ
 Tr
 TX
 uR
-tb
+Hu
 MO
 nh
 Sh
@@ -93432,10 +93712,10 @@ pS
 Gt
 XG
 Dr
-yC
+kx
 TX
 uR
-tb
+Hu
 WF
 QB
 ux
@@ -93688,13 +93968,13 @@ BD
 Db
 jq
 cZ
-Gv
+Ca
 sF
-aH
-uR
-tb
-qd
 vx
+uR
+Hu
+qd
+vs
 Sh
 Pq
 Lm
@@ -93946,12 +94226,12 @@ jq
 Zj
 XG
 Dr
-mb
+Hz
 TX
 IK
 zw
 PM
-QC
+ZF
 FQ
 Pq
 Lm
@@ -94203,7 +94483,7 @@ Ku
 ta
 XG
 AI
-yC
+kx
 tl
 yo
 mF
@@ -94460,7 +94740,7 @@ XG
 XG
 XG
 lY
-yC
+kx
 tl
 yo
 wt
@@ -95228,7 +95508,7 @@ yo
 Zo
 iN
 iN
-Zu
+aH
 iN
 iN
 iN
@@ -95484,10 +95764,10 @@ Ir
 yo
 FT
 OI
-hs
+Gv
 YC
-KU
-hs
+DW
+Gv
 YC
 bc
 yo
@@ -96512,7 +96792,7 @@ BN
 VW
 XU
 ZB
-hs
+Gv
 YC
 el
 yo
@@ -108800,7 +109080,7 @@ Vh
 KY
 Vh
 Vh
-Vh
+KG
 lD
 hz
 Lq
@@ -114472,7 +114752,7 @@ KN
 dp
 VT
 im
-Hu
+lg
 lg
 lD
 DN
@@ -114728,7 +115008,7 @@ eZ
 fF
 aa
 Dv
-vh
+aa
 Zi
 bY
 lD
@@ -114981,7 +115261,7 @@ qo
 DN
 DN
 lD
-Dd
+ht
 lD
 Xi
 Nv
@@ -115499,9 +115779,9 @@ zE
 UI
 aa
 Ft
-aX
-pI
-PV
+Ac
+LK
+eZ
 lD
 oA
 sc
@@ -116543,7 +116823,7 @@ vE
 NG
 JX
 qA
-qA
+vf
 JX
 lD
 DN
@@ -117041,9 +117321,9 @@ zE
 cg
 aa
 Ft
-Vh
-pI
-pI
+aa
+LK
+yk
 lD
 iX
 Yx
@@ -117323,7 +117603,7 @@ DE
 xk
 He
 PV
-Vh
+UZ
 dB
 lD
 DN
@@ -118098,7 +118378,7 @@ Vh
 Vh
 KY
 aX
-PV
+Ye
 sp
 nx
 DN
@@ -118318,7 +118598,7 @@ lD
 bu
 qt
 Tg
-aX
+zW
 rT
 KY
 DN
@@ -119367,7 +119647,7 @@ ox
 qA
 tT
 qA
-qA
+vf
 KY
 mJ
 mJ
@@ -120413,11 +120693,11 @@ DN
 lD
 gt
 qe
-JX
+BO
 bQ
 lD
 vq
-vE
+on
 aG
 ug
 lD
@@ -120660,7 +120940,7 @@ LY
 PV
 aX
 Vh
-fE
+xh
 qo
 mJ
 qo
@@ -121678,7 +121958,7 @@ qo
 qo
 gv
 lD
-bu
+OW
 cz
 jF
 jA
@@ -121935,10 +122215,10 @@ OS
 ho
 qo
 KY
-Ty
-Ty
-Ty
-Ty
+oJ
+oJ
+oJ
+oJ
 lD
 DE
 qo
@@ -121954,8 +122234,8 @@ DN
 DN
 lD
 lD
-nx
-nx
+mb
+mb
 lD
 lD
 tm
@@ -122192,7 +122472,7 @@ lD
 lD
 lD
 lD
-WT
+SI
 nY
 LB
 KS
@@ -122446,8 +122726,8 @@ DN
 DN
 lD
 kT
-kT
-sg
+hs
+JY
 lD
 Vh
 Vh
@@ -122701,13 +122981,13 @@ DN
 DN
 DN
 DN
-nx
-zV
+tG
 sg
+zV
 Ou
 lD
 WZ
-aX
+kI
 di
 zj
 lD
@@ -122719,7 +122999,7 @@ WH
 zT
 WH
 lD
-DN
+lD
 DN
 DN
 DN
@@ -122958,7 +123238,7 @@ DN
 DN
 DN
 DN
-nx
+tG
 sg
 sg
 sg
@@ -122974,9 +123254,9 @@ nx
 NH
 NH
 vb
-Ca
+vb
+AT
 lD
-DN
 DN
 DN
 DN
@@ -123207,7 +123487,7 @@ DN
 lD
 lD
 xC
-xC
+Wt
 lD
 lD
 DN
@@ -123220,7 +123500,7 @@ Nh
 sg
 vw
 lD
-Vh
+KG
 ak
 bO
 bO
@@ -123230,7 +123510,7 @@ DE
 nx
 wJ
 vb
-wJ
+xW
 BZ
 lD
 lD
@@ -123751,7 +124031,7 @@ Jn
 LN
 Gx
 lD
-DN
+IL
 DN
 DN
 DN
@@ -124007,8 +124287,8 @@ lD
 fl
 LN
 OC
-lD
-DN
+Vw
+IL
 DN
 DN
 DN
@@ -124262,10 +124542,10 @@ VH
 eF
 qn
 jK
-LK
-OW
-lD
-DN
+gA
+Hy
+Ji
+IL
 DN
 DN
 DN
@@ -124518,11 +124798,11 @@ wg
 LN
 OK
 lD
+BY
+BY
+BY
 lD
-lD
-lD
-lD
-DN
+IL
 DN
 DN
 DN
@@ -124772,8 +125052,8 @@ qo
 lD
 Ds
 FY
-gA
-Hy
+cA
+KU
 lD
 DN
 DN
@@ -126548,7 +126828,7 @@ lD
 hc
 EY
 rs
-aX
+kI
 Vh
 KY
 qo
@@ -129535,9 +129815,9 @@ EG
 EG
 EG
 EG
+EZ
 hz
-Lq
-Lq
+hz
 Lq
 Lq
 nj
@@ -129792,12 +130072,12 @@ EG
 EG
 EG
 EG
+EZ
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+hz
+hz
 nj
 nj
 nj
@@ -130048,15 +130328,15 @@ aN
 EG
 EG
 Vf
+EZ
+EZ
 hz
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-nj
+EE
+EE
+EE
+EE
+EE
 nj
 nj
 nj
@@ -130305,15 +130585,15 @@ aN
 EG
 EG
 EG
-hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+EZ
+PA
+EZ
+PA
+tu
+Bn
+Wo
+tb
+EE
 nj
 nj
 nj
@@ -130562,15 +130842,15 @@ aN
 EG
 EG
 EG
+BG
+EZ
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+EZ
+ya
+nK
+nK
+zs
+EE
 nj
 nj
 nj
@@ -130819,16 +131099,16 @@ EG
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+PA
+EZ
+hz
+EZ
+ya
+vh
+pC
+zh
+EE
+hz
 nj
 nj
 nj
@@ -131076,17 +131356,17 @@ EG
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+PA
+hz
+hz
+hz
+EE
+Fy
+EE
+EE
+EE
+EE
+hz
 nj
 nj
 nj
@@ -131333,17 +131613,17 @@ EG
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+PA
+PA
+hz
+hz
+EE
+hX
+Hj
+cE
+wH
+EE
+hz
 Lq
 Lq
 Lq
@@ -131590,17 +131870,17 @@ EG
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+PA
+hz
+PA
+tC
+cD
+En
+En
+ir
+EE
+hz
 Lq
 Lq
 Lq
@@ -131847,17 +132127,17 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+EZ
+PA
+PA
+BG
+EE
+Pt
+ir
+YQ
+yC
+EE
+hz
 Lq
 Lq
 Lq
@@ -132104,18 +132384,18 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+EV
+hz
+hz
+hz
+EE
+EE
+Fy
+EE
+EE
+EE
+hz
+hz
 Lq
 Lq
 Lq
@@ -132360,18 +132640,18 @@ EG
 EG
 EG
 EG
+EZ
+PA
+PA
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+hz
+PA
+EZ
+hz
+hz
+hz
 Lq
 Lq
 Lq
@@ -132618,17 +132898,17 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+EZ
+PA
+PA
+hz
+EZ
+PA
+hz
+hz
+hz
+hz
 Lq
 Lq
 Lq
@@ -132875,14 +133155,14 @@ EG
 EG
 hz
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+EZ
+EV
+BG
+BG
+hz
+hz
 Lq
 Lq
 Lq
@@ -133132,13 +133412,13 @@ hz
 hz
 hz
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+hz
+EZ
+hz
+hz
+hz
 Lq
 Lq
 Lq
@@ -133390,11 +133670,11 @@ EG
 hz
 hz
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+EZ
+PA
+hz
+hz
 Lq
 Lq
 Lq
@@ -133647,11 +133927,11 @@ EG
 EG
 hz
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+BG
+BG
+hz
+hz
 Lq
 Lq
 Lq
@@ -133905,10 +134185,10 @@ EG
 EG
 hz
 hz
-Lq
-Lq
-Lq
-Lq
+EZ
+BG
+BG
+hz
 Lq
 Lq
 Lq
@@ -134162,10 +134442,10 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
+EZ
+hz
+PA
+hz
 Lq
 Lq
 Lq
@@ -134419,11 +134699,11 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
-Lq
+BG
+PA
+PA
+hz
+hz
 hz
 hz
 hz
@@ -134676,9 +134956,9 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
+EZ
+PA
+hz
 hz
 hz
 hz
@@ -134933,8 +135213,8 @@ EG
 EG
 EG
 EG
-Lq
-Lq
+EZ
+PA
 hz
 hz
 lD
@@ -135190,8 +135470,8 @@ EG
 EG
 EG
 EG
-Lq
-Lq
+EZ
+PA
 hz
 hz
 lD
@@ -135447,9 +135727,9 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-hz
+PA
+PA
+EZ
 hz
 lD
 WT
@@ -135704,9 +135984,9 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-hz
+PA
+PA
+PA
 hz
 nx
 Ty
@@ -135961,8 +136241,8 @@ EG
 fg
 EG
 hz
-Lq
-Lq
+hz
+PA
 hz
 hz
 nx
@@ -136217,9 +136497,9 @@ EG
 EG
 EG
 EG
-Lq
-Lq
-Lq
+EZ
+BG
+PA
 hz
 hz
 nx
@@ -136229,7 +136509,7 @@ Vh
 TW
 lD
 lD
-nx
+mb
 lD
 lD
 hz
@@ -136474,9 +136754,9 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
+hz
+BG
+BG
 hz
 hz
 lD
@@ -136731,10 +137011,10 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
-Lq
+hz
+PA
+PA
+hz
 hz
 lD
 Qo
@@ -136987,11 +137267,11 @@ aN
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+EZ
+PA
+hz
 hz
 lD
 Nn
@@ -137244,11 +137524,11 @@ aN
 EG
 EG
 EG
-Lq
-Lq
-Lq
-Lq
-Lq
+hz
+hz
+hz
+PA
+hz
 hz
 lD
 nx
@@ -137502,9 +137782,9 @@ EG
 EG
 EG
 hz
-Lq
-Lq
-Lq
+hz
+hz
+EZ
 hz
 hz
 hz
@@ -137760,7 +138040,7 @@ EG
 EG
 hz
 hz
-hz
+PA
 hz
 hz
 hz
@@ -138016,7 +138296,7 @@ EG
 EG
 EG
 EZ
-EZ
+PA
 PA
 hz
 PA

@@ -16,6 +16,7 @@
 /area/nuclear_silo/outside/landing
 	name = "Landing Pad"
 	icon_state = "dk_yellow"
+	holomap_color = "#7D5443"
 
 /area/nuclear_silo/outside/surface
 	name = "Surface"
@@ -39,12 +40,18 @@
 	is_outside = OUTSIDE_NO
 	holomap_color = "#7c4d14"
 	area_blurb = "As you enter the building, the quiet hum of electric lights is magnified as the dim bulbs around you flicker gently, the floorboards under your feet creaking and straining with every step."
+	requires_power = 0
+
+/area/nuclear_silo/outside/buildings/snowmobiles
+	name = "Snowmobiles"
+	icon_state = "away2"
+	area_blurb = "As you enter the building, it appears to be completely abandoned. Snow and dust coat the floor around you, and a lone button sits on a desk, coated in a thick film of dust."
 
 /area/nuclear_silo/outside/buildings/town
 	name = "Building"
 	icon_state = "away1"
 	area_blurb = "As you step foot into the town, the quiet hum of electric streetlights can be heard. Overhead are powerlines, strung across from building to building, some reaching up into the streetlights."
-
+	holomap_color = null
 // --- Lower Level
 
 /area/nuclear_silo/lower_level
