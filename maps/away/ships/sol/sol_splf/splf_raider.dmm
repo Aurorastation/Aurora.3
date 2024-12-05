@@ -290,7 +290,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/office)
 "bI" = (
-/obj/machinery/alarm/freezer/north,
+/obj/machinery/alarm/freezer/north{
+	req_one_access = null;
+	req_access = list(246)
+	},
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
