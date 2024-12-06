@@ -287,6 +287,7 @@
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/ssmd
 
 /obj/machinery/suit_cycler/offship/sol/splf
+	req_access = list(ACCESS_SPLF)
 	suit = /obj/item/clothing/suit/space/void/sol/splf
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/splf
 

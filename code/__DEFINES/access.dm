@@ -833,3 +833,8 @@
 /datum/access/ruined_propellant_depot_access
 	id = ACCESS_RUINED_PROPELLANT_DEPOT
 	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_SPLF 246
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
