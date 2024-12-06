@@ -14,7 +14,7 @@
 	)
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 0 // so it does not spawn as ordinary away site
+	spawn_weight = 0
 	spawn_cost = 1
 	id = "nuclear_silo"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/multi/lift/nuclear_silo)
@@ -33,10 +33,11 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/nuclear_silo
-	name = "Unlabelled Town, Arctic Valley"
+	name = "Unlabelled Arctic Exoplanet"
 	desc = "\
+		An arctic exoplanet not currently listed on available starcharts. \
 		Scans of the landing area indicate a small valley within the wider craggy mountains, with a frozen river running through it. \
-		Scans show a small town within the valley, unlabelled according to available maps. Scans indicate a standard breathable atmosphere. \
+		Higher resolution scans show a small town within the valley, with biological signatures indicating a standard breathable atmosphere. \
 		"
 	icon_state = "globe2"
 	color = "#f7e3e3"
@@ -82,5 +83,3 @@
 
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury
 	name = "Armoury"
-
-// ----
