@@ -833,3 +833,23 @@
 /datum/access/ruined_propellant_depot_access
 	id = ACCESS_RUINED_PROPELLANT_DEPOT
 	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_BASTION_STATION 246
+/datum/access/bastion_station_access
+	id = ACCESS_BASTION_STATION
+	desc = "Bastion Station Access"
+
+#define ACCESS_BASTION_STATION_COMMAND 247
+/datum/access/bastion_station_access_command
+	id = ACCESS_BASTION_STATION_COMMAND
+	desc = "Bastion Station Command Access"
+
+#define ACCESS_BASTION_STATION_ENGI 248
+/datum/access/bastion_station_access_engi
+	id = ACCESS_BASTION_STATION_ENGI
+	desc = "Bastion Station Engineering Access"
+
+#define ACCESS_BASTION_STATION_SEC 249
+/datum/access/bastion_station_access_sec
+	id = ACCESS_BASTION_STATION_SEC
+	desc = "Bastion Station Security Access"
