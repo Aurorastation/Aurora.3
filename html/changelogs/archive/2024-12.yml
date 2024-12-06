@@ -34,3 +34,15 @@
 2024-12-05:
   Ben10083:
   - bugfix: Restores missing wiring behind Head of Security Office.
+2024-12-06:
+  ShimmerIsTaken:
+  - rscadd: Added a Solarian army peacekeeper beret.
+  Yonnimer:
+  - rscadd: Adds several new Dionae loadout items.
+  - rscdel: Removes some redundant dionae items & ships.
+  hazelmouse:
+  - rscadd: Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD
+      variants, including an additional variant for the SPLF. Other Gargoyle variants
+      still in the codebase, including the SRF suits, are unchanged.
+  - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
+      Cyclops ship. '
