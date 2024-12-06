@@ -1582,8 +1582,8 @@
 "XJ" = (
 /obj/structure/closet/crate/weapon/alt,
 /obj/item/rig_module/mounted/smg,
-/obj/item/rig_module/mounted/egun,
-/obj/item/rig_module/mounted/egun,
+/obj/item/rig_module/mounted/energy/egun,
+/obj/item/rig_module/mounted/energy/egun,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
@@ -1619,7 +1619,7 @@
 /area/zavod_shuttle_destroyed)
 "YJ" = (
 /obj/structure/closet/crate/drop/grey,
-/obj/item/rig_module/mounted/plasmacutter,
+/obj/item/rig_module/mounted/energy/plasmacutter,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,

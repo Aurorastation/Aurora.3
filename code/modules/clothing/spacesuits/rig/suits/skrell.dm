@@ -34,13 +34,13 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/vision/thermal,
-		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/mounted/energy/ion,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/recharger,
-		/obj/item/rig_module/mounted/skrell_gun
+		/obj/item/rig_module/mounted/energy/skrell_gun
 		)
 
 /obj/item/rig/skrell/equipped/merc
@@ -71,7 +71,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/vision/multi,
-		/obj/item/rig_module/mounted/pulse,
+		/obj/item/rig_module/mounted/energy/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/device/drill,
@@ -91,7 +91,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/teleporter/skrell,
-		/obj/item/rig_module/mounted/skrell_gun,
+		/obj/item/rig_module/mounted/energy/skrell_gun,
 		/obj/item/rig_module/stealth_field
 		)
 
@@ -117,7 +117,7 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/vision/multi,
-		/obj/item/rig_module/mounted/pulse,
+		/obj/item/rig_module/mounted/energy/pulse,
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/device/drill,
