@@ -99,7 +99,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/fuel)
 "bd" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_one_access = list(224,223,222)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "bf" = (
@@ -2017,7 +2019,8 @@
 /area/ship/gadpathur_patrol/atmos)
 "qb" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -3480,7 +3483,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "BN" = (
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/southright{
+	req_one_access = list(224,223,222)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
@@ -4086,7 +4091,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "FG" = (
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_one_access = list(224,223,222)
+	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -5633,7 +5640,8 @@
 "Su" = (
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/gadpathur_shuttle{
-	pixel_x = 31
+	pixel_x = 31;
+	req_one_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -5882,7 +5890,8 @@
 /area/ship/gadpathur_patrol/galley)
 "TY" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_one_access = list(224,223,222)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)

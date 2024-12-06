@@ -206,7 +206,8 @@
 	status = 2
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -309,7 +310,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1278,7 +1280,8 @@
 	req_access = list(214)
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1286,7 +1289,8 @@
 /area/shuttle/hailstorm_shuttle)
 "gU" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3155,7 +3159,8 @@
 	dir = 6
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15

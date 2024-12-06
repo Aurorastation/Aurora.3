@@ -925,7 +925,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "fB" = (
@@ -5285,7 +5287,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
 "EY" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(113)
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -5829,7 +5833,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(113)
+	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "HJ" = (
@@ -6132,7 +6138,9 @@
 /area/hegemony_ship)
 "JG" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "JN" = (
