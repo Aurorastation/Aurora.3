@@ -49,6 +49,7 @@
 	var/skipeyes = skipitems & HIDEEYES
 	var/skipears = skipitems & HIDEEARS
 	var/skipwrists = skipitems & HIDEWRISTS
+	var/skippants = skipitems & HIDEPANTS
 
 	var/list/msg = list("<span class='info'>This is ")
 
@@ -163,6 +164,10 @@
 			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [icon2html(belt, user)] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>[belt.name]</a> about [get_pronoun("his")] waist!\n")
 		else
 			msg += "[get_pronoun("He")] [get_pronoun("has")] [icon2html(belt, user)] <a href='?src=[REF(src)];lookitem_desc_only=[REF(belt)]'>\a [belt]</a> about [get_pronoun("his")] waist.\n"
+
+	//pants
+	if(pants && !skippants)
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(pants, user)] <a href='?src=[REF(src)];lookitem_desc_only=[REF(pants)]'>\a [pants]</a> about [get_pronoun("his")] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
