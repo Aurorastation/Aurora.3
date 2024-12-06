@@ -29,7 +29,6 @@
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	w_class = WEIGHT_CLASS_BULKY
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight,/obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton,/obj/item/handcuffs)
-	slowdown = 1.5
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
