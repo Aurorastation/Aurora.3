@@ -88,7 +88,7 @@
 /datum/ghostspawner/human/ssmd_marine_pilot
 	short_name = "ssmd_marine_pilot"
 	name = "Sol Marine Recon Exosuit Pilot"
-	desc = "Protect a Solarian naval recon corvette under the commander of the Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
+	desc = "Protect a Solarian naval recon corvette under the commander of the Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate, and pilot the goblin recon exosuit. Closely monitor and investigate pirate (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
 	tags = list("External")
 	mob_name_prefix = "SGT. "
 
