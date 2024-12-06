@@ -2838,9 +2838,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/buildings)
 "gF" = (
-/obj/structure/light_pole/decayed/r,
-/turf/simulated/floor/exoplanet/barren,
-/area/nuclear_silo/outside/surface)
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Hunters Lodge"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nuclear_silo/outside/buildings)
 "gG" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
@@ -3345,12 +3350,8 @@
 "hO" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "hP" = (
@@ -11522,10 +11523,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
-"Aw" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/ice,
-/area/nuclear_silo/outside/surface)
 "Ax" = (
 /obj/structure/grille,
 /turf/simulated/floor/exoplanet/plating,
@@ -11973,16 +11970,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "Bv" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/cable/green,
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(246,247)
-	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
-/area/nuclear_silo/lower_level/civilian/messhall)
+/turf/simulated/floor/ice,
+/area/nuclear_silo/outside/surface)
 "Bw" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/random/seed,
@@ -16239,14 +16229,9 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "Lz" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
-	},
-/obj/effect/landmark/minimap_poi{
-	name = "Hunters Lodge"
-	},
-/turf/simulated/floor/exoplanet/wood,
-/area/nuclear_silo/outside/buildings)
+/obj/structure/light_pole/decayed/r,
+/turf/simulated/floor/exoplanet/barren,
+/area/nuclear_silo/outside/surface)
 "LA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -38212,7 +38197,7 @@ aP
 cw
 JA
 hO
-Bv
+Rp
 hT
 mW
 mW
@@ -124181,7 +124166,7 @@ nP
 UR
 jH
 nP
-Aw
+Bv
 nP
 nP
 nP
@@ -124954,7 +124939,7 @@ jH
 nP
 nP
 nP
-Aw
+Bv
 nj
 nj
 nj
@@ -132922,7 +132907,7 @@ PA
 EZ
 hz
 hz
-gF
+Lz
 hz
 hz
 hz
@@ -136011,7 +135996,7 @@ hz
 nx
 Vh
 Vh
-Lz
+gF
 TM
 KY
 Zl
@@ -138327,7 +138312,7 @@ EZ
 hz
 hz
 hz
-gF
+Lz
 lD
 lD
 Dd
@@ -141119,7 +141104,7 @@ hz
 hz
 hz
 hz
-gF
+Lz
 hz
 hz
 hz
