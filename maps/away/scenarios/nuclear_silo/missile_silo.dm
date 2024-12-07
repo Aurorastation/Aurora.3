@@ -13,3 +13,10 @@
 	icon_state = "icbm"
 	density = 1
 	anchored = 1
+	layer = ABOVE_HUMAN_LAYER
+	pixel_x = 8
+	pixel_y = 10
+
+/obj/structure/ship_weapon_dummy/icbm_dummy
+	name = "icbm dummy"
+	layer = ABOVE_HUMAN_LAYER+0.1
