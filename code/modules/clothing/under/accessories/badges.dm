@@ -596,7 +596,7 @@
 
 /obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. +=  SPAN_NOTICE("The passport displays the owner's social compatability index as: [compat_index].")
+	. +=  SPAN_NOTICE("The passport displays the owner's social compatibility index as: [compat_index].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
