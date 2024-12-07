@@ -245,18 +245,18 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 	allowed_roles = list("Head of Security")
 
 /*
-	Skrellian Social Compatability Index
+	Skrellian Social Compatibility Index
 */
 var/datum/gear_tweak/compat_index/compat_index_tweak = new()
 
 /datum/gear_tweak/compat_index/get_contents(var/metadata)
-	return "Social Compatability Index: [metadata]"
+	return "Social Compatibility Index: [metadata]"
 
 /datum/gear_tweak/compat_index/get_default()
 	return 5
 
 /datum/gear_tweak/compat_index/get_metadata(var/user, var/metadata)
-	var/compat_index = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatability Index", round_value = FALSE, max_value = 10)
+	var/compat_index = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatibility Index", round_value = FALSE, max_value = 10)
 	if(compat_index)
 		return round(compat_index, 0.01)
 	return metadata
