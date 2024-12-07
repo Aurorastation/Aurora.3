@@ -40,10 +40,7 @@
 			if(away_site.exoplanet_atmosphere)
 				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
 				temperature = away_site.exoplanet_atmosphere.temperature
-			else
-				initial_gas = list()
-				temperature = T0C
-			if(is_outside())
+			if(away_site.exoplanet_lightlevel && is_outside())
 				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
 	// if not on a exoplanet, instead just keep the default or mapped in atmos
