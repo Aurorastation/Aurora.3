@@ -16,10 +16,13 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	var/list/exoplanet_themes = null
 
 	/// Light level of exoplanet turfs if they're generated on this away site.
+	/// Only outside turfs get light, based on the `is_outside` var on areas.
 	/// If list, picks one from the list.
+	/// If zero, ignored, no light.
 	var/exoplanet_lightlevel = 0
 	/// Light color of exoplanet turfs if they're generated on this away site.
 	/// If list, picks one from the list.
+	/// Used only if lightlevel is set to non-zero value.
 	var/exoplanet_lightcolor = COLOR_WHITE
 
 	/// The atmosphere that exoplanet turfs should spawn with.
