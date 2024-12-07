@@ -67,13 +67,13 @@
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
 				rep_objectives = pick("Legally curtail the advancements and liberal thinking towards synthetics.",
-								"Remind C'thur Vaurcae aboard the [SSatlas.current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their social credit",
+								"Remind C'thur Vaurcae aboard the [SSatlas.current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their index rating",
 								"Ensure the interests of Federation citizens are upheld by the vessel - whether Skrell, C'thur or Diona.")
 			else
 				rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
 								"Legally curtail the advancements and liberal thinking towards synthetics.",
 								"The [SSatlas.current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory",
-								"Encourage Federation citizens with low social credit to work to increase their score.")
+								"Encourage Federation citizens with low index rating to work to increase their rating.")
 		else
 			if(isvaurca(H))
 				rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards both the Federation and the C'thur Hive.",
