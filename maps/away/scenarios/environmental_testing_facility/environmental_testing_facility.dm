@@ -6,7 +6,7 @@
 	description = "IPC RnD Facility."
 	id = "environmental_testing_facility"
 	prefix = "missions/environmental_testing_facility/"
-	suffixes = list("environmental_testing_facility.dmm")
+	suffix = "environmental_testing_facility.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
