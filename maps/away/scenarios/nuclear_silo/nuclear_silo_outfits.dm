@@ -303,7 +303,7 @@
 		/obj/item/clothing/shoes/laceup/brown,
 		/obj/item/clothing/shoes/sneakers/hitops/black,
 		)
-	head = list()
+	head = null
 	glasses = null
 
 	backpack_contents = list(

@@ -460,9 +460,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "bf" = (
@@ -550,7 +548,6 @@
 "bs" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/airlock/highsecurity{
-	dir = 2;
 	name = "Secondary Checkpoint";
 	req_one_access = list(246,247)
 	},
@@ -1450,10 +1447,7 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "dn" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark/full,
 /area/nuclear_silo/lower_level/civilian/cryogenics)
 "do" = (
@@ -3088,7 +3082,6 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4;
-	pixel_y = 0;
 	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/white,
@@ -3947,7 +3940,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "bunker_lower_engineering_storage";
 	name = "Heavy Items Storage Shutters";
-	pixel_y = 0;
 	dir = 4;
 	pixel_x = 21;
 	req_one_access = list(246,247)
@@ -4319,9 +4311,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "jC" = (
@@ -5328,8 +5318,7 @@
 "lM" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
@@ -5600,7 +5589,6 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/table/wood,
 /obj/item/clipboard{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/folder{
@@ -6030,10 +6018,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "nn" = (
@@ -6142,7 +6127,6 @@
 	pixel_x = -2
 	},
 /obj/item/material/hook{
-	pixel_y = 0;
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -7592,9 +7576,7 @@
 	dir = 4;
 	name = "adjusted railing"
 	},
-/obj/structure/punching_bag{
-	pixel_y = 0
-	},
+/obj/structure/punching_bag,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
@@ -8233,9 +8215,7 @@
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/obj/structure/window/reinforced{
-	pixel_y = 0
-	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "sr" = (
@@ -8803,9 +8783,7 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "tz" = (
-/obj/structure/window/reinforced{
-	pixel_y = 0
-	},
+/obj/structure/window/reinforced,
 /obj/machinery/alarm/east{
 	req_one_access = list(246,247)
 	},
@@ -10495,15 +10473,12 @@
 "xi" = (
 /obj/structure/table/steel,
 /obj/item/material/kitchen/utensil/fork/plastic{
-	pixel_y = 0;
 	pixel_x = -6
 	},
 /obj/item/material/kitchen/utensil/fork/plastic{
-	pixel_y = 0;
 	pixel_x = -1
 	},
 /obj/item/material/kitchen/utensil/fork/plastic{
-	pixel_y = 0;
 	pixel_x = 4
 	},
 /obj/item/material/kitchen/utensil/knife/plastic{
@@ -10693,7 +10668,6 @@
 	},
 /obj/machinery/vending/medical{
 	density = 0;
-	pixel_y = 0;
 	pixel_x = 32
 	},
 /obj/random/dirt_75,
@@ -10999,12 +10973,12 @@
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
 	temperature = 278.15
@@ -11143,9 +11117,7 @@
 /area/nuclear_silo/lower_level/security)
 "yC" = (
 /obj/structure/table/steel,
-/obj/machinery/cell_charger{
-	pixel_y = 0
-	},
+/obj/machinery/cell_charger,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled,
@@ -11784,10 +11756,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -12209,8 +12178,7 @@
 "AY" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/masks{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 9;
@@ -12298,8 +12266,7 @@
 "Bg" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	pixel_y = 0
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -12438,9 +12405,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/buildings/town)
 "Bu" = (
-/obj/structure/heavy_vehicle_frame{
-	pixel_y = 0
-	},
+/obj/structure/heavy_vehicle_frame,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "Bv" = (
@@ -12773,7 +12738,6 @@
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_y = 0;
 	pixel_x = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12875,7 +12839,6 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "Cv" = (
 /obj/machinery/door/airlock/glass_service{
-	dir = 2;
 	name = "Messhall"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -13957,10 +13920,6 @@
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nuclear_silo/outside/buildings/town)
-"EM" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/nuclear_silo/lower_level_lift)
 "EN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -14719,8 +14678,7 @@
 "Gy" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/storage/box/bodybags{
 	pixel_y = 6;
@@ -15004,10 +14962,7 @@
 /turf/simulated/floor/wood,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Ha" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/nuke_monitoring)
@@ -16061,7 +16016,6 @@
 /area/nuclear_silo/outside/buildings)
 "Jx" = (
 /obj/machinery/door/airlock/glass_service{
-	dir = 2;
 	name = "Messhall"
 	},
 /obj/machinery/door/firedoor/noid,
@@ -16613,7 +16567,6 @@
 "KJ" = (
 /obj/structure/table/steel,
 /obj/item/trash/plate{
-	pixel_y = 0;
 	pixel_x = -2
 	},
 /obj/item/trash/plate{
@@ -16887,10 +16840,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -17398,9 +17348,7 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
 "Mv" = (
-/obj/structure/window/reinforced{
-	pixel_y = 0
-	},
+/obj/structure/window/reinforced,
 /obj/structure/table/standard,
 /obj/item/pen,
 /turf/simulated/floor/tiled/full,
@@ -18035,10 +17983,7 @@
 /area/nuclear_silo/outside/cave/bunker)
 "NX" = (
 /obj/random/dirt_75,
-/obj/structure/bed/stool/chair/office/light{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "NY" = (
@@ -20239,7 +20184,6 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/item/storage/box/produce{
-	pixel_y = 0;
 	pixel_x = -3
 	},
 /obj/structure/cable/green{
@@ -20781,10 +20725,7 @@
 /obj/structure/platform/dark{
 	dir = 1
 	},
-/obj/structure/icbm{
-	pixel_x = 8;
-	pixel_y = 10
-	},
+/obj/structure/icbm,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/nuke_silo)
@@ -21120,7 +21061,6 @@
 "UN" = (
 /obj/structure/barricade/wooden,
 /obj/structure/bed/stool/chair/wood{
-	pixel_y = 0;
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -21367,10 +21307,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
@@ -21607,9 +21544,7 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "VR" = (
-/obj/machinery/body_scanconsole{
-	dir = 2
-	},
+/obj/machinery/body_scanconsole,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -21649,7 +21584,6 @@
 "VX" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/walllocker{
-	pixel_y = 0;
 	pixel_x = -32
 	},
 /obj/item/reagent_containers/toothbrush,
@@ -21766,7 +21700,6 @@
 /area/nuclear_silo/outside/buildings)
 "Wg" = (
 /obj/machinery/door/airlock/glass_service{
-	dir = 2;
 	name = "Hydroponics"
 	},
 /obj/structure/cable/green{
@@ -22403,6 +22336,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/lower_level/checkpoint)
+"Xs" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/nuclear_silo/lower_level_lift)
 "Xt" = (
 /obj/structure/girder,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -22790,10 +22727,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/office/light{
-	dir = 2;
-	pixel_y = 0
-	},
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/medbay)
 "Yg" = (
@@ -32004,7 +31938,7 @@ Rb
 RE
 Gp
 yJ
-EM
+Xs
 mN
 Gp
 OG
@@ -32260,9 +32194,9 @@ Ef
 Qm
 to
 Gp
-EM
-EM
-EM
+Xs
+Xs
+Xs
 Gp
 OG
 Mi
@@ -32519,7 +32453,7 @@ OZ
 Gp
 mN
 mN
-EM
+Xs
 Gp
 iT
 MK
