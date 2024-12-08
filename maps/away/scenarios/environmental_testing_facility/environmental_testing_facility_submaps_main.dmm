@@ -159,7 +159,7 @@
 /area/template_noop)
 "aP" = (
 /obj/item/stack/material/plastic/full,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/engineering_storage,
 /turf/template_noop,
 /area/template_noop)
 "aQ" = (
@@ -185,7 +185,7 @@
 /area/template_noop)
 "aY" = (
 /obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aZ" = (
@@ -1448,7 +1448,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hz" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/department,
 /turf/template_noop,
 /area/template_noop)
 "hD" = (
@@ -1464,7 +1464,7 @@
 /area/template_noop)
 "hK" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/engineering_storage,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "hM" = (
@@ -2226,7 +2226,7 @@
 /area/template_noop)
 "lX" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/lino,
 /area/template_noop)
 "lY" = (
@@ -2670,7 +2670,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "os" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/science_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/science_storage,
 /turf/template_noop,
 /area/template_noop)
 "ow" = (
@@ -2810,7 +2810,7 @@
 "oX" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "oZ" = (
@@ -2906,7 +2906,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "pu" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/engineering_storage,
 /turf/template_noop,
 /area/template_noop)
 "pw" = (
@@ -2998,7 +2998,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "pU" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_lounge,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "pW" = (
@@ -3321,7 +3321,7 @@
 "ry" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "rz" = (
@@ -3394,7 +3394,7 @@
 /area/template_noop)
 "rV" = (
 /obj/machinery/conveyor{
-	id = "ipc_rnd_facility_mechbay_1"
+	id = "environmental_testing_facility_mechbay_1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -3483,7 +3483,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/emps,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/armory,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "su" = (
@@ -3831,7 +3831,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "uo" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/crew_room_small,
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "ur" = (
@@ -3964,7 +3964,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "uV" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/dome,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/dome,
 /turf/template_noop,
 /area/template_noop)
 "uW" = (
@@ -4059,7 +4059,7 @@
 /area/template_noop)
 "vw" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/carpet/brown,
 /area/template_noop)
 "vx" = (
@@ -4249,7 +4249,7 @@
 /area/template_noop)
 "wy" = (
 /obj/structure/table/wood,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_lounge,
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
 "wz" = (
@@ -4269,7 +4269,7 @@
 /area/template_noop)
 "wH" = (
 /obj/machinery/conveyor{
-	id = "ipc_rnd_facility_mechbay_2"
+	id = "environmental_testing_facility_mechbay_2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -4281,7 +4281,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "wL" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/engineering_storage,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -5043,7 +5043,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "AW" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/department,
 /turf/simulated/wall,
 /area/template_noop)
 "AX" = (
@@ -5143,7 +5143,7 @@
 /area/template_noop)
 "Bw" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_lounge,
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
 "Bz" = (
@@ -5236,7 +5236,7 @@
 "Ce" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
 "Cg" = (
@@ -5575,7 +5575,7 @@
 	pixel_x = 3
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/armory,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "DQ" = (
@@ -5612,7 +5612,7 @@
 /area/template_noop)
 "Ee" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "Ef" = (
@@ -5719,7 +5719,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/smokebombs,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/armory,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "EJ" = (
@@ -6321,7 +6321,7 @@
 "HH" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)
 "HI" = (
@@ -6513,7 +6513,7 @@
 /area/template_noop)
 "Iw" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "Iy" = (
@@ -6554,7 +6554,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "IK" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/armory,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/armory,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "IO" = (
@@ -6641,7 +6641,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
 "Ji" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_lounge,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/crew_lounge,
 /turf/unsimulated/marker/blue,
 /area/template_noop)
 "Jj" = (
@@ -6789,7 +6789,7 @@
 /area/template_noop)
 "JU" = (
 /obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "JV" = (
@@ -7057,7 +7057,7 @@
 /area/template_noop)
 "Lt" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/engineering_storage,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lv" = (
@@ -7435,7 +7435,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Na" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/crew_quarters,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/crew_quarters,
 /turf/template_noop,
 /area/template_noop)
 "Nb" = (
@@ -7565,7 +7565,7 @@
 /area/template_noop)
 "NL" = (
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/science_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/science_storage,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "NM" = (
@@ -7630,7 +7630,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Oi" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/workshop,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/workshop,
 /turf/simulated/wall,
 /area/template_noop)
 "Oo" = (
@@ -8062,7 +8062,7 @@
 /area/template_noop)
 "Qx" = (
 /obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_small,
 /turf/simulated/floor/lino,
 /area/template_noop)
 "QB" = (
@@ -8377,7 +8377,7 @@
 /area/template_noop)
 "RT" = (
 /obj/item/stack/material/cardboard/full,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/science_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/science_storage,
 /turf/template_noop,
 /area/template_noop)
 "RV" = (
@@ -8492,7 +8492,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/template_noop)
 "SB" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/crew_room_big,
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "SD" = (
@@ -8672,7 +8672,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "TG" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/offices,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/offices,
 /turf/simulated/wall,
 /area/template_noop)
 "TH" = (
@@ -8926,7 +8926,7 @@
 /area/template_noop)
 "UJ" = (
 /mob/living/heavy_vehicle/premade/random/extra,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/science_storage,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/science_storage,
 /turf/template_noop,
 /area/template_noop)
 "UK" = (
@@ -9179,7 +9179,7 @@
 /area/template_noop)
 "VW" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/crew_room_big,
 /turf/simulated/floor/carpet/darkblue,
 /area/template_noop)
 "VY" = (
@@ -9188,7 +9188,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Wa" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/canteen,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/main/canteen,
 /turf/simulated/wall,
 /area/template_noop)
 "Wb" = (
@@ -9771,7 +9771,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "YT" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/warehouse_room,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/misc/warehouse_room,
 /turf/template_noop,
 /area/template_noop)
 "YU" = (
