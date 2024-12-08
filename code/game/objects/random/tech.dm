@@ -78,6 +78,7 @@
 		/obj/item/tape_roll = 2
 	)
 
+/// Spawns a random AI lawboard with 'evil' law sets
 /obj/random/bad_ai
 	name = "random evil AI module"
 	desc = "Contains a random evil AI module."
