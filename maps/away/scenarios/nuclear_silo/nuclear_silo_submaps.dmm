@@ -897,9 +897,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "qM" = (
-/obj/structure/bed/stool/bar{
-	dir = 2
-	},
+/obj/structure/bed/stool/bar,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2259,9 +2257,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Nu" = (
-/obj/structure/bed/stool/bar{
-	dir = 2
-	},
+/obj/structure/bed/stool/bar,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
@@ -2742,8 +2738,7 @@
 "WU" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /obj/machinery/light{
 	dir = 4
@@ -6468,7 +6463,7 @@ au
 au
 pO
 Sl
-et
+Nc
 Nc
 au
 au
