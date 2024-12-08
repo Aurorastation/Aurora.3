@@ -76,6 +76,9 @@
 	footprint_color = null
 	update_icon(1)
 
+/turf/simulated/floor/exoplanet/basalt/crystal
+	color = "#a9d8e0"
+
 // Special asteroid variant that goes with lava better.
 /turf/simulated/floor/exoplanet/asteroid/basalt
 	name = "basalt"
