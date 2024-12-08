@@ -84,10 +84,13 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
 	spawnlist = list(
-		/obj/item/aiModule/antimov = 1,
+		/obj/item/aiModule/antimov = 0.5,
 		/obj/item/aiModule/asimov = 1,
 		/obj/item/aiModule/purge = 1,
-		/obj/item/aiModule/quarantine = 1,
+		/obj/item/aiModule/robocop = 0.5,
+		/obj/item/aiModule/tyrant = 0.5,
+		/obj/item/aiModule/paladin = 0.5,
+		/obj/item/aiModule/hadiist = 0.2,
 		/obj/item/aiModule/freeform = 1,
 		/obj/item/aiModule/oneHuman = 0.5,
 		/obj/item/aiModule/oxygen = 1
