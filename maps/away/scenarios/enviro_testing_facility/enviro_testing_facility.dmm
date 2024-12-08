@@ -41,6 +41,12 @@
 "N" = (
 /turf/unsimulated/mineral,
 /area/space)
+"S" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Landing Pads"
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "Y" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/base_layout,
 /turf/template_noop,
@@ -31054,7 +31060,7 @@ A
 A
 A
 A
-D
+S
 D
 D
 D

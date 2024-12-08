@@ -732,6 +732,13 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)
+"dx" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/lava,
+/area/template_noop)
 "dA" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -1655,6 +1662,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"ip" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Urban Dome"
+	},
+/turf/simulated/floor/asphalt,
+/area/template_noop)
 "iq" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -2203,6 +2216,12 @@
 /obj/machinery/deployable/barrier,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"lo" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Medical"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "lp" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -2562,6 +2581,11 @@
 /obj/random/cookingoil,
 /turf/simulated/floor/tiled/freezer,
 /area/template_noop)
+"ni" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped,
+/turf/simulated/lava,
+/area/template_noop)
 "nm" = (
 /obj/structure/table/steel,
 /obj/item/trash/coffee{
@@ -2587,6 +2611,13 @@
 "ns" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"nw" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "nx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2728,6 +2759,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"og" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
 "oh" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -3266,6 +3303,15 @@
 "qA" = (
 /obj/structure/closet/crate/solar,
 /turf/template_noop,
+/area/template_noop)
+"qB" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Quarters"
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "qD" = (
 /obj/structure/table/standard,
@@ -3991,6 +4037,13 @@
 /obj/item/device/integrated_electronics/wirer,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"ub" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/effect/landmark/minimap_poi{
+	name = "Research"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "uc" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
@@ -4314,6 +4367,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"vG" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/landmark/minimap_poi{
+	name = "Robotics"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "vH" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/yellow{
@@ -4352,6 +4412,12 @@
 /area/template_noop)
 "vU" = (
 /turf/simulated/mineral/crystal,
+/area/template_noop)
+"vZ" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Crystal Dome"
+	},
+/turf/simulated/floor/exoplanet/crystal,
 /area/template_noop)
 "wa" = (
 /obj/structure/bed/stool/chair/folding{
@@ -4450,6 +4516,15 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/light,
+/area/template_noop)
+"wv" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Engineering"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "ww" = (
 /obj/structure/cable/green{
@@ -4757,6 +4832,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"xY" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Killhouse Dome"
+	},
+/turf/simulated/floor/wood/yew,
 /area/template_noop)
 "ya" = (
 /obj/structure/table/wood,
@@ -5150,6 +5231,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Ac" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Mech Lab"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Ad" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
@@ -5199,6 +5286,12 @@
 /obj/structure/closet,
 /obj/outfit/admin/generic,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"Ao" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Jungle Dome"
+	},
+/turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
 "At" = (
 /obj/structure/cable{
@@ -5705,6 +5798,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Dg" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Lava Dome"
+	},
+/turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
 "Dh" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -6290,6 +6389,10 @@
 /obj/structure/light_pole/r,
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
+"FQ" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt,
+/area/template_noop)
 "FR" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -6569,6 +6672,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Hf" = (
+/obj/structure/railing/mapped,
+/turf/simulated/lava,
 /area/template_noop)
 "Hj" = (
 /obj/effect/floor_decal/corner/brown{
@@ -7164,6 +7271,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Kc" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Tropical Dome"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
 "Kf" = (
 /obj/structure/closet,
@@ -7806,6 +7919,12 @@
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Nc" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Quarters"
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Nd" = (
 /obj/effect/floor_decal/corner/pink{
@@ -8585,6 +8704,13 @@
 /obj/structure/flora/grass/junglegrass/dense/random,
 /turf/simulated/floor/exoplanet/grass/marsh,
 /area/template_noop)
+"Ra" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/lava,
+/area/template_noop)
 "Rb" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -9344,6 +9470,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"UD" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Canteen"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "UE" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/cable/yellow{
@@ -9462,6 +9597,12 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Vi" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Winter Dome"
+	},
+/turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "Vj" = (
 /obj/structure/table/steel,
@@ -9686,6 +9827,9 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Security"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -10334,6 +10478,12 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"Zl" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/template_noop)
 "Zn" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
@@ -10483,10 +10633,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"ZJ" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Cave Dome"
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/template_noop)
 "ZL" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/lino/diamond,
+/area/template_noop)
+"ZM" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Desert Dome"
+	},
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 303.15
+	},
 /area/template_noop)
 "ZR" = (
 /obj/effect/floor_decal/corner_wide/lime{
@@ -14434,7 +14598,7 @@ lG
 lG
 oK
 SU
-SU
+lo
 SU
 SU
 ky
@@ -15118,7 +15282,7 @@ vt
 TX
 TX
 TX
-TX
+ZM
 TX
 TX
 TX
@@ -15160,7 +15324,7 @@ gB
 gB
 gB
 gB
-gB
+Ao
 gB
 gB
 QZ
@@ -15281,7 +15445,7 @@ tz
 JS
 aS
 aS
-aS
+Vi
 mN
 mN
 aS
@@ -23239,7 +23403,7 @@ qY
 qY
 cu
 qY
-qY
+xY
 qY
 fo
 qY
@@ -23560,7 +23724,7 @@ UQ
 le
 le
 le
-le
+ip
 le
 le
 xJ
@@ -23806,7 +23970,7 @@ Kz
 uD
 uD
 Kz
-Kz
+Kc
 uD
 Gr
 Ik
@@ -27114,7 +27278,7 @@ SU
 CV
 Pw
 Pw
-SU
+Ac
 SU
 uP
 uP
@@ -28966,7 +29130,7 @@ UK
 mj
 UK
 DM
-UK
+wv
 UK
 mj
 us
@@ -30506,7 +30670,7 @@ ap
 ap
 ap
 ap
-ap
+Hf
 uA
 qX
 qX
@@ -30620,7 +30784,7 @@ aS
 aS
 aS
 aS
-aS
+nr
 qX
 nr
 bm
@@ -30708,9 +30872,9 @@ ap
 ap
 ap
 ap
-ap
+Hf
 qX
-qX
+FQ
 ap
 ap
 qX
@@ -30910,9 +31074,9 @@ qX
 ap
 ap
 ap
-ap
+Hf
 Vd
-Vd
+ni
 ap
 ap
 ap
@@ -31112,9 +31276,9 @@ qX
 qX
 ap
 ap
-ap
+Hf
 Vd
-Vd
+ni
 ap
 ap
 ap
@@ -31314,9 +31478,9 @@ qX
 qX
 qX
 ap
-ap
+Hf
 Vd
-Vd
+ni
 ap
 ap
 ap
@@ -31384,7 +31548,7 @@ vE
 uc
 tw
 Tr
-SU
+Tr
 tw
 lh
 Tr
@@ -31516,9 +31680,9 @@ qX
 qX
 ap
 ap
-ap
+Hf
 qX
-qX
+FQ
 ap
 ap
 qX
@@ -31586,7 +31750,7 @@ tw
 tw
 tw
 Tr
-SU
+Tr
 tw
 lh
 Tr
@@ -31721,9 +31885,9 @@ qX
 uA
 qX
 qX
-qX
-qX
-qX
+Zl
+Zl
+Zl
 Oe
 ap
 ap
@@ -31787,8 +31951,8 @@ iF
 iF
 iF
 tw
-yb
-yb
+Tr
+Tr
 tw
 lh
 Tr
@@ -31924,7 +32088,7 @@ qX
 uA
 qX
 qX
-qX
+Dg
 qX
 Oe
 ap
@@ -31962,7 +32126,7 @@ SU
 SU
 SU
 SU
-uP
+vG
 eg
 SU
 SU
@@ -31990,7 +32154,7 @@ iF
 iF
 tw
 Tr
-SU
+Tr
 tw
 tw
 tw
@@ -32086,7 +32250,7 @@ Mb
 Mb
 gN
 Mb
-Mb
+vZ
 Mb
 Mb
 Mb
@@ -32247,7 +32411,7 @@ qX
 qX
 qX
 qX
-qX
+ZJ
 qX
 qX
 qX
@@ -32739,10 +32903,10 @@ qX
 qX
 qX
 qX
-qX
-Vd
-Vd
-qX
+Zl
+dx
+dx
+Zl
 qX
 qX
 qX
@@ -33144,9 +33308,9 @@ Oe
 qX
 qX
 qX
-Vd
-Vd
-qX
+Ra
+Ra
+og
 qX
 qX
 qX
@@ -33345,7 +33509,7 @@ Oe
 qX
 uA
 qX
-qX
+FQ
 ap
 ap
 ap
@@ -36240,8 +36404,8 @@ NG
 pt
 RG
 SU
-Fv
-Rk
+nw
+ub
 Uo
 Rk
 Uo
@@ -40514,7 +40678,7 @@ NG
 bs
 wm
 dG
-dG
+qB
 dG
 dG
 NG
@@ -43722,7 +43886,7 @@ TD
 TD
 TD
 TD
-TD
+UD
 TD
 TD
 TD
@@ -46377,7 +46541,7 @@ tw
 tw
 tw
 tw
-NG
+Nc
 wm
 NG
 NG
@@ -48151,7 +48315,7 @@ TD
 SU
 TD
 TD
-TD
+UD
 TD
 CV
 TD
@@ -48166,7 +48330,7 @@ TD
 TD
 TD
 TD
-TD
+UD
 TD
 TD
 TD
