@@ -286,6 +286,10 @@
 	suit = /obj/item/clothing/suit/space/void/sol/ssmd
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/ssmd
 
+/obj/machinery/suit_cycler/offship/sol/splf
+	suit = /obj/item/clothing/suit/space/void/sol/splf
+	helmet = /obj/item/clothing/head/helmet/space/void/sol/splf
+
 /obj/machinery/suit_cycler/offship/xanu
 	model_text = "All-Xanu Spacefleet"
 	req_access = list(ACCESS_COALITION_NAVY)

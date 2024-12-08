@@ -5,7 +5,7 @@
 
 /area/ship/dominian_science_vessel/hangar
 	name = "Dominian Science Vessel Hangar"
-	icon_state = "hangar"
+	icon_state = "yellow"
 
 /area/ship/dominian_science_vessel/infirmary
 	name = "Dominian Science Vessel Infirmary"
