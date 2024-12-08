@@ -1,0 +1,248 @@
+
+// ------------------------- base/parent
+
+/area/enviro_testing_facility
+	name = "Base/Parent Area"
+	icon_state = "white"
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
+	base_turf = /turf/simulated/floor/exoplanet/barren
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_IS_BACKGROUND
+	holomap_color = "#747474"
+	color = "#747474"
+	is_outside = OUTSIDE_NO
+
+// ------------------------- outside
+
+/area/enviro_testing_facility/outside
+	is_outside = OUTSIDE_YES
+	holomap_color = "#494949"
+
+/area/enviro_testing_facility/outside/landing
+	name = "Landing Pad"
+	holomap_color = "#575757"
+
+/area/enviro_testing_facility/outside/surface
+	name = "Surface"
+
+/area/enviro_testing_facility/outside/cave
+	name = "Cave"
+	is_outside = OUTSIDE_NO
+	holomap_color = "#2e2e2e"
+	color = "#2e2e2e"
+
+// ------------------------- inside
+
+/area/enviro_testing_facility/inside
+	is_outside = OUTSIDE_NO
+	holomap_color = "#7e7e7e"
+	color = "#7e7e7e"
+
+// ------------- hallway
+
+/area/enviro_testing_facility/inside/hallway
+	holomap_color = "#8d8d8d"
+	color = "#8d8d8d"
+
+/area/enviro_testing_facility/inside/hallway/entrance
+	name = "Entrance"
+
+/area/enviro_testing_facility/inside/hallway/central
+	name = "Hallway, Central"
+
+/area/enviro_testing_facility/inside/hallway/east
+	name = "Hallway, East"
+
+/area/enviro_testing_facility/inside/hallway/west
+	name = "Hallway, West"
+
+// ------------- crew
+
+/area/enviro_testing_facility/inside/crew
+	holomap_color = "#54654c"
+	color = "#54654c"
+
+/area/enviro_testing_facility/inside/crew/quarters
+	name = "Crew Quarters"
+
+/area/enviro_testing_facility/inside/crew/canteen
+	name = "Canteen"
+
+// ------------- medical
+
+/area/enviro_testing_facility/inside/medical
+	holomap_color = "#8daf6a"
+	color = "#8daf6a"
+
+/area/enviro_testing_facility/inside/medical/hallway
+	name = "Medical, Hallway"
+
+/area/enviro_testing_facility/inside/medical/lobby
+	name = "Medical, Lobby"
+
+/area/enviro_testing_facility/inside/medical/cryo
+	name = "Medical, Cryo"
+
+/area/enviro_testing_facility/inside/medical/pharmacy
+	name = "Medical, Pharmacy"
+
+/area/enviro_testing_facility/inside/medical/recovery_1
+	name = "Medical, Recovery 1"
+
+/area/enviro_testing_facility/inside/medical/recovery_2
+	name = "Medical, Recovery 2"
+
+/area/enviro_testing_facility/inside/medical/offices
+	name = "Medical, Offices"
+
+/area/enviro_testing_facility/inside/medical/general_treatment
+	name = "Medical, GTR"
+
+/area/enviro_testing_facility/inside/medical/surgery_1
+	name = "Medical, Surgery 1"
+
+/area/enviro_testing_facility/inside/medical/surgery_2
+	name = "Medical, Surgery 2"
+
+/area/enviro_testing_facility/inside/medical/chief_office
+	name = "Medical, CMO Office"
+
+/area/enviro_testing_facility/inside/medical/paramedic
+	name = "Medical, Paramedic Ready Room"
+
+// ------------- security
+
+/area/enviro_testing_facility/inside/security
+	holomap_color = "#708997"
+	color = "#708997"
+
+/area/enviro_testing_facility/inside/security/lobby
+	name = "Security, Lobby"
+
+/area/enviro_testing_facility/inside/security/equipment
+	name = "Security, Equipment Room"
+
+/area/enviro_testing_facility/inside/security/armory
+	name = "Security, Armoury"
+
+/area/enviro_testing_facility/inside/security/cells_1
+	name = "Security, Cells 1"
+
+/area/enviro_testing_facility/inside/security/cells_2
+	name = "Security, Cells 2"
+
+/area/enviro_testing_facility/inside/security/hallway
+	name = "Security, Hallway"
+
+/area/enviro_testing_facility/inside/security/hos_office
+	name = "Security, HOS Office"
+
+/area/enviro_testing_facility/inside/security/storage
+	name = "Security, Storage"
+
+// ------------- engineering
+
+/area/enviro_testing_facility/inside/engineering
+	holomap_color = "#ceb689"
+	color = "#ceb689"
+
+/area/enviro_testing_facility/inside/engineering/storage_1
+	name = "Engineering, Storage 1"
+
+/area/enviro_testing_facility/inside/engineering/storage_2
+	name = "Engineering, Storage 2"
+
+/area/enviro_testing_facility/inside/engineering/secure_storage
+	name = "Engineering, Secure Storage"
+
+/area/enviro_testing_facility/inside/engineering/reactors
+	name = "Engineering, Reactors"
+
+/area/enviro_testing_facility/inside/engineering/equipment
+	name = "Engineering, Equipment"
+
+/area/enviro_testing_facility/inside/engineering/robo_lab
+	name = "Engineering, Robotics Lab"
+
+/area/enviro_testing_facility/inside/engineering/mech_lab
+	name = "Engineering, Mechatronics Lab"
+
+// ------------- research
+
+/area/enviro_testing_facility/inside/research
+	holomap_color = "#8a7387"
+	color = "#8a7387"
+
+/area/enviro_testing_facility/inside/research/hallway
+	name = "Research, Hallway"
+
+/area/enviro_testing_facility/inside/research/entrance
+	name = "Research, "
+
+/area/enviro_testing_facility/inside/research/chem_lab
+	name = "Research, Chem Lab"
+
+/area/enviro_testing_facility/inside/research/telescience
+	name = "Research, Telescience"
+
+/area/enviro_testing_facility/inside/research/rnd
+	name = "Research, RnD"
+
+/area/enviro_testing_facility/inside/research/meeting
+	name = "Research, Meeting Room"
+
+/area/enviro_testing_facility/inside/research/rd_office
+	name = "Research, RD Office"
+
+/area/enviro_testing_facility/inside/research/electronics
+	name = "Research, Electronics"
+
+// ------------- testing domes
+
+/area/enviro_testing_facility/inside/testing_dome
+	holomap_color = "#587577"
+	color = "#587577"
+
+/area/enviro_testing_facility/inside/testing_dome/anna
+	name = "Testing Dome, Anna"
+
+/area/enviro_testing_facility/inside/testing_dome/boris
+	name = "Testing Dome, Boris"
+
+/area/enviro_testing_facility/inside/testing_dome/vasily
+	name = "Testing Dome, Vasily"
+
+/area/enviro_testing_facility/inside/testing_dome/galina
+	name = "Testing Dome, Galina"
+
+
+// ------------- other
+
+// /area/enviro_testing_facility/inside/warehouse
+// 	name = "Warehouse"
+// 	holomap_color = "#ceb689"
+
+// ------------------------- maint
+
+// /area/enviro_testing_facility/inside/maint_medbay
+// 	name = "Maint, Medbay"
+
+// /area/enviro_testing_facility/inside/maint_habitation
+// 	name = "Maint, Habitation"
+
+// /area/enviro_testing_facility/inside/maint_warehouse
+// 	name = "Maint, Warehouse"
+
+// /area/enviro_testing_facility/inside/maint_botany
+// 	name = "Maint, Botany"
+
+// /area/enviro_testing_facility/inside/maint_entrance
+// 	name = "Maint, Entrance"
+
+// /area/enviro_testing_facility/inside/maint_engineering
+// 	name = "Maint, Engineering"
+
+// /area/enviro_testing_facility/inside/comms
+// 	name = "Communications"
+// 	holomap_color = "#708997"
