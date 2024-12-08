@@ -181,7 +181,7 @@
 
 	return ..()
 
-/obj/structure/reagent_dispensers/fueltank/attack_ghost(mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attack_ghost(mob/user)
 	if(user.client && user.client.inquisitive_ghost)
 		examine()
 	if(!user.client.holder)

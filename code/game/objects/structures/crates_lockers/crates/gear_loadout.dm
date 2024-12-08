@@ -1156,6 +1156,22 @@
 	new /obj/item/melee/energy/glaive(src)
 	new /obj/item/melee/energy/axe(src)
 	new /obj/item/melee/energy/axe(src)
+	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/device/suit_cooling_unit(src)
+	new /obj/item/device/suit_cooling_unit(src)
+	new /obj/item/device/suit_cooling_unit(src)
+	new /obj/item/device/suit_cooling_unit(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/hoplan/single/fill()
 	new /obj/item/clothing/shoes/jackboots(src)
@@ -1178,6 +1194,10 @@
 	new /obj/item/stack/nanopaste/surge(src)
 	new /obj/item/shield/energy/legion(src)
 	new /obj/item/melee/energy/glaive(src)
+	new /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/suit/space/void/golden_deep/hoplan(src)
+	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/device/suit_cooling_unit(src)
 
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja

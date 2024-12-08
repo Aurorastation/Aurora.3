@@ -22,6 +22,7 @@
 			return
 
 		var/obj/item/clothing/accessory/A = attacking_item
+		A.before_attached(src, user)
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)

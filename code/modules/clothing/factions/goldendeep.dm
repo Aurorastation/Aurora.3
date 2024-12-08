@@ -85,6 +85,10 @@
 	contained_sprite = TRUE
 	has_accents = TRUE
 
+// Unique variation for use with the Golden Deep ghostrole.
+/obj/item/clothing/accessory/goldendeep/black
+	color = "#333333"
+
 /obj/item/clothing/accessory/goldendeep/pompous
 	name = "pompous shirt"
 	desc = "Poofy and ostentatious, this shirt of fine fabric screams wealth."
@@ -244,3 +248,21 @@
 /obj/item/storage/backpack/goldendeep/baseline
 	icon_state = "sacred_icon_baseline"
 	item_state = "sacred_icon_baseline"
+
+// Porter uniforms, notably used for the Golden Deep owned synthetic ghostrole.
+/obj/item/clothing/under/goldendeep/porter
+	name = "porter uniform"
+	desc = "Fashioned by the Golden Deep and still regularly used within its menial workforce, this weather resistant uniform decorates independent delivery workers spur-wide. With padded segments along its arms, legs, and back, the suit is perfect for package carrying rigs."
+	desc_extended = "Originally the invention of an unknown synthetic, the design of plain utilitarian jumpsuits known as 'Porter Uniforms' has skyrocketed in popularity, with many different firms and organizations within the Golden Deep inventing their own variety. Known not to be particularly comfortable for organic use."
+	icon_state = "porter_uniform"
+	item_state = "porter_uniform"
+	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/goldendeep/porter
+	name = "porter hood"
+	desc = "This is a simple and nondescript hood designed to fit over many shapes of head, intended to provide protection from the elements. While originally fashioned by the Golden Deep and remaining particularly popular in it, its use has also branched out widely throughout the spur among independent delivery workers."
+	icon_state = "porter_hood"
+	item_state = "porter_hood"
+	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	contained_sprite = TRUE

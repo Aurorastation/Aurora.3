@@ -523,7 +523,6 @@
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
-			buckled.layer = src.layer + 1
 		else
 			buckled = null
 

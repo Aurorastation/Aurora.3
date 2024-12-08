@@ -28,8 +28,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/sector_z = get_sector_z()
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V) && V.comms_support)
 		var/freq_name = V.name
 		if(V.freq_name)
@@ -48,8 +48,17 @@
 
 	return INITIALIZE_HINT_NORMAL
 
+/obj/item/device/encryptionkey/ship/proc/get_sector_z()
+	. = GET_Z(get_turf(src))
+
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
+
+/obj/item/device/encryptionkey/ship/odyssey/get_sector_z()
+	if(SSodyssey.scenario_zlevels && SSodyssey.scenario_zlevels.len)
+		. = SSodyssey.scenario_zlevels[1]
+	else // safe fallback
+		. = GET_Z(get_turf(src))
 
 /obj/item/device/encryptionkey/ship/coal_navy
 	additional_channels = list(CHANNEL_COALITION_NAVY = TRUE)

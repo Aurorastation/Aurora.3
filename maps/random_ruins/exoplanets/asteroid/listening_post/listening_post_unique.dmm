@@ -1,17 +1,251 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/turf/simulated/wall/r_wall,
-/area/dungeon/syndie_listening_post)
-"ac" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1351;
-	id_tag = "listening_post_vent"
+/obj/effect/floor_decal/corner/black/full,
+/obj/effect/decal/remains/robot{
+	pixel_x = -4;
+	pixel_y = -4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"ac" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor,
+/area/listening_post/entrance)
 "ae" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/machinery/airlock_sensor{
+	frequency = 1351;
+	id_tag = "listening_post_sensor";
+	pixel_y = -25
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"ag" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"ah" = (
+/obj/machinery/shipsensors/strong,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"ai" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"aj" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"al" = (
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"am" = (
+/turf/template_noop,
+/area/template_noop)
+"an" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 26
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/listening_post/entrance)
+"ao" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"aq" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/entrance)
+"as" = (
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = 24;
+	pixel_x = 37
+	},
+/obj/machinery/access_button{
+	pixel_x = 26;
+	pixel_y = 25
+	},
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"av" = (
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -26;
+	pixel_y = 25
+	},
+/obj/machinery/door/airlock/external{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"aw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"ax" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"aC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"aD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/random/civgun/rifle,
+/obj/random/civgun,
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"aE" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"aF" = (
+/obj/machinery/suit_cycler/freelancer/prepared{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"aK" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"aN" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1351;
 	id_tag = "listening_post_airlock";
@@ -21,505 +255,1473 @@
 	tag_exterior_door = "listening_post_exterior";
 	tag_interior_door = "listening_post_interior"
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1351;
-	id_tag = "listening_post_vent"
-	},
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"af" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1351;
-	id_tag = "listening_post_vent"
-	},
-/obj/item/trash/liquidfood,
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"ag" = (
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1351;
-	master_tag = "listening_post_airlock";
-	pixel_x = -25
-	},
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"ah" = (
-/obj/effect/decal/cleanable/generic,
-/obj/structure/sink/kitchen{
-	name = "sink";
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"ai" = (
-/obj/machinery/light_construct{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aj" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"ak" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"al" = (
-/mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"am" = (
-/turf/template_noop,
-/area/template_noop)
-"an" = (
-/obj/machinery/door/airlock/hatch{
-	frequency = 1351;
-	id_tag = "listening_post_exterior";
-	locked = 1;
-	name = "Listening Post";
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"ao" = (
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"ap" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"aq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"ar" = (
-/obj/machinery/door/airlock/hatch{
-	frequency = 1351;
-	id_tag = "listening_post_interior";
-	locked = 1;
-	name = "Listening Post";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"as" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"at" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"av" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aw" = (
-/obj/item/trash/syndi_cakes,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"ax" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1351;
-	id_tag = "listening_post_sensor";
-	pixel_y = -25
-	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1;
-	frequency = 1351;
-	id_tag = "listening_post_vent"
-	},
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"ay" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1;
-	frequency = 1351;
-	id_tag = "listening_post_vent"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"az" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/northright,
-/obj/structure/sign/vacuum{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aB" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/northright,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aC" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aD" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aE" = (
-/obj/machinery/light{
-	brightness_color = "#FA8282"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aF" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/clothing/suit/space/void/freelancer,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aG" = (
-/obj/structure/door_assembly/door_assembly_hatch{
-	anchored = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aH" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/cobweb2{
-	icon_state = "cobweb1"
-	},
-/obj/item/reagent_containers/food/drinks/bottle/vodka{
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aK" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/box/sinpockets,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aL" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aM" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aN" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1;
-	frequency = 1351;
-	id_tag = "listening_post_vent"
-	},
-/turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
+/turf/simulated/floor,
+/area/listening_post/entrance)
 "aO" = (
-/obj/structure/table/reinforced,
-/obj/random/contraband,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aP" = (
-/obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aQ" = (
-/obj/effect/decal/remains/rat,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"aR" = (
-/obj/random/powercell,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"aT" = (
-/obj/item/bluespace_crystal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"aU" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
-"aV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
+/area/listening_post/servers)
+"aP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/listening_post/quarters)
+"aU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
 "aW" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"aX" = (
-/obj/structure/table/reinforced,
-/obj/item/pen/fountain/black,
-/obj/machinery/light_construct{
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"aX" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
 "aZ" = (
-/obj/machinery/constructable_frame/temp_deco,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"ba" = (
-/obj/item/bluespace_crystal,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bb" = (
-/turf/simulated/mineral,
-/area/dungeon/syndie_listening_post)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/servers)
 "bc" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "be" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/dungeon/syndie_listening_post)
+/area/listening_post/servers)
 "bf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
+/obj/machinery/power/rtg/advanced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
 "bg" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"bh" = (
+/obj/machinery/power/rtg/advanced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"bi" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"bk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/listening_post/entrance)
+"bl" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"bm" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/power)
+"bo" = (
+/obj/machinery/power/rtg/advanced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"bs" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"bu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"bx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"by" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/quarters)
+"bz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"bA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"bB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"bC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"bR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/wall/r_wall,
+/area/listening_post/entrance)
+"cz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"dc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"de" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Washroom"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"dx" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Monitoring Room"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"dI" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/power)
+"eo" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/storage/firstaid{
+	pixel_y = -13;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"eJ" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/inductive_charger/handheld/engineering{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"eY" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/sign/emergency/exit{
+	dir = 1;
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/listening_post/quarters)
+"fe" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"fj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	target_pressure = 250;
+	name = "Air Supply to Distro"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
+"gE" = (
+/obj/structure/table/standard,
+/obj/item/soap,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"gQ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"gU" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"hc" = (
+/obj/machinery/power/rtg/advanced,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"hQ" = (
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/effect/decal/cleanable/ash,
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
+"io" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/listening_post/power)
+"iv" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"jD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"jN" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Monitoring Room Foyer"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"kl" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/listening_post/servers)
+"kw" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"kH" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/machinery/power/smes/buildable{
+	input_attempt = 1;
+	charge = 2000000;
+	input_level = 200000;
+	output_level = 200000;
+	output_attempt = 1
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/power)
+"kK" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene{
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"lj" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"my" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"nx" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/sign/vacuum{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"om" = (
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"or" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"pD" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/quarters)
+"rr" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"sf" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/power)
+"sh" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Bathroom Stall"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/washroom)
+"sl" = (
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"sx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"sN" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"sW" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "General Quarters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"ta" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/ground,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"th" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
+"tH" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"uf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/r_wall,
+/area/listening_post/entrance)
+"ul" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"vA" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
+	name = "Bunks"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"wo" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"xe" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger{
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_x = 6
+	},
+/obj/machinery/cell_charger{
+	pixel_y = 15;
+	pixel_x = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"xR" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Atmospherics"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
+"yg" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/item/trash/gum{
+	pixel_y = -11;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"yY" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"zP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/quarters)
+"Ag" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"Bx" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/item/trash/liquidfood{
+	pixel_y = 13;
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"Ck" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/sign/emergency/exit{
+	pixel_y = -32;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"CD" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"De" = (
+/obj/machinery/suit_cycler/freelancer{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"Dg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/listening_post/atmospherics)
+"DB" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"Ei" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"Em" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"Ep" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid/closed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"Fp" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/quarters)
+"FE" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"HQ" = (
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"HX" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"Ie" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4;
+	start_pressure = 6000
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/atmospherics)
+"Iw" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/closet/crate/elec,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 2
+	},
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/item/clothing/gloves/yellow,
+/obj/random/tech_supply,
+/obj/item/storage/toolbox/mechanical,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/entrance)
+"Je" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"JA" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/washroom)
+"JD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/wall/r_wall,
+/area/listening_post/entrance)
+"JK" = (
+/obj/random/dirt_75,
+/obj/item/folder/red{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/servers)
+"JM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"Kz" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"Lj" = (
+/obj/machinery/shower{
+	pixel_y = 16
+	},
+/obj/structure/curtain/open/shower,
+/obj/random/dirt_75,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"Lr" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/atmospherics)
+"LH" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"LR" = (
+/obj/structure/table/wood,
+/obj/item/flora/pottedplant_small/dead{
+	pixel_y = 8;
+	pixel_x = -1
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = -7
+	},
+/obj/item/storage/pill_bottle/emoxanyl{
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"Md" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"MR" = (
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"MS" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
+	use_power = 1;
+	name = "waste outlet";
+	volume_rate = 700
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/listening_post/entrance)
+"MY" = (
+/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"Nr" = (
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/marble,
+/area/listening_post/washroom)
+"NI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"NL" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/barricade/wooden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"Oi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Long-term Generators"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"Pw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"PZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = -3
+	},
+/obj/random/dirt_75,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"Rp" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_y = 7;
+	pixel_x = 1
+	},
+/obj/item/pen/black{
+	pixel_y = 8
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = 20
+	},
+/obj/item/paper/crumpled{
+	pixel_x = -5;
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"RD" = (
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/bluespace_crystal{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/obj/item/bluespace_crystal{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/item/stock_parts/capacitor/adv{
+	pixel_x = 7
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"Sb" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
+	},
+/obj/machinery/photocopier,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"TE" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"TJ" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 8
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = 8
+	},
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/obj/item/trash/syndi_cakes,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bh" = (
-/obj/machinery/light_construct{
-	dir = 8
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/servers)
+"TK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bi" = (
-/obj/item/stock_parts/scanning_module/adv,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bj" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'SERVER ROOM'.";
-	name = "SERVER ROOM";
-	pixel_y = 32
-	},
-/obj/structure/door_assembly/door_assembly_hatch{
-	anchored = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/folder/red,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bl" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bm" = (
-/obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bn" = (
-/obj/effect/decal/remains/robot,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bo" = (
-/obj/item/stock_parts/capacitor/adv,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bp" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bq" = (
-/obj/item/trash/liquidfood,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"br" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bs" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bt" = (
-/obj/item/circuitboard/telecomms/broadcaster,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bu" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bv" = (
-/obj/structure/computerframe,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bw" = (
-/obj/structure/computerframe,
-/obj/machinery/light_construct,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bx" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
-/obj/structure/table/reinforced,
-/obj/item/trash/liquidfood,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"by" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"UP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/brown/full,
+/obj/machinery/recharge_station,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"VQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/listening_post/entrance)
+"Wc" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"Wf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/magnet,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"Ws" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
+"Wu" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bz" = (
-/obj/structure/bed,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"bA" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/dungeon/syndie_listening_post)
-"bB" = (
-/obj/structure/table/reinforced,
-/obj/item/paper/crumpled{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"dI" = (
-/obj/structure/table/reinforced,
-/obj/item/folder/red,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"hc" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/item/clothing/head/helmet/space/void/freelancer,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"io" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"kH" = (
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"lN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/syndi_cakes,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"oy" = (
-/obj/item/trash/liquidfood,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
-"Nr" = (
-/obj/structure/table/reinforced,
-/obj/random/contraband,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
+/turf/simulated/floor,
+/area/listening_post/power)
 "WB" = (
-/obj/item/paper/crumpled{
-	pixel_x = 6;
-	pixel_y = -4
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/quarters)
+"Xa" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/empty,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/dungeon/syndie_listening_post)
+/area/listening_post/quarters)
+"Zc" = (
+/turf/simulated/wall/r_wall,
+/area/listening_post/servers)
+"Zm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/spider/cocoon,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/dark,
+/area/listening_post/quarters)
+"ZM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/listening_post/servers)
+"ZN" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/listening_post/entrance)
 
 (1,1,1) = {"
 am
 am
-am
-am
-am
 bc
 bc
 bc
+bc
+bc
+am
 am
 am
 am
@@ -537,12 +1739,12 @@ am
 (2,1,1) = {"
 am
 am
-am
-am
-am
 bc
 bc
 bc
+bc
+bc
+am
 am
 am
 am
@@ -560,137 +1762,137 @@ am
 (3,1,1) = {"
 am
 am
-am
-am
-am
 bc
 bc
+bl
+bl
 bc
 am
 am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
 am
 "}
 (4,1,1) = {"
 am
 am
-am
-am
-am
-ab
+bk
+aq
+bc
+JD
 an
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 am
 am
-am
-am
+Zc
+TJ
+gQ
+RD
+Rp
+ab
+aU
+bx
+be
+bC
+Zc
 am
 "}
 (5,1,1) = {"
 am
 am
+aq
+aq
+av
+uf
+aq
 am
 am
-ab
-ab
+Zc
 ao
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-am
-am
-am
+JK
+wo
+Ag
+NI
+aU
+aC
+ah
+Wc
+Zc
 am
 "}
 (6,1,1) = {"
 am
 am
-am
-ab
-ab
+aq
+bi
+al
 ac
-ap
-aN
-ab
-ab
-ab
+aq
+am
+am
+Zc
+Sb
 bg
-bp
-bh
-bA
-bA
-ab
-ab
-am
-am
+rr
+Kz
+nx
+aU
+bz
+aO
+ZM
+Zc
 am
 "}
 (7,1,1) = {"
 am
 am
-am
-ab
-ab
+aq
+aN
+MY
 ae
 aq
-ax
-ab
-ab
-ab
-aQ
-aZ
-bi
-bm
-aT
-ab
-ab
 am
 am
+Zc
+Zc
+Zc
+dx
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
+Zc
 am
 "}
 (8,1,1) = {"
 am
 am
-am
-ab
-ab
+aq
+bs
+sl
 af
 aq
-ay
-ab
-ab
-ab
-aR
-ba
-bp
-bn
-bs
-ab
-ab
+am
+am
+am
+Zc
+aD
+kl
+Zc
+am
+am
+am
+am
 am
 am
 am
@@ -698,23 +1900,23 @@ am
 (9,1,1) = {"
 am
 am
+aq
+aq
+as
+aq
+aq
 am
-ab
-ab
-ab
-ar
-ab
-ab
-ab
-ab
-bA
-aZ
-br
-aZ
-bp
-ab
-ab
 am
+am
+Zc
+xe
+aZ
+Zc
+am
+am
+JA
+JA
+JA
 am
 am
 "}
@@ -722,208 +1924,208 @@ am
 am
 am
 am
-ab
-ab
-ag
-as
-az
-ab
-ab
-ab
-aT
-bA
-bp
-bo
-bt
-ab
-ab
+aq
+lj
+bR
+MS
 am
+am
+by
+by
+by
+jN
+by
+by
+am
+JA
+Ei
+JA
 am
 am
 "}
 (11,1,1) = {"
 am
 am
+aq
+aq
+Ep
+aq
+aq
 am
-ab
-ab
-ah
-at
-aB
-ab
-ab
-ab
-aU
-be
-bj
-aU
-be
-ab
-ab
 am
+by
+eJ
+Je
+gU
+UP
+by
+JA
+JA
+sh
+JA
 am
 am
 "}
 (12,1,1) = {"
 am
 am
-am
-ab
-ab
+aq
 ai
-aW
-aC
-ab
-aH
-aL
-bq
-al
-io
-oy
+jD
+ai
+Lr
+Lr
+Lr
+Lr
+PZ
+WB
+sx
+LH
+by
+Lj
+gE
 Nr
-ab
-ab
-am
+JA
 am
 am
 "}
 (13,1,1) = {"
-am
-am
-am
-ab
-ab
-aj
-io
-aD
-ab
-bu
-aM
-kH
-bf
-bk
-io
-bv
-ab
-ab
-am
+aq
+aq
+aq
+om
+TK
+Ws
+Lr
+Ie
+hQ
+Lr
+MR
+HQ
+yg
+cz
+de
+fe
+DB
+kw
+JA
 am
 am
 "}
 (14,1,1) = {"
-am
-am
-am
-ab
-ab
-ak
-io
-kH
-aG
-WB
-kH
-aV
-io
-io
+aq
+aF
+tH
+kK
+VQ
+Ck
+Lr
+Dg
+fj
+xR
+iv
+bA
+sx
+yY
 by
-bw
-ab
-ab
-am
-am
-am
+bm
+bm
+bm
+bm
+bm
+bm
 "}
 (15,1,1) = {"
-am
-am
-am
-ab
-ab
-aw
-kH
+aq
+De
+eo
+HX
 aE
-ab
-bB
-aP
-io
-lN
-aV
+Iw
+Lr
+th
+aX
+Lr
+Zm
+my
+bu
+FE
+by
 kH
-kH
-ab
-ab
-am
-am
-am
+aw
+hc
+hc
+bo
+bm
 "}
 (16,1,1) = {"
-am
-am
-am
-ab
-ab
-aF
-av
-hc
-ab
-aK
-aO
-aX
-bx
-bl
-bz
+aq
+aq
+aq
+ZN
+sN
+ul
+Lr
+Lr
+Lr
+Lr
+Xa
+TE
+Bx
+or
+Oi
 dI
-ab
-ab
-am
-am
-am
+bB
+Wu
+io
+ag
+bm
 "}
 (17,1,1) = {"
 am
 am
-am
-bb
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-am
-am
-am
-am
+aq
+aj
+Em
+dc
+Md
+NL
+sW
+pD
+zP
+Fp
+eY
+aP
+by
+sf
+aW
+bf
+bf
+bh
+bm
 "}
 (18,1,1) = {"
 am
 am
-am
-am
-am
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-am
-am
-am
-am
-am
+aq
+aq
+aq
+aq
+Wf
+ta
+aq
+JM
+Pw
+by
+by
+vA
+by
+by
+bm
+bm
+bm
+bm
+bm
 "}
 (19,1,1) = {"
 am
@@ -931,16 +2133,16 @@ am
 am
 am
 am
-am
-am
-am
-am
-am
-am
-am
-am
-am
-am
+aq
+aq
+aq
+aq
+by
+by
+by
+ax
+CD
+by
 am
 am
 am
@@ -960,10 +2162,10 @@ am
 am
 am
 am
-am
-am
-am
-am
+by
+aK
+LR
+by
 am
 am
 am
@@ -983,10 +2185,10 @@ am
 am
 am
 am
-am
-am
-am
-am
+by
+by
+by
+by
 am
 am
 am

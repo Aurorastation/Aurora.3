@@ -64,6 +64,9 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/list/roundstart_callbacks
 
+	/// Used to prevent players from readying or unreadying, such as for Odyssey's setup.
+	var/prevent_unready = FALSE
+
 	// Pre-game ready menu handling
 	var/total_players = 0
 	var/total_players_ready = 0
@@ -143,6 +146,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	total_players = length(GLOB.player_list)
 
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
+		welcome()
 		SSvote.autogamemode()
 		pregame_timeleft--
 		return
@@ -261,8 +265,8 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You missed the crew transfer after the events on [station_name()] as [Player.real_name].")))
 			else
-				if(istype(Player,/mob/abstract/observer))
-					var/mob/abstract/observer/O = Player
+				if(isobserver(Player))
+					var/mob/abstract/ghost/observer/O = Player
 					if(!O.started_as_observer)
 						to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 				else
@@ -453,6 +457,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		setup_player_ready_list()
 
+	callHook("pregame_start")
+
+/// Handles welcome message and prints out ghostrole information. Should be called after offsites have spawned.
+/datum/controller/subsystem/ticker/proc/welcome()
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 
@@ -488,8 +496,6 @@ var/datum/controller/subsystem/ticker/SSticker
 		</span>\
 	"}
 	to_world(html)
-
-	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
@@ -529,6 +535,15 @@ var/datum/controller/subsystem/ticker/SSticker
 		current_state = GAME_STATE_PREGAME
 		to_world("<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby.")
 		return SETUP_REVOTE
+
+	// This proc must return TRUE on success.
+	if(!mode.pre_game_setup())
+		current_state = GAME_STATE_PREGAME
+		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
+		prevent_unready = FALSE
+		return SETUP_REVOTE
+
+	prevent_unready = FALSE
 
 	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()

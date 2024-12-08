@@ -747,6 +747,23 @@
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
 
+/obj/item/crowbar/hydraulic_rescue_tool
+	name = "Hydraulic rescue tool"
+	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
+	icon = 'icons/obj/item/tools/hydraulic_rescue_tool.dmi'
+	icon_state = "jawspry"
+	force = 15
+	throwforce = 1
+	w_class = WEIGHT_CLASS_NORMAL
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = /singleton/sound_category/crowbar_sound
+	origin_tech = list(TECH_ENGINEERING = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
+	sharp = FALSE
+	edge = FALSE
+
 // Pipe wrench
 /obj/item/pipewrench
 	name = "pipe wrench"

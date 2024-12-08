@@ -196,12 +196,14 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allows_internal = FALSE
+	paintable = TRUE
 
 /datum/robolimb/vaurca/warrior
 	company = PROSTHETIC_VAURCA_WARRIOR
 	icon = 'icons/mob/human_races/vaurca/r_vaurcawarriorlimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allowed_external_organs = list(BP_L_HAND, BP_R_HAND)
+	paintable = TRUE
 
 /datum/robolimb/hoplan
 	company = PROSTHETIC_HOPLAN

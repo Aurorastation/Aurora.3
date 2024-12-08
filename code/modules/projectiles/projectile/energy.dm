@@ -199,7 +199,7 @@
 	agony = 40
 	speed = 0.4
 	damage_type = DAMAGE_BURN
-	eyeblur = TRUE
+	eyeblur = 1
 	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 

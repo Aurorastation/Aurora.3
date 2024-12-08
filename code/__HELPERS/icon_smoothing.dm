@@ -89,7 +89,7 @@
 	else
 		var/atom/movable/AM
 
-		for(var/direction in GLOB.cardinal)
+		for(var/direction in GLOB.cardinals)
 			AM = find_type_in_direction(src, direction)
 			if(AM == NULLTURF_BORDER)
 				if((smoothing_flags & SMOOTH_BORDER))

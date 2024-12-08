@@ -165,7 +165,7 @@
 	icon_state = "yellow"
 	no_light_control = 1
 	base_turf = /turf/space
-	station_area = 1
+	station_area = TRUE
 
 /area/construction/supplyshuttle
 	name = "Supply Shuttle"

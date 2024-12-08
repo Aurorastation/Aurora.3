@@ -5,7 +5,7 @@
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
-	station_area = 1
+	station_area = TRUE
 	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
 	area_blurb_category = "maint"
 
@@ -304,7 +304,7 @@
 	always_unpowered = 1
 	ambience = AMBIENCE_SPACE
 	base_turf = /turf/space
-	station_area = 1
+	station_area = TRUE
 
 /area/solar/auxport
 	name = "Roof Solar Array"
