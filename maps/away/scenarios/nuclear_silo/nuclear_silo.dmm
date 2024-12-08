@@ -417,6 +417,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "aZ" = (
@@ -608,6 +609,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "bB" = (
@@ -2307,6 +2309,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "fg" = (
@@ -5001,6 +5004,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "kX" = (
@@ -5031,6 +5035,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "lb" = (
@@ -10113,6 +10118,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/checkpoint)
 "wo" = (
@@ -11388,6 +11394,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "zc" = (
@@ -12279,6 +12286,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/device/taperecorder,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Bf" = (
@@ -13949,6 +13957,10 @@
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nuclear_silo/outside/buildings/town)
+"EM" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/nuclear_silo/lower_level_lift)
 "EN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -16865,6 +16877,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Lj" = (
@@ -18053,6 +18066,7 @@
 /obj/item/melee/baton/stunrod,
 /obj/item/wirecutters,
 /obj/effect/floor_decal/corner/dark_blue/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Oc" = (
@@ -19650,6 +19664,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "RE" = (
@@ -20706,6 +20721,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "TV" = (
@@ -23021,6 +23037,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/checkpoint)
 "YM" = (
@@ -31987,7 +32004,7 @@ Rb
 RE
 Gp
 yJ
-mN
+EM
 mN
 Gp
 OG
@@ -32243,9 +32260,9 @@ Ef
 Qm
 to
 Gp
-mN
-mN
-mN
+EM
+EM
+EM
 Gp
 OG
 Mi
@@ -32502,7 +32519,7 @@ OZ
 Gp
 mN
 mN
-mN
+EM
 Gp
 iT
 MK
@@ -39440,8 +39457,8 @@ Qg
 qW
 jr
 jX
-jr
-jr
+qW
+qW
 qW
 KM
 Hx
