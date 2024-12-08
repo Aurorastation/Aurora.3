@@ -480,7 +480,7 @@
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
 "cv" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_y = 6
 	},
@@ -768,7 +768,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "dS" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -2347,7 +2347,7 @@
 /obj/effect/decal/road_marking/thin{
 	dir = 1
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_y = 9
 	},
@@ -2415,7 +2415,7 @@
 /obj/effect/decal/road_marking/thin{
 	dir = 8
 	},
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_y = 9
 	},
@@ -4151,7 +4151,7 @@
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
 "wd" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_y = 9
 	},
@@ -5203,7 +5203,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "BR" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_y = 9
 	},
@@ -7389,7 +7389,7 @@
 /turf/simulated/floor/lino,
 /area/template_noop)
 "MM" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -7838,7 +7838,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "Ps" = (
-/obj/structure/automobile/random{
+/obj/random/automobile{
 	dir = 4;
 	pixel_x = 3
 	},
