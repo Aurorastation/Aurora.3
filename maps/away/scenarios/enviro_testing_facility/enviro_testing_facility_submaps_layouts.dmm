@@ -52,7 +52,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
 "aN" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/offices,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/offices,
 /turf/simulated/wall,
 /area/template_noop)
 "aR" = (
@@ -143,7 +143,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dr" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/crew_quarters,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/crew_quarters,
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "dD" = (
@@ -467,7 +467,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "jz" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/dome,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "jB" = (
@@ -503,7 +503,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "kf" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/canteen,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/canteen,
 /turf/simulated/wall,
 /area/template_noop)
 "ki" = (
@@ -622,11 +622,11 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "mE" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/department,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/department,
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "mU" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/workshop,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/workshop,
 /turf/simulated/wall,
 /area/template_noop)
 "mV" = (
@@ -705,7 +705,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "oC" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/department,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/department,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "oP" = (
@@ -782,7 +782,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/dome,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qC" = (
@@ -803,7 +803,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qO" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/crew_room_small,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/crew_room_small,
 /turf/unsimulated/marker/purple,
 /area/template_noop)
 "qR" = (
@@ -825,7 +825,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "re" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/dome,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome,
 /turf/simulated/wall/r_wall,
 /area/template_noop)
 "rl" = (
@@ -1258,7 +1258,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Bo" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/department,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/department,
 /turf/simulated/wall,
 /area/template_noop)
 "Bp" = (
@@ -1787,7 +1787,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Ls" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/misc/warehouse_room,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/warehouse_room,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Mb" = (
@@ -1834,7 +1834,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Mx" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/environmental_testing_facility/main/dome,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome,
 /turf/unsimulated/marker/yellow,
 /area/template_noop)
 "My" = (
@@ -2039,7 +2039,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Rn" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/environmental_testing_facility/base_layout,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/base_layout,
 /turf/unsimulated/marker/red,
 /area/template_noop)
 "RP" = (
