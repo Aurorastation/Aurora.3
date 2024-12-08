@@ -18,7 +18,8 @@
 	var/cmineral = null
 	var/last_flip = 0 //Spam limiter
 
-/obj/item/coin/New()
+/obj/item/coin/Initialize(mapload)
+	. = ..()
 	randpixel_xy()
 
 /obj/item/coin/gold
