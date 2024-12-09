@@ -132,7 +132,7 @@
 
 	return ..()
 
-/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
 	if(!GLOB.config.allow_drone_spawn)
@@ -148,7 +148,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/do_possession(var/mob/abstract/ghost/observer/possessor)
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
 	if(src.ckey || src.client)
@@ -246,7 +246,7 @@
 	assign_drone_to_matrix(src, matrix_tag)
 	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
 
-/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/ghost/observer/possessor)
 	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
 

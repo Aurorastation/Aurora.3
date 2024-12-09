@@ -1,0 +1,48 @@
+2024-12-01:
+  Ben10083:
+  - bugfix: Xenobiology North cells now have access requirements.
+  - bugfix: Players can no longer actidently insert power cells instead of power cores
+      into exosuit chassis. Chassis description updated to reflect this.
+  MattAtlas:
+  - bugfix: Fixed sensor reports or comm messages in general not being printed at
+      sensors consoles.
+  OolongCow:
+  - bugfix: Fixes a coding oversight causing first aid lockers to not spawn kits.
+2024-12-02:
+  hazelmouse:
+  - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
+      secure locker in the Pilot Room.
+2024-12-04:
+  Ben10083:
+  - bugfix: AI can remote control mechs again.
+  - bugfix: Remote controlled exosuits now can travel between zlevels if capable.
+  - bugfix: Remote control no longer makes the client lose verbs until restart.
+  - bugfix: Remote controlled exosuit radios now will use the channels the user has
+      access to.
+  - qol: Pressing eject in a remotely controlled mech now exits remote control.
+  - code_imp: DMdoced lists.dm
+  - bugfix: AI shell and Exosuit adv health analyser now works properly.
+  - qol: Increased feedback for which mode the exosuit health analyser is on.
+  OolongCow:
+  - rscadd: Adds a pill bottle of inaprovaline and an emergency autoinjector to basic
+      first aid kits
+  - rscdel: Removes the cough syrup pills and health analyzer from basic first aid
+      kits.
+  notagonk:
+  - qol: Rearranges the HOS' office and surrounding maintenance to smooth out some
+      accessibility issues.
+2024-12-05:
+  Ben10083:
+  - bugfix: Restores missing wiring behind Head of Security Office.
+2024-12-06:
+  ShimmerIsTaken:
+  - rscadd: Added a Solarian army peacekeeper beret.
+  Yonnimer:
+  - rscadd: Adds several new Dionae loadout items.
+  - rscdel: Removes some redundant dionae items & ships.
+  hazelmouse:
+  - rscadd: Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD
+      variants, including an additional variant for the SPLF. Other Gargoyle variants
+      still in the codebase, including the SRF suits, are unchanged.
+  - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
+      Cyclops ship. '

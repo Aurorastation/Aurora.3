@@ -39,6 +39,7 @@
 
 /mob/living/bot/medbot/Destroy()
 	QDEL_NULL(reagent_glass)
+	QDEL_NULL(firstaid_item)
 	return ..()
 
 /mob/living/bot/medbot/think()

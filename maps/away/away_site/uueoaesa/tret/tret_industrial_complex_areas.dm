@@ -119,5 +119,3 @@
 
 /area/shuttle/tret_industrial/main
 	name = "Tret Mining Shuttle - Main"
-
-// ------------------------- fin

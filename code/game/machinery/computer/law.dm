@@ -55,7 +55,7 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user as mob)
+/obj/machinery/computer/aiupload/attack_ghost(user)
 	return 1
 
 
@@ -98,5 +98,5 @@
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return
 
-/obj/machinery/computer/borgupload/attack_ghost(user as mob)
+/obj/machinery/computer/borgupload/attack_ghost(user)
 	return 1

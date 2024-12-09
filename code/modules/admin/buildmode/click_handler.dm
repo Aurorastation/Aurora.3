@@ -13,6 +13,9 @@
 	build_modes = list()
 	for(var/mode_type in subtypesof(/datum/build_mode))
 		var/datum/build_mode/build_mode = new mode_type(src)
+		if(build_mode.permission_requirement)
+			if(!check_rights(build_mode.permission_requirement, FALSE, user))
+				continue
 		build_modes += build_mode
 		if(build_mode.the_default)
 			current_build_mode = build_mode

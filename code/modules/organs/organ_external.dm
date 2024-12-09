@@ -521,8 +521,8 @@
 				/// Certain limbs like zombie limbs have an integrated maiming bonus that make them easier to delimb. Add that.
 				var/maim_bonus_to_add = src.maim_bonus
 
-				if(isitem(used_weapon))
-					var/obj/item/W = used_weapon
+				if(isobj(used_weapon))
+					var/obj/W = used_weapon
 					dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/projectile/P = W

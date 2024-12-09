@@ -91,11 +91,13 @@
 		return
 	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	var/background_area = /area/space
+	var/background_area = world.area
 	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
+		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)
 	if(!locate(/turf) in A)
@@ -309,11 +311,13 @@
 		return
 	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
 	log_and_message_admins("deleted area [A.name] from [our_shuttle.name] via shuttle blueprints.")
-	var/background_area = /area/space
+	var/background_area = world.area
 	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
+	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
+		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)
 	if(!(locate(/turf) in A))

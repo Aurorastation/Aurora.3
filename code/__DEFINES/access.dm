@@ -824,3 +824,12 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+#define ACCESS_CRYO_OUTPOST 244
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Outpost #187-D Access"
+
+#define ACCESS_RUINED_PROPELLANT_DEPOT 245
+/datum/access/ruined_propellant_depot_access
+	id = ACCESS_RUINED_PROPELLANT_DEPOT
+	desc = "Propellant Depot AG5 Access"

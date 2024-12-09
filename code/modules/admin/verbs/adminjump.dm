@@ -1,10 +1,10 @@
 /mob/proc/on_mob_jump()
 	return
 
-/mob/abstract/observer/on_mob_jump()
+/mob/abstract/ghost/on_mob_jump()
 	QDEL_NULL(orbiting)
 
-/client/proc/Jump(var/area/A in GLOB.all_areas)
+/client/proc/Jump(var/area/A in get_sorted_areas())
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
 	set category = "Admin"
@@ -263,7 +263,7 @@
 	set name = "Send Mob"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return
-	var/area/A = input(usr, "Pick an area.", "Pick an area") in GLOB.all_areas
+	var/area/A = input(usr, "Pick an area.", "Pick an area") in get_sorted_areas()
 	if(A)
 		if(GLOB.config.allow_admin_jump)
 			M.on_mob_jump()

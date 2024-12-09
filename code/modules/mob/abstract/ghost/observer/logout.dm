@@ -1,4 +1,4 @@
-/mob/abstract/observer/Logout()
+/mob/abstract/ghost/observer/Logout()
 	..()
 	// This is one of very few spawn()s that we cannot get rid of
 	// Yes it needs to be like this
