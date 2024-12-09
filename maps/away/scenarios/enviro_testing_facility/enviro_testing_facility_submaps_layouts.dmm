@@ -235,6 +235,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ea" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Testing Dome Vasily"
+	},
+/turf/simulated/wall/r_wall,
+/area/enviro_testing_facility/inside/testing_dome/vasily)
 "ee" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/cable{
@@ -1156,6 +1162,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/entrance)
+"rz" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/entrance)
 "rN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1280,6 +1290,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ul" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "un" = (
 /turf/simulated/floor/tiled/dark,
@@ -2376,6 +2390,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"In" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Testing Dome Anna"
+	},
+/turf/simulated/wall/r_wall,
+/area/enviro_testing_facility/inside/testing_dome/anna)
 "Iw" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -2429,6 +2449,12 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"Jf" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Testing Dome Galina"
+	},
+/turf/simulated/wall/r_wall,
+/area/enviro_testing_facility/inside/testing_dome/galina)
 "Jh" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/cee{
@@ -2572,6 +2598,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"LV" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Testing Dome Boris"
+	},
+/turf/simulated/wall/r_wall,
+/area/enviro_testing_facility/inside/testing_dome/boris)
 "Mb" = (
 /turf/unsimulated/marker/purple,
 /area/template_noop)
@@ -3041,6 +3073,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Tl" = (
+/obj/effect/overmap/visitable/sector/enviro_testing_facility,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "TE" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
@@ -3185,6 +3221,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Vb" = (
@@ -6163,8 +6200,8 @@ mt
 mt
 oZ
 GK
-un
 oy
+ul
 UZ
 Co
 un
@@ -6421,7 +6458,7 @@ mt
 oZ
 PZ
 qu
-un
+Tl
 un
 bt
 un
@@ -6896,7 +6933,7 @@ mt
 mt
 mt
 mt
-GH
+ea
 GH
 GH
 ZN
@@ -12872,7 +12909,7 @@ Xa
 Xa
 Xa
 Xa
-sr
+Jf
 sr
 mt
 mt
@@ -31403,7 +31440,7 @@ Sv
 Sv
 Sv
 Sv
-Zz
+LV
 Zz
 mt
 mt
@@ -39807,7 +39844,7 @@ mt
 mt
 mt
 wx
-wx
+In
 uE
 uE
 uE
@@ -47344,7 +47381,7 @@ wY
 wY
 UQ
 EE
-EE
+rz
 aq
 cQ
 Ua

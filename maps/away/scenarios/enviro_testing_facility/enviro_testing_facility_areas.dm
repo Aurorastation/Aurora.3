@@ -3,7 +3,7 @@
 
 /area/enviro_testing_facility
 	name = "Base/Parent Area"
-	icon_state = "white"
+	icon_state = "white128a"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
