@@ -164,12 +164,15 @@
 	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
 	icon_state = "holster_low"
 	item_state = "holster_low"
+	slot = ACCESSORY_SLOT_UTILITY_PANTS
 
 /obj/item/clothing/accessory/holster/hip
 	name = "black hip holster"
 	desc = "A black firearm hip holster."
 	icon_state = "holster_hip"
 	item_state = "holster_hip"
+	slot = ACCESSORY_SLOT_UTILITY_PANTS
+
 
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
@@ -178,6 +181,7 @@
 	item_state = "holster_thigh"
 	sound_in = 'sound/weapons/holster/tactiholsterin.ogg'
 	sound_out = 'sound/weapons/holster/tactiholsterout.ogg'
+	slot = ACCESSORY_SLOT_UTILITY_PANTS
 
 /obj/item/clothing/accessory/holster/armpit/brown
 	name = "brown armpit holster"

@@ -50,7 +50,3 @@
 	M.ChangeToSkeleton()
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinals)
-
-	var/obj/item/clothing/under/U = M.w_uniform
-	var/obj/item/clothing/accessory/dressshirt/shirt = new()
-	U.attach_accessory(null, shirt)

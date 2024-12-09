@@ -72,7 +72,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 	pants = /obj/item/clothing/pants/dress/belt
 	head = /obj/item/clothing/head/goldendeep
-	accessory = /obj/item/clothing/accessory/goldendeep/black
+	uniform = /obj/item/clothing/under/dressshirt/goldendeep/black
 	suit = /obj/item/clothing/accessory/poncho/goldendeep/flowingcloak
 	belt = /obj/item/gun/energy/pistol/goldendeep
 	shoes = /obj/item/clothing/shoes/laceup

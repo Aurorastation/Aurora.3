@@ -1250,7 +1250,7 @@
 	color = "#4B381D";
 	pixel_y = -9
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/cardigan{
 	color = "#DDDDDD";
 	pixel_y = -6
@@ -1264,7 +1264,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang/akira{
 	pixel_y = -4
 	},
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer{
 	pixel_y = -2
 	},

@@ -204,9 +204,9 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 /datum/gear/accessory/goldendeep/New()
 	..()
 	var/list/goldendeepshirt = list()
-	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/accessory/goldendeep
-	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/accessory/goldendeep/pompous
-	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/accessory/goldendeep/clothwrappeduniform
+	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/under/dressshirt/goldendeep
+	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/under/dressshirt/goldendeep/pompous
+	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform
 	gear_tweaks += new /datum/gear_tweak/path(goldendeepshirt)
 
 /datum/gear/accessory/goldendeepouter
