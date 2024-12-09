@@ -217,11 +217,35 @@
 	name = "Testing Dome, Galina"
 
 
-// ------------- other
+// ------------- operations
 
-// /area/enviro_testing_facility/inside/warehouse
-// 	name = "Warehouse"
-// 	holomap_color = "#ceb689"
+/area/enviro_testing_facility/inside/operations
+	holomap_color = "#ceb689"
+	color = "#ceb689"
+
+/area/enviro_testing_facility/inside/operations/storage_long_term
+	name = "Operations, Long-Term Storage"
+
+/area/enviro_testing_facility/inside/operations/storage_materials
+	name = "Operations, Materials Storage"
+
+/area/enviro_testing_facility/inside/operations/fabrication
+	name = "Operations, Fabrication"
+
+// ------------- control
+
+/area/enviro_testing_facility/inside/control
+	holomap_color = "#536c91"
+	color = "#536c91"
+
+/area/enviro_testing_facility/inside/control/facility_controls
+	name = "Control, Facility Main Controls"
+
+/area/enviro_testing_facility/inside/control/offices
+	name = "Control, Offices"
+
+/area/enviro_testing_facility/inside/control/comms
+	name = "Control, Comms"
 
 // ------------------------- maint
 
@@ -242,7 +266,3 @@
 
 // /area/enviro_testing_facility/inside/maint_engineering
 // 	name = "Maint, Engineering"
-
-// /area/enviro_testing_facility/inside/comms
-// 	name = "Communications"
-// 	holomap_color = "#708997"

@@ -66,7 +66,7 @@
 /area/enviro_testing_facility/outside/surface)
 "u" = (
 /turf/template_noop,
-/area/enviro_testing_facility/outside/surface)
+/area/enviro_testing_facility/outside/cave)
 "v" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -132,7 +132,7 @@
 "Y" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/base_layout,
 /turf/template_noop,
-/area/enviro_testing_facility/outside/surface)
+/area/enviro_testing_facility/outside/cave)
 "Z" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
