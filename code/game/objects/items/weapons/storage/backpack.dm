@@ -24,6 +24,10 @@
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 	var/straps = FALSE // Only really used for the verb.
+
+	/// Whether this item can attach a sleeping bag
+	var/can_attach_sleeping_bag = TRUE
+
 	/**
 	 * References a sleeping bag attached to this bag. Should convert this to use accessories later, but that means making backpacks clothing.
 	 */
@@ -92,7 +96,7 @@
 	return 1
 
 /obj/item/storage/backpack/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
+	if(can_attach_sleeping_bag && istype(attacking_item, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		attached_bag = attacking_item
 		update_icon()

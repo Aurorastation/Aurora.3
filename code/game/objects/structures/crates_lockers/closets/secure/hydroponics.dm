@@ -21,6 +21,9 @@
 	new /obj/item/reagent_containers/spray/plantbgone(src)
 	new /obj/item/storage/belt/hydro(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
 	req_access = list(ACCESS_XENOBOTANY)
@@ -49,3 +52,6 @@
 	new /obj/item/storage/belt/hydro(src)
 	new /obj/item/clothing/gloves/botanic_leather(src)
 	new /obj/item/sampler(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)

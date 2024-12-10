@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added pouches, storage items that fit in your pockets. They spawn in departmental lockers."

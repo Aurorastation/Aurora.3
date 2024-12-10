@@ -32,6 +32,9 @@
 	new /obj/item/device/memorywiper(src)
 	new /obj/item/device/price_scanner(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
 	name = "hangar technician's locker"
@@ -51,6 +54,9 @@
 	new /obj/item/modular_computer/handheld/preset/supply/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 // Machinist
 /obj/structure/closet/secure_closet/machinist
@@ -73,6 +79,9 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/ipc_tag_scanner(src)
 	new /obj/item/device/robotanalyzer(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 // Miner
 /obj/structure/closet/secure_closet/miner
@@ -106,6 +115,9 @@
 	new /obj/item/device/flashlight/lantern(src)
 	new /obj/item/sleeping_bag/mining(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 // Merchant
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant's locker"
@@ -128,3 +140,6 @@
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/device/flashlight/lantern(src)
 	new /obj/item/pickaxe(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)

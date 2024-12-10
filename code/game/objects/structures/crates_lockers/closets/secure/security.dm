@@ -28,6 +28,9 @@
 	new /obj/item/storage/briefcase/nt/captain_formal(src)
 	new /obj/item/storage/briefcase/nt/acap(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
 	req_access = list(ACCESS_CAPTAIN)
@@ -77,6 +80,9 @@
 	new /obj/item/device/eftpos(src)
 	new /obj/item/book/manual/wiki/security_space_law(src)
 	new /obj/item/device/radio/off(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
@@ -145,6 +151,9 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/security(src)
+
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
 	req_access = list(ACCESS_HOS)
@@ -212,6 +221,8 @@
 	new /obj/item/wrench(src)
 	new /obj/item/device/multitool(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/security(src)
 
 /obj/structure/closet/secure_closet/security_cadet
 	name = "security cadet's locker"
@@ -242,6 +253,9 @@
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/storage/belt/security(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
@@ -278,6 +292,9 @@
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/security(src)
+
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
 	req_access = list(ACCESS_FORENSICS_LOCKERS)
@@ -311,6 +328,9 @@
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
 	new /obj/item/storage/belt/security(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
@@ -375,6 +395,9 @@
 	new /obj/item/device/radio/headset/headset_com/alt(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 // Evidence Storage Locker
 /obj/structure/closet/secure_closet/evidence

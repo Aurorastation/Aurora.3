@@ -94,33 +94,14 @@
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	equip_sound = 'sound/items/equip/toolbelt.ogg'
-	can_hold = list(
-		/obj/item/crowbar,
-		/obj/item/screwdriver,
-		/obj/item/weldingtool,
-		/obj/item/wirecutters,
-		/obj/item/wrench,
-		/obj/item/hammer,
-		/obj/item/device/multitool,
-		/obj/item/device/flashlight,
-		/obj/item/stack/cable_coil,
-		/obj/item/device/t_scanner,
-		/obj/item/device/analyzer,
-		/obj/item/taperoll/engineering,
-		/obj/item/device/robotanalyzer,
-		/obj/item/material/minihoe,
-		/obj/item/material/hatchet,
-		/obj/item/device/analyzer/plant_analyzer,
-		/obj/item/extinguisher/mini,
-		/obj/item/pipewrench,
-		/obj/item/powerdrill,
-		/obj/item/device/radio,
-		/obj/item/device/debugger,
-		/obj/item/device/eftpos,
-		/obj/item/tape_roll,
-		/obj/item/device/geiger
-	)
+	can_hold = null
 	content_overlays = TRUE
+
+/obj/item/storage/belt/utility/Initialize()
+	. = ..()
+	// check that can_hold is null so this can be overridden by child types
+	if(!can_hold)
+		can_hold = GLOB.engineering_storage_items.Copy()
 
 /obj/item/storage/belt/utility/ce
 	icon_state = "utilitybelt_ce"
@@ -177,35 +158,12 @@
 	desc = "Can hold various medical equipment."
 	icon_state = "medicalbelt"
 	item_state = "medical"
-	can_hold = list(
-		/obj/item/device/breath_analyzer,
-		/obj/item/device/healthanalyzer,
-		/obj/item/dnainjector,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/glass/beaker,
-		/obj/item/reagent_containers/glass/bottle,
-		/obj/item/reagent_containers/pill,
-		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/inhaler,
-		/obj/item/reagent_containers/personal_inhaler_cartridge,
-		/obj/item/personal_inhaler,
-		/obj/item/flame/lighter/zippo,
-		/obj/item/storage/box/fancy/cigarettes,
-		/obj/item/storage/pill_bottle,
-		/obj/item/stack/medical,
-		/obj/item/device/flashlight/pen,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/head/surgery,
-		/obj/item/clothing/gloves/latex,
-		/obj/item/reagent_containers/hypospray,
-		/obj/item/clothing/glasses/hud/health,
-		/obj/item/crowbar,
-		/obj/item/device/flashlight,
-		/obj/item/extinguisher/mini,
-		/obj/item/device/radio,
-		/obj/item/taperoll/medical,
-		/obj/item/storage/box/fancy/med_pouch
-		)
+
+/obj/item/storage/belt/medical/Initialize()
+	. = ..()
+	// check that can_hold is null so this can be overridden by child types
+	if(!can_hold)
+		can_hold = GLOB.medical_storage_items.Copy()
 
 /obj/item/storage/belt/medical/full
 	starts_with = list(
@@ -310,41 +268,14 @@
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon_state = "securitybelt"
 	item_state = "security"
-	can_hold = list(
-		/obj/item/grenade,
-		/obj/item/reagent_containers/spray/pepper,
-		/obj/item/handcuffs,
-		/obj/item/device/flash,
-		/obj/item/clothing/glasses,
-		/obj/item/ammo_casing/shotgun,
-		/obj/item/ammo_magazine,
-		/obj/item/reagent_containers/food/snacks/donut, // kek
-		/obj/item/melee/baton,
-		/obj/item/gun/energy/taser,
-		/obj/item/flame/lighter,
-		/obj/item/clothing/glasses/hud/security,
-		/obj/item/device/flashlight/maglight,
-		/obj/item/device/flashlight/flare,
-		/obj/item/modular_computer/handheld,
-		/obj/item/device/radio/headset,
-		/obj/item/device/hailer,
-		/obj/item/device/megaphone,
-		/obj/item/melee,
-		/obj/item/crowbar,
-		/obj/item/gun/projectile/sec,
-		/obj/item/gun/energy/disruptorpistol,
-		/obj/item/taperoll/police,
-		/obj/item/material/knife/trench,
-		/obj/item/shield/energy,
-		/obj/item/shield/riot/tact,
-		/obj/item/device/holowarrant,
-		/obj/item/device/taperecorder,
-		/obj/item/device/radio,
-		/obj/item/device/laser_pointer,
-		/obj/item/device/camera,
-		/obj/item/clipboard,
-		)
+	can_hold = null
 	content_overlays = TRUE
+
+/obj/item/storage/belt/security/Initialize()
+	. = ..()
+	// check that can_hold is null so this can be overridden by child types
+	if(!can_hold)
+		can_hold = GLOB.security_storage_items.Copy()
 
 /obj/item/storage/belt/security/full
 	starts_with = list(
