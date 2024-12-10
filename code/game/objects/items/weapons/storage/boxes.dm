@@ -1211,12 +1211,12 @@
 	name = "flares box"
 	desc = "A box full of flares."
 	foldable = FALSE
-	max_storage_space = 4
+	max_storage_space = 12
 	can_hold = list(
 		/obj/item/device/flashlight/flare
 	)
 	starts_with = list(
-		/obj/item/device/flashlight/flare = 4
+		/obj/item/device/flashlight/flare = 12
 	)
 
 // Magnetic Locks

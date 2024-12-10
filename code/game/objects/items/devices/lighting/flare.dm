@@ -2,9 +2,9 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	desc_info = "Use this item in your hand, to turn on the light."
-	w_class = WEIGHT_CLASS_SMALL
-	brightness_on = 3 // Pretty bright.
-	light_power = 4
+	w_class = WEIGHT_CLASS_TINY
+	brightness_on = 5 // Pretty bright.
+	light_power = 6
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
@@ -22,7 +22,7 @@
 
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
-	fuel = rand(4 MINUTES, 6 MINUTES)
+	fuel = rand(12 MINUTES, 15 MINUTES)
 
 /obj/item/device/flashlight/flare/process()
 	if(produce_heat)
