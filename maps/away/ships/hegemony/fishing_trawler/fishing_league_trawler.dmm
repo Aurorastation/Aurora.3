@@ -4405,7 +4405,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/Captain)
 "GP" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(241)
+	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
@@ -5996,7 +5998,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Un" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(241)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Ur" = (

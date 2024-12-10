@@ -2088,7 +2088,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/portdocking)
 "eji" = (
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(211)
+	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)

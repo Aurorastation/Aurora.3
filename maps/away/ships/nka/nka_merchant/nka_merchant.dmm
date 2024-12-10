@@ -3779,7 +3779,8 @@
 /area/shuttle/nka_merchant_shuttle)
 "sQ" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -4696,7 +4697,8 @@
 /area/nka_merchant/mess)
 "DL" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -5371,7 +5373,8 @@
 /area/nka_merchant/merchant)
 "Ki" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
@@ -5668,13 +5671,15 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "OT" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
