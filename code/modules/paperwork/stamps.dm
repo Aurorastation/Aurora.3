@@ -50,6 +50,7 @@
 /obj/item/stamp/denied
 	name = "\improper DENIED rubber stamp"
 	icon_state = "stamp-deny"
+
 /obj/item/stamp/accepted
 	name = "\improper ACCEPTED rubber stamp"
 	icon_state = "stamp-accept"

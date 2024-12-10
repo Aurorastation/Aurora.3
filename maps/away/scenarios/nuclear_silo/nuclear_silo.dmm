@@ -68,12 +68,8 @@
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "aj" = (
 /obj/effect/floor_decal/industrial/outline_corner/red,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "ak" = (
@@ -1329,10 +1325,10 @@
 /turf/simulated/wall,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "dd" = (
-/obj/machinery/computer/terminal{
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_corner/engineering{
+/obj/machinery/computer/terminal/inactive{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2287,13 +2283,10 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/surface)
 "fe" = (
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0;
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_corner/engineering{
+/obj/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2459,12 +2452,10 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "fy" = (
 /obj/random/dirt_75,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An Adhomian television. Due to bad reception, there is nothing to watch.";
-	icon = 'icons/obj/computer.dmi';
-	icon_state = "television";
-	name = "adhomian television"
+/obj/structure/table/wood,
+/obj/structure/television/adhomai{
+	pixel_x = 1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
@@ -2972,14 +2963,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/buildings)
 "gE" = (
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0;
-	dir = 8
-	},
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 8
+	},
+/obj/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -4359,12 +4347,8 @@
 /area/nuclear_silo/outside/surface)
 "jI" = (
 /obj/effect/floor_decal/industrial/outline_corner/medical,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "jJ" = (
@@ -5652,9 +5636,8 @@
 	pixel_x = -8;
 	pixel_y = 16
 	},
-/obj/item/device/flashlight/lamp{
-	pixel_x = -6;
-	on = 0
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
@@ -6433,12 +6416,8 @@
 /area/nuclear_silo/outside/buildings)
 "oi" = (
 /obj/effect/floor_decal/industrial/outline_corner/research,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "oj" = (
@@ -7357,7 +7336,6 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "qs" = (
-/obj/random/dirt_75,
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/nuclear_silo/outside/buildings)
@@ -8537,11 +8515,7 @@
 /area/nuclear_silo/outside/buildings/snowmobiles)
 "tc" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "td" = (
@@ -8759,13 +8733,9 @@
 /area/nuclear_silo/lower_level/maintenance/east)
 "tx" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "ty" = (
@@ -9604,9 +9574,6 @@
 "vl" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
@@ -11866,6 +11833,20 @@
 "Ak" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/mountain)
+"Al" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8;
+	req_one_access = list(246,247);
+	name = "DANGER, RADIATION - Nuclear Missile Silo"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/nuclear_silo/lower_level/nuke_silo)
 "Am" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -12293,6 +12274,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/nuclear_silo/outside/buildings)
+"Bi" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/nuclear_silo/lower_level_lift)
 "Bj" = (
 /obj/structure/table/wood/mahogany,
 /obj/random/smokable{
@@ -15408,13 +15393,9 @@
 /area/nuclear_silo/lower_level/medbay)
 "Ih" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Ii" = (
@@ -16360,13 +16341,9 @@
 /area/nuclear_silo/outside/cave/bunker)
 "Kl" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Km" = (
@@ -17905,9 +17882,6 @@
 "NM" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -20956,12 +20930,8 @@
 /area/nuclear_silo/outside/cave/bunker)
 "UD" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "UE" = (
@@ -21151,10 +21121,10 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "Va" = (
-/obj/machinery/computer/terminal{
+/obj/effect/floor_decal/industrial/outline_corner/medical{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_corner/medical{
+/obj/machinery/computer/terminal/inactive{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -22322,11 +22292,7 @@
 /area/nuclear_silo/lower_level/civilian/messhall)
 "Xq" = (
 /obj/effect/floor_decal/industrial/outline_corner/red,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Xr" = (
@@ -22336,10 +22302,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/lower_level/checkpoint)
-"Xs" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/nuclear_silo/lower_level_lift)
 "Xt" = (
 /obj/structure/girder,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -22637,11 +22599,7 @@
 /area/nuclear_silo/lower_level/medbay)
 "XX" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey,
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0
-	},
+/obj/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "XY" = (
@@ -23249,15 +23207,12 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nuclear_silo/outside/buildings)
 "Zu" = (
-/obj/machinery/computer/terminal{
-	light_power = 0;
-	light_power_on = 0;
-	light_range_on = 0;
-	dir = 8
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 8
+	},
+/obj/machinery/computer/terminal/inactive{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -31938,7 +31893,7 @@ Rb
 RE
 Gp
 yJ
-Xs
+Bi
 mN
 Gp
 OG
@@ -32194,9 +32149,9 @@ Ef
 Qm
 to
 Gp
-Xs
-Xs
-Xs
+Bi
+Bi
+Bi
 Gp
 OG
 Mi
@@ -32453,7 +32408,7 @@ OZ
 Gp
 mN
 mN
-Xs
+Bi
 Gp
 iT
 MK
@@ -41906,7 +41861,7 @@ LR
 LR
 LR
 kS
-Pu
+Al
 kS
 kS
 kS

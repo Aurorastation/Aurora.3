@@ -824,8 +824,6 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
-// for Odyssey scenarios
-
 #define ACCESS_CRYO_OUTPOST 244
 /datum/access/cryo_outpost_access
 	id = ACCESS_CRYO_OUTPOST
