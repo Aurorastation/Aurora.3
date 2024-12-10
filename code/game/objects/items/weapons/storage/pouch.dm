@@ -15,6 +15,8 @@
 
 /obj/item/storage/backpack/pouch/security
 	name = "security pouch"
+	icon_state = "security"
+	item_state = "security"
 	desc = "A pouch designed to store a few security supplies. It goes in your pocket."
 	max_storage_space = 6 // can hold 3 small items
 
@@ -26,6 +28,8 @@
 
 /obj/item/storage/backpack/pouch/medical
 	name = "medical pouch"
+	icon_state = "medical"
+	item_state = "medical"
 	desc = "A pouch designed to store a few medical supplies."
 	max_storage_space = 6 // can hold 3 small items
 
@@ -37,6 +41,8 @@
 
 /obj/item/storage/backpack/pouch/engineering
 	name = "engineering pouch"
+	icon_state = "engineering"
+	item_state = "engineering"
 	desc = "A pouch designed to store a few engineering supplies. It goes in your pocket."
 	max_storage_space = 6 // can hold 3 small items
 
