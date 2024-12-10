@@ -108,6 +108,8 @@
 	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
 	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
 
+	overmap_visitable_type = /obj/effect/overmap/visitable/ship/sccv_horizon
+
 	ports_of_call = TRUE
 
 	map_shuttles = list(
@@ -161,7 +163,7 @@
 	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
 
 /datum/map/sccv_horizon/send_welcome()
-	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
 
 	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
