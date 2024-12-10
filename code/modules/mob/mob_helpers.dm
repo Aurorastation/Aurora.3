@@ -1332,3 +1332,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Returns the damage multiplier the mob does when it throws something
+/mob/proc/get_throw_force_multiplier()
+	return 1

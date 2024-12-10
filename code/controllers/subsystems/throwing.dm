@@ -89,8 +89,10 @@ SUBSYSTEM_DEF(throwing)
 	var/delayed_time = 0
 	///The last world.time value stored when the thrownthing was moving.
 	var/last_move = 0
+	/// The final damage inflicted on the mob will be multiplied by this number
+	var/throw_damage_multiplier = 1
 
-/datum/thrownthing/New(thrownthing, target, init_dir, maxrange, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
+/datum/thrownthing/New(thrownthing, target, init_dir, maxrange, speed, thrower, diagonals_first, force, gentle, callback, target_zone, throw_damage_multiplier)
 	. = ..()
 	src.thrownthing = thrownthing
 	RegisterSignal(thrownthing, COMSIG_QDELETING, PROC_REF(on_thrownthing_qdel))
@@ -108,6 +110,8 @@ SUBSYSTEM_DEF(throwing)
 	src.gentle = gentle
 	src.callback = callback
 	src.target_zone = target_zone
+	if(throw_damage_multiplier)
+		src.throw_damage_multiplier = throw_damage_multiplier
 
 /datum/thrownthing/Destroy()
 	SSthrowing.processing -= thrownthing

@@ -41,6 +41,8 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
+	throw_force_multiplier = 1.2 // human bodies are more fit to hurl things, think cavemen with spears
+
 	grab_mod = 1.25 //humans are wily fuckers - geeves
 	climb_coeff = 1
 

@@ -254,6 +254,9 @@
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
+	/// The damage multiplier for when this species throws items
+	var/throw_force_multiplier = 1
+
 	// Pulse modifiers
 	var/low_pulse = 40
 	var/norm_pulse = 60
