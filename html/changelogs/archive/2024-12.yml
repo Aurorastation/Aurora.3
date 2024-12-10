@@ -46,3 +46,16 @@
       still in the codebase, including the SRF suits, are unchanged.
   - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
       Cyclops ship. '
+2024-12-10:
+  Ben10083:
+  - bugfix: Holopad forced calls now work again.
+  - qol: Holopad forced calls option toggles off after a call.
+  - qol: Force calls can be terminated by recieving holopad by command members.
+  Butterrobber202:
+  - balance: Removed the intense slowdown from the Captain's voidsuit.
+  hazelmouse:
+  - rscadd: Transitions the Assunzionii Rook voidsuit into a pure science voidsuit,
+      rather than a combat-capable suit.
+  - rscadd: Adds the Assunzionii Rook voidsuit to the loadout via a modkit available
+      to Assunzionii humans and synthetics, allowing research voidsuits to be transformed
+      into the Assunzionii Rook.
