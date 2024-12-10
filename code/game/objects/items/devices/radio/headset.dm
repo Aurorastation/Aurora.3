@@ -213,7 +213,7 @@
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
-	var/mob_wear_layer = WRISTS_LAYER_OVER
+	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	EarSound = FALSE
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
@@ -221,11 +221,11 @@
 	set name = "Change Wrist Layer"
 	set src in usr
 
-	if(mob_wear_layer == WRISTS_LAYER_OVER)
-		mob_wear_layer = WRISTS_LAYER_UNIFORM
+	if(mob_wear_layer == ABOVE_SUIT_LAYER_WR)
+		mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
 	else
-		mob_wear_layer = WRISTS_LAYER_OVER
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == WRISTS_LAYER_OVER ? "over" : "under"] your outerwear."))
+		mob_wear_layer = ABOVE_SUIT_LAYER_WR
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == ABOVE_SUIT_LAYER_WR ? "over" : "under"] your outerwear."))
 	if (ishuman(src.loc))
 		var/mob/living/carbon/human/H = src.loc
 		if(H.wrists == src)
@@ -268,7 +268,7 @@
 /obj/item/device/radio/headset/wrist/clip/get_wrist_examine_text(mob/living/carbon/human/user)
 	if(!istype(user))
 		return ..()
-	return "clipped to [user.get_pronoun("his")] [(mob_wear_layer == WRISTS_LAYER_OVER) && user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
+	return "clipped to [user.get_pronoun("his")] [(mob_wear_layer == ABOVE_SUIT_LAYER_WR) && user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
 
 /obj/item/device/radio/headset/wrist/clip/get_ear_examine_text(mob/living/carbon/human/user)
 	if(!istype(user))

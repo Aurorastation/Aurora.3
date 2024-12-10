@@ -5636,7 +5636,7 @@
 /obj/item/clothing/under/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/pants/skirt/offworlder{
 	color = "#333a59"
 	},
 /obj/item/clothing/gloves/offworlder{
@@ -5663,13 +5663,13 @@
 /obj/item/clothing/accessory/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/pants/skirt/offworlder{
 	color = "#554444"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/pants/skirt/offworlder{
 	color = "#554444"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/pants/skirt/offworlder{
 	color = "#c9ced4"
 	},
 /obj/item/clothing/under/offworlder,

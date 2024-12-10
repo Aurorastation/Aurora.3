@@ -802,6 +802,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		return slot_shoes
 	else if (H.wrists == src)
 		return slot_wrists
+	else if (H.pants == src)
+		return slot_pants
 	else
 		return null//We failed to find the slot
 

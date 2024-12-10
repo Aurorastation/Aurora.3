@@ -163,7 +163,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	uniform["nanotrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
-	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
+	uniform["adhomian summer pants"] = /obj/item/clothing/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
 	uniform["raakti shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	uniform["a'lmariist laborer clothes"] = /obj/item/clothing/under/tajaran/dpra
