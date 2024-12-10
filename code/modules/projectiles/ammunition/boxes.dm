@@ -99,6 +99,11 @@
 	icon_state = "45e"
 	max_ammo = 11
 
+/obj/item/ammo_magazine/c45m/stendo/rubber
+	name = "extended magazine (.45 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
+	icon_state = "r45e"
+
 /obj/item/ammo_magazine/c45m/lebman
 	name = "extended magazine (.45)"
 	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."

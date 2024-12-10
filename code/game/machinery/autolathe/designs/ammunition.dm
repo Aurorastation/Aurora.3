@@ -81,6 +81,11 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45m/stendo
 	security_level = SEC_LEVEL_RED
 
+/singleton/autolathe_recipe/ammunition/magazine_fourty_five/extended/rubber
+	name = "magazine (.45, extended rubber, pistol)"
+	path = /obj/item/ammo_magazine/c45m/stendo/rubber
+	security_level = SEC_LEVEL_GREEN
+
 /singleton/autolathe_recipe/ammunition/submachine_mag
 	name = "magazine (.45, submachine gun)"
 	path = /obj/item/ammo_magazine/submachinemag
