@@ -12,7 +12,7 @@
 	ui_auto_update = FALSE
 
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
-	var/selected_category = "" // Category that is currently selected
+	var/selected_category = null // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item
 	var/datum/cargo_order/co
 	var/status_message //Status Message to be displayed to the user
@@ -33,6 +33,9 @@
 	data["order_items"] = co.get_item_list()
 	data["order_value"] = co.get_value(0)
 	data["order_item_count"] = co.get_item_count()
+
+	if(!selected_category)
+		selected_category = SScargo.get_default_category()
 
 	//Pass Data for Main page
 	if(page == "main")
@@ -98,14 +101,14 @@
 
 			co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
 			status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
-			//TODO: Print a list with the order data
+
 			co = null
 			return TRUE
 
 		//Add item to the order list
 		if("add_item")
 			var/datum/cargo_order_item/coi = new
-			var/datum/cargo_item/ci = SScargo.cargo_items[params["add_item"]]
+			var/singleton/cargo_item/ci = SScargo.cargo_items[params["add_item"]]
 			if(ci)
 				coi.ci = ci
 				coi.calculate_price()
