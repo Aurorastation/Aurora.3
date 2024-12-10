@@ -381,6 +381,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "television"
 	anchored = TRUE
 
+/obj/structure/television/adhomai
+	name = "adhomaian television"
+	desc = "A classic box television, manufactured on Adhomai."
+	icon = 'icons/obj/computer.dmi'
+
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
