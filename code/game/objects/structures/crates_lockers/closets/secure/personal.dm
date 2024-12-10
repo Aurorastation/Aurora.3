@@ -11,6 +11,7 @@
 		new /obj/item/storage/backpack/satchel(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /obj/structure/closet/secure_closet/personal/patient
 	name = "patient's closet"
@@ -36,6 +37,7 @@
 	new /obj/item/storage/backpack/satchel/leather/withwallet(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/attacking_item, mob/user)
 	if (opened)
