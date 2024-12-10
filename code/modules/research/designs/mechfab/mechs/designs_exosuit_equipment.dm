@@ -149,3 +149,8 @@
 	. = ..()
 	desc += " It needs an anomaly core to function, however."
 
+/datum/design/item/mechfab/exosuit_equipment/ore_summoner
+	name = "Mounted Ore Summoner"
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
+	req_tech = list(TECH_MATERIAL = 3, TECH_BLUESPACE = 3)
+	build_path = /obj/item/mecha_equipment/ore_summoner
