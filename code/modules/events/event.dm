@@ -1,19 +1,44 @@
 /datum/event_meta
 	var/name 		= ""
-	var/enabled 	= 1	// Whether or not the event is available for random selection at all
-	var/weight 		= 0 // The base weight of this event. A zero means it may never fire, but see get_weight()
-	var/min_weight	= 0 // The minimum weight that this event will have. Only used if non-zero.
-	var/max_weight	= 0 // The maximum weight that this event will have. Only use if non-zero.
-	var/severity 	= 0 // The current severity of this event
-	var/one_shot	= 0	// If true, then the event will not be re-added to the list of available events
-	var/add_to_queue= 1	// If true, add back to the queue of events upon finishing.
+
+	///Whether or not the event is available for random selection at all
+	var/enabled = TRUE
+
+	///The base weight of this event. A zero means it may never fire, but see get_weight()
+	var/weight = 0
+
+	///The minimum weight that this event will have. Only used if non-zero
+	var/min_weight = 0
+
+	///The maximum weight that this event will have. Only use if non-zero
+	var/max_weight = 0
+
+	///The current severity of this event
+	var/severity = 0
+
+	///If TRUE, then the event will not be re-added to the list of available events
+	var/one_shot = FALSE
+
+	///If TRUE, add back to the queue of events upon finishing
+	var/add_to_queue = TRUE
+
 	var/list/role_weights = list()
-	var/list/minimum_job_requirement = list() //Minimum amount of jobs required for the event to fire.
-	var/pop_requirement = 0 //Minimum amount of player_list mobs for this to fire.
-	var/list/excluded_gamemodes	// A lazylist of gamemodes during which this event won't fire.
+
+	///Minimum amount of jobs required for the event to fire
+	var/list/minimum_job_requirement = list()
+
+	///Minimum amount of player_list mobs for this to fire
+	var/pop_requirement = 0
+
+	/// A lazylist of gamemodes during which this event won't fire
+	var/list/excluded_gamemodes
+
 	var/datum/event/event_type
 
-/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE, var/list/minimum_job_requirement_list, var/pop_needed = 0)
+/datum/event_meta/New(event_severity, event_name, datum/event/type, event_weight, list/job_weights,
+						is_one_shot = FALSE, min_event_weight = 0, max_event_weight = 0, list/excluded_roundtypes,
+						add_to_queue = TRUE, list/minimum_job_requirement_list, pop_needed = 0)
+
 	name = event_name
 	severity = event_severity
 	event_type = type
@@ -30,7 +55,7 @@
 	if(excluded_roundtypes)
 		excluded_gamemodes = excluded_roundtypes
 
-/datum/event_meta/proc/get_weight(var/list/active_with_role)
+/datum/event_meta/proc/get_weight(list/active_with_role)
 	if(!enabled)
 		return 0
 
@@ -64,30 +89,46 @@
 	return total_weight
 
 /datum/event	//NOTE: Times are measured in master controller ticks!
-	var/startWhen		= 0	//When in the lifetime to call start().
-	var/announceWhen	= 0	//When in the lifetime to call announce().
-	var/endWhen			= 0	//When in the lifetime the event should end.
 
-	var/severity		= 0 //Severity. Lower means less severe, higher means more severe. Does not have to be supported. Is set on New().
-	var/activeFor		= 0	//How long the event has existed. You don't need to change this.
-	var/isRunning		= 1 //If this event is currently running. You should not change this.
-	var/startedAt		= 0 //When this event started.
-	var/endedAt			= 0 //When this event ended.
+	///When in the lifetime to call start()
+	var/startWhen = 0
+
+	///When in the lifetime to call announce()
+	var/announceWhen = 0
+
+	///When in the lifetime the event should end
+	var/endWhen = 0
+
+	///Severity. Lower means less severe, higher means more severe. Does not have to be supported. Is set on New()
+	var/severity = 0
+
+	///How long the event has existed. You don't need to change this
+	var/activeFor = 0
+
+	///If this event is currently running. You should not change this
+	var/isRunning = TRUE
+
+	///When this event started
+	var/startedAt = 0
+
+	///When this event ended
+	var/endedAt = 0
+
 	var/datum/event_meta/event_meta = null
 	var/list/affecting_z
 
-	var/no_fake 		= 0
-	//If set to 1, this event will not be picked for false announcements
-	//This should really only be used for events that have no announcement
+	///If set to TRUE, this event will not be picked for false announcements
+	///This should really only be used for events that have no announcement
+	var/no_fake = FALSE
 
-	var/ic_name			= null
-	//A lore-suitable name that maintains the mystery, used for faking events
+	///A lore-suitable name that maintains the mystery, used for faking events
+	var/ic_name = null
 
-	var/dummy 			=	0
-	//If 1, this event is a dummy instance used for retrieving values, it should not run or add/remove itself from any lists
+	///If TRUE, this event is a dummy instance used for retrieving values, it should not run or add/remove itself from any lists
+	var/dummy =	FALSE
 
-	var/two_part		=	0
-	//used for events that run secondary announcements, like releasing maint access.
+	///used for events that run secondary announcements, like releasing maint access
+	var/two_part = FALSE
 
 	var/has_skybox_image = FALSE
 	var/obj/effect/overmap/visitable/ship/affected_ship
@@ -96,25 +137,25 @@
 /datum/event/nothing
 	no_fake = 1
 
-//Called first before processing.
-//Allows you to setup your event, such as randomly
-//setting the startWhen and or announceWhen variables.
-//Only called once.
+///Called first before processing.
+///Allows you to setup your event, such as randomly
+///setting the startWhen and or announceWhen variables.
+///Only called once.
 /datum/event/proc/setup()
 	return
 
-//Called when the tick is equal to the startWhen variable.
-//Allows you to start before announcing or vice versa.
-//Only called once.
+///Called when the tick is equal to the startWhen variable.
+///Allows you to start before announcing or vice versa.
+///Only called once.
 /datum/event/proc/start()
 	SHOULD_CALL_PARENT(TRUE)
 	if(has_skybox_image)
 		SSskybox.rebuild_skyboxes(affecting_z)
 	announce_start()
 
-//Called when the tick is equal to the announceWhen variable.
-//Allows you to announce before starting or vice versa.
-//Only called once.
+///Called when the tick is equal to the announceWhen variable.
+///Allows you to announce before starting or vice versa.
+///Only called once.
 /datum/event/proc/announce()
 	return
 
@@ -130,31 +171,33 @@
 		return FALSE
 	return TRUE
 
-//Called on or after the tick counter is equal to startWhen.
-//You can include code related to your event or add your own
-//time stamped events.
-//Called more than once.
+///Called on or after the tick counter is equal to startWhen.
+///You can include code related to your event or add your own
+///time stamped events.
+///Called more than once.
 /datum/event/proc/tick()
 	return
 
-//Called on or after the tick is equal or more than endWhen
-//You can include code related to the event ending.
-//Do not place spawn() in here, instead use tick() to check for
-//the activeFor variable.
-//For example: if(activeFor == myOwnVariable + 30) doStuff()
-//Only called once.
-//faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
+///Called on or after the tick is equal or more than endWhen
+///You can include code related to the event ending.
+///Do not place spawn() in here, instead use tick() to check for
+///the activeFor variable.
+///For example: if(activeFor == myOwnVariable + 30) doStuff()
+///Only called once.
+///faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
 /datum/event/proc/end(var/faked)
 	SHOULD_CALL_PARENT(TRUE)
 	announce_end(faked)
 
-//Returns the latest point of event processing.
+///Returns the latest point of event processing
 /datum/event/proc/lastProcessAt()
 	return max(startWhen, max(announceWhen, endWhen))
 
-//Do not override this proc, instead use the appropiate procs.
-//This proc will handle the calls to the appropiate procs.
+///Do not override this proc, instead use the appropiate procs
+///This proc will handle the calls to the appropiate procs
 /datum/event/process()
+	SHOULD_NOT_OVERRIDE(TRUE)
+
 	if(activeFor > startWhen && activeFor < endWhen)
 		tick()
 
@@ -175,8 +218,8 @@
 
 	activeFor++
 
-//Called when start(), announce() and end() has all been called.
-/datum/event/proc/kill(var/failed_to_spawn = FALSE)
+///Called when start(), announce() and end() has all been called
+/datum/event/proc/kill(failed_to_spawn = FALSE)
 	// If this event was forcefully killed run end() for individual cleanup
 
 	if(!dummy && isRunning)
@@ -197,7 +240,7 @@
 		SSevents.event_complete(src)
 
 
-/datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0, var/obj/effect/overmap/visitable/ship/overmap_ship, var/obj/effect/overmap/event/overmap_hazard)
+/datum/event/New(datum/event_meta/EM = null, is_dummy = 0, obj/effect/overmap/visitable/ship/overmap_ship, obj/effect/overmap/event/overmap_hazard)
 	dummy = is_dummy
 	event_meta = EM
 	if (event_meta)
@@ -233,7 +276,7 @@
 /datum/event/proc/get_skybox_image()
 	return
 
-/datum/event/proc/setup_for_overmap(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
+/datum/event/proc/setup_for_overmap(obj/effect/overmap/visitable/ship/ship, obj/effect/overmap/event/hazard)
 	startWhen = 0
 	endWhen = INFINITY
 	affecting_z = ship.map_z
@@ -243,6 +286,6 @@
 		announceWhen = -1
 	ic_name = hazard.name
 
-/datum/event/proc/send_sensor_message(var/message)
+/datum/event/proc/send_sensor_message(message)
 	for(var/obj/machinery/computer/ship/sensors/console in affected_ship.consoles)
 		console.display_message(message)
