@@ -26,8 +26,8 @@
 	item_flags = 0
 	obj_flags = 0
 
-/obj/item/stack/tile/New()
-	..()
+/obj/item/stack/tile/Initialize(mapload, amount)
+	. = ..()
 	randpixel_xy()
 
 /*

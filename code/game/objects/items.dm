@@ -1078,14 +1078,29 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	return FALSE
 
-//Used for selecting a random pixel placement, usually on initialize. Checks for pixel_x/y to not interfere with mapped in items.
+/**
+ * Randomizes the pixel_x and pixel_y variables of the item if they are not already set, based on `randpixel`
+ *
+ * Returns `TRUE` if the item was randomized, `FALSE` otherwise
+ *
+ * This should _not_ be called from `New()`, only from `Initialize()` or other procs that are called after the maploader has already finished loading the item
+ */
 /obj/item/proc/randpixel_xy()
-	if(!pixel_x && !pixel_y)
-		pixel_x = rand(-randpixel, randpixel)
-		pixel_y = rand(-randpixel, randpixel)
-		return TRUE
-	else
+	SHOULD_NOT_SLEEP(TRUE)
+
+	#if defined(TESTING)
+	if(!(src.flags_1 & INITIALIZED_1))
+		stack_trace("Item [src] was not initialized before calling randpixel_xy()!")
 		return FALSE
+	#endif
+
+	// If the item is qdel'd, has already been randomized or has already a pixel_x or pixel_y set, don't do anything and return FALSE
+	if(QDELETED(src) || pixel_x || pixel_y)
+		return FALSE
+
+	pixel_x = rand(-randpixel, randpixel)
+	pixel_y = rand(-randpixel, randpixel)
+	return TRUE
 
 /obj/item/do_simple_ranged_interaction(var/mob/user)
 	if(user)
