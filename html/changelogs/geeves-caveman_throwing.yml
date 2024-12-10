@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - balance: "Humans now do 20% bonus damage with thrown weapons."

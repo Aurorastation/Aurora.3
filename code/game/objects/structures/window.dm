@@ -205,6 +205,8 @@
 		tforce = I.throwforce
 	if(reinf)
 		tforce *= 0.25
+	if(throwingdatum)
+		tforce *= throwingdatum.throw_damage_multiplier
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()

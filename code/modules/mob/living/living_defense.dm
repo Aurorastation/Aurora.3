@@ -264,6 +264,8 @@
 		var/obj/O = hitting_atom
 		var/dtype = O.damtype
 		var/throw_damage = O.throwforce*(throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
+		if(throwingdatum)
+			throw_damage *= throwingdatum.throw_damage_multiplier
 
 		var/miss_chance = 15
 		if (O.throwing?.thrower?.resolve())

@@ -62,6 +62,10 @@
 		throw_force = O.throwforce
 	else if(ismob(hitting_atom))
 		throw_force = 10
+
+	if(throwingdatum)
+		throw_force *= throwingdatum.throw_damage_multiplier
+
 	health -= throw_force
 	healthcheck()
 
