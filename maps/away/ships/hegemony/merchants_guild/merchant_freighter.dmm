@@ -817,7 +817,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ka" = (
-/obj/item/modular_computer/console/preset/merchant/guild{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced{
