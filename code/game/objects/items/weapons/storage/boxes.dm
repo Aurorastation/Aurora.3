@@ -1210,6 +1210,8 @@
 /obj/item/storage/box/flares
 	name = "flares box"
 	desc = "A box full of flares."
+	icon_state = "largebox"
+	illustration = "flare"
 	foldable = FALSE
 	max_storage_space = 12
 	can_hold = list(
