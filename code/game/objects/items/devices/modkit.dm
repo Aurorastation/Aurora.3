@@ -306,7 +306,7 @@
 		"Solarian Provisional Government" = /obj/item/clothing/suit/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/suit/space/void/sol/srf,
 		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd,
-		"Solarian People's Liberation Front" = /obj/item/clothing/suit/space/void/sol/splf
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/suit/space/void/sol/splf
 	)
 	helmet_options = list(
 		"Solarian Armed Forces" = /obj/item/clothing/head/helmet/space/void/sol,
@@ -317,7 +317,7 @@
 		"Solarian Provisional Government" = /obj/item/clothing/head/helmet/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/head/helmet/space/void/sol/srf,
 		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-		"Solarian People's Liberation Front" = /obj/item/clothing/head/helmet/space/void/sol/splf
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/head/helmet/space/void/sol/splf
 	)
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate
