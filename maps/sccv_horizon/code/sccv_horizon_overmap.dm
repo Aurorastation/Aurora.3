@@ -93,7 +93,6 @@
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
-	density = 0
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = null
