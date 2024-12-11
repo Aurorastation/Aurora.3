@@ -89,14 +89,13 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/intrepid
+/obj/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
 	density = 0
-	icon = 'icons/obj/cockpit_console.dmi'
-	icon_state = "right"
-	icon_screen = "blue"
+	icon_state = "computer"
+	icon_screen = "helm"
 	icon_keyboard = null
 	circuit = null
 
