@@ -27,9 +27,9 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 
 	/// The atmosphere that exoplanet turfs should spawn with.
 	/// If null, ignored, and turfs keep their default or mapped in atmosphere.
-	/// If set, this atmosphere is used. If list, picks one from the list.
-	/// Should be set to a `/datum/gas_mixture` path.
-	var/datum/gas_mixture/exoplanet_atmosphere
+	/// If set, one atmosphere is picked from the list to be used.
+	/// Should be set to a list of `/datum/gas_mixture` paths.
+	var/list/datum/gas_mixture/exoplanet_atmosphere
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
 
