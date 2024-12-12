@@ -24,8 +24,6 @@
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
 /singleton/submap_archetype/crystal_planet_outpost
 	map = "crystal_planet_outpost"
 	descriptor = "Crystal Planet Outpost."
