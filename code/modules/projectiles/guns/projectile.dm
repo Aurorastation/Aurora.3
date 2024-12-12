@@ -27,6 +27,9 @@
 	var/unjam_cooldown = 0      //Gives the unjammer some time after spamming unjam to not eject their mag
 	var/jam_chance = 0          //Chance it jams on fire
 
+	///Whether the gun is mounted on a heavy vehicle or not
+	var/mounted = FALSE
+
 	///Pixel offset for the suppressor overlay on the x axis.
 	var/suppressor_x_offset
 	///Pixel offset for the suppressor overlay on the y axis.
@@ -141,6 +144,15 @@
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //Maybe this should be broken up into separate procs for each load method?
 /obj/item/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
+	if(mounted)
+		var/obj/item/rig/rig = get_rig()
+		if(istype(rig))
+			if(rig.offline || !rig.suit_is_deployed())
+				to_chat(user, SPAN_WARNING("You can't reload your [name] without deploying your hardsuit!"))
+				balloon_alert(user, "Deploy your hardsuit first!")
+				return
+		else
+			return
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
@@ -195,6 +207,15 @@
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+	if(mounted)
+		var/obj/item/rig/rig = get_rig()
+		if(istype(rig))
+			if(rig.offline || !rig.suit_is_deployed())
+				to_chat(user, SPAN_WARNING("You can't unload your [name] without deploying your hardsuit!"))
+				balloon_alert(user, "Deploy your hardsuit first!")
+				return
+		else
+			return
 	if(ammo_magazine)
 		if(drop_mag)
 			ammo_magazine.forceMove(user.loc)
