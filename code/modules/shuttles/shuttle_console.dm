@@ -14,11 +14,6 @@
 	var/list/linked_helmets = list()
 	var/can_rename_ship = FALSE
 
-	/// Set by emag_act(), stores the old access to be restored at a later time.
-	var/list/req_access_old
-	/// Set by emag_act(), stores the old access to be restored at a later time.
-	var/list/req_one_access_old
-
 	/// For hotwiring, how many cycles are needed. This decreases by 1 each cycle and triggers at 0
 	var/hotwire_progress = 8
 
@@ -66,7 +61,7 @@
 							restore_access(user)
 							return
 						to_chat(usr, SPAN_NOTICE("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
-						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, 1)
 			return
 
 	if(attacking_item.iswirecutter()) // Hotwiring
@@ -82,15 +77,18 @@
 					emag_act(user=user, hotwired=TRUE)
 					return
 				to_chat(user, SPAN_NOTICE("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 30, 1)
 			else
 				return
 	return ..()
 
 /obj/machinery/computer/shuttle_control/attack_hand(mob/user)
-	if(!allowed(user))
+	if(use_check_and_message(user))
+		return
+	if(!emagged && !allowed(user))
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return FALSE
+	user.set_machine(src)
 	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/attack_ai(mob/user)
@@ -218,14 +216,9 @@
 	if(emagged)
 		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
-	// save old access and clear
-	req_access_old = req_access
-	req_one_access_old = req_one_access
-	req_access = list()
-	req_one_access = list()
 	emagged = TRUE
 	if(hotwired)
-		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and wires spill out!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
 	else
 		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
 	spark(src, 2, 0)
@@ -234,11 +227,9 @@
 
 /// Used to restore access removed from emag_act() by setting access from req_access_old and req_one_access_old
 /obj/machinery/computer/shuttle_control/proc/restore_access(var/mob/user)
-	if(!req_access_old && !req_one_access_old)
+	if(!emagged)
 		to_chat(user, SPAN_WARNING("There is no access to restore for \the [src]!"))
 		return FALSE
-	req_access = req_access_old
-	req_one_access = req_one_access_old
 	emagged = FALSE
 	to_chat(user, "You repair out the console's ID checking system. It's access restrictions have been restored.")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
