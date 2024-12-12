@@ -15,7 +15,7 @@
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/desert/cryo_outpost/mountain,
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/grass/cryo_outpost
 	)
-	exoplanet_atmosphere = list(/datum/gas_mixture/earth_hot)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_hot)
 	exoplanet_lightlevel = list(1, 2, 5)
 	exoplanet_lightcolor = list("#ffffd4") // light white-yellowish
 

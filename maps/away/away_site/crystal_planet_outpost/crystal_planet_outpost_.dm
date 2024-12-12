@@ -14,7 +14,7 @@
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
-	exoplanet_atmosphere = list(/datum/gas_mixture/earth_cold)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_cold)
 	exoplanet_lightlevel = list(1, 2)
 	exoplanet_lightcolor = list("#00ffff", "#33cccc") // teal-ish colors
 
@@ -23,6 +23,8 @@
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)
+
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/crystal_planet_outpost
 	map = "crystal_planet_outpost"

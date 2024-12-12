@@ -27,9 +27,13 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 
 	/// The atmosphere that exoplanet turfs should spawn with.
 	/// If null, ignored, and turfs keep their default or mapped in atmosphere.
-	/// If set, one atmosphere is picked from the list to be used.
+	/// If set, this atmosphere is used.
+	/// Should be set to a `/datum/gas_mixture` path.
+	var/datum/gas_mixture/exoplanet_atmosphere
+
+	/// If set, one of these atmospheres is picked and put in the `exoplanet_atmosphere` var.
 	/// Should be set to a list of `/datum/gas_mixture` paths.
-	var/list/datum/gas_mixture/exoplanet_atmosphere
+	var/list/datum/gas_mixture/exoplanet_atmospheres
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
 
@@ -41,8 +45,8 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 		exoplanet_lightlevel = pick(exoplanet_lightlevel)
 	if(islist(exoplanet_lightcolor))
 		exoplanet_lightcolor = pick(exoplanet_lightcolor)
-	if(islist(exoplanet_atmosphere))
-		exoplanet_atmosphere = pick(exoplanet_atmosphere)
+	if(islist(exoplanet_atmospheres) && !isemptylist(exoplanet_atmospheres))
+		exoplanet_atmosphere = pick(exoplanet_atmospheres)
 
 	// Instantiate the theme and atmos, if set
 	if(exoplanet_theme_base)
