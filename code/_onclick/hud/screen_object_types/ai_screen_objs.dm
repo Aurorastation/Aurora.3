@@ -158,7 +158,7 @@
 	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		if(AI.anchored)
-			AI.remote_control_shell()
+			AI.remote_control()
 		else
 			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 

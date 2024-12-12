@@ -834,6 +834,11 @@
 	id = ACCESS_RUINED_PROPELLANT_DEPOT
 	desc = "Propellant Depot AG5 Access"
 
+#define ACCESS_SPLF 246
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
+
 #define ACCESS_NUCLEAR_MISSILE_SILO 247
 /datum/access/nuclear_missile_silo_access
 	id = ACCESS_NUCLEAR_MISSILE_SILO

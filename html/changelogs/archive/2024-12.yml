@@ -8,3 +8,59 @@
       sensors consoles.
   OolongCow:
   - bugfix: Fixes a coding oversight causing first aid lockers to not spawn kits.
+2024-12-02:
+  hazelmouse:
+  - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
+      secure locker in the Pilot Room.
+2024-12-04:
+  Ben10083:
+  - bugfix: AI can remote control mechs again.
+  - bugfix: Remote controlled exosuits now can travel between zlevels if capable.
+  - bugfix: Remote control no longer makes the client lose verbs until restart.
+  - bugfix: Remote controlled exosuit radios now will use the channels the user has
+      access to.
+  - qol: Pressing eject in a remotely controlled mech now exits remote control.
+  - code_imp: DMdoced lists.dm
+  - bugfix: AI shell and Exosuit adv health analyser now works properly.
+  - qol: Increased feedback for which mode the exosuit health analyser is on.
+  OolongCow:
+  - rscadd: Adds a pill bottle of inaprovaline and an emergency autoinjector to basic
+      first aid kits
+  - rscdel: Removes the cough syrup pills and health analyzer from basic first aid
+      kits.
+  notagonk:
+  - qol: Rearranges the HOS' office and surrounding maintenance to smooth out some
+      accessibility issues.
+2024-12-05:
+  Ben10083:
+  - bugfix: Restores missing wiring behind Head of Security Office.
+2024-12-06:
+  ShimmerIsTaken:
+  - rscadd: Added a Solarian army peacekeeper beret.
+  Yonnimer:
+  - rscadd: Adds several new Dionae loadout items.
+  - rscdel: Removes some redundant dionae items & ships.
+  hazelmouse:
+  - rscadd: Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD
+      variants, including an additional variant for the SPLF. Other Gargoyle variants
+      still in the codebase, including the SRF suits, are unchanged.
+  - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
+      Cyclops ship. '
+2024-12-10:
+  Ben10083:
+  - bugfix: Holopad forced calls now work again.
+  - qol: Holopad forced calls option toggles off after a call.
+  - qol: Force calls can be terminated by recieving holopad by command members.
+  Butterrobber202:
+  - balance: Removed the intense slowdown from the Captain's voidsuit.
+  hazelmouse:
+  - rscadd: Transitions the Assunzionii Rook voidsuit into a pure science voidsuit,
+      rather than a combat-capable suit.
+  - rscadd: Adds the Assunzionii Rook voidsuit to the loadout via a modkit available
+      to Assunzionii humans and synthetics, allowing research voidsuits to be transformed
+      into the Assunzionii Rook.
+2024-12-12:
+  hazelmouse:
+  - rscadd: Added the SPLF Raider ghostrole to the Corporate Reconstruction Zone sector.
+      To be considered either a gaggle of unruly pirates or a heroic band of freedom
+      fighters, depending on one's perspective.

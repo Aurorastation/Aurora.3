@@ -229,6 +229,9 @@
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	//src.pipe_dir = get_pipe_dir()
 	update()
+
+/obj/item/pipe/Initialize(mapload)
+	. = ..()
 	randpixel_xy()
 
 //update the name and icon of the pipe item depending on the type

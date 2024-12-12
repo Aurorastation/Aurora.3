@@ -186,6 +186,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
 
+/obj/structure/lattice/catwalk/indoor/grate/gridded
+	color = COLOR_GRAY40
+
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal
 	color = COLOR_DARK_GUNMETAL
 

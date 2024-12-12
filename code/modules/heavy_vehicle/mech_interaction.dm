@@ -233,11 +233,13 @@
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
-	return 1
+	return TRUE
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
 		return
+	if(remote)
+		usr.body_return()
 	if(hatch_closed)
 		if(hatch_locked)
 			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
