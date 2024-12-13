@@ -18,6 +18,10 @@
 		"87.5 Mendell City Bugle Radio" = 'texts/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt',
 	)
 
+	lobby_tracks = list(
+		'sound/music/lobby/event/christmas-lofi.ogg'
+	)
+
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH
 	description = "The Romanovich Cloud is a shell of icy, rocky and metallic bodies that orbit very distant Tau Ceti, past even the Dust Belt. Rich in deposits of precious and \

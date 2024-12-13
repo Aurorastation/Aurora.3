@@ -373,7 +373,7 @@
 "bR" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(35,25,28);
+	req_one_access = list(35,25,26,28);
 	dir = 4
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -667,7 +667,7 @@
 "cY" = (
 /obj/effect/floor_decal/snowdrift/random,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/snow,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
 "cZ" = (
 /obj/structure/rod_railing{
@@ -915,7 +915,7 @@
 /area/botanical_garden/building)
 "ed" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
@@ -1396,9 +1396,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
 "gp" = (
-/obj/structure/lattice/catwalk/indoor/planks/stairs{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "gq" = (
@@ -1459,7 +1458,7 @@
 	pixel_y = -24
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/snow,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
 "gE" = (
 /obj/structure/closet/secure_closet/personal,
@@ -2066,7 +2065,7 @@
 /area/botanical_garden/building)
 "jK" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(35,25,28);
+	req_one_access = list(35,25,26,28);
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -2595,7 +2594,7 @@
 	pixel_y = -23
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/snow,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
 "mw" = (
 /obj/structure/railing/mapped,
@@ -2779,7 +2778,7 @@
 "nf" = (
 /obj/machinery/door/airlock/glass_service{
 	name = "Cleaning";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -3193,7 +3192,7 @@
 /area/botanical_garden)
 "po" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/plating,
@@ -4289,7 +4288,7 @@
 "uW" = (
 /obj/machinery/door/airlock/glass_service{
 	name = "Breakroom";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -4372,7 +4371,7 @@
 "vt" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Storage Room";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
@@ -5009,7 +5008,7 @@
 "yF" = (
 /obj/structure/stairs/east,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/snow,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
 "yI" = (
 /obj/structure/railing/mapped,
@@ -5064,6 +5063,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
+"yU" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/botanical_garden)
 "yX" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/hoodie,
@@ -5080,7 +5084,7 @@
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Kitchen";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/botanical_garden/building)
@@ -5243,7 +5247,7 @@
 /area/botanical_garden)
 "zV" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(35,25,28);
+	req_one_access = list(35,25,26,28);
 	dir = 4
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -5452,11 +5456,12 @@
 /turf/simulated/floor/lino,
 /area/botanical_garden/building/ice_rink)
 "AS" = (
-/obj/structure/lattice/catwalk/indoor/planks/stairs{
-	dir = 8
+/obj/structure/sign/christmas/lights{
+	dir = 4;
+	pixel_x = 9
 	},
-/turf/simulated/floor/sidewalk,
-/area/botanical_garden)
+/turf/simulated/floor/snow/cold,
+/area/botanical_garden/building/ice_rink)
 "AV" = (
 /obj/structure/closet,
 /obj/item/beach_ball,
@@ -5498,6 +5503,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/botanical_garden)
+"Be" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Bf" = (
 /obj/structure/konyang_cliff,
@@ -6189,7 +6201,7 @@
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
 	name = "Kitchen";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6631,10 +6643,9 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
 "Gp" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 4
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Gq" = (
@@ -6882,7 +6893,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/obj/structure/sign/christmas/lights{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "HC" = (
 /obj/effect/decal/road_marking{
@@ -7354,7 +7369,7 @@
 	dir = 8;
 	pixel_x = -9
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "JN" = (
 /obj/structure/flora/tree/pine/xmas,
@@ -7423,7 +7438,7 @@
 	dir = 8;
 	pixel_x = -9
 	},
-/turf/simulated/floor/sidewalk/flat,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Kj" = (
 /obj/machinery/disposal/small/south,
@@ -7451,7 +7466,7 @@
 "Km" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Staff Only";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/plasticflaps/airtight/air_curtain,
 /turf/simulated/floor/sidewalk,
@@ -8541,7 +8556,7 @@
 "PY" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Staff Only";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/plasticflaps/airtight/air_curtain,
@@ -8580,7 +8595,7 @@
 "Qo" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Storage Room";
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -8790,7 +8805,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/sidewalk/flat,
+/obj/structure/sign/christmas/lights{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Rf" = (
 /obj/effect/decal/road_marking/thin,
@@ -8994,10 +9013,6 @@
 /obj/effect/konyang_waterfall{
 	pixel_y = -14;
 	icon_state = "waterfall_left"
-	},
-/obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
 	},
 /turf/simulated/open,
 /area/botanical_garden)
@@ -9323,9 +9338,12 @@
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
 "TE" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/konyang/pink,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "TF" = (
 /obj/structure/disposalpipe/segment,
@@ -9544,6 +9562,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/botanical_garden)
+"UF" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/sign/christmas/lights{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/simulated/floor/snow/cold,
+/area/botanical_garden/building/ice_rink)
 "UG" = (
 /turf/simulated/floor/tiled/full,
 /area/botanical_garden/building/basement)
@@ -9625,6 +9651,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
+"Vd" = (
+/obj/structure/sign/christmas/lights{
+	dir = 4;
+	pixel_x = 9
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/botanical_garden)
 "Vf" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
@@ -9949,7 +9982,8 @@
 	id = "garden_kitchen";
 	name = "Kitchen Shutters";
 	pixel_x = 25;
-	pixel_y = 4
+	pixel_y = 4;
+	req_one_access = list(35,25,26,28)
 	},
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building)
@@ -9980,10 +10014,6 @@
 /obj/effect/konyang_waterfall{
 	pixel_y = -14;
 	icon_state = "waterfall_right"
-	},
-/obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
 	},
 /turf/simulated/open,
 /area/botanical_garden)
@@ -10189,7 +10219,7 @@
 "Yb" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(35,25,28)
+	req_one_access = list(35,25,26,28)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -10211,6 +10241,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"Yj" = (
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "Yk" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -48995,7 +49031,7 @@ oV
 CB
 CB
 iA
-Zl
+TE
 ot
 az
 Az
@@ -49460,7 +49496,7 @@ CB
 ks
 aA
 aA
-Gp
+Be
 zS
 zS
 RH
@@ -49579,7 +49615,7 @@ Mp
 zS
 CB
 za
-TE
+yU
 aA
 aA
 oV
@@ -50069,7 +50105,7 @@ hK
 hK
 za
 Ko
-AS
+Yj
 tr
 ks
 XX
@@ -50557,7 +50593,7 @@ CB
 hK
 zS
 sI
-gp
+Gp
 gN
 Ko
 OP
@@ -52393,10 +52429,10 @@ NY
 Di
 NY
 ak
-QY
+kn
 Re
 HB
-QY
+Vd
 ak
 NY
 UW
@@ -52515,7 +52551,7 @@ CD
 uC
 NG
 ak
-NY
+ak
 NY
 NY
 NY
@@ -55321,10 +55357,10 @@ FZ
 mt
 YR
 ac
-YR
-FZ
-YR
-YR
+AS
+UF
+AS
+AS
 ac
 aD
 jM
@@ -55443,7 +55479,7 @@ YR
 uC
 Ku
 ak
-NY
+ak
 NY
 NY
 NY
@@ -55565,7 +55601,7 @@ NY
 Di
 NY
 ak
-LO
+kn
 Kh
 JL
 LO
@@ -63383,7 +63419,7 @@ aA
 aA
 aA
 aA
-aA
+gp
 ot
 YH
 kC
