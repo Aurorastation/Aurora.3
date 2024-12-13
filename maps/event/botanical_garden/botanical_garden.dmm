@@ -608,6 +608,9 @@
 /obj/item/pen{
 	pixel_y = 5
 	},
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_x = -30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
 "cO" = (
@@ -988,8 +991,7 @@
 	icon_state = "mist_left"
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
+	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
@@ -2461,8 +2463,7 @@
 	pixel_y = -14
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
+	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
@@ -2832,8 +2833,7 @@
 	icon_state = "waterfall_left"
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
+	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
@@ -3068,6 +3068,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/botanical_garden)
+"oP" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "oQ" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -3557,6 +3562,12 @@
 "rd" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
+"re" = (
+/obj/structure/curtain/open/bed{
+	name = "curtain"
+	},
+/turf/simulated/floor/lino,
+/area/botanical_garden/building/basement)
 "rj" = (
 /obj/effect/decal/road_marking/turn_right,
 /turf/simulated/floor/asphalt{
@@ -3762,14 +3773,13 @@
 /turf/simulated/floor/exoplanet/ice/cold/slippery,
 /area/botanical_garden/building/ice_rink)
 "ss" = (
-/obj/machinery/light{
+/obj/structure/bed/stool/padded/red{
 	dir = 4
 	},
-/obj/structure/sign/christmas/lights{
-	dir = 1;
-	pixel_y = 20
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/floor/carpet/darkblue,
+/turf/simulated/floor/carpet/red,
 /area/botanical_garden/building/basement)
 "sv" = (
 /obj/structure/closet/crate,
@@ -4589,8 +4599,12 @@
 /area/botanical_garden)
 "wB" = (
 /obj/structure/platform_stairs/full/east_west_cap,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/botanical_garden)
+"wE" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/carpet/red,
+/area/botanical_garden/building/basement)
 "wF" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -5881,8 +5895,7 @@
 	icon_state = "waterfall_right"
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
+	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
@@ -6155,8 +6168,7 @@
 	icon_state = "mist_right"
 	},
 /obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
+	icon_state = "cliff2"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
@@ -7123,6 +7135,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
+"IC" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/carpet/darkblue,
+/area/botanical_garden/building/basement)
 "IE" = (
 /obj/structure/table/wood,
 /obj/machinery/librarycomp/public{
@@ -7844,6 +7860,13 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/city)
+"Mj" = (
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "Ml" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/loot,
@@ -8588,6 +8611,16 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
+"Qk" = (
+/obj/structure/sign/christmas/lights{
+	dir = 1;
+	pixel_y = 20
+	},
+/obj/structure/bed/stool/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/botanical_garden/building)
 "Qn" = (
 /obj/machinery/light,
 /turf/simulated/floor/plating,
@@ -9836,10 +9869,6 @@
 	},
 /obj/effect/konyang_waterfall{
 	pixel_y = -14
-	},
-/obj/structure/konyang_cliff{
-	icon_state = "cliff2";
-	opacity = 1
 	},
 /turf/simulated/open,
 /area/botanical_garden)
@@ -17653,7 +17682,7 @@ Fq
 Rw
 rX
 nj
-nj
+oP
 Rw
 Rw
 Kn
@@ -18273,9 +18302,9 @@ Oy
 Oy
 Oy
 Vj
-AC
-AC
-AC
+Fq
+Fq
+Fq
 Fq
 Fq
 Fq
@@ -18396,8 +18425,8 @@ Oy
 Oy
 Wv
 Ms
-rm
-AC
+bd
+Fq
 Fq
 Fq
 Fq
@@ -18518,8 +18547,8 @@ Oy
 Oy
 Oy
 rm
-rm
-AC
+bd
+Fq
 Fq
 Fq
 Fq
@@ -18640,8 +18669,8 @@ Oy
 Oy
 Oy
 rm
-rm
-AC
+bd
+Fq
 Fq
 Fq
 Fq
@@ -18763,7 +18792,7 @@ Oy
 xq
 zR
 wB
-AC
+Fq
 Fq
 Fq
 Fq
@@ -27563,7 +27592,7 @@ aS
 eG
 hC
 aS
-ef
+ee
 Rw
 Fq
 Fq
@@ -27807,7 +27836,7 @@ aS
 eG
 hC
 aS
-ee
+ef
 Rw
 Fq
 Fq
@@ -27919,17 +27948,17 @@ Ne
 Ne
 Ne
 Kq
-ss
+Sq
 aS
 aS
-XL
-eG
-hC
-XL
-eG
-hC
-XL
-ef
+aS
+Xa
+pK
+aS
+Xa
+pK
+aS
+gE
 Rw
 Fq
 Fq
@@ -28041,17 +28070,17 @@ Ne
 Ne
 Ne
 Rw
-Rw
-Kq
-Kq
-Rw
-Kq
-Kq
-Rw
-Kq
-Kq
-Rw
-Kq
+XL
+aS
+aS
+aS
+XL
+aS
+aS
+aS
+XL
+aS
+IC
 Rw
 Fq
 Fq
@@ -28162,19 +28191,19 @@ Lh
 Ne
 Ne
 Ne
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
+Rw
+Rw
+re
+Rw
+re
+Rw
+re
+Rw
+re
+Rw
+re
+Rw
+Rw
 Fq
 Fq
 Fq
@@ -28284,19 +28313,19 @@ Lh
 Ne
 Ne
 Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
+Fq
+Rw
+ss
+Rw
+ss
+Rw
+ss
+Rw
+ss
+Rw
+ss
+Rw
+Fq
 Fq
 Fq
 Fq
@@ -28406,19 +28435,19 @@ Lh
 Ne
 Ne
 Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
-Ne
+Fq
+Rw
+wE
+Rw
+wE
+Rw
+wE
+Rw
+wE
+Rw
+wE
+Rw
+Fq
 Fq
 Fq
 Fq
@@ -28528,19 +28557,19 @@ Lh
 Ne
 Ne
 Ne
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
-Lh
+Fq
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Rw
+Fq
 Fq
 Fq
 Fq
@@ -49252,7 +49281,7 @@ zS
 si
 aA
 oV
-Mp
+qO
 zS
 zS
 zS
@@ -50959,7 +50988,7 @@ kn
 zS
 za
 kn
-aA
+Mj
 oV
 hK
 ks
@@ -51079,9 +51108,9 @@ fT
 ze
 hK
 hK
-za
-Ko
-aA
+sI
+ZU
+sX
 oV
 zS
 za
@@ -51201,12 +51230,12 @@ za
 zS
 hK
 hK
-zS
-gs
-aA
+Ko
+ou
+sX
 oV
 SP
-zS
+qO
 ks
 cD
 cD
@@ -51325,10 +51354,10 @@ zS
 za
 YG
 aA
-aA
+sX
 oV
 CB
-zS
+SP
 sI
 cD
 cD
@@ -51447,7 +51476,7 @@ zS
 CB
 xW
 aA
-aA
+sX
 lK
 zS
 za
@@ -51569,7 +51598,7 @@ CB
 za
 tU
 aA
-oV
+jO
 zS
 hK
 za
@@ -51691,7 +51720,7 @@ hK
 hK
 tU
 aA
-oV
+jO
 zS
 hK
 Ko
@@ -51807,13 +51836,13 @@ az
 ot
 hK
 zS
-Mp
+qO
 SP
 za
 hK
 tU
 aA
-oV
+jO
 hK
 zS
 sI
@@ -51935,7 +51964,7 @@ hK
 za
 tU
 aA
-oV
+jO
 zS
 hK
 CB
@@ -52057,7 +52086,7 @@ RH
 RH
 gs
 aA
-oV
+jO
 RH
 RH
 RH
@@ -52179,19 +52208,19 @@ aA
 aA
 aA
 aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-aA
-xK
+BL
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+Hh
+MI
 Hh
 Hh
 Hh
@@ -57079,7 +57108,7 @@ sX
 jd
 kA
 zD
-QG
+Qk
 zD
 QG
 zD
