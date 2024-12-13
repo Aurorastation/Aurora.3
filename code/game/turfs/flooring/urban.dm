@@ -3,6 +3,7 @@
 	desc = "Once-hot asphalt."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "asphalt0"
+	initial_flooring = /singleton/flooring/urban/asphalt
 
 /turf/simulated/floor/asphalt/Initialize(mapload)
 	. = ..()
@@ -13,17 +14,21 @@
 	desc = "Great for speeding on."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "sidewalk-tile"
+	initial_flooring = /singleton/flooring/urban/sidewalk
 
 /turf/simulated/floor/sidewalk/detail
 	icon_state = "sidewalk-tile-detail"
+	initial_flooring = /singleton/flooring/urban/sidewalk/detail
 
 /turf/simulated/floor/sidewalk/paved
 	name = "paved tiles"
 	icon_state = "brick-paver"
+	initial_flooring = /singleton/flooring/urban/sidewalk/paved
 
 /turf/simulated/floor/sidewalk/flat
 	name = "flat paved tiles"
 	icon_state = "flat"
+	initial_flooring = /singleton/flooring/urban/sidewalk/flat
 
 /turf/simulated/floor/sidewalk/flat/Initialize(mapload)
 	. = ..()

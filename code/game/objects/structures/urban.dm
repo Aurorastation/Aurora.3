@@ -225,6 +225,11 @@
 	desc = "A sign which warns of an approaching turn to the left. Is anything left?"
 	icon_state = "left"
 
+/obj/structure/road_sign/no_swimming
+	name = "no swimming sign"
+	desc = "A sign indicating swimming is prohibited on this stretch of water."
+	icon_state = "noswimming"
+
 /obj/structure/road_sign/street
 	name = "street sign"
 	desc = "A green, wide street sign with words telling you that you are indeed on a street."

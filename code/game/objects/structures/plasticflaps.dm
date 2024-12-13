@@ -11,6 +11,8 @@
 	color = COLOR_GRAY20 // ideally this would get_step() the material color from nearby walls but this works for now.
 	atmos_canpass = CANPASS_PROC
 
+	var/has_overlay = TRUE
+
 	var/manipulating = FALSE //Prevents queueing up a ton of deconstructs
 	var/list/mobs_can_pass = list(
 		/mob/living/carbon/slime,
@@ -27,6 +29,7 @@
 
 /obj/structure/plasticflaps/update_icon()
 	. = ..()
+	if(!has_overlay) return
 	icon_state = "plasticflaps"
 	var/image/plasticflaps_overlay = overlay_image(icon, "plasticflaps_overlay", null, RESET_COLOR)
 	if(dir == WEST || dir == EAST)
@@ -126,6 +129,13 @@
 /obj/structure/plasticflaps/airtight/Initialize()
 	. = ..()
 	update_nearby_tiles()
+
+/obj/structure/plasticflaps/airtight/air_curtain
+	name = "air curtain"
+	desc = "An air curtain to keep outside air outside, and inside air inside."
+	icon_state = "aircurtain"
+	layer = ABOVE_DOOR_LAYER
+	has_overlay = FALSE
 
 /obj/structure/plasticflaps/airtight/CanPass(atom/A, turf/T)
 	return 1//Blocks nothing except air

@@ -11,6 +11,9 @@
 /turf/simulated/floor/exoplanet/ice/cold //temperature is -5 celsius
 	temperature = 268.15
 
+/turf/simulated/floor/exoplanet/ice/cold/slippery
+	wet_type = WET_TYPE_ICE
+
 /turf/simulated/floor/exoplanet/ice/dark
 	icon_state = "icedark"
 

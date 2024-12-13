@@ -544,3 +544,30 @@
 
 /singleton/flooring/shuttle/skrell/ramp/top
 	icon_base = "skrellramp-top"
+
+/singleton/flooring/urban
+	name = "urban base"
+	flags = TURF_REMOVE_CROWBAR
+	icon = 'icons/turf/flooring/urban_turfs.dmi'
+	icon_base = "rust"
+
+/singleton/flooring/urban/asphalt
+	name = "asphalt"
+	desc = "Once-hot asphalt."
+	icon_base = "asphalt0"
+
+/singleton/flooring/urban/sidewalk
+	name = "weathered tiling"
+	desc = "Great for speeding on."
+	icon_base = "sidewalk-tile"
+
+/singleton/flooring/urban/sidewalk/detail
+	icon_base = "sidewalk-tile-detail"
+
+/singleton/flooring/urban/sidewalk/paved
+	name = "paved tiles"
+	icon_base = "brick-paver"
+
+/singleton/flooring/urban/sidewalk/flat
+	name = "flat paved tiles"
+	icon_base = "flat"

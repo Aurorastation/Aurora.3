@@ -21,6 +21,17 @@
 	does_footprint = TRUE
 	footprint_color = COLOR_SNOW
 	track_distance = 4
+	footstep_sound = /singleton/sound_category/snow_footstep
+
+/turf/simulated/floor/snow/Initialize()
+	. = ..()
+	icon_state = "snow[rand(0,2)]"
+
+/turf/simulated/floor/snow/cold
+	temperature = T0C - 10
+
+/turf/simulated/floor/snow/extreme_cold
+	temperature = TCMB
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/flooring/snow.dmi'
