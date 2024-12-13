@@ -59,6 +59,7 @@ changes:
   - rscadd: "Adds all of the additional supporting files to make an odyssey map work. and stuff."
   - imageadd: "Adds an accepted stamp."
   - imageadd: "Adds directionals for buffet trays."
+  - imageadd: "Adds a decorative nuclear missile."
   - rscadd: "Adds violet lights and decayed streetlights."
-  - wip: "Adds a physical object for the missile silo DMI. This file may later be used for a full (decorative) nuclear missile in a new PR.."
+  - rscadd: "Makes the missile silo cap a physical object."
 
