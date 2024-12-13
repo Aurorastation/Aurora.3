@@ -13,6 +13,7 @@
 
 /turf/simulated/floor/exoplanet/ice/cold/slippery
 	wet_type = WET_TYPE_ICE
+	wet_amount = 100
 
 /turf/simulated/floor/exoplanet/ice/dark
 	icon_state = "icedark"

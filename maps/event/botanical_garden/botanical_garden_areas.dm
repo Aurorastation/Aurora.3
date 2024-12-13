@@ -27,11 +27,6 @@
 
 /area/botanical_garden/building/ice_rink
 	name = "Botanical Garden - Ice Rink"
-	music = list(
-		'sound/music/lobby/konyang/konyang-1.ogg',
-		'sound/music/lobby/konyang/konyang-2.ogg',
-		'sound/music/lobby/konyang/konyang-3.ogg',
-		)
 	icon_state = "dk_yellow"
 
 /area/botanical_garden/building/basement
