@@ -13,7 +13,7 @@
 	player_levels = list(1)
 	accessible_z_levels = list(1)
 
-	station_name = "Phoenix Park Botanical Garden, Mendell City"
+	station_name = "Phoenix Park Botanical Garden"
 	station_short = "Botanical Garden"
 	dock_name = "conglomerate spaceport"
 	boss_name = "Nanotrasen Incorporated"

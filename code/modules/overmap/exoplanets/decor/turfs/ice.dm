@@ -12,7 +12,7 @@
 	temperature = 268.15
 
 /turf/simulated/floor/exoplanet/ice/cold/slippery
-	wet_type = WET_TYPE_ICE
+	wet_type = WET_TYPE_WATER
 	wet_amount = 100
 
 /turf/simulated/floor/exoplanet/ice/dark
