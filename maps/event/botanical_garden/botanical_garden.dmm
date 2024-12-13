@@ -242,11 +242,13 @@
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/botanical_garden/building/basement)
 "bs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/turf/simulated/floor/roofing_tiles,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "bt" = (
 /obj/structure/flora/tree/jungle/random,
@@ -366,6 +368,9 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(35,25,28);
 	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
@@ -1101,14 +1106,9 @@
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
-"ff" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/grass,
-/area/botanical_garden)
 "fg" = (
 /obj/structure/disposalpipe/down,
-/turf/simulated/floor/roofing_tiles,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "fi" = (
 /obj/structure/sign/christmas/lights{
@@ -1264,6 +1264,9 @@
 	name = "Clinic Storage";
 	req_one_access = list(35,25,28)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building/basement)
 "ga" = (
@@ -1309,10 +1312,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
-/area/botanical_garden/building/basement)
-"gl" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
 "gm" = (
 /obj/effect/map_effect/perma_light/starlight/wide,
@@ -2614,6 +2613,11 @@
 /obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
+"mQ" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "mR" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 20
@@ -3095,10 +3099,11 @@
 /turf/simulated/floor/tiled,
 /area/botanical_garden)
 "po" = (
-/obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/railing/mapped,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/exoplanet/grass,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/roofing_tiles,
 /area/botanical_garden)
 "pp" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
@@ -3354,6 +3359,7 @@
 /obj/structure/utility_pole/street/crosswalk{
 	pixel_x = 11
 	},
+/obj/structure/road_sign/street,
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
 "qC" = (
@@ -3447,6 +3453,13 @@
 "rd" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
+"rg" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt{
+	temperature = 250
+	},
+/area/botanical_garden/city)
 "rj" = (
 /obj/effect/decal/road_marking/turn_right,
 /turf/simulated/floor/asphalt{
@@ -3539,6 +3552,13 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"rJ" = (
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "rM" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/open,
@@ -3610,6 +3630,10 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
+"sg" = (
+/obj/structure/road_sign/street,
+/turf/simulated/floor/sidewalk/blocks,
+/area/botanical_garden/city)
 "sk" = (
 /obj/structure/extinguisher_cabinet/west,
 /obj/structure/disposalpipe/segment{
@@ -3958,6 +3982,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
+"tK" = (
+/obj/structure/platform_stairs/full/east_west_cap,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "tL" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/snow/cold,
@@ -4056,16 +4084,6 @@
 /obj/structure/sign/christmas/lights{
 	dir = 4;
 	pixel_x = 9
-	},
-/turf/simulated/floor/sidewalk,
-/area/botanical_garden)
-"uo" = (
-/obj/structure/stairs/north,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
@@ -4215,6 +4233,12 @@
 /obj/structure/sign/christmas/snowman,
 /turf/simulated/floor/snow/cold,
 /area/botanical_garden/building/ice_rink)
+"vh" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/road_sign/turn,
+/turf/simulated/floor/sidewalk/blocks,
+/area/botanical_garden/city)
 "vi" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/sign/christmas/lights{
@@ -4240,6 +4264,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
+"vo" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "vr" = (
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
@@ -4348,7 +4378,7 @@
 /area/botanical_garden/building)
 "vS" = (
 /obj/structure/extinguisher_cabinet/west,
-/turf/simulated/floor/roofing_tiles,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "vW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4370,6 +4400,10 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"wc" = (
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "we" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/spline/fancy{
@@ -4418,6 +4452,17 @@
 /obj/structure/platform_deco/ledge,
 /turf/simulated/open,
 /area/botanical_garden)
+"wr" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt{
+	temperature = 250
+	},
+/area/botanical_garden/city)
 "ws" = (
 /obj/structure/urban_grate,
 /turf/simulated/floor/sidewalk,
@@ -4483,7 +4528,7 @@
 	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/roofing_tiles,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "wN" = (
 /obj/effect/decal/road_marking/fork{
@@ -5091,6 +5136,9 @@
 	req_one_access = list(35,25,28);
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
 "zW" = (
@@ -5099,10 +5147,6 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/botanical_garden/building)
-"zY" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/turf/simulated/floor/exoplanet/grass,
-/area/botanical_garden)
 "zZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -5203,11 +5247,6 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/botanical_garden/building)
-"At" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/konyang/pink,
-/area/botanical_garden)
 "Aw" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb{
@@ -5321,7 +5360,7 @@
 /area/botanical_garden)
 "AW" = (
 /obj/structure/extinguisher_cabinet/east,
-/turf/simulated/floor/roofing_tiles,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "AX" = (
 /turf/simulated/floor/tiled/bitile{
@@ -5820,6 +5859,18 @@
 /area/botanical_garden)
 "DE" = (
 /turf/simulated/floor/snow/extreme_cold,
+/area/botanical_garden/city)
+"DF" = (
+/obj/structure/road_sign/pedestrian{
+	pixel_x = -1;
+	dir = 8;
+	pixel_y = 7
+	},
+/obj/structure/utility_pole/street/traffic/base{
+	dir = 8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
 "DG" = (
 /obj/structure/bed/stool/chair/wood{
@@ -6856,6 +6907,11 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/botanical_garden)
+"Iq" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/botanical_garden)
 "Ir" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6949,9 +7005,11 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
 "IQ" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /obj/structure/railing/mapped,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "IT" = (
 /obj/machinery/vending/vendors,
@@ -7062,6 +7120,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
+"Jo" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Flower Garden"
+	},
+/turf/simulated/open,
+/area/botanical_garden)
 "Jp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7115,6 +7179,9 @@
 "JH" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
 "JK" = (
@@ -7193,6 +7260,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/botanical_garden)
+"Kf" = (
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(35,25,28)
+	},
+/obj/effect/map_effect/door_helper/unres,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "Kh" = (
 /obj/structure/stairs/north,
 /obj/structure/railing/mapped{
@@ -7588,12 +7662,14 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/city)
+"Mf" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/botanical_garden)
 "Ml" = (
-/obj/structure/sign/christmas/lights{
-	dir = 8;
-	pixel_x = -9
-	},
-/turf/simulated/floor/roofing_tiles,
+/obj/structure/platform_stairs/full/east_west_cap,
+/turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
 "Mm" = (
 /obj/structure/platform/ledge{
@@ -7763,11 +7839,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
 "Nq" = (
-/obj/structure/railing/mapped{
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
 	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
@@ -8047,13 +8121,6 @@
 "OV" = (
 /obj/structure/flora/ausbushes/fernybush,
 /turf/simulated/floor/exoplanet/grass,
-/area/botanical_garden)
-"OW" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "OX" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
@@ -8355,6 +8422,14 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/botanical_garden/building/basement)
+"Qz" = (
+/obj/effect/decal/road_marking/turn_left{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt{
+	temperature = 250
+	},
+/area/botanical_garden/city)
 "QA" = (
 /obj/structure/table/reinforced/glass,
 /obj/item/storage/box/syringes{
@@ -8547,11 +8622,6 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
-"Rm" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/botanical_garden)
 "Rn" = (
 /obj/structure/sign/christmas/lights{
 	dir = 1;
@@ -8947,6 +9017,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
+"Tg" = (
+/obj/random/dirt_75,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "Ti" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/chemical_dispenser/bar_alc/full{
@@ -9647,7 +9722,7 @@
 "WR" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "WW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -9888,6 +9963,16 @@
 	},
 /turf/simulated/open,
 /area/botanical_garden)
+"XY" = (
+/obj/structure/stairs/north,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "Ya" = (
 /obj/structure/sign/christmas/tinsel/red{
 	pixel_y = 20
@@ -9898,6 +9983,9 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	req_one_access = list(35,25,28)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
@@ -10028,11 +10116,9 @@
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/botanical_garden)
 "YY" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/roofing_tiles,
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
 "Zb" = (
 /obj/structure/utility_pole/street/traffic/base{
@@ -17665,7 +17751,7 @@ Rw
 Rw
 QE
 uM
-nj
+Tg
 LR
 Kn
 Hp
@@ -18275,7 +18361,7 @@ Fq
 Rw
 rX
 nj
-uM
+wc
 Rw
 Rw
 Kn
@@ -18406,7 +18492,7 @@ Oy
 Oy
 xq
 zR
-zY
+Ml
 AC
 Fq
 Fq
@@ -18762,7 +18848,7 @@ Fq
 Fq
 Rw
 rX
-nj
+Tg
 Rw
 lL
 Ju
@@ -19260,7 +19346,7 @@ Oy
 Oy
 Vj
 ji
-gl
+tK
 AC
 Fq
 Fq
@@ -19379,7 +19465,7 @@ Oy
 Oy
 qF
 Oy
-Kv
+Oy
 Vj
 ji
 bR
@@ -19501,7 +19587,7 @@ Oy
 Oy
 Oy
 Oy
-Oy
+Kv
 Wv
 wo
 Ss
@@ -20358,7 +20444,7 @@ mm
 Vj
 Kc
 Zf
-Rm
+Mf
 Rw
 Rw
 Rw
@@ -25019,7 +25105,7 @@ te
 PG
 ZA
 Rw
-ji
+uM
 ji
 ji
 dx
@@ -25745,7 +25831,7 @@ dU
 eD
 LK
 QX
-Rw
+uF
 dx
 dx
 dx
@@ -26964,7 +27050,7 @@ aS
 aS
 aS
 aS
-uF
+Kf
 dx
 dx
 Rw
@@ -42240,7 +42326,7 @@ wb
 mI
 az
 zm
-wb
+Qz
 eA
 wb
 VK
@@ -43256,7 +43342,7 @@ rd
 rd
 rd
 rd
-sO
+vh
 PU
 Mw
 wb
@@ -43698,7 +43784,7 @@ rd
 rd
 rd
 AD
-wb
+Ep
 eA
 wb
 mI
@@ -43947,12 +44033,12 @@ as
 wb
 mI
 cp
-ju
-Ln
-ob
-Ln
-TY
-bE
+rg
+wb
+eA
+wb
+VK
+DF
 DE
 AC
 Fq
@@ -44429,11 +44515,11 @@ Qp
 rd
 rd
 DB
-Bx
-xz
-jP
-xz
-mf
+AD
+wb
+eA
+wb
+wr
 az
 zm
 wb
@@ -48285,8 +48371,8 @@ kn
 aA
 aA
 kn
-uo
-Nq
+XY
+bs
 aA
 CB
 tU
@@ -48894,7 +48980,7 @@ hK
 zS
 zS
 za
-po
+vo
 oV
 hK
 xs
@@ -49382,7 +49468,7 @@ za
 zS
 ze
 Mp
-At
+Iq
 oV
 hK
 za
@@ -50002,7 +50088,7 @@ cD
 cD
 cD
 cD
-cD
+Jo
 cD
 cD
 uQ
@@ -50967,9 +51053,9 @@ za
 zS
 zS
 za
-ff
+mQ
 aA
-OW
+IQ
 Gp
 CB
 zS
@@ -51089,7 +51175,7 @@ za
 zS
 zS
 CB
-IQ
+YY
 oV
 CB
 zS
@@ -58793,12 +58879,12 @@ jw
 jw
 ng
 ng
-sX
-aA
-aA
-aA
-aA
-aA
+rJ
+Hh
+Hh
+Hh
+Hh
+cr
 aA
 aA
 aA
@@ -58920,7 +59006,7 @@ rm
 rm
 rm
 rm
-rm
+Nq
 rm
 rm
 rm
@@ -63630,7 +63716,7 @@ rd
 rd
 rd
 rd
-rd
+sg
 AD
 wb
 wb
@@ -63704,7 +63790,7 @@ rd
 rd
 rd
 rd
-rd
+sg
 AD
 wb
 eA
@@ -75489,10 +75575,10 @@ cD
 TP
 Le
 Ip
-Ip
-Ip
 bV
-nY
+bV
+bV
+po
 eO
 cD
 cD
@@ -75611,10 +75697,10 @@ cD
 TP
 Wq
 Iz
-tq
-Iz
 Sr
-CA
+Sr
+Sr
+Ye
 eO
 cD
 cD
@@ -75733,10 +75819,10 @@ cD
 TP
 Sr
 Iz
-Iz
-Iz
 TU
-Xe
+TU
+TU
+Ye
 UM
 NB
 mD
@@ -86125,7 +86211,7 @@ lX
 lX
 AW
 fg
-YY
+cr
 zD
 FM
 Ay
@@ -87953,12 +88039,12 @@ cD
 TP
 lX
 lX
-Iz
-Ml
-Ml
+aA
+Zt
+Zt
 wM
-bs
-Iz
+zq
+aA
 vS
 WR
 ot
