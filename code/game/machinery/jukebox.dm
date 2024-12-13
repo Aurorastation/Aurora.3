@@ -261,7 +261,7 @@
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "gramophone"
 	state_base = "gramophone"
-	anchored = 0
+	anchored = TRUE
 	tracks = list(
 		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
 		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
@@ -275,3 +275,38 @@
 	icon_state = state_base
 	if(playing)
 		AddOverlays("[state_base]-running")
+
+/obj/machinery/media/jukebox/gramophone/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(use_check(usr) || !Adjacent(usr))
+		return
+	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+		return
+	new /obj/item/gramophone(get_turf(src))
+	usr.visible_message(SPAN_NOTICE("\The [usr] packs up \the [src]."))
+	qdel(src)
+
+/obj/item/gramophone
+	name = "gramophone"
+	desc = "A closed Adhomian gramophone, suitable to be transported."
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "gramophone_closed"
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
+
+/obj/item/gramophone/attack_self(mob/user)
+	if(use_check(user) || !Adjacent(user))
+		return
+	deploy(get_turf(user), user.dir, user)
+
+/obj/item/gramophone/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(use_check(user) || !user.Adjacent(target))
+		to_chat(usr, SPAN_WARNING("You fail to set up \the [src] in that location."))
+		return
+	if(isturf(target))
+		deploy(target, user.dir, user)
+
+/obj/item/gramophone/proc/deploy(var/turf/T, var/direction, var/mob/user)
+	new /obj/machinery/media/jukebox/gramophone(T)
+	user.visible_message(SPAN_NOTICE("\The [user] sets up \the [src]."))
+	qdel(src)
