@@ -79,7 +79,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
-	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
+	volume = "26 meters length, 15 meters beam/width, 6 meters vertical height"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
