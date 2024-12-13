@@ -175,6 +175,9 @@
 "aV" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/botanical_garden)
 "aX" = (
@@ -1393,9 +1396,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
 "gp" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/grass,
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "gq" = (
 /obj/effect/landmark{
@@ -5448,10 +5452,9 @@
 /turf/simulated/floor/lino,
 /area/botanical_garden/building/ice_rink)
 "AS" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "AV" = (
@@ -6628,9 +6631,11 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
 "Gp" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/konyang/pink,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Gq" = (
 /obj/structure/bed/stool/chair{
@@ -9318,8 +9323,8 @@
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
 "TE" = (
-/obj/structure/flora/tree/konyang/fall,
-/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/botanical_garden)
 "TF" = (
@@ -48843,7 +48848,7 @@ Zl
 Zl
 Zl
 Zl
-Zl
+aA
 aA
 Zl
 Zl
@@ -48964,11 +48969,11 @@ CB
 CB
 CB
 CB
-CB
 ks
+aA
 oV
 CB
-CB
+za
 CB
 tU
 cD
@@ -49086,11 +49091,11 @@ za
 hK
 hK
 za
-hK
 ks
+aA
 oV
+xs
 za
-zS
 zS
 CB
 fU
@@ -49208,11 +49213,11 @@ hK
 hK
 zS
 zS
-za
 si
+aA
 oV
-hK
-xs
+Mp
+zS
 zS
 zS
 tU
@@ -49330,11 +49335,11 @@ zS
 CB
 zS
 hK
-CB
 ks
+aA
 oV
-SP
-Mp
+xs
+za
 hK
 zS
 tU
@@ -49452,11 +49457,11 @@ SP
 za
 zS
 CB
-hK
 ks
-oV
+aA
+aA
+Gp
 zS
-xs
 zS
 RH
 gs
@@ -49574,10 +49579,10 @@ Mp
 zS
 CB
 za
-Bh
-ks
+TE
+aA
+aA
 oV
-hK
 za
 tU
 cD
@@ -49698,8 +49703,8 @@ zS
 ze
 Mp
 aV
+aA
 oV
-hK
 za
 tU
 cD
@@ -49820,8 +49825,8 @@ za
 za
 SP
 Ko
+aA
 oV
-za
 zS
 gs
 cD
@@ -49942,8 +49947,8 @@ hK
 hK
 zS
 ks
+aA
 oV
-za
 tU
 cD
 cD
@@ -50064,8 +50069,8 @@ hK
 hK
 za
 Ko
+AS
 tr
-zS
 ks
 XX
 cD
@@ -50186,8 +50191,8 @@ Oy
 Oy
 qF
 XG
+Fd
 bA
-Oy
 pJ
 RV
 cD
@@ -50308,8 +50313,8 @@ Oy
 Oy
 Oy
 XG
+Fd
 bA
-Oy
 Xh
 Wc
 cD
@@ -50430,8 +50435,8 @@ Oy
 Oy
 Oy
 XG
+Fd
 bA
-qF
 cB
 Xb
 cD
@@ -50552,8 +50557,8 @@ CB
 hK
 zS
 sI
+gp
 gN
-za
 Ko
 OP
 cD
@@ -50674,8 +50679,8 @@ za
 zS
 zS
 sI
+aA
 oV
-hK
 Ko
 cD
 cD
@@ -50796,8 +50801,8 @@ hK
 za
 za
 Ko
+aA
 oV
-hK
 hK
 ik
 cD
@@ -50918,8 +50923,8 @@ kn
 zS
 za
 kn
+aA
 oV
-gp
 hK
 ks
 cD
@@ -51040,8 +51045,8 @@ hK
 hK
 za
 Ko
+aA
 oV
-Gp
 zS
 za
 wp
@@ -51162,8 +51167,8 @@ hK
 hK
 zS
 gs
+aA
 oV
-TE
 SP
 zS
 ks
@@ -51284,8 +51289,8 @@ zS
 za
 YG
 aA
-AS
-Gp
+aA
+oV
 CB
 zS
 sI
@@ -51405,9 +51410,9 @@ zS
 zS
 CB
 xW
-oV
-CB
-zS
+aA
+aA
+lK
 zS
 za
 sI
@@ -51527,8 +51532,8 @@ za
 CB
 za
 tU
+aA
 oV
-CB
 zS
 hK
 za
@@ -51649,8 +51654,8 @@ za
 hK
 hK
 tU
+aA
 oV
-CB
 zS
 hK
 Ko
@@ -51771,8 +51776,8 @@ SP
 za
 hK
 tU
+aA
 oV
-CB
 hK
 zS
 sI
@@ -51893,8 +51898,8 @@ za
 hK
 za
 tU
+aA
 oV
-CB
 zS
 hK
 CB
@@ -52015,8 +52020,8 @@ RH
 RH
 RH
 gs
+aA
 oV
-RH
 RH
 RH
 RH
