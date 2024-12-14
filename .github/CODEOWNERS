@@ -22,7 +22,7 @@
 /code/modules/http/ @Arrow768 @NonQueueingMatt
 /code/datums/api.dm @Arrow768 @NonQueueingMatt
 
-# Custom items, alb
+# Custom items, Matt
 /code/modules/customitems/item_defines.dm @NonQueueingMatt
 
 # Mapping, inform dreamy
