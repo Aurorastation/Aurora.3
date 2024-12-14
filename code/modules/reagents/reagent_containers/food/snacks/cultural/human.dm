@@ -537,11 +537,13 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 			user.put_in_hands(waste)
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/bowl/MouseDrop(mob/user) //Dropping the bowl of food onto the user
-	if(istype(user) && !use_check_and_message(user))
-		user.put_in_active_hand(src)
-		src.pickup(user)
+/obj/item/reagent_containers/food/snacks/bowl/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //Dropping the bowl of food onto the user
+	var/mob/mob_dropped_over = over
+	if(istype(mob_dropped_over) && !use_check_and_message(mob_dropped_over))
+		mob_dropped_over.put_in_active_hand(src)
+		src.pickup(mob_dropped_over)
 		return
+
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs/update_icon()

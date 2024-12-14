@@ -6,7 +6,7 @@
 	almost anything into a trash can.
 */
 /atom/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
-	// SHOULD_NOT_OVERRIDE(TRUE)
+	SHOULD_NOT_OVERRIDE(TRUE)
 
 	if(!usr || !over)
 		return
@@ -15,7 +15,7 @@
 	if(proximity_check)
 		return proximity_check
 
-	// base_mouse_drop_handler(over, src_location, over_location, params)
+	base_mouse_drop_handler(over, src_location, over_location, params)
 
 /**
  * Called when all sanity checks for mouse dropping have passed. Handles adjacency & other sanity checks before delegating the event
@@ -38,10 +38,11 @@
 	var/combined_atom_flags = interaction_flags_atom | over.interaction_flags_atom
 	if(!(combined_atom_flags & INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS))
 		//Check for adjacency
-		// if(!(combined_atom_flags & INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT) && (!CanReach(user) || !over.CanReach(user)))
+		// In TG it's `if(!(combined_atom_flags & INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT) && (!CanReach(user) || !over.CanReach(user)))` but i'm not recreating those procs now
 		if(!(combined_atom_flags & INTERACT_ATOM_MOUSEDROP_IGNORE_ADJACENT) && (!Adjacent(user) || !over.Adjacent(user)))
 			return // should stop you from dragging through windows
 
+		// NOT IMPLEMENTED IN AURORA
 		// if(!(combined_atom_flags & INTERACT_ATOM_MOUSEDROP_IGNORE_USABILITY))
 		// 	//Bypass adjacency cause we already checked for it above
 		// 	if(!user.can_perform_action(src, interaction_flags_mouse_drop | over.interaction_flags_mouse_drop | BYPASS_ADJACENCY))

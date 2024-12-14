@@ -151,8 +151,8 @@
 		return 0
 	return ..(M)
 
-/obj/vehicle/bike/MouseDrop(atom/over)
-	if(usr == over && ishuman(over))
+/obj/vehicle/bike/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == over && ishuman(over))
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 

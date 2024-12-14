@@ -18,10 +18,11 @@
 	update_icon()
 	. = ..()
 
-/obj/item/battle_monsters/MouseDrop(mob/user) //Dropping the card onto something else.
-	if(istype(user))
-		user.put_in_active_hand(src)
-		src.pickup(user)
+/obj/item/battle_monsters/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //Dropping the card onto something else.
+	var/mob/mob_dropped_onto = over
+	if(istype(mob_dropped_onto))
+		mob_dropped_onto.put_in_active_hand(src)
+		src.pickup(mob_dropped_onto)
 		return
 
 	. = ..()

@@ -45,11 +45,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/memorywiper/MouseDrop(over_object, src_location, over_location)
+/obj/item/device/memorywiper/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check_and_message(usr))
 		return
-	if(in_range(src, usr) && isipc(over_object) && in_range(over_object, src))
+	if(in_range(src, usr) && isipc(over) && in_range(over, src))
 		if(attached)
 			if(attached == usr)
 				to_chat(usr, "You unplug \the [src] from your maintenace port.")
@@ -58,13 +58,13 @@
 			unplug()
 			return
 		else
-			if(over_object == usr)
-				plug(over_object)
+			if(over == usr)
+				plug(over)
 				to_chat(usr, "You plug \the [src] into your maintenace port.")
 			else
-				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over_object]'s chassis.") // The age old question of "where do I put it in!?"
+				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over]'s chassis.") // The age old question of "where do I put it in!?"
 				if(do_after(usr, 5 SECONDS))
-					plug(over_object)
+					plug(over)
 					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
 
 /obj/item/device/memorywiper/attack_hand(user as mob)

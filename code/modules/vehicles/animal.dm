@@ -54,11 +54,11 @@
 		return FALSE
 	return ..(M)
 
-/obj/vehicle/animal/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
+/obj/vehicle/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(user))
 		return
 
-	if(usr == over && ishuman(over))
+	if(user == over && ishuman(over))
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
