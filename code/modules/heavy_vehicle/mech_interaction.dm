@@ -10,10 +10,10 @@
 				return
 	return ..()
 
-/mob/living/heavy_vehicle/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/machinery/portable_atmospherics/canister/C = dropping
+/mob/living/heavy_vehicle/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C))
-		body.MouseDrop_T(dropping, user)
+		body.mouse_drop_receive(arglist(args))
 	else . = ..()
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)

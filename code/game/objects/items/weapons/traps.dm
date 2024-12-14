@@ -398,8 +398,8 @@
 		return SPAN_NOTICE("You can secure the trap by using a screwdriver on it. This will anchor it to the floor, and ready it for deployment.")
 	return SPAN_NOTICE("You can unsecure the trap by using a screwdriver on it. This will unanchor it from the floor, allowing it to be moved.")
 
-/obj/item/trap/animal/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/living/capturing_mob = dropping
+/obj/item/trap/animal/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/living/capturing_mob = dropped
 	if(!istype(capturing_mob))
 		return
 

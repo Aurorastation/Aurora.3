@@ -35,7 +35,7 @@
 /obj/vehicle/droppod/MouseDrop()
 	return
 
-/obj/vehicle/droppod/MouseDrop_T()
+/obj/vehicle/droppod/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/vehicle/droppod/emag_act()

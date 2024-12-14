@@ -26,9 +26,9 @@
 
 	. = ..()
 
-/obj/item/battle_monsters/MouseDrop_T(atom/dropping, mob/user) //Dropping C onto the card
-	if(istype(dropping, /obj/item/battle_monsters))
-		src.attackby(dropping,user)
+/obj/item/battle_monsters/mouse_drop_receive(atom/dropped, mob/user, params) //Dropping C onto the card
+	if(istype(dropped, /obj/item/battle_monsters))
+		src.attackby(dropped, user)
 		return
 
 	. = ..()

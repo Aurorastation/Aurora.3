@@ -125,12 +125,3 @@
 /*
 	MOUSE UP AND MOUSE DOWN AREN'T HERE BUT IN code\modules\client\client_procs.dm
 */
-
-
-
-/*
-AURORA*/
-
-///Receive a mousedrop
-/atom/proc/MouseDrop_T(atom/dropping, mob/user, params)
-	return

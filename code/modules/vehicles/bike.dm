@@ -156,9 +156,9 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
-/obj/vehicle/bike/MouseDrop_T(atom/dropping, mob/user)
-	if(!load(dropping))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
+/obj/vehicle/bike/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(!load(dropped))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)

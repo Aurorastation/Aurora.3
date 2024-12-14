@@ -420,7 +420,7 @@
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
 			var/obj/item/grab/G = attacking_item
-			MouseDrop_T(G.affecting, user)
+			mouse_drop_receive(G.affecting, user)
 			return FALSE
 		if(!attacking_item.dropsafety())
 			return FALSE
