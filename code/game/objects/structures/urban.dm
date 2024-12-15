@@ -426,9 +426,9 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "rod_railing"
 	density = TRUE
-	throwpass = TRUE
-	climbable = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+	climbable = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -458,8 +458,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "dam1"
 	density = TRUE
-	throwpass = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -467,7 +467,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/road_edges.dmi'
 	icon_state = "guard"
 	density = TRUE
-	throwpass = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 	anchored = TRUE
 

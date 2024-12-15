@@ -143,7 +143,7 @@
 	icon_state = "morguet"
 	density = TRUE
 	anchored = TRUE
-	throwpass = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
