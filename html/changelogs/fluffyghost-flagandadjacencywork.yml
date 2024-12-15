@@ -58,3 +58,4 @@ changes:
   - code_imp: "Added a bunch of flags for passflags on things that were previously missing them."
   - refactor: "Removed snowflake passthrow var, it's a passflag now."
   - refactor: "Updated ClickCross and Adjacency code."
+  - rscadd: "It's now possible to interact with things that are adjacent but otherwise have a machine (or other appropriate items) blocking them, eg. think of an APC on the wall with a machine in front of it."
