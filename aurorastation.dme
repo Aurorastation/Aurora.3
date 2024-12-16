@@ -2441,7 +2441,6 @@
 #include "code\modules\mapping\map_template.dm"
 #include "code\modules\mapping\reader.dm"
 #include "code\modules\mapping\ruins.dm"
-#include "code\modules\mapping\swapmaps.dm"
 #include "code\modules\mapping\planet_types\asteroid.dm"
 #include "code\modules\mapping\planet_types\barren.dm"
 #include "code\modules\mapping\planet_types\crystal.dm"

@@ -330,7 +330,7 @@
 			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
-				usr:toggle_throw_mode()
+				usr.toggle_throw_mode()
 		if("drop")
 			if(usr.client)
 				usr.client.drop_item()
@@ -396,19 +396,21 @@
 					to_chat(R, "You haven't selected a module yet.")
 
 		if("radio")
-			if(issilicon(usr))
-				if(isrobot(usr))
-					if(modifiers["shift"])
-						var/mob/living/silicon/robot/R = usr
-						if(!R.radio.radio_desc)
-							R.radio.setupRadioDescription()
-						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
-						to_chat(R, R.radio.radio_desc)
-						return
-				usr:radio_menu()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				if(modifiers["shift"])
+					if(!R.radio.radio_desc)
+						R.radio.setupRadioDescription()
+					to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+					to_chat(R, R.radio.radio_desc)
+					return
+
+				R.radio_menu()
+
 		if("panel")
-			if(issilicon(usr))
-				usr:installed_modules()
+			if(isrobot(usr))
+				var/mob/living/silicon/robot/R = usr
+				R.installed_modules()
 
 		if("store")
 			if(isrobot(usr))
@@ -442,9 +444,9 @@
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
 		if("swap")
-			usr:swap_hand()
+			usr.swap_hand()
 		if("hand")
-			usr:swap_hand()
+			usr.swap_hand()
 		else
 			if(usr.attack_ui(slot_id))
 				usr.update_inv_l_hand(0)

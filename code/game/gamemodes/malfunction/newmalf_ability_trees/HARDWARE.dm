@@ -163,4 +163,4 @@
 
 	SSticker.station_explosion_cinematic(0,null)
 	if(SSticker.mode)
-		SSticker.mode:station_was_nuked = 1
+		SSticker.mode.station_was_nuked = TRUE
