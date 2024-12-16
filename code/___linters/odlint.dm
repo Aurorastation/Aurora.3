@@ -18,6 +18,7 @@
 #pragma SuspiciousMatrixCall error
 #pragma FallbackBuiltinArgument error
 #pragma PointlessScopeOperator error
+#pragma ProcArgumentGlobal error
 #pragma MalformedRange error
 #pragma InvalidRange error
 #pragma InvalidSetStatement error
@@ -33,5 +34,6 @@
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
 #pragma AmbiguousInOrder error
+#pragma RuntimeSearchOperator error
 
 #endif
