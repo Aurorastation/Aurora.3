@@ -101,7 +101,7 @@ Contains helper procs for airflow, handled in /connection_group.
 		var/obj/item/I = A
 		weak_amt = I.w_class
 	else
-		weak_amt = rand(1, )
+		weak_amt = rand(1, 5)
 	Weaken(weak_amt)
 	. = ..()
 

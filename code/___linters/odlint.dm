@@ -18,6 +18,7 @@
 #pragma SuspiciousMatrixCall error
 #pragma FallbackBuiltinArgument error
 #pragma PointlessScopeOperator error
+#pragma PointlessPositionalArgument error
 #pragma ProcArgumentGlobal error
 #pragma MalformedRange error
 #pragma InvalidRange error
@@ -27,7 +28,6 @@
 #pragma DanglingVarType error
 #pragma MissingInterpolatedExpression error
 #pragma AmbiguousResourcePath error
-#pragma PointlessPositionalArgument error
 #pragma UnimplementedAccess error
 
 //3000-3999
