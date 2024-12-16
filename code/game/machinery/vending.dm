@@ -745,7 +745,7 @@
 		R.amount--
 		SStgui.update_uis(src)
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && (src.reply_list.len > 0) && !src.shut_up)
+	if(!src.shut_up && ((src.last_reply + (src.vend_delay + 200)) <= world.time) && length(src.reply_list))
 		var/reply = pick(src.reply_list)
 		src.speak(reply)
 		src.last_reply = world.time
