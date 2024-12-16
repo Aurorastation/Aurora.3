@@ -594,11 +594,11 @@
 /obj/structure/closet/crate/field_kitchen
 
 /obj/structure/closet/crate/field_kitchen/fill()
-	for(var/i=1, i<=6, i++)
+	for(var/_ in 1 to 6)
 		new /obj/item/stock_parts/capacitor(src)
-	for(var/i=1, i<=4, i++)
+	for(var/_ in 1 to 4)
 		new /obj/item/stock_parts/matter_bin(src)
-	for(var/i=1, i<=2, i++)
+	for(var/_ in 1 to 2)
 		new /obj/item/stock_parts/scanning_module(src)
 	new /obj/item/circuitboard/oven(src)
 	new /obj/item/circuitboard/stove(src)
