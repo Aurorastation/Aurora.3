@@ -106,7 +106,7 @@ SUBSYSTEM_DEF(vis_contents_update)
 	var/new_vis_contents = get_vis_contents_to_add()
 	if(length(new_vis_contents))
 		set_vis_contents(new_vis_contents)
-	else if(length(src:vis_contents))
+	else if(length(vis_contents))
 		clear_vis_contents()
 
 /image/proc/add_vis_contents(adding)

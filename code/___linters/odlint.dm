@@ -27,6 +27,7 @@
 #pragma DanglingVarType error
 #pragma MissingInterpolatedExpression error
 #pragma AmbiguousResourcePath error
+#pragma PointlessPositionalArgument error
 #pragma UnimplementedAccess error
 
 //3000-3999
@@ -34,6 +35,8 @@
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
 #pragma AmbiguousInOrder error
-#pragma RuntimeSearchOperator error
+#pragma ExtraToken error
+//We rely on macros for things that require this operator, so for now it's kept disabled
+#pragma RuntimeSearchOperator disabled
 
 #endif
