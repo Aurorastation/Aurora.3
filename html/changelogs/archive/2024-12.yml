@@ -64,3 +64,22 @@
   - rscadd: Added the SPLF Raider ghostrole to the Corporate Reconstruction Zone sector.
       To be considered either a gaggle of unruly pirates or a heroic band of freedom
       fighters, depending on one's perspective.
+2024-12-16:
+  Geeves:
+  - rscadd: Added extended rubber .45 mags to the autolathe.
+  Stev-the-third:
+  - rscadd: Adds a 2-Z Level odyssey map called the Arctic Valley and the Nuclear
+      Silo.
+  - rscadd: Adds all of the additional supporting files to make an odyssey map work.
+      and stuff.
+  - imageadd: Adds an accepted stamp.
+  - imageadd: Adds directionals for buffet trays.
+  - imageadd: Adds a decorative nuclear missile.
+  - rscadd: Adds violet lights and decayed streetlights.
+  - rscadd: Makes the missile silo cap a physical object.
+  Wowzewow (Wezzy):
+  - rscadd: Sorts and adds new sprites for telecomms equipment.
+  hazelmouse:
+  - bugfix: The Xenobotanist can now access their NanoMed.
+  - qol: The Operations Lobby first aid locker no longer contains the autolathe supplies
+      at round start.
