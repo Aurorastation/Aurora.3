@@ -368,17 +368,15 @@
 var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
 
 /datum/gear_tweak/modsuit_configuration
-	/// modsuits use a silly index based system to determine which one to use, instead of string based, so this'll be a key-value list of: name -> index, or "\improper PMCG modsuit" = 1
+	/// the configuration of the modsuit, using just a list of the names
 	var/list/configuration_options = list()
 
 /datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
 	return "Modsuit Configuration: [metadata]"
 
 /datum/gear_tweak/modsuit_configuration/get_default()
-	if(!length(configuration_options))
-		load_configuration_options()
-
-	return configuration_options[1]
+	var/obj/item/clothing/under/pmc_modsuit/modsuit_type = /obj/item/clothing/under/pmc_modsuit
+	return initial(modsuit_type.modsuit_mode)
 
 /// Instantiates the modsuit item so we can set up the configuration whenever it's needed, only called when the options haven't been configured yet
 /datum/gear_tweak/modsuit_configuration/proc/load_configuration_options()
@@ -386,12 +384,8 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	// and we can't do that in /New, cuz that fails CI. instead, we grab it on-demand here if the options aren't populated
 
 	var/obj/item/clothing/under/pmc_modsuit/initial_uniform = new()
-
-	var/index = 0
-	for(var/name in initial_uniform.names)
-		configuration_options[name] = index
-		index++
-
+	for(var/option in initial_uniform.configuration_options)
+		configuration_options |= option
 	qdel(initial_uniform)
 
 /datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
@@ -409,10 +403,11 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	if(!length(configuration_options))
 		load_configuration_options()
 
-	var/configuration_number = configuration_options[metadata]
-	if(!configuration_number)
+	// if this mode isn't in the options, don't continue, this'll protect us from old data if the mode names ever change
+	if(!(metadata in configuration_options))
 		return
-	modsuit.modsuit_mode = configuration_number
+
+	modsuit.modsuit_mode = metadata
 	modsuit.selected_modsuit()
 
 // END: PMCG MODSUIT
