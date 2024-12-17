@@ -88,7 +88,7 @@ ABSTRACT_TYPE(/datum/character_disabilities/organ_scarring)
 /datum/character_disabilities/organ_scarring/apply_self(var/mob/living/carbon/human/target)
 	var/obj/item/organ/internal/affecting = target.internal_organs_by_name[affected_organ]
 	if(affecting)
-		affecting.max_damage = affecting.max_damage*0.5
+		affecting.set_max_damage(initial(affecting.max_damage) * 0.5)
 
 #define ORGAN_DISABILITY(ORGAN_PATH, ORGAN_NAME, ORGAN_TAG) \
 /datum/character_disabilities/organ_scarring/##ORGAN_PATH { \
