@@ -8,6 +8,7 @@
 	overdose = 5
 	taste_description = "the back of class"
 	fallback_specific_heat = 0.4
+	value = 0.001
 
 /singleton/reagent/crayon_dust/red
 	name = "Red Crayon Dust"
@@ -99,6 +100,7 @@
 	glass_desc = "It's magic, I ain't gotta explain shit."
 
 	fallback_specific_heat = 10 //Magical.
+	value = 1000
 
 
 /singleton/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -135,6 +137,7 @@
 	color = "#F7C430"
 	taste_description = "expensive metal"
 	fallback_specific_heat = 2.511
+	value = 7
 
 /singleton/reagent/silver
 	name = "Silver"
@@ -143,6 +146,7 @@
 	color = "#D0D0D0"
 	taste_description = "expensive yet reasonable metal"
 	fallback_specific_heat = 0.241
+	value = 4
 
 /singleton/reagent/uranium
 	name = "Uranium"
@@ -151,6 +155,7 @@
 	color = "#B8B8C0"
 	taste_description = "the inside of a reactor"
 	fallback_specific_heat = 2.286
+	value = 9
 
 /singleton/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_ingest(M, alien, removed, holder)
@@ -195,6 +200,7 @@
 	color = "#E0E0E0"
 	taste_description = "salty metalic miner tears"
 	fallback_specific_heat = 0.2971
+	value = 3
 
 /singleton/reagent/water/holywater
 	name = "Holy Water"
@@ -257,6 +263,7 @@
 	reagent_state = LIQUID
 	color = "#604030"
 	taste_description = "iron"
+	value = 0.9
 
 /singleton/reagent/surfactant // Foam precursor
 	name = "Azosurfactant"
@@ -264,6 +271,7 @@
 	reagent_state = LIQUID
 	color = "#9E6B38"
 	taste_description = "metal"
+	value = 0.05
 
 /singleton/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Foaming Agent"
@@ -279,6 +287,7 @@
 	color = "#673910"
 	touch_met = 50
 	taste_description = "sweet tasting metal"
+	value = 6
 
 /singleton/reagent/thermite/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	. = ..()
@@ -306,6 +315,7 @@
 	touch_met = REM * 10
 	taste_description = "sourness"
 	germ_adjust = 10
+	value = 0.7
 
 /singleton/reagent/spacecleaner/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.clean_blood()
@@ -425,6 +435,7 @@
 	reagent_state = LIQUID
 	color = "#009CA8"
 	taste_description = "cherry"
+	value = 0.6
 
 /singleton/reagent/lube/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
 	if(!istype(T))
@@ -466,6 +477,7 @@
 	reagent_state = LIQUID
 	color = COLOR_GRAY
 	taste_description = "sweetness"
+	value = 8
 
 /singleton/reagent/nitroglycerin
 	name = "Nitroglycerin"
@@ -473,6 +485,7 @@
 	reagent_state = LIQUID
 	color = COLOR_GRAY
 	taste_description = "oil"
+	value = 9
 
 /singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
 	var/datum/effect/effect/system/reagents_explosion/e = new()
@@ -515,6 +528,7 @@
 	color = "#C8A5DC"
 	taste_description = "sourness"
 	taste_mult = 1.1
+	value = 0.8
 
 /singleton/reagent/ultraglue
 	name = "Ultra Glue"
@@ -530,6 +544,7 @@
 	color = "#B97A57"
 	taste_description = "wood"
 	fallback_specific_heat = 1.9
+	value = 0.6
 
 /singleton/reagent/luminol
 	name = "Luminol"
@@ -537,6 +552,7 @@
 	reagent_state = LIQUID
 	color = "#F2F3F4"
 	taste_description = "metal"
+	value = 1.4
 
 /singleton/reagent/luminol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	O.reveal_blood()
@@ -660,6 +676,7 @@
 	metabolism = REM * 0.25
 	taste_description = "bottled fire"
 	fallback_specific_heat = 2.75
+	value = 50
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/estus/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
@@ -690,6 +707,7 @@
 	touch_met = 5
 	taste_description = "metal"
 	fallback_specific_heat = 20 //This holds a ton of heat.
+	value = 50
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/liquid_fire/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -710,6 +728,7 @@
 	color = "#000000"
 	taste_description = "emptyness"
 	fallback_specific_heat = 100 //Yeah...
+	value = 250
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/black_matter/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
@@ -735,6 +754,7 @@
 	color = "#1f8999"
 	taste_description = "fizzling blue"
 	fallback_specific_heat = 0.1
+	value = 250
 	unaffected_species = IS_MACHINE
 
 /singleton/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -755,6 +775,7 @@
 	color = "#f4c430"
 	taste_description = "heavenly knowledge"
 	fallback_specific_heat = 1.25
+	value = 1000
 
 /singleton/reagent/sglue
 	name = "Sovereign Glue"
@@ -815,7 +836,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	icon_state = "ore_glass"
 
-/obj/item/shapesand/attack() //can't be used to actually bludgeon things
+/obj/item/shapesand/attack(mob/living/target_mob, mob/living/user, target_zone) //can't be used to actually bludgeon things
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)

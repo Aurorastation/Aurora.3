@@ -54,7 +54,7 @@
 		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, SPAN_NOTICE("You move \the [src]'s legs around."))
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
-				step(H, pick(GLOB.cardinal))
+				step(H, pick(GLOB.cardinals))
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, SPAN_NOTICE("You twist \the [src]'s left arm."))
@@ -140,10 +140,14 @@
 	if(H)
 		H.electrocute_act(power, src)
 
-/obj/item/poppet/bullet_act(var/obj/projectile/Proj)
+/obj/item/poppet/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, DAMAGE_PAIN)
+		H.apply_damage(hitting_projectile.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

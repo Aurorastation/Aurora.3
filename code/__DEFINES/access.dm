@@ -670,10 +670,12 @@
 	id = ACCESS_HEPHAESTUS
 	access_type = ACCESS_TYPE_CENTCOM
 
+// For the Golden Deep ghostrole. This is the access for the merchant and guards, but not for the owned synthetics.
 #define ACCESS_GOLDEN_DEEP 217
 /datum/access/golden_deep
 	id = ACCESS_GOLDEN_DEEP
 	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep"
 
 #define ACCESS_KONYANG_POLICE 218
 /datum/access/konyang_police
@@ -732,6 +734,13 @@
 /datum/access/autakh
 	id = ACCESS_AUTAKH
 	access_type = ACCESS_TYPE_CENTCOM
+
+// For the Golden Deep ghostrole. This is for the owned synthetics, so they lack some of the access their superiors enjoy.
+#define ACCESS_GOLDEN_DEEP_OWNED 229
+/datum/access/golden_deep_owned
+	id = ACCESS_GOLDEN_DEEP_OWNED
+	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
@@ -810,3 +819,32 @@
 	id = ACCESS_TRAMP_FREIGHTER
 	desc = "Independent Freighter Access"
 
+#define ACCESS_LONE_SPACER 243
+/datum/access/lone_spacer_access
+	id = ACCESS_LONE_SPACER
+	desc = "Independent Skiff Access"
+
+#define ACCESS_CRYO_OUTPOST 244
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Outpost #187-D Access"
+
+#define ACCESS_RUINED_PROPELLANT_DEPOT 245
+/datum/access/ruined_propellant_depot_access
+	id = ACCESS_RUINED_PROPELLANT_DEPOT
+	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_SPLF 246
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO 247
+/datum/access/nuclear_missile_silo_access
+	id = ACCESS_NUCLEAR_MISSILE_SILO
+	desc = "Nuclear Missile Silo Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 248
+/datum/access/nuclear_missile_silo_access_high
+	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
+	desc = "Nuclear Missile Silo Access High Security"

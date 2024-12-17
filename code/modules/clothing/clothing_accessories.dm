@@ -22,6 +22,7 @@
 			return
 
 		var/obj/item/clothing/accessory/A = attacking_item
+		A.before_attached(src, user)
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)
@@ -54,8 +55,8 @@
 		if(!over_object || over_object == src)
 			return
 
-		if(istype(over_object, /obj/screen/inventory))
-			var/obj/screen/inventory/S = over_object
+		if(istype(over_object, /atom/movable/screen/inventory))
+			var/atom/movable/screen/inventory/S = over_object
 			if(S.slot_id == src.equip_slot)
 				return
 
@@ -101,19 +102,20 @@
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a HREF=?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
-/obj/item/clothing/proc/update_accessory_slowdown()
+/obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		slowdown_accessory += bling.slowdown
+	user?.update_equipment_speed_mods()
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
 	A.on_attached(src, user)
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
-	update_accessory_slowdown()
+	update_accessory_slowdown(user)
 	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
@@ -123,7 +125,7 @@
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
-	update_accessory_slowdown()
+	update_accessory_slowdown(user)
 	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()

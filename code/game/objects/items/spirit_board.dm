@@ -23,7 +23,7 @@
 			forceMove(get_turf(usr))
 			usr.put_in_hands(src)
 
-/obj/item/spirit_board/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/spirit_board/attack_ghost(var/mob/abstract/ghost/user)
 	spirit_board_pick_letter(user)
 	return ..()
 

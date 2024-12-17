@@ -7,7 +7,7 @@
 	suffix = "kataphract_ship.dmm"
 
 	ship_cost = 1
-	spawn_weight = 9
+	spawn_weight = 1
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
@@ -31,7 +31,7 @@
 	shiptype = "Specialist long-distance extended-duration combat utility"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"nav_kataphract_ship_1",
@@ -110,7 +110,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.
-	fore_dir = WEST
+	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport

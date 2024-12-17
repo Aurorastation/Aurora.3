@@ -621,17 +621,17 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
-	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+	H.set_fullscreen(H.eye_blind, "blind", /atom/movable/screen/fullscreen/blind)
+	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(GLOB.config.welder_vision)
 		if(H.equipment_tint_total)
-			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
+			H.overlay_fullscreen("welder", /atom/movable/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
 		else
 			H.clear_fullscreen("welder")
 	var/how_nearsighted = get_how_nearsighted(H)
-	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
-	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+	H.set_fullscreen(how_nearsighted, "nearsighted", /atom/movable/screen/fullscreen/oxy, how_nearsighted)
+	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
 		H.client.screen += global_hud.druggy
@@ -655,7 +655,7 @@
 		prescriptions += 7
 	if(H.equipment_prescription)
 		prescriptions -= H.equipment_prescription
-	return Clamp(prescriptions, 0, 7)
+	return clamp(prescriptions, 0, 7)
 
 // pre_move is set to TRUE when the mob checks whether it's even possible to move, so resources aren't drained until after the move completes
 // once the mob moves and its loc actually changes, the pre_move is set to FALSE and all the proper resources are drained
@@ -752,7 +752,7 @@
 	if(length(trail_info))
 		var/track_path = trail_info["footprint_type"]
 		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
-		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		var/turf/simulated/from = get_step(H, REVERSE_DIR(H.dir))
 		if(istype(from))
 			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
 
@@ -794,6 +794,9 @@
 /datum/species/proc/set_default_tail(var/mob/living/carbon/human/H)
 	H.set_tail_style(H.species.tail)
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/get_species_tally(var/mob/living/carbon/human/H)
 	return 0
 
@@ -850,6 +853,9 @@
 /datum/species/proc/handle_emp_act(var/mob/living/carbon/human/H, var/severity)
 	return FALSE
 
+/**
+ * DEPRECATED: Use `/datum/movespeed_modifier` instead
+ */
 /datum/species/proc/handle_movement_tally(var/mob/living/carbon/human/H)
 	var/tally = 0
 	if(istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))

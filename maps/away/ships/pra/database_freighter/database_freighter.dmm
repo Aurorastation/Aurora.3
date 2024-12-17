@@ -373,8 +373,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -388,7 +387,6 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -525,6 +523,11 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
+	pixel_x = -24;
+	pixel_y = -1
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/database_freighter_shuttle)
 "cf" = (
@@ -541,8 +544,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -698,8 +700,7 @@
 /area/database_freighter/hangar)
 "cH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/machinery/meter,
 /turf/simulated/floor{
@@ -1148,8 +1149,7 @@
 /area/database_freighter/storage)
 "eB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1313,8 +1313,7 @@
 /area/database_freighter/checkpoint)
 "fv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1537,8 +1536,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1606,12 +1604,15 @@
 	},
 /area/database_freighter/engineering)
 "gQ" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/machinery/atmospherics/binary/pump/fuel/on{
+	dir = 1;
+	name = "Canister to Thrusters"
+	},
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/north{
+/obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1725,8 +1726,7 @@
 /area/database_freighter/laboratory)
 "hx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1984,7 +1984,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	req_one_access = list(209);
-	tag_door = "mining_shuttle_dock_doors";
 	pixel_x = -25;
 	id_tag = "database_freighter_shuttle_dock"
 	},
@@ -2043,10 +2042,6 @@
 /area/database_freighter/laboratory)
 "jg" = (
 /obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2059,6 +2054,10 @@
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_x = 28;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -2293,8 +2292,7 @@
 /area/space)
 "kz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2328,8 +2326,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2509,8 +2506,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -2729,8 +2725,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2943,8 +2938,8 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "oI" = (
@@ -3252,8 +3247,7 @@
 /area/database_freighter)
 "tu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
@@ -3978,8 +3972,7 @@
 /area/database_freighter/storage)
 "DT" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4049,8 +4042,7 @@
 /area/database_freighter/storage)
 "Ez" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor{
@@ -4160,8 +4152,7 @@
 /area/database_freighter/laboratory)
 "Hm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
@@ -4615,8 +4606,7 @@
 "Os" = (
 /obj/effect/floor_decal/corner/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -4889,8 +4879,7 @@
 /area/database_freighter)
 "SW" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -5186,8 +5175,7 @@
 "Xy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor{
 	temperature = 278.15

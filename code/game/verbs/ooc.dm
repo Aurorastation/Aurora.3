@@ -159,7 +159,7 @@
 				prefix = "(R)"
 				admin_stuff += "/([source.key])"
 				if(target != source.client)
-					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
+					admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)

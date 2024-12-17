@@ -14,7 +14,7 @@
 	icon_state = "storage"
 
 /area/turret_protected
-	station_area = 1
+	station_area = TRUE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload

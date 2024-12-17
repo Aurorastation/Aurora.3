@@ -47,7 +47,10 @@
 	if(!stat && prob(3) && eggsleft > 0 && (gender = FEMALE))
 		visible_message("[src] lays an egg.")
 		eggsleft--
-		new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
+		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/egg = new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
+		egg.fertilize()
+		egg.pixel_x = rand(-6,6)
+		egg.pixel_y = rand(-6,6)
 
 /mob/living/simple_animal/ice_tunneler/male
 	icon_state = "tunneler_m"
@@ -88,7 +91,7 @@
 	mob_size = 15
 
 	canbrush = TRUE
-	has_udder = TRUE
+	can_be_milked = TRUE
 	milk_type = /singleton/reagent/drink/milk/adhomai
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
@@ -102,7 +105,7 @@
 	icon_living = "fatshouter_m"
 	icon_dead = "fatshouter_m_dead"
 	gender = MALE
-	has_udder = FALSE
+	can_be_milked = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
@@ -239,10 +242,13 @@
 		unburrow()
 	..()
 
-/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/P, def_zone)
+/mob/living/simple_animal/ice_catcher/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(burrowed && (stat != DEAD))
 		unburrow()
-	..()
 
 /mob/living/simple_animal/ice_catcher/death(gibbed)
 	..()

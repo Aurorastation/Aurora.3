@@ -220,7 +220,7 @@
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
-/obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/flashlight/attack(mob/living/target_mob, mob/living/user, target_zone)
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == BP_EYES)
 
@@ -231,10 +231,10 @@
 			to_chat(user, SPAN_WARNING("This light is too dim to see anything with!"))
 			return
 
-		var/mob/living/carbon/human/H = M	//mob has protective eyewear
+		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
 			if(H.get_flash_protection())
-				to_chat(user, SPAN_WARNING("You're going to need to remove \the [M]'s eye protection first."))
+				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 
 			var/obj/item/organ/vision
@@ -244,8 +244,8 @@
 				to_chat(user, SPAN_WARNING("You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
 
 			user.visible_message(
-				SPAN_NOTICE("\The [user] directs [src] to [M]'s eyes."),
-				SPAN_NOTICE("You direct [src] to [M]'s eyes.")
+				SPAN_NOTICE("\The [user] directs [src] to [H]'s eyes."),
+				SPAN_NOTICE("You direct [src] to [H]'s eyes.")
 			)
 
 			inspect_vision(vision, user)

@@ -228,7 +228,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		flick("[src.base_state]deny", src)
 
 	return
 
@@ -284,8 +284,8 @@
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/holo/esword/New()
 	if(!item_color)
@@ -363,7 +363,7 @@
 			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), range = 3)
 		return 0
 	else
-		return ..(mover, target, height, air_group)
+		return ..()
 
 
 /obj/machinery/readybutton

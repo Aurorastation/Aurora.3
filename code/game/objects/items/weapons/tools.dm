@@ -103,7 +103,9 @@
 	..()
 	update_icon()
 
-/obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/screwdriver/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
 	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -181,7 +183,11 @@
 	..()
 	update_icon()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
+/obj/item/wirecutters/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/C = target_mob
+	if(!istype(C))
+		return
+
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
@@ -390,9 +396,9 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weldingtool/attack(mob/living/M, mob/user, var/target_zone)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+/obj/item/weldingtool/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob))
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 
 		if(!S)
@@ -740,6 +746,23 @@
 /obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
+
+/obj/item/crowbar/hydraulic_rescue_tool
+	name = "Hydraulic rescue tool"
+	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
+	icon = 'icons/obj/item/tools/hydraulic_rescue_tool.dmi'
+	icon_state = "jawspry"
+	force = 15
+	throwforce = 1
+	w_class = WEIGHT_CLASS_NORMAL
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = /singleton/sound_category/crowbar_sound
+	origin_tech = list(TECH_ENGINEERING = 1)
+	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	attack_verb = list("attacked", "rammed", "battered", "bludgeoned")
+	sharp = FALSE
+	edge = FALSE
 
 // Pipe wrench
 /obj/item/pipewrench

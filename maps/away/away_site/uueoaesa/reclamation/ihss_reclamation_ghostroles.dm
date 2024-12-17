@@ -48,7 +48,7 @@
 	spawnpoints = list("ihss_security")
 	max_count = 3
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	welcome_message = "You are security personnel aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Security"
 	special_role = "IHSS Reclamation Security"

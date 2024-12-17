@@ -1293,6 +1293,10 @@
 	},
 /turf/template_noop,
 /area/space)
+"NY" = (
+/obj/effect/overmap/visitable/zavod_shuttle_destroyed,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "Oh" = (
 /obj/structure/inflatable/door,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1570,7 +1574,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
 "Xy" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "XF" = (
 /turf/simulated/floor/tiled/techmaint,
@@ -25937,7 +25941,7 @@ bz
 YW
 Sn
 nY
-Cj
+NY
 Cj
 nY
 qG

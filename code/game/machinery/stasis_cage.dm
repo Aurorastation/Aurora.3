@@ -137,7 +137,7 @@
 
 
 
-/obj/machinery/stasis_cage/examine(mob/user, distance, is_adjacent, infix, suffi, show_extended)
+/obj/machinery/stasis_cage/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (contained)
 		to_chat(user, SPAN_NOTICE("\The [contained] is kept inside."))

@@ -136,7 +136,7 @@
 	if(parts)
 		new parts(loc)
 	if (smoothing_flags)
-		SSicon_smooth.add_to_queue_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)
@@ -291,8 +291,11 @@
 	t_air.merge(inside_air)
 
 // When we shoot bubble, make it rip.
-/obj/structure/closet/airbubble/bullet_act(var/obj/projectile/Proj)
-	..()
+/obj/structure/closet/airbubble/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	ripped = TRUE
 	update_icon()
 

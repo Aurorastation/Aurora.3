@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "au" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "aG" = (
 /obj/structure/inflatable/door,
@@ -56,7 +56,7 @@
 /area/space)
 "fq" = (
 /obj/effect/landmark/scorcher,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/space)
 "hb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -388,7 +388,7 @@
 /turf/simulated/floor,
 /area/omgolo_smuggler)
 "GN" = (
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/exoplanet/asteroid/ash,
 /area/omgolo_smuggler)
 "Hm" = (
 /obj/structure/bed,

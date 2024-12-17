@@ -64,6 +64,6 @@
 	armor_penetration = 50
 	penetrating = 1
 
-/obj/projectile/ship_ammo/francisca/frag/on_impact(var/atom/A)
+/obj/projectile/ship_ammo/francisca/frag/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)
-	..()
+	. = ..()

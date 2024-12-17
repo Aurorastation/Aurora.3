@@ -54,17 +54,14 @@
 	flick("vannatusk_death_animation", src)
 
 /mob/living/simple_animal/hostile/vannatusk/FoundTarget()
-	if(target_mob)
-		custom_emote(VISIBLE_MESSAGE,"stares alertly at [target_mob]")
-		if(!Adjacent(target_mob))
-			fire_spike(target_mob)
+	if(last_found_target)
+		custom_emote(VISIBLE_MESSAGE,"stares alertly at [last_found_target]")
+		if(!Adjacent(last_found_target))
+			fire_spike(last_found_target)
 
-/mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
-	visible_message(SPAN_DANGER("\The [src] fires a spike at [target_mob]!"))
-	playsound(get_turf(src), 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/projectile/bonedart/A = new /obj/projectile/bonedart(get_turf(src))
-	var/def_zone = get_exposed_defense_zone(target_mob)
-	A.launch_projectile(target_mob, def_zone)
+/mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/atom/target)
+	visible_message(SPAN_DANGER("\The [src] fires a spike at [target]!"))
+	fire_projectile(/obj/projectile/bonedart, target, 'sound/weapons/bloodyslice.ogg', firer = src)
 
 /obj/item/bone_dart/vannatusk
 	name = "bone dart"

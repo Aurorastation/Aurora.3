@@ -73,9 +73,9 @@
 	dat += "<hr><b>[storage_name]</b><br>"
 	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
 	if(allow_items)
-		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a><br>"
+		dat += "<a href='?src=[REF(src)];view=1'>View Objects</a><br>"
+		dat += "<a href='?src=[REF(src)];item=1'>Recover Object</a><br>"
+		dat += "<a href='?src=[REF(src)];allitems=1'>Recover All Objects</a><br>"
 
 	var/datum/browser/cryocon_win = new(user, "cryopod_console", "Cryogenic Oversight Console")
 	cryocon_win.set_content(dat)

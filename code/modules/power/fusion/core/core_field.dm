@@ -370,9 +370,7 @@
 	energy += a_energy
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
-		percent_unstable -= a_energy/10000
-		if(percent_unstable < 0)
-			percent_unstable = 0
+		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
 	while(energy >= 100)
 		energy -= 100
 		plasma_temperature += 1
@@ -582,10 +580,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/fusion_em_field/bullet_act(obj/projectile/Proj)
-	AddEnergy(Proj.damage)
+/obj/effect/fusion_em_field/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	AddEnergy(hitting_projectile.damage)
 	update_icon()
-	return 0
 
 /particles/fusion
 	width = 500

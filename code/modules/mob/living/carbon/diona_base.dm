@@ -644,7 +644,7 @@ var/list/diona_banned_languages = list(
 		var/newDNA = data["blood_DNA"]
 
 		if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-			newDNA = md5("\ref[H]")
+			newDNA = md5("[REF(H)]")
 
 		H.adjustBruteLoss(4)
 		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))

@@ -35,7 +35,7 @@
 		return R.get_cell()
 	return null
 
-/obj/item/inductive_charger/attack(mob/living/M, mob/living/user, target_zone)
+/obj/item/inductive_charger/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/inductive_charger/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

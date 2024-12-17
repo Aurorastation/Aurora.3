@@ -137,8 +137,8 @@
 		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
-	if(ismob(M) && user.a_intent != I_HURT)
+/obj/item/extinguisher/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ismob(target_mob) && user.a_intent != I_HURT)
 		return FALSE
 	return ..()
 

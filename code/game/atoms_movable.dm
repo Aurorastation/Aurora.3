@@ -57,6 +57,15 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
+	/**
+	 * In case you have multiple types, you automatically use the most useful one.
+	 * IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	 * I recommend you use the movetype_handler system and not modify this directly, especially for living mobs. -- this isn't in our codebase yet, however
+	 */
+	var/movement_type = GROUND
+
+	var/datum/component/orbiter/orbiting
+
 	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
@@ -71,7 +80,6 @@
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
-	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	//Recalculate opacity
 	var/turf/T = loc
@@ -140,7 +148,7 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, TRUE)
+	Moved(oldloc, NONE, TRUE, null)
 
 // Make sure you know what you're doing if you call this
 // You probably want CanPass()
@@ -274,7 +282,7 @@
 
 	//They are moving! Wouldn't it be cool if we calculated their momentum and added it to the throw?
 	if (thrower && thrower.last_move && thrower.client && thrower.client.move_delay >= world.time + world.tick_lag*2)
-		var/user_momentum = world.tick_lag //Used to be thrower.cached_multiplicative_slowdown but we don't have this
+		var/user_momentum = thrower.cached_multiplicative_slowdown
 		if (!user_momentum) //no movement_delay, this means they move once per byond tick, lets calculate from that instead.
 			user_momentum = world.tick_lag
 
@@ -359,7 +367,7 @@
 		if (EMISSIVE_BLOCK_UNIQUE)
 			if (!em_block && !QDELING(src))
 				appearance_flags |= KEEP_TOGETHER
-				render_target = ref(src)
+				render_target = REF(src)
 				em_block = emissive_blocker(
 					icon = icon,
 					icon_state = icon_state,
@@ -390,9 +398,9 @@
 	master = null
 	. = ..()
 
-/atom/movable/overlay/attackby(a, b)
+/atom/movable/overlay/attackby(obj/item/attacking_item, mob/user, params)
 	if (src.master)
-		return src.master.attackby(a, b)
+		return src.master.attackby(arglist(args))
 	return
 
 /atom/movable/overlay/attack_hand(a, b, c)
@@ -485,7 +493,7 @@
 	var/old_loc = loc
 	loc = destination
 	loc.Entered(src, old_loc)
-	Moved(old_loc, TRUE)
+	Moved(old_loc, get_dir(old_loc, destination), TRUE)
 
 	//Zmimic
 	if(bound_overlay)
@@ -509,13 +517,20 @@
 
 	return TRUE
 
-/atom/movable/proc/Moved(atom/old_loc, forced)
+/**
+ * Called after a successful Move(). By this point, we've already moved.
+ * Arguments:
+ * * old_loc is the location prior to the move. Can be null to indicate nullspace.
+ * * movement_dir is the direction the movement took place. Can be NONE if it was some sort of teleport.
+ * * The forced flag indicates whether this was a forced move, which skips many checks of regular movement.
+ * * The old_locs is an optional argument, in case the moved movable was present in multiple locations before the movement.
+ **/
+/atom/movable/proc/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	SHOULD_CALL_PARENT(TRUE)
+
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
-	update_grid_location(old_loc, src)
-
-/atom/movable/proc/update_grid_location(atom/old_loc)
+	/* START Spatial grid stuffs */
 	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
 		return
 
@@ -534,6 +549,7 @@
 
 	else if(new_turf && !old_turf)
 		SSspatial_grid.enter_cell(src, new_turf)
+	/* END Spatial grid stuffs */
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -558,9 +574,6 @@
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
 
-	if(GLOB.moved_event.is_listening(src, gone, TYPE_PROC_REF(/atom/movable, recursive_move)))
-		GLOB.moved_event.unregister(src, gone)
-
 	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -581,9 +594,6 @@
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
-
-	if(GLOB.moved_event.has_listeners(arrived) && !GLOB.moved_event.is_listening(src, arrived))
-		GLOB.moved_event.register(src, arrived, TYPE_PROC_REF(/atom/movable, recursive_move))
 
 	if(GLOB.dir_set_event.has_listeners(arrived))
 		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
@@ -840,3 +850,17 @@
 	AddComponent(/datum/component/drift, direction, instant, start_delay)
 
 	return TRUE
+
+/**
+ * meant for movement with zero side effects. only use for objects that are supposed to move "invisibly" (like camera mobs or ghosts)
+ * if you want something to move onto a tile with a beartrap or recycler or tripmine or mouse without that object knowing about it at all, use this
+ * most of the time you want forceMove()
+ */
+/atom/movable/proc/abstract_move(atom/new_loc)
+	// RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
+	var/atom/old_loc = loc
+	var/direction = get_dir(old_loc, new_loc)
+	loc = new_loc
+
+	//is Moved(old_loc, direction, TRUE, momentum_change = FALSE) in tg
+	Moved(old_loc, direction, TRUE)

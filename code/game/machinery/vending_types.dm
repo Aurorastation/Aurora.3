@@ -779,12 +779,12 @@
 	icon_state = "wallpharm"
 	density = FALSE
 	products = list(
-		/obj/item/storage/pill_bottle/antidexafen = 4,
-		/obj/item/storage/pill_bottle/dexalin = 4,
-		/obj/item/storage/pill_bottle/dylovene = 4,
 		/obj/item/stack/medical/bruise_pack = 5,
 		/obj/item/stack/medical/ointment = 5,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/antidexafen = 4,
+		/obj/item/storage/pill_bottle/dexalin = 4,
+		/obj/item/storage/pill_bottle/dylovene = 4,
 		/obj/item/storage/pill_bottle/vitamin = 5,
 		/obj/item/storage/pill_bottle/cetahydramine  = 4,
 		/obj/item/storage/pill_bottle/caffeine = 3,
@@ -795,9 +795,6 @@
 		/obj/item/storage/pill_bottle/antidexafen = 70,
 		/obj/item/storage/pill_bottle/dexalin = 60,
 		/obj/item/storage/pill_bottle/dylovene = 75,
-		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 8,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 14,
 		/obj/item/storage/pill_bottle/vitamin = 55,
 		/obj/item/storage/pill_bottle/cetahydramine  = 60,
 		/obj/item/storage/pill_bottle/caffeine = 90,
@@ -1605,10 +1602,10 @@
 		/obj/item/storage/overloader/screenshaker = 5
 	)
 	prices = list(
-		/obj/item/storage/overloader/classic = 200,
-		/obj/item/storage/overloader/tranquil = 200,
-		/obj/item/storage/overloader/rainbow = 200,
-		/obj/item/storage/overloader/screenshaker = 200
+		/obj/item/storage/overloader/classic = 100,
+		/obj/item/storage/overloader/tranquil = 100,
+		/obj/item/storage/overloader/rainbow = 100,
+		/obj/item/storage/overloader/screenshaker = 100
 	)
 	contraband = list(
 		/obj/item/storage/overloader/rainbow = 2
@@ -1875,7 +1872,20 @@
 		/obj/item/device/encryptionkey/headset_service = 5,
 		/obj/item/device/encryptionkey/headset_warden = 5,
 		/obj/item/device/encryptionkey/headset_xenoarch = 5,
-
-
 	)
+
+/obj/machinery/vending/actor
+	name = "Actor Vendor"
+	desc = ""
+	vend_id = "actor"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
+	light_mask = "generic-lightmask"
+	products = list(
+		/obj/item/device/radio/headset/ship/odyssey = 12,
+		/obj/item/portable_map_reader/odyssey = 12,
+		/obj/item/card/id/syndicate = 12,
+	)
+	light_color = COLOR_GUNMETAL
+
 

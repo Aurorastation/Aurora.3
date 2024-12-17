@@ -6,6 +6,7 @@
 	suffix = "scrapper.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajara_scrapper"
@@ -64,7 +65,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/tajara_scrapper/New()

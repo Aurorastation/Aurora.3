@@ -203,7 +203,7 @@ SUBSYSTEM_DEF(records)
 	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
-	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
+	return (isnewplayer(user) || isghost(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
 
 /datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -211,7 +211,7 @@ SUBSYSTEM_DEF(records)
 		return
 
 	if(action == "follow")
-		var/mob/abstract/observer/O = usr
+		var/mob/abstract/ghost/O = usr
 		if(istype(O))
 			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
@@ -222,7 +222,7 @@ SUBSYSTEM_DEF(records)
 /datum/controller/subsystem/records/ui_static_data(mob/user)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
-	data["allow_follow"] = isobserver(user)
+	data["allow_follow"] = isghost(user)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)

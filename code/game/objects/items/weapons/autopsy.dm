@@ -151,7 +151,8 @@
 
 	usr.put_in_hands(P)
 
-/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/autopsy_scanner/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
 	if(!istype(M))
 		return
 

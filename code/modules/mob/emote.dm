@@ -42,7 +42,7 @@
 		if (!M.client || isnewplayer(M))
 			continue
 		if(get_turf(M) in messageturfs)
-			if (isobserver(M))
+			if (isghost(M))
 				ghosts_nearby += M
 				continue
 			else if (isliving(M) && !(type == 2 && isdeaf(M)))

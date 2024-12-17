@@ -1,4 +1,6 @@
 /obj/item/modular_computer/console/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile))
 		if(prob(80))
 	//Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually

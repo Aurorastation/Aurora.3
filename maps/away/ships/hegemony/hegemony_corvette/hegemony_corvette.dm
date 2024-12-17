@@ -37,6 +37,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
 		"Hegemony Shuttle" = list("nav_hegemony_corvette_shuttle")
 	)

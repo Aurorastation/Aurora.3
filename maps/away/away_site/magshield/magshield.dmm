@@ -226,8 +226,7 @@
 "aF" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/magshield/engine)
@@ -357,7 +356,6 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	icon_state = "pdoor0";
 	id = "prototype_chamber_blast"
 	},
 /turf/simulated/floor/airless,
@@ -371,7 +369,6 @@
 /area/magshield/engine)
 "bb" = (
 /obj/machinery/door/blast/regular/open{
-	icon_state = "pdoor0";
 	id = "prototype_chamber_blast"
 	},
 /turf/simulated/floor/airless,
@@ -478,8 +475,7 @@
 /area/magshield/engine)
 "bs" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/airless,
 /area/magshield/engine)
@@ -932,7 +928,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "n2o_in";
 	pixel_y = 1;
 	use_power = 1
@@ -1202,8 +1197,7 @@
 /area/magshield/north)
 "dk" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/magshield/north)
@@ -1365,8 +1359,7 @@
 /area/magshield/west)
 "dX" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
@@ -2034,7 +2027,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "d_n2_in";
 	use_power = 1
 	},
@@ -2098,8 +2090,7 @@
 /area/magshield/east)
 "gi" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 5;
-	icon_state = "warning"
+	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/magshield/east)
@@ -2213,8 +2204,7 @@
 /area/magshield/east)
 "gC" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /obj/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/airless,
@@ -2905,7 +2895,6 @@
 /area/magshield/south)
 "iy" = (
 /obj/machinery/door/blast/regular/open{
-	icon_state = "pdoor0";
 	id = "prototype_chamber_blast"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -3163,7 +3152,6 @@
 /area/magshield/south)
 "ju" = (
 /obj/machinery/door/blast/regular/open{
-	icon_state = "pdoor0";
 	id = "prototype_chamber_blast"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
@@ -4004,7 +3992,6 @@
 "Ji" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	icon_state = "pdoor0";
 	id = "prototype_chamber_blast"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,

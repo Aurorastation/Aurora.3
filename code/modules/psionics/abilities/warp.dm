@@ -39,7 +39,7 @@
 	visible_message(SPAN_NOTICE("[user] rests a hand on \the [hit_atom]."))
 	busy = TRUE
 
-	spark(our_turf, 3, GLOB.cardinal)
+	spark(our_turf, 3, GLOB.cardinals)
 
 	while(i)
 		checked_turf = get_step(checked_turf, direction) //Advance in the given direction

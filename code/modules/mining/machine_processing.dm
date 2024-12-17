@@ -355,19 +355,19 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	. = ..()
 
 	//Locate our output and input machinery.
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input_spot)
 			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
 			break
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			output = get_turf(output_spot)
 			break
 
 	if(!input)
-		input = get_step(src, GLOB.reverse_dir[dir])
+		input = get_step(src, REVERSE_DIR(dir))
 	if(!output)
 		output = get_step(src, dir)
 
@@ -479,7 +479,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 			//Compressing materials
 			else if(ores_processing[metal] & SMELTER_MODE_COMPRESSING && O.compresses_to)
-				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
+				var/can_make = clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 				if(can_make % 2 > 0)
 					can_make--
 
@@ -499,7 +499,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 			//Smelting materials
 			else if(ores_processing[metal] & SMELTER_MODE_SMELTING && O.smelts_to)
-				var/can_make = Clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
+				var/can_make = clamp(ores_stored[metal], 0, ROUND_UP(sheets_per_second*seconds_per_tick) - sheets)
 
 				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)

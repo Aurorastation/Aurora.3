@@ -20,7 +20,7 @@
 /obj/item/cargo_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contained_packages))
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=\ref[src];show_package_data=1>\[Show Package Data\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>"))
 
 /obj/item/cargo_backpack/Topic(href, href_list)
 	if(href_list["show_package_data"])
@@ -43,16 +43,17 @@
 			var/obj/effect/overmap/visitable/delivery_sector = package.delivery_point_sector.resolve()
 			if(delivery_sector)
 				delivery_site = delivery_sector.name
-		data["cargo_pack_details"] += list(list("package_id"= ref(package), "delivery_point_sector" = delivery_site, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
+		data["cargo_pack_details"] += list(list("package_id"= REF(package), "delivery_point_sector" = delivery_site, "delivery_point_coordinates" = package.delivery_point_coordinates, "delivery_point_id" = package.delivery_point_id))
 
 	return data
 
-/obj/item/cargo_backpack/proc/update_state()
+/obj/item/cargo_backpack/proc/update_state(mob/user)
 	if(LAZYLEN(contained_packages))
 		slowdown = 1
 	else
 		slowdown = 0
 	update_icon()
+	user.update_equipment_speed_mods()
 
 /obj/item/cargo_backpack/update_icon()
 	if(LAZYLEN(contained_packages))
@@ -97,7 +98,7 @@
 		if(user.species.mob_size < 12)
 			package.wield(user)
 		LAZYREMOVE(contained_packages, package)
-		update_state()
+		update_state(user)
 
 /obj/item/cargo_backpack/attackby(obj/item/attacking_item, mob/user)
 	if(!ishuman(user))
@@ -119,4 +120,4 @@
 		user.visible_message("<b>[user]</b> loads \the [attacking_item] onto \the [src]!", SPAN_NOTICE("You load \the [attacking_item] onto \the [src]!"))
 		user.drop_from_inventory(attacking_item, src)
 		LAZYADD(contained_packages, attacking_item)
-		update_state()
+		update_state(user)

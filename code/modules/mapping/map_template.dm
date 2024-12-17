@@ -20,7 +20,6 @@
 	var/loaded = 0 // Times loaded this round
 	var/static/dmm_suite/maploader = new
 	var/list/shuttles_to_initialise = list()
-	var/list/subtemplates_to_spawn
 	var/base_turf_for_zs = null
 	var/accessibility_weight = 0
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
@@ -42,7 +41,7 @@
 /datum/map_template/proc/preload_size(path)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE)
+	var/datum/map_load_metadata/M = maploader.load_map_impl(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE, no_changeturf=TRUE)
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 	else
@@ -53,8 +52,6 @@
 	return bounds
 
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
-	RETURN_TYPE(/turf)
-
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
 	var/initial_z = world.maxz + 1
@@ -89,14 +86,16 @@
 		if (base_turf_for_zs)
 			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		SSatlas.current_map.player_levels |= z_index
+		GLOB.map_templates["[z_index]"] = src
 
 	smooth_zlevel(world.maxz)
-	resort_all_areas()
+	require_area_resort()
+
+	post_exoplanet_generation(bounds)
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
-	after_load(initial_z)
 	for(var/light_z = initial_z to world.maxz)
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
@@ -129,25 +128,18 @@
 	for(var/atom/A as anything in atoms)
 		if(isnull(A) || (A.flags_1 & INITIALIZED_1))
 			atoms -= A
-			continue
-		if(istype(A, /turf))
+		else if(istype(A, /turf))
 			turfs += A
-			continue
-		if(istype(A, /obj/structure/cable))
+		else if(istype(A, /obj/structure/cable))
 			cables += A
-			continue
-		if(istype(A,/obj/effect/landmark/map_load_mark))
-			LAZYADD(subtemplates_to_spawn, A)
-			continue
 
-		//Not mutually exclusive anymore section, no continue here, keep checking
-
-		if(istype(A, /obj/machinery/atmospherics))
-			atmos_machines += A
+		//Not mutually exclusive anymore section, pay close attention!
 		if(istype(A, /obj/machinery))
 			machines += A
-		if(istype(A, /obj/machinery/power/apc))
-			apcs += A
+			if(istype(A, /obj/machinery/atmospherics))
+				atmos_machines += A
+			else if(istype(A, /obj/machinery/power/apc))
+				apcs += A
 
 	var/notsuspended
 	if(!SSmachinery.can_fire)
@@ -161,16 +153,13 @@
 	if(notsuspended)
 		SSmachinery.can_fire = TRUE
 
-	for (var/i in apcs)
-		var/obj/machinery/power/apc/apc = i
+	for (var/obj/machinery/power/apc/apc as anything in apcs)
 		apc.update() // map-loading areas and APCs is weird, okay
 
-	for (var/i in machines)
-		var/obj/machinery/machine = i
+	for (var/obj/machinery/machine as anything in machines)
 		machine.power_change()
 
-	for (var/i in turfs)
-		var/turf/T = i
+	for (var/turf/T as anything in turfs)
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
 			T.turf_flags |= TURF_NORUINS
@@ -211,6 +200,9 @@
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/list/turf)
+
 	var/turf/placement = T
 	if(centered)
 		var/turf/corner = locate(placement.x - round(width / 2), placement.y - round(height / 2), placement.z)
@@ -226,12 +218,9 @@
 		bounds_to_combine[max_bound] = max(existing_bounds[max_bound], new_bounds[max_bound])
 	return bounds_to_combine
 
-/datum/map_template/proc/after_load(z)
-	for(var/obj/effect/landmark/map_load_mark/mark in subtemplates_to_spawn)
-		subtemplates_to_spawn -= mark
-		if(LAZYLEN(mark.templates))
-			var/template = pick(mark.templates)
-			var/datum/map_template/M = new template()
-			M.load(get_turf(mark), TRUE)
-			qdel(mark)
-	LAZYCLEARLIST(subtemplates_to_spawn)
+/**
+ * In case the away site spawns with an exoplanet, use this proc to handle any post-generation.
+ * For example, turning market turfs into exoplanet turfs with themes.
+ */
+/datum/map_template/proc/post_exoplanet_generation(bounds)
+	return

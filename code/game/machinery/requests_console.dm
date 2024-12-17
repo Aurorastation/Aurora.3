@@ -282,7 +282,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	for (var/A in alert_pdas)
 		var/obj/item/modular_computer/pda = A
-		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
+		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "[REF(pda)]"))
 
 	data["lid"] = lid
 	data["paper"] = paperstock
@@ -453,7 +453,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = attacking_item
-			msgVerified = text("<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>")
+			msgVerified = "<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>"
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/ID = attacking_item

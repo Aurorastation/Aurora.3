@@ -6,7 +6,7 @@
 	prefix = "ships/sol/sol_ssmd/"
 	suffix = "ssmd_ship.dmm"
 
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "ssmd_corvette"
@@ -171,7 +171,7 @@
 
 /datum/shuttle/autodock/overmap/ssmd_shuttle
 	name = "SSMD Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ssmd_shuttle)
 	dock_target = "airlock_ssmd_shuttle"
 	current_location = "nav_hangar_ssmd"

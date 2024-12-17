@@ -152,9 +152,7 @@
 	penetrating = 6
 	stun = 4
 	weaken = 4
-	maiming = TRUE
 	maim_rate = 3
-	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
 /obj/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
@@ -164,8 +162,10 @@
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		explosion(target, 0, 2, 4)
 
-/obj/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/movable/target, blocked, def_zone, is_landmark_hit)
-	if(istype(target))
-		var/throwdir = dir
-		target.throw_at(get_edge_target_turf(target, throwdir),9,8)
+/obj/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+	. = ..()
+
+	if(ismovable(target))
+		var/atom/movable/M = target
+		M.throw_at(get_edge_target_turf(target, dir),9,8)
 		return 1

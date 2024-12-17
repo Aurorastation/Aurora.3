@@ -79,10 +79,10 @@
 	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
-	var/obj/screen/mecha/health/hud_health
-	var/obj/screen/mecha/toggle/hatch_open/hud_open
-	var/obj/screen/mecha/power/hud_power
-	var/obj/screen/mecha/toggle/power_control/hud_power_control
+	var/atom/movable/screen/mecha/health/hud_health
+	var/atom/movable/screen/mecha/toggle/hatch_open/hud_open
+	var/atom/movable/screen/mecha/power/hud_power
+	var/atom/movable/screen/mecha/toggle/power_control/hud_power_control
 	//POWER
 	var/power = MECH_POWER_OFF
 
@@ -131,7 +131,7 @@
 	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
-	return 1
+	return TRUE
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
@@ -149,7 +149,7 @@
 			for(var/pilot in pilots)
 				if(ismob(pilot))
 					var/mob/M = pilot
-					. += "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>."
+					. += "It is being <b>piloted</b> by <a href=?src=[REF(src)];examine=[REF(M)]>[M.name]</a>."
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
@@ -321,6 +321,9 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
+	// Give dummy a blank encryption key for later editing if spiderbot
+	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
+		dummy.radio.keyslot = new /obj/item/device/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)

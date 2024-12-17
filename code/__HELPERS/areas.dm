@@ -105,3 +105,15 @@
 
 /proc/is_not_maint_area(var/area/A)
 	. = !is_maint_area(A)
+
+/*
+	Area Sorting
+*/
+/proc/require_area_resort()
+	GLOB.sortedAreas = null
+
+/// Returns a sorted version of GLOB.areas, by name
+/proc/get_sorted_areas()
+	if(!GLOB.sortedAreas)
+		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
+	return GLOB.sortedAreas

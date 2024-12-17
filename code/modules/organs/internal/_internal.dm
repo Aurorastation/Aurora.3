@@ -138,10 +138,10 @@
 			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
-/obj/item/organ/internal/process()
+/obj/item/organ/internal/process(seconds_per_tick)
 	..()
 	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
+		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
 	handle_regeneration()
 	tick_surge_damage() //Yes, this is intentional.
 

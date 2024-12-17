@@ -110,8 +110,8 @@ Possible to do for anyone motivated enough:
 		take_call()
 		return
 	else if(connected_pad)
-		if(forced)
-			audible_message("Access denied. Terminating a command-level transmission locally is not permitted.")
+		if(forced && !has_command_auth(user))
+			audible_message("Access denied. Termination of a command-level transmission requires command-level authorization.")
 			return
 		end_call()
 		audible_message("Severing connection to distant holopad.")
@@ -134,7 +134,7 @@ Possible to do for anyone motivated enough:
 	data["holopad_list"] = list()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
-			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]"))
+			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "[REF(H)]"))
 	data["command_auth"] = has_command_auth(user)
 	data["forcing_call"] = forcing_call
 	data["call_range"] = max_overmap_call_range
@@ -161,7 +161,7 @@ Possible to do for anyone motivated enough:
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
 					continue
-				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
 				. = TRUE
 
 		if("call_holopad")
@@ -171,7 +171,7 @@ Possible to do for anyone motivated enough:
 				to_chat(usr, SPAN_DANGER("Could not locate that holopad, this is a bug!"))
 				return
 			connected_pad = HP
-			INVOKE_ASYNC(src, PROC_REF(make_call), connected_pad, usr, forcing_call)
+			INVOKE_ASYNC(src, PROC_REF(make_call), connected_pad, usr)
 			. = TRUE
 
 		if("toggle_command")
@@ -209,7 +209,7 @@ Possible to do for anyone motivated enough:
 
 		return TRUE
 
-/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user, forced_call)
+/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/connected_pad, var/mob/user)
 	connected_pad.last_request = world.time
 	connected_pad.connected_pad = src //This marks the holopad you are making the call from
 	connected_pad.incoming_connection = TRUE
@@ -217,10 +217,11 @@ Possible to do for anyone motivated enough:
 	connected_pad.update_icon()
 	update_icon()
 
-	if(forced_call)
+	if(forcing_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
 		connected_pad.notify_pdas(connected_pad.holopad_id)
 		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
+		forcing_call = FALSE // Holopad needs to have forced call turned back on
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()

@@ -38,11 +38,11 @@
 	stamina_recovery = 3
 
 	unarmed_types = list(
+		/datum/unarmed_attack/bite/warrior,
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
-		/datum/unarmed_attack/palm,
-		/datum/unarmed_attack/bite/warrior
+		/datum/unarmed_attack/palm
 	)
 
 	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
@@ -65,6 +65,53 @@
 		"C'thur: Unbound Mouv" = "#96B4FF",
 		"C'thur: Unbound Xetl" = "#370078"
 	)
+
+/datum/species/bug/type_b/type_bb
+	name = SPECIES_VAURCA_ATTENDANT
+	name_plural = "Type BB"
+	species_height = HEIGHT_CLASS_HUGE
+	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
+	eyes = "vaurca_attendant_eyes"
+
+	slowdown = -0.8
+	brute_mod = 0.9
+	oxy_mod = 1
+	radiation_mod = 0.5
+	bleed_mod = 2.5
+	burn_mod = 1.2
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 0.40
+	grab_mod = 1.1
+	resist_mod = 4
+	standing_jump_range = 3
+	pain_mod = 1.5
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm
+	)
+
+	mob_size = 8
+	blurb = "Type BB Warriors or \"Attendants\" are digitigrade bipeds, built to be agile and quick. They are primarily made to be scouts or serve in support positions and \
+	they excel at guerilla tactics. They can possess the same roles as regular warriors, but their speed-built forms are not as hardy. They are commonly attributed to the \
+	role of combat medics, providing medical assistance on the field, or removal of the neural socket if the individual cannot be saved." //Copied from the wiki
+
+	stamina = 100
+
+	tail = "Gaster"
+	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
+	selectable_tails = list("Gaster")
+
+/datum/species/bug/type_b/type_bb/New()
+	..()
+	default_emotes += /singleton/emote/audible/rattle // Appends an emote unique to Attendants.
+
+/datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
+	if(I.w_class <= WEIGHT_CLASS_NORMAL)
+		return TRUE
+	return FALSE
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
@@ -112,7 +159,6 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
-
 
 	stamina = 175
 	sprint_speed_factor = 1
@@ -338,6 +384,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	stamina = 50
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
 	valid_prosthetics = null
+
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
 
 	character_color_presets = list(
 		"Zo'ra: Unbound Vaur" = "#3D000F", "Zo'ra: Bound Vaur" = "#37000F",

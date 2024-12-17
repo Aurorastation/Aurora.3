@@ -915,10 +915,10 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
 	var/message = ""
 	if(isWireCut(WIRE_SHOCK) && arePowerSystemsOn())
-		message = text("The electrification wire is cut - Door permanently electrified.")
+		message ="The electrification wire is cut - Door permanently electrified."
 		electrified_until = -1
 	else if(duration && !arePowerSystemsOn())
-		message = text("The door is unpowered - Cannot electrify the door.")
+		message = "The door is unpowered - Cannot electrify the door."
 		electrified_until = 0
 	else if(!duration && electrified_until != 0)
 		message = "The door is now un-electrified."
@@ -926,7 +926,7 @@ About the new airlock wires panel:
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
 			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
-			usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Electrified the [name] at [x] [y] [z]</span>")
+			usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Electrified the [name] at [x] [y] [z]</span>"
 		else
 			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
@@ -956,7 +956,7 @@ About the new airlock wires panel:
 	var/message = ""
 	// Safeties!  We don't need no stinking safeties!
 	if (src.isWireCut(WIRE_SAFETY))
-		message = text("The safety wire is cut - Cannot enable safeties.")
+		message = "The safety wire is cut - Cannot enable safeties."
 	else if (!activate && src.safe)
 		safe = FALSE
 	else if (activate && !src.safe)
@@ -1231,7 +1231,7 @@ About the new airlock wires panel:
 		if("timing")
 			// Door speed control
 			if(src.isWireCut(WIRE_TIMING))
-				to_chat(usr, text("The timing wire is cut - Cannot alter timing."))
+				to_chat(usr, "The timing wire is cut - Cannot alter timing.")
 			else if (activate && src.normalspeed)
 				normalspeed = FALSE
 			else if (!activate && !src.normalspeed)
@@ -1463,12 +1463,21 @@ About the new airlock wires panel:
 			cut_sound = 'sound/weapons/smash.ogg'
 			cut_delay *= 1
 			cutting = TRUE
-	else if(istype(tool, /obj/item/crowbar/robotic/jawsoflife))
+	else if(istype(tool, /obj/item/crowbar/hydraulic_rescue_tool))
 		if(bolt_cut_state == BOLTS_FINE)
-			to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
-			playsound(src, 'sound/weapons/smash.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
-			bolt_cut_state = BOLTS_EXPOSED
+			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolt cover!"),
+				SPAN_WARNING("You start applying pressure on the airlock's bolt cover using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")\
+			)
+			if (do_after(user, 1 SECONDS))
+				to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
+				playsound(src, 'sound/weapons/smash.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+				bolt_cut_state = BOLTS_EXPOSED
 		else if(bolt_cut_state != BOLTS_FINE)
+			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolts!"),
+				SPAN_WARNING("You start applying pressure on the airlock's bolts using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")
+			)
 			cut_verb = "smashing"
 			cut_sound = 'sound/weapons/smash.ogg'
 			cut_delay *= 1
@@ -1617,7 +1626,7 @@ About the new airlock wires panel:
 		if("timing")
 			// Door speed control
 			if(src.isWireCut(WIRE_TIMING))
-				to_chat(usr, text("The timing wire is cut - Cannot alter timing."))
+				to_chat(usr, "The timing wire is cut - Cannot alter timing.")
 			else if (activate && src.normalspeed)
 				normalspeed = FALSE
 			else if (!activate && !src.normalspeed)
@@ -1737,16 +1746,28 @@ About the new airlock wires panel:
 				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", SPAN_NOTICE("You remove the electronics from the airlock assembly."))
 				CreateAssembly()
 				return
-		else if(arePowerSystemsOn())
+		else if(arePowerSystemsOn() && !istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 			to_chat(user, SPAN_NOTICE("The airlock's motors resist your efforts to force it."))
 		else if(locked)
-			if (istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
+			if (istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 				cut_bolts(attacking_item, user)
 			else
 				to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else
 			if(density)
-				open(1)
+				if(arePowerSystemsOn() && istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
+					user.visible_message(SPAN_DANGER("[user] starts using the [attacking_item] on the airlock!"),
+						SPAN_WARNING("You start applying pressure on the airlock using the [attacking_item]..."),
+						SPAN_NOTICE("You hear metal cracking and deforming...")
+					)
+					if (do_after(user, 5 SECONDS))
+						playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
+						take_damage(50)
+						set_broken()
+						to_chat(user, SPAN_NOTICE("The hydraulic strength easily overcomes the resistance of the airlock's motors opening the way ahead!"))
+						open(1)
+				else
+					open(1)
 			else
 				close(1)
 		return TRUE
@@ -1954,7 +1975,7 @@ About the new airlock wires panel:
 	var/turf/T = loc
 	if(istype(T))
 		var/list/valid_turfs = list()
-		for(var/dir_to_test in GLOB.cardinal)
+		for(var/dir_to_test in GLOB.cardinals)
 			var/turf/new_turf = get_step(T, dir_to_test)
 			if(!new_turf.contains_dense_objects())
 				valid_turfs |= new_turf

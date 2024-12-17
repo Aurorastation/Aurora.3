@@ -114,7 +114,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	listeners = list()
 	listener_status = list()
 
-	GLOB.destroyed_event.register(source, src, /datum/proc/qdel_self)
+	RegisterSignal(source, COMSIG_QDELETING, TYPE_PROC_REF(/datum, qdel_self))
 
 	PrivLocateListeners()
 	START_PROCESSING(SSprocessing, src)
@@ -154,7 +154,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	listeners = null
 	listener_status = null
 
-	GLOB.destroyed_event.unregister(source, src, /datum/proc/qdel_self)
+	UnregisterSignal(source, COMSIG_QDELETING)
 	source = null
 
 	GLOB.sound_player.PrivStopSound(src)
@@ -197,19 +197,19 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	listeners += listener
 
-	GLOB.moved_event.register(listener, src, PROC_REF(PrivUpdateListenerLoc))
-	GLOB.destroyed_event.register(listener, src, PROC_REF(PrivRemoveListener))
+	RegisterSignal(listener, COMSIG_MOVABLE_MOVED, PROC_REF(PrivUpdateListenerLoc))
+	RegisterSignal(listener, COMSIG_QDELETING, PROC_REF(PrivRemoveListener))
 
-	PrivUpdateListenerLoc(listener, FALSE)
+	PrivUpdateListenerLoc(listener, update_sound = FALSE)
 
 /datum/sound_token/proc/PrivRemoveListener(atom/listener, sound/null_sound)
 	null_sound = null_sound || new(channel = sound.channel)
 	sound_to(listener, null_sound)
-	GLOB.moved_event.unregister(listener, src, PROC_REF(PrivUpdateListenerLoc))
-	GLOB.destroyed_event.unregister(listener, src, PROC_REF(PrivRemoveListener))
+	UnregisterSignal(listener, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(listener, COMSIG_QDELETING)
 	listeners -= listener
 
-/datum/sound_token/proc/PrivUpdateListenerLoc(atom/listener, update_sound = TRUE)
+/datum/sound_token/proc/PrivUpdateListenerLoc(atom/movable/listener, atom/old_loc, dir, forced, list/old_locs, update_sound = TRUE)
 	var/turf/source_turf = get_turf(source)
 	var/turf/listener_turf = get_turf(listener)
 

@@ -46,13 +46,19 @@
 
 	data["listvar"] = list()
 
-	var/index = 1
-	for(var/k in viewed_list)
-		if(!isnull(viewed_list[k]))
-			data["listvar"] += list(list("key" = k, "value" = viewed_list[k]))
+	//Let's just compute it once instead of for every element
+	var/is_normal_list = IS_NORMAL_LIST(viewed_list)
+
+	for(var/index in 1 to length(viewed_list))
+		var/entry = viewed_list[index]
+
+		if(is_normal_list && IS_VALID_ASSOC_KEY(entry))
+			if(!isnull(viewed_list[entry]))
+				data["listvar"] += list(list("key" = entry, "value" = viewed_list[entry]))
+			else
+				data["listvar"] += list(list("key" = index, "value" = entry))
 		else
-			data["listvar"] += list(list("key" = index, "value" = k))
-			index++
+			data["listvar"] += list(list("key" = index, "value" = entry))
 
 	return data
 
@@ -82,6 +88,10 @@
 
 			if(!entry_to_open)
 				to_chat(usr, "No entry found to open!")
+				return FALSE
+
+			if(!isdatum(entry_to_open))
+				to_chat(usr, "The entry is not a datum!")
 				return FALSE
 
 			user_client.debug_variables_open(entry_to_open)

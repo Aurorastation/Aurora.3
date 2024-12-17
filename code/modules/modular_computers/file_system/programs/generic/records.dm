@@ -92,10 +92,6 @@
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/records/employment/Destroy()
-	. = ..()
-
-
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
 	extended_desc = "This program is used to view crew records."
@@ -182,7 +178,6 @@
 	. = ..()
 	if(.)
 		return
-
 	if(action == "login")
 		if(can_run(usr, TRUE))
 			authenticated = TRUE
