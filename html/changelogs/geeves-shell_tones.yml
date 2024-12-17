@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a 'Rubber' skin preset for Shells in character creation, which makes their skin look cheap and uncanny."
+  - refactor: "Added backend support for species to have different max and min skin tone values, currently unused."
