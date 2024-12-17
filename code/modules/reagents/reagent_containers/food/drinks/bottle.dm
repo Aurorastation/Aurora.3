@@ -36,9 +36,9 @@
 /obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = throwing?.thrower?.resolve()
+	var/mob/M = throwingdatum?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throwing?.thrower?.resolve(), loc)
+		var/throw_dist = get_dist(get_turf(M), get_turf(src))
 		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
@@ -148,12 +148,12 @@
 		return
 	..()
 
-/obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
+/obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/blocked = ..()
 
 	if(user.a_intent != I_HURT)
 		return
-	if(target == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
+	if(target_mob == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
 		var/confirm = alert("Do you want to smash the bottle on yourself?","Hit yourself?","No", "Yeah!", "Splash Reagents")
 		if(confirm == "No")
 			return 1 //prevents standard_splash_mob on return
@@ -165,29 +165,33 @@
 	// You are going to knock someone out for longer if they are not wearing a helmet.
 	var/weaken_duration = 0
 	if(blocked < 100)
-		weaken_duration = smash_duration + min(0, force - target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE) * 100 + 10)
+		weaken_duration = smash_duration + min(0, force - target_mob.get_blocked_ratio(target_zone, DAMAGE_BRUTE) * 100 + 10)
 
-	var/mob/living/carbon/human/H = target
-	if(istype(H) && H.headcheck(hit_zone))
-		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
+	var/mob/living/carbon/human/H = target_mob
+	if(istype(H) && H.headcheck(target_zone))
+		var/obj/item/organ/affecting = H.get_organ(target_zone) //headcheck should ensure that affecting is not null
 		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
-			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
+			target_mob.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target_mob]!"))
 
-	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
+	//The reagents in the bottle splash all over the target_mob, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
-		reagents.splash(target, reagents.total_volume)
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target_mob]!"))
+		reagents.splash(target_mob, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
-	var/obj/item/broken_bottle/B = smash(target.loc, target)
+	var/obj/item/broken_bottle/B = smash(target_mob.loc, target_mob)
 	user.put_in_active_hand(B)
 
 	return blocked
 
-/obj/item/reagent_containers/food/drinks/bottle/bullet_act()
+/obj/item/reagent_containers/food/drinks/bottle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	smash(loc)
 
 /*
@@ -450,8 +454,8 @@
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/projectile/bullet/champagne_cork/on_impact(var/atom/A)
-	..()
+/obj/projectile/bullet/champagne_cork/on_hit(atom/target, blocked, def_zone)
+	. = ..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
 /obj/item/trash/champagne_cork

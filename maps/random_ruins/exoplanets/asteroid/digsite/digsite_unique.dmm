@@ -24,20 +24,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ad" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ae" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "af" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -52,55 +52,55 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ai" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aj" = (
 /obj/machinery/artifact,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ak" = (
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "al" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "am" = (
 /obj/structure/inflatable/wall,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "an" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ap" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aq" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "ar" = (
 /obj/effect/landmark/clear,
@@ -109,25 +109,25 @@
 "as" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "at" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "au" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "av" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aw" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -151,56 +151,40 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "az" = (
 /turf/simulated/wall,
 /area/dungeon/anomaly_outpost)
 "aA" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/airless,
 /area/dungeon/anomaly_outpost)
 "aB" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
-"aC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "aE" = (
 /obj/machinery/artifact_analyser,
 /obj/structure/table/standard,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aF" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aG" = (
@@ -223,6 +207,7 @@
 /area/dungeon/anomaly_outpost)
 "aI" = (
 /obj/machinery/artifact_scanpad,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aL" = (
@@ -265,6 +250,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aR" = (
@@ -278,6 +264,7 @@
 	pixel_y = 30;
 	req_access = null
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aT" = (
@@ -285,6 +272,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aU" = (
@@ -301,6 +289,7 @@
 "aW" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aX" = (
@@ -319,6 +308,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aZ" = (
@@ -331,6 +321,7 @@
 	unlocked = 1;
 	use_power = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "ba" = (
@@ -341,11 +332,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "bb" = (
 /obj/structure/inflatable/door,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 "bc" = (
 /obj/effect/landmark/clear,
@@ -365,6 +357,7 @@
 "be" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "bf" = (
@@ -404,28 +397,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "TD" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
-"Uv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "Vd" = (
@@ -433,7 +409,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/exoplanet/ceiling,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -581,7 +557,7 @@ am
 ao
 ar
 ar
-aa
+ar
 az
 ab
 aL
@@ -599,8 +575,8 @@ ar
 ao
 ar
 ar
-aa
-aa
+ar
+ar
 aA
 aM
 aU
@@ -617,10 +593,10 @@ aq
 ao
 ar
 ar
-aa
-aa
-aa
-aC
+ar
+ar
+ar
+aA
 af
 aw
 az
@@ -636,8 +612,8 @@ ar
 ar
 ar
 aa
-aa
-aa
+ar
+ar
 az
 az
 aO
@@ -655,8 +631,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ar
+ar
 TD
 aF
 aP
@@ -674,12 +650,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aB
+ar
+ar
+TD
 aG
 aQ
-aX
+aB
 be
 az
 "}
@@ -693,9 +669,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aB
+ar
+ar
+TD
 aH
 aR
 aX
@@ -712,9 +688,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aB
+ar
+ar
+TD
 aI
 aR
 aX
@@ -731,9 +707,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-Uv
+ar
+ar
+TD
 aE
 aS
 aY
@@ -750,8 +726,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ar
+ar
 az
 az
 bi
@@ -769,9 +745,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ar
+ar
+ar
 az
 aT
 ba

@@ -34,18 +34,18 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(copying)
-		return copying.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+		return copying.examine(arglist(args))
 	else
 		return list("???")
 
-/mob/living/simple_animal/illusion/bullet_act(obj/projectile/P)
-	if(!P)
-		return
+/mob/living/simple_animal/illusion/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(!hitting_projectile)
+		return BULLET_ACT_BLOCK
 
 	if(realistic)
 		return ..()
 
-	return PROJECTILE_FORCE_MISS
+	return BULLET_ACT_BLOCK
 
 /mob/living/simple_animal/illusion/attack_hand(mob/living/carbon/human/M)
 	if(!realistic)

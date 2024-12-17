@@ -118,7 +118,7 @@
 /obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
-	if((istype(attacking_item, /obj/item/material/twohanded/fireaxe) && attacking_item:wielded == 1) || attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
+	if((istype(attacking_item, /obj/item/material/twohanded/fireaxe) && attacking_item:wielded == 1) || attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -198,6 +198,7 @@
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
 /obj/machinery/door/blast/regular
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -207,6 +208,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = FALSE
 	opacity = FALSE
@@ -240,6 +242,7 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
+	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

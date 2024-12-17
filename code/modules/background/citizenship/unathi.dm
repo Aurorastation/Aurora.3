@@ -5,7 +5,7 @@
 	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
 	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
 	consular_outfit = /obj/outfit/job/representative/consular/izweski
-	assistant_outfit = /obj/outfit/job/consular_assistant/izweski
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/izweski
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -28,6 +28,7 @@
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 		),
 		"Diplomatic Aide" = list(
@@ -107,6 +108,6 @@
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
 
-/obj/outfit/job/consular_assistant/izweski
+/obj/outfit/job/diplomatic_aide/izweski
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/accessory/poncho/unathimantle

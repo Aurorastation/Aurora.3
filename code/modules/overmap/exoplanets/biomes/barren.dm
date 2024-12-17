@@ -4,7 +4,7 @@
 	spawn_types = list()
 
 /singleton/biome/barren/asteroid
-	turf_type = /turf/unsimulated/floor/asteroid/ash
+	turf_type = /turf/simulated/floor/exoplanet/asteroid/ash
 	generators = list(
 		WILDLIFE = list(POISSON_SAMPLE, 15)
 	)

@@ -20,7 +20,7 @@
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
-	var/t1 = text("<B>Access Control</B><br>\n")
+	var/t1 = "<B>Access Control</B><br>\n"
 
 	if(last_configurator)
 		t1 += "Operator: [last_configurator]<br>"
@@ -33,7 +33,7 @@
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
 
-		for(var/direction in GLOB.cardinal)
+		for(var/direction in GLOB.cardinals)
 			if(direction & unres_dir)
 				t1 += "<a style='color:#00dd12' href='?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 			else

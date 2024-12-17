@@ -94,9 +94,13 @@
 
 /obj/machinery/bot/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
-		return
+		return BULLET_ACT_BLOCK
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	health -= Proj.damage
-	..()
 	healthcheck()
 
 /obj/machinery/bot/ex_act(severity)
@@ -127,7 +131,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(GLOB.cardinal))
+	pulse2.set_dir(pick(GLOB.cardinals))
 
 	QDEL_IN(pulse2, 10)
 
@@ -170,7 +174,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in GLOB.cardinal)
+	for(var/d in GLOB.cardinals)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))

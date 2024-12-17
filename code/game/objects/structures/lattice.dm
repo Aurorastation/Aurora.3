@@ -105,8 +105,8 @@
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			SSicon_smooth.add_to_queue(src)
-			SSicon_smooth.add_to_queue_neighbors(src)
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 	else
 		..()
 
@@ -185,6 +185,9 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gridded
+	color = COLOR_GRAY40
 
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal
 	color = COLOR_DARK_GUNMETAL

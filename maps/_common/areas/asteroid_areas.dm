@@ -34,7 +34,7 @@
 // Main mining
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/outpost/mining_main/dorms
@@ -61,7 +61,7 @@
 // Engineering
 /area/outpost/engineering
 	icon_state = "outpost_engine"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/outpost/engineering/hallway
@@ -85,7 +85,7 @@
 // Research
 /area/outpost/research
 	icon_state = "outpost_research"
-	station_area = 1
+	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/outpost/research/hallway

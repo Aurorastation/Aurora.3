@@ -21,7 +21,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
-	/mob/living/silicon/ai/proc/remote_control_shell,
+	/mob/living/silicon/ai/proc/remote_control,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
@@ -517,7 +517,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			view_alerts = 0
-		var/t1 = text("window=[]", href_list["mach_close"])
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
@@ -546,7 +546,7 @@ var/list/ai_verbs_default = list(
 			to_chat(src, SPAN_NOTICE("Unable to locate visual entry."))
 			return
 		var/info = cameraRecords[entry]
-		src << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", info[1], info[2]), text("window=[]", html_encode(info[1])))
+		src << browse("<HTML><HEAD><TITLE>[info[1]]</TITLE></HEAD><BODY><TT>[info[2]]</TT></BODY></HTML>", "window=[html_encode(info[1])]")
 		return
 
 	return
@@ -800,14 +800,33 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
-/mob/living/silicon/ai/proc/remote_control_shell()
-	set name = "Remote Control Shell"
+/// Retrieves all mobs assigned to REMOTE_AI_ROBOT or REMOTE_AI_MECH and allows the user to select one to control using SSvirtualreality
+/mob/living/silicon/ai/proc/remote_control()
+	set name = "Remote Control"
 	set category = "AI Commands"
-	set desc = "Remotely control any active shells on your AI shell network."
+	set desc = "Remotely control any active shells or mechs on your AI network."
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
-	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
+
+	// Grab from relevant networks
+	var/list/remote_shell = SSvirtualreality.bound_choices(src, REMOTE_AI_ROBOT)
+	var/list/remote_mech = SSvirtualreality.mech_choices(src, REMOTE_AI_MECH)
+	var/list/remote = flatten_list(list(remote_shell, remote_mech))
+
+	if(!length(remote))
+		to_chat(usr, SPAN_WARNING("No active remote units are available."))
+		return
+	var/choice = tgui_input_list(usr, "Please select what to take over.", "Remote Control Selection", remote)
+	if(!choice)
+		return
+
+	// Transfer
+	if(choice in remote_mech)
+		var/mob/living/heavy_vehicle/chosen_mech = remote_mech[choice]
+		SSvirtualreality.mind_transfer(src, chosen_mech.pilots[1]) // the first pilot
+	else
+		SSvirtualreality.mind_transfer(src, choice)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"

@@ -138,8 +138,12 @@
 			update_icon()
 			update_coverage()
 
-/obj/machinery/camera/bullet_act(var/obj/projectile/P)
-	take_damage(P.get_structure_damage())
+/obj/machinery/camera/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	take_damage(hitting_projectile.get_structure_damage())
 
 /obj/machinery/camera/ex_act(severity)
 	if(src.invuln)
@@ -237,7 +241,7 @@
 				var/obj/machinery/computer/security/S = O.machine
 				if (S.current_camera == src)
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
+					O << browse("<HTML><HEAD><TITLE>[itemname]</TITLE></HEAD><BODY><TT>[info]</TT></BODY></HTML>", "window=[itemname]") //Force people watching to open the page so they can't see it again)
 		return TRUE
 
 	else if (istype(attacking_item, /obj/item/camera_bug))

@@ -14,16 +14,15 @@
 	var/power_state = FALSE
 	var/is_powered = FALSE
 	var/wrenched = FALSE
-	var/steps = 0
-	var/last_check = 0
-	var/check_delay = 10
 	var/locked = TRUE
 	var/storedpower = 0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	//There have to be at least two posts, so these are effectively doubled
-	var/power_draw = 30000 //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
-	var/max_stored_power = 50000 //50 kW
+
+	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
+	var/power_draw = 30 KILO WATTS
+	var/max_stored_power = 50 KILO WATTS
 	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
 
 /obj/machinery/shieldwallgen/update_icon()
@@ -53,7 +52,7 @@
 	update_icon()
 	add_fingerprint(user)
 
-/obj/machinery/shieldwallgen/proc/power()
+/obj/machinery/shieldwallgen/proc/power(seconds_per_tick = 1)
 	if(!anchored)
 		is_powered = FALSE
 		return FALSE
@@ -71,7 +70,7 @@
 		is_powered = FALSE
 		return FALSE
 
-	var/shieldload = between(500, max_stored_power - storedpower, power_draw)	//what we try to draw
+	var/shieldload = between(500, max_stored_power - storedpower, (power_draw*seconds_per_tick))	//what we try to draw
 	shieldload = PN.draw_power(shieldload) //what we actually get
 	storedpower += shieldload
 
@@ -83,10 +82,10 @@
 	is_powered = TRUE	// IVE GOT THE POWER!
 	return TRUE
 
-/obj/machinery/shieldwallgen/process()
-	power()
+/obj/machinery/shieldwallgen/process(seconds_per_tick)
+	power(seconds_per_tick)
 	if(is_powered)
-		storedpower -= 2500
+		storedpower -= (2500 * seconds_per_tick)
 
 	storedpower = clamp(storedpower, 0, max_stored_power)
 
@@ -117,7 +116,7 @@
 	if(!NSEW)//Make sure its ran right
 		return
 
-	oNSEW = reverse_direction(NSEW)
+	oNSEW = REVERSE_DIR(NSEW)
 
 	for(var/dist = 0, dist <= 9, dist++) // checks out to 8 tiles away for another generator
 		T = get_step(T2, NSEW)
@@ -195,11 +194,14 @@
 	alldir_cleanup()
 	return ..()
 
-/obj/machinery/shieldwallgen/bullet_act(var/obj/projectile/Proj)
-	storedpower -= 400 * Proj.get_structure_damage()
+/obj/machinery/shieldwallgen/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	storedpower -= 400 * hitting_projectile.get_structure_damage()
 	if(power_state >= POWER_STARTING)
-		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [Proj] hits it!"))
-	return ..()
+		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [hitting_projectile] hits it!"))
 
 /obj/shieldwall
 	name = "energy shield"
@@ -255,16 +257,19 @@
 		gen_primary.storedpower -= power_usage / 2
 		gen_secondary.storedpower -= power_usage / 2
 
-/obj/shieldwall/bullet_act(var/obj/projectile/Proj)
+/obj/shieldwall/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
 		if(prob(50))
 			G = gen_primary
 		else
 			G = gen_secondary
-		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [Proj] impacts it!"))
-		G.storedpower -= 400 * Proj.get_structure_damage()
-	return ..()
+		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [hitting_projectile] impacts it!"))
+		G.storedpower -= 400 * hitting_projectile.get_structure_damage()
 
 /obj/shieldwall/ex_act(severity)
 	if(needs_power)
@@ -293,6 +298,8 @@
 
 /obj/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
+		return TRUE
+	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(20)

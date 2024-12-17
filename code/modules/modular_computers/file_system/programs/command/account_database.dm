@@ -16,14 +16,12 @@
 	var/machine_id = ""
 	var/centcomm_db = FALSE
 
-/datum/computer_file/program/account_db/New(obj/item/modular_computer/comp, var/is_centcomm_db = FALSE)
+/datum/computer_file/program/account_db/New(obj/item/modular_computer/comp)
 	..()
 	if(SSatlas.current_map)
 		machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 	else
 		machine_id = "NT-Net Relay Back-up Software DB" // created during map generation inside the ntnet relay, not used by players
-
-	centcomm_db = is_centcomm_db
 
 /datum/computer_file/program/account_db/proc/get_held_card()
 	var/obj/item/card/id/held_card
@@ -71,7 +69,7 @@
 	var/obj/item/card/id/held_card = get_held_card()
 
 	data["has_printer"] = !!computer.nano_printer
-	data["id_card"] = held_card ? text("[held_card.registered_name], [held_card.assignment]") : null
+	data["id_card"] = held_card ? "[held_card.registered_name], [held_card.assignment]" : null
 	data["access_level"] = get_access_level()
 	data["machine_id"] = machine_id
 	data["station_account_number"] = "[SSeconomy.station_account.account_number]"
@@ -121,7 +119,7 @@
 			var/account_name = params["name"]
 			var/starting_funds = max(params["funds"], 0)
 
-			starting_funds = Clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
+			starting_funds = clamp(starting_funds, 0, SSeconomy.station_account.money)	// Not authorized to put the station in debt.
 			starting_funds = min(starting_funds, FUND_CAP)								// Not authorized to give more than the fund cap.
 
 			SSeconomy.create_account(account_name, starting_funds, src)
@@ -260,5 +258,15 @@
 
 			var/obj/item/paper/P = computer.nano_printer.print_text("", pname, "#deebff")
 			P.set_content_unsafe(pname, text)
+
+
+/*#############
+	SUBTYPES
+#############*/
+
+/datum/computer_file/program/account_db/centcomm
+	filename = "accdb_centcomm"
+	filedesc = "Account Database - CentComm"
+	centcomm_db = TRUE
 
 #undef FUND_CAP

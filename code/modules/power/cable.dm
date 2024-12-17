@@ -397,7 +397,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	for(var/cable_dir in list(d1, d2))
 		if(cable_dir == 11 || cable_dir == 12 || cable_dir == 0)
 			continue
-		var/reverse = GLOB.reverse_dir[cable_dir]
+		var/reverse = REVERSE_DIR(cable_dir)
 		T = get_step(src, cable_dir)
 		if(T)
 			for(var/obj/structure/cable/C in T)
@@ -546,9 +546,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	else
 		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
-/obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
-	if(ishuman(M) && user.a_intent == I_HELP)
-		var/mob/living/carbon/human/H = M
+/obj/item/stack/cable_coil/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(ishuman(target_mob) && user.a_intent == I_HELP)
+		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open != 0)
@@ -558,7 +558,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		else
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())
-					to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been closed."))
+					to_chat(user, SPAN_WARNING("The wounds on [H]'s [affecting.name] have already been closed."))
 					return
 				else
 					if(!can_use(10, user))
@@ -569,15 +569,15 @@ By design, d1 is the smallest direction and d2 is the highest
 						if(W.bandaged)
 							continue
 						if(W.current_stage <= W.max_bleeding_stage)
-							user.visible_message(SPAN_NOTICE("\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]..."), \
-												SPAN_NOTICE("You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while."))
-							if(!do_mob(user, M, 200))
-								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!"), \
+							user.visible_message(SPAN_NOTICE("\The [user] starts carefully suturing the open wound on [target_mob]'s [affecting.name]..."), \
+												SPAN_NOTICE("You start carefully suturing the open wound on [target_mob]'s [affecting.name]... This will take a while."))
+							if(!do_mob(user, target_mob, 200))
+								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [target_mob]'s [affecting.name]!"), \
 														SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
-								M.apply_damage(rand(1,10), DAMAGE_BRUTE)
+								target_mob.apply_damage(rand(1,10), DAMAGE_BRUTE)
 								break
-							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name]."), \
-														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].") )
+							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
+														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
 							W.bandage("cable-stitched")
 							use(10)
 							affecting.add_pain(25)

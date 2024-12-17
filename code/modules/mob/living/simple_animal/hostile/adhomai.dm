@@ -168,7 +168,7 @@
 /mob/living/simple_animal/hostile/plasmageist/ex_act(severity)
 	return
 
-/obj/projectile/beam/tesla/plasmageist/on_impact(atom/target)
+/obj/projectile/beam/tesla/plasmageist/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
 		explosion(target, -1, 0, 2)

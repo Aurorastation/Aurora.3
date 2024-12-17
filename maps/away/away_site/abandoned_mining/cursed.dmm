@@ -6,13 +6,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
-"aab" = (
-/obj/machinery/door/airlock/glass_mining{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/yellow,
-/area/cursed/storage)
 "afk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -49,7 +42,7 @@
 	pixel_y = 7;
 	pixel_x = -4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "asH" = (
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
@@ -177,11 +170,11 @@
 "aHV" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "aQn" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -266,7 +259,7 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "bpR" = (
 /turf/simulated/wall/r_wall,
@@ -602,7 +595,7 @@
 /area/cursed/hangar)
 "drU" = (
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "dsM" = (
 /obj/machinery/recharger/wallcharger{
@@ -691,7 +684,7 @@
 /obj/item/clothing/accessory/medal/gold{
 	desc = "A prestigious golden medal! Good work, explorer!"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "dRI" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -839,7 +832,7 @@
 /area/cursed/storage)
 "fga" = (
 /obj/structure/greatworm,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fhD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -963,7 +956,7 @@
 /area/cursed/living_area)
 "fxw" = (
 /obj/structure/flora/rock/pile,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fyv" = (
 /obj/structure/closet,
@@ -972,7 +965,7 @@
 /area/cursed/bridge)
 "fzz" = (
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fDg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1066,7 +1059,7 @@
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "goD" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -1151,8 +1144,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "gNq" = (
@@ -1164,7 +1156,7 @@
 /area/cursed/living_area)
 "gOm" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "gQU" = (
 /obj/structure/table/wood/gamblingtable,
@@ -1188,7 +1180,7 @@
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "gSf" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "gUv" = (
 /turf/simulated/mineral,
@@ -1284,7 +1276,7 @@
 /area/cursed/medical)
 "hEN" = (
 /obj/machinery/floodlight,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "hEW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1391,7 +1383,7 @@
 /area/cursed/storage)
 "ipT" = (
 /obj/structure/flora/rock,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "iqg" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle,
@@ -1428,7 +1420,7 @@
 /area/cursed/bridge)
 "iCl" = (
 /obj/structure/table/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "iEm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1436,7 +1428,7 @@
 /area/cursed/bridge)
 "iIo" = (
 /mob/living/heavy_vehicle/premade/ripley,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "iIZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1473,7 +1465,7 @@
 /obj/item/syndie/c4explosive/heavy{
 	pixel_y = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "jaT" = (
 /obj/machinery/door/blast/regular/open{
@@ -1630,7 +1622,7 @@
 /area/cursed/living_area)
 "jSI" = (
 /obj/machinery/mining/drill,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "jTy" = (
 /obj/structure/window/reinforced/tinted/frosted,
@@ -1677,11 +1669,11 @@
 /obj/machinery/floodlight{
 	dir = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "khj" = (
 /obj/structure/bed/stool/chair/folding,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "kqQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1709,7 +1701,7 @@
 	pixel_y = 5
 	},
 /obj/machinery/artifact,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ksd" = (
 /obj/structure/cable{
@@ -1720,7 +1712,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "ksj" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "kwn" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
@@ -1766,7 +1758,7 @@
 "kLZ" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/dynamite,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "kMz" = (
 /obj/structure/railing/mapped{
@@ -1849,7 +1841,7 @@
 /area/cursed/living_area)
 "lrD" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
@@ -2035,7 +2027,7 @@
 	pixel_x = -5
 	},
 /obj/structure/closet/crate/bin,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "mei" = (
 /obj/item/ore,
@@ -2081,7 +2073,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "mkO" = (
 /obj/item/storage/bag/ore,
@@ -2181,7 +2173,7 @@
 /area/cursed/mineral_processing)
 "mTG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2198,7 +2190,7 @@
 /area/cursed/engineering)
 "mWB" = (
 /mob/living/simple_animal/hostile/carp/shark,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "mYo" = (
 /obj/effect/map_effect/airlock/s_to_n/long,
@@ -2247,7 +2239,7 @@
 /area/cursed/hangar)
 "nkM" = (
 /obj/machinery/artifact,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "nmn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2267,7 +2259,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/voidsuit_modkit/himeo/tajara,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "npR" = (
 /mob/living/simple_animal/hostile/gnat,
@@ -2286,7 +2278,7 @@
 /area/cursed/living_area)
 "nsY" = (
 /mob/living/simple_animal/hostile/greatworm,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "nuc" = (
 /obj/item/towel_flat,
@@ -2331,7 +2323,7 @@
 	pixel_x = 6
 	},
 /obj/item/plastique/seismic,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "nUF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2464,7 +2456,7 @@
 "oHu" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "oIi" = (
 /obj/machinery/mech_recharger/hephaestus,
@@ -2748,7 +2740,7 @@
 /obj/item/storage/box/dynamite{
 	pixel_y = 11
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "qaz" = (
 /obj/machinery/door/blast/regular/open{
@@ -3083,7 +3075,7 @@
 /obj/machinery/floodlight{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "rvg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
@@ -3103,7 +3095,7 @@
 "rzp" = (
 /obj/item/deck/cards,
 /obj/structure/table/steel,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "rAA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3121,7 +3113,7 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "rER" = (
 /obj/structure/railing/mapped{
@@ -3280,7 +3272,7 @@
 /area/cursed/eva_storage)
 "swq" = (
 /obj/item/pickaxe/hammer,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sxL" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
@@ -3295,7 +3287,7 @@
 /area/cursed/bridge)
 "szF" = (
 /obj/item/bluespace_crystal,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sDN" = (
 /turf/simulated/floor/airless,
@@ -3370,7 +3362,7 @@
 	pixel_y = 7;
 	pixel_x = 3
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tcu" = (
 /obj/machinery/door/airlock/glass_mining{
@@ -3388,7 +3380,7 @@
 "tcP" = (
 /obj/structure/table/steel,
 /obj/item/material/harpoon/explosive,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "tgj" = (
 /obj/structure/mopbucket,
@@ -3515,7 +3507,7 @@
 	pixel_y = 4
 	},
 /obj/item/gun/bang/tanto,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "ubu" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3531,7 +3523,7 @@
 "udM" = (
 /obj/machinery/artifact,
 /obj/structure/boulder,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ueM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3619,7 +3611,7 @@
 /area/cursed/bridge)
 "uGq" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "uGE" = (
 /obj/structure/closet,
@@ -3700,7 +3692,7 @@
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "uSF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -3712,7 +3704,7 @@
 "uSR" = (
 /obj/structure/table/steel,
 /obj/item/gun/bang/sec/wood,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "uZY" = (
 /obj/structure/cable{
@@ -3762,7 +3754,7 @@
 /area/cursed/bridge)
 "vvq" = (
 /obj/item/material/stool/chair/folding,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "vza" = (
 /turf/simulated/wall,
@@ -3823,7 +3815,7 @@
 	pixel_x = 11;
 	pixel_y = 13
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "vSH" = (
 /obj/structure/railing/mapped{
@@ -3999,7 +3991,7 @@
 /area/cursed/living_area)
 "xmz" = (
 /mob/living/simple_animal/hostile/greatwormking,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "xpL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -37134,7 +37126,7 @@ npR
 xHS
 lyG
 lyG
-aab
+aaa
 lyG
 lyG
 lyG

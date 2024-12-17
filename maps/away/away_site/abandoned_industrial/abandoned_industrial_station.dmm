@@ -7165,10 +7165,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/airless,
@@ -8654,9 +8650,7 @@
 "Bi" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/safe/cash{
-	pixel_y = 0
-	},
+/obj/structure/safe/cash,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/operations)
 "Bj" = (

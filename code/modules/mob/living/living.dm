@@ -282,7 +282,7 @@ default behaviour is:
 /mob/living/proc/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = Clamp(health - amount, 0, maxHealth)
+	health = clamp(health - amount, 0, maxHealth)
 
 /mob/living/proc/getOxyLoss()
 	return 0
@@ -863,10 +863,10 @@ default behaviour is:
 	if(deaf >= 0)
 		ear_deaf = deaf
 
-/mob/proc/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/proc/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	return istype(possessor) && possessor.client
 
-/mob/living/can_be_possessed_by(var/mob/abstract/observer/possessor)
+/mob/living/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	if(!..())
 		return 0
 	if(!possession_candidate)
@@ -879,7 +879,7 @@ default behaviour is:
 		return 0
 	return 1
 
-/mob/living/proc/do_possession(var/mob/abstract/observer/possessor)
+/mob/living/proc/do_possession(var/mob/abstract/ghost/observer/possessor)
 
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
@@ -909,7 +909,7 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+	ability_master = new /atom/movable/screen/movable/ability_master(FALSE, src)
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
@@ -1067,3 +1067,7 @@ default behaviour is:
 
 /mob/living/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "robot" : ..()
+
+///Performs the aftereffects of blocking a projectile.
+/mob/living/proc/block_projectile_effects()
+	return

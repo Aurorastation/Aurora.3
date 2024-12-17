@@ -22,7 +22,7 @@
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))
 				targets["(New Player) - [T]"] = T
-			else if(istype(T.mob, /mob/abstract/observer))
+			else if(istype(T.mob, /mob/abstract/ghost/observer))
 				targets["[T.mob.name](Ghost) - [T]"] = T
 			else
 				targets["[T.mob.real_name](as [T.mob.name]) - [T]"] = T

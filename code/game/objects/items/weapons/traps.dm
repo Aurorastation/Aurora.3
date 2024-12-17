@@ -582,10 +582,14 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/item/trap/animal/bullet_act(var/obj/projectile/Proj)
+/obj/item/trap/animal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/mob/living/captured_mob = captured ? captured.resolve() : null
 	if(captured_mob)
-		captured_mob.bullet_act(Proj)
+		captured_mob.bullet_act(arglist(args))
 
 /obj/item/trap/animal/proc/release(var/mob/user, var/turf/target)
 	if(!target)
@@ -722,15 +726,15 @@
 	if(captured)
 		release(user, user.loc)
 
-/obj/item/trap/animal/attack(var/target, mob/living/user)
+/obj/item/trap/animal/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!deployed)
 		return
 
 	if(captured) // It is full
 		return
 
-	if(isliving(target))
-		var/mob/living/capturing_mob = target
+	if(isliving(target_mob))
+		var/mob/living/capturing_mob = target_mob
 		if(capturing_mob.mob_size > max_mob_size)
 			to_chat(user, SPAN_WARNING("\The [capturing_mob] doesn't fit in \the [src]!"))
 			return
@@ -846,6 +850,10 @@
 /obj/item/trap/animal/large/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(deployed)
 		return TRUE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
+
 	return FALSE
 
 /obj/item/large_trap_foundation

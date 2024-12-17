@@ -78,5 +78,17 @@
 	name = "Marker Turf, Blue"
 	color = "#2f519b"
 
+/turf/unsimulated/marker/khaki
+	name = "Marker Turf, Khaki"
+	color = "#b8a771"
+
+/turf/unsimulated/marker/gray
+	name = "Marker Turf, Gray"
+	color = "#4e4e4e"
+
+/turf/unsimulated/marker/black
+	name = "Marker Turf, Black"
+	color = "#181818"
+
 /turf/unsimulated/floor/shuttle_ceiling
 	icon_state = "reinforced"

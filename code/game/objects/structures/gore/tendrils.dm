@@ -60,13 +60,13 @@
 
 	new /obj/effect/decal/cleanable/blood/no_dry(loc)
 	START_PROCESSING(SSprocessing, src)
-	dirs_left = GLOB.cardinal.Copy()
+	dirs_left = GLOB.cardinals.Copy()
 
 /obj/structure/gore/tendrils/proc/update_neighbours(turf/U)
 	if(!U)
 		U = loc
 	if(istype(U))
-		for(var/dirn in GLOB.cardinal)
+		for(var/dirn in GLOB.cardinals)
 			var/turf/T = get_step(U, dirn)
 			if(!istype(T))
 				continue
@@ -76,7 +76,7 @@
 
 /obj/structure/gore/tendrils/proc/update_sprite()
 	var/my_dir = 0
-	for(var/check_dir in GLOB.cardinal)
+	for(var/check_dir in GLOB.cardinals)
 		var/turf/check = get_step(src, check_dir)
 		if(!istype(check))
 			continue

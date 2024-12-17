@@ -170,14 +170,14 @@
 // These procs do not relocate the grenade, that's the callers responsibility
 /obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
 	attached_grenade = G
-	GLOB.destroyed_event.register(attached_grenade, src, PROC_REF(detach_grenade))
+	RegisterSignal(attached_grenade, COMSIG_QDELETING, PROC_REF(detach_grenade))
 	size += G.w_class
 	desc += " \An [attached_grenade] is attached to it!"
 
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	GLOB.destroyed_event.unregister(attached_grenade, src)
+	UnregisterSignal(attached_grenade, COMSIG_QDELETING)
 	attached_grenade = null
 	size = initial(size)
 	desc = initial(desc)
@@ -306,7 +306,7 @@
 			return
 
 		A.forceMove(get_turf(src))
-		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
+		A.throw_at(T, round(clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
 
 /obj/item/integrated_circuit/manipulation/shocker
 	name = "shocker circuit"
@@ -325,7 +325,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,20)*8
+	power_draw_per_use = clamp(s,0,20)*8
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -341,6 +341,6 @@
 	else
 		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
-		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
+		M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
 		return

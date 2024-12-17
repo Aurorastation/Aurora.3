@@ -59,7 +59,7 @@
 		confused = max(confused, 10)
 		eye_blurry = max(eye_blurry, 10)
 		//Change the speed modifier, but only if it's not already what we want
-		if(has_alcohol_modifier.multiplicative_slowdown < 4)
+		if(has_alcohol_modifier?.multiplicative_slowdown < 4)
 			src.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/alcohol/intoxication, TRUE, 4)
 		sprint_cost_factor += 0.2
 

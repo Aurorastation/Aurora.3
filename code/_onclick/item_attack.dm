@@ -28,7 +28,6 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	log_attack("[A] at [A?.loc]/[A.x]-[A.y]-[A.z] got ITEM attacked by [usr]/[usr?.ckey] on INTENT [usr?.a_intent] with [src]")
 	return A.attackby(src, user, click_parameters)
 
-// attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
 /**
  * Called on an object being hit by an item
  *
@@ -41,38 +40,46 @@ avoid code duplication. This includes items that may sometimes act as a standard
  * * params - Click params such as alt/shift etc
  */
 /atom/proc/attackby(obj/item/attacking_item, mob/user, params)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACKBY, attacking_item, user, params) & COMPONENT_NO_AFTERATTACK)
+		return TRUE
 	return FALSE
 
 /atom/movable/attackby(obj/item/attacking_item, mob/user, params)
+	if(..())
+		return TRUE
+
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
 		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
 
-/mob/living/attackby(obj/item/I, mob/user)
+/mob/living/attackby(obj/item/attacking_item, mob/user, params)
+	if(..())
+		return TRUE
+
 	if(!ismob(user))
 		return FALSE
 
 	var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
 	var/operating = can_operate(src)
 	if(operating == SURGERY_SUCCESS)
-		if(do_surgery(src, user, I))
+		if(do_surgery(src, user, attacking_item))
 			return TRUE
 		else
-			return I.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
+			return attacking_item.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
 	if(operating == SURGERY_FAIL)
-		if(do_surgery(src, user, I, TRUE))
+		if(do_surgery(src, user, attacking_item, TRUE))
 			return TRUE
 		else
-			return I.attack(src, user, selected_zone)
+			return attacking_item.attack(src, user, selected_zone)
 	else
-		return I.attack(src, user, selected_zone)
+		return attacking_item.attack(src, user, selected_zone)
 
-/mob/living/carbon/human/attackby(obj/item/I, mob/user)
-	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
+/mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)
+	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(attacking_item, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
-		if(devour(I))
+		if(devour(attacking_item))
 			return TRUE
 	return ..()
 
@@ -84,16 +91,29 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/get_clamped_volume()
 	if(w_class)
 		if(force)
-			return Clamp((force + w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then clamp the value between 30 and 100
+			return clamp((force + w_class) * 4, 30, 100)// Add the item's force to its weight class and multiply by 4, then clamp the value between 30 and 100
 		else
-			return Clamp(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
+			return clamp(w_class * 6, 10, 100) // Multiply the item's weight class by 6, then clamp the value between 10 and 100
 
-//I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
-/obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
+/**
+ * Called from [/mob/living/proc/attackby] (usually)
+ *
+ * Arguments:
+ * * mob/living/target_mob - The mob being hit by this item
+ * * mob/living/user - The mob hitting with this item
+ * * target_zone - The target zone aimed at, **THIS DIFFERS FROM TG WHERE IT TAKES THE CLICK PARAMS**
+ */
+/obj/item/proc/attack(mob/living/target_mob, mob/living/user, target_zone = BP_CHEST)
+	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target_mob, user) || SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, target_mob, user)
+	if(signal_return & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
+	if(signal_return & COMPONENT_SKIP_ATTACK)
+		return FALSE
+
 	if(item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return 0
 
-	if(M == user && user.a_intent != I_HURT)
+	if(target_mob == user && user.a_intent != I_HURT)
 		return 0
 
 	if(user.incapacitated(INCAPACITATION_STUNNED|INCAPACITATION_KNOCKOUT|INCAPACITATION_KNOCKDOWN|INCAPACITATION_FORCELYING))
@@ -104,11 +124,11 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return 0
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M, src)
+	user.do_attack_animation(target_mob, src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 
-	var/mob/living/victim = M.get_attack_victim(src, user, target_zone)
+	var/mob/living/victim = target_mob.get_attack_victim(src, user, target_zone)
 	var/hit_zone
 	if(victim)
 		hit_zone = victim.resolve_item_attack(src, user, target_zone)
@@ -118,20 +138,23 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	// Null hitzone means a miss.
 	if(hit_zone)
 		if(!force)
-			playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), 1, -1)
+			playsound(src, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1)
 		else if(hitsound)
-			playsound(loc, hitsound, get_clamped_volume(), 1, -1)
+			playsound(src, hitsound, get_clamped_volume(), TRUE, -1, falloff_distance = 0)
 	else
-		playsound(loc, 'sound/weapons/punchmiss2.ogg', get_clamped_volume(), 1, -1)
+		playsound(src, 'sound/weapons/punchmiss2.ogg', get_clamped_volume(), TRUE, -1)
 
 	/////////////////////////
-	user.lastattacked = M
-	M.lastattacker = user
+	user.lastattacked = target_mob
+	target_mob.lastattacker = user
+
+	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target_mob, user)
+	SEND_SIGNAL(target_mob, COMSIG_ATOM_AFTER_ATTACKEDBY, src, user)
 
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> [hit_zone ? "Attacked" : "Missed"] [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> [hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(M, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> [hit_zone ? "Attacked" : "Missed"] [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
+		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> [hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
+		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	return 1

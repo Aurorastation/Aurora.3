@@ -33,8 +33,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -61,8 +60,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -132,13 +130,11 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -356,8 +352,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -514,8 +509,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -582,8 +576,7 @@
 "dK" = (
 /obj/structure/table/glass,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -694,7 +687,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
 	id = "hegemony_cic"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -745,8 +737,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/captains_quarters)
@@ -820,8 +811,7 @@
 "fh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -866,12 +856,10 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
 	},
 /obj/machinery/airlock_sensor{
-	dir = 2;
 	pixel_y = 28;
 	pixel_x = 6
 	},
@@ -949,8 +937,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -1004,8 +991,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
@@ -1234,8 +1220,7 @@
 "hs" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -1506,8 +1491,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -1825,8 +1809,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hegemony_window";
-	dir = 4;
-	name = "blast door"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
@@ -1952,8 +1935,7 @@
 /area/hegemony_ship/aux_cic)
 "lW" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -1997,8 +1979,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2332,8 +2313,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -2440,8 +2420,7 @@
 /area/hegemony_ship/docking_port)
 "oA" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2468,8 +2447,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
@@ -2570,8 +2548,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -2579,8 +2556,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2626,8 +2602,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null;
@@ -3267,8 +3242,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3370,8 +3344,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3575,8 +3548,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3699,8 +3671,7 @@
 /obj/structure/table/glass,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/clothing/suit/space/void/sol/sfa,
@@ -3840,8 +3811,7 @@
 /area/hegemony_ship/brig)
 "wC" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -3850,8 +3820,7 @@
 /area/hegemony_ship/engineering)
 "wF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/hegemony_ship/engineering)
@@ -3942,8 +3911,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/northleft{
 	req_access = list(113);
@@ -4015,8 +3983,7 @@
 "xB" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
@@ -4141,8 +4108,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -4259,12 +4225,10 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(113)
@@ -4352,8 +4316,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "zr" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/hegemony_ship/engineering)
@@ -4587,8 +4550,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -4670,8 +4632,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony4";
-	name = "blast door"
+	id = "hegemony4"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -4682,12 +4643,10 @@
 "AK" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(113)
@@ -4921,8 +4880,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony5";
-	name = "blast door"
+	id = "hegemony5"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -5148,8 +5106,7 @@
 "DA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -5826,8 +5783,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6075,8 +6031,7 @@
 /area/shuttle/hegemony)
 "Je" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -6227,8 +6182,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -6456,8 +6410,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
@@ -6806,9 +6759,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/canteen)
 "Nc" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -6995,8 +6946,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/captains_quarters)
@@ -7274,8 +7224,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7375,8 +7324,7 @@
 /area/hegemony_ship/starboard_propulsion)
 "Qr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
@@ -7558,8 +7506,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/structure/viewport/unathi,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -7592,8 +7539,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
@@ -7639,8 +7585,7 @@
 /area/hegemony_ship)
 "Sf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -7689,8 +7634,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	pixel_y = 0
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7894,8 +7838,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7919,8 +7862,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hegemony_window";
-	dir = 4;
-	name = "blast door"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
@@ -8193,8 +8135,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony3";
-	name = "blast door"
+	id = "hegemony3"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -8215,8 +8156,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony_shuttle";
-	name = "blast door"
+	id = "hegemony_shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -8251,8 +8191,7 @@
 "Vd" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -8288,8 +8227,7 @@
 /obj/structure/table/glass,
 /obj/item/device/binoculars/spyglass,
 /obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/flag/izharshan{
@@ -8366,8 +8304,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "VP" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/hegemony_ship/engineering)
@@ -8416,7 +8353,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
 	id = "hegemony_cic"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8647,8 +8583,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "hegemony_shuttle";
-	name = "blast door"
+	id = "hegemony_shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
@@ -8694,8 +8629,7 @@
 /area/hegemony_ship/bridge)
 "Ya" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10;
-	icon_state = "warning"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/hegemony_ship/engineering)
@@ -8827,8 +8761,7 @@
 	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony_window";
-	name = "blast door"
+	id = "hegemony_window"
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_flak)
@@ -8911,8 +8844,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony1";
-	name = "blast door"
+	id = "hegemony1"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -8944,8 +8876,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 10
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
@@ -9035,8 +8966,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "hegemony2";
-	name = "blast door"
+	id = "hegemony2"
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)

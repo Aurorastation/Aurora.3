@@ -6,7 +6,8 @@
 	suffix = "adhomian_circus.dmm"
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
-	spawn_weight = 1
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
+	spawn_weight = 0 //Disabled until remapped due to outdated mapping.
 	ship_cost = 1
 	id = "adhomian_circus_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/adhomian_circus_shuttle)

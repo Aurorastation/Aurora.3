@@ -286,6 +286,11 @@
 	suit = /obj/item/clothing/suit/space/void/sol/ssmd
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/ssmd
 
+/obj/machinery/suit_cycler/offship/sol/splf
+	req_access = list(ACCESS_SPLF)
+	suit = /obj/item/clothing/suit/space/void/sol/splf
+	helmet = /obj/item/clothing/head/helmet/space/void/sol/splf
+
 /obj/machinery/suit_cycler/offship/xanu
 	model_text = "All-Xanu Spacefleet"
 	req_access = list(ACCESS_COALITION_NAVY)
@@ -337,3 +342,26 @@
 /obj/machinery/suit_cycler/offship/tarwa/captain
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain
+
+// For owned Golden Deep synthetics, Thesians, and other non-combatants.
+/obj/machinery/suit_cycler/offship/golden_deep
+	model_text = "Golden Deep"
+	req_one_access = list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP)
+	departments = list("Golden Deep")
+	species = list(BODYTYPE_IPC)
+	suit = /obj/item/clothing/suit/space/void/golden_deep/menial
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep/menial
+
+// For the Hoplan, armed guards of the ships of the Golden Deep.
+/obj/machinery/suit_cycler/offship/golden_deep/hoplan
+	model_text = "Golden Deep Hoplan"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/golden_deep/hoplan
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
+
+// For merchants of the Golden Deep. Only they're rich enough, duh.
+/obj/machinery/suit_cycler/offship/golden_deep/merchant
+	model_text = "Golden Deep Merchant"
+	req_access = list(ACCESS_GOLDEN_DEEP)
+	suit = /obj/item/clothing/suit/space/void/golden_deep
+	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep

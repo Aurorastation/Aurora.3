@@ -83,9 +83,16 @@
 	new /obj/item/storage/bag/inflatable/emergency(src)
 
 /obj/structure/closet/walllocker/medical //wall mounted medical closet
-	name = "first-aid closet"
-	desc = "It's wall-mounted storage unit for first aid supplies."
+	name = "medical closet"
+	desc = "It's a wall-mounted storage unit for medical supplies."
 	icon_state = "medical_wall"
+
+/obj/structure/closet/walllocker/medical/firstaid
+	name = "first-aid closet"
+	desc = "It's a wall-mounted storage unit for first aid supplies."
+
+/obj/structure/closet/walllocker/medical/firstaid/fill()
+	new /obj/item/storage/firstaid/regular(src)
 
 /obj/structure/closet/walllocker/medical/secure
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."

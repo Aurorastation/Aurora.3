@@ -6,7 +6,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	var/uses = 2
-	var/effect_time = 30 SECONDS
+	var/effect_time = 90 SECONDS
 	var/effects = 4
 
 	var/static/list/step_up_effects = list(
