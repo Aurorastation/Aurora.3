@@ -80,6 +80,7 @@
 		addtimer(CALLBACK(src, PROC_REF(read_initial_weather)), 2 SECONDS)
 		output_spoken_message("Initializing weather detection subsystem...")
 
+/// Reads the current weather status aloud when deployed on a planet with weather
 /obj/structure/survey_probe/proc/read_initial_weather()
 	var/turf/current_turf = get_turf(src)
 
@@ -99,6 +100,7 @@
 	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
 		UnregisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_CHANGE)
 
+/// When a weather transition (see weather_fsm.dm) starts on this z_level, this will speak it aloud, and then broadcast it to any other devices listening to the broadcast global signal
 /obj/structure/survey_probe/proc/relay_weather_change(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition)
 	SIGNAL_HANDLER
 

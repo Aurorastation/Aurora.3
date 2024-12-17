@@ -64,8 +64,9 @@
 	if(radio_message)
 		output_spoken_message(radio_message)
 	else
-		audible_message("\The <b>[src]</b> only emits white noise...")
+		audible_message("The [SPAN_BOLD("[name]")] only emits white noise...") // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays
 
+/// Listens to when a weather change on this Z-level is broadcasted from a configured weather reader (survey probe), and reads it aloud
 /obj/item/lore_radio/proc/relay_weather_broadcast(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition, var/broadcast_message)
 	SIGNAL_HANDLER
 
