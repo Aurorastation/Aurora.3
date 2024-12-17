@@ -58,3 +58,4 @@ changes:
   - experiment: "Moved around what law boards are generated in vault, and what are stored in AI upload."
   - balance: "More dangerous AI law boards such as T.Y.R.A.N.T. moved to Vault loot pool."
   - balance: "Increased the amount of weapons and lawboards spawned in Vault."
+  - spellcheck: "Changed all vessel and station references in lawsets to 'assigned station' to have laws fit for any environment."
