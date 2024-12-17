@@ -368,6 +368,7 @@
 var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
 
 /datum/gear_tweak/modsuit_configuration
+	/// modsuits use a silly index based system to determine which one to use, instead of string based, so this'll be a key-value list of: name -> index, or "\improper PMCG modsuit" = 1
 	var/list/configuration_options = list()
 
 /datum/gear_tweak/modsuit_configuration/New()
@@ -386,9 +387,6 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	return "Modsuit Configuration: [metadata]"
 
 /datum/gear_tweak/modsuit_configuration/get_default()
-	return configuration_options[1]
-
-/datum/gear_tweak/modsuit_configuration/get_random()
 	return configuration_options[1]
 
 /datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
