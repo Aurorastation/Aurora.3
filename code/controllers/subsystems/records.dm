@@ -182,7 +182,7 @@ SUBSYSTEM_DEF(records)
 				return r
 		return
 	if(record_type & RECORD_SHUTTLE_MANIFEST)
-		for(var/datum/record/shuttle_manifest/manifest in shuttle_manifests)
+		for(var/datum/record/shuttle_manifest/manifest as anything in shuttle_manifests)
 			if(manifest.excluded_fields[field])
 				continue
 			if(manifest.vars[field] == value)
