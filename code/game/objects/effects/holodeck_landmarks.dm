@@ -8,10 +8,12 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 	console = null
 	return ..()
 
+/// Sets up the landmark to work with the provided console
 /obj/effect/landmark/holodeck/proc/initialize_holodeck_landmark(var/obj/machinery/computer/holodeck_control/set_console)
 	console = set_console
 	console.holodeck_landmarks += src
 
+/// Gets called by the console configured above every machine tick as long as the console as active
 /obj/effect/landmark/holodeck/proc/handle_process(seconds_per_tick)
 	return
 
@@ -56,6 +58,7 @@ ABSTRACT_TYPE(/obj/effect/landmark/holodeck)
 	QDEL_NULL(pain_carp)
 	return ..()
 
+/// Handles spawning in space carp on initialize and process
 /obj/effect/landmark/holodeck/holocarp_spawn_pain/proc/spawn_pain_carp()
 	pain_carp = new /mob/living/simple_animal/hostile/carp/holodeck/pain(loc)
 	console.holographic_mobs += pain_carp
