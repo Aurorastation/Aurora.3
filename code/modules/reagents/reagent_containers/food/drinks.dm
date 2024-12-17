@@ -265,6 +265,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 //heehoo bottle flipping
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
+
+	// this next part is the bottle flipping code
+	// when a bottle impacts something, it'll determine whether it lands on its side, upright, or on its cap, just like bottle flipping irl
+	// people with apex psionics have a better chance of hitting the flip, because it's funny.
 	if(!QDELETED(src))
 		var/is_psi_apex_or_higher = FALSE
 		var/mob/living/thrower = throwingdatum.thrower?.resolve()
