@@ -93,7 +93,7 @@ var/global/list/all_cargo_receptacles = list()
 			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
 			if(selected_delivery_point)
 				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
-				playsound(loc, /singleton/sound_category/print_sound, 50, TRUE)
+				playsound(src, /singleton/sound_category/print_sound, 50, TRUE)
 
 				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
 				printed_package.pays_horizon_account = pays_horizon_account

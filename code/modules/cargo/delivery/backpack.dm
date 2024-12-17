@@ -76,12 +76,14 @@
 /obj/item/cargo_backpack/proc/add_color_tag_to_overlay(var/image/mob_overlay)
 	if(!mob_overlay)
 		return
-	var/package_index = 1
-	for(var/obj/item/cargo_package/package in contained_packages)
+
+	for(var/package_index = 1 to length(contained_packages))
+		var/obj/item/cargo_package/package = contained_packages[package_index]
 		var/image/package_tag = image(icon, icon_state = "package_pack_[package_index]_tag")
 		package_tag.color = package.accent_color
 		mob_overlay.AddOverlays(package_tag)
 		package_index++
+
 	return mob_overlay
 
 /obj/item/cargo_backpack/attack_hand(mob/living/carbon/human/user)
