@@ -371,8 +371,19 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	/// modsuits use a silly index based system to determine which one to use, instead of string based, so this'll be a key-value list of: name -> index, or "\improper PMCG modsuit" = 1
 	var/list/configuration_options = list()
 
-/datum/gear_tweak/modsuit_configuration/New()
-	..()
+/datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
+	return "Modsuit Configuration: [metadata]"
+
+/datum/gear_tweak/modsuit_configuration/get_default()
+	if(!length(configuration_options))
+		load_configuration_options()
+
+	return configuration_options[1]
+
+/// Instantiates the modsuit item so we can set up the configuration whenever it's needed, only called when the options haven't been configured yet
+/datum/gear_tweak/modsuit_configuration/proc/load_configuration_options()
+	// forgive me, for i have sinned. there is no way to initial() a list, so we need to instantiate the item and grab its data here
+	// and we can't do that in /New, cuz that fails CI. instead, we grab it on-demand here if the options aren't populated
 
 	var/obj/item/clothing/under/pmc_modsuit/initial_uniform = new()
 
@@ -383,13 +394,10 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 
 	qdel(initial_uniform)
 
-/datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
-	return "Modsuit Configuration: [metadata]"
-
-/datum/gear_tweak/modsuit_configuration/get_default()
-	return configuration_options[1]
-
 /datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	if(!length(configuration_options))
+		load_configuration_options()
+
 	var/selected_configuration = tgui_input_list(user, "How do you want your modsuit to be set up?", title, configuration_options, metadata)
 	if(selected_configuration)
 		return selected_configuration
@@ -397,6 +405,10 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 /datum/gear_tweak/modsuit_configuration/tweak_item(var/obj/item/clothing/under/pmc_modsuit/modsuit, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata)
 		return
+
+	if(!length(configuration_options))
+		load_configuration_options()
+
 	var/configuration_number = configuration_options[metadata]
 	if(!configuration_number)
 		return
