@@ -139,7 +139,7 @@
 	paper_win.open()
 
 /obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (istype(user, /mob/living/carbon/human) || isghost(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI = user
 		can_read = get_dist(src, AI.camera) < 2
@@ -234,7 +234,11 @@
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
 
-/obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/paper/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/M = target_mob
+	if(!istype(M))
+		return ..()
+
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
 			SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))

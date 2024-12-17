@@ -104,7 +104,7 @@
 		luminosity = 1
 
 	if (smoothing_flags)
-		SSicon_smooth.add_to_queue(src)
+		QUEUE_SMOOTH(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -366,13 +366,13 @@ var/const/enterloopsanity = 100
 
 	if(tracks_footprint && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		H.species.deploy_trail(H, src)
+		H.species?.deploy_trail(H, src)
 
 	..()
 
 	var/objects = 0
 	if(arrived && (arrived.movable_flags & MOVABLE_FLAG_PROXMOVE) && arrived.simulated)
-		for(var/atom/movable/oAM in range(1))
+		for(var/atom/movable/oAM in range(1, src))
 			if(objects > enterloopsanity)
 				break
 			objects++

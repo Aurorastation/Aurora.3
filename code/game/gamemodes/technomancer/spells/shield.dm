@@ -29,7 +29,7 @@
 
 /obj/item/spell/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
-		return FALSE
+		return BULLET_ACT_HIT
 
 	var/damage_to_energy_cost = damage_to_energy_multiplier * damage
 
@@ -47,14 +47,14 @@
 	if(!pay_energy(damage_to_energy_cost))
 		to_chat(owner, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		qdel(src)
-		return FALSE
+		return BULLET_ACT_HIT
 
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		user.visible_message(SPAN_DANGER("\The [user]'s [src] blocks [attack_text]!"))
-		spark(src, 3, GLOB.cardinal)
+		spark(src, 3, GLOB.cardinals)
 		playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 		adjust_instability(2)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT

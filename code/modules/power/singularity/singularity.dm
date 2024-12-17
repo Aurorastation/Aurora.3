@@ -30,16 +30,16 @@
 
 	var/chained = 0//Adminbus chain-grab
 
-/obj/singularity/New(loc, var/starting_energy = 50, var/temp = 0, var/alert = TRUE)
+/obj/singularity/Initialize(mapload, energy = 50, qdel_in = 0, alert_admins = TRUE)
+	. = ..()
 	//CARN: admin-alert for chuckle-fuckery.
-	if(alert)
+	if(alert_admins)
 		admin_investigate_setup()
-	energy = starting_energy
+	src.energy = energy
 
-	if (temp)
-		QDEL_IN(src, temp)
+	if(qdel_in)
+		QDEL_IN(src, qdel_in)
 
-	..()
 	START_PROCESSING(SScalamity, src)
 	SScalamity.singularities += src
 	for(var/obj/machinery/power/tesla_beacon/singubeacon in SSmachinery.processing)
@@ -71,8 +71,12 @@
 			energy += round((rand(20,60)/2),1)
 			return
 
-/obj/singularity/bullet_act(obj/projectile/P)
-	return 0 //Will there be an impact? Who knows. Will we see it? No.
+/obj/singularity/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	return BULLET_ACT_BLOCK //Will there be an impact? Who knows. Will we see it? No.
 
 /obj/singularity/Collide(atom/A)
 	. = ..()

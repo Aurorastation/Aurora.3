@@ -134,15 +134,19 @@
 	update_icon()
 
 /obj/structure/bookcase/libraryspawn/fiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Fiction"
 
 /obj/structure/bookcase/libraryspawn/nonfiction
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Non-Fiction"
 
 /obj/structure/bookcase/libraryspawn/reference
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Reference"
 
 /obj/structure/bookcase/libraryspawn/religion
+	name = "bookcase" //Because SDMM doesn't recognise the name otherwise, for some reason
 	spawn_category = "Religion"
 
 /obj/structure/bookcase/manuals/medical
@@ -219,9 +223,8 @@
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
+		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
-		onclose(playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1))
 	else
 		to_chat(user, "This book is completely blank!")
 
@@ -310,11 +313,11 @@
 	else
 		..()
 
-/obj/item/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/book/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You open up the book and show it to [M]. "), \
-			SPAN_NOTICE(" [user] opens up a book and shows it to [M]. "))
-		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user.visible_message(SPAN_NOTICE("You open up the book and show it to [target_mob]. "), \
+			SPAN_NOTICE(" [user] opens up a book and shows it to [target_mob]. "))
+		target_mob << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
 

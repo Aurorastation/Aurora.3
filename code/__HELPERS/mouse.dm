@@ -9,5 +9,5 @@
 
 	. = params2list(params)
 
-	return list("icon-x" = Clamp(text2num(.["icon-x"]), 0, lim_x),
-				"icon-y" = Clamp(text2num(.["icon-y"]), 0, lim_y))
+	return list("icon-x" = clamp(text2num(.["icon-x"]), 0, lim_x),
+				"icon-y" = clamp(text2num(.["icon-y"]), 0, lim_y))

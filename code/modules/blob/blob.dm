@@ -39,7 +39,9 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/effect/blob/CanPass(var/atom/movable/mover, var/turf/target, var/height = 0, var/air_group = 0)
+/obj/effect/blob/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || height == 0)
 		return TRUE
 	return FALSE
@@ -190,16 +192,19 @@
 		attack_living(victim)
 		attack_time = world.time
 
-/obj/effect/blob/bullet_act(var/obj/projectile/Proj)
-	if(!Proj)
+/obj/effect/blob/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(!hitting_projectile)
 		return
 
-	switch(Proj.damage_type)
+	switch(hitting_projectile.damage_type)
 		if(DAMAGE_BRUTE)
-			take_damage(Proj.damage / brute_resist)
+			take_damage(hitting_projectile.damage / brute_resist)
 		if(DAMAGE_BURN)
-			take_damage((Proj.damage / laser_resist) / fire_resist)
-	return FALSE
+			take_damage((hitting_projectile.damage / laser_resist) / fire_resist)
 
 /obj/effect/blob/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -292,7 +297,7 @@
 	process_core_health()
 	regen()
 	for(var/i = 1 to times_to_pulse)
-		pulse(pulse_power, GLOB.cardinal.Copy())
+		pulse(pulse_power, GLOB.cardinals.Copy())
 	blob_may_process = TRUE
 	if(world.time < (attack_time + attack_cooldown))
 		return
@@ -355,6 +360,8 @@
 		icon_state = "blob_damaged"
 
 /obj/effect/blob/shield/CanPass(var/atom/movable/mover, var/turf/target, var/height = 0, var/air_group = 0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	return !density
 
 /obj/effect/blob/ravaging

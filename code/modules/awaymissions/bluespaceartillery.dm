@@ -28,7 +28,7 @@
 		return 1
 
 	if(href_list["fireArea"])
-		var/area/A = input("Area to jump bombard", "Open Fire") in GLOB.all_areas
+		var/area/A = input("Area to jump bombard", "Open Fire") in get_sorted_areas()
 		var/turf/loc = pick(get_area_turfs(A))
 		announce_and_fire(loc, usr)
 	else if(href_list["fireCords"])

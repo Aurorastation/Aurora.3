@@ -32,5 +32,6 @@
 #pragma EmptyBlock error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
+#pragma AmbiguousInOrder error
 
 #endif

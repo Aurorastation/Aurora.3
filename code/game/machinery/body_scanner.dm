@@ -36,6 +36,7 @@
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_VAURCA_BREEDER,
 		SPECIES_VAURCA_BULWARK,
 		SPECIES_DIONA,
@@ -332,7 +333,7 @@
 	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
-			GLOB.destroyed_event.register(D, src, PROC_REF(remove_display))
+			RegisterSignal(D, COMSIG_QDELETING, PROC_REF(on_connected_display_deletion))
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
@@ -344,9 +345,14 @@
 		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
-/obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
+/obj/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
+	SIGNAL_HANDLER
+
+	remove_display(source)
+
+/obj/machinery/body_scanconsole/proc/remove_display(datum/source, obj/machinery/computer/operating/display)
 	connected_displays -= display
-	GLOB.destroyed_event.unregister(display, src, PROC_REF(remove_display))
+	UnregisterSignal(display, COMSIG_QDELETING)
 
 /obj/machinery/body_scanconsole/proc/get_connected()
 	if(connected)

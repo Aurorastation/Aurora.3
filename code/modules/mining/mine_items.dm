@@ -488,13 +488,13 @@
 		qdel(src)
 		return
 	updateOverlays()
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for(var/dir in GLOB.cardinal)
+	for(var/dir in GLOB.cardinals)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -527,7 +527,7 @@
 
 	var/dir_sum = 0
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -807,35 +807,37 @@
 	item_state = icon_state
 	update_held_icon()
 
-/obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
-	if(!loaded)
-		return
-	if(isliving(target) && proximity_flag)
-		if(istype(target, /mob/living/simple_animal))
-			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type) || !(M.tameable))
-				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
-				return
-			if(M.stat == DEAD)
-				if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
-					M.faction = user.faction
-				if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
-					M.faction = initial(M.faction)
-				M.revive()
-				M.icon_state = M.icon_living
-				M.desc = initial(M.desc)
-				loaded = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
-				feedback_add_details("lazarus_injector", "[M.type]")
-				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-				update_icon()
-				return
-			else
-				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
-				return
-		else
-			to_chat(user, SPAN_INFO("\The [src] is only effective on lesser beings."))
+/obj/item/lazarus_injector/attack(mob/living/target_mob, mob/living/user, target_zone)
+	//If we're not loaded, the target is not a living mob, or we're further from 1 tile away, not our problem
+	if(!loaded || !isliving(target_mob) || get_dist(target_mob, user) > 1)
+		return ..()
+
+	if(istype(target_mob, /mob/living/simple_animal))
+		var/mob/living/simple_animal/M = target_mob
+
+		if(!(M.find_type() & revive_type) || !(M.tameable))
+			to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 			return
+
+		if(M.stat == DEAD)
+			if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
+				M.faction = user.faction
+			if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
+				M.faction = initial(M.faction)
+			M.revive()
+			M.icon_state = M.icon_living
+			M.desc = initial(M.desc)
+			loaded = FALSE
+			user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
+			feedback_add_details("lazarus_injector", "[M.type]")
+			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+			update_icon()
+
+		else
+			to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
+
+	else
+		to_chat(user, SPAN_INFO("\The [src] is only effective on lesser beings."))
 
 /obj/item/lazarus_injector/emp_act()
 	. = ..()

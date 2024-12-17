@@ -149,11 +149,11 @@
 
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
-/obj/vehicle/train/cargo/bullet_act(var/obj/projectile/Proj)
-	if (buckled && Proj.original == buckled)
-		buckled.bullet_act(Proj)
+/obj/vehicle/train/cargo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if (buckled && hitting_projectile.original == buckled)
+		buckled.bullet_act(arglist(args))
 	else
-		..()
+		. = ..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
@@ -242,7 +242,7 @@
 		return 0
 
 	if(is_train_head())
-		if(direction == reverse_direction(dir) && tow)
+		if(direction == REVERSE_DIR(dir) && tow)
 			//Allow the engine to rotate, but only if there's not another piece in the new direction
 			//Basically, to allow the first rotation at spawn to align with the rest of the convoy, without it being a CBT
 			if(!(locate(/obj/vehicle/train) in get_step(src, direction)))

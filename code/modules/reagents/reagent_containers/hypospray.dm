@@ -46,10 +46,10 @@
 	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
 
-/obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
-	if(isliving(M))
-		var/mob/living/L = M
+	if(isliving(target_mob))
+		var/mob/living/L = target_mob
 		var/inj_time = time
 		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
 		if(!mod_time)
@@ -60,7 +60,7 @@
 			inj_time *= mod_time
 		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
 		if(do_mob(user, L, inj_time))
-			inject(M, user, M.Adjacent(user))
+			inject(target_mob, user, target_mob.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
 	ClearOverlays()
@@ -133,7 +133,7 @@
 		spent = FALSE
 	update_icon()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/autoinjector/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(is_open_container())
 		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
@@ -353,11 +353,11 @@
 	desc = "An autoinjector loaded with impedrezene, a narcotic that impairs one's ability to think by impeding the function of brain cells in the cerebral cortex."
 	volume = 5
 	amount_per_transfer_from_this = 5
-	reagents_to_add = list(/singleton/reagent/drugs/impedrezene)
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/night_juice
 	name = "night life autoinjector"
 	desc = "An auto injector loaded with night life, a liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation."
 	volume = 10
 	amount_per_transfer_from_this = 10
-	reagents_to_add = list(/singleton/reagent/drugs/night_juice)
+	reagents_to_add = list(/singleton/reagent/drugs/night_juice = 10)

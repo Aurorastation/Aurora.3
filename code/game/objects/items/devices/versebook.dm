@@ -88,7 +88,7 @@
 	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members within the sect. Due to its recent establishment, this book is frequently changed and amended \
 	as new insights into their faith are realized."
 	icon_state = "templeistbook"
-	item_state = "trinary"
+	item_state = "templeist"
 
 /obj/item/device/versebook/templeist/Initialize()
 	. = ..()

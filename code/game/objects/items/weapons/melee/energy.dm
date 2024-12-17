@@ -67,16 +67,16 @@
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return PROJECTILE_STOPPED
+		return BULLET_ACT_BLOCK
 	else
 		if(!active)
-			return FALSE //turn it on first!
+			return BULLET_ACT_HIT //turn it on first!
 
 		if(user.incapacitated())
-			return FALSE
+			return BULLET_ACT_HIT
 
 		//block as long as they are not directly behind us
-		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+		var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 			if(prob(base_block_chance) && shield_power)
@@ -87,7 +87,7 @@
 				if(shield_power <= 0)
 					to_chat(user, SPAN_DANGER("\The [src]'s integrated shield goes out! It will no longer assist in parrying."))
 					shield_power = 0
-					return FALSE
+					return BULLET_ACT_HIT
 
 				if(istype(damage_source, /obj/projectile/energy) || istype(damage_source, /obj/projectile/beam))
 					var/obj/projectile/P = damage_source
@@ -106,10 +106,10 @@
 						P.firer = user
 						P.old_style_target(locate(new_x, new_y, P.z))
 
-						return PROJECTILE_CONTINUE // complete projectile permutation
+						return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 					else
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-						return PROJECTILE_STOPPED
+						return BULLET_ACT_BLOCK
 
 				else if(istype(damage_source, /obj/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
@@ -117,7 +117,7 @@
 						reflectchance /= 2
 					if(prob(reflectchance))
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
-						return PROJECTILE_STOPPED
+						return BULLET_ACT_BLOCK
 
 /obj/item/melee/energy/get_print_info()
 	. = ..()
@@ -163,7 +163,7 @@
 	icon_state = initial(icon_state)
 	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
-/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/glaive/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(16)
 	..()
 

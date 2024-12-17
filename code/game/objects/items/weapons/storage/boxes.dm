@@ -1031,6 +1031,29 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/device/versebook/nka = 6)
 
+/obj/item/storage/box/suns_flags
+	name = "s'rand'marr Worship flag box"
+	desc = "A box filled with flags of the S'rend'marr faith."
+	illustration = "flags"
+	starts_with = list(
+		/obj/item/flag/srendarr = 1,
+		/obj/item/flag/messa = 1
+	)
+
+/obj/item/storage/box/matake_flags
+	name = "ma'ta'ke pantheon flag box"
+	desc = "A box filled to the brim with the various flags of the Ma'ta'ke Pantheon."
+	illustration = "flags"
+	starts_with = list(
+		/obj/item/flag/matake = 1,
+		/obj/item/flag/marryam = 1,
+		/obj/item/flag/rredouane = 1,
+		/obj/item/flag/shumaila = 1,
+		/obj/item/flag/kraszar = 1,
+		/obj/item/flag/dhrarmela = 1,
+		/obj/item/flag/azubarre = 1
+	)
+
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
 	desc = "A box full of dominian honor codices."
@@ -1046,8 +1069,9 @@
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
-	icon_state = "redbox"
-	illustration = "biohazard"
+	illustration = null
+	icon_state = "sharpsbox"
+	use_sound = 'sound/items/storage/briefcase.ogg'
 	max_storage_space = 20
 	chewable = FALSE
 	foldable = null

@@ -14,10 +14,12 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/towel/attack_self(mob/living/user as mob)
-	attack(user,user)
+/obj/item/towel/attack_self(mob/living/user)
+	attack(user, user)
 
-/obj/item/towel/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/towel/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
+
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)
@@ -29,7 +31,7 @@
 			if(do_mob(user, M, 3 SECONDS))
 				user.visible_message(SPAN_NOTICE("\The [user] dries \the [M] off with \the [src]."))
 				playsound(M, 'sound/weapons/towelwipe.ogg', 25, 1)
-				M.adjust_fire_stacks(-Clamp(M.fire_stacks,-1.5,1.5))
+				M.adjust_fire_stacks(-clamp(M.fire_stacks,-1.5,1.5))
 		return
 
 	. = ..()

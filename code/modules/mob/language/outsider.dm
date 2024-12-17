@@ -126,7 +126,7 @@
 		return
 
 	for(var/mob/player in GLOB.player_list)
-		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
+		if(isobserver(player) || check_special_condition(player))
 			if(!within_jamming_range(player))
 				to_chat(player, msg)
 

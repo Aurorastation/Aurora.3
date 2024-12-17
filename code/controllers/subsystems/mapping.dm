@@ -8,7 +8,6 @@ SUBSYSTEM_DEF(mapping)
 	var/list/exoplanet_ruins_templates = list()
 	var/list/away_sites_templates = list()
 	var/list/submaps = list()
-	var/list/submap_archetypes = list()
 
 	var/list/used_turfs = list() //list of turf = datum/turf_reservation -- Currently unused
 
@@ -30,13 +29,15 @@ SUBSYSTEM_DEF(mapping)
 	var/adding_new_zlevel = FALSE
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
-	// Load templates and build away sites.
-	preloadTemplates()
-	for(var/atype in subtypesof(/singleton/submap_archetype))
-		submap_archetypes[atype] = new atype
+	//If we're in fastboot and not spawning exoplanets or awaysites
+	//this is different from TG and Bay, which always preload, but it saves a lot of time for us
+	//so we'll do it this way and hope for the best
+	if(!GLOB.config.fastboot || GLOB.config.exoplanets["enable_loading"] || GLOB.config.awaysites["enable_loading"])
+		// Load templates and build away sites.
+		preloadTemplates()
 
-	SSatlas.current_map.build_away_sites()
-	SSatlas.current_map.build_exoplanets()
+		SSatlas.current_map.build_away_sites()
+		SSatlas.current_map.build_exoplanets()
 
 	return SS_INIT_SUCCESS
 

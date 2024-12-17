@@ -134,6 +134,12 @@
 	icon_state = "labcoat_long_pmc"
 	item_state = "labcoat_long_pmc"
 
+//Nexus
+/obj/item/clothing/suit/storage/toggle/labcoat/nexus
+	name = "nexus longcoat"
+	desc = "A hybridization between a traditional labcoat and an EMT jacket, designed to be worn in lab environments while still being comfortable in the field. The iconic Nexus whirlwind is emblazoned on the back."
+	icon_state = "labcoat_nexus"
+
 //Idris
 /obj/item/clothing/suit/storage/toggle/labcoat/idris
 	name = "idris labcoat"

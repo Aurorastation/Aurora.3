@@ -26,7 +26,7 @@
 		var/software = english_list(restricted_software, and_text = ", ")
 		. += SPAN_NOTICE("<b>Exosuit Software Requirement:</b> [software]")
 
-/obj/item/mecha_equipment/attack() //Generally it's not desired to be able to attack with items
+/obj/item/mecha_equipment/attack(mob/living/target_mob, mob/living/user, target_zone) //Generally it's not desired to be able to attack with items
 	return 0
 
 /obj/item/mecha_equipment/proc/get_effective_obj()
@@ -92,14 +92,14 @@
 
 /obj/item/mecha_equipment/mounted_system/proc/forget_holding()
 	if(holding) //It'd be strange for this to be called with this var unset
-		GLOB.destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
+		UnregisterSignal(holding, COMSIG_QDELETING)
 		holding = null
 
 /obj/item/mecha_equipment/mounted_system/Initialize()
 	. = ..()
 	if(holding_type)
 		holding = new holding_type(src)
-		GLOB.destroyed_event.register(holding, src, PROC_REF(forget_holding))
+		RegisterSignal(holding, COMSIG_QDELETING, PROC_REF(forget_holding))
 	if(holding)
 		if(!icon_state)
 			icon = holding.icon

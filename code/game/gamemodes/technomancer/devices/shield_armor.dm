@@ -25,12 +25,12 @@
 
 /obj/item/clothing/suit/armor/shield/New()
 	..()
-	spark(src, 5, GLOB.cardinal)
+	spark(src, 5, GLOB.cardinals)
 
 /obj/item/clothing/suit/armor/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//Since this is a pierce of armor that is passive, we do not need to check if the user is incapacitated.
 	if(!active)
-		return FALSE
+		return BULLET_ACT_HIT
 
 	var/modified_block_percentage = block_percentage
 
@@ -46,7 +46,7 @@
 		to_chat(user, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		active = 0
 		update_icon()
-		return 0
+		return BULLET_ACT_HIT
 
 	damage = damage - damage_blocked
 
@@ -63,9 +63,9 @@
 	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"))
 	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
-	spark(src, 5, GLOB.cardinal)
+	spark(src, 5, GLOB.cardinals)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)
-	return FALSE // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
+	return BULLET_ACT_HIT // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
 
 /obj/item/clothing/suit/armor/shield/attack_self(mob/user)
 	active = !active

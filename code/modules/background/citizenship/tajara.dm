@@ -6,7 +6,7 @@
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /obj/outfit/job/representative/consular/pra
-	assistant_outfit = /obj/outfit/job/consular_assistant/pra
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/pra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -27,6 +27,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
@@ -50,6 +51,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN
@@ -77,7 +79,7 @@
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
 
-/obj/outfit/job/consular_assistant/pra
+/obj/outfit/job/diplomatic_aide/pra
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/smart
 	backpack_contents = list(
@@ -97,7 +99,7 @@
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
 	consular_outfit = /obj/outfit/job/representative/consular/dpra
-	assistant_outfit = /obj/outfit/job/consular_assistant/dpra
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/dpra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -118,6 +120,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
@@ -141,6 +144,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN
@@ -166,7 +170,7 @@
 	)
 	accessory = /obj/item/clothing/accessory/dpra_pin
 
-/obj/outfit/job/consular_assistant/dpra
+/obj/outfit/job/diplomatic_aide/dpra
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/smart
 	backpack_contents = list(
@@ -186,7 +190,7 @@
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
 	consular_outfit = /obj/outfit/job/representative/consular/nka
-	assistant_outfit = /obj/outfit/job/consular_assistant/nka
+	assistant_outfit = /obj/outfit/job/diplomatic_aide/nka
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -207,6 +211,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
@@ -230,6 +235,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN
@@ -256,7 +262,7 @@
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
 
-/obj/outfit/job/consular_assistant/nka
+/obj/outfit/job/diplomatic_aide/nka
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	backpack_contents = list(

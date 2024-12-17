@@ -279,6 +279,7 @@
 		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
 		eggsleft--
 		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
+		E.fertilize()
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 

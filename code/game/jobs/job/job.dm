@@ -1,44 +1,77 @@
 /datum/job
-	var/title = "NOPE"                    //The name of the job
-	//Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
-	var/list/minimal_access = list()      // Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
-	var/list/access = list()              // Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
+	/// The name of the job.
+	var/title = "NOPE"
 
-	var/flag = 0                          // Bitflags for the job
-	var/department_flag = 0               // Used to tell which set of job bitflags to use to determine the actual job (since there are too many jobs to fit in a single bit flag)
-	var/faction = "None"	              // Players will be allowed to spawn in as jobs that are set to "Station"
+	/// Job access. The use of minimal_access or access is determined by a config setting: config.jobs_have_minimal_access
+	/// Useful for servers which prefer to only have access given to the places a job absolutely needs (Larger server population)
+	var/list/minimal_access = list()
+	/// Useful for servers which either have fewer players, so each person needs to fill more than one role, or servers which like to give more access, so players can't hide forever in their super secure departments (I'm looking at you, chemistry!)
+	var/list/access = list()
 
-	var/total_positions = 0               // How many players can be this job
-	var/spawn_positions = 0               // How many players can spawn in as this job
-	var/current_positions = 0             // How many players have this job
+	/// Bitflags for the job.
+	var/flag = 0
+	/// Used to tell which set of job bitflags to use to determine the actual job (since there are too many jobs to fit in a single bit flag)
+	var/department_flag = 0
+	/// Players will be allowed to spawn in as jobs that are set to "Station".
+	var/faction = "None"
 
+	/// How many players can be this job.
+	var/total_positions = 0
+	/// How many players can spawn in as this job.
+	var/spawn_positions = 0
+	/// How many players have this job.
+	var/current_positions = 0
+
+	/// Prefix for the introduction ("As [intro prefix] [title], you answer to...")
 	var/intro_prefix = "a"
-	var/supervisors = null                // Supervisors, who this person answers to directly
-	var/selection_color = "#5d6a67"     // Selection screen color
-	var/list/departments = list()         // List of departments this job is a part of. Keys are departments, values are a bit field that indicate special roles of that job within the department (like whether they are a head/supervisor of that department).
-	var/list/alt_titles                   // List of alternate titles, if any
-	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
-	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/list/minimum_character_age = list(// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
+	/// Supervisors, who this person answers to directly.
+	var/supervisors = null
+	/// Selection screen color
+	var/selection_color = "#5d6a67"
+	/// List of departments this job is a part of. Keys are departments, values are a bit field that indicate special roles of that job within the department (like whether they are a head/supervisor of that department).
+	var/list/departments = list()
+	/// List of alternate titles, if any.
+	var/list/alt_titles
+	/// An assoc list of title -> list of accesses to add if the person has this title.
+	var/list/title_accesses
+	/// If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
+	var/minimal_player_age = 0
+	/// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry.
+	var/list/minimum_character_age = list(
 		SPECIES_HUMAN = 17,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
-	var/list/alt_factions = null		  // Assoc list of alt titles (as strings) to a list of faction titles (as strings). Defines what alt title can belong to what faction. Remains Null if no restrictions in use.
+	/// Assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
+	var/list/alt_ages = null
+	/// Assoc list of alt titles (as strings) to a list of faction titles (as strings). Defines what alt title can belong to what faction. Remains Null if no restrictions in use.
+	var/list/alt_factions = null
 
-	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
+	/// If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
+	var/latejoin_at_spawnpoints = FALSE
 
-	var/account_allowed = TRUE            // Does this job type come with a station account?
-	var/public_account = TRUE             // does this account appear on account terminals?
-	var/initial_funds_override = 0        // if set to anything else, the initial account balance will be set to this instead
-	var/economic_modifier = 2             // With how much does this job modify the initial account amount?
-	var/create_record = TRUE              // Do we announce/make records for people who spawn on this job?
+	/// Does this job type come with a station account?
+	var/account_allowed = TRUE
+	/// Does this account appear on account terminals?
+	var/public_account = TRUE
+	/// If set to anything else, the initial account balance will be set to this instead.
+	var/initial_funds_override = 0
+	/// With how much does this job modify the initial account amount?
+	var/economic_modifier = 2
+	/// Do we announce/make records for people who spawn on this job?
+	var/create_record = TRUE
 
+	/// The outfit of the job.
 	var/obj/outfit/outfit = null
-	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /obj/outfit)
-	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
-	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
+	/// A list of special outfits for the alt titles list("alttitle" = /obj/outfit)
+	var/list/alt_outfits = null
+	/// A blacklist of species that can't be this job.
+	var/list/blacklisted_species = null
+	/// A blacklist of citizenships that can't be this job.
+	var/list/blacklisted_citizenship = list()
+
+	/// The job name of the aide slot. Used for consulars and representatives.
+	var/aide_job
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
@@ -203,6 +236,58 @@
 
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
+
+/**
+ * This is the proc responsible for actually opening the aide slot.
+ * The `aide_job` on the job datum must be a valid, existing job. Blame the fact that we don't have job defines. Or singletons.
+ */
+/datum/job/proc/open_aide_slot(mob/living/carbon/human/representative)
+	if(!aide_job)
+		log_debug("Generic Open Aide Slot called without an aide job.")
+		return FALSE
+
+	if(!representative)
+		log_debug("Generic Open Aide Slot called without a mob.")
+		return FALSE
+
+	var/confirm = tgui_alert(representative, "Are you sure you want to open an assistant slot? This can only be used once.", "Open Aide Slot", list("Yes", "No"))
+	if(confirm != "Yes")
+		return FALSE
+	var/datum/job/J = SSjobs.GetJob(aide_job)
+
+	// At this point, we add the relevant blacklists in the proc below.
+	post_open_aide_slot(representative, J)
+
+	// Now that the blacklists are applied, open the job.
+	J.total_positions++
+	to_chat(representative, SPAN_NOTICE("A slot for a [aide_job] has been opened."))
+	return TRUE
+
+/**
+ * This proc is called when a job opens an aide slot. It MUST be called manually.
+ * It is responsible for adding any relevant blacklists to the aide job datum.
+ */
+/datum/job/proc/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	return
+
+/**
+ * This proc is called when an aide slot is closed (cryoing or leaving the game).
+ * It is responsible for cleaning up existing slots and wiping any applied blacklists to the aide's job datum.
+ */
+/datum/job/proc/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
+	return
+
+/**
+ * This is the verb you should give to a mob to allow it to summon an aide.
+ */
+/mob/living/carbon/human/proc/summon_aide()
+	set name = "Open Aide Slot"
+	set desc = "Allows an aide to join you as an assistant, companion, or bodyguard."
+	set category = "IC"
+
+	var/datum/job/J = SSjobs.GetJob(job)
+	if(J.open_aide_slot(src))
+		remove_verb(src, /mob/living/carbon/human/proc/summon_aide)
 
 /obj/outfit/job
 	name = "Standard Gear"

@@ -6,6 +6,7 @@
 	suffix = "tajaran_smuggler.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, ALL_BADLAND_SECTORS, SECTOR_WEEPING_STARS)
+	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tajaran_smuggler"
@@ -84,7 +85,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle
@@ -123,7 +124,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_cargo

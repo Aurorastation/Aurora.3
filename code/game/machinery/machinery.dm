@@ -208,7 +208,7 @@ Class Procs:
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
-		pulse2.set_dir(pick(GLOB.cardinal))
+		pulse2.set_dir(pick(GLOB.cardinals))
 
 		QDEL_IN(pulse2, 10)
 
@@ -504,10 +504,13 @@ Class Procs:
 		paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/bullet_act(obj/projectile/P, def_zone)
+/obj/machinery/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
-	if(P.get_structure_damage() > 5)
-		bullet_ping(P)
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))

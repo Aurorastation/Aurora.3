@@ -55,9 +55,9 @@ export const ShieldGenerator = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Field Status">
               {data.time_since_fail > 2 ? (
-                <Box color="bad">Unstable</Box>
-              ) : (
                 <Box color="good">Stable</Box>
+              ) : (
+                <Box color="bad">Unstable</Box>
               )}
             </LabeledList.Item>
             <LabeledList.Item label="Overall Strength">

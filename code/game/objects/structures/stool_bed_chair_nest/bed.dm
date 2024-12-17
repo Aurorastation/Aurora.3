@@ -127,9 +127,6 @@
 	if(buckled)
 		buckled.forceMove(dest)
 
-/obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	return ..()
-
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -526,7 +523,6 @@
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
-			buckled.layer = src.layer + 1
 		else
 			buckled = null
 

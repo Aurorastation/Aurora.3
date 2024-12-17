@@ -22,7 +22,7 @@ var/datum/antagonist/loyalists/loyalists
 	// Inround loyalists.
 	faction_role_text = "Loyalist"
 	faction_descriptor = "Loyalists"
-	faction_verb = /mob/living/proc/convert_to_loyalist
+	faction_verbs = list(/mob/living/proc/convert_to_loyalist)
 	faction_welcome = "You have decided to defend the establishment, no matter what it takes.. Follow your leaders' instructions and try to achieve the Loyalists' goals."
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE

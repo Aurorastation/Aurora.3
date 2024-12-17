@@ -274,13 +274,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
-"dJ" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_landing_zone)
 "dK" = (
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
@@ -461,10 +454,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
-"gk" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
-/area/konyang_landing_zone)
 "gm" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -2821,10 +2810,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
-"Is" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_landing_zone)
 "Iv" = (
 /obj/structure/chainlink_fence{
 	dir = 4
@@ -3481,7 +3466,6 @@
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "lz_air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3621,10 +3605,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
-"Rs" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/exoplanet/konyang,
-/area/konyang_landing_zone)
 "RD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3778,7 +3758,6 @@
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
 "Tm" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "lz_co2_out";
 	dir = 1
 	},
@@ -4930,7 +4909,7 @@ dK
 dK
 dK
 dK
-gk
+Wa
 BF
 YV
 YV
@@ -5595,7 +5574,7 @@ Da
 gu
 Sk
 dK
-gk
+Wa
 jU
 zh
 uc
@@ -5652,7 +5631,7 @@ YH
 gu
 NB
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5709,7 +5688,7 @@ gu
 gu
 HR
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5766,7 +5745,7 @@ gu
 yi
 dH
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5808,7 +5787,7 @@ BF
 Kl
 Kl
 yd
-Rs
+eU
 rf
 "}
 (29,1,1) = {"
@@ -5823,7 +5802,7 @@ gu
 kO
 jR
 Zi
-gk
+Wa
 jU
 zh
 uc
@@ -5865,7 +5844,7 @@ bX
 Kl
 gm
 YV
-Is
+Ey
 rf
 "}
 (30,1,1) = {"
@@ -5979,7 +5958,7 @@ BF
 YV
 YV
 YV
-Is
+Ey
 dt
 "}
 (32,1,1) = {"
@@ -6036,7 +6015,7 @@ UH
 YV
 yd
 rf
-Is
+Ey
 rf
 "}
 (33,1,1) = {"
@@ -6150,7 +6129,7 @@ IO
 YV
 YV
 YV
-Rs
+eU
 rf
 "}
 (35,1,1) = {"
@@ -6165,7 +6144,7 @@ ib
 oq
 YY
 Zi
-gk
+Wa
 jU
 zh
 uc
@@ -6207,7 +6186,7 @@ IO
 rf
 rf
 rf
-Rs
+eU
 rf
 "}
 (36,1,1) = {"
@@ -6222,7 +6201,7 @@ oq
 oq
 fg
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6264,7 +6243,7 @@ IO
 sS
 Aj
 rf
-Rs
+eU
 rf
 "}
 (37,1,1) = {"
@@ -6279,7 +6258,7 @@ pD
 oq
 Ny
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6336,7 +6315,7 @@ TO
 VV
 Ny
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6393,7 +6372,7 @@ TO
 oq
 oq
 ld
-gk
+Wa
 Po
 zh
 uc
@@ -6450,7 +6429,7 @@ jS
 SL
 Ca
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6507,7 +6486,7 @@ Hk
 zR
 Ca
 Zi
-gk
+Wa
 jU
 zh
 Br
@@ -6735,7 +6714,7 @@ TD
 TD
 TD
 Zi
-gk
+Wa
 AD
 Ly
 Ly
@@ -6923,7 +6902,7 @@ ym
 YV
 YV
 YV
-Rs
+eU
 Ep
 jn
 zh
@@ -6980,7 +6959,7 @@ rf
 rf
 rf
 YV
-Rs
+eU
 Ep
 jn
 zh
@@ -7037,7 +7016,7 @@ Mv
 rf
 Mv
 YV
-Rs
+eU
 PJ
 GG
 fi
@@ -7094,7 +7073,7 @@ Mv
 rf
 Mv
 YV
-Rs
+eU
 qa
 oJ
 zh
@@ -7151,7 +7130,7 @@ Mv
 rf
 Mv
 YV
-Rs
+eU
 qa
 Bq
 zh
@@ -7208,7 +7187,7 @@ Mv
 rf
 Mv
 YV
-Rs
+eU
 qa
 FA
 zh
@@ -7265,7 +7244,7 @@ YV
 Mw
 YV
 WK
-Rs
+eU
 zC
 Nk
 Uz
@@ -7322,7 +7301,7 @@ Fz
 dO
 cG
 dO
-dJ
+OR
 ZU
 GK
 ef
