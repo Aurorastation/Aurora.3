@@ -32,3 +32,6 @@
 		"
 
 	offship_announcement_message = "A nearby propellant depot has launched a distress beacon. The coordinates have been registered on the flight deck."
+
+/singleton/scenario/ruined_propellant_depot/canon
+	scenario_type = SCENARIO_TYPE_CANON
