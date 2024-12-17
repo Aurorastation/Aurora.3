@@ -79,3 +79,10 @@
 	name = "Major Hemophilia"
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
+
+/datum/character_disabilities/intent_eyes
+	name = "Mechanical Eye-Emotion Coupling"
+	desc = "Your mechanical eyes change colour based on your selected intent."
+
+/datum/character_disabilities/intent_eyes/apply_self(var/mob/living/carbon/human/H)
+	ADD_TRAIT(H, TRAIT_DISABILITY_INTENT_EYES, DISABILITY_TRAIT)

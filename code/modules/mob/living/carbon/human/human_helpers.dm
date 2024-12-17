@@ -45,7 +45,26 @@
 	if(is_pacified() && set_intent == I_HURT && !is_berserk())
 		to_chat(src, SPAN_WARNING("You don't want to harm other beings!"))
 		return
-	..()
+
+	. = ..()
+
+	// has the trait that lets mechanical eyes change their colour
+	if(HAS_TRAIT(src, TRAIT_DISABILITY_INTENT_EYES))
+		var/obj/item/organ/internal/eyes/eyes = get_eyes()
+		if(eyes && (eyes.status & ORGAN_ROBOT))
+			var/intent_colors = list(
+				I_HELP = COLOR_BRIGHT_GREEN,
+				I_GRAB = COLOR_YELLOW,
+				I_DISARM = COLOR_BLUE_LIGHT,
+				I_HURT = COLOR_RED_LIGHT
+			)
+			var/new_color = intent_colors[a_intent]
+			if(new_color)
+				var/r_eyes = hex2num(copytext(new_color, 2, 4))
+				var/g_eyes = hex2num(copytext(new_color, 4, 6))
+				var/b_eyes = hex2num(copytext(new_color, 6, 8))
+				change_eye_color(r_eyes, g_eyes, b_eyes)
+
 
 /mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
 	flash_protection = 0
