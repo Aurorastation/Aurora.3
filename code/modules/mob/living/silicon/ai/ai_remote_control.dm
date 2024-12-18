@@ -29,7 +29,7 @@
 	modules += new /obj/item/wrench/robotic(src)
 	modules += new /obj/item/device/healthanalyzer(src)
 	modules += new /obj/item/extinguisher/mini(src)
-	modules += new /obj/item/device/advanced_healthanalyzer(src)
+	modules += new /obj/item/device/advanced_healthanalyzer/cyborg(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/inflatable_dispenser(src)
 	modules += new /obj/item/device/gps(src)

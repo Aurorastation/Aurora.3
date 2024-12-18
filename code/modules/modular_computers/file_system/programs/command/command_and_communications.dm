@@ -227,6 +227,9 @@
 
 	return TRUE
 
+/datum/computer_file/program/comm/intercept/New(obj/item/modular_computer/comp, intercept_printing, shuttle_call)
+	. = ..(comp, TRUE, shuttle_call)
+
 /*
 General message handling stuff
 */

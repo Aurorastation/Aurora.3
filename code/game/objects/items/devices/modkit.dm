@@ -305,7 +305,8 @@
 		"Southern Fleet Administration" = /obj/item/clothing/suit/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/suit/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/suit/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/suit/space/void/sol/splf
 	)
 	helmet_options = list(
 		"Solarian Armed Forces" = /obj/item/clothing/head/helmet/space/void/sol,
@@ -315,7 +316,8 @@
 		"Southern Fleet Administration" = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/head/helmet/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/head/helmet/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/head/helmet/space/void/sol/splf
 	)
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate
@@ -374,7 +376,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/suit/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/suit/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/suit/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/sci/assunzione
 	)
 	helmet_options = list(
 		"Coalition Vulture" = /obj/item/clothing/head/helmet/space/void/coalition,
@@ -382,7 +384,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/head/helmet/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/head/helmet/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/sci/assunzione
 	)
 
 /obj/item/storage/box/unathi_pirate
@@ -404,6 +406,22 @@
 	name = "coalition of colonies modkit box"
 	desc = "Contains modkits to convert Coalition voidsuits into member-state variants."
 	starts_with = list(/obj/item/voidsuit_modkit_multi/coalition = 4)
+
+/obj/item/voidsuit_modkit/assunzione
+	name = "assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione,
+	)
+
+/obj/item/voidsuit_modkit/assunzione/ipc
+	name = "synthetic assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit fitted for an IPC."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione/ipc,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc,
+	)
 
 #undef MODKIT_HELMET
 #undef MODKIT_SUIT
