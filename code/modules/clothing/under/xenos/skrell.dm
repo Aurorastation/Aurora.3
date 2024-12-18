@@ -54,7 +54,7 @@
 /obj/item/clothing/under/skrell/nralakk
 	name = "Ox research uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
 	icon = 'icons/obj/item/clothing/under/skrell/nralakk_uniforms.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/obj/item/clothing/under/vaurca/bulwark/nralakk_uniforms.dmi'
@@ -90,7 +90,7 @@
 /obj/item/clothing/under/skrell/nralakk/ix
 	name = "Ix research uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-indexed Secondary Numerical working in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Ix are those who are low-ranked Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Nralakk Federation, with Ix being those who are in the lower end of the band. "
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Ix are those who are low-ranked Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Nralakk Federation, with Ix being those who are in the lower end of the band. "
 	item_state = "ix_sci"
 	icon_state = "ix_sci"
 
@@ -122,7 +122,7 @@
 /obj/item/clothing/under/skrell/nralakk/oqi
 	name = "Oqi research uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-indexed Secondary Numerical or low-indexed Primary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Oqi are high-ibdexed Secondary Numericals or low-indexed Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Nralakk Federation."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Oqi are high-ibdexed Secondary Numericals or low-indexed Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Nralakk Federation."
 	item_state = "oqi_sci"
 	icon_state = "oqi_sci"
 
@@ -154,7 +154,7 @@
 /obj/item/clothing/under/skrell/nralakk/iqi
 	name = "Iqi research uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-indexed Primary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Iqi are high-indexed Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Iqi are high-indexed Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
 	item_state = "iqi_sci"
 	icon_state = "iqi_sci"
 
@@ -186,7 +186,7 @@
 /obj/item/clothing/suit/storage/toggle/skrell
 	name = "Ox research jacket"
 	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/skrell/nralakk_jackets.dmi'
 	item_state = "ox_sci_jacket"
 	icon_state = "ox_sci_jacket"
@@ -220,7 +220,7 @@
 /obj/item/clothing/suit/storage/toggle/skrell/ix
 	name = "Ix research jacket"
 	desc = "A plain jacket that signifies the wearer as a low-indexed Secondary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Ix are those who are low-indexed Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Nralakk Federation, with Ix being those who are in the lower end of the band. "
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Ix are those who are low-indexed Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Nralakk Federation, with Ix being those who are in the lower end of the band. "
 	item_state = "ix_sci_jacket"
 	icon_state = "ix_sci_jacket"
 
@@ -252,7 +252,7 @@
 /obj/item/clothing/suit/storage/toggle/skrell/oqi
 	name = "Oqi research jacket"
 	desc = "A more fashionable jacket that signifies the wearer as either a high-indexed Secondary Numerical or low-indexed Primary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Oqi are high-indexed Secondary Numericals or low-indexed Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Nralakk Federation."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Oqi are high-indexed Secondary Numericals or low-indexed Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Nralakk Federation."
 	item_state = "oqi_sci_jacket"
 	icon_state = "oqi_sci_jacket"
 
@@ -284,7 +284,7 @@
 /obj/item/clothing/suit/storage/toggle/skrell/iqi
 	name = "Iqi research jacket"
 	desc = "A very fashionable jacket that signifies the wearer as a high-indexed Primary Numerical in a scientific field."
-	desc_extended = "The Nralakk Federation ranks its workers based on their social compatability index, and provides workwear based on said index: Iqi are high-indexed Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
+	desc_extended = "The Nralakk Federation ranks its workers based on their social compatibility index, and provides workwear based on said index: Iqi are high-indexed Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
 	item_state = "iqi_sci_jacket"
 	icon_state = "iqi_sci_jacket"
 
