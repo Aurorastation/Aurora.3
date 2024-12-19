@@ -348,16 +348,17 @@ var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#6666
 	hud_damage_image.color = hud_colours[max(1,min(Ceiling(dam_state*hud_colours.len),hud_colours.len))]
 	return hud_damage_image
 
-/obj/item/organ/external/proc/bandage_level()
+/// Returns the possible bandage level the external can have right now, see medical.dm for usage
+/obj/item/organ/external/proc/possible_bandage_level()
 	if(damage_state_text() == "00")
-		return 0
+		return BANDAGE_LEVEL_NONE
 	if(!is_bandaged())
-		return 0
+		return BANDAGE_LEVEL_NONE
 	if(burn_dam + brute_dam == 0)
-		. = 0
+		. = BANDAGE_LEVEL_NONE
 	else if (burn_dam + brute_dam < (max_damage * 0.25 / 2))
-		. = 1
+		. = BANDAGE_LEVEL_LIGHT
 	else if (burn_dam + brute_dam < (max_damage * 0.75 / 2))
-		. = 2
+		. = BANDAGE_LEVEL_MEDIUM
 	else
-		. = 3
+		. = BANDAGE_LEVEL_HEAVY
