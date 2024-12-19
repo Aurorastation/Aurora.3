@@ -1790,6 +1790,7 @@
 #include "code\modules\cargo\bounties\slime.dm"
 #include "code\modules\cargo\bounties\special.dm"
 #include "code\modules\cargo\bounties\weapon_prototype.dm"
+#include "code\modules\cargo\delivery\_helpers.dm"
 #include "code\modules\cargo\delivery\backpack.dm"
 #include "code\modules\cargo\delivery\package.dm"
 #include "code\modules\cargo\delivery\receptacle.dm"

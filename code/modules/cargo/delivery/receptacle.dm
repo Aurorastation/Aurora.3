@@ -82,11 +82,23 @@ var/global/list/all_cargo_receptacles = list()
 			visible_message(SPAN_WARNING("\The [src] buzzes harshly, \"Invalid package! Check the delivery ID!\""))
 			return
 
+		var/pays_horizon_account = package.pays_horizon_account
+
 		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."))
 		if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 			user.drop_from_inventory(attacking_item, src)
 			pay_account(user, attacking_item)
 			qdel(attacking_item)
+
+			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
+			if(selected_delivery_point)
+				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
+				playsound(src, /singleton/sound_category/print_sound, 50, TRUE)
+
+				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
+				printed_package.pays_horizon_account = pays_horizon_account
+				animate(printed_package, alpha = 0, alpha = 255, time = 1 SECOND) // Makes them fade in
+
 		return
 	return ..()
 
