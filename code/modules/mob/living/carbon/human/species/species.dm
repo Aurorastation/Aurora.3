@@ -326,9 +326,17 @@
 	)
 
 	var/zombie_type	//What zombie species they become
-	var/list/character_color_presets
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
+
+	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
+	var/list/character_color_presets
+
+	/// The lower bound for the skin tone value, the lower, the "lighter" they'll appear
+	var/lower_skin_tone_bound = 30
+
+	/// The upper bound for the skin tone value, the higher, the "darker" they'll appear
+	var/upper_skin_tone_bound = 220
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
