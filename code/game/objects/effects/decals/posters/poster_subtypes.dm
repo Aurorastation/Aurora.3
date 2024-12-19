@@ -23,11 +23,11 @@
 /obj/item/contraband/poster/command
 	random_type = /singleton/poster_design/command
 
-obj/structure/sign/poster/security
+/obj/structure/sign/poster/security
 	icon_state = "bsposter21"
 	random_type = /singleton/poster_design/security
 
-obj/item/contraband/poster/security
+/obj/item/contraband/poster/security
 	random_type = /singleton/poster_design/security
 
 /obj/structure/sign/poster/medical
