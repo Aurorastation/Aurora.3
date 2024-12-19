@@ -664,6 +664,10 @@
 
 /area/horizon/holodeck/source_lasertag
 	name = "Horizon - Holodeck - Laser Tag Arena"
+
+/area/horizon/holodeck/source_combat_training
+	name = "Horizon - Holodeck - Combat Training Arena"
+
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

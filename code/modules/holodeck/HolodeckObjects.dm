@@ -444,6 +444,7 @@
 	meat_amount = 0
 	meat_type = null
 	light_range = 2
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -466,9 +467,19 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
+/mob/living/simple_animal/hostile/carp/holodeck/pain
+	damage_type = DAMAGE_PAIN
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/Initialize()
+	. = ..()
+	set_safety(FALSE)
+
+/mob/living/simple_animal/hostile/carp/holodeck/pain/set_safety(safe)
+	faction = "carp"
+	melee_damage_lower = 5
+	melee_damage_upper = 5
+	environment_smash = 0
+	destroy_surroundings = FALSE
 
 //Holo-penguin
 
@@ -504,10 +515,6 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/penguin/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
-
 //Holo Animal babies
 
 /mob/living/simple_animal/corgi/puppy/holodeck
@@ -527,10 +534,6 @@
 	..()
 	derez()
 
-/mob/living/simple_animal/corgi/puppy/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
-
 /mob/living/simple_animal/cat/kitten/holodeck
 	icon_gib = null
 	meat_amount = 0
@@ -547,7 +550,3 @@
 /mob/living/simple_animal/cat/kitten/holodeck/death()
 	..()
 	derez()
-
-/mob/living/simple_animal/cat/kitten/holodeck/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"))
-	qdel(src)
