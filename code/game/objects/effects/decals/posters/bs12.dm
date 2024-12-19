@@ -127,7 +127,7 @@
 /singleton/poster_design/command/bay_41
 	icon_state="bsposter41"
 	name = "Professional work environment"
-	desc = "A safety poster featuring a green haired woman in a shimmering blue dress. \"As an member of Human Resources, your job is to create a fair and agreeable work environment for the crewmembers, as discreetly and professionally as possible.\""
+	desc = "A safety poster featuring a green haired woman in a shimmering blue dress. \"As a member of Human Resources, your job is to create a fair and agreeable work environment for the crewmembers, as discreetly and professionally as possible.\""
 
 /singleton/poster_design/pinup/bay_42
 	icon_state="bsposter42"
