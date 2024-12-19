@@ -633,7 +633,7 @@
 	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/poster/civilian/bay_67{
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
@@ -936,7 +936,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
-/obj/structure/sign/poster/civilian/bay_68{
+/obj/structure/sign/poster/lore/tcaf2{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -8294,10 +8294,10 @@
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/contraband/poster/civilian/bay_67,
-/obj/item/contraband/poster/civilian/bay_67,
-/obj/item/contraband/poster/civilian/bay_68,
-/obj/item/contraband/poster/civilian/bay_68,
+/obj/item/contraband/poster/lore/tcaf,
+/obj/item/contraband/poster/lore/tcaf,
+/obj/item/contraband/poster/lore/tcaf2,
+/obj/item/contraband/poster/lore/tcaf2,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
 "GI" = (

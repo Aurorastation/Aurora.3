@@ -3495,7 +3495,7 @@
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
 	},
-/obj/structure/sign/poster/civilian/bay_67{
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,

@@ -9,12 +9,14 @@
 /obj/item/contraband/poster/civilian
 	random_type = /singleton/poster_design/civilian
 
+
 /obj/structure/sign/poster/pinup
 	icon_state = "bsposter48"
 	random_type = /singleton/poster_design/pinup
 
 /obj/item/contraband/poster/pinup
 	random_type = /singleton/poster_design/pinup
+
 
 /obj/structure/sign/poster/command
 	icon_state = "bsposter40"
@@ -23,12 +25,14 @@
 /obj/item/contraband/poster/command
 	random_type = /singleton/poster_design/command
 
+
 /obj/structure/sign/poster/security
 	icon_state = "bsposter21"
 	random_type = /singleton/poster_design/security
 
 /obj/item/contraband/poster/security
 	random_type = /singleton/poster_design/security
+
 
 /obj/structure/sign/poster/medical
 	icon_state = "bsposter43"
@@ -37,12 +41,22 @@
 /obj/item/contraband/poster/medical
 	random_type = /singleton/poster_design/medical
 
+
 /obj/structure/sign/poster/engineering
 	icon_state = "bsposter54"
 	random_type = /singleton/poster_design/engineering
 
 /obj/item/contraband/poster/engineering
 	random_type = /singleton/poster_design/engineering
+
+/// It is not recommended to use this as this may result in picking posters that do not match the setting
+/obj/structure/sign/poster/lore
+	icon_state = "tcflposter"
+	random_type = /singleton/poster_design/lore
+
+/// It is not recommended to use this as this may result in picking posters that do not match the setting
+/obj/item/contraband/poster/lore
+	random_type = /singleton/poster_design/lore
 
 // Poster Subtypes //
 
@@ -421,20 +435,20 @@
 	poster_type = /singleton/poster_design/engineering/bay_65
 
 
-/obj/structure/sign/poster/civilian/bay_67
+/obj/structure/sign/poster/lore/tcaf
 	icon_state = "tcflposter"
-	poster_type = /singleton/poster_design/civilian/bay_67
+	poster_type = /singleton/poster_design/lore/tcaf
 
-/obj/item/contraband/poster/civilian/bay_67
-	poster_type = /singleton/poster_design/civilian/bay_67
+/obj/item/contraband/poster/lore/tcaf
+	poster_type = /singleton/poster_design/lore/tcaf
 
 
-/obj/structure/sign/poster/civilian/bay_68
+/obj/structure/sign/poster/lore/tcaf2
 	icon_state = "tcflposter2"
-	poster_type = /singleton/poster_design/civilian/bay_68
+	poster_type = /singleton/poster_design/lore/tcaf2
 
-/obj/item/contraband/poster/civilian/bay_68
-	poster_type = /singleton/poster_design/civilian/bay_68
+/obj/item/contraband/poster/lore/tcaf2
+	poster_type = /singleton/poster_design/lore/tcaf2
 
 
 /obj/structure/sign/poster/security/tg_5

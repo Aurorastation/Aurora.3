@@ -234,12 +234,12 @@
 	name = "Importance of Phoron"
 	desc = "A corporate morale poster showing three forms of phoron. Teaching the very basics of this really important substance."
 
-/singleton/poster_design/civilian/bay_67
+/singleton/poster_design/lore/tcaf
 	icon_state = "tcflposter"
 	name = "Tau Ceti Foreign Legion"
 	desc = "A TCFL recruitment poster."
 
-/singleton/poster_design/civilian/bay_68
+/singleton/poster_design/lore/tcaf2
 	icon_state = "tcflposter2"
 	name = "Tau Ceti Foreign Legion Synthetic Benefits"
 	desc = "A TCFL recruitment poster showcasing the benefits Synthetics gain when enlisting."

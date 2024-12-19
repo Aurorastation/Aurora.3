@@ -2599,7 +2599,7 @@
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/obj/structure/sign/poster/civilian/bay_68{
+/obj/structure/sign/poster/lore/tcaf2{
 	pixel_x = 32
 	},
 /turf/simulated/floor/wood,

@@ -20,7 +20,6 @@
 	ban_ruins = list(/datum/map_template/ruin/away_site/tcfl_peacekeeper_ship) // This might not work, I haven't tested it.
 
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/tcaf_corvette
 	map = "Republican Fleet Corvette"

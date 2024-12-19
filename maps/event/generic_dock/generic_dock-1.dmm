@@ -13788,7 +13788,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/poster/civilian/bay_67{
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
 	pixel_y = 31
 	},
