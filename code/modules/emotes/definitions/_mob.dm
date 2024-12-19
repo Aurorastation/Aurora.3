@@ -85,6 +85,7 @@
 		/singleton/emote/audible/synth/buzz,
 		/singleton/emote/audible/synth/confirm,
 		/singleton/emote/audible/synth/deny,
+		/singleton/emote/audible/synth/alarm,
 		/singleton/emote/visible/nod,
 		/singleton/emote/visible/shake,
 		/singleton/emote/visible/shiver,
