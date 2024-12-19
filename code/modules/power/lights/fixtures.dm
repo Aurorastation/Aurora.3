@@ -129,6 +129,11 @@
 	randomize_color = FALSE
 	icon_state = "tube_red_preview"
 
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
+
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED
 	randomize_color = FALSE

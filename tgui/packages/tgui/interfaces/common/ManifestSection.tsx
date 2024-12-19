@@ -57,8 +57,9 @@ export const ManifestSection = (props, context) => {
                             'manifest-indicator-' +
                             crewmate.active
                               .toLowerCase()
-                              .replace(/\*/g, '')
-                              .replace(/\s/g, '-')
+                              .replace(/\*/g, '') // removes asterisks
+                              .replace(/\s/g, '-') // replaces spaces with a dash
+                              .replace(/:.*?$/, '') // matches and removes : to the end of the string, so it catches Away Mission(: ShuttleName)
                           }
                         />
                       </Tooltip>
