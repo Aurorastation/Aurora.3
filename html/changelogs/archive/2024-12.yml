@@ -83,3 +83,26 @@
   - bugfix: The Xenobotanist can now access their NanoMed.
   - qol: The Operations Lobby first aid locker no longer contains the autolathe supplies
       at round start.
+2024-12-19:
+  Ben10083:
+  - bugfix: TCAF Away Ship shutters now have proper access.
+  DreamySkrell:
+  - rscadd: Crystal Planet Outpost Update. Adds submaps and exoplanet generation.
+  - rscadd: Cryo Outpost Update. Updates exoplanet generation with hot air and light.
+  - rscadd: Away Site Exoplanet Generation Improvements. Allows setting atmos for
+      all exoplanet turfs on the map.
+  - rscadd: Away Site Exoplanet Generation Improvements. Exoplanet turfs can have
+      light if they are outside.
+  - rscadd: Away Site Exoplanet Generation Improvements. Base Turf fixes, explosions
+      do not turn turfs into space, and destroying or mining turfs is generally better
+      handled.
+  FabianK3:
+  - bugfix: Added missing emissives for the regular high visibility jacket.
+  FluffyGhost:
+  - rscadd: Added a comet expulsion event, coming towards the main map, if not dodged
+      causes some meteors that then explode, the explosion power can be reduced by
+      shields.
+  - code_imp: Some DMDocs, code cleanups and other things noone else cares about.
+  Geeves:
+  - rscadd: Being added to a shuttle manifest will now update the crew manifest to
+      indicate that you're on an away mission on that shuttle.

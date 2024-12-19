@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Being added to a shuttle manifest will now update the crew manifest to indicate that you're on an away mission on that shuttle."
