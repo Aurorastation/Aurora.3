@@ -77,6 +77,23 @@
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
+/obj/item/gun/custom_ka/exosuit
+	name = "exosuit kinetic accelerator"
+	build_name = "exosuit compatible"
+	icon_state = "frame_cyborg"
+	desc = "A kinetic accelerator frame meant for exosuits. Uses an exosuit's internal charge as power."
+	w_class = WEIGHT_CLASS_HUGE
+	recoil_increase = -10
+	capacity_increase = 100
+	mod_limit_increase = 100
+	origin_tech = list()
+	can_disassemble_cell = FALSE
+	cyborg_maptext_override = TRUE
+
+	installed_cell = /obj/item/custom_ka_upgrade/cells/exosuit
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/explosive/exosuit
+
 /obj/item/gun/custom_ka/frameA
 	name = "vented kinetic accelerator frame"
 	build_name = "vented"
