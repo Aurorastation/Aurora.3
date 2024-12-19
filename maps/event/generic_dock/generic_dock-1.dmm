@@ -13788,11 +13788,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/civilian/bay_67{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = /singleton/poster_design/bay_67
+	pixel_y = 31
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)

@@ -627,17 +627,15 @@
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Alliance. It's heavily dented and badly worn, its patriotic imagery almost completely chipped out of recognition.";
 	pixel_x = -8
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
-	poster_type = /singleton/poster_design/bay_67;
-	pixel_y = 32
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8;
 	pixel_y = 3;
 	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/civilian/bay_67{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/messhall)
 "bY" = (
@@ -938,9 +936,7 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	poster_type = /singleton/poster_design/bay_68;
+/obj/structure/sign/poster/civilian/bay_68{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -1341,9 +1337,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/poster{
-	icon_state = "bsposter52";
-	poster_type = /singleton/poster_design/bay_52;
+/obj/structure/sign/poster/engineering/bay_52{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7449,9 +7443,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/structure/sign/poster{
-	icon_state = "bsposter51";
-	poster_type = /singleton/poster_design/bay_51;
+/obj/structure/sign/poster/civilian/bay_51{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -7923,9 +7915,7 @@
 /area/tcaf_corvette/hangar)
 "Fm" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/sign/poster{
-	icon_state = "bsposter33";
-	poster_type = /singleton/poster_design/bay_33;
+/obj/structure/sign/poster/engineering/bay_33{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -8304,18 +8294,10 @@
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/contraband/poster{
-	poster_type = /singleton/poster_design/bay_67
-	},
-/obj/item/contraband/poster{
-	poster_type = /singleton/poster_design/bay_67
-	},
-/obj/item/contraband/poster{
-	poster_type = /singleton/poster_design/bay_68
-	},
-/obj/item/contraband/poster{
-	poster_type = /singleton/poster_design/bay_68
-	},
+/obj/item/contraband/poster/civilian/bay_67,
+/obj/item/contraband/poster/civilian/bay_67,
+/obj/item/contraband/poster/civilian/bay_68,
+/obj/item/contraband/poster/civilian/bay_68,
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
 "GI" = (
@@ -11493,9 +11475,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
 	},
-/obj/structure/sign/poster{
-	icon_state = "bsposter32";
-	poster_type = /singleton/poster_design/bay_32;
+/obj/structure/sign/poster/civilian/bay_32{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -11825,11 +11805,6 @@
 	pixel_x = 5;
 	pixel_y = 12
 	},
-/obj/structure/sign/poster{
-	icon_state = "bsposter24";
-	poster_type = /singleton/poster_design/bay_24;
-	pixel_y = 32
-	},
 /obj/item/clothing/accessory/stethoscope{
 	pixel_y = 4
 	},
@@ -11839,6 +11814,9 @@
 	},
 /obj/item/storage/belt/medical/paramedic/combat{
 	pixel_x = 2
+	},
+/obj/structure/sign/poster/medical{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
@@ -11956,12 +11934,10 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
-/obj/structure/sign/poster{
-	icon_state = "bsposter53";
-	poster_type = /singleton/poster_design/bay_53;
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/engineering/bay_53{
 	pixel_y = 32
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engine)
 "UG" = (
