@@ -1,19 +1,19 @@
-/mob/living/MouseDrop(atom/over)
-	if(usr == src && usr != over)
+/mob/living/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == src && user != over)
 		if(istype(over, /mob/living/heavy_vehicle))
-			if(usr.mob_size >= MOB_SMALL && usr.mob_size <= 14)
+			if(user.mob_size >= MOB_SMALL && user.mob_size <= 14)
 				var/mob/living/heavy_vehicle/M = over
 				if(M.enter(src))
 					return
 			else
-				to_chat(usr, SPAN_WARNING("You cannot pilot a mech of this size."))
+				to_chat(user, SPAN_WARNING("You cannot pilot a mech of this size."))
 				return
 	return ..()
 
-/mob/living/heavy_vehicle/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/machinery/portable_atmospherics/canister/C = dropping
+/mob/living/heavy_vehicle/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C))
-		body.MouseDrop_T(dropping, user)
+		body.mouse_drop_receive(arglist(args))
 	else . = ..()
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)

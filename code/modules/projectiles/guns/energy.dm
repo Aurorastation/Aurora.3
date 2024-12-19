@@ -217,7 +217,7 @@
 	self_recharge = initial(self_recharge)
 	use_external_power = initial(use_external_power)
 
-/obj/item/gun/energy/MouseDrop(atom/over)
+/obj/item/gun/energy/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 
 

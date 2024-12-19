@@ -107,10 +107,10 @@
 
 	do_hair_pull(user)
 
-/obj/machinery/gibber/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/gibber/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.stat || user.restrained())
 		return
-	move_into_gibber(user, dropping)
+	move_into_gibber(user, dropped)
 
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
 

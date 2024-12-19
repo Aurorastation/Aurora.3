@@ -34,8 +34,8 @@
 		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 		source_hoist.release_hoistee()
 
-/obj/effect/hoist_hook/MouseDrop_T(atom/dropping, mob/user)
-	var/atom/movable/AM = dropping
+/obj/effect/hoist_hook/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/atom/movable/AM = dropped
 	if(!istype(AM))
 		return
 
@@ -63,25 +63,26 @@
 			AM.anchored = TRUE
 	source_hook.layer = AM.layer + 0.1
 
-/obj/effect/hoist_hook/MouseDrop(atom/dest)
+/obj/effect/hoist_hook/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(!dest.Adjacent(usr)) return // carried over from the default proc
+	if(!over.Adjacent(user))
+		return // carried over from the default proc
 
-	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
 	if (!source_hoist.hoistee)
 		return
-	if (!isturf(dest))
+	if (!isturf(over))
 		return
-	if (!dest.Adjacent(source_hoist.hoistee))
+	if (!over.Adjacent(source_hoist.hoistee))
 		return
 
 	source_hoist.check_consistency()
 
-	var/turf/desturf = dest
+	var/turf/desturf = over
 	source_hoist.hoistee.forceMove(desturf)
-	usr.visible_message(SPAN_NOTICE("[usr] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
+	user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 	source_hoist.release_hoistee()
 
 // This will handle mobs unbuckling themselves.

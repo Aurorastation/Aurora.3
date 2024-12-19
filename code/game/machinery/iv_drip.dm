@@ -276,31 +276,31 @@
 			if(attached.take_blood(beaker, amount))
 				update_icon()
 
-/obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
+/obj/machinery/iv_drip/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check_and_message(usr))
+	if(use_check_and_message(user))
 		return
-	if(isDrone(usr))
+	if(isDrone(user))
 		return
-	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
+	if(in_range(src, user) && ishuman(over) && in_range(over, src))
 		var/list/options = list(
 			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
 			"Breath mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
-		var/chosen_action = show_radial_menu(usr, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 		if(!chosen_action)
 			return
 		switch(chosen_action)
 			if("IV drip")
 				if(attached)
-					visible_message("[usr] detaches \the [src] from [attached]'s [vein.name].")
+					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].")
 					vein = null
 					attached = null
 					blood_message_sent = FALSE
 					update_icon()
 					return
-				attached = over_object
-				vein = attached.get_organ(usr.zone_sel.selecting)
-				var/checking = attached.can_inject(usr, TRUE, usr.zone_sel.selecting, armor_check)
+				attached = over
+				vein = attached.get_organ(user.zone_sel.selecting)
+				var/checking = attached.can_inject(user, TRUE, user.zone_sel.selecting, armor_check)
 				if(!checking)
 					attached = null
 					vein = null
@@ -308,42 +308,42 @@
 				if(armor_check)
 					var/attach_time = attach_delay
 					attach_time *= checking
-					if(!do_mob(usr, attached, attach_time))
-						to_chat(usr, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
+					if(!do_mob(user, attached, attach_time))
+						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
 						attached = null
 						vein = null
 						return
-				visible_message("[usr][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
+				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
 				return
 			if("Breath mask")
 				if(!breath_mask)
-					to_chat(usr, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
+					to_chat(user, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
 					return
 				if(breather)
 					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
 					breath_mask_rip()
 					return
-				breather = over_object
+				breather = over
 				if(!breather.organs_by_name[BP_HEAD])
-					to_chat(usr, SPAN_WARNING("\The [breather] doesn't have a head!"))
+					to_chat(user, SPAN_WARNING("\The [breather] doesn't have a head!"))
 					breather = null
 					return
 				if(!breather.check_has_mouth())
-					to_chat(usr, SPAN_WARNING("\The [breather] doesn't have a mouth!"))
+					to_chat(user, SPAN_WARNING("\The [breather] doesn't have a mouth!"))
 					breather = null
 					return
 				if(breather.head && (breather.head.body_parts_covered & FACE))
-					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
+					to_chat(user, SPAN_WARNING("You must remove \the [breather]'s [breather.head] first!"))
 					breather = null
 					return
 				if(breather.wear_mask)
-					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
+					to_chat(user, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
 				if(tank)
 					tank_on()
-				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
+				visible_message("<b>[user]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)

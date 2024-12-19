@@ -11,10 +11,10 @@
 	anchored = TRUE
 	layer = 4
 
-/obj/machinery/fusion_fuel_compressor/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/fusion_fuel_compressor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
-	return do_fuel_compression(dropping, user)
+	return do_fuel_compression(dropped, user)
 
 /obj/machinery/fusion_fuel_compressor/attackby(obj/item/attacking_item, mob/user)
 	return do_fuel_compression(attacking_item, user) || ..()

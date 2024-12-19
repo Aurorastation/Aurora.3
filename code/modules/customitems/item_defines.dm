@@ -425,21 +425,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
-/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
-	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
-			if(!usr.get_active_hand()) // If active hand is empty.
-				var/mob/living/carbon/human/H = user
+/obj/item/fluff/tokash_spear/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!(user.restrained()) && (!(user.stat) && (user.contents.Find(src) || in_range(src, user))))))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if(!user.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = over
 				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if(H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/fluff/tokash_spearhead
@@ -830,11 +830,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on \the [src]."))
 			update_icon()
 
-/obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user))
-			forceMove(get_turf(user))
-			user.put_in_hands(src)
+/obj/item/fluff/akinyi_stand/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(ishuman(over))
+			var/mob/living/carbon/human/H = over
+			forceMove(get_turf(H))
+			H.put_in_hands(src)
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/attack_hand(mob/user)

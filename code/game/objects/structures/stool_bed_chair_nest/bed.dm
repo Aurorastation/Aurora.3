@@ -492,27 +492,27 @@
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/roller/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
-	if(over_object == buckled && beaker)
+	if(over == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled, usr)
+			detach_iv(buckled, user)
 		else
-			attach_iv(buckled, usr)
+			attach_iv(buckled, user)
 		return
-	if(usr != over_object && ishuman(over_object))
-		if(user_buckle(over_object, usr))
-			attach_iv(buckled, usr)
+	if(user != over && ishuman(over))
+		if(user_buckle(over, user))
+			attach_iv(buckled, user)
 			return
 	if(beaker)
-		remove_beaker(usr)
+		remove_beaker(user)
 		return
 	if(vitals)
-		remove_vitals(usr)
+		remove_vitals(user)
 		return
 	if(buckled)
 		return

@@ -246,8 +246,11 @@
 
 // mouse drop another mob or self
 //
-/obj/machinery/disposal/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
+	if(!istype(target))
+		return
+
 	if(user.stat || !user.canmove || !istype(target))
 		return
 	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)
@@ -304,7 +307,6 @@
 		C.show_message(msg, 3)
 
 	update()
-	return
 
 /obj/machinery/disposal/proc/check_mob_size(mob/target)
 	return 1

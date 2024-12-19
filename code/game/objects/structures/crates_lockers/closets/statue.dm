@@ -151,7 +151,7 @@
 	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
-/obj/structure/closet/statue/MouseDrop_T()
+/obj/structure/closet/statue/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/structure/closet/statue/relaymove(mob/living/user, direction)

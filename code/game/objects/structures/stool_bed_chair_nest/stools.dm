@@ -15,12 +15,12 @@
 	. = ..()
 	can_buckle = FALSE // Some idiot decided can_buckle should be a list...
 
-/obj/structure/bed/stool/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/stool/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
-	if(over_object == usr && Adjacent(usr))
-		if(!held_item || use_check_and_message(usr) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
+	if(over == user && Adjacent(user))
+		if(!held_item || use_check_and_message(user) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
-		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
+		user.visible_message(SPAN_NOTICE("[user] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material?.name, painted_colour) // Handles all the material code so you don't have to.
 		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
@@ -33,8 +33,8 @@
 			S.blood_DNA |= blood_DNA // Transfer blood, if any.
 			S.add_blood()
 		S.dir = dir
-		S.add_fingerprint(usr)
-		usr.put_in_hands(S)
+		S.add_fingerprint(user)
+		user.put_in_hands(S)
 		S.update_icon()
 		qdel(src)
 
@@ -197,19 +197,20 @@
 /obj/item/material/stool/AltClick(mob/user)
 	deploy(user)
 
-/obj/item/material/stool/MouseDrop(mob/user)
-	if((user && (!use_check(user))) && (user.contents.Find(src)) || in_range(src, user))
-		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
-			if( !user.get_active_hand() )		//if active hand is empty
+/obj/item/material/stool/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over && (!use_check(over))) && (over.contents.Find(src)) || in_range(src, over))
+		if(!istype(over, /mob/living/carbon/slime) && !istype(over, /mob/living/simple_animal))
+			var/mob/mouse_dropped_over = over
+			if( !mouse_dropped_over.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)

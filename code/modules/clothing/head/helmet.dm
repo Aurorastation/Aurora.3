@@ -55,10 +55,10 @@
 		return
 	return ..(user)
 
-/obj/item/clothing/head/helmet/MouseDrop(obj/over_object)
-	if(has_storage && !hold.handle_mousedrop(usr, over_object))
+/obj/item/clothing/head/helmet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(has_storage && !hold.handle_mousedrop(user, over))
 		return
-	return ..(over_object)
+	return ..()
 
 /obj/item/clothing/head/helmet/handle_middle_mouse_click(mob/user)
 	if(has_storage && Adjacent(user))

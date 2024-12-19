@@ -578,8 +578,8 @@
 	updateUsrDialog()
 
 
-/obj/machinery/reagentgrinder/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/living/carbon/human/target = dropping
+/obj/machinery/reagentgrinder/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/living/carbon/human/target = dropped
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)

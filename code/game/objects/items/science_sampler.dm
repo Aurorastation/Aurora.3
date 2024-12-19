@@ -243,9 +243,9 @@
 /obj/machinery/centrifuge/AltClick()
 	remove_sample(usr)
 
-/obj/machinery/centrifuge/MouseDrop(var/atom/other)
-	if(usr == other)
-		remove_sample(usr)
+/obj/machinery/centrifuge/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == over)
+		remove_sample(user)
 	else
 		return ..()
 

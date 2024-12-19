@@ -32,7 +32,7 @@
 
 	. = ..()
 
-/atom/movable/screen/movable/ability_master/MouseDrop()
+/atom/movable/screen/movable/ability_master/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(showing)
 		return
 
@@ -189,11 +189,11 @@
 
 	activate()
 
-/atom/movable/screen/ability/MouseDrop(var/atom/A)
-	if(!A || A == src)
+/atom/movable/screen/ability/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(!over || over == src)
 		return
-	if(istype(A, /atom/movable/screen/ability))
-		var/atom/movable/screen/ability/ability = A
+	if(istype(over, /atom/movable/screen/ability))
+		var/atom/movable/screen/ability/ability = over
 		if(ability.ability_master && ability.ability_master == src.ability_master)
 			ability_master.ability_objects.Swap(src.index, ability.index)
 			ability_master.toggle_open(2) // To update the UI.

@@ -277,12 +277,12 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/atmospherics/unary/cryo_cell/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
-	if(!ismob(dropping))
+	if(!ismob(dropped))
 		return
-	var/mob/living/L = dropping
+	var/mob/living/L = dropped
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.victim == L)
 			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo because they have a slime latched onto their head."))

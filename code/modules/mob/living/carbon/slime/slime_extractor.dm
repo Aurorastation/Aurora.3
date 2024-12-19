@@ -62,12 +62,12 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-/obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/slime_extractor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user))
 		to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
 		return
-	if(isslime(dropping))
-		var/mob/living/carbon/slime/slimey = dropping
+	if(isslime(dropped))
+		var/mob/living/carbon/slime/slimey = dropped
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return

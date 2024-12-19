@@ -408,14 +408,14 @@
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user, /mob/living))
 		return
 
-	if(!check_occupant_allowed(dropping))
+	if(!check_occupant_allowed(dropped))
 		return
 
-	var/mob/living/M = dropping
+	var/mob/living/M = dropped
 	if(istype(M))
 		go_in(user, M)
 

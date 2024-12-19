@@ -19,7 +19,7 @@
 	snap2grid = TRUE
 
 
-/atom/movable/screen/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
+/atom/movable/screen/movable/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/list/PM = params2list(params)
 
 	//No screen-loc information? abort.

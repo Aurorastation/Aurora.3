@@ -97,20 +97,20 @@
 	else
 		..()
 
-/obj/item/reagent_containers/blood/MouseDrop(over_object, src_location, over_location)
+/obj/item/reagent_containers/blood/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(!ismob(loc))
 		return
 	var/turf/our_turf = get_turf(src)
-	var/turf/target_turf = get_turf(over_object)
+	var/turf/target_turf = get_turf(over)
 	if(!our_turf.Adjacent(target_turf))
 		return
 	if(attached_mob)
 		remove_iv_mob()
-	else if(ishuman(over_object))
-		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
-		if(do_after(usr, 30))
-			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
-			attached_mob = WEAKREF(over_object)
+	else if(ishuman(over))
+		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."))
+		if(do_after(user, 30))
+			to_chat(user, SPAN_NOTICE("You hook \the [over] up to \the [src]."))
+			attached_mob = WEAKREF(over)
 			START_PROCESSING(SSprocessing, src)
 	update_icon()
 

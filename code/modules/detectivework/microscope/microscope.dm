@@ -174,9 +174,9 @@
 /obj/machinery/microscope/AltClick()
 	remove_sample(usr)
 
-/obj/machinery/microscope/MouseDrop(var/atom/other)
-	if(usr == other)
-		remove_sample(usr)
+/obj/machinery/microscope/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over == user)
+		remove_sample(user)
 	else
 		return ..()
 

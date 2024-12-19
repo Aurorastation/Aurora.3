@@ -24,7 +24,7 @@
 
 	. = ..()
 
-/atom/movable/screen/movable/spell_master/MouseDrop()
+/atom/movable/screen/movable/spell_master/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(showing)
 		return
 

@@ -38,12 +38,12 @@
 	else
 		..(user)
 
-/obj/item/clothing/suit/armor/MouseDrop(obj/over_object as obj)
+/obj/item/clothing/suit/armor/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if (pockets)
-		if (pockets.handle_mousedrop(usr, over_object))
-			..(over_object)
+		if (pockets.handle_mousedrop(user, over))
+			..()
 	else
-		..(over_object)
+		..()
 
 /obj/item/clothing/suit/armor/attackby(obj/item/attacking_item, mob/user)
 	..()

@@ -244,10 +244,13 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/stasis_cage/MouseDrop_T(mob/target, mob/user)
-	if (!isanimal(target) && safety)
-		to_chat(user, SPAN_WARNING("\The [src] smartly refuses \the [target]."))
+/obj/machinery/stasis_cage/mouse_drop_receive(atom/dropped, mob/user, params)
+	if (!isanimal(dropped) && safety)
+		to_chat(user, SPAN_WARNING("\The [src] smartly refuses \the [dropped]."))
 		return
+
+	var/mob/living/simple_animal/target = dropped
+
 	if (!allowed(user))
 		to_chat(user, SPAN_NOTICE("\The [src] blinks, refusing access."))
 		return

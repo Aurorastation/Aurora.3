@@ -146,9 +146,9 @@
 				pixel_y = -4
 
 //For putting on tables
-/obj/structure/closet/crate/MouseDrop(atom/over_object)
-	if (istype(over_object, /obj/structure/table))
-		put_on_table(over_object, usr)
+/obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if (istype(over, /obj/structure/table))
+		put_on_table(over, user)
 		return TRUE
 	else
 		return ..()

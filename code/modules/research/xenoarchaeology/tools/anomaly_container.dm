@@ -41,7 +41,7 @@
 	underlays.Cut()
 	desc = initial(desc)
 
-/obj/machinery/artifact/MouseDrop(atom/over)
+/obj/machinery/artifact/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(istype(over, /obj/structure/anomaly_container))
 		var/obj/structure/anomaly_container/box = over
 		box.contain(src)

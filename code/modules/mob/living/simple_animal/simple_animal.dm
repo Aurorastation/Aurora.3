@@ -910,13 +910,13 @@
 			gib()
 
 /// For picking up small animals
-/mob/living/simple_animal/MouseDrop(atom/over_object)
+/mob/living/simple_animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if (holder_type)//we need a defined holder type in order for picking up to work
-		var/mob/living/carbon/H = over_object
+		var/mob/living/carbon/H = over
 		if(!istype(H) || !Adjacent(H))
 			return ..()
 
-		get_scooped(H, usr)
+		get_scooped(H, user)
 		return
 	return ..()
 

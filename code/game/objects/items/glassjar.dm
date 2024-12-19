@@ -101,14 +101,14 @@
 	update_icon()
 	return
 
-/obj/item/glass_jar/MouseDrop(atom/over)
-	if(usr != over || use_check_and_message(usr))
+/obj/item/glass_jar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user != over || use_check_and_message(user))
 		return
 	if(length(contained))
 		switch(contains)
 			if(JAR_GUMBALL)
-				release(contained[1], usr)
-				usr.put_in_hands(contained[1])
+				release(contained[1], user)
+				user.put_in_hands(contained[1])
 				contained -= contained[1]
 
 /obj/item/glass_jar/attackby(obj/item/attacking_item, mob/user)

@@ -301,8 +301,8 @@
 	if(length(contents) || reagents?.total_volume)
 		. += SPAN_NOTICE("To attempt cooking: click and hold, then drag this onto your character.")
 
-/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
-	if(over_obj != usr || use_check(usr))
+/obj/item/reagent_containers/cooking_container/board/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user || use_check(user))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
@@ -329,12 +329,12 @@
 		R.forceMove(src) //Move everything from the buffer back to the container
 
 	var/l = length(results)
-	if (l && usr)
+	if (l && user)
 		var/name = results[1].name
 		if (l > 1)
-			to_chat(usr, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
+			to_chat(user, SPAN_NOTICE("You made some [pluralize_word(name, TRUE)]!"))
 		else
-			to_chat(usr, SPAN_NOTICE("You made [name]!"))
+			to_chat(user, SPAN_NOTICE("You made [name]!"))
 
 	QDEL_NULL(temp) //delete buffer object
 	return ..()

@@ -171,17 +171,20 @@
 	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
 	user.visible_message("<b>\The [user]</b> shuffles [src].")
 
-/obj/item/deck/MouseDrop(atom/over)
-	if(!usr || !over) return
-	if(!Adjacent(usr) || !over.Adjacent(usr)) return // should stop you from dragging through windows
+/obj/item/deck/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(!user || !over)
+		return
+	if(!Adjacent(user) || !over.Adjacent(user))
+		return // should stop you from dragging through windows
 
-	if(!ishuman(over) || !(over in viewers(3))) return
-
-	if(!cards.len)
-		to_chat(usr, SPAN_WARNING("There are no cards in the deck."))
+	if(!ishuman(over) || !(over in viewers(3)))
 		return
 
-	deal_at(usr, over)
+	if(!cards.len)
+		to_chat(user, SPAN_WARNING("There are no cards in the deck."))
+		return
+
+	deal_at(user, over)
 
 /obj/item/pack/
 	name = "card pack"

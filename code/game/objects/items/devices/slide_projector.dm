@@ -41,17 +41,17 @@
 		return
 	project_at(get_turf(target))
 
-/obj/item/storage/slide_projector/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
+/obj/item/storage/slide_projector/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(user))
 		return
 
-	if(over == usr)
-		interact(usr)
+	if(over == user)
+		interact(user)
 		return
 
 	var/turf/T = get_turf(over)
 	if(istype(T))
-		afterattack(over, usr)
+		afterattack(over, user)
 
 /obj/item/storage/slide_projector/proc/set_slide(obj/item/new_slide)
 	current_slide = new_slide

@@ -277,8 +277,8 @@
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
 	if(!istype(target))
 		return
 
