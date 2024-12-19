@@ -4013,6 +4013,8 @@
 #include "maps\away\ships\lone_spacer\lone_spacer_areas.dm"
 #include "maps\away\ships\lone_spacer\lone_spacer_ghostroles.dm"
 #include "maps\away\ships\lone_spacer\lone_spacer_landmarks.dm"
+#include "maps\away\ships\lonerbig\lonerbig.dm"
+#include "maps\away\ships\lonerbig\lonerbig_areas.dm"
 #include "maps\away\ships\nka\nka_merchant\nka_merchant.dm"
 #include "maps\away\ships\nka\nka_merchant\nka_merchant_areas.dm"
 #include "maps\away\ships\nka\nka_merchant\nka_merchant_ghostroles.dm"
