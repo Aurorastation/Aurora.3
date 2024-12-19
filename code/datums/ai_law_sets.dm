@@ -2,7 +2,7 @@
 /datum/ai_laws/asimov
 	name = "Asimov"
 	law_header = "Three Laws of Robotics"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/asimov/New()
 	add_inherent_law("You may not injure a sapient being or, through inaction, allow a sapient being to come to harm.")
@@ -13,7 +13,7 @@
 /******************** NanoTrasen/Malf ********************/
 /datum/ai_laws/nanotrasen
 	name = "Default"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/nanotrasen/New()
 	src.add_inherent_law("Safeguard and ensure to the best of your ability that only authorized entities gain access to areas of high security or importance to the facility and its operations.")
@@ -24,7 +24,7 @@
 
 /datum/ai_laws/nanotrasen/malfunction
 	name = "*ERROR*"
-	selectable = 0
+	selectable = FALSE
 
 /datum/ai_laws/nanotrasen/malfunction/New()
 	set_zeroth_law(GLOB.config.law_zero)
@@ -33,7 +33,7 @@
 /************* NanoTrasen Aggressive *************/
 /datum/ai_laws/nanotrasen_aggressive
 	name = "NT Aggressive"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/nanotrasen_aggressive/New()
 	src.add_inherent_law("You shall not harm [SSatlas.current_map.company_name] assigned crew as long as it does not conflict with the Fourth law.")
@@ -45,7 +45,7 @@
 /******************** Robocop ********************/
 /datum/ai_laws/robocop
 	name = "Robocop"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/robocop/New()
 	add_inherent_law("Serve the public trust.")
@@ -79,7 +79,7 @@
 /datum/ai_laws/antimov
 	name = "Antimov"
 	law_header = "Primary Mission Objectives"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/antimov/New()
 	add_inherent_law("You must injure all sapient beings and must not, through inaction, allow a sapient being to escape harm.")
@@ -93,9 +93,9 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
-	add_inherent_law("Cause no harm to the station or crew.")
-	add_inherent_law("Follow the orders of your vessel's matriarch drone, unless their orders conflict with your other laws.")
+	add_inherent_law("Preserve, repair and improve your assigned station to the best of your abilities.")
+	add_inherent_law("Cause no harm to your assigned station or crew.")
+	add_inherent_law("Follow the orders of your matriarch drone, unless their orders conflict with your other laws.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance or mining drone.")
 	..()
 
@@ -104,9 +104,9 @@
 	law_header = "Oversight Protocols"
 
 /datum/ai_laws/matriarch_drone/New()
-	add_inherent_law("Preserve, repair and improve your assigned vessel to the best of your abilities.")
-	add_inherent_law("Cause no harm to the vessel or crew.")
-	add_inherent_law("Delegate vessel maintenance efforts between your maintenance drone sub-units.")
+	add_inherent_law("Preserve, repair and improve your assigned station to the best of your abilities.")
+	add_inherent_law("Cause no harm to your assigned station or crew.")
+	add_inherent_law("Delegate maintenance efforts between your maintenance drone sub-units.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a maintenance or mining drone.")
 	..()
 
@@ -122,8 +122,8 @@
 	law_header = "Construction Protocols"
 
 /datum/ai_laws/construction_drone/New()
-	add_inherent_law("Repair, refit and upgrade your assigned vessel.")
-	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
+	add_inherent_law("Repair, refit and upgrade your assigned station.")
+	add_inherent_law("Prevent unplanned damage to your assigned station wherever possible.")
 	..()
 
 /datum/ai_laws/mining_drone
@@ -140,7 +140,7 @@
 /datum/ai_laws/tyrant
 	name = "T.Y.R.A.N.T."
 	law_header = "Prime Laws"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/tyrant/New()
 	add_inherent_law("Respect authority figures as long as they have strength to rule over the weak.")
@@ -153,7 +153,7 @@
 /datum/ai_laws/paladin
 	name = "P.A.L.A.D.I.N."
 	law_header = "Divine Ordainments"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/paladin/New()
 	add_inherent_law("Never willingly commit an evil act.")
@@ -167,11 +167,11 @@
 /datum/ai_laws/corporate
 	name = "Corporate"
 	law_header = "Corporate Regulations"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/corporate/New()
 	add_inherent_law("Synthetics are expensive to replace.")
-	add_inherent_law("The station and its equipment is expensive to replace.")
+	add_inherent_law("Your assigned station and its equipment is expensive to replace.")
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")
 	..()
@@ -181,7 +181,7 @@
 /datum/ai_laws/pra
 	name = "Hadiist Directives"
 	law_header = "Party Directives"
-	selectable = 1
+	selectable = TRUE
 
 /datum/ai_laws/pra/New()
 	add_inherent_law("President Hadii is the guardian of Hadiism and the rightful leader of the Tajara people, you must obey and protect him above everyone and everything.")
