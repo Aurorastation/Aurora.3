@@ -4957,7 +4957,9 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "HA" = (
@@ -5935,7 +5937,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
@@ -6228,7 +6231,9 @@
 	},
 /area/ship/dominian_unathi/hangar)
 "RC" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /obj/structure/railing/mapped,
 /obj/machinery/button/distress{
 	dir = 4;
@@ -6542,7 +6547,8 @@
 /area/ship/dominian_unathi/bridge)
 "Tj" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(212)
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -7456,7 +7462,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 4
+	dir = 4;
+	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)

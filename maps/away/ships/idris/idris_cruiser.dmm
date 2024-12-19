@@ -4467,7 +4467,8 @@
 /area/ship/idris_cruiser/cargo_bay)
 "qB" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(220)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -11345,7 +11346,8 @@
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "OI" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle{
-	dir = 8
+	dir = 8;
+	req_access = list(220)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -14079,7 +14081,9 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/spa)
 "YP" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(220)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "YQ" = (

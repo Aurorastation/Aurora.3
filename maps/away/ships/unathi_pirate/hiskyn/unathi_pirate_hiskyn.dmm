@@ -2615,7 +2615,8 @@
 /area/hiskyn_ship/hallc)
 "dek" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
@@ -3435,7 +3436,8 @@
 /area/hiskyn_ship/engineering)
 "ihY" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/blaster)
@@ -3821,7 +3823,8 @@
 /area/hiskyn_ship/francisca)
 "kKx" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
@@ -4286,7 +4289,8 @@
 /area/hiskyn_ship/blaster)
 "mRR" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/francisca)
@@ -4811,7 +4815,8 @@
 /area/hiskyn_ship/hallf)
 "qlH" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
@@ -6098,7 +6103,8 @@
 /area/hiskyn_ship/crew)
 "ylh" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)

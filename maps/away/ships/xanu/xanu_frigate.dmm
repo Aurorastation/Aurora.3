@@ -635,7 +635,8 @@
 /area/shuttle/xanu_boarder/main)
 "cl" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/bridge)
@@ -681,7 +682,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "cB" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -4265,7 +4267,8 @@
 /area/ship/xanu_frigate/corridor/starboard)
 "oy" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -5011,7 +5014,8 @@
 /area/ship/xanu_frigate/corridor/central)
 "ra" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -6435,7 +6439,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "wm" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/xanu_boarder{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -6983,7 +6988,8 @@
 /area/ship/xanu_frigate/weapon/longbow)
 "yw" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -8309,7 +8315,8 @@
 /area/ship/xanu_frigate/hangar)
 "Db" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -8319,7 +8326,8 @@
 /area/ship/xanu_frigate/cic)
 "Dc" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -11537,7 +11545,8 @@
 /area/ship/xanu_frigate/bridge)
 "NE" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(222)
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -13328,7 +13337,8 @@
 /area/ship/xanu_frigate/rec_room)
 "TA" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(222)
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -13393,7 +13403,8 @@
 /area/ship/xanu_frigate/crew_quarters)
 "TR" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(222)
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9

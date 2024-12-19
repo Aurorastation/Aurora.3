@@ -2649,7 +2649,9 @@
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(201)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "iGY" = (
@@ -6418,7 +6420,9 @@
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "uRC" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(201)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/cockpit)
 "uVR" = (

@@ -3179,7 +3179,8 @@
 "ud" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(208)
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/tirakqi_smuggler_shuttle)
@@ -7857,7 +7858,8 @@
 "Wr" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(208)
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/bridge)
