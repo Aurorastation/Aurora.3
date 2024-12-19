@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the 'Mechanical Eye-Emotion Coupling' disability, which makes your character's eyes change colour based on their intent, so long as they're mechanical."

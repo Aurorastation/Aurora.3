@@ -190,6 +190,9 @@
 /// Causes the mob to never clot their wounds
 #define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
 
+/// Causes the mob's mechanical eyes to change colour when their intents change
+#define TRAIT_DISABILITY_INTENT_EYES "disability_intent_eyes"
+
 /// hnnnnnnnggggg..... you're pretty good....
 #define TRAIT_NICE_SHOT "nice_shot"
 /// Mobs with this trait cannot be hit by projectiles, meaning the projectiles will just go through.
