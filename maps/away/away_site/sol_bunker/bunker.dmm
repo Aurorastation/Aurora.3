@@ -781,7 +781,7 @@
 	density = 1;
 	desc = "An old cryogenic freezer .";
 	dir = 4;
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -1472,7 +1472,7 @@
 	density = 1;
 	desc = "An old cryogenic freezer .";
 	dir = 4;
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -1496,7 +1496,7 @@
 	density = 1;
 	desc = "An old cryogenic freezer .";
 	dir = 4;
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
