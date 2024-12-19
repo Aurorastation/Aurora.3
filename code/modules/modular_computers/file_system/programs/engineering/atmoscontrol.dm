@@ -20,7 +20,6 @@
 
 /datum/computer_file/program/atmos_control/New(obj/item/modular_computer/comp, var/list/new_access, var/list/monitored_alarm_ids)
 	..()
-
 	if(islist(new_access) && length(new_access))
 		required_access_run = new_access
 

@@ -9,7 +9,7 @@
 
 	var/turf/T = get_turf(A)
 	if(!is_station_level(T.z))
-		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie can not be summoned here."))
+		to_chat(user, SPAN_WARNING("You are too far from the [station_name(TRUE)], Nar'sie can not be summoned here."))
 		return fizzle(user, A)
 
 	var/list/cultists = list()

@@ -325,9 +325,13 @@ SUBSYSTEM_DEF(atlas)
 	sleep(1 MINUTE)
 	world.Reboot()
 
-/proc/station_name()
+/// Called to retrieve the name of the station. When short is TRUE, the short name of the station will be provided instead.
+/proc/station_name(var/short = FALSE)
 	ASSERT(SSatlas.current_map)
-	. = SSatlas.current_map.station_name
+	if(short)
+		. = SSatlas.current_map.station_short
+	else
+		. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)
