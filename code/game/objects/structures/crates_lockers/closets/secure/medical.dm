@@ -75,6 +75,9 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/medical(src)
+
 /obj/structure/closet/secure_closet/medical_para
 	name = "paramedic's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a paramedic."
@@ -111,6 +114,9 @@
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/pmc(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/medical(src)
+
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
 	req_access = list(ACCESS_CMO)
@@ -144,6 +150,9 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/device/eftpos(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/medical(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"

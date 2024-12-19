@@ -14,6 +14,9 @@
 	new /obj/item/taperoll/science(src)
 	new /obj/item/sampler(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
 	req_access = list(ACCESS_RD)
@@ -49,6 +52,9 @@
 	new /obj/item/device/taperecorder(src)
 	new /obj/item/sampler(src)
 	new /obj/item/storage/box/tranquilizer(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
 
 /// Used for when we want to populate the contents of this locker ourself. Good for away sites
 /obj/structure/closet/secure_closet/RD/empty
