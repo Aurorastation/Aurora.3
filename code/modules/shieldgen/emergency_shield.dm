@@ -126,6 +126,9 @@
 		var/obj/O = hitting_atom
 		tforce = O.throwforce
 
+	if(throwingdatum)
+		tforce *= throwingdatum.throw_damage_multiplier
+
 	src.health -= tforce
 
 	//This seemed to be the best sound for hitting a force field.
