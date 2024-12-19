@@ -24,11 +24,17 @@
 		/turf/unsimulated/marker/gray   = /datum/exoplanet_theme/snow/nuclear_silo/mountain,
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/snow/foothills/nuclear_silo
 	)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_cold)
+	exoplanet_lightlevel = list(1, 2)
+	exoplanet_lightcolor = list("#dafafa", "#e7e9cb")
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/nuclear_silo
 	map = "Arctic Valley"
 	descriptor = "A small wooden village within a valley in an arctic environment."
+
+/obj/abstract/weather_marker/nuclear_silo
+	weather_type = /singleton/state/weather/snow/snow_planet
 
 // --------------------------------------------------- sector
 
