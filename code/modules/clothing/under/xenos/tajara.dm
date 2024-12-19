@@ -201,7 +201,7 @@
 	body_parts_covered = LOWER_TORSO
 	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 
-/obj/item/clothing/under/pants/tajaran
+/obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"
 	desc = "A pair of adhomian pants usually worn during the summer."
 	icon = 'icons/obj/tajara_items.dmi'

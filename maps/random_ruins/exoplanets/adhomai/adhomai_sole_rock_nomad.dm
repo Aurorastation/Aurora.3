@@ -39,7 +39,7 @@
 /obj/outfit/admin/adhomai_sole_rock_nomad
 	name = "Rock Nomad"
 
-	uniform = /obj/item/clothing/under/pants/tajaran
+	pants = /obj/item/clothing/pants/tajaran
 	head = /obj/item/clothing/head/tajaran/fur
 	suit = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	shoes = /obj/item/clothing/shoes/tajara/footwraps
