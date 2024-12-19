@@ -3,7 +3,6 @@
 	climbable = TRUE
 	anchored = TRUE
 	density = TRUE
-	throwpass = TRUE //You can throw objects over this, despite its density.
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.

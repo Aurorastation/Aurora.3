@@ -6,7 +6,7 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
-	pass_flags_self = PASSTRACE
+	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's

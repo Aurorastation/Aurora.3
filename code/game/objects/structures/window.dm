@@ -11,6 +11,7 @@
 	icon_state = "window"
 	alpha = 196
 	density = TRUE
+	pass_flags_self = PASSWINDOW
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE

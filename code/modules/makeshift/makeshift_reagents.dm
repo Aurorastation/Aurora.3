@@ -3,10 +3,9 @@
 	icon = 'icons/obj/makeshift_workstation.dmi'
 	icon_state = "workstation"
 	desc = "It's a makeshift workstation for grinding, chopping, and heating."
-	density = 1
-
-	anchored = 1
-	throwpass = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 	var/obj/item/device/analyzer/analyzer
 	var/transfer_out = 0

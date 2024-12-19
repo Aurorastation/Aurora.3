@@ -4,7 +4,6 @@
 	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
-	throwpass = TRUE
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE

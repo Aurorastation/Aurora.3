@@ -5,6 +5,7 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	pass_flags_self = PASSMOB
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
