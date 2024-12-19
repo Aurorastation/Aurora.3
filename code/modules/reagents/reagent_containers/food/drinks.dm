@@ -263,11 +263,21 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		AddOverlays(filling)
 
 //heehoo bottle flipping
-/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
+/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
+
+	// this next part is the bottle flipping code
+	// when a bottle impacts something, it'll determine whether it lands on its side, upright, or on its cap, just like bottle flipping irl
+	// people with apex psionics have a better chance of hitting the flip, because it's funny.
 	if(!QDELETED(src))
-		if(prob(10)) // landed upright in some way
-			if(prob(10)) // landed upright on ITS CAP (1% chance)
+		var/is_psi_apex_or_higher = FALSE
+		var/mob/living/thrower = throwingdatum.thrower?.resolve()
+		if(istype(thrower))
+			is_psi_apex_or_higher = thrower.psi && thrower.psi.get_rank() >= PSI_RANK_APEX
+		var/upright_chance = is_psi_apex_or_higher ? 100 : 10
+		var/cap_chance = is_psi_apex_or_higher ? 50 : 10
+		if(prob(upright_chance)) // landed upright in some way
+			if(prob(cap_chance)) // landed upright on ITS CAP (1% chance)
 				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
 				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
 			else
