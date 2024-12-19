@@ -629,7 +629,7 @@
 	},
 /obj/structure/sign/poster{
 	icon_state = "tcflposter";
-	poster_type = "/datum/poster/bay_67";
+	poster_type = /singleton/poster_design/bay_67;
 	pixel_y = 32
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -940,7 +940,7 @@
 	},
 /obj/structure/sign/poster{
 	icon_state = "tcflposter2";
-	poster_type = "/datum/poster/bay_68";
+	poster_type = /singleton/poster_design/bay_68;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -1343,7 +1343,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster{
 	icon_state = "bsposter52";
-	poster_type = "/datum/poster/bay_52";
+	poster_type = /singleton/poster_design/bay_52;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3250,6 +3250,12 @@
 	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
+	},
+/obj/item/device/gps/stationary{
+	pixel_x = -24;
+	pixel_y = 32;
+	gps_prefix = "TCAF";
+	gpstag = "TCAFS"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcaf)
@@ -7445,7 +7451,7 @@
 	},
 /obj/structure/sign/poster{
 	icon_state = "bsposter51";
-	poster_type = "/datum/poster/bay_51";
+	poster_type = /singleton/poster_design/bay_51;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -7919,7 +7925,7 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/sign/poster{
 	icon_state = "bsposter33";
-	poster_type = "/datum/poster/bay_33";
+	poster_type = /singleton/poster_design/bay_33;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -8284,7 +8290,7 @@
 "GF" = (
 /obj/structure/closet/crate/secure/legion{
 	req_access = list(204);
-	name = "recruitment pamphlets";
+	name = "recruitment supplies";
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
 	},
 /obj/item/clothing/accessory/badge/tcaf_papers,
@@ -8298,6 +8304,18 @@
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/contraband/poster{
+	poster_type = /singleton/poster_design/bay_67
+	},
+/obj/item/contraband/poster{
+	poster_type = /singleton/poster_design/bay_67
+	},
+/obj/item/contraband/poster{
+	poster_type = /singleton/poster_design/bay_68
+	},
+/obj/item/contraband/poster{
+	poster_type = /singleton/poster_design/bay_68
+	},
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hangar)
 "GI" = (
@@ -8943,12 +8961,30 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "TCAF";
+	gpstag = "TCAF0"
+	},
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
@@ -11459,7 +11495,7 @@
 	},
 /obj/structure/sign/poster{
 	icon_state = "bsposter32";
-	poster_type = "/datum/poster/bay_32";
+	poster_type = /singleton/poster_design/bay_32;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -11791,7 +11827,7 @@
 	},
 /obj/structure/sign/poster{
 	icon_state = "bsposter24";
-	poster_type = "/datum/poster/bay_24";
+	poster_type = /singleton/poster_design/bay_24;
 	pixel_y = 32
 	},
 /obj/item/clothing/accessory/stethoscope{
@@ -11922,7 +11958,7 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/structure/sign/poster{
 	icon_state = "bsposter53";
-	poster_type = "/datum/poster/bay_53";
+	poster_type = /singleton/poster_design/bay_53;
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,

@@ -2591,7 +2591,7 @@
 	icon_state = "tcflposter2";
 	pixel_x = 29;
 	pixel_y = 7;
-	poster_type = "/datum/poster/bay_68"
+	poster_type = /singleton/poster_design/bay_68
 	},
 /obj/structure/table/standard,
 /obj/item/device/megaphone/red{

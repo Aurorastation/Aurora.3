@@ -4055,7 +4055,7 @@
 /obj/structure/sign/poster{
 	icon_state = "tcflposter2";
 	pixel_x = 29;
-	poster_type = "/datum/poster/bay_68"
+	poster_type = /singleton/poster_design/bay_68
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -5680,7 +5680,7 @@
 	icon_state = "tcflposter";
 	pixel_x = -6;
 	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	poster_type = /singleton/poster_design/bay_67
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)

@@ -1896,7 +1896,7 @@
 /obj/structure/table/steel,
 /obj/structure/sign/poster{
 	icon_state = "bsposter56";
-	poster_type = "/datum/poster/bay_56";
+	poster_type = /singleton/poster_design/bay_56;
 	pixel_x = 32
 	},
 /obj/item/wrench{
@@ -9691,7 +9691,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/poster{
 	icon_state = "bsposter65";
-	poster_type = "/datum/poster/bay_65";
+	poster_type = /singleton/poster_design/bay_65;
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
