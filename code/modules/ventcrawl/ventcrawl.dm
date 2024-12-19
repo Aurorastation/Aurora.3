@@ -151,7 +151,7 @@ var/global/list/can_enter_vent_with = list(
 					if(vent_found)
 						break
 
-			if(vent_found:is_welded()) // welded check
+			if(vent_found.is_welded()) // welded check
 				to_chat(src, SPAN_WARNING("You can't crawl into a welded vent!"))
 				return
 

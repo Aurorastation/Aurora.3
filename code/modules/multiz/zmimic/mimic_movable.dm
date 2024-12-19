@@ -203,7 +203,8 @@
 /atom/movable/openspace/turf_mimic/Initialize(mapload, ...)
 	. = ..()
 	ASSERT(isturf(loc))
-	delegate = loc:below
+	var/turf/T = loc
+	delegate = T.below
 
 /atom/movable/openspace/turf_mimic/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)

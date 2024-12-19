@@ -82,8 +82,10 @@ PROCESSING_SUBSYSTEM_DEF(airflow)
 			continue
 
 		step_towards(target, target.airflow_dest)
-		if (ismob(target) && target:client)
-			target:setMoveCooldown(vsc.airflow_mob_slowdown)
+		if(ismob(target))
+			var/mob/target_mob = target
+			if(target_mob.client)
+				target_mob:setMoveCooldown(vsc.airflow_mob_slowdown)
 
 		if (MC_TICK_CHECK)
 			return

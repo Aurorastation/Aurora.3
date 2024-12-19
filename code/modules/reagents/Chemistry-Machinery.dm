@@ -123,7 +123,7 @@
 
 	// Process the beaker
 	if(beaker)
-		var/datum/reagents/beaker_reagents = beaker:reagents
+		var/datum/reagents/beaker_reagents = beaker.reagents
 		for(var/reagent in beaker_reagents.reagent_volumes)
 
 			var/singleton/reagent/reagent_singleton = GET_SINGLETON(reagent)
@@ -199,7 +199,7 @@
 	// These actions makes sense only if there's a beaker in
 	if(beaker)
 		if(action == "analyze")
-			var/datum/reagents/R = beaker:reagents
+			var/datum/reagents/R = beaker.reagents
 			if(!condi)
 				if(params["name"] == "Blood")
 					var/singleton/reagent/blood/G = GET_SINGLETON(/singleton/reagent/blood)

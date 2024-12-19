@@ -229,7 +229,7 @@
 /obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pen/crayon))
 		var/obj/item/pen/crayon/W = attacking_item
-		switch(W:colourName)
+		switch(W.colourName)
 			if("mime")
 				to_chat(usr, "This crayon is too sad to be contained in this box.")
 				return

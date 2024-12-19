@@ -69,7 +69,7 @@
 			m_type = 1
 
 		if("law")
-			if (src:secHUD)
+			if (secHUD)
 				message = "<B>[src]</B> flashes its legal authorization barcode."
 				playsound(src.loc, 'sound/voice/biamthelaw.ogg', 50, 0)
 				m_type = 2
@@ -102,7 +102,7 @@
 			m_type = 1
 
 		if("halt")
-			if (src:secHUD)
+			if (secHUD)
 				message = "<B>[src]</B>'s speakers skreech, \"Halt! Security!\"."
 
 				playsound(src.loc, 'sound/voice/halt.ogg', 50, 0)

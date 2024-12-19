@@ -206,12 +206,12 @@ steam.start() -- spawns the effect
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M)
 	if (!..())
 		return 0
 
 	M.drop_item()
-	M:sleeping += 1
+	M.sleeping += 1
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
 		M.emote("cough")

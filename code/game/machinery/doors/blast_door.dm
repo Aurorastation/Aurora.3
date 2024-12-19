@@ -118,12 +118,27 @@
 /obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
-	if((istype(attacking_item, /obj/item/material/twohanded/fireaxe) && attacking_item:wielded == 1) || attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
-		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
+	if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))
+		var/obj/item/material/twohanded/fireaxe/F = attacking_item
+		if(!F.wielded)
+			return TRUE
+
+		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
 			force_toggle()
 		else
 			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
+
 		return TRUE
+
+
+	if(attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
+		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
+			force_toggle()
+		else
+			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
+
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)

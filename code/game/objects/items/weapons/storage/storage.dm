@@ -254,7 +254,8 @@
 	for(var/obj/item/gift/G in src)
 		. += G.gift
 		if (istype(G.gift, /obj/item/storage))
-			. += G.gift:return_inv()
+			var/obj/item/storage/gift_storage = G.gift
+			. += gift_storage.return_inv()
 
 /obj/item/storage/proc/show_to(mob/user as mob)
 	if(user.s_active != src)

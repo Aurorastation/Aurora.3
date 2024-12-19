@@ -71,9 +71,10 @@
 	var/a_ip
 
 	if(holder && holder.owner && istype(holder.owner, /client))
-		a_ckey = holder.owner:ckey
-		a_computerid = holder.owner:computer_id
-		a_ip = holder.owner:address
+		var/client/owner_client = holder.owner
+		a_ckey = owner_client.ckey
+		a_computerid = owner_client.computer_id
+		a_ip = owner_client.address
 	else
 		a_ckey = "Adminbot"
 		a_computerid = ""

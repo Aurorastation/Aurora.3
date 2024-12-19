@@ -46,8 +46,9 @@
 	if (A)
 		if(ismob(A))
 			toxmob(A)
-		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity/)))
-			A:energy += energy
+		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity)))
+			var/obj/singularity/singulo = A
+			singulo.energy += energy
 		else if(istype(A, /obj/machinery/power/fusion_core))
 			var/obj/machinery/power/fusion_core/collided_core = A
 			if(particle_type && particle_type != "neutron")

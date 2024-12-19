@@ -96,7 +96,12 @@ Contains helper procs for airflow, handled in /connection_group.
 						SPAN_DANGER("You hear a loud slam!"),2)
 
 	playsound(src.loc, 'sound/weapons/smash.ogg', 25, 1, -1)
-	var/weak_amt = istype(A,/obj/item) ? A:w_class : rand(1,5) //Heheheh
+	var/weak_amt
+	if(istype(A, /obj/item))
+		var/obj/item/I = A
+		weak_amt = I.w_class
+	else
+		weak_amt = rand(1, 5)
 	Weaken(weak_amt)
 	. = ..()
 

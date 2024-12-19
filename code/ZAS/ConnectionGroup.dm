@@ -106,9 +106,10 @@ Class Procs:
 
 		//Check for knocking people over
 		if(ismob(M) && differential > vsc.airflow_stun_pressure)
-			if(M:status_flags & GODMODE)
+			var/mob/mob = M
+			if(mob.status_flags & GODMODE)
 				continue
-			M:airflow_stun()
+			mob.airflow_stun()
 
 		if(M.check_airflow_movable(differential))
 			//Check for things that are in range of the midpoint turfs.
