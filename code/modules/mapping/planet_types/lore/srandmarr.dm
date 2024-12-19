@@ -135,6 +135,7 @@
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
 	initial_weather_state = /singleton/state/weather/calm/snow_planet
+	has_icy_weather = TRUE
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"

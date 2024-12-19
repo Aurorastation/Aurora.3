@@ -1,3 +1,7 @@
+#define SURVEY_TYPE_ATMOSPHERIC "atmospheric"
+#define SURVEY_TYPE_GROUND "ground"
+#define SURVEY_TYPE_GEOMAGNETIC "geomagnetic"
+
 /obj/structure/survey_probe
 	name = "atmosphere probe"
 	desc = "\
@@ -25,11 +29,13 @@
 	var/start_deployed = FALSE
 	///Extra information for variant types - manufacturer, faction, etc.
 	var/desc_extra = "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries."
-	var/survey_type = "atmospheric"
+	var/survey_type = SURVEY_TYPE_ATMOSPHERIC
 
 /obj/structure/survey_probe/Initialize(mapload)
 	. = ..()
 	desc_extended += desc_extra
+	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
+		desc += " When deployed, this probe will read and relay weather data to compatible devices."
 	if(start_deployed)
 		deploy()
 
@@ -69,11 +75,49 @@
 	anchored = TRUE
 	density = TRUE
 	icon_state = "[initial(icon_state)]_deployed"
+	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
+		RegisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_CHANGE, PROC_REF(relay_weather_change))
+		addtimer(CALLBACK(src, PROC_REF(read_initial_weather)), 2 SECONDS)
+		output_spoken_message("Initializing weather detection subsystem...")
+
+/// Reads the current weather status aloud when deployed on a planet with weather
+/obj/structure/survey_probe/proc/read_initial_weather()
+	var/turf/current_turf = get_turf(src)
+
+	var/obj/abstract/weather_system/weather = current_turf.weather || SSweather.weather_by_z["[current_turf.z]"]
+	if(!weather)
+		output_spoken_message("No weather conditions detected.")
+		return
+
+	var/singleton/state/weather/current_weather_state = weather.weather_system.current_state
+	if(current_weather_state)
+		output_spoken_message("Reading current weather conditions as \"[current_weather_state.name]\".")
 
 /obj/structure/survey_probe/proc/undeploy()
 	anchored = FALSE
 	density = FALSE
 	icon_state = initial(icon_state)
+	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
+		UnregisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_CHANGE)
+
+/// When a weather transition (see weather_fsm.dm) starts on this z_level, this will speak it aloud, and then broadcast it to any other devices listening to the broadcast global signal
+/obj/structure/survey_probe/proc/relay_weather_change(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition)
+	SIGNAL_HANDLER
+
+	var/turf/current_turf = get_turf(src)
+	var/list/connected_z_levels = GetConnectedZlevels(current_turf.z)
+	if(!(z_level in connected_z_levels))
+		return
+
+	var/singleton/state/weather/expected_weather_state = weather_transition.target
+	var/broadcast_message = "Expecting shift to new weather condition, \"[expected_weather_state.name]\", in approximately [DisplayTimeText(time_to_transition)]."
+	output_spoken_message(broadcast_message)
+
+	// received the message, now broadcast it to receivers
+	// also send over other data, so unique receivers can have their own handling
+	// think of it as the probe sending not just a radio message, but a broad band of data
+	// yes, this does mean repeated messages if multiple atmospheric probes are set up
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_Z_WEATHER_BROADCAST, z_level, weather_transition, time_to_transition, broadcast_message)
 
 /obj/structure/survey_probe/proc/survey_end()
 	if(timer_id)
@@ -184,7 +228,7 @@
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "ground_probe"
-	survey_type = "ground"
+	survey_type = SURVEY_TYPE_GROUND
 
 /obj/structure/survey_probe/ground/get_report(T, is_exoplanet, is_asteroid)
 	// turf
@@ -228,7 +272,7 @@
 		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "magnet_probe"
-	survey_type = "geomagnetic"
+	survey_type = SURVEY_TYPE_GEOMAGNETIC
 
 /obj/structure/survey_probe/magnet/get_report(T, is_exoplanet, is_asteroid)
 	. = "<b>Geomagnetic survey results:</b>"
@@ -248,3 +292,7 @@
 			. += "<br>No data available from geomagnetic analysis"
 	else
 		. += "<br>No data available from geomagnetic analysis"
+
+#undef SURVEY_TYPE_ATMOSPHERIC
+#undef SURVEY_TYPE_GROUND
+#undef SURVEY_TYPE_GEOMAGNETIC
