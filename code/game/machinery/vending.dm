@@ -722,12 +722,11 @@
 			return
 
 		if(coin.string_attached)
-			if(prob(50))
+			if(prob(90))
 				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
-				var/obj/item/coin/returned_coin = new(coin)
-				returned_coin.AddOverlays("coin_string_overlay")
-				returned_coin.string_attached = TRUE
-				user.put_in_hands(returned_coin)
+				coin.forceMove(src.loc)
+				user.put_in_hands(coin)
+				coin = null
 			else
 				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
 		QDEL_NULL(coin)
