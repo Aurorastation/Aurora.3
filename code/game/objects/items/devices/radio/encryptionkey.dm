@@ -70,6 +70,10 @@
 	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
+/obj/item/device/encryptionkey/syndicate/New()
+	..()
+	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
+
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_RAIDER = TRUE, CHANNEL_HAILING = TRUE)
@@ -229,6 +233,10 @@
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
+
+/obj/item/device/encryptionkey/rev/New()
+	..()
+	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
 
 /obj/item/device/encryptionkey/eng_spare
 	name = "spare engineering radio encryption key"

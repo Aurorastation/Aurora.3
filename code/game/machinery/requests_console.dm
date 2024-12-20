@@ -180,6 +180,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
 
+	desc = "A console intended to send requests to different departments on the [station_name(TRUE)]."
 	if(building)
 		if(dir)
 			src.set_dir(dir)

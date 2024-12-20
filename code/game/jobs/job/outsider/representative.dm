@@ -162,7 +162,7 @@
 
 /obj/outfit/job/representative/proc/send_representative_mission(var/mob/living/carbon/human/H)
 	var/faxtext = "<center><br><h2><br><b>Directives Report</h2></b></FONT size><HR></center>"
-	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay in the station:</font></b><br><ul>"
+	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay on the [station_name()]:</font></b><br><ul>"
 
 	faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_LOW)].</li>"
 

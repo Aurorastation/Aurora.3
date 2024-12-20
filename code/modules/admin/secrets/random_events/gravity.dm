@@ -1,8 +1,9 @@
 /**********
 * Gravity *
 **********/
-/datum/admin_secret_item/random_event/gravity
-	name = "Toggle Station Artificial Gravity"
+/datum/admin_secret_item/random_event/gravity/New()
+	..()
+	name = "Toggle [station_name(TRUE)] Artificial Gravity"
 
 /datum/admin_secret_item/random_event/gravity/can_execute(var/mob/user)
 	if(!(SSticker.mode))

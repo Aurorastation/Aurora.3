@@ -44,7 +44,7 @@
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)
-			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [SSatlas.current_map.full_name]. It might take a few seconds."))
+			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [SSatlas.current_map.station_name]. It might take a few seconds."))
 			return
 
 /datum/spawnpoint/cyborg
@@ -72,5 +72,5 @@
 	for(var/obj/machinery/cryopod/living_quarters/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
-			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [SSatlas.current_map.full_name]."))
+			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [SSatlas.current_map.station_name]."))
 			return
