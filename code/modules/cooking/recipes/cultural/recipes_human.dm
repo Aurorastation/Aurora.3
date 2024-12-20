@@ -180,6 +180,27 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/bowl/alfajores
 
+/singleton/recipe/biscuits_and_gravy
+	appliance = SAUCEPAN
+	reagents = list(/singleton/reagent/condiment/gravy = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit,
+		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/biscuits_and_gravy
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/elotes
+	appliance = OVEN | GRILL
+	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 2)
+	fruit = list("corn" = 2, "lime" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/elotes
+
 // Konyang
 
 /singleton/recipe/mossbowl

@@ -246,6 +246,12 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 4))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/mashedpotato/on_reagent_change()
+	if(reagents.has_reagent(/singleton/reagent/condiment/gravy))
+		name = "mashed potato and gravy"
+		desc = "Pillowy mounds of mashed potato covered in thick gravy."
+		icon_state = "mashedpotatogravy"
+
 /obj/item/reagent_containers/food/snacks/sauerkraut
 	name = "sauerkraut"
 	desc = "Finely cut and fermented cabbage. A light pickled delight!"
