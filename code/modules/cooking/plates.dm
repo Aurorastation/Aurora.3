@@ -206,7 +206,7 @@ Plates that can hold your cooking stuff
 		return ..(target, user, flag)
 	if(reagents.total_volume)
 		if(!target.reagents || !REAGENTS_FREE_SPACE(target.reagents))
-			to_chat(user, SPAN_NOTICE("[target] is full."))
+			to_chat(user, SPAN_NOTICE("\The [target] is full."))
 			return TRUE
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
 		user.visible_message(
