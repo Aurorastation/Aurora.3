@@ -529,7 +529,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#b9d929"
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2, "tangy cheese" = 3), /singleton/reagent/nutriment/protein = list("sharp cheese" = 3,"crunchy cheese" = 3))
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2, "tangy cheese" = 3), /singleton/reagent/nutriment/protein = list("sharp cheese" = 3, "crunchy cheese" = 3))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/crab_leg_grilled_cheese_sandwich
