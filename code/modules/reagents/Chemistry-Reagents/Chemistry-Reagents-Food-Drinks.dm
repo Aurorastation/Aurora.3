@@ -7014,7 +7014,7 @@
 	description = "A thick sauce made from the juice of meat that occurs naturally during cooking."
 	taste_description = "gravy"
 	color = "#a36a35"
-	condiment_desc = "A thick meaty suace for your dishes."
+	condiment_desc = "A thick meaty sauce for your dishes."
 	taste_mult = 3
 
 /singleton/reagent/drink/chocolate_soda
