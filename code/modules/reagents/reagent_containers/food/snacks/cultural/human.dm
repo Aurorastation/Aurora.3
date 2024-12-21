@@ -271,7 +271,7 @@
 /obj/item/reagent_containers/food/snacks/elotes
 	name = "elotes"
 	gender = PLURAL
-	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream and seasonings."
+	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream, and seasonings."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "elotes"
 	trash = /obj/item/trash/plate
