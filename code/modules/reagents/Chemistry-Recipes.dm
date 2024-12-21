@@ -4536,7 +4536,7 @@
 	required_reagents = list(/singleton/reagent/drink/dynjuice/cold = 5, /singleton/reagent/drink/boba = 1)
 	result_amount = 6
 
-//
+// Other
 /datum/chemical_reaction/gravy
 	name = "gravy"
 	id = "gravy"
