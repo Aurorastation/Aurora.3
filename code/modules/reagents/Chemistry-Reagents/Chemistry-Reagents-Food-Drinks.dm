@@ -419,7 +419,7 @@
 	taste_description = "chalky starch"
 	color = "#DFDEA1"
 	condiment_name = "Adhomian flour sack"
-	condiment_desc = "Flour ground from pure Adhomian Blizzard Ears!"
+	condiment_desc = "Flour ground from pure Adhomian blizzard ears!"
 	condiment_icon_state = "flour_blizzard"
 
 /singleton/reagent/nutriment/coco
