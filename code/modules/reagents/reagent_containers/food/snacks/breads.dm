@@ -523,7 +523,7 @@
 
 /obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
 	name = "grilled triple cheese crunch sandwich"
-	desc = "Who needs a four cheese medley when you have the classy and playful variety of Cheddar, Nakarka, and uh... Whatever that glowy orange crud they put in cheesie honkers is, all in one sandwich?"
+	desc = "Who needs a four cheese medley when you have the classy and playful variety of cheddar, nakarka, and uh... whatever that glowy orange crud they put in cheesie honkers is, all in one sandwich?"
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
 	icon_state = "triplecheesecrunch"
 	trash = /obj/item/trash/plate
