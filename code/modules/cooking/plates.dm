@@ -210,7 +210,7 @@ Plates that can hold your cooking stuff
 			return TRUE
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
 		user.visible_message(
-			"<b>[user]</b> pours onto [target] from [src].",
+			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
 			SPAN_NOTICE("You transfer [trans] units of the solution.")
 		)
 		playsound(user.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
