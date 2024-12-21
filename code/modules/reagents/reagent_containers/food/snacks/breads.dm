@@ -512,7 +512,7 @@
 
 /obj/item/reagent_containers/food/snacks/grilled_mac_and_cheese
 	name = "grilled mac and cheese sandwich"
-	desc = "You know what would make these carbs better? MORE CARBS. Gooey macaroni and cheese between two careful slices of crunchy, toasted bread. This was either invented by a hipster, a broke college student, or both."
+	desc = "You know what would make these carbs better? MORE CARBS! Gooey macaroni and cheese between two careful slices of crunchy, toasted bread. This was either invented by a hipster, a broke college student, or both."
 	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
 	icon_state = "maccheesesandwich"
 	trash = /obj/item/trash/plate
