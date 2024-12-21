@@ -197,7 +197,6 @@ Plates that can hold your cooking stuff
 	volume = 40
 	force = 14
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	item_flags = ITEM_FLAG_NO_BLUDGEON
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
