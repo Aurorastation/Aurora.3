@@ -457,7 +457,7 @@
 
 /obj/item/reagent_containers/food/snacks/steak_tartare
 	name = "steak tartare"
-	desc = "Excuse me! Waiter! Is this some kind of joke?! This is raw beef you just SLAPPED onto a plate and sprinkled with condiments! It is COMPLETELY RAW! Even the EGG isn't cooked! Are you kidding me?! Are you trying to give me food poisoning?! What kind of scam are you running here?! No, don't give me that 'it's supposed to be like this' nonsense, the menu said STEAK! Take this back and cook the hell out of it until it stops mooing at me!"
+	desc = "Waiter! Is this a joke?! You just SLAPPED some raw beef onto a plate and sprinkled with condiments! Even the EGG isn't cooked! Are you trying to poison me?! No, don't give me that 'it's supposed to be like this' nonsense! Take this back and cook it until it stops mooing at me!"
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "tartare"
 	trash = /obj/item/trash/plate/steak
