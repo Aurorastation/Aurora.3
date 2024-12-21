@@ -6996,7 +6996,7 @@
 	taste_description = "fizzy mint tapioca tea"
 	glass_icon_state = "boba_dyn"
 	glass_name = "dyn boba"
-	glass_desc = "A dyn boba drink, sometimes reffered to as 'Boba Dyn', combining both Skrell and Human cultures into their natural result of putting tasty, soft, chewy things in drinks."
+	glass_desc = "A dyn boba drink, sometimes referred to as 'boba dyn', combining both skrell and human cultures of putting tasty, soft, chewy things in drinks."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
 /singleton/reagent/drink/zobo
