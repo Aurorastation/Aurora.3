@@ -213,7 +213,7 @@ Plates that can hold your cooking stuff
 			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
 			SPAN_NOTICE("You transfer [trans] units of the solution.")
 		)
-		playsound(user.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+		playsound(get_turf(user), /singleton/sound_category/generic_pour_sound, 10, TRUE)
 	return TRUE
 
 /obj/item/reagent_containers/bowl/gravy_boat/on_reagent_change()
