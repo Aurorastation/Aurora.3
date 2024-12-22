@@ -722,7 +722,7 @@
 			return
 
 		if(coin.string_attached)
-			if(prob(90))
+			if(prob(50))
 				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
 				coin.forceMove(src.loc)
 				user.put_in_hands(coin)
