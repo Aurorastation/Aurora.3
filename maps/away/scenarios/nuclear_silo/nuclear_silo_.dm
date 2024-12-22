@@ -25,7 +25,7 @@
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/snow/foothills/nuclear_silo
 	)
 	exoplanet_atmospheres = list(/datum/gas_mixture/earth_cold)
-	exoplanet_lightlevel = list(1, 2)
+	exoplanet_lightlevel = list(4)
 	exoplanet_lightcolor = list("#dafafa", "#e7e9cb")
 	unit_test_groups = list(1)
 
