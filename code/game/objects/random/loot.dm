@@ -323,7 +323,7 @@
 /obj/random/contraband
 	name = "random contraband"
 	desc = "This is some random contraband."
-	icon_state = "knife"
+	icon_state = "need_sprite"
 	problist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
