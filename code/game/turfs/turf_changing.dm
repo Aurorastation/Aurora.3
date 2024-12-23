@@ -58,6 +58,7 @@
 	var/list/old_decals = decals
 	var/old_outside = is_outside
 	var/old_is_open = is_open()
+	var/list/old_resources = resources ? resources.Copy() : null
 
 	changing_turf = TRUE
 
@@ -66,6 +67,7 @@
 
 	// So we call destroy.
 	qdel(src)
+
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_listen_lookup = _listen_lookup?.Copy()
 	var/list/old_signal_procs = _signal_procs?.Copy()
@@ -142,6 +144,8 @@
 	new_turf.post_change(!mapload)
 
 	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
+
+	new_turf.resources = old_resources
 
 	. = new_turf
 
