@@ -1322,13 +1322,10 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 32;
-	pixel_x = 3
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 21;
-	pixel_x = 3
+/obj/item/device/radio/intercom/hailing/north,
+/obj/item/device/radio/hailing{
+	pixel_x = 5;
+	pixel_y = 6
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
@@ -2153,6 +2150,14 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -26;
+	pixel_x = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -36;
+	pixel_x = 3
+	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
 "jk" = (
@@ -2385,6 +2390,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/machinery/button/ignition{
+	dir = 8;
+	pixel_x = 23;
+	id = "gd_igniter_port"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/portprop)
 "kd" = (
@@ -2654,6 +2664,12 @@
 /obj/machinery/atm{
 	dir = 1;
 	pixel_y = 28
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
+"li" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
@@ -3392,6 +3408,9 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "ow" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "ox" = (
@@ -6806,6 +6825,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
+/obj/machinery/sparker{
+	id = "gd_igniter_port";
+	pixel_x = -10
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/portprop)
 "CI" = (
@@ -8307,6 +8330,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/machinery/button/ignition{
+	dir = 4;
+	pixel_x = -23;
+	id = "gd_igniter_starboard"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardprop)
 "Io" = (
@@ -10867,6 +10895,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/bridge_foyer)
+"SA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "SC" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/central_hallway)
@@ -10956,7 +10991,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/random/pottedplant,
+/obj/machinery/computer/slot_machine,
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "SU" = (
@@ -11058,6 +11093,13 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
+"Tp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "Tq" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -12112,10 +12154,10 @@
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 11
 	},
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 2
-	},
 /obj/random/dirt_75,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/workshop)
 "XM" = (
@@ -12435,6 +12477,10 @@
 /area/golden_deep/starboardprop)
 "Zc" = (
 /obj/effect/map_effect/perma_light,
+/obj/machinery/sparker{
+	id = "gd_igniter_starboard";
+	pixel_x = -10
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/golden_deep/starboardprop)
 "Zd" = (
@@ -109708,8 +109754,8 @@ iG
 iG
 iG
 yD
-tw
-tw
+SA
+SA
 jn
 AP
 vd
@@ -112021,8 +112067,8 @@ lI
 lI
 lI
 lh
-Zj
-Zj
+Tp
+Tp
 Uc
 vM
 WD
@@ -112278,8 +112324,8 @@ uw
 ft
 lI
 Rc
-ow
-ow
+li
+li
 cK
 zB
 mS
