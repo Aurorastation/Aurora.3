@@ -56,3 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "You can now click on another mob with the Journalist's handheld microphone to hold it up to them. Doing so will only broadcast that mob's next message, no one else's."
+  - qol: "The Journalist's press camera drone can now broadcast off-ship."
