@@ -5536,6 +5536,17 @@
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
+"xf" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/table/wood/gamblingtable,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "xg" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(229, 217)
@@ -8143,7 +8154,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/computer/slot_machine,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "HE" = (
@@ -10991,7 +11004,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/computer/slot_machine,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/golden_deep/lounge)
 "SU" = (
@@ -112586,7 +112599,7 @@ Iz
 yK
 GO
 mS
-xa
+xf
 rL
 EP
 Bc
