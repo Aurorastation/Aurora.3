@@ -4,7 +4,7 @@
 
 /// Spawns a random poster. Use `random_type` for specification instead of usual methods
 /obj/random/poster
-	icon_state = "need_sprite"
+	icon_state = "poster"
 	/// This is what is primarily used to pick random posters.
 	/// Set this to a `/obj/structure/sign/poster/...` to specify subtype
 	var/random_type = /obj/structure/sign/poster
@@ -15,7 +15,7 @@
 
 /// Spawns a random rolled-up poster. Use `random_type` for specification instead of usual methods
 /obj/random/poster_roll
-	icon_state = "need_sprite"
+	icon_state = "rolled_poster"
 	/// This is what is primarily used to pick random posters.
 	/// Set this to a `/obj/item/contraband/poster/...` to specify subtype
 	var/random_type = /obj/item/contraband/poster
