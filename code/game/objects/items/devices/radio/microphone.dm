@@ -3,8 +3,8 @@
 	desc = "A handheld microphone, used for on-the-fly interviewing. Pose for the fans!"
 	icon_state = "microphone"
 	item_state = "microphone"
-	var/second_speaker = FALSE
-	var/speaker
+	var/second_speaker = FALSE //If true, waits for the clicked-on mob to speak next to the microphone before resetting relevant variables
+	var/speaker //Stores the clicked-on mob's name so no one else broadcasts to the radio
 
 /obj/item/device/radio/microphone/Initialize()
 	. = ..()
