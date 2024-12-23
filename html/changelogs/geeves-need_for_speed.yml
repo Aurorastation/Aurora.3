@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - balance: "Standardized and reduced burn delays for ships and shuttles. Ships now have a 1 second burn delay, down from 2. Shuttles now have a 0.5 second burn delay, down from 1. The only exception are the racer shuttles, which have a 0.25 burn second delay."
+  - balance: "Standardized all ships and shuttles to have a 0.1 second turn delay."

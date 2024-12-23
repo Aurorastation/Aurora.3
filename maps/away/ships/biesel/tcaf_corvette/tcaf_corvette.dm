@@ -33,7 +33,6 @@
 	moving_state = "tcaf_moving"
 	colors = list("#5d68c8", "#70a2e7")
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -84,7 +83,6 @@
 	sizeclass = "Reaver-class gunship"
 	colors = list("#5d68c8", "#70a2e7")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 2500 // Same as the SCCV Canary. Lower than usual to compensate for only having two thrusters.
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY

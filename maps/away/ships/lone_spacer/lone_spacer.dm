@@ -27,7 +27,6 @@
 	moving_state = "spacer_moving"
 	colors = list("#70a170")
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 7500
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH

@@ -76,7 +76,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#18e9b5", "#6aa9dd")
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH

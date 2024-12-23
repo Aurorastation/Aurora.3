@@ -52,7 +52,7 @@
 	moving_state = "shuttle_moving"
 	color = "#d21410"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 1 SECONDS
+	burn_delay = 0.25 SECONDS
 	vessel_mass = 500 //Tiny shuttle designed to be VERY fast and maneuverable
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
@@ -79,7 +79,7 @@
 	moving_state = "shuttle_moving"
 	color = "#0fc4f1"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 1 SECONDS
+	burn_delay = 0.25 SECONDS
 	vessel_mass = 500 //Tiny shuttle designed to be VERY fast and maneuverable
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY

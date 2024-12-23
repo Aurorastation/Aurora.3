@@ -34,7 +34,6 @@
 	shiptype = "Long-term shipping utilities"
 	scanimage = "unathi_freighter2.png"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
@@ -71,7 +70,6 @@
 	colors = list("#F06553")
 	designation = "Shrieker"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY

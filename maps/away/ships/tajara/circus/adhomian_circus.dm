@@ -37,7 +37,6 @@
 
 	colors = list(COLOR_CYAN, COLOR_WARM_YELLOW, COLOR_PALE_BTL_GREEN, COLOR_HOT_PINK)
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -86,7 +85,6 @@
 	class = "ACV"
 	designation = "Rafama"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	icon_state = "pod"
 	moving_state = "pod_moving"

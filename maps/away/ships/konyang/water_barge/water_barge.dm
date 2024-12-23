@@ -30,7 +30,6 @@
 	sizeclass = "Shelfer-class cargo transport"
 	shiptype = "Long-distance cargo hauling"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 8000 //big boy
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -91,7 +90,6 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY

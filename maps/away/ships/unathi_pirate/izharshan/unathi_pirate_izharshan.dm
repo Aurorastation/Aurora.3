@@ -79,7 +79,6 @@
 	colors = list("#95de9c")
 	scanimage = "unathi_freighter1.png"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH

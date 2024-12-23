@@ -8,7 +8,6 @@
 	moving_state = "runtime_penal_colony"
 	colors = list("#f147cd", "#f79aea")
 	vessel_mass = 100000
-	burn_delay = 2 SECONDS
 	base = TRUE
 
 /obj/effect/overmap/visitable/ship/landable/runtime
@@ -18,7 +17,6 @@
 	desc = "A RUN-T1M3 long range shuttle."
 	shuttle = "WhileTrue"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_SMALL

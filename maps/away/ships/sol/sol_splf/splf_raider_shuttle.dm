@@ -11,7 +11,6 @@
 	shiptype = "Short-distance passenger transportation"
 	colors = list("#aaafd4", "#78adf8")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY

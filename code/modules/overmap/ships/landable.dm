@@ -12,6 +12,7 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	layer = OVERMAP_SHUTTLE_LAYER
+	burn_delay = 0.5 SECONDS // landable shuttles are more manoeuvrable
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
 	GLOB.shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)

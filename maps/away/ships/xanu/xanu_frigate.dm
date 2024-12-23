@@ -41,7 +41,6 @@
 	sizeclass = "Shrike-class Frigate"
 	shiptype = "Naval frigate"
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 6000
 	vessel_size = SHIP_SIZE_LARGE
 	fore_dir = SOUTH
@@ -84,7 +83,6 @@
 	moving_state = "canary_moving"
 	colors = COLOR_COALITION
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 0.5 SECONDS
 	vessel_mass = 800
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
@@ -126,7 +124,6 @@
 	moving_state = "intrepid_moving"
 	colors = COLOR_COALITION
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 0.5 SECONDS
 	vessel_mass = 1500
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY

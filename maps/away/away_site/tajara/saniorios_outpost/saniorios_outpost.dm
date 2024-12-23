@@ -66,7 +66,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#CD4A4C")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY

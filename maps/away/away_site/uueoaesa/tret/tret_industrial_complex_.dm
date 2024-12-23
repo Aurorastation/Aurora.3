@@ -84,7 +84,6 @@
 	sizeclass = "Short-range crew transport and mineral extraction pod"
 	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY

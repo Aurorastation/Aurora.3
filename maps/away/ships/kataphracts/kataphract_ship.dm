@@ -108,7 +108,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#e38222", "#f0ba3e")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY

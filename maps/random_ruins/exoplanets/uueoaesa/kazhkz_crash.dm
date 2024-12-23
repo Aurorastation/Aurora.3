@@ -28,7 +28,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#d65e1e", "#1f731f") //Kazhkz and Han'san colors
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 3000 //Hard to move
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY

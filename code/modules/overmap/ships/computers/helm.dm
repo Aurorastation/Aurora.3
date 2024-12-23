@@ -287,7 +287,7 @@
 			var/ndir = text2num(params["turn"])
 			if(connected.can_turn())
 				connected.turn_ship(ndir)
-				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
+				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), 0.1 SECONDS + 1)
 
 		if (action == "combat_turn")
 			var/ndir = text2num(params["combat_turn"])

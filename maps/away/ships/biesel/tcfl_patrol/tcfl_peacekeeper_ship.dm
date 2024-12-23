@@ -36,7 +36,6 @@
 	moving_state = "cetus_moving"
 	colors = list("#263aeb", "#3d8cfa")
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
@@ -96,7 +95,6 @@
 	moving_state = "shuttle_moving"
 	colors = list("#263aeb", "#3d8cfa")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
