@@ -17,15 +17,12 @@
 	/// Set this variable to a /singleton/poster_design specify a desired poster.
 	/// If unset, is randomly set on `Initialize()`
 	var/singleton/poster_design/poster_type
-	/// If `poster_type` is unset, this is used to select a new design through stricter categories
-	/// See `poster_subtypes.dm` for implementations
-	var/random_type = /singleton/poster_design
 
 /obj/item/contraband/poster/Initialize(mapload, given_type)
 	. = ..()
 	if(!poster_type)
 		if(!given_type)
-			poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(random_type))
+			poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(/singleton/poster_design))
 		else
 			poster_type = given_type
 	else
@@ -95,9 +92,6 @@
 	/// Set this variable to a /singleton/poster_design to specify a desired poster.
 	/// If unset, is randomly set on `Initialize()`
 	var/singleton/poster_design/poster_type
-	/// If `poster_type` is unset, this is used to select a new design through stricter categories
-	/// See `poster_subtypes.dm` for implementations
-	var/random_type = /singleton/poster_design
 	var/ruined = FALSE
 
 /obj/structure/sign/poster/Initialize(mapload, placement_dir = null, type = null)
@@ -108,7 +102,7 @@
 	else if(type)
 		poster_type = type
 	else
-		poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(random_type))
+		poster_type = pick(GET_SINGLETON_SUBTYPE_LIST(/singleton/poster_design))
 
 	set_poster(poster_type)
 

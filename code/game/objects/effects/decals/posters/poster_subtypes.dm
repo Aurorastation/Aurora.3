@@ -2,61 +2,77 @@
 // Selects a design based on defined categories
 // name and icon_state updated on mapload
 
-/obj/structure/sign/poster/civilian
-	icon_state = "bsposter32"
-	random_type = /singleton/poster_design/civilian
+/// Spawns a random poster. Use `random_type` for specification instead of usual methods
+/obj/random/poster
+	icon_state = "poster"
+	/// This is what is primarily used to pick random posters.
+	/// Set this to a `/obj/structure/sign/poster/...` to specify subtype
+	var/random_type = /obj/structure/sign/poster
 
-/obj/item/contraband/poster/civilian
-	random_type = /singleton/poster_design/civilian
+/obj/random/poster/spawn_item()
+	var/obj/structure/sign/poster/P = pick(subtypesof(random_type))
+	. = new P(loc)
 
+/// Spawns a random rolled-up poster. Use `random_type` for specification instead of usual methods
+/obj/random/poster_roll
+	icon_state = "rolled_poster"
+	/// This is what is primarily used to pick random posters.
+	/// Set this to a `/obj/item/contraband/poster/...` to specify subtype
+	var/random_type = /obj/item/contraband/poster
 
-/obj/structure/sign/poster/pinup
-	icon_state = "bsposter48"
-	random_type = /singleton/poster_design/pinup
-
-/obj/item/contraband/poster/pinup
-	random_type = /singleton/poster_design/pinup
-
-
-/obj/structure/sign/poster/command
-	icon_state = "bsposter40"
-	random_type = /singleton/poster_design/command
-
-/obj/item/contraband/poster/command
-	random_type = /singleton/poster_design/command
-
-
-/obj/structure/sign/poster/security
-	icon_state = "bsposter21"
-	random_type = /singleton/poster_design/security
-
-/obj/item/contraband/poster/security
-	random_type = /singleton/poster_design/security
+/obj/random/poster_roll/spawn_item()
+	var/obj/item/contraband/poster/P = pick(subtypesof(random_type))
+	. = new P(loc)
 
 
-/obj/structure/sign/poster/medical
-	icon_state = "bsposter43"
-	random_type = /singleton/poster_design/medical
+/obj/random/poster/civilian
+	random_type = /obj/structure/sign/poster/civilian
 
-/obj/item/contraband/poster/medical
-	random_type = /singleton/poster_design/medical
+/obj/random/poster_roll/civilian
+	random_type = /obj/item/contraband/poster/civilian
 
 
-/obj/structure/sign/poster/engineering
-	icon_state = "bsposter54"
-	random_type = /singleton/poster_design/engineering
+/obj/random/poster/pinup
+	random_type = /obj/structure/sign/poster/pinup
 
-/obj/item/contraband/poster/engineering
-	random_type = /singleton/poster_design/engineering
+/obj/random/poster_roll/pinup
+	random_type = /obj/item/contraband/poster/pinup
+
+
+/obj/random/poster/command
+	random_type = /obj/structure/sign/poster/command
+
+/obj/random/poster_roll/command
+	random_type = /obj/item/contraband/poster/command
+
+
+/obj/random/poster/security
+	random_type = /obj/structure/sign/poster/security
+
+/obj/random/poster_roll/security
+	random_type = /obj/item/contraband/poster/security
+
+
+/obj/random/poster/medical
+	random_type = /obj/item/contraband/poster/medical
+
+/obj/random/poster_roll/medical
+	random_type = /obj/item/contraband/poster/medical
+
+
+/obj/random/poster/engineering
+	random_type = /obj/structure/sign/poster/engineering
+
+/obj/random/poster_roll/engineering
+	random_type = /obj/item/contraband/poster/engineering
 
 /// It is not recommended to use this as this may result in picking posters that do not match the setting
-/obj/structure/sign/poster/lore
-	icon_state = "tcflposter"
-	random_type = /singleton/poster_design/lore
+/obj/random/poster/lore
+	random_type = /obj/structure/sign/poster/lore
 
 /// It is not recommended to use this as this may result in picking posters that do not match the setting
-/obj/item/contraband/poster/lore
-	random_type = /singleton/poster_design/lore
+/obj/random/poster_roll/lore
+	random_type = /obj/item/contraband/poster/lore
 
 // Poster Subtypes //
 
