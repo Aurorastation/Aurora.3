@@ -295,8 +295,10 @@
 
 	else if(href_list["spawnpoint"])
 		var/list/spawnkeys = list()
-		for(var/S in SSatlas.spawn_locations)
-			spawnkeys += S
+		for(var/spawn_location in SSatlas.spawn_locations)
+			var/datum/spawnpoint/spawnpoint = SSatlas.spawn_locations[spawn_location]
+			if(spawnpoint.add_to_preferences)
+				spawnkeys += spawn_location
 		var/choice = input(user, "Where would you like to spawn when late-joining?") as null|anything in spawnkeys
 		if(!choice || !SSatlas.spawn_locations[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
 		pref.spawnpoint = choice

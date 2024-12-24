@@ -175,7 +175,26 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the station."))
 			return 0
 
-		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
+		var/spawnpoint = client.prefs.spawnpoint
+		if(SSticker.mode.type == /datum/game_mode/odyssey)
+			// check if the intrepid is away from its hangar
+			var/datum/shuttle/autodock/overmap/shuttle = SSshuttle.shuttles["Intrepid"]
+			if(shuttle)
+				var/is_intrepid_away = FALSE
+				if(!shuttle.current_location || shuttle.current_location.landmark_tag != "nav_hangar_intrepid")
+					is_intrepid_away = TRUE
+
+				if(is_intrepid_away)
+					// leaving this as a list, maybe in the future we can add spawning into a FOB
+					var/list/spawnpoint_options = list("Configured Spawn ([client.prefs.spawnpoint])", "Intrepid")
+					var/selected_spawnpoint = tgui_input_list(usr, "The Intrepid isn't in the hangar, and is probably at the Odyssey site right now. Would you prefer to spawn there?", "Odyssey Spawn", spawnpoint_options)
+					if(!selected_spawnpoint)
+						return
+
+					if(selected_spawnpoint == "Intrepid")
+						spawnpoint = "Intrepid"
+
+		AttemptLateSpawn(href_list["SelectedJob"], spawnpoint)
 		return
 
 	if(!ready && href_list["preference"])
@@ -272,8 +291,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	return TRUE
 
-
-/mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
+/// Attempts to spawn the player at their selected latejoin spawnpoint, rank is the job they selected, and spawning_at is the spawnpoint
+/mob/abstract/new_player/proc/AttemptLateSpawn(rank, var/spawning_at)
 	if(src != usr)
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
@@ -288,7 +307,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!IsJobAvailable(rank))
 		to_chat(usr, SPAN_NOTICE("[rank] is not available. Please try another."))
 		return 0
-	if(!(spawning_at in SSatlas.current_map.allowed_spawns))
+	var/datum/spawnpoint/spawnpoint = SSatlas.spawn_locations[spawning_at]
+	if((!spawnpoint || !spawnpoint.always_load) && !(spawning_at in SSatlas.current_map.allowed_spawns))
 		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [SSatlas.current_map]. Defaulting to [SSatlas.current_map.default_spawn]."))
 		spawning_at = SSatlas.current_map.default_spawn
 
@@ -322,7 +342,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		return
 
 	//Find our spawning point.
-	var/join_message = SSjobs.LateSpawn(character, rank)
+	var/join_message = SSjobs.LateSpawn(character, rank, spawning_at)
 
 	equip_custom_items(character)
 

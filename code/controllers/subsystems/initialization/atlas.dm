@@ -291,9 +291,11 @@ SUBSYSTEM_DEF(atlas)
 /datum/controller/subsystem/atlas/proc/setup_spawnpoints()
 	SHOULD_NOT_SLEEP(TRUE)
 
-	for (var/type in current_map.spawn_types)
-		var/datum/spawnpoint/S = new type
-		spawn_locations[S.display_name] = S
+	for (var/type in subtypesof(/datum/spawnpoint))
+		var/datum/spawnpoint/initial_spawnpoint = type
+		if((type in current_map.spawn_types) || initial(initial_spawnpoint.always_load))
+			var/datum/spawnpoint/spawnpoint = new type
+			spawn_locations[spawnpoint.display_name] = spawnpoint
 
 /datum/controller/subsystem/atlas/proc/InitializeSectors()
 	SHOULD_NOT_SLEEP(TRUE)

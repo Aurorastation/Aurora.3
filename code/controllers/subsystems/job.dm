@@ -324,7 +324,7 @@ SUBSYSTEM_DEF(jobs)
 			H.lastarea = get_area(H.loc)
 			H.lastarea.set_lightswitch(TRUE)
 		else
-			LateSpawn(H, rank)
+			LateSpawn(H, rank, spawning_at)
 
 		// Moving wheelchair if they have one
 		if(H.buckled_to && istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
@@ -433,7 +433,7 @@ SUBSYSTEM_DEF(jobs)
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
 		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!"))
-		src.forceMove(pick(spawnpos.turfs))
+		spawnpos.handle_spawn(src)
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
 		SSjobs.EquipRank(src, rank, 1)
@@ -451,7 +451,7 @@ SUBSYSTEM_DEF(jobs)
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
 		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!"))
-		src.forceMove(pick(spawnpos.turfs))
+		spawnpos.handle_spawn(src)
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
 		SSjobs.centcomm_despawn_mob(src)
@@ -556,7 +556,7 @@ SUBSYSTEM_DEF(jobs)
 		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|-"
 		feedback_add_details("job_preferences",tmp_str)
 
-/datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/human/H, rank)
+/datum/controller/subsystem/jobs/proc/LateSpawn(mob/living/carbon/human/H, rank, var/spawning_at)
 	//spawn at one of the latespawn locations
 	Debug("LS/([H]): Entry; rank=[rank]")
 
@@ -580,21 +580,19 @@ SUBSYSTEM_DEF(jobs)
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
-			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
-
 		if(rank == "Cyborg")
 			spawnpos = new/datum/spawnpoint/cyborg
+		else if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
+			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+		else if(spawning_at == "Intrepid")
+			spawnpos = SSatlas.spawn_locations["Intrepid"]
 
 		if(!spawnpos)
 			spawnpos = SSatlas.spawn_locations[SSatlas.current_map.default_spawn]
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
-				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
-					H.forceMove(pick(spawnpos.turfs))
-				else
-					H.forceMove(pick(spawnpos.turfs))
+				spawnpos.handle_spawn(H)
 				. = spawnpos.msg
 				spawnpos.after_join(H)
 			else

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "When latejoining, if it's an Odyssey round and the Intrepid is not in its hangar, the latejoiner is given the option of spawning directly onto the Intrepid."

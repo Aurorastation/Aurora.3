@@ -71,6 +71,19 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	GLOB.latejoin_living_quarters_lift += get_turf(src)
 	return INITIALIZE_HINT_QDEL
 
+/**
+ * # Latejoin intrepid marker
+ *
+ * Used to spawn players in when they latejoin in an Odyssey round and select the "Intrepid" spawn they get prompted with
+ */
+/obj/effect/landmark/latejoin_intrepid
+	invisibility = INVISIBILITY_ABSTRACT
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE // so it gets brought along with the shuttle
+
+// does NOT get deleted, we need this landmark to be transported along with the intrepid
+/obj/effect/landmark/latejoin_intrepid/Initialize()
+	..()
+	GLOB.latejoin_intrepid += src // note, we're adding the landmark to the list, NOT the turf. this is because the intrepid moves. we'll spawn in the hangar otherwise
 
 
 /**
