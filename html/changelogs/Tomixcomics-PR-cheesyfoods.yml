@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: hazelmouse
+author: Tomixcomics
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD variants, including an additional variant for the SPLF. Other Gargoyle variants still in the codebase, including the SRF suits, are unchanged."
+  - rscadd: "Added 5 new food dishes: 3 grilled cheese sandwich varieties, elotes, biscuits and gravy, and steak tartare."
+  - rscadd: "Added 2 new drinks: dyn boba tea and chocolate soda."
+  - rscadd: "Added gravy and gravy boats, along with sprite variants for mashed potatoes and schnitzels that had gravy poured on them."
+  - imageadd: "Added a new sprite for blizzard ears flour boxes."
+
+

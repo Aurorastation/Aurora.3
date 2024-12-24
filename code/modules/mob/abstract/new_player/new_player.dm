@@ -139,7 +139,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the station."))
+				to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 				return 0
 
 		LateChoices()
@@ -159,7 +159,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
-			to_chat(usr, SPAN_DANGER("The station is currently exploding. Joining would go poorly."))
+			to_chat(usr, SPAN_DANGER("The [station_name(TRUE)] is currently exploding. Joining would go poorly."))
 			return
 
 		if(client.unacked_warning_count > 0)
@@ -172,7 +172,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the station."))
+			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)

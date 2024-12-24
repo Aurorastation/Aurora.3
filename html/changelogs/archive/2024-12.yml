@@ -34,3 +34,75 @@
 2024-12-05:
   Ben10083:
   - bugfix: Restores missing wiring behind Head of Security Office.
+2024-12-06:
+  ShimmerIsTaken:
+  - rscadd: Added a Solarian army peacekeeper beret.
+  Yonnimer:
+  - rscadd: Adds several new Dionae loadout items.
+  - rscdel: Removes some redundant dionae items & ships.
+  hazelmouse:
+  - rscadd: Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD
+      variants, including an additional variant for the SPLF. Other Gargoyle variants
+      still in the codebase, including the SRF suits, are unchanged.
+  - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
+      Cyclops ship. '
+2024-12-10:
+  Ben10083:
+  - bugfix: Holopad forced calls now work again.
+  - qol: Holopad forced calls option toggles off after a call.
+  - qol: Force calls can be terminated by recieving holopad by command members.
+  Butterrobber202:
+  - balance: Removed the intense slowdown from the Captain's voidsuit.
+  hazelmouse:
+  - rscadd: Transitions the Assunzionii Rook voidsuit into a pure science voidsuit,
+      rather than a combat-capable suit.
+  - rscadd: Adds the Assunzionii Rook voidsuit to the loadout via a modkit available
+      to Assunzionii humans and synthetics, allowing research voidsuits to be transformed
+      into the Assunzionii Rook.
+2024-12-12:
+  hazelmouse:
+  - rscadd: Added the SPLF Raider ghostrole to the Corporate Reconstruction Zone sector.
+      To be considered either a gaggle of unruly pirates or a heroic band of freedom
+      fighters, depending on one's perspective.
+2024-12-16:
+  Geeves:
+  - rscadd: Added extended rubber .45 mags to the autolathe.
+  Stev-the-third:
+  - rscadd: Adds a 2-Z Level odyssey map called the Arctic Valley and the Nuclear
+      Silo.
+  - rscadd: Adds all of the additional supporting files to make an odyssey map work.
+      and stuff.
+  - imageadd: Adds an accepted stamp.
+  - imageadd: Adds directionals for buffet trays.
+  - imageadd: Adds a decorative nuclear missile.
+  - rscadd: Adds violet lights and decayed streetlights.
+  - rscadd: Makes the missile silo cap a physical object.
+  Wowzewow (Wezzy):
+  - rscadd: Sorts and adds new sprites for telecomms equipment.
+  hazelmouse:
+  - bugfix: The Xenobotanist can now access their NanoMed.
+  - qol: The Operations Lobby first aid locker no longer contains the autolathe supplies
+      at round start.
+2024-12-19:
+  Ben10083:
+  - bugfix: TCAF Away Ship shutters now have proper access.
+  DreamySkrell:
+  - rscadd: Crystal Planet Outpost Update. Adds submaps and exoplanet generation.
+  - rscadd: Cryo Outpost Update. Updates exoplanet generation with hot air and light.
+  - rscadd: Away Site Exoplanet Generation Improvements. Allows setting atmos for
+      all exoplanet turfs on the map.
+  - rscadd: Away Site Exoplanet Generation Improvements. Exoplanet turfs can have
+      light if they are outside.
+  - rscadd: Away Site Exoplanet Generation Improvements. Base Turf fixes, explosions
+      do not turn turfs into space, and destroying or mining turfs is generally better
+      handled.
+  FabianK3:
+  - bugfix: Added missing emissives for the regular high visibility jacket.
+  FluffyGhost:
+  - rscadd: Added a comet expulsion event, coming towards the main map, if not dodged
+      causes some meteors that then explode, the explosion power can be reduced by
+      shields.
+  - code_imp: Some DMDocs, code cleanups and other things noone else cares about.
+  Geeves:
+  - rscadd: Being added to a shuttle manifest will now update the crew manifest to
+      indicate that you're on an away mission on that shuttle.

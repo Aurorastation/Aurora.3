@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: hazelmouse
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Implemented mundane QoL changes to the Dominian Science ship and Hephaestus Cyclops ship. "
+  - experiment: "Moved around what law boards are generated in vault, and what are stored in AI upload."
+  - balance: "More dangerous AI law boards such as T.Y.R.A.N.T. moved to Vault loot pool."
+  - balance: "Increased the amount of weapons and lawboards spawned in Vault."
+  - spellcheck: "Changed all vessel and station references in lawsets to 'assigned station' to have laws fit for any environment."

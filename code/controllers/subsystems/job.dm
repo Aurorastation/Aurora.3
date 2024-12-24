@@ -290,7 +290,7 @@ SUBSYSTEM_DEF(jobs)
 
 	if(("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns) && spawning_at == "Arrivals Shuttle")
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
-		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the [SSatlas.current_map.station_name] before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()

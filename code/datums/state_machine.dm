@@ -79,15 +79,18 @@ var/global/list/state_machines = list()
 	var/list/options = current_state.get_open_transitions(holder_instance)
 	if(LAZYLEN(options))
 		var/singleton/state_transition/choice = choose_transition(options)
-		current_state.exited_state(holder_instance)
-		current_state = choice.target
-		current_state.entered_state(holder_instance)
-		return current_state
+		handle_next_transition(holder_instance, choice)
 
 // Decides which transition to walk into, to the next state.
 // By default it chooses the first one on the list.
 /datum/state_machine/proc/choose_transition(list/valid_transitions)
 	return valid_transitions[1]
+
+/// Handles changing the state, based on the state_transition chosen in `evaluate()`.
+/datum/state_machine/proc/handle_next_transition(var/datum/holder_instance, var/singleton/state_transition/chosen_transition)
+	current_state.exited_state(holder_instance)
+	current_state = chosen_transition.target
+	current_state.entered_state(holder_instance)
 
 // Forces the FSM to switch to a specific state, no matter what.
 // Use responsibly.

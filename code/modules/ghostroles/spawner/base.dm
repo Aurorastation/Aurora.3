@@ -116,7 +116,7 @@
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
-		return "The station is currently exploding."
+		return "The [station_name(TRUE)] is currently exploding."
 	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
