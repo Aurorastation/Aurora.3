@@ -37,7 +37,7 @@
 	var/mode = 0	//off or on.
 	matter = list(DEFAULT_WALL_MATERIAL = 120, MATERIAL_GLASS = 80)
 
-/obj/item/device/hand_labeler/attack()
+/obj/item/device/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
 /obj/item/device/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)

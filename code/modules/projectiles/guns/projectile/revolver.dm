@@ -88,7 +88,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 2, 2)
+				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
@@ -300,8 +300,8 @@
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/gun/projectile/revolver/konyang/pirate
 	name = "reclaimed revolver"

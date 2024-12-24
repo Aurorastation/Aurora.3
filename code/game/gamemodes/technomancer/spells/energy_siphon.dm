@@ -181,7 +181,7 @@
 
 /obj/projectile/beam/lightning/energy_siphon/Bump(atom/A as mob|obj|turf|area, forced=0)
 	if(A == firer) // For this, you CAN shoot yourself.
-		on_impact(A)
+		on_hit(A)
 
 		density = 0
 		set_invisibility(101)
@@ -190,7 +190,12 @@
 		return 1
 	..()
 
-/obj/projectile/beam/lightning/energy_siphon/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/projectile/beam/lightning/energy_siphon/on_hit(atom/target, blocked, def_zone)
+	if(!isliving(target))
+		return ..()
+
+	var/mob/living/target_mob = target
+
 	if(target_mob == firer) // This shouldn't actually occur due to Bump(), but just in-case.
 		return 1
 	if(ishuman(target_mob)) // Otherwise someone else stood in the beam and is going to pay for it.

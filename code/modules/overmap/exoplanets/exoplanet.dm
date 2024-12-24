@@ -61,8 +61,14 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
-	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
 	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
+	/// Whether the weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether the weather system supports having icy weather
+	var/has_icy_weather = FALSE
 
 	var/features_budget = 4
 	var/list/possible_features = list()
@@ -260,7 +266,7 @@
 					var/mob/S = new mob_type(T)
 					animals += S
 					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
-					GLOB.destroyed_event.register(S, src, PROC_REF(remove_animal))
+					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
 				repopulating = 0
@@ -279,10 +285,10 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(var/mob/M)
+/obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
 	GLOB.death_event.unregister(M, src)
-	GLOB.destroyed_event.unregister(M, src)
+	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
@@ -553,7 +559,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
 	initial_weather_state = W
 	//Tells all our levels exposed to the sky to force change the weather.
-	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	var/obj/abstract/weather_system/new_weather_system = SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	new_weather_system.has_water_weather = has_water_weather
+	new_weather_system.has_icy_weather = has_icy_weather
 
 ///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()

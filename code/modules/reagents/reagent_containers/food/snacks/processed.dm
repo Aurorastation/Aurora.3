@@ -44,7 +44,7 @@
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()
-	var/mob/living/carbon/human/H = new(src.loc)
+	var/mob/living/carbon/human/H = new(get_turf(src))
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
 	H.name = H.real_name

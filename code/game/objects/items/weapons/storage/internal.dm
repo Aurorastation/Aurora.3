@@ -37,7 +37,7 @@
 			src.open(user)
 			return 0
 
-		if (!( istype(over_object, /obj/screen) ))
+		if (!( istype(over_object, /atom/movable/screen) ))
 			return 1
 
 		var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
@@ -86,7 +86,7 @@
 			src.close(M)
 	return 1
 
-/obj/item/storage/internal/Adjacent(var/atom/neighbor)
+/obj/item/storage/internal/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
 	var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
 	return real_master_item.Adjacent(neighbor)
 

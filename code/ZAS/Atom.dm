@@ -1,5 +1,9 @@
 /turf/CanPass(atom/movable/mover, turf/target, height=1.5,air_group=0)
-	if(!target) return 0
+	if(!target)
+		return FALSE
+
+	if(mover?.movement_type & PHASING)
+		return TRUE
 
 	if(istype(mover)) // turf/Enter(...) will perform more advanced checks
 		return !density

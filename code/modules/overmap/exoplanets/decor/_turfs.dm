@@ -17,20 +17,32 @@
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
-	// try to get the the atmos and area of the exoplanet
+	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
-		if(istype(E))
-			if(E.atmosphere)
-				initial_gas = E.atmosphere.gas.Copy()
-				temperature = E.atmosphere.temperature
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
 			else
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, E.lightcolor)
-			if(E.planetary_area && istype(loc, world.area))
-				ChangeArea(src, E.planetary_area)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+			if(exoplanet.planetary_area && istype(loc, world.area))
+				ChangeArea(src, exoplanet.planetary_area)
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(away_site.exoplanet_atmosphere)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+			if(away_site.exoplanet_lightlevel && is_outside())
+				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
+
 	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
 
@@ -80,7 +92,7 @@
 			AddOverlays(resource_indicator)
 		if(LAZYLEN(decals))
 			AddOverlays(decals)
-		for(var/direction in GLOB.cardinal)
+		for(var/direction in GLOB.cardinals)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))
 				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))

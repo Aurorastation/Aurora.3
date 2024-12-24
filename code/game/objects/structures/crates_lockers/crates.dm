@@ -97,6 +97,8 @@
 ==========================
 */
 /obj/structure/closet/crate/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if (istype(mover, /obj/structure/closet/crate))//Handle interaction with other crates
 		var/obj/structure/closet/crate/C = mover
 		if (tablestatus && tablestatus != C.tablestatus) // Crates can go under tables with crates on top of them, and vice versa
@@ -586,7 +588,25 @@
 //	new /obj/item/pestspray(src)
 //	new /obj/item/pestspray(src)
 
+// Spawns with everything you need to make your very own field kitchen! (assuming you have power)
+// Contains enough to create a stove and oven. Using loops for anything above one for readability. Best paired with a freezer with ingredients.
+// Intended to provide enough equipment that more than just chefs can function as field cooks on expeditions.
+/obj/structure/closet/crate/field_kitchen
 
+/obj/structure/closet/crate/field_kitchen/fill()
+	for(var/_ in 1 to 6)
+		new /obj/item/stock_parts/capacitor(src)
+	for(var/_ in 1 to 4)
+		new /obj/item/stock_parts/matter_bin(src)
+	for(var/_ in 1 to 2)
+		new /obj/item/stock_parts/scanning_module(src)
+	new /obj/item/circuitboard/oven(src)
+	new /obj/item/circuitboard/stove(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/storage/box/kitchen(src)
+	new /obj/item/reagent_containers/spray/cleaner(src)
+	new /obj/item/storage/box/gloves(src)
+	new /obj/item/storage/box/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance

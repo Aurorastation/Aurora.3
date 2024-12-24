@@ -36,6 +36,7 @@
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
+		SPECIES_VAURCA_ATTENDANT,
 		SPECIES_VAURCA_BREEDER,
 		SPECIES_VAURCA_BULWARK,
 		SPECIES_DIONA,
@@ -332,7 +333,7 @@
 	for(var/obj/machinery/computer/operating/D in SSmachinery.machinery)
 		if (AreConnectedZLevels(D.z, z))
 			connected_displays += D
-			GLOB.destroyed_event.register(D, src, PROC_REF(remove_display))
+			RegisterSignal(D, COMSIG_QDELETING, PROC_REF(on_connected_display_deletion))
 	return !!length(connected_displays)
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
@@ -344,9 +345,14 @@
 		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
 		ui.open()
 
-/obj/machinery/body_scanconsole/proc/remove_display(obj/machinery/computer/operating/display)
+/obj/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
+	SIGNAL_HANDLER
+
+	remove_display(source)
+
+/obj/machinery/body_scanconsole/proc/remove_display(datum/source, obj/machinery/computer/operating/display)
 	connected_displays -= display
-	GLOB.destroyed_event.unregister(display, src, PROC_REF(remove_display))
+	UnregisterSignal(display, COMSIG_QDELETING)
 
 /obj/machinery/body_scanconsole/proc/get_connected()
 	if(connected)
@@ -786,48 +792,48 @@
 	dat += "<font face=\"Verdana\">"
 	dat += "<b>Patient Status</b><br><HR>"
 	dat += "<font size=\"1\">"
-	dat += text("Name: 					[]<br>", occ["name"])
-	dat += text("Status: 				[]<br>", occ["stat"])
-	dat += text("Species: 				[]<br>", occ["species"])
-	dat += text("Pulse: 				[] BPM<br>", occ["pulse"])
-	dat += text("Brain Activity:		[]<br>", occ["brain_activity"])
-	dat += text("Body Temperature: 		[]&deg;C ", (occ["bodytemp"] - T0C))
-	dat += text("([]&deg;F)<br>",  (occ["bodytemp"]*1.8-459.67))
+	dat += "Name: 					[occ["name"]]<br>"
+	dat += "Status: 				[occ["stat"]]<br>"
+	dat += "Species: 				[occ["species"]]<br>"
+	dat += "Pulse: 				[occ["pulse"]] BPM<br>"
+	dat += "Brain Activity:		[occ["brain_activity"]]<br>"
+	dat += "Body Temperature: 		[(occ["bodytemp"] - T0C)]&deg;C "
+	dat += "([(occ["bodytemp"]*1.8-459.67)]&deg;F)<br>"
 
 	dat += "<b><br>Blood Status</b><br><HR>"
-	dat += text("Blood Pressure:		[]<br>", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: 	[]%<br>", occ["blood_oxygenation"])
-	dat += text("Blood Volume: 			[]%<br>", occ["blood_volume"])
-	dat += text("Blood Type: 			[]<br>", occ["blood_type"])
+	dat += "Blood Pressure:		[occ["blood_pressure"]]<br>"
+	dat += "Blood Oxygenation: 	[occ["blood_oxygenation"]]%<br>"
+	dat += "Blood Volume: 			[occ["blood_volume"]]%<br>"
+	dat += "Blood Type: 			[occ["blood_type"]]<br>"
 
 	if(occ["inaprovaline_amount"])
-		dat += text("Inaprovaline: 		[] units<BR>", occ["inaprovaline_amount"])
+		dat += "Inaprovaline: 		[occ["inaprovaline_amount"]] units<BR>"
 	if(occ["soporific_amount"])
-		dat += text("Soporific: 		[] units<BR>", occ["soporific_amount"])
+		dat += "Soporific: 		[occ["soporific_amount"]] units<BR>"
 	if(occ["dermaline_amount"])
-		dat += text("[]\tDermaline: 	[] units</font><BR>", ("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>"), occ["dermaline_amount"])
+		dat += "[("<font color='[occ["dermaline_amount"] < 20  ? "black" : "red"]'>")]\tDermaline: 	[occ["dermaline_amount"]] units</font><BR>"
 	if(occ["bicaridine_amount"])
-		dat += text("[]\tBicaridine: 	[] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>"), occ["bicaridine_amount"])
+		dat += "[("<font color='[occ["bicaridine_amount"] < 20  ? "black" : "red"]'>")]\tBicaridine: 	[occ["bicaridine_amount"]] units</font><BR>"
 	if(occ["dexalin_amount"])
-		dat += text("[]\tDexalin: 		[] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>"), occ["dexalin_amount"])
+		dat += "[("<font color='[occ["dexalin_amount"] < 20  ? "black" : "red"]'>")]\tDexalin: 		[occ["dexalin_amount"]] units</font><BR>"
 	if(occ["thetamycin_amount"])
-		dat += text("[]\tThetamycin: 	[] units</font><BR>", ("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>"), occ["thetamycin_amount"])
+		dat += "[("<font color='[occ["thetamycin_amount"] < 20 ? "black" : "red"]'>")]\tThetamycin: 	[occ["thetamycin_amount"]] units</font><BR>"
 	if(occ["other_amount"])
-		dat += text("Other:				[] units<BR>", occ["other_amount"])
+		dat += "Other:				[occ["other_amount"]] units<BR>"
 
 	dat += "<b><br>Symptom Status</b><br><HR>"
-	dat += text("Radiation Level:  [] Gy<br>", round(occ["rads"]))
-	dat += text("Genetic Damage:   []<br>", occ["cloneloss"])
+	dat += "Radiation Level:  [round(occ["rads"])] Gy<br>"
+	dat += "Genetic Damage:   [occ["cloneloss"]]<br>"
 	if(occ["paralysis"])
-		dat += text("Est Paralysis Level:	[] Seconds Left<br>", round(occ["paralysis"] / 4))
+		dat += "Est Paralysis Level:	[round(occ["paralysis"] / 4)] Seconds Left<br>"
 	else
-		dat += text("Est Paralysis Level:	None<br>")
+		dat += "Est Paralysis Level:	None<br>"
 
 	dat += "<b><br>Damage Status</b><br><HR>"
-	dat += text("Brute Trauma:       []<br>", occ["bruteloss"])
-	dat += text("Burn Severity:      []<br>", occ["fireloss"])
-	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
-	dat += text("Toxin Exposure:     []<br>", occ["toxloss"])
+	dat += "Brute Trauma:       [occ["bruteloss"]]<br>"
+	dat += "Burn Severity:      [occ["fireloss"]]<br>"
+	dat += "Oxygen Deprivation: [occ["oxyloss"]]<br>"
+	dat += "Toxin Exposure:     [occ["toxloss"]]<br>"
 
 	dat += "<br><b>Body Status</b><HR>"
 

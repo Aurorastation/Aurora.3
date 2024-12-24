@@ -310,6 +310,7 @@
 	pmc_labcoats["PMCG labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	pmc_labcoats["PMCG labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/pmc
 	pmc_labcoats["EPMC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	pmc_labcoats["Nexus longcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/nexus
 	pmc_labcoats["PMCG corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/pmc
 	pmc_labcoats["EPMC corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/pmc/alt
 	pmc_labcoats["PMCG winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/pmc
@@ -351,12 +352,66 @@
 	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
+// START: PMCG MODSUIT
 /datum/gear/faction/pmc_modsuit
 	display_name = "PMCG modsuit"
 	description = "A modular PMCG fatigue jumpsuit."
 	path = /obj/item/clothing/under/pmc_modsuit
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/pmc_modsuit/New()
+	..()
+	gear_tweaks += list(gear_tweak_modsuit_configuration)
+
+
+var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+
+/datum/gear_tweak/modsuit_configuration
+	/// the configuration of the modsuit, using just a list of the names
+	var/list/configuration_options = list()
+
+/datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
+	return "Modsuit Configuration: [metadata]"
+
+/datum/gear_tweak/modsuit_configuration/get_default()
+	var/obj/item/clothing/under/pmc_modsuit/modsuit_type = /obj/item/clothing/under/pmc_modsuit
+	return initial(modsuit_type.modsuit_mode)
+
+/// Instantiates the modsuit item so we can set up the configuration whenever it's needed, only called when the options haven't been configured yet
+/datum/gear_tweak/modsuit_configuration/proc/load_configuration_options()
+	// forgive me, for i have sinned. there is no way to initial() a list, so we need to instantiate the item and grab its data here
+	// and we can't do that in /New, cuz that fails CI. instead, we grab it on-demand here if the options aren't populated
+
+	var/obj/item/clothing/under/pmc_modsuit/initial_uniform = new()
+	for(var/option in initial_uniform.configuration_options)
+		configuration_options |= option
+	qdel(initial_uniform)
+
+/datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	if(!length(configuration_options))
+		load_configuration_options()
+
+	var/selected_configuration = tgui_input_list(user, "How do you want your modsuit to be set up?", title, configuration_options, metadata)
+	if(selected_configuration)
+		return selected_configuration
+
+/datum/gear_tweak/modsuit_configuration/tweak_item(var/obj/item/clothing/under/pmc_modsuit/modsuit, var/metadata, var/mob/living/carbon/human/H)
+	if(!metadata)
+		return
+
+	if(!length(configuration_options))
+		load_configuration_options()
+
+	// if this mode isn't in the options, don't continue, this'll protect us from old data if the mode names ever change
+	if(!(metadata in configuration_options))
+		return
+
+	modsuit.modsuit_mode = metadata
+	modsuit.selected_modsuit()
+
+// END: PMCG MODSUIT
+
 
 /datum/gear/faction/pmcg_sec_uniforms
 	display_name = "PMCG/EPMC security uniform selection"
@@ -378,6 +433,7 @@
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
+	pmcg_sec_uniforms["Nexus Corporate uniform"] = /obj/item/clothing/under/rank/security/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
@@ -407,6 +463,13 @@
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Physician", "Medical Personnel")
 
+/datum/gear/faction/epmc_uniform_phys_med/New()
+	..()
+	var/list/epmc_uniform_phys_med = list()
+	epmc_uniform_phys_med["PMCG physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/alt
+	epmc_uniform_phys_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_phys_med)
+
 /datum/gear/faction/epmc_uniform_pharm_med
 	display_name = "PMCG pharmacist uniform"
 	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
@@ -414,12 +477,26 @@
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Pharmacist", "Medical Personnel")
 
+/datum/gear/faction/epmc_uniform_pharm_med/New()
+	..()
+	var/list/epmc_uniform_pharm_med = list()
+	epmc_uniform_pharm_med["PMCG pharmacist uniform"] = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
+	epmc_uniform_pharm_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_pharm_med)
+
 /datum/gear/faction/epmc_uniform_psych_med
 	display_name = "PMCG psychiatrist uniform"
 	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Psychiatrist", "Medical Personnel")
+
+/datum/gear/faction/epmc_uniform_psych_med/New()
+	..()
+	var/list/epmc_uniform_psych_med = list()
+	epmc_uniform_psych_med["PMCG psychiatrist uniform"] = /obj/item/clothing/under/rank/medical/psych/pmc/alt
+	epmc_uniform_psych_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_psych_med)
 
 /datum/gear/faction/epmc_uniform_intern_med
 	display_name = "PMCG medical intern uniform"
@@ -442,6 +519,7 @@
 	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
 	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	epmc_uniform_para_med["Nexus Corporate Security paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
 /datum/gear/faction/wildlands_flagpatches

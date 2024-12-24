@@ -61,24 +61,24 @@
 	if(!trans_dest && !user.loc)
 		return
 
-/obj/item/reagent_containers/toothbrush/attack(atom/target as obj|turf|area, mob/user as mob , flag)
-	if(isliving(target))
-		var/mob/living/M = target
+/obj/item/reagent_containers/toothbrush/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(isliving(target_mob))
+		var/mob/living/M = target_mob
 		if(ishuman(M))
 			if(!reagents.total_volume)
 				to_chat(user, SPAN_WARNING("The [initial(name)] is dry!"))
 			else if(reagents.total_volume)
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
-					user.visible_message(SPAN_WARNING("[user] is trying to brush \the [target]'s teeth \the [src]!"))
+					user.visible_message(SPAN_WARNING("[user] is trying to brush \the [target_mob]'s teeth \the [src]!"))
 					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 					if(do_after(user, 30))
-						user.visible_message(SPAN_WARNING("[user] has brushed \the [target]'s teeth with \the [src]!"))
+						user.visible_message(SPAN_WARNING("[user] has brushed \the [target_mob]'s teeth with \the [src]!"))
 
-						reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
+						reagents.trans_to_mob(target_mob, amount_per_transfer_from_this, CHEM_BREATHE)
 						update_icon()
 				else
-					wipe_down(target, user)
+					wipe_down(target_mob, user)
 			return
 
 	return ..()

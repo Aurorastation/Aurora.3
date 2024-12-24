@@ -67,10 +67,13 @@
 				set_broken()
 	return
 
-/obj/machinery/computer/bullet_act(var/obj/projectile/Proj)
-	if(prob(Proj.get_structure_damage()))
+/obj/machinery/computer/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if(prob(hitting_projectile.get_structure_damage()))
 		set_broken()
-	..()
 
 /obj/machinery/computer/update_icon()
 	switch(dir)
@@ -201,6 +204,8 @@
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)
 		return 1
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(istype(mover,/obj/projectile) && density && is_holographic)
 		if (prob(80))
 //Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
@@ -225,3 +230,9 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/obj/machinery/computer/terminal/inactive
+	name = "inactive terminal"
+	light_power = 0
+	light_power_on = 0
+	light_range_on = 0

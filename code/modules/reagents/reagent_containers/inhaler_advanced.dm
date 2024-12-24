@@ -126,12 +126,12 @@
 		stored_cartridge = null
 	update_icon()
 
-/obj/item/personal_inhaler/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/personal_inhaler/attack(mob/living/target_mob, mob/living/user, target_zone)
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/human/H = target_mob
 
 	if (!istype(H))
-		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on \the [M]!"))
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on \the [H]!"))
 		return
 
 	if(!stored_cartridge)
@@ -144,10 +144,10 @@
 
 	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
 		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
-		if(M.eyes_protected(src, FALSE))
-			eyestab(M,user)
-		user.visible_message(SPAN_NOTICE("[user] accidentally sticks \the [src] in [M]'s eye!"),
-								SPAN_NOTICE("You accidentally stick the [src] in [M]'s eye!"))
+		if(H.eyes_protected(src, FALSE))
+			eyestab(H,user)
+		user.visible_message(SPAN_NOTICE("[user] accidentally sticks \the [src] in [H]'s eye!"),
+								SPAN_NOTICE("You accidentally stick the [src] in [H]'s eye!"))
 
 		return
 
@@ -161,29 +161,29 @@
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(H)
 
-	if(user == M)
+	if(user == H)
 		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in their mouth and presses the injection button."),
 								SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."))
 
 	else
-		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [M]..."),
-								SPAN_NOTICE("You attempt to administer \the [src] to [M]..."))
-		if (!do_after(user, 1 SECONDS, M))
-			to_chat(user,SPAN_NOTICE("You and \the [M] need to be standing still in order to inject \the [src]."))
+		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [H]..."),
+								SPAN_NOTICE("You attempt to administer \the [src] to [H]..."))
+		if (!do_after(user, 1 SECONDS, H))
+			to_chat(user,SPAN_NOTICE("You and \the [H] need to be standing still in order to inject \the [src]."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in [M]'s mouth and presses the injection button."),
-								SPAN_NOTICE("You stick \the [src] in [M]'s mouth and press the injection button."))
+		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in [H]'s mouth and presses the injection button."),
+								SPAN_NOTICE("You stick \the [src] in [H]'s mouth and press the injection button."))
 
 
-	if(M.reagents)
+	if(H.reagents)
 		var/contained = stored_cartridge.reagentlist()
 		var/temp = stored_cartridge.reagents.get_temperature()
-		var/trans = stored_cartridge.reagents.trans_to_mob(M, transfer_amount, CHEM_BREATHE, bypass_checks = TRUE)
-		admin_inject_log(user, M, src, contained, temp, trans)
-		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
+		var/trans = stored_cartridge.reagents.trans_to_mob(H, transfer_amount, CHEM_BREATHE, bypass_checks = TRUE)
+		admin_inject_log(user, H, src, contained, temp, trans)
+		playsound(H.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
 			to_chat(user,SPAN_NOTICE("\The [stored_cartridge] automatically ejects from \the [src]."))
 			stored_cartridge.forceMove(user.loc)

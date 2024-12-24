@@ -3,14 +3,13 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	throwpass = 1
 	breakable = TRUE
 	build_amt = 1
-	pass_flags_self = PASSTABLE | LETPASSTHROW
 
 	//Preset shit
 	var/table_mat
@@ -373,7 +372,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir == REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 			else
@@ -384,7 +383,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir & GLOB.reverse_dir[D])
+			if(W.is_fulltile() || W.dir & REVERSE_DIR(D))
 				blocked_dirs |= D
 				break
 

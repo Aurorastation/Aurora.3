@@ -151,6 +151,8 @@
 	impact_type = /obj/effect/projectile/impact/pulse
 
 /obj/projectile/ship_ammo/leviathan/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+	. = ..()
+
 	if(!is_landmark_hit)
 		if(ismob(target))
 			var/mob/M = target
@@ -161,10 +163,6 @@
 	else
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
 		explosion(target, 30, 30, 30)
-
-/obj/projectile/ship_ammo/leviathan/check_penetrate(atom/A)
-	on_hit(A)
-	return TRUE
 
 /obj/machinery/zat_lever
 	name = "activation lever"

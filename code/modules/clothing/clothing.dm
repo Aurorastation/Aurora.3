@@ -336,7 +336,9 @@
 				P.firer = user
 				P.old_style_target(locate(new_x, new_y, P.z))
 
-				return PROJECTILE_CONTINUE // complete projectile permutation
+				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
+
+		return BULLET_ACT_HIT
 
 /proc/calculate_material_armor(amount)
 	var/result = 1 - MATERIAL_ARMOR_COEFFICENT * amount / (1 + MATERIAL_ARMOR_COEFFICENT * abs(amount))
@@ -397,6 +399,12 @@
 	body_temperature_change = initial(body_temperature_change)
 	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
 		body_temperature_change += accessory.body_temperature_change
+
+/obj/item/clothing/CtrlClick(var/mob/user)
+	if(loc == user && LAZYLEN(accessories))
+		remove_accessory_handler(user, TRUE)
+		return
+	return ..()
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
@@ -592,7 +600,8 @@
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
-	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	/// In case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	var/allow_hair_covering = TRUE
 
 	var/light_overlay = "helmet_light"
 	var/light_applied

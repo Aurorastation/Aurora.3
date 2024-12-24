@@ -47,7 +47,7 @@
 		var/turf/T = thing
 		if(our_turf == T)
 			continue
-		if(!istype(T, /turf/unsimulated/floor/asteroid))
+		if(!istype(T, /turf/simulated/floor/exoplanet/asteroid))
 			continue
 		if(locate(/obj/structure/reagent_crystal/dense) in T)
 			continue

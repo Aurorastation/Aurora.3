@@ -76,8 +76,11 @@
 	footprint_color = null
 	update_icon(1)
 
+/turf/simulated/floor/exoplanet/basalt/crystal
+	color = "#a9d8e0"
+
 // Special asteroid variant that goes with lava better.
-/turf/unsimulated/floor/asteroid/basalt
+/turf/simulated/floor/exoplanet/asteroid/basalt
 	name = "basalt"
 	icon = 'icons/turf/basalt.dmi'
 	icon_state = "basalt"
@@ -93,14 +96,14 @@
 
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
-/turf/unsimulated/floor/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+/turf/simulated/floor/exoplanet/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
 	underlay_appearance.icon_state = "basalt"
 	if (prob(20))
 		underlay_appearance.icon_state += "[rand(0,12)]"
 	return TRUE
 
-/turf/unsimulated/floor/asteroid/basalt/Initialize(mapload)
+/turf/simulated/floor/exoplanet/asteroid/basalt/Initialize(mapload)
 	if (prob(20))
 		var/variant = rand(0,12)
 		icon_state = "basalt[variant]"
@@ -113,14 +116,14 @@
 				light_range = 2
 	. = ..()
 
-/turf/unsimulated/floor/asteroid/ReplaceWithLattice()
+/turf/simulated/floor/exoplanet/asteroid/ReplaceWithLattice()
 	ChangeTurf(baseturf)
 	new /obj/structure/lattice(src)
 
-/turf/unsimulated/floor/asteroid/basalt/air
+/turf/simulated/floor/exoplanet/asteroid/basalt/air
 	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
 
-/turf/unsimulated/floor/asteroid/ash
+/turf/simulated/floor/exoplanet/asteroid/ash
 	name = "ash"
 	icon_state = "ash"
 	desc = "A fine grey ash. Looks pretty tightly packed."
@@ -132,12 +135,12 @@
 	footprint_color = COLOR_ASH
 	track_distance = 6
 
-/turf/unsimulated/floor/asteroid/ash/Initialize()
+/turf/simulated/floor/exoplanet/asteroid/ash/Initialize()
 	. = ..()
 	if (prob(20))
 		AddOverlays("asteroid[rand(0, 9)]", TRUE)
 
-/turf/unsimulated/floor/asteroid/ash/rocky
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky
 	name = "rocky ash"
 	icon_state = "rockyash"
 	base_icon_state = "rockyash"

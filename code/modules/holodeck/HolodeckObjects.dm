@@ -228,7 +228,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		flick("[src.base_state]deny", src)
 
 	return
 
@@ -284,8 +284,8 @@
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-		return PROJECTILE_STOPPED
-	return FALSE
+		return BULLET_ACT_BLOCK
+	return BULLET_ACT_HIT
 
 /obj/item/holo/esword/New()
 	if(!item_color)
@@ -331,9 +331,9 @@
 	desc = "Boom, Shakalaka!"
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
-	anchored = 1
-	density = 1
-	throwpass = 1
+	anchored = TRUE
+	density = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
@@ -363,7 +363,7 @@
 			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), range = 3)
 		return 0
 	else
-		return ..(mover, target, height, air_group)
+		return ..()
 
 
 /obj/machinery/readybutton
@@ -379,7 +379,7 @@
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)

@@ -139,3 +139,11 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/cozmo_cubes
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/steak_tartare
+	fruit = list("onion" = 1)
+	appliance = MIX
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 3)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/steak_tartare
+	reagent_mix = RECIPE_REAGENT_REPLACE

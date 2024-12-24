@@ -138,12 +138,13 @@
 
 
 // - SSrecords --
-#define RECORD_GENERAL 1
-#define RECORD_MEDICAL 2
-#define RECORD_SECURITY 4
-#define RECORD_LOCKED 8
-#define RECORD_WARRANT 16
-#define RECORD_VIRUS 32
+#define RECORD_GENERAL BITFLAG(0)
+#define RECORD_MEDICAL BITFLAG(1)
+#define RECORD_SECURITY BITFLAG(2)
+#define RECORD_LOCKED BITFLAG(3)
+#define RECORD_WARRANT BITFLAG(4)
+#define RECORD_VIRUS BITFLAG(5)
+#define RECORD_SHUTTLE_MANIFEST BITFLAG(6)
 
 
 // - SSjobs --
@@ -241,6 +242,7 @@
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_WEATHER    -9
+#define INIT_ORDER_ODYSSEY	-15
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50

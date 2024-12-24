@@ -77,6 +77,23 @@
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
+/obj/item/gun/custom_ka/exosuit
+	name = "exosuit kinetic accelerator"
+	build_name = "exosuit compatible"
+	icon_state = "frame_cyborg"
+	desc = "A kinetic accelerator frame meant for exosuits. Uses an exosuit's internal charge as power."
+	w_class = WEIGHT_CLASS_HUGE
+	recoil_increase = -10
+	capacity_increase = 100
+	mod_limit_increase = 100
+	origin_tech = list()
+	can_disassemble_cell = FALSE
+	cyborg_maptext_override = TRUE
+
+	installed_cell = /obj/item/custom_ka_upgrade/cells/exosuit
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/explosive/exosuit
+
 /obj/item/gun/custom_ka/frameA
 	name = "vented kinetic accelerator frame"
 	build_name = "vented"
@@ -117,7 +134,7 @@
 		if(H.mob_size < 10) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
-			src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 3, 3)
+			src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 3, 3)
 
 			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)

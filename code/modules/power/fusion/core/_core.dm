@@ -55,9 +55,13 @@
 		owned_field.AddParticles(name, quantity)
 		. = 1
 
-/obj/machinery/power/fusion_core/bullet_act(obj/projectile/Proj)
+/obj/machinery/power/fusion_core/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(owned_field)
-		. = owned_field.bullet_act(Proj)
+		. = owned_field.bullet_act(hitting_projectile)
 
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)

@@ -78,7 +78,7 @@
 	desc_ooc = null
 	max_count = 2
 
-	possible_species = list(SPECIES_VAURCA_WARRIOR)
+	possible_species = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = TRUE
 	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
 
@@ -248,4 +248,3 @@
 		<br>\
 		"
 
-// ---------------------- fin

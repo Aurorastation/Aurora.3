@@ -106,7 +106,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/quarters)
+	shuttle_area = list(/area/shuttle/intrepid/main_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical, /area/shuttle/intrepid/engineering, /area/shuttle/intrepid/port_storage, /area/shuttle/intrepid/cockpit)
 	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -142,12 +142,36 @@
 	name = "First Deck Canary Hangar Bay"
 	landmark_tag = "nav_hangar_canary"
 	docking_controller = "canary_dock"
-	base_area = /area/hangar/canary
+	base_area = /area/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/canary/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_canary"
+	base_turf = /turf/space/transit/north
+
+// Quark
+/datum/shuttle/autodock/overmap/quark
+	name = "Quark"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/quark/cockpit, /area/shuttle/quark/cargo_hold)
+	dock_target = "airlock_shuttle_quark"
+	current_location = "nav_hangar_quark"
+	landmark_transition = "nav_transit_quark"
+	range = 1
+	fuel_consumption = 3
+	logging_home_tag = "nav_hangar_quark"
+
+/obj/effect/shuttle_landmark/quark/hangar
+	name = "First Deck Quark Hangar Bay"
+	landmark_tag = "nav_hangar_quark"
+	docking_controller = "quark_dock"
+	base_area = /area/hangar/auxiliary
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/quark/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_quark"
 	base_turf = /turf/space/transit/north
 
 // Mining Shuttle

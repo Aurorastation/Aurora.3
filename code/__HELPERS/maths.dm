@@ -1,14 +1,131 @@
-// round() acts like floor(x, 1) by default but can't handle other values
-#define FLOOR(x, y) ( round((x) / (y)) * (y) )
+///Calculate the angle between two movables and the west|east coordinate
+/proc/get_angle(atom/movable/start, atom/movable/end)//For beams.
+	if(!start || !end)
+		return 0
+	var/dy =(ICON_SIZE_Y * end.y + end.pixel_y) - (ICON_SIZE_Y * start.y + start.pixel_y)
+	var/dx =(ICON_SIZE_X * end.x + end.pixel_x) - (ICON_SIZE_X * start.x + start.pixel_x)
+	return delta_to_angle(dx, dy)
+
+/// Calculate the angle produced by a pair of x and y deltas
+/proc/delta_to_angle(x, y)
+	if(!y)
+		return (x >= 0) ? 90 : 270
+	. = arctan(x/y)
+	if(y < 0)
+		. += 180
+	else if(x < 0)
+		. += 360
+
+/// Angle between two arbitrary points and horizontal line same as [/proc/get_angle]
+/proc/get_angle_raw(start_x, start_y, start_pixel_x, start_pixel_y, end_x, end_y, end_pixel_x, end_pixel_y)
+	var/dy = (ICON_SIZE_Y * end_y + end_pixel_y) - (ICON_SIZE_Y * start_y + start_pixel_y)
+	var/dx = (ICON_SIZE_X * end_x + end_pixel_x) - (ICON_SIZE_X * start_x + start_pixel_x)
+	if(!dy)
+		return (dx >= 0) ? 90 : 270
+	. = arctan(dx/dy)
+	if(dy < 0)
+		. += 180
+	else if(dx < 0)
+		. += 360
+
+///for getting the angle when animating something's pixel_x and pixel_y
+/proc/get_pixel_angle(y, x)
+	if(!y)
+		return (x >= 0) ? 90 : 270
+	. = arctan(x/y)
+	if(y < 0)
+		. += 180
+	else if(x < 0)
+		. += 360
+
+
+/**
+ * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
+ *
+ * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+ */
+/proc/get_line(atom/starting_atom, atom/ending_atom)
+	var/current_x_step = starting_atom.x//start at x and y, then add 1 or -1 to these to get every turf from starting_atom to ending_atom
+	var/current_y_step = starting_atom.y
+	var/starting_z = starting_atom.z
+
+	var/list/line = list(get_turf(starting_atom))//get_turf(atom) is faster than locate(x, y, z)
+
+	var/x_distance = ending_atom.x - current_x_step //x distance
+	var/y_distance = ending_atom.y - current_y_step
+
+	var/abs_x_distance = abs(x_distance)//Absolute value of x distance
+	var/abs_y_distance = abs(y_distance)
+
+	var/x_distance_sign = SIGN(x_distance) //Sign of x distance (+ or -)
+	var/y_distance_sign = SIGN(y_distance)
+
+	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance/2
+	var/y = abs_y_distance >> 1 //Bit-shifting makes me l33t.  It also makes get_line() unnecessarily fast.
+
+	if(abs_x_distance >= abs_y_distance) //x distance is greater than y
+		for(var/distance_counter in 0 to (abs_x_distance - 1))//It'll take abs_x_distance steps to get there
+			y += abs_y_distance
+
+			if(y >= abs_x_distance) //Every abs_y_distance steps, step once in y direction
+				y -= abs_x_distance
+				current_y_step += y_distance_sign
+
+			current_x_step += x_distance_sign //Step on in x direction
+			line += locate(current_x_step, current_y_step, starting_z)//Add the turf to the list
+	else
+		for(var/distance_counter in 0 to (abs_y_distance - 1))
+			x += abs_x_distance
+
+			if(x >= abs_y_distance)
+				x -= abs_y_distance
+				current_x_step += x_distance_sign
+
+			current_y_step += y_distance_sign
+			line += locate(current_x_step, current_y_step, starting_z)
+	return line
+
+/**
+ * Get a list of turfs in a perimeter given the `center_atom` and `radius`.
+ * Automatically rounds down decimals and does not accept values less than positive 1 as they don't play well with it.
+ * Is efficient on large circles but ugly on small ones
+ * Uses [Jesko`s method to the midpoint circle Algorithm](https://en.wikipedia.org/wiki/Midpoint_circle_algorithm).
+ */
+/proc/get_perimeter(atom/center, radius)
+	if(radius < 1)
+		return
+	var/rounded_radius = round(radius)
+	var/x = center.x
+	var/y = center.y
+	var/z = center.z
+	var/t1 = rounded_radius/16
+	var/dx = rounded_radius
+	var/dy = 0
+	var/t2
+	var/list/perimeter = list()
+	while(dx >= dy)
+		perimeter += locate(x + dx, y + dy, z)
+		perimeter += locate(x - dx, y + dy, z)
+		perimeter += locate(x + dx, y - dy, z)
+		perimeter += locate(x - dx, y - dy, z)
+		perimeter += locate(x + dy, y + dx, z)
+		perimeter += locate(x - dy, y + dx, z)
+		perimeter += locate(x + dy, y - dx, z)
+		perimeter += locate(x - dy, y - dx, z)
+		dy += 1
+		t1 += dy
+		t2 = t1 - dx
+		if(t2 > 0)
+			t1 = t2
+			dx -= 1
+	return perimeter
+
+/*#####################
+	AURORA SNOWFLAKE
+#####################*/
 
 // round() acts like floor(x, 1) by default but can't handle other values
 #define FLOOR_FLOAT(x, y) ( round((x) / (y)) * (y) )
-
-// min is inclusive, max is exclusive
-/proc/Wrap(val, min, max)
-	var/d = max - min
-	var/t = FLOOR((val - min) / d, 1)
-	return val - (t * d)
 
 /proc/Default(a, b)
 	return a ? a : b
@@ -36,9 +153,6 @@
 
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
-
-// Real modulus that handles decimals
-#define MODULUS(x, y) ( (x) - FLOOR_FLOAT(x, y))
 
 /proc/Percent(current_value, max_value, rounding = 1)
 	return round((current_value / max_value) * 100, rounding)
@@ -166,10 +280,6 @@
 	if(isnum(num)&&isnum(min)&&isnum(max))
 		return ((min <= num) && (num <= max))
 
-// Will filter out extra rotations and negative rotations
-// E.g: 540 becomes 180. -180 becomes 180.
-#define SIMPLIFY_DEGREES(degrees) (MODULUS((degrees), 360))
-
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
 
@@ -178,54 +288,6 @@
 
 /// A random real number between low and high inclusive
 #define Frand(low, high) ( rand() * ((high) - (low)) + (low) )
-
-
-/**
- * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
- *
- * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
- */
-/proc/get_line(atom/starting_atom, atom/ending_atom)
-	var/current_x_step = starting_atom.x // start at X and Y, then add 1 or -1 to these to get every turf from start to end
-	var/current_y_step = starting_atom.y
-	var/starting_z = starting_atom.z
-
-	var/list/line = list(get_turf(starting_atom))
-
-	var/x_distance = ending_atom.x - current_x_step
-	var/y_distance = ending_atom.y - current_y_step
-
-	var/abs_x_distance = abs(x_distance)
-	var/abs_y_distance = abs(y_distance)
-
-	var/x_distance_sign = SIGN(x_distance)
-	var/y_distance_sign = SIGN(y_distance)
-
-	var/x = abs_x_distance >> 1
-	var/y = abs_y_distance >> 1
-
-	if (abs_x_distance >= abs_y_distance)
-		for (var/distance_counter in 0 to (abs_x_distance - 1))
-			y += abs_y_distance
-
-			if(y >= abs_x_distance) // Every abs_y_distance steps, step once in y direction
-				y -= abs_x_distance
-				current_y_step += y_distance_sign
-
-			current_x_step += x_distance_sign // Step in x direction
-			line += locate(current_x_step, current_y_step, starting_z)
-	else
-		for (var/distance_counter in 0 to (abs_y_distance - 1))
-			x += abs_x_distance
-
-			if(x >= abs_y_distance)
-				x -= abs_y_distance
-				current_x_step += x_distance_sign
-
-			current_y_step += y_distance_sign
-			line += locate(current_x_step, current_y_step, starting_z)
-
-	return line
 
 
 /// Returns the distance between two points

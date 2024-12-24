@@ -29,12 +29,18 @@ ABSTRACT_TYPE(/singleton/state/weather)
 	weather.icon_state = icon_state
 	weather.alpha = alpha
 
-	if(is_liquid && weather.water_material)
-		var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
-		weather.color = mat.icon_colour
-	else if(is_ice && weather.ice_material)
-		var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
-		weather.color = mat.icon_colour
+	// Temporarily removing the material checks, we do not have the same material system as Nebula
+	// if(is_liquid && weather.water_material)
+	// 	var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
+	// 	weather.color = mat.icon_colour
+	// else if(is_ice && weather.ice_material)
+	// 	var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
+	// 	weather.color = mat.icon_colour
+
+	if(is_liquid)
+		weather.color = "#689dd4"
+	else if(is_ice)
+		weather.color = "#a9c8e8"
 	else
 		weather.color = COLOR_WHITE
 
@@ -215,6 +221,19 @@ ABSTRACT_TYPE(/singleton/state/weather)
 	else if(isipc(M) || issilicon(M)) //Metal is more durable than meat
 		to_chat(M, SPAN_DANGER("Your chassis is scratched by a gust of stinging sand!"))
 		M.apply_damage(1, DAMAGE_BRUTE)
+
+	//Mechs do not take damage from sandstorms, but if the mech is open, the pilots get damaged
+	//let the mechanistoids weep at the concept of the gigachad 25th century mechanicus contraptions that do not suffer from weather
+	else if(ismech(M))
+		var/mob/living/heavy_vehicle/mech = M
+		for(var/mob/living/pilot in mech.pilots)
+			if(mech.hatch_closed)
+				to_chat(pilot, SPAN_DANGER("Your mech canopy is blasted by a gust of stinging sand!"))
+			else
+				to_chat(pilot, SPAN_DANGER("You are blasted by a gust of stinging sand from the open hatch!"))
+				src.handle_exposure_effects(pilot, weather) //We basically recurse this same function for the pilots so it handles the damages etc without repeating the code
+		return //Done, mechs don't need any further processing
+
 	else
 		to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
 		M.apply_damage(rand(1,3), DAMAGE_BRUTE)

@@ -238,6 +238,10 @@
 	)
 	siemens_coefficient = 0.75
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf
+	name = "TCAF flight jacket"
+	desc = "A cheap pilot's jacket. An immense stock of exactly this design has been grandfathered into the Tau Ceti Armed Forces via its predecessor, the Tau Ceti Foreign Legion, to the point of a near-complete ubiquity."
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(
@@ -407,7 +411,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su_emis" : "jacket_highvis_su_emis"]", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su-emis" : "jacket_highvis_su-emis"]", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
@@ -499,7 +503,7 @@
 	item_state = "tcfljacket"
 
 /obj/item/clothing/suit/storage/legion/tcaf
-	name = "tcaf jacket"
+	name = "TCAF jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_jacket"
 	item_state = "tcaf_jacket"

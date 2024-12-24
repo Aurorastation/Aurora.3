@@ -87,8 +87,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -168,8 +167,7 @@
 	pixel_x = 5
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = -2;
-	pixel_y = 0
+	pixel_x = -2
 	},
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_y = 4;
@@ -301,8 +299,7 @@
 	id_tag = "unathi_pirate_izharshan_pump"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail{
@@ -616,8 +613,7 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "pN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -1156,8 +1152,7 @@
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	dir = 4
 	},
 /obj/item/melee/energy/sword/pirate{
 	pixel_y = 1
@@ -1181,8 +1176,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -1491,8 +1485,7 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Lz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1648,8 +1641,7 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Ol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/structure/sign/flag/izharshan{
 	pixel_y = 28
@@ -1911,8 +1903,7 @@
 "Ut" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	dir = 4
 	},
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser,
@@ -2233,8 +2224,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2251,8 +2241,7 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Zx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)

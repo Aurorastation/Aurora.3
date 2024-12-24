@@ -28,8 +28,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/sector_z = get_sector_z()
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V) && V.comms_support)
 		var/freq_name = V.name
 		if(V.freq_name)
@@ -48,8 +48,17 @@
 
 	return INITIALIZE_HINT_NORMAL
 
+/obj/item/device/encryptionkey/ship/proc/get_sector_z()
+	. = GET_Z(get_turf(src))
+
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
+
+/obj/item/device/encryptionkey/ship/odyssey/get_sector_z()
+	if(SSodyssey.scenario_zlevels && SSodyssey.scenario_zlevels.len)
+		. = SSodyssey.scenario_zlevels[1]
+	else // safe fallback
+		. = GET_Z(get_turf(src))
 
 /obj/item/device/encryptionkey/ship/coal_navy
 	additional_channels = list(CHANNEL_COALITION_NAVY = TRUE)
@@ -60,6 +69,10 @@
 	origin_tech = list(TECH_ILLEGAL = 3)
 	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
+
+/obj/item/device/encryptionkey/syndicate/New()
+	..()
+	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
@@ -220,6 +233,10 @@
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
+
+/obj/item/device/encryptionkey/rev/New()
+	..()
+	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
 
 /obj/item/device/encryptionkey/eng_spare
 	name = "spare engineering radio encryption key"

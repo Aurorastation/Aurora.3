@@ -47,7 +47,7 @@
 	bluespaced += M
 	if(M.client)
 		to_chat(M,SPAN_NOTICE("You feel oddly light, and somewhat disoriented as everything around you shimmers and warps ever so slightly."))
-		M.overlay_fullscreen("bluespace", /obj/screen/fullscreen/bluespace_overlay)
+		M.overlay_fullscreen("bluespace", /atom/movable/screen/fullscreen/bluespace_overlay)
 	M.confused = 20
 
 /datum/universal_state/bluespace_jump/proc/clear_bluespaced(var/mob/living/M)
@@ -72,24 +72,25 @@
 	daddy = ndaddy
 	set_dir(daddy.dir)
 	appearance = daddy.appearance
-	GLOB.moved_event.register(daddy, src, PROC_REF(mirror))
+	RegisterSignal(daddy, COMSIG_MOVABLE_MOVED, PROC_REF(mirror))
 	GLOB.dir_set_event.register(daddy, src, PROC_REF(mirror_dir))
-	GLOB.destroyed_event.register(daddy, src, TYPE_PROC_REF(/datum, qdel_self))
+	RegisterSignal(daddy, COMSIG_QDELETING, TYPE_PROC_REF(/datum, qdel_self))
 
 /obj/effect/bluegoast/Destroy()
-	GLOB.destroyed_event.unregister(daddy, src)
-	GLOB.dir_set_event.unregister(daddy, src)
-	GLOB.moved_event.unregister(daddy, src)
-	daddy = null
+	if(daddy)
+		UnregisterSignal(daddy, COMSIG_QDELETING)
+		GLOB.dir_set_event.unregister(daddy, src)
+		UnregisterSignal(daddy, COMSIG_MOVABLE_MOVED)
+		daddy = null
 	. = ..()
 
-/obj/effect/bluegoast/proc/mirror(var/atom/movable/am, var/old_loc, var/new_loc)
-	var/ndir = get_dir(new_loc,old_loc)
+// /obj/effect/bluegoast/proc/mirror(var/atom/movable/am, var/old_loc, var/new_loc)
+/obj/effect/bluegoast/proc/mirror(atom/movable/listener, atom/old_loc, dir, forced, list/old_locs)
 	appearance = daddy.appearance
-	var/nloc = get_step(src, ndir)
+	var/nloc = get_step(src, dir)
 	if(nloc)
 		forceMove(nloc)
-	if(nloc == new_loc)
+	if(nloc == daddy.loc)
 		reality++
 		if(reality > 5)
 			to_chat(daddy, SPAN_NOTICE("Yep, it's certainly the other one. Your existance was a glitch, and it's finally being mended..."))
@@ -100,7 +101,7 @@
 			to_chat(daddy, SPAN_WARNING("You feel a bit less real. Which one of you two was original again?.."))
 
 /obj/effect/bluegoast/proc/mirror_dir(var/atom/movable/am, var/old_dir, var/new_dir)
-	set_dir(GLOB.reverse_dir[new_dir])
+	set_dir(REVERSE_DIR(new_dir))
 
 /obj/effect/bluegoast/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
@@ -126,10 +127,10 @@
 	daddy.dust()
 	qdel(src)
 
-/obj/screen/fullscreen/bluespace_overlay
+/atom/movable/screen/fullscreen/bluespace_overlay
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	color = "#ff9900"
-	alpha = 100
-	blend_mode = BLEND_SUBTRACT
+	alpha = 80
+	color = "#000050"
+	blend_mode = BLEND_ADD

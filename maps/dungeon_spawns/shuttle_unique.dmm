@@ -395,12 +395,6 @@
 /obj/item/reagent_containers/blood/ripped,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
-"bh" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/dungeon/crashed_ship)
 "bi" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet,
@@ -549,7 +543,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "YQ" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"
@@ -978,7 +972,7 @@ ai
 au
 ai
 ai
-bh
+bo
 ai
 au
 ai

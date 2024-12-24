@@ -48,10 +48,8 @@ GLOBAL_LIST_EMPTY(implants)
 
 /// Turf is added to this list if is_station_level() passes when it's initialized.
 GLOBAL_LIST_EMPTY(station_turfs)
-/// List of all instanced areas by type.
+/// List of all instanced areas by type. THIS IS DIFFERENT FROM TG AS IT DOES NOT ONLY CONTAIN UNIQUE AREAS.
 GLOBAL_LIST_EMPTY(areas_by_type)
-/// List of all instanced areas.
-GLOBAL_LIST_EMPTY(all_areas)
 
 /// Languages/species/whitelist.
 GLOBAL_LIST_EMPTY_TYPED(all_species, /datum/species)
@@ -134,6 +132,9 @@ GLOBAL_LIST_EMPTY(intent_listener)
 
 /// Cache for clothing species adaptability.
 GLOBAL_LIST_EMPTY(contained_clothing_species_adaption_cache)
+
+/// Cache for outfit selection.
+GLOBAL_LIST_EMPTY(outfit_cache)
 
 //////////////////////////
 /////Initial Building/////

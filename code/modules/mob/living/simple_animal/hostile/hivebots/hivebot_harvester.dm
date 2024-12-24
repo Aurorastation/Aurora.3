@@ -72,11 +72,11 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/projectile/Proj)
-	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
-		return PROJECTILE_CONTINUE
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pistol/hivebotspike) || istype(hitting_projectile, /obj/projectile/beam/hivebot))
+		return BULLET_ACT_BLOCK
 	else
-		return ..(Proj)
+		return ..()
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	. = ..()
@@ -236,7 +236,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(GLOB.cardinal)
+		destination = pick(GLOB.cardinals)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
@@ -253,9 +253,8 @@
 		return
 
 	if(istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/W = T
 		rapid = 1
-		OpenFire(W)
+		OpenFire(T, ignore_visibility = TRUE)
 		rapid = 0
 		return
 
@@ -297,7 +296,7 @@
 		if(istype(O, /obj/structure/window))
 			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
-			if(W.dir == GLOB.reverse_dir[dir])
+			if(W.dir == REVERSE_DIR(dir))
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -336,8 +335,7 @@
 	last_prospect_loc = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/shoot_wrapper(target, location, user)
-	target_mob = target
-	if(see_target())
-		Shoot(target, location, user)
-	target_mob = null
+	set_last_found_target(target)
+	Shoot(target, location, user)
+	unset_last_found_target()
 	return

@@ -55,7 +55,7 @@
 	if(--amount < 0)
 		return
 
-	for(var/direction in GLOB.cardinal)
+	for(var/direction in GLOB.cardinals)
 		var/turf/T = get_step(src, direction)
 		if(!T)
 			continue
@@ -170,7 +170,11 @@
 /obj/structure/foamedmetal/ex_act(severity)
 	qdel(src)
 
-/obj/structure/foamedmetal/bullet_act()
+/obj/structure/foamedmetal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	if(metal == 1 || prob(50))
 		qdel(src)
 

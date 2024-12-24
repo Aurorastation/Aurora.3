@@ -143,7 +143,7 @@ var/bomb_set
 				return TRUE
 	return ..()
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_ghost(mob/user)
 	attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
@@ -247,7 +247,7 @@ var/bomb_set
 					yes_code = 0
 					code = null
 				else
-					lastentered = text("[]", href_list["type"])
+					lastentered = "[href_list["type"]]"
 					if (text2num(lastentered) == null)
 						var/turf/LOC = get_turf(usr)
 						message_admins("[key_name_admin(usr)] tried to exploit a nuclear bomb by entering non-numerical codes: <a href='?_src_=vars;Vars=[REF(src)]'>[lastentered]</a>! ([LOC ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[LOC.x];Y=[LOC.y];Z=[LOC.z]'>JMP</a>" : "null"])", 0)
@@ -260,7 +260,7 @@ var/bomb_set
 			if (href_list["time"])
 				var/time = text2num(href_list["time"])
 				timeleft += time
-				timeleft = Clamp(timeleft, 120, 600)
+				timeleft = clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
 					SSnanoui.update_uis(src)
@@ -323,7 +323,7 @@ var/bomb_set
 
 	bomb_set--
 	timing = 0
-	timeleft = Clamp(timeleft, 120, 600)
+	timeleft = clamp(timeleft, 120, 600)
 	update_icon()
 
 /obj/machinery/nuclearbomb/ex_act(severity)
@@ -361,9 +361,9 @@ var/bomb_set
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>")
+			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the [station_name(TRUE)]!</b>")
 		else if(off_station == 2)
-			to_world("<b>A nuclear device was set off, but the device was not on the station!</b>")
+			to_world("<b>A nuclear device was set off, but the device was not on the [station_name(TRUE)]!</b>")
 		else
 			to_world("<b>The station was destoyed by the nuclear blast!</b>")
 

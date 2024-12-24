@@ -16,8 +16,10 @@
 	var/brightness = 7
 	var/light_duration = 5
 
-/obj/projectile/energy/flash/on_impact(var/atom/A, affected_limb)
-	var/turf/T = flash_range ? src.loc : get_turf(A)
+/obj/projectile/energy/flash/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/turf/T = flash_range ? src.loc : get_turf(target)
 	if(!istype(T))
 		return
 
@@ -25,8 +27,6 @@
 	for(var/mob/living/M in viewers(T, flash_range))
 		if(M.flash_act(ignore_inherent = TRUE))
 			M.confused = rand(5, 15)
-		else if(affected_limb && M == A)
-			M.confused = rand(2, 7)
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -111,12 +111,12 @@
 	light_range = 4
 	light_color = "#b5ff5b"
 
-/obj/projectile/energy/bfg/on_impact(var/atom/A)
-	if(ismob(A))
-		var/mob/M = A
+/obj/projectile/energy/bfg/on_hit(atom/target, blocked, def_zone)
+	if(ismob(target))
+		var/mob/M = target
 		M.gib()
-	explosion(A, -1, 0, 5)
-	..()
+	explosion(target, -1, 0, 5)
+	. = ..()
 
 /obj/projectile/energy/bfg/New()
 	var/matrix/M = matrix()
@@ -124,21 +124,21 @@
 	src.transform = M
 	..()
 
-/obj/projectile/energy/bfg/after_move()
-	for(var/a in range(1, src))
-		if(isliving(a) && a != firer)
-			var/mob/living/M = a
-			if(M.stat == DEAD)
-				M.gib()
-			else
-				M.apply_damage(60, DAMAGE_BRUTE, BP_HEAD)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
-		else if(isturf(a) || isobj(a))
-			var/atom/A = a
-			if(!A.density)
-				continue
-			A.ex_act(2)
-			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// /obj/projectile/energy/bfg/after_move()
+// 	for(var/a in range(1, src))
+// 		if(isliving(a) && a != firer)
+// 			var/mob/living/M = a
+// 			if(M.stat == DEAD)
+// 				M.gib()
+// 			else
+// 				M.apply_damage(60, DAMAGE_BRUTE, BP_HEAD)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
+// 		else if(isturf(a) || isobj(a))
+// 			var/atom/A = a
+// 			if(!A.density)
+// 				continue
+// 			A.ex_act(2)
+// 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
 /obj/projectile/energy/gravitydisabler
 	name = "gravity disabler"
@@ -153,7 +153,7 @@
 	light_range = 4
 	light_color = "#b5ff5b"
 
-/obj/projectile/energy/gravitydisabler/on_impact(atom/target)
+/obj/projectile/energy/gravitydisabler/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	var/area/A = get_area(target)
 	if(A && A.has_gravity())
@@ -176,7 +176,7 @@
 	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
-	hit_effect = /obj/effect/temp_visual/blaster_effect
+	impact_effect_type = /obj/effect/temp_visual/blaster_effect
 
 /obj/projectile/energy/blaster/disruptor
 	damage = 20
@@ -199,7 +199,7 @@
 	agony = 40
 	speed = 0.4
 	damage_type = DAMAGE_BURN
-	eyeblur = TRUE
+	eyeblur = 1
 	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 

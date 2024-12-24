@@ -120,7 +120,7 @@
 				if(announcement_cooldown)
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return
-				var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "Priority Announcement", multiline = TRUE, encode = FALSE)
+				var/input = tgui_input_text(usr, "Please write a message to announce to the [station_name()] crew.", "Priority Announcement", multiline = TRUE, encode = FALSE)
 				if(!input || computer.use_check_and_message(usr))
 					return FALSE
 				var/was_hearing = HAS_TRAIT(computer, TRAIT_HEARING_SENSITIVE)
@@ -226,6 +226,9 @@
 					intercept = !intercept
 
 	return TRUE
+
+/datum/computer_file/program/comm/intercept/New(obj/item/modular_computer/comp, intercept_printing, shuttle_call)
+	. = ..(comp, TRUE, shuttle_call)
 
 /*
 General message handling stuff

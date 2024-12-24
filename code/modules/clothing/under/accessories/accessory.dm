@@ -8,16 +8,21 @@
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_SMALL
 
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
+	)
+
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
+	var/accessory_layer = ACCESSORY_LAYER_MIDDLE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
-	)
 	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
@@ -82,6 +87,10 @@
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
 	return accessory_mob_overlay
+
+/// Gets called before 'can_attach_accessory()' is called in clothing_accessories.dm
+/obj/item/clothing/accessory/proc/before_attached(var/obj/item/clothing/S, var/mob/user)
+	return
 
 //when user attached an accessory to S
 /obj/item/clothing/accessory/proc/on_attached(var/obj/item/clothing/S, var/mob/user)
@@ -155,6 +164,11 @@
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+
+/obj/item/clothing/accessory/update_clothing_icon()
+	if (ismob(loc))
+		var/mob/mob = src.loc
+		mob.update_inv_wear_suit()
 
 /obj/item/clothing/accessory/red
 	name = "red tie"
@@ -266,7 +280,9 @@
 	flippable = 1
 	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/mob/living/carbon/human/M = target_mob
+
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
@@ -781,23 +797,6 @@
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
 	base.AddOverlays(robe_backing)
 	return base
-
-//tau ceti legion ribbons
-/obj/item/clothing/accessory/legion
-	name = "seniority ribbons"
-	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
-	icon_state = "senior_ribbon"
-	item_state = "senior_ribbon"
-	overlay_state = "senior_ribbon"
-	slot = ACCESSORY_SLOT_CAPE
-	flippable = TRUE
-
-/obj/item/clothing/accessory/legion/specialist
-	name = "specialist medallion"
-	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in the Tau Ceti Armed Forces."
-	icon_state = "specialist_medallion"
-	item_state = "specialist_medallion"
-	overlay_state = "specialist_medallion"
 
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"

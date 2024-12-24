@@ -41,16 +41,20 @@ Deployable Kits
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/blocker/bullet_act(obj/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 	var/damage_modifier = 0.4
-	switch(P.damage_type)
+	switch(hitting_projectile.damage_type)
 		if(DAMAGE_BURN)
 			damage_modifier = 1
 		if(DAMAGE_BRUTE)
 			damage_modifier = 0.75
-	health -= P.damage * damage_modifier
+	health -= hitting_projectile.damage * damage_modifier
 	if(!check_dismantle())
-		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
+		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ishammer() && user.a_intent != I_HURT)
@@ -104,6 +108,8 @@ Deployable Kits
 
 /obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
+		return TRUE
+	if(mover.movement_type & PHASING)
 		return TRUE
 	if(istype(mover, /obj/projectile))
 		var/obj/projectile/P = mover
@@ -217,6 +223,8 @@ Deployable Kits
 		icon_state = "[initial(icon_state)][src.locked]"
 
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(mover?.movement_type & PHASING)
+		return TRUE
 	if(air_group || (height==0))
 		return 1
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
@@ -304,7 +312,7 @@ Deployable Kits
 /obj/item/deployable_kit/surgery_table/assemble_kit(mob/user)
 	..()
 	var/free_spot = null
-	for(var/check_dir in GLOB.cardinal)
+	for(var/check_dir in GLOB.cardinals)
 		var/turf/T = get_step(src, check_dir)
 		if(turf_clear(T))
 			free_spot = T

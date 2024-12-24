@@ -26,6 +26,13 @@
 	scrambled_codes = TRUE
 	status_flags = GODMODE|NOFALL
 
+	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
+	var/mob/original_mob
+
+/mob/living/silicon/robot/bluespace/Destroy(force)
+	original_mob = null
+	return ..()
+
 /mob/living/silicon/robot/bluespace/verb/antigrav()
 	set name = "Toggle Gravity"
 	set desc = "Use bluespace technology to ignore gravity."
@@ -67,10 +74,10 @@
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 
 	if(key)
-		if(client.holder && client.holder.original_mob)
-			client.holder.original_mob.key = key
+		if(original_mob)
+			original_mob.key = key
 		else
-			var/mob/abstract/observer/ghost = new(src)	//Transfer safety to observer spawning proc.
+			var/mob/abstract/ghost/observer/ghost = new(src, src)	//Transfer safety to observer spawning proc.
 			ghost.key = key
 			ghost.mind.name = "[ghost.key] BSTech"
 			ghost.name = "[ghost.key] BSTech"
@@ -84,6 +91,11 @@
 
 	status_flags ^= GODMODE
 	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+
+/mob/living/silicon/robot/bluespace/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, original_mob))
+		return FALSE
+	return ..()
 
 /mob/living/silicon/robot/purpose
 	mod_type = "Purpose"

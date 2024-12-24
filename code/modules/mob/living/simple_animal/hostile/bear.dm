@@ -116,7 +116,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 15) //rests for 10 ticks
-				if(target_mob && (target_mob in get_targets(10)))
+				if(last_found_target && (last_found_target in get_targets(10)))
 					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					set_stance(HOSTILE_STANCE_IDLE)
@@ -124,21 +124,21 @@
 		if(HOSTILE_STANCE_ALERT)
 			stop_automated_movement = 1
 			var/found_mob = 0
-			if(target_mob && (target_mob in get_targets(10)) && !(SA_attackable(target_mob)))
+			if(last_found_target && (last_found_target in get_targets(10)) && !(SA_attackable(last_found_target)))
 				found_mob = 1
 			else
 				LoseTarget()
 
-			if(target_mob)
+			if(last_found_target)
 				found_mob = 1
 
 
 			if (found_mob)
 				stance_step = max(0, stance_step) //If we have not seen a mob in a while, the stance_step will be negative, we need to reset it to 0 as soon as we see a mob again.
 				stance_step++
-				set_dir(get_dir(src,target_mob))	//Keep staring at the mob
+				set_dir(get_dir(src, last_found_target))	//Keep staring at the mob
 				if(stance_step in list(1,4,7)) //every 3 ticks
-					var/action = pick( list( "growls at [target_mob]", "stares angrily at [target_mob]", "prepares to attack [target_mob]", "closely watches [target_mob]" ) )
+					var/action = pick( list( "growls at [last_found_target]", "stares angrily at [last_found_target]", "prepares to attack [last_found_target]", "closely watches [last_found_target]" ) )
 					if(action)
 						custom_emote(VISIBLE_MESSAGE,action)
 						speak_audio()
@@ -164,10 +164,10 @@
 				return
 
 			//If we're having no luck attacking our current target
-			if (target_mob && !Adjacent(target_mob) && turns_since_hit > 3)
+			if (last_found_target && !Adjacent(last_found_target) && turns_since_hit > 3)
 				LoseTarget()
 			else
-				set_dir(get_dir(src,target_mob))
+				set_dir(get_dir(src, last_found_target))
 
 	health_last_tick = health
 
@@ -184,7 +184,7 @@
 
 	for(var/atom/A in get_targets(10))
 
-		if(A == src || A == target_mob)//We're only interested in alternatives to our current target
+		if(A == src || A == last_found_target)//We're only interested in alternatives to our current target
 			continue
 
 
@@ -219,15 +219,15 @@
 					nearest_dist = dist
 
 	if (nearest_target && safety < 2)
-		target_mob = nearest_target
+		set_last_found_target(nearest_target)
 		FoundTarget()
 		return nearest_target
 	else if (nearest_downed_target && safety < 2)
-		target_mob = nearest_downed_target
+		set_last_found_target(nearest_downed_target)
 		FoundTarget()
 		return nearest_downed_target
 
-	return target_mob
+	return last_found_target
 	//If neither of the above is true, dont change the target
 
 /mob/living/simple_animal/hostile/bear/SA_attackable(target_mob)
@@ -251,42 +251,42 @@
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
-	spawn(5)
-		teleport()//Bluespace bears teleport away to rest
+	teleport()//Bluespace bears teleport away to rest
 
 /mob/living/simple_animal/hostile/bear/attackby(obj/item/attacking_item, mob/user)
 	var/healthbefore = health
 	..()
-	spawn(1)
-		if (health < healthbefore)//Hurting the bear makes it mad
-			target_mob = user
-			anger++
-			instant_aggro(1)
+	if (health < healthbefore)//Hurting the bear makes it mad
+		if(user != last_found_target)
+			set_last_found_target(user)
+		anger++
+		instant_aggro(1)
 
 
 /mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M as mob)
 	var/healthbefore = health
 	..()
-	spawn(1)
-		if (health < healthbefore)//Hurting the bear makes it mad
-			target_mob = M
-			anger++
-			instant_aggro(1)
+	if(health < healthbefore)//Hurting the bear makes it mad
+		set_last_found_target(M)
+		anger++
+		instant_aggro(1)
 
-
-/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	var/healthbefore = health
-	..()
-	spawn(1)
-		if (health < healthbefore)
-			instant_aggro()
+
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (health < healthbefore)
+		instant_aggro()
 
 /mob/living/simple_animal/hostile/bear/ex_act(var/severity = 2.0)
 	var/healthbefore = health
 	..()
-	spawn(1)
-		if (health < healthbefore)
-			instant_aggro()
+	if (health < healthbefore)
+		instant_aggro()
 
 
 /mob/living/simple_animal/hostile/bear/Allow_Spacemove(var/check_drift = 0)
@@ -295,9 +295,9 @@
 	//Fixed this, it wasnt working
 
 /mob/living/simple_animal/hostile/bear/FoundTarget()
-	if(target_mob)
+	if(last_found_target)
 		turns_since_hit = 0
-		custom_emote(VISIBLE_MESSAGE,"stares alertly at [target_mob]")
+		custom_emote(VISIBLE_MESSAGE,"stares alertly at [last_found_target]")
 		speak_audio()
 
 		//If we're idle, move up to alert.
@@ -310,20 +310,20 @@
 		safety++
 
 /mob/living/simple_animal/hostile/bear/LoseTarget()
+	. = ..()
 	//If we're still angry, try to find someone else to attack
 	if (anger)
 		FindTarget()
 
-	if (!anger || !target_mob)
+	if (!anger || !last_found_target)
 		//If the anger has subsided, then give up the chase and let them go
 		//But we'll get mad again soon if they don't go.
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
-		target_mob = null
-		GLOB.move_manager.stop_looping(src)
+		unset_last_found_target()
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
-	var/targetname = target_mob.name
+	var/targetname = last_found_target.name
 	if(..())
 		turns_since_hit = 0
 		custom_emote(VISIBLE_MESSAGE, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
@@ -432,10 +432,10 @@
 /mob/living/simple_animal/hostile/bear/proc/instant_aggro(var/forcechange = 0)//Set force to 1, if a specific target was designated just before calling this
 	if (stance < HOSTILE_STANCE_ATTACK)
 		growl_loud()
-		if(!target_mob)
+		if(!last_found_target)
 			FindTarget()
 
-		if(target_mob)
+		if(last_found_target)
 			growl_loud()
 			if(destroy_surroundings)
 				DestroySurroundings()
@@ -462,10 +462,10 @@
 		idletime = 0
 
 	//Randomly make shortrange teleports in the vicinity of the target
-	if ((stance == HOSTILE_STANCE_ATTACKING)&& target_mob)
+	if ((stance == HOSTILE_STANCE_ATTACKING)&& last_found_target)
 		focus_time++
 		if (focus_time % tactical_delay == 0)
-			teleport_tactical(target_mob)
+			teleport_tactical(last_found_target)
 
 	//Teleport away from other bears
 	for (var/mob/living/simple_animal/hostile/bear/bear in view(world.view, get_turf(src)))
@@ -491,8 +491,8 @@
 //Who knows, it's unpredictable. But definitely dangerous.
 //This allows the target to escape as often as it allows the bear to attack
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport_tactical()
-	if (target_mob && stat == CONSCIOUS)
-		var/area/A =  get_area(target_mob)
+	if (last_found_target && stat == CONSCIOUS)
+		var/area/A =  get_area(last_found_target)
 		if (A)
 			var/turf/target = A.random_space()
 			if (target)
@@ -508,9 +508,13 @@
 	forceMove(target)
 	spark_system.queue()
 
-/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/P, def_zone)//Teleport around when shot, so its harder to burst it down with a carbine
-	..(P, def_zone)
-	if (prob(P.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
+//Teleport around when shot, so its harder to burst it down with a carbine
+/mob/living/simple_animal/hostile/bear/spatial/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	if (prob(hitting_projectile.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
 		teleport_tactical()
 
 /mob/living/simple_animal/hostile/bear/spatial/FoundTarget()

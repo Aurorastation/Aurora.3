@@ -73,7 +73,7 @@
 	possible_themes = list(/datum/exoplanet_theme/barren/asteroid, /datum/exoplanet_theme/barren/asteroid/ice)
 	ruin_planet_type = PLANET_LORE
 	features_budget = 3
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/sol_listening_post, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/sol_listening_post, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ytizi/pre_ruin_preparation()
 	if(istype(theme, /datum/exoplanet_theme/barren/asteroid/ice))
@@ -97,7 +97,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(2,2)
-	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 	scanimage = "chanterel.png"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel/generate_planet_image()
@@ -136,6 +136,7 @@
 	flora_diversity = 0
 	has_trees = FALSE
 	initial_weather_state = /singleton/state/weather/calm/jungle_planet
+	has_water_weather = TRUE
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/sarezhi, /datum/seed/flower/serkiflower, /datum/seed/sthberry)
 	surface_color = "#e8faff"
 	generated_name = FALSE
@@ -280,6 +281,7 @@
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
 	initial_weather_state = /singleton/state/weather/calm/jungle_planet
+	has_water_weather = TRUE
 	ruin_type_whitelist = list(
 		/datum/map_template/ruin/exoplanet/ouerea_heph_mining,
 		/datum/map_template/ruin/exoplanet/ouerea_village,

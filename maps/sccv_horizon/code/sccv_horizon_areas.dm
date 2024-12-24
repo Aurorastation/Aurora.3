@@ -49,6 +49,14 @@
 /area/hallway/engineering/rust
 	name = "Engineering - INDRA Hallway"
 
+/area/engineering/bluespace_drive
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engine"
+
+/area/engineering/bluespace_drive/monitoring
+	name = "Engineering - Bluespace Drive"
+	icon_state = "engineering"
+
 //Medical
 
 /area/medical/ors
@@ -142,9 +150,6 @@
 
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
-
-/area/hangar/canary
-	name = "Canary Hangar"
 
 //Operations
 
@@ -313,22 +318,37 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	requires_power = TRUE
-/area/shuttle/intrepid/crew_compartment
-	name = "Intrepid Crew Compartment"
+
+/area/shuttle/intrepid/main_compartment
+	name = "Intrepid Main Compartment"
+
 /area/shuttle/intrepid/cargo_bay
 	name = "Intrepid Cargo Bay"
-/area/shuttle/intrepid/engine_compartment
-	name = "Engine Compartment"
-/area/shuttle/intrepid/atmos_compartment
-	name = "Atmos Compartment"
+
+/area/shuttle/intrepid/medical
+	name = "Intrepid Medical Compartment"
+
+/area/shuttle/intrepid/engineering
+	name = "Intrepid Engineering Compartment"
+
+/area/shuttle/intrepid/port_storage
+	name = "Intrepid Port Nacelle"
+
 /area/shuttle/intrepid/cockpit
-	name = "Cockpit"
-/area/shuttle/intrepid/quarters
-	name = "Intrepid Crew Quarters"
+	name = "Intrepid Cockpit"
 
 /area/shuttle/canary
 	name = "Canary"
 	requires_power = TRUE
+
+/area/shuttle/quark/cockpit
+	name = "Quark Cockpit"
+	requires_power = TRUE
+
+/area/shuttle/quark/cargo_hold
+	name = "Quark Cargo Hold"
+	requires_power = TRUE
+
 //
 // SCCV Horizon Areas
 //

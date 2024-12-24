@@ -310,7 +310,7 @@
 		to_chat(user, SPAN_WARNING("You must be in the same area as the target location to attach \the [src]!"))
 		return
 	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in GLOB.cardinal))
+	if (!(placement_dir in GLOB.cardinals))
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 

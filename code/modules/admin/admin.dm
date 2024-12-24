@@ -385,7 +385,7 @@ var/global/enabled_spooking = 0
 				<BR><HR><A href='?src=[REF(src)];ac_set_signature=1'>The newscaster recognises you as:<BR> <FONT COLOR='green'>[src.admincaster_signature]</FONT></A>
 			"}
 		if(1)
-			dat+= "Station Feed Channels<HR>"
+			dat+= "Feed Channels<HR>"
 			if( isemptylist(SSnews.network_channels) )
 				dat+="<I>No active channels found...</I>"
 			else
@@ -449,7 +449,7 @@ var/global/enabled_spooking = 0
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT>\]</FONT><HR>"
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
-					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
+					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
 					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
@@ -486,7 +486,7 @@ var/global/enabled_spooking = 0
 		if(11)
 			dat+={"
 				<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>
-				<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's
+				<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the [station_name(TRUE)]'s
 				morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed
 				stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</FONT><HR>
 			"}
@@ -515,11 +515,11 @@ var/global/enabled_spooking = 0
 		if(13)
 			dat+={"
 				<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT> \]</FONT><BR>
-				Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=[REF(src)];ac_toggle_d_notice=[REF(src.admincaster_feed_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>
+				Channel messages listed below. If you deem them dangerous to the [station_name(TRUE)], you can <A href='?src=[REF(src)];ac_toggle_d_notice=[REF(src.admincaster_feed_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>
 			"}
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
-					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
+					<span class='warning'><B>ATTENTION: </B></span>This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>
 					No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>
 				"}
 			else
@@ -1243,7 +1243,7 @@ var/global/enabled_spooking = 0
 
 //Returns 1 to let the dragdrop code know we are trapping this event
 //Returns 0 if we don't plan to trap the event
-/datum/admins/proc/cmd_ghost_drag(var/mob/abstract/observer/frommob, var/mob/living/tomob)
+/datum/admins/proc/cmd_ghost_drag(var/mob/abstract/ghost/observer/frommob, var/mob/living/tomob)
 	if(!istype(frommob))
 		return //Extra sanity check to make sure only observers are shoved into things
 
@@ -1386,3 +1386,43 @@ var/global/enabled_spooking = 0
 /atom/proc/Admin_Coordinates_Readable(area_name, admin_jump_ref)
 	var/turf/T = get_turf(src)
 	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"
+
+/**
+ * Used to manually set an Odyssey for the Odyssey gamemode.
+ */
+
+/datum/admins/proc/set_odyssey()
+	set name = "Set Odyssey Type"
+	set category = "Special Verbs"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!SSticker.mode || !istype(SSticker.mode, /datum/game_mode/odyssey))
+		to_chat(usr, SPAN_WARNING("The gamemode either does not exist, or is not Odyssey."))
+		return
+
+	if(SSticker.current_state != GAME_STATE_SETTING_UP)
+		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
+		return
+
+	var/list/singleton/scenario/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+	var/list/possible_scenarios = list()
+	for(var/singleton/scenario/S in all_scenarios)
+		possible_scenarios[S.name] = S
+
+	var/singleton/scenario/chosen_scenario
+	var/situation_name = tgui_input_list(usr, "Choose an Odyssey.", "Set Odyssey", possible_scenarios)
+	chosen_scenario = possible_scenarios[situation_name]
+
+	if(!chosen_scenario)
+		return
+
+	if(!(SSatlas.current_sector.name in chosen_scenario.sector_whitelist))
+		if(tgui_alert(usr, "This Odyssey is not appropriate for the current sector. Continue?", "Set Odyssey", list("Yes", "No")) != "Yes")
+			return
+
+	SSodyssey.scenario = chosen_scenario
+	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
+	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+

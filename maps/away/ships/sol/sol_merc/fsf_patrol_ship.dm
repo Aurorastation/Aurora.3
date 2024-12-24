@@ -6,7 +6,7 @@
 	suffix = "fsf_patrol_ship.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
-	spawn_weight = 1
+	spawn_weight = 0 // The FSF no longer exists as a separate entity outside of the Alliance, verify with human lore before re-adding!
 	ship_cost = 1
 	id = "fsf_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_shuttle)
@@ -118,7 +118,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/fsf_shuttle

@@ -367,9 +367,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/structure/closet/secure_closet/freezer{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/freezer,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -596,9 +594,7 @@
 /area/moghes_vihnmes)
 "xv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/freezer,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -797,9 +793,7 @@
 /area/moghes_vihnmes)
 "GL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,

@@ -84,7 +84,7 @@
 /turf/simulated/floor/wood,
 /area/template_noop)
 "K" = (
-/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/plating,
 /area/template_noop)
 

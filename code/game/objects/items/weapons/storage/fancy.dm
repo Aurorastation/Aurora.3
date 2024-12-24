@@ -326,39 +326,39 @@
 	reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
 	return ..()
 
-/obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
-	if(!ismob(M))
+/obj/item/storage/box/fancy/cigarettes/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!ismob(target_mob))
 		return
 	if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		if(M.wear_mask)
-			to_chat(user, SPAN_WARNING("\The [M.wear_mask] is in the way."))
+		if(target_mob.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [target_mob.wear_mask] is in the way."))
 			return
 		var/obj/item/clothing/mask/smokable/cigarette/cig = locate() in src
 		if(!istype(cig))
 			to_chat(user, SPAN_WARNING("There isn't a cigarette in \the [src]!"))
 			return
-		if(M != user)
-			if(!use_check(M))
-				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+		if(target_mob != user)
+			if(!use_check(target_mob))
+				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [M]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [M]'s mouth, waiting for them to accept."))
-			var/response = alert(M, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
+			var/response = alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src.name] away."))
+				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
 				return
-			if(!M.Adjacent(user))
+			if(!target_mob.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
-				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				to_chat(target_mob, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		remove_from_storage(cig, get_turf(M))
-		M.equip_to_slot_if_possible(cig, slot_wear_mask)
-		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		remove_from_storage(cig, get_turf(target_mob))
+		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
-	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
+	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
@@ -475,7 +475,7 @@
 	else
 		AddOverlays("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
+/obj/item/storage/lockbox/vials/attackby(obj/item/attacking_item, mob/user, params)
 	..()
 	update_icon()
 

@@ -286,7 +286,7 @@ var/list/preferences_datums = list()
 	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
 		NP.late_choices_ui.update_character_icon()
 
-	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
+	var/atom/movable/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
@@ -298,8 +298,8 @@ var/list/preferences_datums = list()
 	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
 	var/index = 0
-	for(var/D in GLOB.cardinal)
-		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
+	for(var/D in GLOB.cardinals)
+		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new
 			LAZYSET(char_render_holders, "[D]", O)
@@ -328,7 +328,7 @@ var/list/preferences_datums = list()
 
 /datum/preferences/proc/clear_character_previews()
 	for(var/index in char_render_holders)
-		var/obj/screen/S = char_render_holders[index]
+		var/atom/movable/screen/S = char_render_holders[index]
 		client?.screen -= S
 		qdel(S)
 	QDEL_LIST_ASSOC_VAL(char_render_holders)

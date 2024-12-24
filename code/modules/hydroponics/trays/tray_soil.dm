@@ -51,7 +51,7 @@
 	icon_state = "blank"
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/Initialize(var/newloc,var/datum/seed/newseed,var/start_mature)
-	..()
+	. = ..()
 	seed = newseed
 	dead = 0
 	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1

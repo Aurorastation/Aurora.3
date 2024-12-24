@@ -41,7 +41,8 @@
 
 	//None of these mobs can 'die' in any sense, and none of them should be able to become ghosts.
 	//Ghosts are the only ones that even technically 'exist' and aren't just an abstraction using mob code for convenience
-	if (istype(src, /mob/living))
+	//Well, those and storytellers. This code is seriously shit and needs a rework, but who gives a fuck right now. Sue me.
+	if (istype(src, /mob/living) && !isstoryteller(src))
 		ghostize()
 
 	if (istype(src.loc, /atom/movable))
@@ -180,7 +181,7 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		if((get_turf(M) in messageturfs) || (show_observers && isghost(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/o in GLOB.listening_objects)
@@ -191,7 +192,7 @@
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(isobserver(M))
+		if(isghost(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
 			continue
 		if(self_message && M == src)
@@ -263,7 +264,7 @@
 
 /mob/proc/findname(msg)
 	for(var/mob/M in GLOB.mob_list)
-		if (M.real_name == text("[]", msg))
+		if (M.real_name == "[msg]")
 			return M
 	return 0
 
@@ -298,7 +299,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(LAZYLEN(spell_masters))
-		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+		for(var/atom/movable/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
 
 	if(stat != DEAD)
@@ -367,7 +368,7 @@
 	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
 	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
 	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
-	<BR>[(internal ? text("<A href='?src=[REF(src)];item=internal'>Remove Internal</A>") : "")]
+	<BR>[(internal ? "<A href='?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
 	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
 	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>
 	<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>
@@ -657,7 +658,7 @@
 
 /mob/Topic(href, href_list)
 	if(href_list["mach_close"])
-		var/t1 = text("window=[href_list["mach_close"]]")
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 
@@ -1047,7 +1048,7 @@
 
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
-		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
+		overlay_fullscreen("strong_pain", /atom/movable/screen/fullscreen/strong_pain)
 		addtimer(CALLBACK(src, PROC_REF(clear_strong_pain)), 10, TIMER_UNIQUE)
 
 /mob/living/proc/clear_strong_pain()
@@ -1385,7 +1386,7 @@
 	return 1
 
 /client/proc/check_has_body_select()
-	return mob && mob.hud_used && istype(mob.zone_sel, /obj/screen/zone_sel)
+	return mob && mob.hud_used && istype(mob.zone_sel, /atom/movable/screen/zone_sel)
 
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
@@ -1430,7 +1431,7 @@
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return
-	var/obj/screen/zone_sel/selector = mob.zone_sel
+	var/atom/movable/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones), usr)
 
 /mob/proc/get_speech_bubble_state_modifier()
@@ -1530,6 +1531,14 @@
 		)
 	else
 		remove_movespeed_modifier(/datum/movespeed_modifier/equipment_speedmod)
+
+/mob/living/carbon/human/update_equipment_speed_mods()
+	//Do not apply the equipment mods if the specie is not affected by them
+	if(species?.flags & NO_EQUIP_SPEEDMODS)
+		return
+
+	. = ..()
+
 
 ///Get all items in our possession that should affect our movespeed
 /mob/proc/get_equipped_speed_mod_items()

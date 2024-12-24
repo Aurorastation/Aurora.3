@@ -22,7 +22,7 @@
 		var/turf/T = get_turf(src)
 		if(T && reagents)
 
-			if (wet_things(T))
+			if(!wet_things(T))
 				break
 
 			if(T == get_turf(target))
@@ -37,31 +37,34 @@
 
 //Wets everything in the tile
 //A return value of 1 means that the wetting should stop. Either the water ran out or some error ocurred
+/**
+ * Wets everything in the tile
+ *
+ * Returns `FALSE` if the water ran out or some error ocurred, or we should stop in general
+ */
 /obj/effect/effect/water/proc/wet_things(var/turf/T)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if (!reagents || reagents.total_volume <= 0)
-		return 1
+		return FALSE
 
 
 	reagents.touch_turf(T)
 	var/list/mobshere = list()
-	for (var/mob/living/L in T)
-		mobshere.Add(L)
+	for(var/atom/atom_in_turf as anything in T)
+		if(isliving(atom_in_turf))
+			mobshere.Add(atom_in_turf)
+		else if(!ismob(atom_in_turf))
+			reagents.touch(atom_in_turf)
 
-
-	for (var/atom/B in T)
-		if (!ismob(B))
-			reagents.touch(B)
-
-	if (mobshere.len)
-		var/portion = 1 / mobshere.len
+	if(length(mobshere))
+		var/portion = 1 / length(mobshere)
 		var/total = reagents.total_volume
-		for (var/mob/living/L in mobshere)
-			reagents.splash(L, total * portion)
-		return 1
+		for(var/mob/living/mobsphere_living_mob as anything in mobshere)
+			reagents.splash(mobsphere_living_mob, total * portion)
+		return FALSE
 
-	return 0
-
+	return TRUE
 
 
 /obj/effect/effect/water/Move(turf/newloc)
