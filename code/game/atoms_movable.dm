@@ -312,7 +312,11 @@
 	else
 		target_zone = thrower.zone_sel
 
-	var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
+	var/throw_force_multiplier = 1
+	if(thrower)
+		throw_force_multiplier = thrower.get_throw_force_multiplier()
+
+	var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone, throw_force_multiplier)
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)

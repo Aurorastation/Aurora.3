@@ -118,6 +118,8 @@
 	if(isobj(hitting_atom))
 		var/obj/O = hitting_atom
 		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
+		if(throwingdatum)
+			tforce *= throwingdatum.throw_damage_multiplier
 		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
 		if(tforce >= 15)
 			take_damage(tforce)

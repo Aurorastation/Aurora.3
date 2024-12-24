@@ -514,3 +514,8 @@
 		if(wrists.clean_blood())
 			update_inv_wrists(0)
 	clean_blood(washshoes)
+
+/mob/living/carbon/human/get_throw_force_multiplier()
+	if(!species)
+		return ..()
+	return species.throw_force_multiplier

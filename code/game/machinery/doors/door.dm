@@ -276,6 +276,9 @@
 		var/obj/O = hitting_atom
 		tforce = O.throwforce * (throwingdatum.speed/5)
 
+	if(throwingdatum)
+		tforce *= throwingdatum.throw_damage_multiplier
+
 	if (tforce > 0)
 		var/volume = 100
 		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door

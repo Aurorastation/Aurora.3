@@ -335,6 +335,7 @@ emp_act
 		var/throw_damage = O.throwforce
 		if(throwingdatum)
 			throw_damage *= (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
+			throw_damage *= throwingdatum.throw_damage_multiplier
 
 		var/zone
 		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
