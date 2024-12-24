@@ -3,14 +3,13 @@
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	throwpass = 1
 	breakable = TRUE
 	build_amt = 1
-	pass_flags_self = PASSTABLE | LETPASSTHROW
 
 	//Preset shit
 	var/table_mat

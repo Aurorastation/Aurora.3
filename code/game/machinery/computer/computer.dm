@@ -230,3 +230,9 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+
+/obj/machinery/computer/terminal/inactive
+	name = "inactive terminal"
+	light_power = 0
+	light_power_on = 0
+	light_range_on = 0

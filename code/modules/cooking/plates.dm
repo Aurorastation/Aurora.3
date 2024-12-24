@@ -186,3 +186,42 @@ Plates that can hold your cooking stuff
 	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "zhukamir"
+
+/obj/item/reagent_containers/bowl/gravy_boat
+	name = "gravy boat"
+	desc = "Let's sail the seas of deliciousness!"
+	icon_state = "gravy"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5, 10, 30)
+	w_class = WEIGHT_CLASS_SMALL
+	volume = 40
+	force = 14
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/reagent_containers/bowl/gravy_boat/afterattack(var/obj/target, var/mob/user, var/flag)
+	if(!target.is_open_container() || !flag)
+		return ..(target, user, flag)
+	if(reagents.total_volume)
+		if(!target.reagents || !REAGENTS_FREE_SPACE(target.reagents))
+			to_chat(user, SPAN_NOTICE("\The [target] is full."))
+			return TRUE
+		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
+		user.visible_message(
+			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
+			SPAN_NOTICE("You transfer [trans] units of the solution.")
+		)
+		playsound(get_turf(user), /singleton/sound_category/generic_pour_sound, 10, TRUE)
+	return TRUE
+
+/obj/item/reagent_containers/bowl/gravy_boat/on_reagent_change()
+	update_icon()
+
+/obj/item/reagent_containers/bowl/gravy_boat/update_icon()
+	ClearOverlays()
+	if(!reagents.total_volume)
+		return
+	var/image/over = image(icon, "gravy_over")
+	over.color = reagents.get_color()
+	AddOverlays(over)

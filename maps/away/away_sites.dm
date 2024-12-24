@@ -15,21 +15,44 @@ ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	/// where exoplanet generation with the map value is applied only on marker turfs of the applicable map key.
 	var/list/exoplanet_themes = null
 
-	/// Light level of exoplanet turfs if they're generated on this away site. See code\modules\overmap\exoplanets\decor\_turfs.dm:36
-	var/lightlevel = 0
-	/// Light color of exoplanet turfs if they're generated on this away site. See code\modules\overmap\exoplanets\decor\_turfs.dm:36
-	var/lightcolor = COLOR_WHITE
+	/// Light level of exoplanet turfs if they're generated on this away site.
+	/// Only outside turfs get light, based on the `is_outside` var on areas.
+	/// If list, picks one from the list.
+	/// If zero, ignored, no light.
+	var/exoplanet_lightlevel = 0
+	/// Light color of exoplanet turfs if they're generated on this away site.
+	/// If list, picks one from the list.
+	/// Used only if lightlevel is set to non-zero value.
+	var/exoplanet_lightcolor = COLOR_WHITE
+
 	/// The atmosphere that exoplanet turfs should spawn with.
+	/// If null, ignored, and turfs keep their default or mapped in atmosphere.
+	/// If set, this atmosphere is used.
+	/// Should be set to a `/datum/gas_mixture` path.
 	var/datum/gas_mixture/exoplanet_atmosphere
+
+	/// If set, one of these atmospheres is picked and put in the `exoplanet_atmosphere` var.
+	/// Should be set to a list of `/datum/gas_mixture` paths.
+	var/list/datum/gas_mixture/exoplanet_atmospheres
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
 
 	//Apply the subfolder that all ruins are in, as the prefix will get overwritten
 	prefix = "maps/away/[prefix]"
 
-	// Instantiate the theme
+	// Randomisation
+	if(islist(exoplanet_lightlevel))
+		exoplanet_lightlevel = pick(exoplanet_lightlevel)
+	if(islist(exoplanet_lightcolor))
+		exoplanet_lightcolor = pick(exoplanet_lightcolor)
+	if(islist(exoplanet_atmospheres) && !isemptylist(exoplanet_atmospheres))
+		exoplanet_atmosphere = pick(exoplanet_atmospheres)
+
+	// Instantiate the theme and atmos, if set
 	if(exoplanet_theme_base)
 		exoplanet_theme_base = new exoplanet_theme_base()
+	if(exoplanet_atmosphere)
+		exoplanet_atmosphere = new exoplanet_atmosphere()
 
 	..()
 

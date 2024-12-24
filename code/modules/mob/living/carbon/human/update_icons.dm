@@ -246,19 +246,32 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
+/// Handles displaying bandages on the mob icon, and whether the mob should have the add/remove bandages verb attached to it
 /mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
 
 	var/list/ovr
-	if(overlays_raw[MOB_DAMAGE_LAYER])
-		for(var/obj/item/organ/external/O in organs)
-			if(O.is_stump())
-				continue
-			var/bandage_level = O.bandage_level()
-			if(bandage_level)
-				LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
+	for(var/obj/item/organ/external/O in organs)
+		if(O.is_stump())
+			continue
+		var/bandage_level = O.bandage_level
+		if(bandage_level)
+			LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
+
+	// this next part handles whether the mob should have the Remove Bandages verb available
+	// obviously this is a little hacky, since this is the icon update function, but it's also the best place we loop through
+	// the various organs and calculate their bandage level
+	var/had_bandages = LAZYLEN(overlays_raw[BANDAGE_LAYER])
+	var/has_bandages = LAZYLEN(ovr)
+
+	// gained bandages
+	if(!had_bandages && has_bandages)
+		add_verb(src, /mob/living/carbon/human/proc/remove_bandages)
+	// lost bandages
+	else if(had_bandages && !has_bandages)
+		remove_verb(src, /mob/living/carbon/human/proc/remove_bandages)
 
 	overlays_raw[BANDAGE_LAYER] = ovr
 	if(update_icons)
@@ -268,7 +281,6 @@ There are several things that need to be remembered:
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
 /obj/item/proc/worn_overlays(icon_file)
-	. = null
 	. = list()
 	var/mutable_appearance/M = null
 	if(build_from_parts)

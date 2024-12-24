@@ -85,6 +85,40 @@
 		held_braces -= brace
 	. = ..()
 
+ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
+	name = "mounted mining equipment"
+	desc = DESC_PARENT
+	icon_state = "mecha_taser"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+
+/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+	name = "mounted heavy kinetic accelerator"
+	desc = "A heavy-duty kinetic accelerator designed to be mounted on an exosuit."
+	icon_state = "mecha_taser" // would be too difficult to get a proper sprite for this, would rather just get it in
+	holding_type = /obj/item/gun/custom_ka/exosuit
+
+/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/get_hardpoint_status_value()
+	if(!holding)
+		return null
+
+	var/obj/item/gun/custom_ka/exosuit/exosuit_ka = holding
+	if(!exosuit_ka.installed_cell)
+		return null
+
+	return exosuit_ka.installed_cell.stored_charge / exosuit_ka.installed_cell.cell_increase
+
+
+/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/get_hardpoint_maptext()
+	if(!holding)
+		return null
+
+	var/obj/item/gun/custom_ka/exosuit/exosuit_ka = holding
+	if(!exosuit_ka.installed_cell)
+		return null
+
+	return "[exosuit_ka.get_ammo()]/[exosuit_ka.installed_cell.cell_increase / exosuit_ka.cost_increase]"
+
 /obj/item/mecha_equipment/ore_summoner
 	name = "mounted ore summoner"
 	desc = "A large back-mounted ore summoner, capable of pulling ore into an ore box held within a clamp. If no ore box is found, the ore will be deposited beneath the exosuit."

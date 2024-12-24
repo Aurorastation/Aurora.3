@@ -30,7 +30,7 @@
 		\[redacted\] - \[/redacted\] : Covers the text in an unbreachable black box.
 		\[sign\] : Inserts a signature of your name in a foolproof way.
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
-		\[date\] : Inserts today's station date.
+		\[date\] : Inserts today's date.
 		\[time\] : Inserts the current station time.
 		<br>
 		Pen Exclusive Commands

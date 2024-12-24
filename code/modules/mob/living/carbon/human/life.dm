@@ -951,7 +951,7 @@
 					var/bandage_icon = species.bandages_icon
 					if(!bandage_icon)
 						continue
-					var/bandage_level = O.bandage_level()
+					var/bandage_level = O.bandage_level
 					if(bandage_level)
 						health_images += image(bandage_icon, "[O.icon_name][bandage_level]")
 
