@@ -90,6 +90,15 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/structure/table/steel,
+/obj/machinery/reagentgrinder{
+	pixel_y = 19;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
 "aak" = (
@@ -609,6 +618,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
 "abz" = (
@@ -946,6 +959,7 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
+/obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "acC" = (
@@ -1486,6 +1500,9 @@
 /area/crumbling_station/engi/reactor)
 "adR" = (
 /obj/structure/table/reinforced/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/lobby)
 "adS" = (
@@ -1546,6 +1563,15 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -1;
+	pixel_y = 12
+	},
+/obj/item/cane/crutch{
+	pixel_x = 5;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
@@ -2061,6 +2087,27 @@
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 1;
+	pixel_y = 16
+	},
+/obj/item/storage/pill_bottle/dexalin{
+	pixel_x = -1;
+	pixel_y = 10
+	},
+/obj/item/storage/pill_bottle/assorted{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/item/storage/pill_bottle/antiparasitic{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/storage/pill_bottle/antidexafen{
+	pixel_x = 4;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
 "afF" = (
@@ -2234,7 +2281,8 @@
 /turf/simulated/floor,
 /area/crumbling_station/docking/docking_ports)
 "agk" = (
-/turf/simulated/floor/tiled/white,
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/hallway)
 "agl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3228,7 +3276,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "aju" = (
 /obj/machinery/light/small{
@@ -3259,7 +3316,9 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/carpet/rubber,
+/obj/structure/table/steel,
+/obj/random/plushie,
+/turf/simulated/floor/carpet,
 /area/crumbling_station/medical/recovery2)
 "ajA" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -4274,6 +4333,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 23
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
 "amD" = (
@@ -4603,7 +4666,15 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/carpet/rubber,
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 26
+	},
+/turf/simulated/floor/carpet,
 /area/crumbling_station/medical/recovery1)
 "anB" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -4735,7 +4806,12 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/lava/red{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "anV" = (
 /obj/structure/cable/green{
@@ -5603,7 +5679,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "aqH" = (
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -5630,7 +5707,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "aqM" = (
 /obj/machinery/door/firedoor/noid,
@@ -5850,6 +5928,14 @@
 "arz" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/stack/material/phoron{
+	amount = 3;
+	pixel_x = 4
+	},
+/obj/item/storage/box/gloves{
+	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
@@ -6150,7 +6236,16 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/table/steel,
+/obj/item/pen{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/obj/item/paper_bin{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "asA" = (
 /turf/simulated/floor,
@@ -6230,6 +6325,10 @@
 "asM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/steel,
+/obj/structure/window/reinforced,
+/obj/structure/roller_rack/two{
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "asN" = (
@@ -6299,6 +6398,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/window{
+	name = "Reception Desk"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "asX" = (
@@ -6564,6 +6666,7 @@
 	pixel_y = 1;
 	dir = 6
 	},
+/obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
 "atK" = (
@@ -7895,6 +7998,15 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/blood/ripped{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/blood/ripped{
+	pixel_x = 4;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/gtr)
 "axE" = (
@@ -8059,6 +8171,7 @@
 	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/workshop)
 "ayc" = (
@@ -8110,6 +8223,7 @@
 "ayl" = (
 /obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/workshop)
 "aym" = (
@@ -8483,6 +8597,10 @@
 /area/crumbling_station/maints/auxiliary)
 "azl" = (
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/medical/gtr)
 "azm" = (
@@ -8596,9 +8714,6 @@
 "azC" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
-	},
-/obj/machinery/light/small{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
@@ -8716,6 +8831,14 @@
 /area/crumbling_station/docking/docking_ports)
 "azU" = (
 /obj/effect/floor_decal/corner_wide/blue/full,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_x = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
 "azV" = (
@@ -8956,6 +9079,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "aAA" = (
@@ -9701,7 +9825,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/hallway)
 "aCW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -10092,7 +10217,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/gridded,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "aEx" = (
 /obj/structure/cable/green{
@@ -10175,7 +10300,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/civilian/hallway_east)
 "aEK" = (
-/turf/simulated/floor/holofloor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crumbling_station/medical/recovery1)
 "aEL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -10413,6 +10538,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "aFx" = (
@@ -10434,6 +10560,16 @@
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/sharps{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
@@ -10551,6 +10687,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_ports)
 "aGe" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/pharmacy)
 "aGg" = (
@@ -10724,6 +10867,14 @@
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
+	name = "surgery cleaner";
+	pixel_x = -9;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
@@ -10920,7 +11071,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "aHp" = (
 /obj/structure/cable/green{
@@ -10941,6 +11094,10 @@
 /obj/machinery/alarm/south,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray{
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
@@ -10983,7 +11140,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/gridded,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "aHA" = (
 /obj/effect/floor_decal/corner/brown{
@@ -11438,7 +11595,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/table/steel,
+/obj/random/pottedplant_small{
+	pixel_x = -5;
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "aIT" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -11772,6 +11934,10 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/smartfridge/secure/medbay,
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
 "aJR" = (
@@ -11879,7 +12045,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/gridded,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery1)
 "aKe" = (
 /turf/simulated/wall,
@@ -12302,10 +12468,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "aLx" = (
+/obj/machinery/chem_heater,
 /obj/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/pharmacy)
 "aLy" = (
@@ -13173,6 +13341,11 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/structure/window/reinforced,
+/obj/item/glass_jar/gumball/medical{
+	pixel_x = 3;
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/lobby)
 "aOp" = (
@@ -13332,7 +13505,7 @@
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "aOU" = (
-/turf/simulated/floor/holofloor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crumbling_station/medical/recovery2)
 "aOV" = (
 /obj/structure/cable/green{
@@ -13959,6 +14132,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/table/steel,
+/obj/item/storage/box/masks{
+	pixel_x = -7;
+	pixel_y = 13
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/surgery)
 "aQV" = (
@@ -14201,6 +14383,19 @@
 /obj/machinery/alarm/west,
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8;
+	pixel_y = -11
+	},
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = 4;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
@@ -14450,9 +14645,8 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
 	},
-/obj/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/medical/pharmacy)
@@ -15207,7 +15401,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/gridded,
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "aUY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -15710,12 +15905,26 @@
 /turf/simulated/floor/tiled/white,
 /area/crumbling_station/command/washroom)
 "aWB" = (
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crumbling_station/medical/pharmacy)
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_x = 32;
+	name = "Stabilization Kit"
+	},
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/bodybag/cryobag,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor,
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/gtr)
 "aWD" = (
 /obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -16646,6 +16855,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/lobby)
 "aZi" = (
@@ -16712,7 +16922,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/gridded,
+/turf/simulated/floor/wood,
 /area/crumbling_station/medical/recovery2)
 "aZv" = (
 /obj/machinery/door/firedoor/noid{
@@ -16911,6 +17121,19 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor,
 /area/crumbling_station/security/brig)
+"bEW" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/lobby)
 "bQa" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor/noid{
@@ -17004,6 +17227,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
+"dPC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/steel,
+/obj/machinery/door/window/southleft,
+/obj/item/device/hand_labeler{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/lobby)
 "dQS" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -17041,6 +17274,13 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/full,
 /area/crumbling_station/command/washroom)
+"eXJ" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/medical/hallway)
 "flU" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/machinery/light/colored/decayed{
@@ -17101,6 +17341,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/dining)
+"gjl" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/command/foyer)
 "gjm" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
@@ -17153,6 +17399,31 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
+"hCj" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large{
+	pixel_x = 8;
+	pixel_y = 13
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = 15;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/gtr)
+"hMx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/steel,
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/lobby)
 "hRw" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -17204,6 +17475,25 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/kitchen)
+"iyy" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_x = 32;
+	name = "Blood Bags"
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	name = "soon-to-expire blood pack"
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	name = "soon-to-expire blood pack"
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	name = "soon-to-expire blood pack"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/gtr)
 "iTn" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -17219,6 +17509,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/hangar)
+"jeI" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/lobby)
 "jmj" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -17276,6 +17571,11 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/hydro)
+"kYU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/workshop)
 "laT" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -17304,6 +17604,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
+"lnp" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/roller_rack/two{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/workshop)
 "lJP" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -17337,6 +17644,18 @@
 	},
 /turf/simulated/floor/lino,
 /area/crumbling_station/service/shop)
+"mmK" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/turf/simulated/floor/carpet,
+/area/crumbling_station/medical/recovery1)
+"mrg" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/command/foyer)
 "mFl" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -17449,6 +17768,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/shop)
+"oyt" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/workshop)
 "oIx" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -17459,6 +17786,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/civilian/hallway_central)
+"oLq" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 26
+	},
+/turf/simulated/floor/carpet,
+/area/crumbling_station/medical/recovery2)
 "oSM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -17509,6 +17848,15 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
+"pQt" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/pharmacy)
 "qlR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -17614,6 +17962,13 @@
 	},
 /turf/simulated/floor,
 /area/crumbling_station/service/hydro)
+"rse" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/engi/atmospherics)
 "ryf" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/rack/folding_table,
@@ -17831,6 +18186,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/kitchen)
+"vhT" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/medical/pharmacy)
 "vsT" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -17838,6 +18197,11 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/atmospherics)
+"vIE" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled/white,
+/area/crumbling_station/medical/lobby)
 "vSz" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/green{
@@ -17897,6 +18261,12 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/utilities)
+"xBW" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/command/foyer)
 "xGC" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor,
@@ -41944,7 +42314,7 @@ aPx
 agB
 aVP
 aPG
-aur
+lnp
 aIw
 aFL
 aft
@@ -42218,7 +42588,7 @@ vsT
 aXJ
 ahf
 aXJ
-vsT
+rse
 vsT
 aDJ
 aDJ
@@ -42454,7 +42824,7 @@ aPx
 aPx
 aPx
 agB
-aQt
+oyt
 aIU
 ayc
 ayc
@@ -42968,7 +43338,7 @@ aPx
 aPx
 aPx
 agB
-ayc
+kYU
 adb
 adb
 adb
@@ -43259,7 +43629,7 @@ aQs
 aQs
 aDI
 adR
-adR
+jeI
 adR
 aDI
 aJV
@@ -44532,7 +44902,7 @@ aee
 abL
 skH
 aMw
-aMw
+bEW
 aOo
 acB
 aDv
@@ -44790,7 +45160,7 @@ aTr
 alz
 aGh
 aFw
-asM
+dPC
 aCz
 aSh
 aty
@@ -45013,7 +45383,7 @@ aPx
 aPx
 aPx
 aPx
-aPx
+aMI
 aMI
 aPW
 ahL
@@ -45039,7 +45409,7 @@ aov
 aCC
 aov
 amo
-arn
+hCj
 aui
 aui
 akb
@@ -45047,7 +45417,7 @@ aCg
 avh
 aMw
 aAy
-asM
+hMx
 aCz
 anx
 adg
@@ -45270,8 +45640,8 @@ aPx
 aPx
 aPx
 aPx
-aPx
 aMI
+gjl
 asv
 abo
 akS
@@ -45527,8 +45897,8 @@ alG
 aPx
 aPx
 aPx
-aPx
 aMI
+mrg
 aPW
 aUL
 aoW
@@ -45537,7 +45907,7 @@ aPx
 aPx
 aPx
 aad
-aCU
+eXJ
 ady
 ayJ
 aII
@@ -45559,7 +45929,7 @@ aHI
 akb
 aLT
 avh
-aMw
+vIE
 akh
 asW
 ana
@@ -45784,8 +46154,8 @@ alG
 alG
 aPx
 aPx
-aPx
 aMI
+xBW
 aPW
 aUL
 aoW
@@ -45798,13 +46168,13 @@ agk
 afx
 aCH
 aII
-ajz
+oLq
 aOU
 ajz
 apf
 anA
 aEK
-anA
+mmK
 amo
 aFB
 atH
@@ -46041,7 +46411,7 @@ anr
 alG
 aPx
 aPx
-aPx
+aMI
 aMI
 aPW
 ahL
@@ -46316,7 +46686,7 @@ aJQ
 azC
 aRD
 azU
-aWB
+aWK
 aWK
 aPx
 aPx
@@ -46326,8 +46696,8 @@ aPx
 aFx
 afD
 apI
-apI
-apI
+iyy
+aWB
 aJc
 alz
 aXd
@@ -46572,7 +46942,7 @@ ayX
 aZH
 amp
 aby
-aej
+pQt
 aGe
 aWK
 aPx
@@ -46830,7 +47200,7 @@ arz
 aoX
 aYJ
 aej
-aGe
+vhT
 aWK
 aPx
 aPx
