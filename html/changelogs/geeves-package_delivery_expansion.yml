@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Cargo delivery packages now have colored tags on them which should hopefully make it easier to distinguish between them, instead of changing the entire package's color."
-  - rscadd: "Delivering a package now outputs another, allowing you to continuously deliver throughout the round, should you choose to."
-  - bugfix: "Fixed cargo packages runtiming on the runtime map."
