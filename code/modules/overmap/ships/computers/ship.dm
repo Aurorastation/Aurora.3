@@ -4,8 +4,8 @@ with an /obj/effect/overmap/visitable/ship present elsewhere on that z level, or
 somewhere on that shuttle. Subtypes of these can be then used to perform ship overmap movement functions.
 */
 /obj/machinery/computer/ship
-	desc_antag = "These consoles, especially the ones that handle landing/takeoff and piloting, may be access-locked.\
-	You can remove this lock with <b>wirecutters</b>, but it would take awhile!"
+	desc_antag = "These consoles, especially the ones that handle piloting and weaponry, may be access-locked.\
+	You can remove this lock with <b>wirecutters</b>, but it would take awhile! Alternatively, you can also use a cryptographic sequencer (emag) for instant removal."
 	/// Weakrefs to mobs in direct-view mode.
 	var/list/viewers
 	/// How much the view is increased by when the mob is in overmap mode.
