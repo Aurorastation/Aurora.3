@@ -146,6 +146,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	id = "crum_atmos";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/atmospherics)
 "aap" = (
@@ -257,6 +261,7 @@
 /area/crumbling_station/engi/hallway)
 "aaz" = (
 /obj/machinery/alarm/north,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/administrator)
 "aaA" = (
@@ -4422,6 +4427,7 @@
 /area/crumbling_station/maints/civilian)
 "amG" = (
 /obj/machinery/alarm/north,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/vault)
 "amI" = (
@@ -8458,6 +8464,10 @@
 /area/crumbling_station/civilian/quarters_6)
 "ayG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters{
+	id = "crum_atmos";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/atmospherics)
 "ayH" = (
@@ -9035,6 +9045,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/vault)
 "aAi" = (
@@ -13965,6 +13976,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/workshop)
 "aPR" = (
@@ -15042,6 +15054,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/administrator)
 "aTo" = (
@@ -17383,6 +17396,19 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/service/utilities)
+"dsC" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "crum_atmos";
+	name = "Atmospherics Shutters";
+	pixel_x = -22;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crumbling_station/civilian/hallway_west)
 "dFs" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -17440,6 +17466,11 @@
 	temperature = 253.15
 	},
 /area/crumbling_station/service/freezer)
+"eDP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
+/turf/simulated/floor,
+/area/crumbling_station/maints/security)
 "eTm" = (
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/full,
@@ -18122,6 +18153,13 @@
 	pixel_x = 2;
 	pixel_y = 20
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "crum_atmos";
+	name = "Atmospherics Shutters";
+	pixel_x = 22;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/engi/atmospherics)
 "pEa" = (
@@ -18153,6 +18191,11 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/crumbling_station/maints/hangar)
+"pPO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack/folding_table,
+/turf/simulated/floor,
+/area/crumbling_station/maints/security)
 "pQt" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
@@ -18571,6 +18614,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/pharmacy)
+"vpi" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/tiled/dark/full,
+/area/crumbling_station/engi/workshop)
 "vqJ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -44009,7 +44060,7 @@ aiC
 agB
 agB
 aPQ
-aPQ
+vpi
 agB
 adB
 aOc
@@ -44276,7 +44327,7 @@ aGU
 aKE
 aKS
 aOt
-aGU
+dsC
 aGU
 aYH
 aGU
@@ -48101,8 +48152,8 @@ aoN
 aBI
 alG
 alG
-aPx
-aPx
+aXT
+aXT
 aqh
 aqh
 anE
@@ -48357,9 +48408,9 @@ aXh
 apC
 aCx
 alG
-aPx
-aPx
-aPx
+aXT
+eDP
+pPO
 aTo
 axd
 aqZ
@@ -48615,8 +48666,8 @@ alG
 alG
 alG
 aXT
-aXT
-aXT
+aXv
+aXv
 aTo
 aQz
 aZQ
