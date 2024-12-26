@@ -64,6 +64,10 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
+"t" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/barren,
+/area/enviro_testing_facility/outside/surface)
 "u" = (
 /turf/unsimulated/marker/khaki,
 /area/enviro_testing_facility/outside/cave)
@@ -16208,7 +16212,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -16984,7 +16988,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -17502,7 +17506,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -18020,7 +18024,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -19052,7 +19056,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 K
@@ -20596,11 +20600,11 @@ K
 K
 K
 K
+t
 A
 A
 A
-A
-A
+t
 K
 K
 K
@@ -21373,12 +21377,12 @@ D
 A
 A
 A
-A
+t
 K
 K
 K
 A
-A
+t
 A
 A
 K
@@ -21622,7 +21626,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 D
@@ -40127,7 +40131,7 @@ A
 A
 A
 A
-A
+t
 A
 A
 D
@@ -41154,7 +41158,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -42177,7 +42181,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -42446,12 +42450,12 @@ A
 A
 A
 A
+t
 A
 A
 A
 A
-A
-A
+t
 A
 A
 A
@@ -42698,7 +42702,7 @@ A
 A
 A
 A
-A
+t
 K
 K
 K
@@ -42952,7 +42956,7 @@ A
 A
 A
 A
-A
+t
 K
 K
 K
@@ -43201,7 +43205,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -43968,7 +43972,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
@@ -44478,7 +44482,7 @@ K
 K
 K
 K
-A
+t
 A
 A
 A
