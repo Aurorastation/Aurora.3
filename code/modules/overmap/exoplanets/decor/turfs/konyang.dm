@@ -4,7 +4,6 @@
 	icon_state = "grass"
 	footstep_sound = /singleton/sound_category/grass_footstep
 
-
 /turf/simulated/floor/exoplanet/konyang/no_edge
 	has_edge_icon = FALSE
 
@@ -67,5 +66,4 @@
 	icon_state = "sand"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	smoothing_flags = SMOOTH_FALSE
-
 	has_edge_icon = FALSE

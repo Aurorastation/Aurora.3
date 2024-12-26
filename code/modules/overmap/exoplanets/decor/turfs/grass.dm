@@ -5,7 +5,6 @@
 	color = "#799c4b"
 	footstep_sound = /singleton/sound_category/grass_footstep
 
-
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap)

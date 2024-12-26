@@ -5,7 +5,6 @@
 	icon_state = "sidewalk-tile"
 	has_resources = FALSE
 
-
 /turf/simulated/floor/exoplanet/sidewalk/blocks
 	name = "blocked sidewalk tiles"
 	icon_state = "blocks"

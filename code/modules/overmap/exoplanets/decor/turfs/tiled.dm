@@ -10,7 +10,6 @@
 	burned_overlay = "tiled"
 	has_resources = FALSE
 
-
 /turf/simulated/floor/exoplanet/tiled/dark
 	name = "plasteel tiles"
 	icon_state = "dark_preview"

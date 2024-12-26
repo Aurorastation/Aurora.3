@@ -5,7 +5,6 @@
 	icon_state = "rust"
 	has_resources = FALSE
 
-
 /turf/simulated/floor/exoplanet/foundation/Initialize(mapload)
 	. = ..()
 	icon_state = "rust[rand(1,12)]"

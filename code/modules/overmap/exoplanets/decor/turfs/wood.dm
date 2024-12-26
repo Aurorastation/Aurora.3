@@ -11,7 +11,6 @@
 	color = WOOD_COLOR_GENERIC
 	has_resources = FALSE
 
-
 /turf/simulated/floor/exoplanet/wood/bamboo
 	initial_flooring = /singleton/flooring/wood/bamboo
 	color = WOOD_COLOR_PALE2

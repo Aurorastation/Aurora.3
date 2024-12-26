@@ -11,7 +11,6 @@
 	temperature = T0C - 5
 	has_edge_icon = FALSE
 
-
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()
 	icon_state = "icy_rock[rand(1,19)]"
