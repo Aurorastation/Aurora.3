@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "You can now click on another mob with the Journalist's handheld microphone to hold it up to them. Doing so will only broadcast that mob's next message, no one else's."
   - qol: "The Journalist's press camera drone can now broadcast off-ship."
+  - bugfix: "The Corporate Reporter now spawns with a Service radio if the clip-on radio is selected, as intended."
