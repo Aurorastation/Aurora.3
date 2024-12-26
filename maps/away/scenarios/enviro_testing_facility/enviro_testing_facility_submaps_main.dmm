@@ -50,6 +50,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"aj" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/simulated/floor/carpet/purple,
+/area/template_noop)
 "ak" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -8
@@ -1037,6 +1045,18 @@
 "dg" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one{
+	pixel_x = 15;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/quarters)
 "di" = (
@@ -1540,6 +1560,13 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
+"eH" = (
+/obj/item/trash/coffee{
+	pixel_x = -9;
+	pixel_y = -8
+	},
+/turf/simulated/floor/carpet/green,
+/area/template_noop)
 "eI" = (
 /obj/structure/closet/crate/hydroponics,
 /turf/simulated/floor/wood,
@@ -2130,6 +2157,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"gF" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/cans/galatea{
+	pixel_x = 5;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/galatea{
+	pixel_y = 1;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/crew/quarters)
 "gG" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2268,6 +2308,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/equipment)
+"gZ" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "ha" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger{
@@ -3900,6 +3952,10 @@
 /area/enviro_testing_facility/inside/engineering/storage_1)
 "mG" = (
 /obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu{
+	pixel_x = 4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
 "mH" = (
@@ -4822,6 +4878,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
+"py" = (
+/obj/structure/table/glass,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pawn{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "pC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -5901,6 +5968,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"sX" = (
+/obj/structure/table/glass,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/crew/quarters)
 "sY" = (
 /obj/structure/table/steel,
 /obj/item/device/hand_labeler,
@@ -9978,6 +10054,10 @@
 /area/template_noop)
 "Gc" = (
 /obj/structure/bed/stool/chair/sofa/left/yellow,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = -5;
+	pixel_y = -28
+	},
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "Gd" = (
@@ -10510,6 +10590,15 @@
 /obj/machinery/floodlight,
 /turf/template_noop,
 /area/template_noop)
+"HN" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/food/drinks/coffee{
+	pixel_x = 7;
+	pixel_y = -16
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/crew/canteen)
 "HO" = (
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = 32
@@ -11174,6 +11263,14 @@
 /area/enviro_testing_facility/inside/security/armory)
 "JQ" = (
 /obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = -6;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
 "JR" = (
@@ -14083,6 +14180,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
+"Tn" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/beaker/pitcher/coffee{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/template_noop)
 "To" = (
 /obj/structure/bed/stool/chair/sofa/right/yellow{
 	dir = 4
@@ -43065,7 +43170,7 @@ Ez
 Ez
 Ez
 rb
-rb
+gZ
 Ez
 iF
 iF
@@ -48922,7 +49027,7 @@ Ez
 Ez
 Ez
 Ez
-rb
+gZ
 rb
 Ez
 Ez
@@ -49731,7 +49836,7 @@ Ez
 Ez
 Ez
 rb
-rb
+gZ
 Ez
 Ez
 Ez
@@ -50526,7 +50631,7 @@ fq
 Fh
 wV
 fq
-uL
+HN
 uL
 Iy
 kb
@@ -50994,7 +51099,7 @@ iF
 kA
 YW
 YW
-YW
+eH
 iF
 iF
 iF
@@ -51598,7 +51703,7 @@ iF
 iF
 iF
 bd
-bd
+Tn
 LZ
 IP
 iF
@@ -53215,7 +53320,7 @@ iF
 iF
 jg
 jt
-HJ
+aj
 HJ
 iF
 iF
@@ -54597,7 +54702,7 @@ nb
 Zn
 Jm
 JD
-xw
+py
 xw
 kH
 eW
@@ -55403,10 +55508,10 @@ sG
 Ez
 iF
 Ez
-dg
+gF
 Dg
 eP
-eP
+sX
 bB
 hi
 QL
@@ -55588,7 +55693,7 @@ Ez
 Ez
 Ez
 Ez
-rb
+gZ
 rb
 Ez
 iF

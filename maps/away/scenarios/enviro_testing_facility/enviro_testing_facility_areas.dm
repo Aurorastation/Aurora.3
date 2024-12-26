@@ -69,6 +69,12 @@
 /area/enviro_testing_facility/inside/crew/canteen
 	name = "Canteen"
 
+/area/enviro_testing_facility/inside/crew/cryo_1
+	name = "Cryo Storage 1"
+
+/area/enviro_testing_facility/inside/crew/cryo_2
+	name = "Cryo Storage 2"
+
 // ------------- medical
 
 /area/enviro_testing_facility/inside/medical
