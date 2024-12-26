@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an issue causing air alarm frames appearing on opposite direction when put on wall. Also fixed a few inconsistencies about frames."

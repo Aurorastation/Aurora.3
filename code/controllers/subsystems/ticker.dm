@@ -203,7 +203,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b>"))
+					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of \the [SSatlas.current_map.station_name] in [restart_timeout/10] seconds</b>"))
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)

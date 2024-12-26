@@ -17,3 +17,6 @@
 			/mob/living/simple_animal/cosmozoan = 1
 		)
 	)
+
+/singleton/biome/crystal/mountain
+	turf_type = /turf/simulated/mineral/crystal

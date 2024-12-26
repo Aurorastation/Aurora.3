@@ -442,7 +442,7 @@ AURORA_ESCAPE_POD(4)
 
 //-// Raider Skipjack //-//
 
-/datum/shuttle/autodock/multi/antag/skipjack_aurora
+/datum/shuttle/autodock/multi/antag/skipjack_aurora/New()
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"
@@ -460,8 +460,9 @@ AURORA_ESCAPE_POD(4)
 		)
 
 	announcer = "NDV Icarus"
-	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the [station_name(TRUE)] - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+	..()
 
 /obj/effect/shuttle_landmark/skipjack/start
 	name = "Raider Hideout"
@@ -503,7 +504,7 @@ AURORA_ESCAPE_POD(4)
 
 //-// Mercenary Shuttle //-//
 
-/datum/shuttle/autodock/multi/antag/merc_aurora
+/datum/shuttle/autodock/multi/antag/merc_aurora/New()
 	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
@@ -520,8 +521,9 @@ AURORA_ESCAPE_POD(4)
 		)
 
 	announcer = "NDV Icarus"
-	arrival_message = "Attention, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
+	arrival_message = "Attention, you have a large signature approaching the [station_name(TRUE)] - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
 	departure_message = "Attention, your visitors are on their way out of the system, burning delta-v like it's nothing. Good riddance."
+	..()
 
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
