@@ -118,3 +118,65 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 		return null
 
 	return "[exosuit_ka.get_ammo()]/[exosuit_ka.installed_cell.cell_increase / exosuit_ka.cost_increase]"
+
+/obj/item/mecha_equipment/ore_summoner
+	name = "mounted ore summoner"
+	desc = "A large back-mounted ore summoner, capable of pulling ore into an ore box held within a clamp. If no ore box is found, the ore will be deposited beneath the exosuit."
+	icon_state = "mecha_ore_summoner"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	w_class = WEIGHT_CLASS_HUGE
+	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
+
+	/// When last the summoner was used
+	var/last_use = 0
+
+	/// How long the cooldown is before the ore can be pulsed again
+	var/cooldown_time = 5 SECONDS
+
+	/// How many chunks of ore can be moved at one time
+	var/static/ore_limit = 50
+
+/obj/item/mecha_equipment/ore_summoner/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+	return FALSE
+
+/obj/item/mecha_equipment/ore_summoner/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		summon_ore(user)
+
+/obj/item/mecha_equipment/ore_summoner/proc/summon_ore(var/mob/user)
+	if(last_use + cooldown_time >= world.time)
+		to_chat(user, SPAN_WARNING("The ore summoner is recalibrating..."))
+		return
+
+	var/obj/structure/ore_box/ore_box
+	for(var/hardpoint in owner.hardpoints)
+		var/obj/item/mecha_equipment/clamp/clamp = owner.hardpoints[hardpoint]
+		if(!istype(clamp))
+			continue
+		var/obj/structure/ore_box/box = locate() in clamp
+		if(box)
+			ore_box = box
+			break
+
+	var/turf/our_turf = get_turf(owner)
+
+	var/limit = ore_limit
+	for(var/obj/item/ore/ore in range(7, owner))
+		if(limit <= 0)
+			break
+		if(ore_box)
+			ore.forceMove(ore_box)
+		else
+			ore.forceMove(our_turf)
+		limit -= 1
+		CHECK_TICK
+
+	last_use = world.time
+
+/obj/item/mecha_equipment/ore_summoner/get_hardpoint_status_value()
+	return last_use + cooldown_time < world.time ? 1 : 0
+
+/obj/item/mecha_equipment/ore_summoner/get_hardpoint_maptext()
+	return last_use + cooldown_time < world.time ? "Ready" : "Recharging"
