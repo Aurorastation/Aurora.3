@@ -48,7 +48,6 @@
 	icon_state = "dirt"
 	layer = 1.99//to let the grass edges go over it, which otherwise doesnt happen due to positioning and byond layering
 	footstep_sound = /singleton/sound_category/asteroid_footstep
-
 	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/dirt_konyang/cave
