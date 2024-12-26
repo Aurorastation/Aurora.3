@@ -282,7 +282,7 @@
 		feed_sound(user)
 		return 1
 
-/obj/item/reagent_containers/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/reagent_containers/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(ishuman(over))
 		var/mob/living/carbon/human/H = over
