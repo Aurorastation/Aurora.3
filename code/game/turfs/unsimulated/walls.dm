@@ -5,6 +5,7 @@
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
+	pass_flags_self = PASSCLOSEDTURF
 
 /turf/unsimulated/wall/fakeglass
 	name = "window"
@@ -39,7 +40,7 @@
 
 /turf/unsimulated/wall/steel
 	icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	icon_state = "map_readable"//the best approximation of the ingame gunmetal blended wall sprite for example
+	icon_state = "map_white"
 	desc = "It's a wall. It appears to be composed of a highly durable alloy and plated with steel."
 	color = COLOR_WALL_GUNMETAL
 	smoothing_flags = SMOOTH_TRUE

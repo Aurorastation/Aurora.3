@@ -23,6 +23,7 @@
 
 /obj/machinery/keycard_auth/Initialize(mapload, d, populate_components, is_internal)
 	..()
+	desc = "This device is used to trigger [station_name(TRUE)] functions, which require more than one ID card to authenticate."
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()
@@ -78,7 +79,6 @@
 		dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
 			dat += "<li><A href='?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 		dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"

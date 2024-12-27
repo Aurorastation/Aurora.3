@@ -43,7 +43,7 @@ export const Holopad = (props, context) => {
                   tooltip="This is only available due to your command authorisation."
                   selected={data.forcing_call}
                   icon="microphone"
-                  onClick={() => act('microphone')}
+                  onClick={() => act('toggle_command')}
                 />
               ) : (
                 ''

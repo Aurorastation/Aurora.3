@@ -152,8 +152,8 @@
 	window_id = "disposaldispenser"
 
 //Allow you to drag-drop disposal pipes into it
-/obj/machinery/pipedispenser/disposal/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/structure/disposalconstruct/pipe = dropping
+/obj/machinery/pipedispenser/disposal/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/structure/disposalconstruct/pipe = dropped
 	if(!istype(pipe) || pipe.anchored || use_check_and_message(user))
 		return
 

@@ -337,6 +337,37 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
 
+/singleton/recipe/grilled_mac_and_cheese_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/macandcheese
+	)
+	result = /obj/item/reagent_containers/food/snacks/grilled_mac_and_cheese
+
+/singleton/recipe/grilled_triple_cheese_crunch_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
+
+/singleton/recipe/crab_leg_grilled_cheese_sandwich
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/crabmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/crab_leg_grilled_cheese_sandwich
+
 /singleton/recipe/reubensandwich
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/nutriment/ketchup = 5)
 	items = list(

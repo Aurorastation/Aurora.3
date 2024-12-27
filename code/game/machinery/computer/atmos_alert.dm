@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 
 /obj/machinery/computer/atmos_alert
 	name = "atmospheric alert computer"
-	desc = "Used to access the station's atmospheric sensors."
+	desc = "Used to access atmospheric sensors."
 	circuit = /obj/item/circuitboard/atmos_alert
 
 	icon_screen = "alert:0"

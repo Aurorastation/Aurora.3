@@ -302,8 +302,8 @@
 	return ..()
 
 /obj/effect/golemrune/process()
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in src.loc)
+	var/mob/abstract/ghost/observer/ghost
+	for(var/mob/abstract/ghost/observer/O in src.loc)
 		if(!O.client)
 			continue
 		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)

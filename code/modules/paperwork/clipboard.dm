@@ -19,14 +19,14 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clipboard/MouseDrop(obj/over_object as obj) //Quick clipboard fix. -Agouri
-	if(ishuman(usr))
-		var/mob/M = usr
-		if(!(istype(over_object, /atom/movable/screen) ))
+/obj/item/clipboard/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(ishuman(user))
+		var/mob/M = user
+		if(!(istype(over, /atom/movable/screen) ))
 			return ..()
 
 		if(!M.restrained() && !M.stat)
-			switch(over_object.name)
+			switch(over.name)
 				if("right hand")
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_r_hand)
@@ -34,7 +34,7 @@
 					M.u_equip(src)
 					M.equip_to_slot_if_possible(src, slot_l_hand)
 
-			add_fingerprint(usr)
+			add_fingerprint(M)
 			return
 
 /obj/item/clipboard/update_icon()

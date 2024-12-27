@@ -462,7 +462,7 @@
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A

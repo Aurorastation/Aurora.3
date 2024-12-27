@@ -567,7 +567,7 @@
 
 	var/mob/M = targets[target]
 
-	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
+	if(isobserver(M) || M.stat == DEAD)
 		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
@@ -577,12 +577,12 @@
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
-	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
+	if(ishuman(M) && isvaurca(M))
 		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))
 		to_chat(M, SPAN_NOTICE(" [text]"))
 	else
 		to_chat(M, SPAN_DANGER("Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"))
-		if(istype(M,/mob/living/carbon/human))
+		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.species.name == src.species.name)
 				return

@@ -80,7 +80,7 @@
 		if(player_turf.z)
 			players_by_zlevel[player_turf.z] += player
 
-		if(istype(player, /mob/abstract/observer) && player_turf.z)
+		if(isobserver(player) && player_turf.z)
 			dead_players_by_zlevel[player_turf.z] += player
 
 	. = list()//output everything that successfully heard the sound

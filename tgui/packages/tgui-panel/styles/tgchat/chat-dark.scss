@@ -357,6 +357,10 @@ em {
   color: #d1021e;
   font-weight: bold;
 }
+.storyteller {
+  color: #5237e9;
+  font-weight: bold;
+}
 
 /* Admin: Private Messages */
 .pm .howto {
@@ -633,6 +637,11 @@ em {
   &--deep-cyan {
     @extend .examine_block;
     border-color: #0f7e62;
+  }
+
+  &--odyssey {
+    @extend .examine_block;
+    border-color: #0077ff;
   }
 }
 

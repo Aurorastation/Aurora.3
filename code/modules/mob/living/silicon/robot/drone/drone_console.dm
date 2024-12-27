@@ -15,6 +15,10 @@
 
 	var/static/list/call_area_names
 
+/obj/machinery/computer/drone_control/New()
+	..()
+	desc = "Used to monitor the [station_name(TRUE)]'s drone population and the assembler that services them."
+
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
@@ -63,7 +67,7 @@
 	if(href_list["setarea"])
 		if(!call_area_names)
 			call_area_names = list()
-			for(var/area/A as anything in GLOB.all_areas)
+			for(var/area/A as anything in get_sorted_areas())
 				if(A.station_area)
 					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.

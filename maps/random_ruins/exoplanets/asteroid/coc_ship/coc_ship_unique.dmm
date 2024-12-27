@@ -566,7 +566,8 @@
 	tag_chamber_sensor = "coc_skipjack_sensor";
 	tag_exterior_door = "coc_skipjack_out";
 	tag_interior_door = "coc_skipjack_in";
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -1451,7 +1452,9 @@
 "Fd" = (
 /obj/random/booze,
 /obj/structure/table/wood,
-/obj/structure/sign/flag/coalition/large/north,
+/obj/structure/sign/flag/coalition/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "Fm" = (

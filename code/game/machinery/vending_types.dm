@@ -1117,6 +1117,7 @@
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
 		/obj/item/reagent_containers/bowl/plate = 10,
+		/obj/item/reagent_containers/bowl/gravy_boat = 8,
 		/obj/item/reagent_containers/glass/bottle/syrup = 4,
 	)
 	contraband = list(
@@ -1872,7 +1873,20 @@
 		/obj/item/device/encryptionkey/headset_service = 5,
 		/obj/item/device/encryptionkey/headset_warden = 5,
 		/obj/item/device/encryptionkey/headset_xenoarch = 5,
-
-
 	)
+
+/obj/machinery/vending/actor
+	name = "Actor Vendor"
+	desc = ""
+	vend_id = "actor"
+	icon_state = "generic"
+	icon_vend = "generic-vend"
+	light_mask = "generic-lightmask"
+	products = list(
+		/obj/item/device/radio/headset/ship/odyssey = 12,
+		/obj/item/portable_map_reader/odyssey = 12,
+		/obj/item/card/id/syndicate = 12,
+	)
+	light_color = COLOR_GUNMETAL
+
 
