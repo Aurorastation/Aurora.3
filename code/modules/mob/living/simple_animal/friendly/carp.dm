@@ -1,6 +1,6 @@
 /mob/living/simple_animal/carp
-	name = "domesticated space carp"
-	desc = "A domesticated, floating space carp. Careful around the teeth."
+	name = "tame space carp"
+	desc = "A tame, floating space carp. Careful around the teeth."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "carp"
 	item_state = "carp"
