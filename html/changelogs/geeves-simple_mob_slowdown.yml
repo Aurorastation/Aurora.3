@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - balance: "Tweaked mobs to use the universal speed variable when chasing after a target."
-  - balance: "Made Reavers move much slower when pursuing a target."

@@ -186,3 +186,33 @@
       without as many issues.
   - balance: Adjusted pressure of SCC-specific airlock tanks from 300 to 600kpa, to
       be consistent with the canister airlock variant.
+2024-12-27:
+  FluffyGhost:
+  - refactor: Refactored mousedrag procs, added signals, some safeguards, did some
+      cleanups around, renamed them to make a little more sense. Mostly put in line
+      with TG's code.
+  - rscadd: Fast clicking and releasing with a drag, depending on the grace period
+      and how fast it is done, can be counted as clicks, to aid in combat scenarios
+      where you spamclick.
+  Geeves:
+  - rscadd: Added an exosuit compatible ore summoner, capable of pulling ore directly
+      into an ore box held within the exosuit's clamp. Machinists can print them at
+      the cost of steel and glass, and the mining mech dropped from the dropper comes
+      with it equipped.
+  - rscadd: Added a 'Rubber' skin preset for Shells in character creation, which makes
+      their skin look cheap and uncanny.
+  - refactor: Added backend support for species to have different max and min skin
+      tone values, currently unused.
+  - balance: Tweaked mobs to use the universal speed variable when chasing after a
+      target.
+  - balance: Made Reavers move much slower when pursuing a target.
+  - balance: Explorer's belts can now hold impact wrenches and power cells.
+  Kano:
+  - bugfix: Fixed an issue causing air alarm frames appearing on opposite direction
+      when put on wall. Also fixed a few inconsistencies about frames.
+  hazelmouse:
+  - qol: Implemented various QoL improvements to the Golden Deep, SPLF, Freebooter,
+      and House Volvalaad offship ghostroles.
+  - balance: The Freebooter ship now spawns with three guaranteed guns and two guaranteed
+      armored voidsuits, replacing the same number of randomised spawners. This should
+      help bring the ship up to par with other similar ships in boarding actions.

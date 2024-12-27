@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an exosuit compatible ore summoner, capable of pulling ore directly into an ore box held within the exosuit's clamp. Machinists can print them at the cost of steel and glass, and the mining mech dropped from the dropper comes with it equipped."
