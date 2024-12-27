@@ -184,7 +184,7 @@
 	name = "Research, Hallway"
 
 /area/enviro_testing_facility/inside/research/entrance
-	name = "Research, "
+	name = "Research, Entrance"
 
 /area/enviro_testing_facility/inside/research/chem_lab
 	name = "Research, Chem Lab"

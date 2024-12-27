@@ -25,6 +25,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating/asteroid,
 /area/enviro_testing_facility/outside/surface)
+"i" = (
+/obj/machinery/camera/network/enviro_testing_facility{
+	dir = 8;
+	c_tag = "Outside - Landing Pads 1"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/enviro_testing_facility/outside/surface)
 "j" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -63,6 +70,13 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating/asteroid,
+/area/enviro_testing_facility/outside/surface)
+"s" = (
+/obj/machinery/camera/network/enviro_testing_facility{
+	dir = 1;
+	c_tag = "Outside - Landing Pads 2"
+	},
+/turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/surface)
 "t" = (
 /obj/item/stack/flag/red/planted,
@@ -115,6 +129,9 @@
 /area/enviro_testing_facility/outside/surface)
 "K" = (
 /turf/unsimulated/marker/blue,
+/area/enviro_testing_facility/outside/surface)
+"M" = (
+/turf/simulated/wall,
 /area/enviro_testing_facility/outside/surface)
 "N" = (
 /turf/unsimulated/mineral,
@@ -23700,8 +23717,8 @@ d
 G
 D
 D
-A
-A
+s
+M
 A
 A
 f
@@ -41177,7 +41194,7 @@ A
 D
 D
 A
-A
+i
 A
 A
 A
@@ -41434,7 +41451,7 @@ A
 D
 D
 A
-A
+M
 A
 A
 A
