@@ -629,9 +629,12 @@ SUBSYSTEM_DEF(cargo)
 	// Loop through all the orders and dump them all
 	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
 	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
+
 	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_item_orderlog` (`cargo_orderlog_id`, `item_name`, `amount`) \
 	VALUES (:cargo_orderlog_id:, :item_name:, :amount:)")
+
 	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+
 	for(var/datum/cargo_order/co in all_orders)
 		//Iterate over the items in the order and build the a list with the item count
 		var/list/itemcount = list()
@@ -677,7 +680,7 @@ SUBSYSTEM_DEF(cargo)
 		if(db_log_id)
 			for(var/item_id in itemcount)
 				if(!dump_item_query.Execute(list(
-					"cargo_orderlog_id" = co.order_id,
+					"cargo_orderlog_id" = db_log_id,
 					"item_name"= itemnames[item_id],
 					"amount" = itemcount[item_id]
 					)))
