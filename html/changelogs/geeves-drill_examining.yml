@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Examining a mining drill while standing next to it will now display the ore inside it."
