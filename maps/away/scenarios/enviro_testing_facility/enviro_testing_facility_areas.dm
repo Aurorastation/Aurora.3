@@ -75,6 +75,9 @@
 /area/enviro_testing_facility/inside/crew/cryo_2
 	name = "Cryo Storage 2"
 
+/area/enviro_testing_facility/inside/crew/lockers
+	name = "Personal Lockers"
+
 // ------------- medical
 
 /area/enviro_testing_facility/inside/medical

@@ -595,6 +595,12 @@
 /obj/machinery/door/airlock/glass_security,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"eM" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/entrance)
 "eN" = (
 /obj/effect/floor_decal/spline/fancy/cee{
 	dir = 8
@@ -799,6 +805,14 @@
 /obj/machinery/power/radial_floodlight,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/west)
+"ga" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/outfit/admin/generic/science,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "gd" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 1
@@ -1198,6 +1212,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
+"iH" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/outfit/admin/generic/engineer,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "iI" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 9
@@ -1268,6 +1290,10 @@
 "jr" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/surface)
+"jt" = (
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "jz" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/main/dome,
 /turf/simulated/floor/plating,
@@ -1758,6 +1784,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/west)
+"ny" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/outfit/admin/generic/medical,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "nA" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/cable{
@@ -1771,6 +1805,9 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/cryo_2)
+"nD" = (
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/crew/lockers)
 "nF" = (
 /obj/structure/closet/toolcloset,
 /obj/random/tech_supply,
@@ -2551,6 +2588,20 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"tP" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "tU" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -2778,6 +2829,10 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/facility_controls)
+"vF" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/crew/lockers)
 "vJ" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 10
@@ -2845,6 +2900,14 @@
 "wj" = (
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
+"wp" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/outfit/admin/generic/medical,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "wr" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -2881,6 +2944,14 @@
 "wD" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/crew/quarters)
+"wE" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/outfit/admin/generic/science,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "wF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
@@ -3164,6 +3235,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"yl" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_service{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/east)
 "ym" = (
 /obj/effect/floor_decal/corner/black/diagonal{
 	dir = 4
@@ -3353,6 +3436,13 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"zt" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "zv" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
@@ -3503,6 +3593,10 @@
 /obj/item/stack/medical/ointment,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/east)
+"Ao" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "Ar" = (
 /obj/machinery/vending/frontiervend,
 /turf/simulated/floor/tiled,
@@ -3552,6 +3646,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/central)
+"AP" = (
+/turf/simulated/floor/tiled/slate/full,
+/area/enviro_testing_facility/inside/crew/lockers)
 "AQ" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -3991,9 +4088,15 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_service,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/cryo_2)
+"Dt" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "DB" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
@@ -4637,6 +4740,14 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"If" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "Ih" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -5151,10 +5262,10 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/glass_mining,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/glass_service,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
 "Mn" = (
@@ -5368,6 +5479,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/slate,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/hallway/east)
+"NJ" = (
+/turf/simulated/wall,
+/area/enviro_testing_facility/inside/crew/lockers)
 "NK" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -5634,6 +5748,18 @@
 /obj/item/stack/material/cloth/full,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/operations/storage_materials)
+"PW" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_service{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "PZ" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/dark,
@@ -5860,6 +5986,14 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/operations/storage_long_term)
+"RA" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/outfit/admin/generic/engineer,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "RD" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -6092,6 +6226,12 @@
 /obj/effect/overmap/visitable/sector/enviro_testing_facility,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/facility_controls)
+"Tm" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "To" = (
 /obj/machinery/camera/network/enviro_testing_facility{
 	c_tag = "Hallways - Cryo 2"
@@ -6566,6 +6706,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/hallway/east)
+"WG" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "WJ" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -6652,6 +6800,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Xn" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/entrance)
 "Xs" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6738,6 +6892,13 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"XX" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/enviro_testing_facility/inside/crew/lockers)
 "Yb" = (
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/testing_dome/galina)
@@ -6775,6 +6936,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/west)
+"Yj" = (
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "Yl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6886,6 +7050,12 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"YU" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/lockers)
 "YV" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -6987,7 +7157,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_service,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/cryo_1)
 "ZQ" = (
@@ -47765,7 +47935,7 @@ ym
 ym
 sV
 jO
-mt
+jO
 mt
 mt
 mt
@@ -48021,8 +48191,8 @@ yw
 UF
 UF
 IO
+Xn
 jO
-mt
 mt
 mt
 mt
@@ -48278,8 +48448,8 @@ AK
 YH
 YH
 IO
+eM
 jO
-mt
 mt
 mt
 mt
@@ -48536,7 +48706,7 @@ xt
 xt
 sV
 jO
-mt
+jO
 mt
 mt
 mt
@@ -60077,7 +60247,7 @@ Sp
 Sp
 Sp
 Sp
-qB
+Sp
 Sp
 Sp
 Sp
@@ -60334,7 +60504,7 @@ Sp
 Sp
 Sp
 Sp
-qB
+Sp
 Sp
 Sp
 Sp
@@ -60591,7 +60761,7 @@ Sp
 WJ
 Op
 Sp
-qB
+Sp
 Sp
 Op
 Op
@@ -60847,9 +61017,9 @@ ZI
 rQ
 ZI
 ZI
-ZI
-ZI
-ZI
+PW
+yl
+PW
 ZI
 ZI
 AA
@@ -61104,12 +61274,12 @@ Tv
 UM
 uV
 ZI
-mt
-mt
-mt
-mt
-ZI
-ZI
+jt
+jt
+Yj
+If
+NJ
+NJ
 ZI
 Tt
 Gh
@@ -61361,12 +61531,12 @@ zP
 bm
 gK
 ZI
-mt
-mt
-mt
-mt
-mt
-mt
+jt
+vF
+Tm
+nD
+Yj
+NJ
 ZI
 ZI
 ZI
@@ -61618,12 +61788,12 @@ ZI
 ZI
 ZI
 ZI
-mt
-mt
-mt
-mt
-mt
-mt
+jt
+Ao
+Tm
+XX
+ny
+NJ
 mt
 mt
 mt
@@ -61870,17 +62040,17 @@ ZI
 ZI
 lh
 ZI
-ZI
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+If
+RA
+zt
+If
+jt
+vF
+Tm
+wE
+If
+NJ
 mt
 mt
 mt
@@ -62127,17 +62297,17 @@ mt
 ZI
 ZI
 ZI
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+Yj
+nD
+AP
+nD
+jt
+Ao
+Tm
+nD
+Yj
+NJ
 mt
 mt
 mt
@@ -62384,17 +62554,17 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+XX
+WG
+ga
+XX
+jt
+vF
+Tm
+WG
+WG
+NJ
 mt
 mt
 mt
@@ -62641,17 +62811,17 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+If
+zt
+If
+RA
+jt
+Ao
+Tm
+wp
+If
+NJ
 mt
 mt
 mt
@@ -62898,17 +63068,17 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+Yj
+nD
+AP
+nD
+jt
+vF
+Tm
+nD
+Yj
+NJ
 mt
 mt
 mt
@@ -63155,17 +63325,17 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+ga
+WG
+WG
+WG
+jt
+Ao
+Tm
+XX
+iH
+NJ
 mt
 mt
 mt
@@ -63412,17 +63582,17 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+zt
+If
+zt
+wE
+jt
+vF
+Tm
+NJ
+NJ
+NJ
 mt
 mt
 mt
@@ -63669,15 +63839,15 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+Yj
+nD
+AP
+nD
+jt
+Ao
+Tm
+NJ
 mt
 mt
 mt
@@ -63926,15 +64096,15 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+iH
+ny
+XX
+WG
+jt
+vF
+Tm
+NJ
 mt
 mt
 mt
@@ -64183,15 +64353,15 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+NJ
+NJ
+NJ
+NJ
+NJ
+Yj
+Tm
+Tm
+NJ
 mt
 mt
 mt
@@ -64444,11 +64614,11 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
+NJ
+YU
+tP
+Dt
+NJ
 mt
 mt
 mt
@@ -64701,11 +64871,11 @@ mt
 mt
 mt
 mt
-mt
-mt
-mt
-mt
-mt
+NJ
+NJ
+NJ
+NJ
+NJ
 mt
 mt
 mt
