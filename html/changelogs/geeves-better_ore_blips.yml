@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Ore detector blips no longer causes clicks and the right-click menu to pass through the turf that's beneath you."
