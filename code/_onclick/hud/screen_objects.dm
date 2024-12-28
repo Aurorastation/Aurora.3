@@ -27,6 +27,10 @@
 	hud = null
 	. = ..()
 
+///Screen elements are always on top of the players screen and don't move so yes they are adjacent
+/atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	return TRUE
+
 /**
  * Handles the deletion of the HUD this screen is associated to
  */

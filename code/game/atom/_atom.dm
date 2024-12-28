@@ -12,6 +12,8 @@
 
 	///First atom flags var
 	var/flags_1 = NONE
+	///Intearaction flags
+	var/interaction_flags_atom = NONE
 
 	var/flags_ricochet = NONE
 
@@ -38,7 +40,6 @@
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
-	var/throwpass = 0
 	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = 1 // Filter for actions. Used by lighting overlays.
 	var/fluorescent // Shows up under a UV light.

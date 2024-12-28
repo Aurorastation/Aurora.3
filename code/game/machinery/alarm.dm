@@ -334,6 +334,7 @@ pixel_x = 10;
 		wiresexposed = 1
 
 		update_icon()
+		set_pixel_offsets()
 		return
 
 	first_run()

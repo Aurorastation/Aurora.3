@@ -33,13 +33,16 @@
 		else
 			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].", SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		if(trash)
+			// get or create the trash item
+			var/obj/item/trash_item = trash
+			if(ispath(trash_item))
+				trash_item = new trash_item()
+			// and put it in active hand, or on the floor
 			if(slot)
-				user.drop_from_inventory(src)	//so trash actually stays in the active hand.
-				var/obj/item/TrashItem = new trash(user)
-				user.put_in_hands(TrashItem)
+				user.drop_from_inventory(src)
+				user.put_in_hands(trash_item)
 			else
-				var/obj/item/TrashItem = new trash(user)
-				TrashItem.forceMove(get_turf(src))
+				trash_item.forceMove(get_turf(src))
 		if(istype(loc, /obj/item/reagent_containers/bowl/plate))
 			var/obj/item/reagent_containers/bowl/plate/P = loc
 			if(P.holding == src)

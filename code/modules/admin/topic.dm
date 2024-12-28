@@ -1313,7 +1313,7 @@
 					SSnews.wanted_issue.body = src.admincaster_feed_message.body
 					SSnews.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
 					src.admincaster_screen = 19
-				log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [src.admincaster_feed_message.author]!")
+				log_admin("[key_name_admin(usr)] issued a [station_name(TRUE)]-wide Wanted Notification for [src.admincaster_feed_message.author]!")
 		src.access_news_network()
 
 	else if(href_list["ac_cancel_wanted"])
