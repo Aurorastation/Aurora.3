@@ -13,6 +13,23 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	var/mob_wear_layer = ABOVE_UNIFORM_LAYER_PA
 	gender = PLURAL // some pants vs. a skirt
 	valid_accessory_slots = list(ACCESSORY_SLOT_PANTS)
+	center_of_mass = list("x" = 16,"y" = 8)
+
+/obj/item/clothing/pants/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
+		for(var/obj/item/clothing/accessory/A in accessories)
+			A.accessory_mob_overlay.ClearOverlays()
+	else
+		for(var/obj/item/clothing/accessory/A in accessories)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			I.AddOverlays(accessory_image)
+
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
+		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "pantsblood")
+		bloodsies.color = blood_color
+		I.AddOverlays(bloodsies)
+	return I
 
 /obj/item/clothing/pants/update_clothing_icon()
 	if (ismob(src.loc))
