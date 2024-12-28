@@ -11,3 +11,11 @@
 #define ACCESSORY_SLOT_HEAD             "head"
 #define ACCESSORY_SLOT_PANTS			"pants"
 #define ACCESSORY_SLOT_UTILITY_PANTS	"pants utility"
+
+// Accessory Layering
+
+#define ACCESSORY_LOWEST_LAYER 0
+#define ACCESSORY_LAYER_LOWER 0
+#define ACCESSORY_LAYER_MIDDLE 1
+#define ACCESSORY_LAYER_UPPER 2
+#define ACCESSORY_HIGHEST_LAYER 2

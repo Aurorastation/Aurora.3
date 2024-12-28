@@ -24,9 +24,9 @@
 
 	. = ..()
 
-/obj/item/rig/MouseDrop(obj/over_object as obj)
+/obj/item/rig/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage && !storage.pockets.handle_mousedrop(usr, over_object))
+	if(storage && !storage.pockets.handle_mousedrop(user, over))
 		return
 	return ..()
 

@@ -40,7 +40,7 @@
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/attacking_item, mob/user)
 	if (opened)
 		if (istype(attacking_item, /obj/item/grab))
-			MouseDrop_T(attacking_item:affecting, user)      //act like they were dragged onto the closet
+			mouse_drop_receive(attacking_item:affecting, user)      //act like they were dragged onto the closet
 		if(attacking_item)
 			user.drop_from_inventory(attacking_item,loc)
 		else

@@ -17,10 +17,9 @@
 	icon_state = "royalcrab"
 	icon_living = "royalcrab"
 	icon_dead = "royalcrab_dead"
-	move_to_delay = 3
 	maxHealth = 150
 	health = 150
-	speed = 1
+	speed = 3
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	natural_armor = list(

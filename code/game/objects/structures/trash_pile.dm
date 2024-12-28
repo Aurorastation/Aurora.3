@@ -28,7 +28,7 @@
 	if(icon_state == initial(icon_state))
 		icon_state = pick(icon_states(icon) - icon_state)
 
-/obj/structure/trash_pile/MouseDrop_T(atom/dropping, mob/user)
+/obj/structure/trash_pile/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))

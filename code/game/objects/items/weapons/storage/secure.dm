@@ -70,9 +70,9 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	..()
 
 
-/obj/item/storage/secure/MouseDrop(over_object, src_location, over_location)
+/obj/item/storage/secure/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if (locked)
-		src.add_fingerprint(usr)
+		src.add_fingerprint(user)
 		return
 	..()
 
