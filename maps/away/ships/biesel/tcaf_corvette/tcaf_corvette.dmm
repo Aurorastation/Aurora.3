@@ -62,7 +62,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -293,7 +294,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -348,7 +350,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -700,7 +703,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -712,7 +716,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -758,7 +763,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -818,7 +824,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_cell_1_blast"
@@ -871,7 +878,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/blast/regular/open{
@@ -1606,7 +1614,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/effect/landmark/entry_point/fore,
 /obj/machinery/door/blast/regular{
@@ -2773,7 +2782,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -2835,7 +2845,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -3110,7 +3121,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/door/blast/regular/open{
@@ -3405,7 +3417,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -4055,7 +4068,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -4752,7 +4766,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -5562,7 +5577,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_propellant_blast";
@@ -5876,7 +5892,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -6941,7 +6958,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -7406,7 +7424,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -8215,7 +8234,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -8338,7 +8358,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/hydroponics)
@@ -8813,7 +8834,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -8835,7 +8857,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_cell_3_blast"
@@ -10158,7 +10181,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/blast/regular/open{
@@ -10839,7 +10863,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -11304,7 +11329,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -11420,7 +11446,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";
@@ -11519,7 +11546,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown"
@@ -11987,7 +12015,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_cell_2_blast"
@@ -12365,7 +12394,8 @@
 	color = "#5F78A0";
 	frame_color = "#5F78A0";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(204)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tcaf_window_lockdown";

@@ -185,6 +185,8 @@
 	src.desc = desc_list[current_stage]
 	src.min_damage = damage_list[current_stage]
 
+	src.bandaged = FALSE
+
 // returns whether this wound can absorb the given amount of damage.
 // this will prevent large amounts of damage being trapped in less severe wound types
 /datum/wound/proc/can_worsen(damage_type, damage)

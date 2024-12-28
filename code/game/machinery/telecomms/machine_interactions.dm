@@ -1,6 +1,7 @@
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
+	icon = 'icons/obj/machinery/telecomms.dmi'
 
 
 /obj/machinery/telecomms/attackby(obj/item/attacking_item, mob/user)

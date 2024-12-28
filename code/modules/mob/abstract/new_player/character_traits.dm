@@ -79,3 +79,29 @@
 	name = "Major Hemophilia"
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
+
+
+ABSTRACT_TYPE(/datum/character_disabilities/organ_scarring)
+	name = "Organ Scarring"
+	var/affected_organ
+
+/datum/character_disabilities/organ_scarring/apply_self(var/mob/living/carbon/human/target)
+	var/obj/item/organ/internal/affecting = target.internal_organs_by_name[affected_organ]
+	if(affecting)
+		affecting.set_max_damage(initial(affecting.max_damage) * 0.5)
+
+#define ORGAN_DISABILITY(ORGAN_PATH, ORGAN_NAME, ORGAN_TAG) \
+/datum/character_disabilities/organ_scarring/##ORGAN_PATH { \
+	name = "Scarred Organ: " + ##ORGAN_NAME; \
+	affected_organ = ##ORGAN_TAG; \
+}
+
+ORGAN_DISABILITY(brain, "Brain", BP_BRAIN)
+ORGAN_DISABILITY(eyes, "Eyes", BP_EYES)
+ORGAN_DISABILITY(lungs, "Lungs", BP_LUNGS)
+ORGAN_DISABILITY(liver, "Liver", BP_LIVER)
+ORGAN_DISABILITY(kidneys, "Kidneys", BP_KIDNEYS)
+ORGAN_DISABILITY(stomach, "Stomach", BP_STOMACH)
+ORGAN_DISABILITY(appendix, "Appendix", BP_APPENDIX)
+
+#undef ORGAN_DISABILITY

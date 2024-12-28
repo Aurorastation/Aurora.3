@@ -325,7 +325,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 					dat+="<BR><A href='?src=[REF(src)];menu_censor_channel=1'>Mark Feed Channel with [SSatlas.current_map.company_name] D-Notice</A>"
 				dat+="<BR><HR>The newscaster recognises you as: <span class='good'>[src.scanned_user]</span>"
 			if(1)
-				dat+= "Station Feed Channels<HR>"
+				dat+= "Feed Channels<HR>"
 				if( isemptylist(SSnews.network_channels) )
 					dat+="<I>No active channels found...</I>"
 				else
@@ -408,7 +408,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -442,7 +442,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>"
-				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's"
+				dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the [station_name(TRUE)]'s"
 				dat+="morale, integrity or disciplinary behaviour. A D-Notice will render a channel unable to be updated by anyone, without deleting any feed"
 				dat+="stories it might contain at the time. You can lift a D-Notice if you have the required access at any time.</font><HR>"
 				if(isemptylist(SSnews.network_channels))
@@ -467,9 +467,9 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				dat+="<BR><A href='?src=[REF(src)];setScreen=[10]'>Back</A>"
 			if(13)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
-				dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=[REF(src)];toggle_d_notice=[REF(src.viewing_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>"
+				dat+="Channel messages listed below. If you deem them dangerous to the [station_name(TRUE)], you can <A href='?src=[REF(src)];toggle_d_notice=[REF(src.viewing_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the [station_name(TRUE)], and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -1011,7 +1011,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				var/datum/feed_channel/C = src.news_content[src.curr_page]
 				dat+="<FONT SIZE=4><B>[C.channel_name]</B></font><FONT SIZE=1> \[created by: <span class='boldannounce'>[C.author]</span>\]</font><BR><BR>"
 				if(C.censored)
-					dat+="This channel was deemed dangerous to the general welfare of the station and therefore marked with a <B><span class='warning'>D-Notice</B></span>. Its contents were not transferred to the newspaper at the time of printing."
+					dat+="This channel was deemed dangerous to the general welfare of the [station_name(TRUE)] and therefore marked with a <B><span class='warning'>D-Notice</B></span>. Its contents were not transferred to the newspaper at the time of printing."
 				else
 					if(isemptylist(C.messages))
 						dat+="No Feed stories stem from this channel..."

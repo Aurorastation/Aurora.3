@@ -185,22 +185,22 @@
 	return 1
 
 // Fold the bubble, transfering properties.
-/obj/structure/closet/airbubble/MouseDrop(over_object, src_location, over_location)
-	if((!zipped || ripped )&& (over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
+/obj/structure/closet/airbubble/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((!zipped || ripped )&& (over == user && (in_range(src, user) || user.contents.Find(src))))
+		if(!ishuman(user))	return
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
 		if(cell)
-			to_chat(usr, SPAN_WARNING("[src] can not be folded with [cell] attached to it."))
+			to_chat(user, SPAN_WARNING("[src] can not be folded with [cell] attached to it."))
 			return
-		usr.visible_message(
-		SPAN_WARNING("[usr] begins folding up the [src.name]."),
+		user.visible_message(
+		SPAN_WARNING("[user] begins folding up the [src.name]."),
 		SPAN_NOTICE("You begin folding up the [src.name].")
 		)
-		if (!do_after(usr, 0.45 SECONDS))
+		if (!do_after(user, 0.45 SECONDS))
 			return
-		usr.visible_message(
-		SPAN_WARNING("[usr] folds up the [src.name].") ,
+		user.visible_message(
+		SPAN_WARNING("[user] folds up the [src.name].") ,
 		SPAN_NOTICE("You fold up the [src.name].")
 		)
 		var/obj/item/airbubble/bag
@@ -420,7 +420,7 @@
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
 			var/obj/item/grab/G = attacking_item
-			MouseDrop_T(G.affecting, user)
+			mouse_drop_receive(G.affecting, user)
 			return FALSE
 		if(!attacking_item.dropsafety())
 			return FALSE

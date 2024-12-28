@@ -22,12 +22,12 @@
 	if (hold.handle_attack_hand(user))	//otherwise interact as a regular storage item
 		..(user)
 
-/obj/item/clothing/accessory/storage/MouseDrop(obj/over_object as obj)
+/obj/item/clothing/accessory/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if (has_suit)
 		return
 
-	if (hold.handle_mousedrop(usr, over_object))
-		..(over_object)
+	if (hold.handle_mousedrop(user, over))
+		..()
 
 /obj/item/clothing/accessory/storage/attackby(obj/item/attacking_item, mob/user)
 	return hold.attackby(attacking_item, user)

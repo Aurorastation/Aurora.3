@@ -698,13 +698,20 @@
 			return 1
 	return 0
 
-/mob/MouseDrop(mob/M as mob)
+/mob/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(M != usr) return
-	if(usr == src) return
-	if(!Adjacent(usr)) return
-	if(istype(M,/mob/living/silicon/ai)) return
-	show_inv(usr)
+	var/mob/M = over
+	if(M != user)
+		return
+	if(user == src)
+		return
+	if(!Adjacent(user))
+		return
+
+	if(istype(M,/mob/living/silicon/ai))
+		return
+
+	show_inv(user)
 
 
 /mob/verb/stop_pulling()

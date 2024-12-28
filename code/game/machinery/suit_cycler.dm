@@ -147,8 +147,8 @@
 
 	eject_occupant(user)
 
-/obj/machinery/suit_cycler/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/living/M = dropping
+/obj/machinery/suit_cycler/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/living/M = dropped
 	if(use_check_and_message(user))
 		return
 	if(!istype(M))

@@ -8,6 +8,7 @@
 	icon_state = "grille"
 	density = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSGRILLE
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
 	layer = BELOW_WINDOW_LAYER

@@ -153,6 +153,9 @@
 	var/body_hair
 	var/painted = 0
 
+	/// The amount of bandages on our sprite
+	var/bandage_level = BANDAGE_LEVEL_NONE
+
 	///For special projectile gibbing calculation, dubbed "maiming"
 	var/maim_bonus = 0
 
@@ -455,8 +458,6 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
-	if(status & ORGAN_BLEEDING)
-		owner.update_bandages()
 
 	return update_icon()
 
@@ -603,8 +604,10 @@ This function completely restores a damaged organ to perfect condition.
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
 
+	var/is_burn_type_damage = (type in list(DAMAGE_BURN, LASER))
+
 	if(damage > (min_broken_damage / 2) && local_damage > min_broken_damage && !(status & ORGAN_ROBOT))
-		if(!(type in list(DAMAGE_BURN, LASER)))
+		if(!is_burn_type_damage)
 			if(prob(damage) && sever_artery())
 				owner.custom_pain("You feel something rip in your [name]!", 25)
 
@@ -616,7 +619,7 @@ This function completely restores a damaged organ to perfect condition.
 			tendon.damage(new_brute)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
-	if((type in list(DAMAGE_BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+	if(is_burn_type_damage && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
 			if(DAMAGE_BURN)
@@ -638,6 +641,12 @@ This function completely restores a damaged organ to perfect condition.
 			if(compatible_wounds.len)
 				var/datum/wound/W = pick(compatible_wounds)
 				W.open_wound(damage)
+
+				if(bandage_level)
+					owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+					bandage_level = BANDAGE_LEVEL_NONE
+					owner.update_bandages()
+
 				if(prob(25))
 					if(status & ORGAN_ROBOT)
 						owner.visible_message(SPAN_WARNING("The damage to [owner.name]'s [name] worsens."),\
@@ -647,6 +656,7 @@ This function completely restores a damaged organ to perfect condition.
 						owner.visible_message(SPAN_WARNING("The wound on [owner.name]'s [name] widens with a nasty ripping noise."),\
 						SPAN_WARNING("The wound on your [name] widens with a nasty ripping noise."),\
 						"You hear a nasty ripping noise, as if flesh is being torn apart.")
+
 				return
 
 	//Creating wound
@@ -663,6 +673,11 @@ This function completely restores a damaged organ to perfect condition.
 				break
 		if(W)
 			wounds += W
+
+		if(bandage_level)
+			owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+			bandage_level = BANDAGE_LEVEL_NONE
+			owner.update_bandages()
 
 /****************************************************
 				PROCESSING & UPDATING
