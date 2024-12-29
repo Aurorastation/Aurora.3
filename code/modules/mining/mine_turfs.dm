@@ -725,6 +725,7 @@ var/list/mineral_can_smooth_with = list(
 	var/digging
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	does_footprint = TRUE
 
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
