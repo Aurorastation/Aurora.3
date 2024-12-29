@@ -101,6 +101,7 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
+	color = null
 
 	blend_mode = BLEND_MULTIPLY
 

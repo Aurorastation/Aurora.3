@@ -269,61 +269,61 @@
 	color = "#4b4b4b"
 
 /area/enviro_testing_facility/inside/maintenance/center_east
-	name = "Maintenance, "
+	name = "Maintenance, Center, East"
 
 /area/enviro_testing_facility/inside/maintenance/center_west
-	name = "Maintenance, "
+	name = "Maintenance, Center, West"
 
 /area/enviro_testing_facility/inside/maintenance/center_far
-	name = "Maintenance, "
+	name = "Maintenance, Center, Far"
 
 /area/enviro_testing_facility/inside/maintenance/center_construction
-	name = "Maintenance, "
+	name = "Maintenance, Center, Construction"
 
 /area/enviro_testing_facility/inside/maintenance/center_canteen
-	name = "Maintenance, "
+	name = "Maintenance, Center, Canteen"
 
 /area/enviro_testing_facility/inside/maintenance/east
-	name = "Maintenance, "
+	name = "Maintenance, East"
 
 /area/enviro_testing_facility/inside/maintenance/east_far
-	name = "Maintenance, "
+	name = "Maintenance, East, Far"
 
 /area/enviro_testing_facility/inside/maintenance/east_lockers
-	name = "Maintenance, "
+	name = "Maintenance, East, Lockers"
 
 /area/enviro_testing_facility/inside/maintenance/west
-	name = "Maintenance, "
+	name = "Maintenance, West"
 
 /area/enviro_testing_facility/inside/maintenance/west_far
-	name = "Maintenance, "
+	name = "Maintenance, West, Far"
 
 /area/enviro_testing_facility/inside/maintenance/control
-	name = "Maintenance, "
+	name = "Maintenance, Control"
 
 /area/enviro_testing_facility/inside/maintenance/operations
-	name = "Maintenance, "
+	name = "Maintenance, Operations"
 
 /area/enviro_testing_facility/inside/maintenance/aux_engineering_storage
-	name = "Maintenance, "
+	name = "Maintenance, Aux Engineering Storage"
 
 /area/enviro_testing_facility/inside/maintenance/entrance
-	name = "Maintenance, "
+	name = "Maintenance, Entrance"
 
 /area/enviro_testing_facility/inside/maintenance/presentation
-	name = "Maintenance, "
+	name = "Maintenance, Presentation"
 
 /area/enviro_testing_facility/inside/maintenance/medical
-	name = "Maintenance, "
+	name = "Maintenance, Medical"
 
 /area/enviro_testing_facility/inside/maintenance/security
-	name = "Maintenance, "
+	name = "Maintenance, Security"
 
 /area/enviro_testing_facility/inside/maintenance/engineering_south
-	name = "Maintenance, "
+	name = "Maintenance, Engineering, South"
 
 /area/enviro_testing_facility/inside/maintenance/engineering_north
-	name = "Maintenance, "
+	name = "Maintenance, Engineering, North"
 
 /area/enviro_testing_facility/inside/maintenance/research
-	name = "Maintenance, "
+	name = "Maintenance, Research"
