@@ -10,7 +10,6 @@
 #define ACCESSORY_SLOT_ARMOR_POCKETS 	"armor pockets"
 #define ACCESSORY_SLOT_HEAD             "head"
 #define ACCESSORY_SLOT_PANTS			"pants"
-#define ACCESSORY_SLOT_UTILITY_PANTS	"pants utility"
 
 // Accessory Layering
 

@@ -58,3 +58,4 @@ changes:
   - rscadd: "Adds a pants slot. Check your loadout. Note that they are no longer a uniform slot item and you no longer attach accessories to them."
   - rscadd: "Kneepads, leather chaps, and suspenders now are attached to pants rather than uniform slot items."
   - rscadd: "Shirts are now a uniform slot item and are no longer accessories."
+  - bugfix: "Fixes accessories not properly overlaying on uniform items."

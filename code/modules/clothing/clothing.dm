@@ -1178,7 +1178,7 @@
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
