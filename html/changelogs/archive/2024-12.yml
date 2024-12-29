@@ -216,3 +216,31 @@
   - balance: The Freebooter ship now spawns with three guaranteed guns and two guaranteed
       armored voidsuits, replacing the same number of randomised spawners. This should
       help bring the ship up to par with other similar ships in boarding actions.
+2024-12-29:
+  ASmallCuteCat:
+  - spellcheck: Changed the description of the tame space carp for better consistency.
+      Their cuteness remains unchanged.
+  Ben10083:
+  - bugfix: Vending Machines can now launch inventory at people again (Yippee!)
+  - bugfix: Fixed functionality relating to attaching a string to a coin to cheat
+      vending machines.
+  - code_imp: DMdocs for vending.dm.
+  FluffyGhost:
+  - bugfix: Fixed the APC damage event not working.
+  - balance: APC damage event now has actual damages instead of merely emagging the
+      APC.
+  - balance: Added APC damage event of level moderate and major to the rotation.
+  Geeves:
+  - rscadd: Examining a mining drill while standing next to it will now display the
+      ore inside it.
+  - bugfix: Ore detector blips no longer causes clicks and the right-click menu to
+      pass through the turf that's beneath you.
+  - balance: Flares now burn brighter, longer, are smaller items (can bring more),
+      and flare boxes now contain 12 of them, up from 4.
+  GeneralCamo:
+  - rscadd: Re-added the turbine, a generator which takes in hot gasses from one end,
+      outputs exhaust the other, and produces power from the resulting RPM.
+  MattAtlas:
+  - bugfix: Fixes an extremely annoying log messaging admins for no reason.
+  Stev-the-third:
+  - imageadd: Adds an Orion Express screen for Baseliners.
