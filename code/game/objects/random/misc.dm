@@ -560,7 +560,7 @@
 		if(prob(65))
 			var/obj/more_junk = pickweight(more_junk_problist)
 			new more_junk(spawned.loc)
-	else if(istype(spawned, /obj/structure/table))
+	else if(istype(spawned, /obj/structure/closet))
 		if(prob(90))
 			var/i_max = rand(1, 4)
 			for(var/i in 1 to i_max)
