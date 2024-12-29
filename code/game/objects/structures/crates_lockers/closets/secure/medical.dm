@@ -63,6 +63,8 @@
 		if ("purple")
 			new /obj/item/clothing/under/rank/medical/surgeon/zeng(src)
 			new /obj/item/clothing/head/surgery/zeng(src)
+	new /obj/item/clothing/suit/storage/hooded/tajaran/surgery(src)
+	new /obj/item/storage/box/gloves(src)
 	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/pmc(src)
@@ -74,7 +76,6 @@
 	new /obj/item/device/radio/headset/headset_med/alt(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
-
 /obj/structure/closet/secure_closet/medical_para
 	name = "paramedic's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a paramedic."
