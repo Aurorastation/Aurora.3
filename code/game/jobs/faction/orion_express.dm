@@ -51,6 +51,7 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/orion,
 		"Chaplain" = /obj/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /obj/outfit/job/representative/orion,
+		"Assistant" = /obj/outfit/job/assistant/orion,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/orion,
 		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/orion,
 		"Service Personnel" = /obj/outfit/job/bartender/orion
@@ -203,6 +204,14 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
+/obj/outfit/job/assistant/orion
+	name = "Assistant - Orion"
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
 /obj/outfit/job/visitor/orion
 	name = "Off-Duty Crew Member - Orion Express"
 
@@ -212,6 +221,8 @@
 	satchel_faction = /obj/item/storage/backpack/satchel/orion
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
+
 
 /obj/outfit/job/hangar_tech/event/orion
 	name = "Hangar Technician - Orion Express"
