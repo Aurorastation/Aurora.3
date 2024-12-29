@@ -163,10 +163,12 @@ default behaviour is:
 					return
 
 			step(AM, t)
-			if(ishuman(AM) && AM:grabbed_by)
-				for(var/obj/item/grab/G in AM:grabbed_by)
-					step(G:assailant, get_dir(G:assailant, AM))
-					G.adjust_position()
+			if(ishuman(AM))
+				var/mob/living/carbon/human/H = AM
+				if(H.grabbed_by)
+					for(var/obj/item/grab/G in H.grabbed_by)
+						step(G.assailant, get_dir(G.assailant, H))
+						G.adjust_position()
 
 		now_pushing = FALSE
 
