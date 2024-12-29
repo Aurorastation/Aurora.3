@@ -538,6 +538,7 @@
 		/obj/structure/girder = 0.1,
 		/obj/random/canister/empty = 0.1,
 		/obj/random/canister/filled = 0.05,
+		/obj/structure/closet/crate/loot = 0.01,
 
 		// spawn a container and maybe fill it with more junk:
 		/obj/structure/table/rack = 1,
