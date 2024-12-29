@@ -14,6 +14,9 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	gender = PLURAL // some pants vs. a skirt
 	valid_accessory_slots = list(ACCESSORY_SLOT_PANTS)
 	center_of_mass = list("x" = 16,"y" = 8)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/pants.dmi' // depreceated, only because bulwarks are 64x64
+	)
 
 /obj/item/clothing/pants/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
