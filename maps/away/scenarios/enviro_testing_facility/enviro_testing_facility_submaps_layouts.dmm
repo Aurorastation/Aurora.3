@@ -2135,6 +2135,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/enviro_testing_facility/inside/crew/cryo_2)
+"iM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/hallway/east)
 "iN" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -2814,6 +2825,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/operations)
+"lW" = (
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/east)
 "lX" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/pineapple{
@@ -6760,6 +6780,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/west)
+"Ci" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/hallway/west)
 "Cj" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -7986,6 +8015,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/east_lockers)
+"GQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/hallway/central)
 "GR" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 8
@@ -10396,6 +10436,12 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/central)
 "QD" = (
@@ -11945,6 +11991,16 @@
 /obj/structure/closet/crate/rad/gear,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_far)
+"Xd" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/hallway/west)
 "Xf" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/simulated/wall,
@@ -28372,8 +28428,8 @@ mt
 mt
 mt
 jf
-uk
-ur
+Ci
+Xd
 IT
 jf
 mt
@@ -40733,8 +40789,8 @@ Mz
 mt
 hW
 QC
-Sw
-Gr
+AS
+GQ
 Qv
 hW
 mt
@@ -63107,8 +63163,8 @@ mt
 mt
 mt
 ZI
-Sp
-DC
+lW
+iM
 NC
 LV
 Kf

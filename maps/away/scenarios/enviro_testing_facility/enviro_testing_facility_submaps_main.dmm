@@ -944,6 +944,13 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
+"baH" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/medical/paramedic)
 "bba" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/chem_disp_cartridge/sodium,
@@ -5238,6 +5245,12 @@
 	pixel_y = 14;
 	pixel_x = 2
 	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/paramedic)
 "gaU" = (
@@ -8839,6 +8852,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
+"klk" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/medical/paramedic)
 "klq" = (
 /obj/structure/utility_pole/street/on{
 	pixel_y = 8;
@@ -12161,6 +12180,9 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/glass_medical,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/paramedic)
 "ocL" = (
@@ -16315,6 +16337,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
+"tib" = (
+/obj/structure/lattice/catwalk/indoor/grate/light,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/medical/hallway)
 "tif" = (
 /obj/effect/floor_decal/industrial/arrow/security,
 /obj/machinery/light{
@@ -25570,11 +25602,11 @@ edB
 jol
 wpr
 lxe
-lIU
-kdm
+tib
+mVi
 ocJ
-asN
-rMZ
+klk
+baH
 asN
 asN
 cxV
