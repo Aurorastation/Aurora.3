@@ -264,20 +264,66 @@
 
 // ------------------------- maint
 
-// /area/enviro_testing_facility/inside/maint_medbay
-// 	name = "Maint, Medbay"
+/area/enviro_testing_facility/inside/maintenance
+	holomap_color = "#4b4b4b"
+	color = "#4b4b4b"
 
-// /area/enviro_testing_facility/inside/maint_habitation
-// 	name = "Maint, Habitation"
+/area/enviro_testing_facility/inside/maintenance/center_east
+	name = "Maintenance, "
 
-// /area/enviro_testing_facility/inside/maint_warehouse
-// 	name = "Maint, Warehouse"
+/area/enviro_testing_facility/inside/maintenance/center_west
+	name = "Maintenance, "
 
-// /area/enviro_testing_facility/inside/maint_botany
-// 	name = "Maint, Botany"
+/area/enviro_testing_facility/inside/maintenance/center_far
+	name = "Maintenance, "
 
-// /area/enviro_testing_facility/inside/maint_entrance
-// 	name = "Maint, Entrance"
+/area/enviro_testing_facility/inside/maintenance/center_construction
+	name = "Maintenance, "
 
-// /area/enviro_testing_facility/inside/maint_engineering
-// 	name = "Maint, Engineering"
+/area/enviro_testing_facility/inside/maintenance/center_canteen
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/east
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/east_far
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/east_lockers
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/west
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/west_far
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/control
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/operations
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/aux_engineering_storage
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/entrance
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/presentation
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/medical
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/security
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/engineering_south
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/engineering_north
+	name = "Maintenance, "
+
+/area/enviro_testing_facility/inside/maintenance/research
+	name = "Maintenance, "
