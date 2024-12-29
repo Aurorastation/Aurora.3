@@ -222,8 +222,6 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-
-
 /obj/outfit/job/hangar_tech/event/orion
 	name = "Hangar Technician - Orion Express"
 
