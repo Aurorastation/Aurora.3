@@ -256,6 +256,12 @@
 /area/enviro_testing_facility/inside/control/comms
 	name = "Control, Comms"
 
+/area/enviro_testing_facility/inside/control/presentation
+	name = "Control, Presentation Room"
+
+/area/enviro_testing_facility/inside/control/observation
+	name = "Control, Observation Room"
+
 // ------------------------- maint
 
 // /area/enviro_testing_facility/inside/maint_medbay
