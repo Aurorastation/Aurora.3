@@ -516,16 +516,16 @@ var/const/CLICK_HANDLER_ALL = (~0)
 /datum/click_handler/proc/OnMobLogout()
 	user.RemoveClickHandler(src)
 
-/datum/click_handler/proc/OnClick(var/atom/A, var/params)
+/datum/click_handler/proc/OnClick(atom/A, params)
 	return
 
-/datum/click_handler/proc/OnDblClick(var/atom/A, var/params)
+/datum/click_handler/proc/OnDblClick(atom/A, params)
 	return
 
-/datum/click_handler/default/OnClick(var/atom/A, var/params)
+/datum/click_handler/default/OnClick(atom/A, params)
 	user.ClickOn(A, params)
 
-/datum/click_handler/default/OnDblClick(var/atom/A, var/params)
+/datum/click_handler/default/OnDblClick(atom/A, params)
 	user.DblClickOn(A, params)
 
 /mob/proc/GetClickHandler(var/datum/click_handler/popped_handler)

@@ -9,8 +9,9 @@
 
 	Note that AI have no need for the adjacency proc, and so this proc is a lot cleaner.
 */
-/mob/living/silicon/ai/DblClickOn(var/atom/A, params)
-	if(control_disabled || stat) return
+/mob/living/silicon/ai/DblClickOn(atom/A, params)
+	if(control_disabled || stat)
+		return
 
 	if(ismob(A))
 		ai_actual_track(A)
