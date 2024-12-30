@@ -61,3 +61,4 @@ changes:
   - bugfix: "Fixed AI jump on double click."
   - bugfix: "Fixed some runtimes with the click handler system."
   - code_imp: "Updated the click handler system."
+  - bugfix: "Fixed fireman carry."
