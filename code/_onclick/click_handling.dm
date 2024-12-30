@@ -1,5 +1,7 @@
 /*
 	Custom click handling
+
+	All of this shit should be made redundant by signals and burned to the ground at some point, in the meantime I have updated it
 */
 
 /// Populates `click_handlers` with the default handler if not already defined.
@@ -47,7 +49,7 @@ var/global/const/CLICK_HANDLER_REMOVE_IF_NOT_TOP    = FLAG(1)
 
 /datum/click_handler/Destroy()
 	if (flags & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT)
-		RegisterSignal(user, COMSIG_MOB_LOGOUT, PROC_REF(OnMobLogout))
+		UnregisterSignal(user, COMSIG_MOB_LOGOUT)
 	user = null
 	. = ..()
 
@@ -114,8 +116,8 @@ var/global/const/CLICK_HANDLER_REMOVE_IF_NOT_TOP    = FLAG(1)
  *
  * Has no return value.
  */
-/datum/click_handler/proc/OnMouseDown(object, location, params)
-	return
+// /datum/click_handler/proc/OnMouseDown(object, location, params) //NOT IMPLEMENTED
+// 	return
 
 /**
  * Called on MouseUp by `/client/MouseUp()` when this is the mob's currently active click handler.
@@ -127,11 +129,8 @@ var/global/const/CLICK_HANDLER_REMOVE_IF_NOT_TOP    = FLAG(1)
  *
  * Has no return value.
  */
-/datum/click_handler/proc/OnMouseUp(object, location, params)
-	return
-
-/datum/click_handler/proc/CanAutoClick(object, location, params)
-	return
+// /datum/click_handler/proc/OnMouseUp(object, location, params) //NOT IMPLEMENTED
+// 	return
 
 /datum/click_handler/default/OnClick(atom/A, params)
 	user.ClickOn(A, params)
