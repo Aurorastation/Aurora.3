@@ -91,7 +91,6 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/device/camera = 1)
-	belt = /obj/item/gun/energy/pistol/hegemony
 
 /obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -102,8 +101,10 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt) // Hegemony Ta Consulars get a Thermic Blaster.
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
