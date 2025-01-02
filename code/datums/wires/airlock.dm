@@ -32,10 +32,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/door/airlock/A = holder
-	if(!istype(user, /mob/living/silicon))
-		if(A.isElectrified())
-			if(A.shock(user, 100))
-				return FALSE
 	if(!A.p_open)
 		return FALSE
 	return TRUE
