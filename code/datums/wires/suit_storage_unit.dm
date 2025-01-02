@@ -15,10 +15,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/suit_cycler/S = holder
-	if(!istype(user, /mob/living/silicon))
-		if(S.electrified)
-			if(S.shock(user, 100))
-				return FALSE
 	if(S.panel_open)
 		return TRUE
 	return FALSE

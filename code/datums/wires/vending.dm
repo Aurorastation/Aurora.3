@@ -20,10 +20,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/vending/V = holder
-	if(!istype(user, /mob/living/silicon))
-		if(V.seconds_electrified)
-			if(V.shock(user, 100))
-				return FALSE
 	if(V.panel_open)
 		return TRUE
 	return FALSE
