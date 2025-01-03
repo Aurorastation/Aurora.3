@@ -1,4 +1,4 @@
-/datum/wires/suit_storage_unitwires/airlock
+/datum/wires/suit_storage_unit
 	proper_name = "Suit Storage Unit"
 	holder_type = /obj/machinery/suit_cycler
 
