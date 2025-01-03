@@ -167,8 +167,7 @@
 		if(WIRE_SHOCK)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.
 			if(ismob(user))
-				var/mob/living/U = user
-				A.shock(U, 100)
+				A.shock(user, 100)
 			A.electrify(30)
 
 		if(WIRE_OPEN)

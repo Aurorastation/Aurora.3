@@ -33,8 +33,7 @@
 			S.safeties = !S.safeties
 		if(WIRE_SHOCK)
 			if(ismob(user))
-				var/mob/living/U = user
-				S.shock(U, 50)
+				S.shock(user, 50)
 			S.electrified = 30
 		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked

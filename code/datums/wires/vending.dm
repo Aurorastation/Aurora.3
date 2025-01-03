@@ -43,8 +43,7 @@
 			V.categories ^= CAT_HIDDEN
 		if(WIRE_SHOCK)
 			if(ismob(user))
-				var/mob/living/U = user
-				V.shock(U, 50)
+				V.shock(user, 50)
 			V.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			V.scan_id = !V.scan_id
