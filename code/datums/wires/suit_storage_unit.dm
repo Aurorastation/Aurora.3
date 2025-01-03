@@ -32,6 +32,7 @@
 		if(WIRE_SAFETY)
 			S.safeties = !S.safeties
 		if(WIRE_SHOCK)
+			S.shock(usr, 100)
 			S.electrified = 30
 		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked
