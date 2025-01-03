@@ -26,13 +26,15 @@
 	. += "The red light is [S.safeties ? "off" : "blinking"]."
 	. += "The yellow light is [S.locked ? "on" : "off"]."
 
-/datum/wires/suit_storage_unit/on_pulse(wire)
+/datum/wires/suit_storage_unit/on_pulse(wire, user)
 	var/obj/machinery/suit_cycler/S = holder
 	switch(wire)
 		if(WIRE_SAFETY)
 			S.safeties = !S.safeties
 		if(WIRE_SHOCK)
-			S.shock(usr, 50)
+			if(ismob(user))
+				var/mob/living/U = user
+				S.shock(U, 50)
 			S.electrified = 30
 		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked

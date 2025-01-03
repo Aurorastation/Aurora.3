@@ -34,7 +34,7 @@
 	. += "The cyan light is [V.temperature_setting == -1 ? "on" : "off"]."
 	. += "The blue light is [V.temperature_setting == 1 ? "on" : "off"]."
 
-/datum/wires/vending/on_pulse(wire)
+/datum/wires/vending/on_pulse(wire, user)
 	var/obj/machinery/vending/V = holder
 	switch(wire)
 		if(WIRE_THROW)
@@ -42,7 +42,9 @@
 		if(WIRE_CONTRABAND)
 			V.categories ^= CAT_HIDDEN
 		if(WIRE_SHOCK)
-			V.shock(usr, 50)
+			if(ismob(user))
+				var/mob/living/U = user
+				V.shock(U, 50)
 			V.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			V.scan_id = !V.scan_id
