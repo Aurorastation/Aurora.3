@@ -39,6 +39,7 @@
 		if(WIRE_THROW)
 			S.shoot_inventory = !S.shoot_inventory
 		if(WIRE_SHOCK)
+			S.shock(usr, 100)
 			S.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			S.scan_id = !S.scan_id
