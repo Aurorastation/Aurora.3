@@ -1,4 +1,4 @@
-/datum/wires/suit_storage_unit
+/datum/wires/suit_storage_unitwires/airlock
 	proper_name = "Suit Storage Unit"
 	holder_type = /obj/machinery/suit_cycler
 
@@ -32,7 +32,7 @@
 		if(WIRE_SAFETY)
 			S.safeties = !S.safeties
 		if(WIRE_SHOCK)
-			S.shock(usr, 100)
+			S.shock(usr, 50)
 			S.electrified = 30
 		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked

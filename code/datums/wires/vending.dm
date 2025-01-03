@@ -42,7 +42,7 @@
 		if(WIRE_CONTRABAND)
 			V.categories ^= CAT_HIDDEN
 		if(WIRE_SHOCK)
-			V.shock(usr, 100)
+			V.shock(usr, 50)
 			V.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			V.scan_id = !V.scan_id
