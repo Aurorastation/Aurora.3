@@ -40,8 +40,7 @@
 			S.shoot_inventory = !S.shoot_inventory
 		if(WIRE_SHOCK)
 			if(ismob(user))
-				var/mob/living/U = user
-				S.shock(U, 50)
+				S.shock(user, 50)
 			S.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			S.scan_id = !S.scan_id
