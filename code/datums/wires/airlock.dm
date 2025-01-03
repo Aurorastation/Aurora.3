@@ -133,7 +133,7 @@
 			A.update_icon()
 
 
-/datum/wires/airlock/on_pulse(wire)
+/datum/wires/airlock/on_pulse(wire, user)
 
 	var/obj/machinery/door/airlock/A = holder
 	switch(wire)
@@ -166,7 +166,9 @@
 
 		if(WIRE_SHOCK)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.
-			A.shock(usr, 50)
+			if(ismob(user))
+				var/mob/living/U = user
+				A.shock(U, 100)
 			A.electrify(30)
 
 		if(WIRE_OPEN)

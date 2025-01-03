@@ -33,13 +33,15 @@
 	. += "The cyan light is [S.cooling ? "on" : "off"]."
 	. += "The blue light is [S.heating ? "on" : "off"]."
 
-/datum/wires/smartfridge/on_pulse(wire)
+/datum/wires/smartfridge/on_pulse(wire, user)
 	var/obj/machinery/smartfridge/S = holder
 	switch(wire)
 		if(WIRE_THROW)
 			S.shoot_inventory = !S.shoot_inventory
 		if(WIRE_SHOCK)
-			S.shock(usr, 50)
+			if(ismob(user))
+				var/mob/living/U = user
+				S.shock(U, 50)
 			S.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			S.scan_id = !S.scan_id
