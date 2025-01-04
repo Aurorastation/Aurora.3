@@ -1891,11 +1891,6 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/structure/sign/poster{
-	icon_state = "bsposter56";
-	poster_type = "/datum/poster/bay_56";
-	pixel_x = 32
-	},
 /obj/item/wrench{
 	pixel_y = 19;
 	pixel_x = 3
@@ -1908,6 +1903,9 @@
 	},
 /obj/item/storage/bag/circuits/all{
 	pixel_y = -6
+	},
+/obj/structure/sign/poster/civilian{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -9730,9 +9728,7 @@
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/poster{
-	icon_state = "bsposter65";
-	poster_type = "/datum/poster/bay_65";
+/obj/structure/sign/poster/engineering/bay_65{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
