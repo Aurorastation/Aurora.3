@@ -93,6 +93,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			return 1
 		if(slot_wrists)
 			return has_organ(BP_L_ARM) || has_organ(BP_R_ARM)
+		if(slot_pants)
+			return has_organ(BP_GROIN) || has_organ(BP_L_LEG) || has_organ(BP_R_LEG)
 
 /mob/living/carbon/human/u_equip(obj/W as obj)
 	if(!W)	return 0
@@ -137,6 +139,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else if (W == wrists)
 		wrists = null
 		update_inv_wrists()
+	else if (W == pants)
+		pants = null
+		update_inv_pants()
 	else if (W == glasses)
 		glasses = null
 		update_inv_glasses()
@@ -314,6 +319,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.wrists = W
 			W.on_equipped(src, slot, assisted_equip)
 			update_inv_wrists(redraw_mob)
+		if(slot_pants)
+			src.pants = W
+			W.on_equipped(src, slot, assisted_equip)
+			update_inv_pants(redraw_mob)
 		if(slot_head)
 			src.head = W
 			if(head.flags_inv & (BLOCKHAIR|BLOCKHEADHAIR|HIDEMASK))
@@ -431,6 +440,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_l_ear)      return l_ear
 		if(slot_r_ear)      return r_ear
 		if(slot_wrists)		return wrists
+		if(slot_pants)		return pants
 	return ..()
 
 /mob/living/carbon/human/get_equipped_items(include_flags = NONE)
@@ -462,6 +472,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		items += w_uniform
 	if(wrists)
 		items += wrists
+	if(pants)
+		items += pants
 	if(legcuffed)
 		items += legcuffed
 	if(handcuffed)

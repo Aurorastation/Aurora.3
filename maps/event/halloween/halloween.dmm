@@ -675,34 +675,34 @@
 /obj/item/clothing/accessory/chaps{
 	pixel_y = 10
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
-/obj/item/clothing/under/pants/jeans{
+/obj/item/clothing/pants/jeans{
 	pixel_x = 9
 	},
 /obj/item/clothing/accessory/wcoat{

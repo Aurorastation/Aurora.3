@@ -233,17 +233,16 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
-		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
+		var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+		var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
 		var/obj/item/clothing/head/cowboy/hat = new(src)
 
-		pants.attach_accessory(null, shirt)
 		pants.attach_accessory(null, chaps)
 		waistcoat.color = COLOR_BEASTY_BROWN
-		pants.attach_accessory(null, waistcoat)
+		shirt.attach_accessory(null, waistcoat)
 		suspenders.color = COLOR_MAROON
 		pants.attach_accessory(null, suspenders)
 		hat.color = COLOR_BEASTY_BROWN
@@ -256,17 +255,16 @@
 		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
-	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
+	var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+	var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
 	var/obj/item/clothing/head/cowboy/hat = new(src)
 
-	pants.attach_accessory(null, shirt)
 	pants.attach_accessory(null, chaps)
 	waistcoat.color = "#78280b"
-	pants.attach_accessory(null, waistcoat)
+	shirt.attach_accessory(null, waistcoat)
 	suspenders.color = "#521600"
 	pants.attach_accessory(null, suspenders)
 	hat.color = "#521600"
