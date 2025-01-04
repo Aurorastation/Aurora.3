@@ -2,7 +2,7 @@
 	name = "lifeform stasis unit"
 	desc = "A not so comfortable looking bed with some nozzles at the top and bottom. It will keep someone in stasis."
 	desc_info = "You can alt-click this to toggle it on or off."
-	icon = 'icons/obj/stasis_bed.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "stasis"
 	anchored = TRUE
 

@@ -7,7 +7,7 @@
 	Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate. \
 	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
 	verb."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "body_scanner"
 	density = TRUE
 	anchored = TRUE
@@ -247,7 +247,7 @@
 	name = "body scanner console"
 	var/tgui_name = "Zeng-Hu Pharmaceuticals Body Scanner"
 	desc = "An advanced control panel that can be used to interface with a connected body scanner."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
 	var/collapse_desc = ""

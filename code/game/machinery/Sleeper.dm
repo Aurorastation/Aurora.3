@@ -11,7 +11,7 @@
 	<br>\
 	Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
 	Note that you cannot control the sleeper while inside of it."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper"
 	density = TRUE
 	anchored = TRUE

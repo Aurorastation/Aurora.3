@@ -110,12 +110,6 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/living/user, direction)
-	. = ..()
-
-	if(src.occupant == user && !user.stat)
-		go_out()
-
 /obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
 	ui_interact(user)
 
@@ -215,7 +209,7 @@
 		if("ejectOccupant")
 			if(!occupant || isslime(usr) || ispAI(usr))
 				return
-			go_out()
+			move_eject()
 
 		if("goFast")
 			current_stasis_mult = fast_stasis_mult
@@ -319,6 +313,7 @@
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
 	ClearOverlays()
 	icon_state = "pod[on]"
+
 	var/image/I
 
 	if(panel_open)
@@ -333,13 +328,21 @@
 		pickle.overlays = occupant.overlays
 		pickle.pixel_z = 11
 		AddOverlays(pickle)
-
-	I = image(icon, "lid[on]")
-	AddOverlays(I)
-
-	I = image(icon, "lid[on]_top")
-	I.pixel_z = 32
-	AddOverlays(I)
+		I = image(icon, "pod_liquid0")
+		AddOverlays(I)
+		I = image(icon, "pod_liquid1")
+		I.pixel_z = 32
+		AddOverlays(I)
+		I = image(icon, "pod_glass0")
+		AddOverlays(I)
+		I = image(icon, "pod_glass1")
+		I.pixel_z = 32
+		AddOverlays(I)
+		I = image(icon, "pod[on]_over")
+		AddOverlays(I)
+		I = image(icon, "pod[on]_top_over")
+		I.pixel_z = 32
+		AddOverlays(I)
 
 	if(powered())
 		var/warn_state = "off"
@@ -418,9 +421,9 @@
 	if (M.abiotic())
 		to_chat(usr, SPAN_WARNING("Subject may not have abiotic items on."))
 		return
-	if(!node)
-		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
-		return
+//	if(!node)
+//		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
+//		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
