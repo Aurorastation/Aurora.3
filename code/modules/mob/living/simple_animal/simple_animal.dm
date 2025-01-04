@@ -1074,6 +1074,11 @@
 	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
 	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
+/// Removes holographic animals from the holodeck
+/mob/living/simple_animal/proc/derez()
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
+	qdel(src)
+
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
