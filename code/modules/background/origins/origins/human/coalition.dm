@@ -118,7 +118,7 @@
 /singleton/origin_item/origin/orepit
 	name = "Orepit"
 	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
-	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
+	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that. All Orepitters abroad are participants in the Open Doors memorandum, meaning they would not work in jobs not requiring an education. They cannot work for Hephaestus Industries because of its practice of not hiring Trinarists, nor directly for the Stellar Corporate Conglomerate due to its distrust of the Church. Human Orepitters born in the Twenty Parishes should select the Native Orepitter accent, while humans born in Providence or the Marches should select the Providence accent. "
 	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_OREPIT)
 	possible_religions =  list(RELIGION_TRINARY)
