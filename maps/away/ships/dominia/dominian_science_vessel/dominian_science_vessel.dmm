@@ -2175,7 +2175,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(226)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "fUz" = (
@@ -4518,7 +4520,8 @@
 "nke" = (
 /obj/machinery/computer/ship/helm{
 	dir = 8;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(226)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
@@ -6097,7 +6100,9 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
 "sBA" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(226)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "sBG" = (
@@ -6489,7 +6494,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "tCH" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(226)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "tEo" = (

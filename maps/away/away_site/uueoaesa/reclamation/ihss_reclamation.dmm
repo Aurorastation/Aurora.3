@@ -1753,7 +1753,9 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/computer/shuttle_control/explore/ihss_reclamation,
+/obj/machinery/computer/shuttle_control/explore/ihss_reclamation{
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
 "iW" = (
@@ -4632,7 +4634,9 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "wx" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(113)
+	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
@@ -8750,7 +8754,8 @@
 	color = "#941307"
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 4
+	dir = 4;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
