@@ -5036,7 +5036,7 @@
 	},
 /area/nka_merchant/merchant)
 "GE" = (
-/obj/item/modular_computer/console/preset/merchant/nka{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced{
