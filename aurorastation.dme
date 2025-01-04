@@ -1463,6 +1463,7 @@
 #include "code\game\objects\structures\crates_lockers\closets\secure\security.dm"
 #include "code\game\objects\structures\crates_lockers\closets\secure\service.dm"
 #include "code\game\objects\structures\crates_lockers\crates\gear_loadout.dm"
+#include "code\game\objects\structures\fluff\engineering\maintenance.dm"
 #include "code\game\objects\structures\gore\core.dm"
 #include "code\game\objects\structures\gore\nest.dm"
 #include "code\game\objects\structures\gore\tendrils.dm"
