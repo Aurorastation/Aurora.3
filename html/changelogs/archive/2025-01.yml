@@ -13,3 +13,17 @@
       spawn with thermic blasters on their belt slot.
   - bugfix: Vaurca Consulars with C'thur or K'lax citizenships no longer spawn with
       an energy pistol in addition to their thermic blaster.
+2025-01-04:
+  Geeves:
+  - rscadd: Psionic apexes now more reliably flip bottles upright or onto their cap.
+  Tag114:
+  - rscadd: Assistants can now start with faction backpacks.
+  Warbidon:
+  - spellcheck: Skrell have replaced the Social Credit Score with Social Compatibility
+      Index.
+  hazelmouse:
+  - rscadd: Medical equipment lockers now spawn with full-body Tajaran surgical garbs,
+      intended for use during surgery
+  victorShchagin:
+  - bugfix: Airlocks, vendors, and other machinery no longer cause continuous shocks
+      to the user while the TGUI window is open.
