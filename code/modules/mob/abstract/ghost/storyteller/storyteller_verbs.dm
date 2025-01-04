@@ -175,7 +175,7 @@
 
 	var/datum/click_handler/handler = GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
-		usr.PopClickHandler()
+		usr.RemoveClickHandler(/datum/click_handler/build_mode)
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 

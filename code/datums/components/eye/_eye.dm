@@ -17,7 +17,7 @@
 	QDEL_LIST(actions)
 	. = ..()
 
-/datum/component/eye/proc/look(var/mob/new_looker, var/list/eye_args)
+/datum/component/eye/proc/look(mob/new_looker, list/eye_args)
 	if(new_looker.eyeobj || current_looker)
 		return FALSE
 	LAZYINSERT(eye_args, get_turf(current_looker), 1) //Make sure that a loc is provided to the eye

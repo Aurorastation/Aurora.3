@@ -16,10 +16,10 @@
 /mob/proc/update_inv_back()
 	return
 
-/mob/proc/update_inv_l_hand()
+/mob/proc/update_inv_l_hand(update_icons = TRUE)
 	return
 
-/mob/proc/update_inv_r_hand()
+/mob/proc/update_inv_r_hand(update_icons = TRUE)
 	return
 
 /mob/proc/update_inv_wear_mask()

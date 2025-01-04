@@ -1205,7 +1205,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
 	if (QDELETED(src))
 		return
 
@@ -1245,7 +1245,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon(forceDirUpdate = TRUE)
 
-/mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
 	if (QDELETED(src))
 		return
 
