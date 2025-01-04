@@ -51,6 +51,6 @@
 	name = "anti-materiel weapons platform cabinet"
 
 /obj/structure/closet/secure_closet/guncabinet/peac/fill()
-	new /obj/item/gun/projectile/peac(src)
-	for(var/i = 1 to 3)
+	new /obj/item/gun/projectile/peac/unloaded(src)
+	for(var/i = 1 to 4)
 		new /obj/item/ammo_casing/peac(src)

@@ -136,6 +136,9 @@
 	suppressor_x_offset = 10
 	suppressor_y_offset = -1
 
+/obj/item/gun/projectile/automatic/wt550/unloaded
+	magazine_type = null
+
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
 
@@ -433,6 +436,9 @@
 		list(mode_name="semiauto", burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
+
+/obj/item/gun/projectile/automatic/rifle/jingya/unloaded
+	magazine_type = null
 
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()

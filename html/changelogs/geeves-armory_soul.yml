@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "All the ballistic weapons in the armory now start unloaded. Magazines and rounds that would've spawned in the weapon now spawns in the ammo lockers. In effect, two beanbags shells have been added to the armory."
