@@ -276,11 +276,11 @@
 			if(I && !(istype(I, /obj/item/cell) || istype(I, /obj/item/device/radio) || istype(I, /obj/machinery/camera) || istype(I, /obj/item/device/mmi)))
 				client.screen += I
 	if(module_state_1)
-		module_state_1:screen_loc = ui_inv1
+		module_state_1.screen_loc = ui_inv1
 	if(module_state_2)
-		module_state_2:screen_loc = ui_inv2
+		module_state_2.screen_loc = ui_inv2
 	if(module_state_3)
-		module_state_3:screen_loc = ui_inv3
+		module_state_3.screen_loc = ui_inv3
 	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()

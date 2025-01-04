@@ -182,6 +182,7 @@ Contains:
 					else
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
+				affecting.bandage_level = affecting.possible_bandage_level()
 				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery
@@ -310,6 +311,7 @@ Contains:
 					else
 						to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 				use(used)
+				affecting.bandage_level = affecting.possible_bandage_level()
 				H.update_bandages(TRUE)
 		else
 			if (can_operate(H))        //Checks if mob is lying down on table for surgery

@@ -145,6 +145,41 @@
 	if(istype(external) && external.use(charge_to_give*5))
 		stored_charge += charge_to_give
 
+/obj/item/custom_ka_upgrade/cells/exosuit
+	name = "exosuit KA cell"
+	build_name = "battery powered"
+	desc = "A pumpless cell assembly that leaches power from the exosuit's power core."
+	icon_state = "cell_cyborg"
+	damage_increase = 0
+	recoil_increase = 0
+	cost_increase = 0
+	cell_increase = 150
+	capacity_increase = 0
+	mod_limit_increase = 0
+	firedelay_increase = 0.1 SECONDS
+
+	pump_restore = 0
+	pump_delay = 0
+
+	origin_tech = list()
+
+/obj/item/custom_ka_upgrade/cells/exosuit/on_update(var/obj/item/gun/custom_ka/the_gun)
+	var/charge_to_give = cell_increase - stored_charge
+	if(!charge_to_give)
+		return
+
+	var/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/owner_equipment = the_gun.loc
+	if(!istype(owner_equipment))
+		return
+
+	var/mob/living/heavy_vehicle/owner_exosuit = owner_equipment.loc
+	if(!istype(owner_exosuit))
+		return
+
+	var/obj/item/cell/external = owner_exosuit.get_cell()
+	if(istype(external) && external.use(charge_to_give * 5))
+		stored_charge += charge_to_give
+
 /obj/item/custom_ka_upgrade/cells/illegal
 	//Pump Action
 	name = "pump action KA cell"

@@ -4,4 +4,3 @@
 	icon = 'icons/turf/crystal.dmi'
 	icon_state = "crystal"
 	footstep_sound = /singleton/sound_category/glasscrack_sound
-	does_footprint = FALSE

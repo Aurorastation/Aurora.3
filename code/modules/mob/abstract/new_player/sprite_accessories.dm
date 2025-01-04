@@ -4562,6 +4562,22 @@ Follow by example and make good judgement based on length which list to include 
 	name = "golden deep IPC screen"
 	icon_state = "ipc_gd"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_slot_machine
+	name = "slot machine IPC screen"
+	icon_state = "ipc_slotmachine"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_confirm
+	name = "confirm IPC screen"
+	icon_state = "ipc_confirm"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orion
+	name = "orion express IPC screen"
+	icon_state = "ipc_orion"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_question_mark
+	name = "question mark IPC screen"
+	icon_state = "ipc_question"
+
 /datum/sprite_accessory/facial_hair/diona_eye
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
 	name = "Mono Eye"

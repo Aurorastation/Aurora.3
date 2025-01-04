@@ -35,7 +35,7 @@
 	minbodytemp = 0
 
 	faction = "mimic"
-	move_to_delay = 8
+	speed = 8
 
 	tameable = FALSE
 	sample_data = null
@@ -163,7 +163,7 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 			health = 15 * I.w_class
 			melee_damage_lower = 2 + I.force
 			melee_damage_upper = 2 + I.force
-			move_to_delay = 2 * I.w_class
+			speed = 2 * I.w_class
 
 		maxHealth = health
 		if(creator)

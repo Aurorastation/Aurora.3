@@ -61,8 +61,14 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
-	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
 	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
+	/// Whether the weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether the weather system supports having icy weather
+	var/has_icy_weather = FALSE
 
 	var/features_budget = 4
 	var/list/possible_features = list()
@@ -553,7 +559,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
 	initial_weather_state = W
 	//Tells all our levels exposed to the sky to force change the weather.
-	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	var/obj/abstract/weather_system/new_weather_system = SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	new_weather_system.has_water_weather = has_water_weather
+	new_weather_system.has_icy_weather = has_icy_weather
 
 ///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()

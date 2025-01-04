@@ -132,23 +132,23 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
-	var/obj/item/stack/material/what = dropping
+/obj/structure/table/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/item/stack/material/what = dropped
 	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
 		reinforce_table(what, usr)
 		return
 
-	if(ismob(dropping.loc)) //If placing an item
-		if(!isitem(dropping) || user.get_active_hand() != dropping)
+	if(ismob(dropped.loc)) //If placing an item
+		if(!isitem(dropped) || user.get_active_hand() != dropped)
 			return ..()
 		if(isrobot(user))
 			return
 		user.drop_item()
-		if(dropping.loc != src.loc)
-			step(dropping, get_dir(dropping, src))
+		if(dropped.loc != src.loc)
+			step(dropped, get_dir(dropped, src))
 
-	else if(isturf(dropping.loc) && isitem(dropping)) //If pushing an item on the tabletop
-		var/obj/item/I = dropping
+	else if(isturf(dropped.loc) && isitem(dropped)) //If pushing an item on the tabletop
+		var/obj/item/I = dropped
 		if(I.anchored)
 			return
 

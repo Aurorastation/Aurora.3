@@ -13,6 +13,13 @@
 /obj/structure/light_pole/r
 	icon_state = "rustlamp_r"
 
+/obj/structure/light_pole/decayed
+	desc = "A tall light source. The bulb appears to be decayed."
+	light_color = LIGHT_COLOR_DECAYED
+
+/obj/structure/light_pole/decayed/r
+	icon_state = "rustlamp_r"
+
 /obj/structure/light_pole/konyang
 	name = "dangling lamp"
 	desc = "A flame-lit lamp dangling precariously from a tall pole."

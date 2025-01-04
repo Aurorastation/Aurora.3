@@ -187,7 +187,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MUNDANE
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",						/datum/event/nothing,				120),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",					/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",					/datum/event/apc_damage,			10, 	list(ASSIGNMENT_ENGINEER = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",			/datum/event/brand_intelligence,	0, 		list(ASSIGNMENT_ENGINEER = 5), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",					/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",					/datum/event/economic_event,		300),
@@ -227,7 +227,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",						/datum/event/rogue_drone, 					15,		list(ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30))
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage",						/datum/event/apc_damage,					20, 	list(ASSIGNMENT_ENGINEER = 15)),
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
@@ -236,11 +237,13 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Nothing",					/datum/event/nothing,					135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list("Engineer" = 2), pop_needed = 10),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 2), pop_needed = 10),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Space Vines",				/datum/event/spacevine, 				0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Spider Infestation",		/datum/event/spider_infestation,		25,	 	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Major Vermin Infestation",	/datum/event/infestation/major, 		15,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Drone Revolution",			/datum/event/rogue_maint_drones,		0,		list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5))
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Drone Revolution",			/datum/event/rogue_maint_drones,		0,		list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5)),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Comet Expulsion",			/datum/event/comet_expulsion,		0,		is_one_shot = TRUE, pop_needed = 8),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"APC Damage",				/datum/event/apc_damage,				20, 	list(ASSIGNMENT_ENGINEER = 15)),
 	)
 
 #undef ASSIGNMENT_ANY

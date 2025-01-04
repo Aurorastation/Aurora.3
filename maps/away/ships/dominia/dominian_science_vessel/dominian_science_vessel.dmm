@@ -8,7 +8,9 @@
 "aaJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -178,7 +180,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
@@ -597,7 +601,9 @@
 "brM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
@@ -631,7 +637,9 @@
 "bxu" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/port{
 	dir = 4;
@@ -730,7 +738,9 @@
 "bTa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
@@ -857,7 +867,9 @@
 "cuJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/machinery/door/blast/regular/open{
 	name = "Bridge Lockdown";
@@ -3903,7 +3915,9 @@
 "lqn" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/officer)
@@ -4158,7 +4172,9 @@
 "mqx" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/machinery/door/blast/regular/open{
 	name = "Bridge Lockdown";
@@ -6195,7 +6211,9 @@
 "sOb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"

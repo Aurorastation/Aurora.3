@@ -10,7 +10,6 @@
 	tile_outline_alpha = 75
 	color = WOOD_COLOR_GENERIC
 	has_resources = FALSE
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/wood/bamboo
 	initial_flooring = /singleton/flooring/wood/bamboo
