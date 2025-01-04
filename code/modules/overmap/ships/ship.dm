@@ -253,11 +253,12 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	for(var/datum/ship_engine/E in engines)
 		. += E.get_thrust()
 
-/obj/effect/overmap/visitable/ship/proc/can_burn()
+/// Determines whether the ship can initiate a burn, when ignore_burn_delay is set to true, the ship's burn delay isn't factored in
+/obj/effect/overmap/visitable/ship/proc/can_burn(var/ignore_burn_delay = FALSE)
 	if(halted)
-		return 0
-	if (world.time < last_burn + burn_delay)
-		return 0
+		return FALSE
+	if(!ignore_burn_delay && world.time < last_burn + burn_delay)
+		return FALSE
 	for(var/datum/ship_engine/E in engines)
 		. |= E.can_burn()
 
@@ -313,13 +314,13 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		return TRUE
 	return FALSE
 
+/// Whether the ship can turn itself to face 45 degrees left or right
 /obj/effect/overmap/visitable/ship/proc/can_turn()
-	if(!can_burn())
+	if(!can_burn(TRUE)) // ignores the burn delay, just checks that it actually /can/ burn
 		return FALSE
-	var/cooldown = min(vessel_mass / 10, 1) SECONDS //max 1s for horizon
-	if(world.time >= (last_turn + cooldown))
-		return TRUE
-	return FALSE
+	if(world.time < (last_turn + 0.1 SECONDS))
+		return FALSE
+	return TRUE
 
 /obj/effect/overmap/visitable/ship/proc/turn_ship(var/new_dir)
 	burn(0.25)

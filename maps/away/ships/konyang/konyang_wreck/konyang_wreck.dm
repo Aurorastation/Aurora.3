@@ -25,7 +25,6 @@
 	shiptype = "Long-range cargo transport"
 	vessel_mass = 5000
 	max_speed = 1/(2 SECONDS)
-	burn_delay = 1 SECONDS
 	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"konyang_wreck_nav1",
