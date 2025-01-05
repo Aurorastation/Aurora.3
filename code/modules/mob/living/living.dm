@@ -673,6 +673,11 @@ default behaviour is:
 	set name = "Resist"
 	set category = "IC"
 
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_resist)))
+
+///proc extender of [/mob/living/verb/resist] meant to make the process queable if the server is overloaded when the verb is called
+/mob/living/proc/execute_resist()
+
 	if(!incapacitated(INCAPACITATION_KNOCKOUT) && canClick())
 		resist_grab()
 		if(!weakened)
