@@ -43,6 +43,13 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		var/atom/tool = tool_type
 		panel_tool_names += initial(tool.name)
 
+	var/turf/target_turf = panel_location == PANEL_LOCATION_FLOOR ? get_turf(src) : get_step(src, NORTH)
+	RegisterSignal(target_turf, COMSIG_ATOM_DECONSTRUCTED, PROC_REF(remove_self))
+
+/obj/structure/engineer_maintenance/proc/remove_self()
+	SIGNAL_HANDLER
+	qdel(src)
+
 /obj/structure/engineer_maintenance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
 	. = ..()
 	if(panel_open)
@@ -77,12 +84,14 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
 		panel_open = !panel_open
 		update_icon()
+		playsound(get_turf(src), panel_open ? /singleton/sound_category/hatch_open : /singleton/sound_category/hatch_close, 30, TRUE)
 		return
-	for(var/tool_type in panel_tools)
-		if(istype(attacking_item, tool_type))
-			var/singleton/engineer_maintenance_tool/tool_usage = GET_SINGLETON(panel_tools[tool_type])
-			tool_usage.perform_action(user, attacking_item, src)
-			return
+	if(panel_open)
+		for(var/tool_type in panel_tools)
+			if(istype(attacking_item, tool_type))
+				var/singleton/engineer_maintenance_tool/tool_usage = GET_SINGLETON(panel_tools[tool_type])
+				tool_usage.perform_action(user, attacking_item, src)
+				return
 	return ..()
 
 /obj/structure/engineer_maintenance/pipe
@@ -97,10 +106,10 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		"4" = "A high-pressure pipe, together with an electrical flow meter and a keypad can be seen in this hatch. High pressure pipes like these usually carry gases around the place. Probably in higher quantities than usual. The interface allows the user to adjust the flow rate or to close the pipe completely."
 	)
 	panel_tools = list(
-		/obj/item/wrench = /singleton/engineer_maintenance_tool,
-		/obj/item/pipewrench = /singleton/engineer_maintenance_tool,
-		/obj/item/hammer = /singleton/engineer_maintenance_tool,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool
+		/obj/item/wrench = /singleton/engineer_maintenance_tool/steam_pipe,
+		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
+		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
+		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
 	)
 
 /obj/structure/engineer_maintenance/pipe/wall
@@ -127,9 +136,9 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		"5" = "In this hatch, firmly secured, you can see a heavy industrial voltage meter, with six industrial electrical connections. Used to connect different types of machinery or electrical equipment together and protect said equipment against short circuits."
 	)
 	panel_tools = list(
-		/obj/item/wirecutters = /singleton/engineer_maintenance_tool,
-		/obj/item/stack/cable_coil = /singleton/engineer_maintenance_tool/sparks,
-		/obj/item/device/multitool = /singleton/engineer_maintenance_tool
+		/obj/item/wirecutters = /singleton/engineer_maintenance_tool/electrical_spark,
+		/obj/item/stack/cable_coil = /singleton/engineer_maintenance_tool/electrical_spark,
+		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/electrical_hum
 	)
 
 /obj/structure/engineer_maintenance/electric/wall
@@ -167,6 +176,9 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	/// Whether we should use the tool's sound if no usage_sound is available
 	var/use_tool_sound_if_no_usage_sound = TRUE
 
+	/// Sound to play when the action finishes
+	var/finish_sound
+
 /singleton/engineer_maintenance_tool/proc/perform_action(var/mob/user, var/obj/item/tool, var/obj/structure/engineer_maintenance/target)
 	var/message_start = action_message_start
 	message_start = replacetext(message_start, "%USER%", SPAN_BOLD("[user]"))
@@ -198,6 +210,21 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 
 	user.visible_message(message_end, SPAN_NOTICE(self_message_end))
 
-/singleton/engineer_maintenance_tool/sparks/perform_action(mob/user, obj/item/tool, obj/structure/engineer_maintenance/target)
+	if(finish_sound)
+		playsound(get_turf(target), finish_sound, 30, TRUE)
+
+
+/singleton/engineer_maintenance_tool/steam_pipe
+	finish_sound = /singleton/sound_category/steam_pipe
+
+
+/singleton/engineer_maintenance_tool/electrical_hum
+	finish_sound = /singleton/sound_category/electrical_hum
+
+
+/singleton/engineer_maintenance_tool/electrical_spark
+	finish_sound = /singleton/sound_category/electrical_spark
+
+/singleton/engineer_maintenance_tool/electrical_spark/perform_action(mob/user, obj/item/tool, obj/structure/engineer_maintenance/target)
 	. = ..()
 	spark(get_turf(target), 2)
