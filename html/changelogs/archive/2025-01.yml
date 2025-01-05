@@ -27,3 +27,7 @@
   victorShchagin:
   - bugfix: Airlocks, vendors, and other machinery no longer cause continuous shocks
       to the user while the TGUI window is open.
+2025-01-05:
+  Jasorn:
+  - bugfix: Fixed sand showing up as glass in the ore console. Also used defines in
+      ore_datum where they should be instead of strings
