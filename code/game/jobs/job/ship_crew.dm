@@ -15,6 +15,17 @@
 	outfit = /obj/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
+	alt_titles = list("Lab Assistant", "Technical Assistant", "Medical Orderly", "Wait Staff")
+	// alt_outfits = list("Lab Assistant" = , "Technical Assistant" = , "Medical Orderly" = , "Wait Staff" = )
+	alt_factions = list(
+		"Assistant" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group"),
+		"Lab Assistant" = list("NanoTrasen", "Zeng-Hu Pharmaceuticals", "Zavodskoi Interstellar"),
+		"Technical Assistant" = list("Hephaestus Industries", "Zavodskoi Interstellar"),
+		"Medical Orderly" = list("NanoTrasen", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group"),
+		"Wait Staff" = list("NanoTrasen", "Idris Incorporated", "Orion Express")
+	)
+
+
 /datum/job/assistant/get_access(selected_title)
 	if(GLOB.config.assistant_maint && selected_title == "Assistant")
 		return list(ACCESS_MAINT_TUNNELS)
