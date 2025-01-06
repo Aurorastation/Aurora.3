@@ -56,7 +56,7 @@
 		"Scientist" = /obj/outfit/job/scientist/zavodskoi,
 		"Xenobiologist" = /obj/outfit/job/scientist/xenobiologist/zavodskoi,
 		"Xenobotanist" = /obj/outfit/job/scientist/xenobotanist/zavodskoi,
-		"Lab Assistant" = /obj/outfit/job/intern_sci/zavodskoi,
+		"Research Intern" = /obj/outfit/job/intern_sci/zavodskoi,
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zavodskoi,
 		"Anomalist"= /obj/outfit/job/scientist/anomalist/zavodskoi,
 		"Engineer" = /obj/outfit/job/engineer/zavodskoi,
@@ -191,7 +191,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
 /obj/outfit/job/intern_sci/zavodskoi
-	name = "Lab Assistant - Zavodskoi Interstellar"
+	name = "Research Intern - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zavod
 	id = /obj/item/card/id/zavodskoi

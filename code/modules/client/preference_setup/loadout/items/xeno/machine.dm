@@ -335,7 +335,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 /datum/gear/utility/ipc_assunzione_kit
 	display_name = "synthetic assunzionii voidsuit kit"
 	path = /obj/item/voidsuit_modkit/assunzione/ipc
-	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
