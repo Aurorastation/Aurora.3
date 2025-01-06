@@ -16,7 +16,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 	alt_titles = list("Lab Assistant", "Technical Assistant", "Medical Orderly", "Wait Staff")
-	// alt_outfits = list("Lab Assistant" = , "Technical Assistant" = , "Medical Orderly" = , "Wait Staff" = )
+	alt_outfits = list("Lab Assistant" = /obj/outfit/job/assistant/lab_assistant, "Technical Assistant" = /obj/outfit/job/assistant/tech_assistant, "Medical Orderly" = /obj/outfit/job/assistant/med_assistant, "Wait Staff" = /obj/outfit/job/assistant/waiter)
 	alt_factions = list(
 		"Assistant" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group"),
 		"Lab Assistant" = list("NanoTrasen", "Zeng-Hu Pharmaceuticals", "Zavodskoi Interstellar"),
@@ -47,6 +47,25 @@
 
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/sneakers/black
+
+/obj/outfit/job/assistant/lab_assistant
+	name = "Lab Assistant"
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	glasses = /obj/item/clothing/glasses/safety/goggles/science
+
+/obj/outfit/job/assistant/tech_assistant
+	name = "Technical Assistant"
+	suit = /obj/item/clothing/suit/storage/hazardvest
+	backpack_contents = list(/obj/item/device/debugger = 1)
+
+/obj/outfit/job/assistant/med_assistant
+	name = "Medical Orderly"
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	backpack_contents = list(/obj/item/reagent_containers/spray/sterilizine = 1)
+
+/obj/outfit/job/assistant/waiter
+	name = "Wait Staff"
+	uniform = /obj/item/clothing/under/waiter
 
 /datum/job/visitor
 	title = "Off-Duty Crew Member"
