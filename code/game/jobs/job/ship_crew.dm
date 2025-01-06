@@ -27,10 +27,19 @@
 
 
 /datum/job/assistant/get_access(selected_title)
-	if(GLOB.config.assistant_maint && selected_title == "Assistant")
-		return list(ACCESS_MAINT_TUNNELS)
-	else
-		return list()
+	var/list/out_list = list()
+
+	if(GLOB.config.assistant_maint)
+		out_list += list(ACCESS_MAINT_TUNNELS)
+
+	switch(selected_title)
+		if("Lab Assistant")
+			out_list += list(ACCESS_RESEARCH)
+		if("Technical Assistant")
+			out_list += list(ACCESS_ENGINE)
+		if("Medical Orderly")
+			out_list += list(ACCESS_MEDICAL)
+	return out_list
 
 /obj/outfit/job/assistant
 	name = "Assistant"
