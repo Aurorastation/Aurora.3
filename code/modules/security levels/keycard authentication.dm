@@ -23,6 +23,7 @@
 
 /obj/machinery/keycard_auth/Initialize(mapload, d, populate_components, is_internal)
 	..()
+	desc = "This device is used to trigger [station_name(TRUE)] functions, which require more than one ID card to authenticate."
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()

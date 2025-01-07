@@ -147,8 +147,8 @@
 	else
 		return ..()
 
-/obj/item/mech_component/chassis/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/machinery/portable_atmospherics/canister/C = dropping
+/obj/item/mech_component/chassis/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C) && do_after(user, 5, src))
 		to_chat(user, SPAN_NOTICE("You install the canister into \the [src]."))
 		if(air_supply)

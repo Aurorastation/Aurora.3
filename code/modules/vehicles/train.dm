@@ -84,14 +84,14 @@
 // Interaction procs
 //-------------------------------------------
 
-/obj/vehicle/train/MouseDrop_T(atom/dropping, mob/user)
+/obj/vehicle/train/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(use_check_and_message(user))
 		return
-	if(istype(dropping, /obj/vehicle/train))
-		latch(dropping, user)
+	if(istype(dropped, /obj/vehicle/train))
+		latch(dropped, user)
 	else
-		if(!load(dropping))
-			to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] on \the [src]."))
+		if(!load(dropped))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))

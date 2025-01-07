@@ -41,8 +41,7 @@
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
-	move_to_delay = 6
-	speed = 3
+	speed = 6
 	mob_size = 6
 	smart_melee = FALSE
 
@@ -113,7 +112,7 @@
 	melee_damage_upper = 20
 	armor_penetration = 15
 	poison_per_bite = 5
-	move_to_delay = 4
+	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
 	smart_melee = TRUE
 
@@ -130,7 +129,7 @@
 	armor_penetration = 15
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
-	move_to_delay = 5
+	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 	smart_melee = TRUE
 
@@ -149,7 +148,7 @@
 	ranged_attack_range = 4
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
-	move_to_delay = 5
+	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
 	smart_melee = TRUE
 
@@ -232,7 +231,7 @@
 				for(var/turf/T in orange(20, src))
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
-				GLOB.move_manager.move_to(src, pick(orange(20, src)), 1, move_to_delay)
+				GLOB.move_manager.move_to(src, pick(orange(20, src)), 1, speed)
 				addtimer(CALLBACK(src, PROC_REF(stop_walking)), 50, TIMER_UNIQUE)
 
 /mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
@@ -250,7 +249,7 @@
 					if(C.stat && !istype(C, /mob/living/simple_animal/hostile/giant_spider))
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
-						GLOB.move_manager.move_to(src, C, 1, move_to_delay)
+						GLOB.move_manager.move_to(src, C, 1, speed)
 						//give up if we can't reach them after 10 seconds
 						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
 						return
@@ -279,7 +278,7 @@
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
-								GLOB.move_manager.move_to(src, O, 1, move_to_delay)
+								GLOB.move_manager.move_to(src, O, 1, speed)
 								//give up if we can't reach them after 10 seconds
 								GiveUp(O)
 

@@ -244,6 +244,43 @@
 	bitesize = 2
 	filling_color = "#bb8432"
 
+/obj/item/reagent_containers/food/snacks/biscuits_and_gravy
+	name = "biscuits and gravy"
+	gender = PLURAL
+	desc = "Plump biscuits in a thick, rich sausage gravy. A meal traditionally popular in the southern United States, and it's not hard to see why."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "gravybiscuits"
+	trash = /obj/item/trash/plate
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/condiment/gravy =3)
+	reagent_data = list(/singleton/reagent/nutriment = list("flaky biscuits" = 10), /singleton/reagent/nutriment/protein = list("sausage gravy" = 5))
+	bitesize = 3
+	filling_color = "#bb8432"
+
+/obj/item/reagent_containers/food/snacks/biscuits_and_gravy/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_biscuits_and_gravy = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_biscuits_and_gravy)
+		if(0 to 49)
+			icon_state = "gravybiscuits_half"
+		if(50 to INFINITY)
+			icon_state = "gravybiscuits"
+
+/obj/item/reagent_containers/food/snacks/elotes
+	name = "elotes"
+	gender = PLURAL
+	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream, and seasonings."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "elotes"
+	trash = /obj/item/trash/plate
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("corn" = 5, "zesty seasoning" = 3, "lime" = 3), /singleton/reagent/nutriment/protein = list("cheese" = 5))
+	bitesize = 2
+	filling_color = "#d8ab18"
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl
@@ -537,11 +574,13 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 			user.put_in_hands(waste)
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/bowl/MouseDrop(mob/user) //Dropping the bowl of food onto the user
-	if(istype(user) && !use_check_and_message(user))
-		user.put_in_active_hand(src)
-		src.pickup(user)
+/obj/item/reagent_containers/food/snacks/bowl/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //Dropping the bowl of food onto the user
+	var/mob/mob_dropped_over = over
+	if(istype(mob_dropped_over) && !use_check_and_message(mob_dropped_over))
+		mob_dropped_over.put_in_active_hand(src)
+		src.pickup(mob_dropped_over)
 		return
+
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/bowl/puffpuffs/update_icon()

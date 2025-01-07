@@ -12,6 +12,7 @@
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
 	possible_themes = list(/datum/exoplanet_theme/grass)
+	has_water_weather = TRUE
 	ruin_planet_type = PLANET_GRASS
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 	soil_data = list("Low density organic matter layer", "Rich microbiome layer", "Moderate water layer", "Large rock particle layer", "Iron oxide layer")

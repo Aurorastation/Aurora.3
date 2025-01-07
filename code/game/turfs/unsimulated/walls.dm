@@ -5,6 +5,7 @@
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
+	pass_flags_self = PASSCLOSEDTURF
 
 /turf/unsimulated/wall/fakeglass
 	name = "window"

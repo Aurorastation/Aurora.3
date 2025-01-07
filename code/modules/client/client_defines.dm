@@ -85,3 +85,7 @@
 	var/list/spell_tabs = list()
 	///Our object window datum. It stores info about and handles behavior for the object tab
 	var/datum/object_window_info/obj_window
+	///When we started the currently active drag
+	var/drag_start = 0
+	///The params we were passed at the start of the drag, in list form
+	var/list/drag_details

@@ -180,7 +180,7 @@
 	icon_state = "hivebotbomber"
 	organ_names = list("head", "core", "bottom thruster")
 	attacktext = "bumped"
-	move_to_delay = 8
+	speed = 8
 	var/has_exploded = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()

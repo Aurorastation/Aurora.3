@@ -335,15 +335,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(src, SPAN_WARNING("You are dead! You have no mind to store memory!"))
 
 //This is called when a ghost is drag clicked to something.
-/mob/abstract/ghost/observer/MouseDrop(atom/over)
-	if(!usr || !over) return
-	if(isobserver(usr) && usr.client && isliving(over))
+/mob/abstract/ghost/observer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(!user || !over)
+		return
+	if(isobserver(user) && user.client && isliving(over))
 		var/mob/living/M = over
 		// If they an admin, see if control can be resolved.
-		if(usr.client.holder && usr.client.holder.cmd_ghost_drag(src,M))
+		if(user.client.holder && user.client.holder.cmd_ghost_drag(src, M))
 			return
 		// Otherwise, see if we can possess the target.
-		if(usr == src && try_possession(M))
+		if(user == src && try_possession(M))
 			return
 	if(istype(over, /obj/machinery/drone_fabricator))
 		var/obj/machinery/drone_fabricator/fab = over

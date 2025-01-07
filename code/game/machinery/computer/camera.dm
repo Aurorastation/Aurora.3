@@ -172,9 +172,11 @@
 		jump_to = A
 	else if(ismob(A))
 		if(ishuman(A))
-			jump_to = locate() in A:head
+			var/mob/living/carbon/human/H = A
+			jump_to = locate() in H.head
 		else if(isrobot(A))
-			jump_to = A:camera
+			var/mob/living/silicon/robot/R = A
+			jump_to = R.camera
 	else if(isobj(A))
 		jump_to = locate() in A
 	else if(isturf(A))

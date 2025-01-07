@@ -90,9 +90,11 @@ var/list/mineral_can_smooth_with = list(
 
 	var/area/A = loc
 
-	if(!baseturf)
+	if(A.base_turf)
+		baseturf = A.base_turf
+	else if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -693,7 +695,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /turf/simulated/mineral/lava
 	color = "#444444"
@@ -723,6 +725,7 @@ var/list/mineral_can_smooth_with = list(
 	var/digging
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	does_footprint = TRUE
 
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
