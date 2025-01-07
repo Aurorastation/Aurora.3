@@ -3916,6 +3916,7 @@
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_theme.dm"
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility.dm"
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_areas.dm"
+#include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_landmarks.dm"
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_markers.dm"
 #include "maps\away\scenarios\nuclear_silo\missile_silo.dm"
 #include "maps\away\scenarios\nuclear_silo\nuclear_silo_.dm"

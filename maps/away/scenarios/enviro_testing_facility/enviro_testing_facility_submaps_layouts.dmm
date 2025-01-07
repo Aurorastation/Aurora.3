@@ -231,6 +231,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/enviro_testing_facility/inside/crew/lockers)
+"bk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/enviro_testing_facility/outside/surface)
 "bm" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -477,6 +483,10 @@
 /area/enviro_testing_facility/inside/hallway/central)
 "ci" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
 "ck" = (
@@ -941,7 +951,7 @@
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/testing_dome/vasily)
 "ei" = (
-/obj/machinery/computer/security/terminal/enviro_testing_facility{
+/obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1236,6 +1246,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"fl" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/enviro_testing_facility/outside/surface)
 "fm" = (
 /obj/structure/mech_wreckage,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2101,6 +2115,9 @@
 	pixel_y = 32
 	},
 /obj/structure/closet/cabinet,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/wood/walnut,
 /area/enviro_testing_facility/inside/control/offices)
 "is" = (
@@ -2351,6 +2368,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/west)
+"jw" = (
+/obj/structure/table/fancy/black,
+/turf/simulated/floor/carpet/art,
+/area/enviro_testing_facility/inside/control/offices)
 "jy" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/random/dirt_75,
@@ -2762,6 +2783,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "lo" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/enviro_testing_facility/inside/control/offices)
 "lq" = (
@@ -4046,6 +4071,21 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/item/folder/white{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/folder/white{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/folder/white{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/pen/fountain/black{
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
 "qw" = (
@@ -4262,6 +4302,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/enviro_testing_facility/inside/crew/lockers)
+"rq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/enviro_testing_facility/outside/surface)
 "rr" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
@@ -4517,6 +4562,7 @@
 	pixel_x = 26;
 	pixel_y = -20
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/operations/storage_long_term)
 "sk" = (
@@ -5303,6 +5349,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/west_far)
+"vu" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/walnut,
+/area/enviro_testing_facility/inside/control/offices)
 "vw" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -5905,6 +5957,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/hallway/east)
+"xO" = (
+/obj/structure/curtain/open{
+	color = "#854636"
+	},
+/obj/effect/floor_decal/spline/plain/brown,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "xP" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6863,6 +6922,10 @@
 /obj/effect/landmark/minimap_poi{
 	name = "Offices"
 	},
+/obj/structure/table/fancy/red,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
 /turf/simulated/floor/wood/walnut,
 /area/enviro_testing_facility/inside/control/offices)
 "Bt" = (
@@ -7225,6 +7288,10 @@
 /area/template_noop)
 "CG" = (
 /obj/structure/table/reinforced/glass,
+/obj/item/folder/white{
+	pixel_x = 5;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/facility_controls)
 "CH" = (
@@ -8819,6 +8886,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/west)
+"Iz" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/enviro_testing_facility/outside/surface)
 "IA" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -8846,6 +8917,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
+"IG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/enviro_testing_facility/outside/surface)
 "IH" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -9210,6 +9286,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
+"JW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/enviro_testing_facility/inside/control/offices)
 "JY" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -9300,6 +9382,10 @@
 /area/enviro_testing_facility/inside/control/observation)
 "Ks" = (
 /obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/table/fancy/red,
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -10220,6 +10306,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/folder/white{
+	pixel_x = -3;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/facility_controls)
 "NR" = (
@@ -10318,6 +10408,7 @@
 	dir = 4;
 	c_tag = "Outside - Entrance, Main"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/enviro_testing_facility/outside/surface)
 "Om" = (
@@ -12435,11 +12526,11 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_far)
 "Wr" = (
-/obj/machinery/computer/ship/navigation/terminal{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/computer/security/terminal/enviro_testing_facility{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
@@ -13096,6 +13187,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/cryo_2)
+"Zd" = (
+/obj/structure/bed/stool/chair/padded/brown,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood/walnut,
+/area/enviro_testing_facility/inside/control/offices)
 "Ze" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -13138,6 +13237,9 @@
 /area/template_noop)
 "Zl" = (
 /obj/structure/closet/cabinet,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/enviro_testing_facility/inside/control/offices)
 "Zm" = (
@@ -17265,9 +17367,9 @@ vC
 LC
 pY
 cX
-lo
-lo
-lo
+Zd
+JW
+vu
 cX
 nn
 mt
@@ -17521,7 +17623,7 @@ nn
 pY
 pY
 pY
-pY
+xO
 lo
 zA
 zA
@@ -17778,7 +17880,7 @@ pY
 pY
 Gb
 pY
-pY
+xO
 lo
 zA
 zA
@@ -18034,11 +18136,11 @@ Nw
 nn
 ei
 Wr
-pY
-pY
+ei
+cX
 Zl
 ZX
-zA
+jw
 cX
 nn
 mt
@@ -28363,9 +28465,9 @@ XB
 UO
 ZJ
 bw
-oS
+bw
 Ft
-iA
+fl
 SW
 fj
 fj
@@ -28620,9 +28722,9 @@ yH
 sc
 ZY
 oS
-oS
+bw
 Ft
-iA
+fl
 SW
 fj
 fj
@@ -28879,7 +28981,7 @@ XQ
 oS
 si
 Ft
-jr
+Iz
 SW
 fj
 fj
@@ -53286,10 +53388,10 @@ mt
 UQ
 UQ
 UQ
-jO
-jO
-jO
-jO
+UQ
+UQ
+UQ
+UQ
 mt
 mt
 mt
@@ -53546,8 +53648,8 @@ xk
 hK
 QL
 AW
-jO
-jO
+UQ
+UQ
 mt
 mt
 mt
@@ -53804,7 +53906,7 @@ AK
 YH
 YH
 IO
-jO
+UQ
 mt
 mt
 mt
@@ -54061,8 +54163,8 @@ ym
 ym
 ym
 sV
-jO
-jO
+UQ
+UQ
 mt
 mt
 mt
@@ -54319,7 +54421,7 @@ UF
 UF
 IO
 xi
-jO
+UQ
 mt
 mt
 mt
@@ -54576,7 +54678,7 @@ YH
 YH
 IO
 Be
-jO
+UQ
 mt
 mt
 mt
@@ -54832,8 +54934,8 @@ xt
 xt
 xt
 sV
-jO
-jO
+UQ
+UQ
 mt
 mt
 mt
@@ -55089,7 +55191,7 @@ yw
 UF
 UF
 IO
-jO
+UQ
 mt
 mt
 mt
@@ -55346,7 +55448,7 @@ hz
 AK
 bK
 MG
-jO
+UQ
 mt
 mt
 mt
@@ -55602,9 +55704,9 @@ ym
 Tx
 Tx
 IO
-jO
-jO
-jO
+UQ
+UQ
+UQ
 jO
 jO
 mt
@@ -57917,7 +58019,7 @@ mU
 jO
 bo
 iA
-iA
+fl
 dK
 Ol
 jr
@@ -58174,10 +58276,10 @@ oZ
 KO
 QJ
 jr
-jr
-iA
-iA
-iA
+IG
+rq
+rq
+fl
 SW
 fj
 fj
@@ -58432,9 +58534,9 @@ KO
 KO
 KO
 jr
-jr
-iA
-iA
+IG
+bk
+rq
 SW
 fj
 fj
@@ -58690,7 +58792,7 @@ KO
 KO
 KO
 jr
-jr
+Iz
 iA
 SW
 fj
@@ -58948,7 +59050,7 @@ dO
 dO
 KO
 QJ
-jr
+Iz
 SW
 fj
 fj

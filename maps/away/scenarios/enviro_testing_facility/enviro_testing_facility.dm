@@ -9,63 +9,63 @@
 	prefix = "scenarios/enviro_testing_facility/"
 	suffix = "enviro_testing_facility.dmm"
 
-	// exoplanet_theme_base = /datum/exoplanet_theme/crystal
-	// exoplanet_themes = list(
-	// 	/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
-	// 	/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
-	// )
-	// exoplanet_atmosphere = list(/datum/gas_mixture/earth_cold)
-	// exoplanet_lightlevel = list(1, 2)
-	// exoplanet_lightcolor = list("#dad8c1", "#dad8c1") // light-yellowish colors
+	exoplanet_theme_base = /datum/exoplanet_theme/barren
+	exoplanet_themes = list(
+		/turf/unsimulated/marker/blue = /datum/exoplanet_theme/barren,
+		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/barren/mountain,
+	)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_standard)
+	exoplanet_lightlevel = list(1, 2, 5, 7)
+	exoplanet_lightcolor = list("#ffffd4", "#ffe397", "#b38653")
 
 	spawn_cost = 1
 	spawn_weight = 0 // so it does not spawn as ordinary away site
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: remove
 
 /singleton/submap_archetype/enviro_testing_facility
-	map = "IPC RnD Facility"
-	descriptor = "IPC RnD Facility."
+	map = "Environmental Testing Facility"
+	descriptor = "Environmental Testing Facility."
 
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/enviro_testing_facility
-	name = "Anastasia-Archippos, Env-Test Facility Zoya"
+	name = "Anastasia-Archippos, Barren Planet"
 	desc = "\
 		Barren planet, covered in loose rocks, mountains, craters, with a expansive cave system deep underground. \
-		The planet, amusingly, holds a standard breathable atmosphere. \
-		Landing site is in a valley, near some facility.\
+		The planet, amusingly, holds a standard breathable atmosphere, and there are some traces of carbon-based life. \
+		Landing site is in a valley, near some facility carved into the mountain.\
 		"
 	icon_state = "globe2"
-	color = "#f1c86f"
+	color = "#e6a66a"
 	comms_support = TRUE
 	initial_generic_waypoints = list(
-		"nav_enviro_testing_facility_1a",
-		"nav_enviro_testing_facility_1b",
-		"nav_enviro_testing_facility_1c",
-		"nav_enviro_testing_facility_1d",
+		"nav_enviro_testing_facility_surface_1a",
+		"nav_enviro_testing_facility_surface_1b",
+		"nav_enviro_testing_facility_surface_1c",
+		"nav_enviro_testing_facility_surface_1d",
 
-		"nav_enviro_testing_facility_2a",
-		"nav_enviro_testing_facility_2b",
-		"nav_enviro_testing_facility_2c",
-		"nav_enviro_testing_facility_2d",
+		"nav_enviro_testing_facility_surface_2a",
+		"nav_enviro_testing_facility_surface_2b",
+		"nav_enviro_testing_facility_surface_2c",
+		"nav_enviro_testing_facility_surface_2d",
 
-		"nav_enviro_testing_facility_3a",
-		"nav_enviro_testing_facility_3b",
-		"nav_enviro_testing_facility_3c",
-		"nav_enviro_testing_facility_3d",
+		"nav_enviro_testing_facility_surface_3a",
+		"nav_enviro_testing_facility_surface_3b",
+		"nav_enviro_testing_facility_surface_3c",
+		"nav_enviro_testing_facility_surface_3d",
 
-		"nav_enviro_testing_facility_4a",
-		"nav_enviro_testing_facility_4b",
-		"nav_enviro_testing_facility_4c",
-		"nav_enviro_testing_facility_4d",
+		"nav_enviro_testing_facility_surface_4a",
+		"nav_enviro_testing_facility_surface_4b",
+		"nav_enviro_testing_facility_surface_4c",
+		"nav_enviro_testing_facility_surface_4d",
 
-		"nav_enviro_testing_facility_5a",
-		"nav_enviro_testing_facility_5b",
-		"nav_enviro_testing_facility_5c",
-		"nav_enviro_testing_facility_5d",
+		"nav_enviro_testing_facility_surface_5a",
+		"nav_enviro_testing_facility_surface_5b",
+		"nav_enviro_testing_facility_surface_5c",
+		"nav_enviro_testing_facility_surface_5d",
 	)
 
 /obj/effect/overmap/visitable/sector/enviro_testing_facility/generate_ground_survey_result()
