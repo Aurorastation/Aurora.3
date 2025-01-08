@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Reworked the paramedic helmet. It is now called a paramedic hardhat to avoid confusion about its purpose. The icon has been modernized, emissives (glowing) have been added and the description was updated."
