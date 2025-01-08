@@ -67,7 +67,7 @@
 /obj/item/clothing/head/hardhat/paramedic
 	name = "medical hardhat"
 	desc = "A polymer hardhat worn by paramedics throughout human space to protect their heads."
-	desc_extended = " This one comes with an attached flashlight, has green crosses on the sides and glows in the dark. Its purpose is to protect the wearer from falling things and bumping their head, it's not rated for combat action."
+	desc_extended = "This one comes with an attached flashlight, has green crosses on the sides and glows in the dark. Its purpose is to protect the wearer from falling things and bumping their head, it's not rated for combat action."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"
