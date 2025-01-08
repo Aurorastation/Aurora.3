@@ -65,11 +65,19 @@
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 
 /obj/item/clothing/head/hardhat/paramedic
-	name = "medical helmet"
-	desc = "A polymer helmet worn by paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
+	name = "medical hardhat"
+	desc = "A polymer hardhat worn by paramedics throughout human space to protect their heads."
+	desc_extended = " This one comes with an attached flashlight, has green crosses on the sides and glows in the dark. Its purpose is to protect the wearer from falling things and bumping their head, it's not rated for combat action."
 	icon_state = "helmet_paramed"
 	item_state = "helmet_paramed"
 	light_overlay = "EMS_light"
+
+/obj/item/clothing/head/hardhat/paramedic/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_head_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "helmet_paramed-emis", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /obj/item/clothing/head/hardhat/firefighter
 	name = "firefighter helmet"
