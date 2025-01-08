@@ -748,7 +748,7 @@
 	item_state = "rescue_axe_red"
 
 /obj/item/crowbar/hydraulic_rescue_tool
-	name = "Hydraulic rescue tool"
+	name = "hydraulic rescue tool"
 	desc = "A hydraulic rescue tool that functions like a crowbar by applying strong amounts of hydraulic pressure to force open different things. Also known as jaws of life."
 	icon = 'icons/obj/item/tools/hydraulic_rescue_tool.dmi'
 	icon_state = "jawspry"
