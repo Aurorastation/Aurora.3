@@ -4060,8 +4060,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/accessory/silversun/random,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/flag/scc,
