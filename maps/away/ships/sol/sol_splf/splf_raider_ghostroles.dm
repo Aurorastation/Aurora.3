@@ -78,6 +78,7 @@
 	back = /obj/item/storage/backpack/satchel/eng
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/white
+	accessory = /obj/item/clothing/accessory/storage/pouches/brown
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)

@@ -76,7 +76,7 @@
 			var/obj/item/card/id/I = usr.GetIdCard()
 			if(istype(I) && src.check_access(I))
 				locked = FALSE
-				last_configurator = I:registered_name
+				last_configurator = I.registered_name
 
 	if(locked)
 		return

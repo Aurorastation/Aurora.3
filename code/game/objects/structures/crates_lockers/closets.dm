@@ -6,7 +6,7 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
-	pass_flags_self = PASSTRACE
+	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -348,7 +348,7 @@
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
 			var/obj/item/grab/G = attacking_item
-			MouseDrop_T(G.affecting, user) //act like they were dragged onto the closet
+			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
 			return 0
 		if(attacking_item.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
@@ -516,8 +516,8 @@
 
 	. = opened
 
-/obj/structure/closet/MouseDrop_T(atom/dropping, mob/user)
-	var/atom/movable/O = dropping
+/obj/structure/closet/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/atom/movable/screen/O = dropped
 	if(istype(O, /atom/movable/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)

@@ -331,9 +331,9 @@
 	desc = "Boom, Shakalaka!"
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "hoop"
-	anchored = 1
-	density = 1
-	throwpass = 1
+	anchored = TRUE
+	density = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/holohoop/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
@@ -379,7 +379,7 @@
 	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
-	to_chat(user, "The station AI is not to interact with these devices!")
+	to_chat(user, "The AI is not to interact with these devices!")
 	return
 
 /obj/machinery/readybutton/attackby(obj/item/attacking_item, mob/user)

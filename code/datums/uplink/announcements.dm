@@ -85,8 +85,12 @@
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm
+	var/static/cooldown = FALSE
+
+/datum/uplink_item/abstract/announcements/fake_ion_storm/New()
+	..()
 	name = "Ion Storm Announcement"
-	desc = "Interferes with the station's ion sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSatlas.current_map.station_short]'s ion sensors. Triggers immediately upon investment."
 	telecrystal_cost = 2
 	var/static/cooldown = FALSE
 
@@ -104,8 +108,12 @@
 	cooldown = FALSE
 
 /datum/uplink_item/abstract/announcements/fake_radiation
+	var/static/cooldown = FALSE
+
+/datum/uplink_item/abstract/announcements/fake_radiation/New()
+	..()
 	name = "Radiation Storm Announcement"
-	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
+	desc = "Interferes with the [SSatlas.current_map.station_short]'s radiation sensors. Triggers immediately upon investment."
 	telecrystal_cost = 3
 	var/static/cooldown = 0
 

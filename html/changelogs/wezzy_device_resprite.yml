@@ -57,5 +57,4 @@ delete-after: True
 changes:
   - imageadd: "Resprites devices, fixes inhands, puts them in contained sprites."
   - imageadd: "Adds new mounted flash sprites."
-  - imagedel: "Removes superfluous controller sprites."
   - imagedel: "Removes superfluous GPS item."

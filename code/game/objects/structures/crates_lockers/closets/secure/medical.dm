@@ -63,6 +63,8 @@
 		if ("purple")
 			new /obj/item/clothing/under/rank/medical/surgeon/zeng(src)
 			new /obj/item/clothing/head/surgery/zeng(src)
+	new /obj/item/clothing/suit/storage/hooded/tajaran/surgery(src)
+	new /obj/item/storage/box/gloves(src)
 	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/pmc(src)

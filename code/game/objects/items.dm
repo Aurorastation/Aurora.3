@@ -1323,7 +1323,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		else
 			apply_outline(L) //if the player's alive and well we send the command with no color set, so it uses the theme's color
 
-/obj/item/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	remove_outline()
 

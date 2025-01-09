@@ -351,19 +351,20 @@ var/bomb_set
 	else
 		off_station = 2
 
-	if(SSticker.mode && SSticker.mode.name == "Mercenary")
+	if(istype(SSticker.mode, /datum/game_mode/nuclear))
+		var/datum/game_mode/nuclear/merc_current_mode = SSticker.mode
 		var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/antag/syndicate)
 		if(syndie_location)
-			SSticker.mode:syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
-		SSticker.mode:nuke_off_station = off_station
+			merc_current_mode.syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
+		merc_current_mode.nuke_off_station = off_station
 
 	SSticker.station_explosion_cinematic(off_station, null, GetConnectedZlevels(z))
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>")
+			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the [station_name(TRUE)]!</b>")
 		else if(off_station == 2)
-			to_world("<b>A nuclear device was set off, but the device was not on the station!</b>")
+			to_world("<b>A nuclear device was set off, but the device was not on the [station_name(TRUE)]!</b>")
 		else
 			to_world("<b>The station was destoyed by the nuclear blast!</b>")
 

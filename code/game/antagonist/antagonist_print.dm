@@ -135,7 +135,7 @@
 			if(ply.current.stat == DEAD)
 				text += "died"
 			else if(!is_station_level(ply.current.z))
-				text += "fled the station"
+				text += "fled the [station_name(TRUE)]"
 			else
 				text += "survived"
 			if(ply.current.real_name != ply.name)

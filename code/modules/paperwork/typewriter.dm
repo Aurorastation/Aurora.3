@@ -55,15 +55,16 @@
 	else
 		. = ..()
 
-/obj/item/portable_typewriter/MouseDrop(mob/user as mob)
-	if(use_check_and_message(user))
+/obj/item/portable_typewriter/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/mob_dropped_over = over
+	if(use_check_and_message(mob_dropped_over))
 		return
 
-	if(((user.contents.Find(src) || in_range(src, user))))
+	if(((mob_dropped_over.contents.Find(src) || in_range(src, mob_dropped_over))))
 		if(isnull(stored_paper))
-			to_chat(user, SPAN_ALERT("\The [src] has no paper fed for typing!"))
+			to_chat(mob_dropped_over, SPAN_ALERT("\The [src] has no paper fed for typing!"))
 		else
-			stored_paper.attackby(pen, user)
+			stored_paper.attackby(pen, mob_dropped_over)
 	return
 
 /obj/item/portable_typewriter/update_icon()
@@ -179,8 +180,8 @@
 			to_chat(user, SPAN_ALERT("\The [src] is currently closed!"))
 	return
 
-/obj/item/typewriter_case/MouseDrop(mob/user as mob)
-	attack_self(user)
+/obj/item/typewriter_case/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	attack_self(over)
 
 /obj/item/typewriter_case/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/portable_typewriter))
