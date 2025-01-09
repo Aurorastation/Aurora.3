@@ -6,7 +6,7 @@
 	name = "clothes dyer"
 	desc = "This is a device designed to rapidly dye clothes to new colors. Naysayers say it isn't great for the fabric, but what do they know?"
 	desc_info = "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
-	icon = 'icons/obj/item/tools/paint_sprayer.dmi'
+	icon = 'icons/obj/item/device/paint_sprayer.dmi'
 	icon_state = "floor_painter"
 	item_state = "floor_painter"
 	contained_sprite = TRUE

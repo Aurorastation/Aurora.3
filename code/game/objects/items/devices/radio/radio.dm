@@ -42,6 +42,7 @@ var/global/list/default_interrogation_channels = list(
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "walkietalkie"
 	item_state = "radio"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throw_speed = 2

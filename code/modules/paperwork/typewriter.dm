@@ -11,7 +11,7 @@
 	which were once staples of Tajaran offices - have slowly become more uncommon. That \
 	said, rural areas and less urban parts of the planet still rely heavily on these machines."
 	icon_state = "typewriter"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	force = 25
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL

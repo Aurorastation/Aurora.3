@@ -3,8 +3,10 @@
 //
 /obj/item/device/robotanalyzer
 	name = "cyborg analyzer"
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -109,8 +111,10 @@
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
+	contained_sprite = TRUE
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 

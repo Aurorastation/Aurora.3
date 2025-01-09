@@ -1837,7 +1837,7 @@
 	},
 /obj/effect/decal/fake_object{
 	name = "Impact Wrench";
-	icon = 'icons/obj/item/tools/impact_wrench.dmi';
+	icon = 'icons/obj/item/impact_wrench.dmi';
 	icon_state = "impact_wrench_lh";
 	dir = 8;
 	pixel_y = 20;

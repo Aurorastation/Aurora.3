@@ -3,9 +3,10 @@
 /obj/item/device/laser_pointer
 	name = "laser pointer"
 	desc = "Don't shine it in your eyes!"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
+	contained_sprite = TRUE
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_TINY

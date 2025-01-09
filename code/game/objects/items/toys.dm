@@ -281,6 +281,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
+	contained_sprite = TRUE
 
 /*
  * Fake singularity

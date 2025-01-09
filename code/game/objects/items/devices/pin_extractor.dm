@@ -1,9 +1,10 @@
 /obj/item/device/pin_extractor
 	name = "firing pin extractor"
 	desc = "A device that is capable of removing firing pin without damaging it."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/pin_extractor.dmi'
 	icon_state = "pin_extractor"
-	item_state = "pin_extractor"
+	item_state = "analyzer"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	action_button_name = "Toggle extractor"

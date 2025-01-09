@@ -2,6 +2,7 @@
 	name = "bomb"
 	icon = 'icons/obj/tank.dmi'
 	item_state = "assembly"
+	contained_sprite = TRUE
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 2

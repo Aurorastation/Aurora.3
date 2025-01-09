@@ -2,8 +2,10 @@
 	name = "flash"
 	desc = "A security device capable of producing a blinding, incapacitating flash at close ranges. Repeated use may result in a burnt-out bulb and/or excessive force investigations."
 	desc_info = "Click on someone adjacent to you to attempt to blind them. Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
+	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
+	contained_sprite = TRUE
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
