@@ -52,8 +52,7 @@
 	QDEL_NULL(ability_master)
 
 	if(click_handlers)
-		click_handlers.QdelClear()
-		QDEL_NULL(click_handlers)
+		QDEL_LIST(click_handlers)
 
 	return ..()
 
