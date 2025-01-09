@@ -163,6 +163,7 @@
 #include "code\__DEFINES\dcs\flags.dm"
 #include "code\__DEFINES\dcs\helpers.dm"
 #include "code\__DEFINES\dcs\signals.dm"
+#include "code\__DEFINES\dcs\signals\signals_area.dm"
 #include "code\__DEFINES\dcs\signals\signals_datum.dm"
 #include "code\__DEFINES\dcs\signals\signals_global.dm"
 #include "code\__DEFINES\dcs\signals\signals_lore_radio.dm"

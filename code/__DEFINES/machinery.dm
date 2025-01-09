@@ -14,10 +14,10 @@
 
 // Channel numbers for power.
 #define POWER_CHAN  -1  // Use default
-#define EQUIP   1
-#define LIGHT   2
-#define ENVIRON 3
-#define TOTAL   4 // For total power used only.
+#define AREA_USAGE_EQUIP   1
+#define AREA_USAGE_LIGHT   2
+#define AREA_USAGE_ENVIRON 3
+#define AREA_USAGE_TOTAL   4 // For total power used only.
 
 #define POWER_USE_OFF       0
 #define POWER_USE_IDLE      1
