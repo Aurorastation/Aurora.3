@@ -213,7 +213,7 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
-	gear_tweaks += list(social_credit_tweak)
+	gear_tweaks += list(compat_index_tweak)
 
 // the whitelisted list ensures only people with skrell, vaurca, or diona whitelists can reach this check
 /datum/gear/accessory/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
@@ -245,26 +245,26 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 	allowed_roles = list("Head of Security")
 
 /*
-	Skrellian Social Score
+	Skrellian Social Compatibility Index
 */
-var/datum/gear_tweak/social_credit/social_credit_tweak = new()
+var/datum/gear_tweak/compat_index/compat_index_tweak = new()
 
-/datum/gear_tweak/social_credit/get_contents(var/metadata)
-	return "Social Credit Score: [metadata]"
+/datum/gear_tweak/compat_index/get_contents(var/metadata)
+	return "Social Compatibility Index: [metadata]"
 
-/datum/gear_tweak/social_credit/get_default()
+/datum/gear_tweak/compat_index/get_default()
 	return 5
 
-/datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE, max_value = 10)
-	if(credit_score)
-		return round(credit_score, 0.01)
+/datum/gear_tweak/compat_index/get_metadata(var/user, var/metadata)
+	var/compat_index = tgui_input_number(user, "Set the index rating your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Compatibility Index", round_value = FALSE, max_value = 10)
+	if(compat_index)
+		return round(compat_index, 0.01)
 	return metadata
 
-/datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
+/datum/gear_tweak/compat_index/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
 	if(!istype(PP))
 		return
-	PP.credit_score = metadata + pick(-0.01, 0, 0.01)
+	PP.compat_index = metadata + pick(-0.01, 0, 0.01)
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
@@ -416,7 +416,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/ears/skrell/tailband
-	display_name = "SCS tailband"
+	display_name = "SCI tailband"
 	path = /obj/item/clothing/ears/skrell/tailband
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"

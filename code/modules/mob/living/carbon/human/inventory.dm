@@ -518,7 +518,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if (lying || !shoes || !istype(shoes, /obj/item/clothing/shoes))
 		return
 
-	if (shoes:silent)
+	var/obj/item/clothing/shoes/clothing_shoes = shoes
+
+	if (clothing_shoes.silent)
 		return
 
 	is_noisy = TRUE

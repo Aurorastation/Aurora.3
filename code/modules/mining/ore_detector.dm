@@ -24,6 +24,13 @@
 
 	var/list/ore_names
 
+	/// The anchor used to render the ore pings on top of, this follows us around as the ore detector resets its blips
+	var/obj/item/detector_anchor/anchor
+
+/obj/item/ore_detector/Initialize(mapload, ...)
+	. = ..()
+	anchor = new /obj/item/detector_anchor(src)
+
 /obj/item/ore_detector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
@@ -31,6 +38,7 @@
 
 /obj/item/ore_detector/Destroy()
 	deactivate()
+	QDEL_NULL(anchor)
 	return ..()
 
 /obj/item/ore_detector/update_icon()
@@ -98,6 +106,7 @@
 		return
 	last_ping = world.time
 	var/turf/our_turf = get_turf(src)
+	anchor.forceMove(our_turf)
 	for(var/turf/turf as anything in RANGE_TURFS(7, our_turf))
 		if(isnull(our_user)) // in the event it's dropped midsweep
 			return
@@ -121,7 +130,8 @@
 					found_ores = TRUE
 
 		if(found_ores)
-			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = our_turf, layer = UNDER_HUD_LAYER)
+			var/image/ore_ping = image(icon = 'icons/obj/item/tools/ore_scanner.dmi', icon_state = "signal_overlay", loc = anchor, layer = UNDER_HUD_LAYER)
+			ore_ping.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 			ore_ping.pixel_x = rand(-6, 6)
 			ore_ping.pixel_y = rand(-6, 6)
 			ore_ping.alpha = rand(180, 255)
@@ -167,6 +177,22 @@
 
 /obj/item/ore_detector/on_give()
 	deactivate()
+
+// horrendous hack, but it's an engine limitation
+// the way images work is that it's only show to a client when you add it via client.images += I
+// the problem with that is it needs a loc to attach to, and if you attach it to a turf, the image is only visible if that turf is visible
+// meaning that you can't see it through walls, which is the whole point of the detector
+// so, what we do instead, is spawn this anchor beneath the player and attach all the images to the anchor, then pixel shift them to the turf it needs to render over
+// the reason we're making the anchor instead of just making the loc our turf, is that clicking on an image passes the click through to whatever it's attached to, it works like an overlay
+// so the right click menu gets messed up, and clicking on the ore blip means you actually click beneath yourself, which can be disastrous
+// so, by having an anchor with MOUSE_OPACITY_TRANSPARENT, we can circumvent ALL those issues
+/obj/item/detector_anchor
+	icon = null
+	icon_state = null
+	alpha = 1
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
+	density = FALSE
 
 #undef MINOR_ARTIFACTS
 #undef MAJOR_ARTIFACTS

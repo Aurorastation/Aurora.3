@@ -4,7 +4,6 @@
 	icon_state = "greygrass"
 	color = "#799c4b"
 	footstep_sound = /singleton/sound_category/grass_footstep
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -40,7 +39,6 @@
 	color = null
 	has_edge_icon = null
 	footstep_sound = /singleton/sound_category/water_footstep
-	does_footprint = TRUE
 
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()
@@ -54,7 +52,6 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	icon_state = "dirt"
 	color = null
-	does_footprint = TRUE
 
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach
 	icon_state = "beach"
