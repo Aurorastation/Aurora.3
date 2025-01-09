@@ -244,3 +244,7 @@
   - bugfix: Fixes an extremely annoying log messaging admins for no reason.
   Stev-the-third:
   - imageadd: Adds an Orion Express screen for Baseliners.
+2024-12-30:
+  hazelmouse:
+  - qol: Exoplanet turfs no longer cause characters to leave footprints, with the
+      exception of mineral asteroid and barren exoplanet turfs.
