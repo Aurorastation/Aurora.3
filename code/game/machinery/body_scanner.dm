@@ -168,18 +168,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
 
-	if(!ismob(dropping))
+	if(!ismob(dropped))
 		return
 
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = dropping
+	var/mob/living/L = dropped
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return

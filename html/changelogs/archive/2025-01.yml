@@ -1,0 +1,33 @@
+2025-01-01:
+  DreamySkrell, Tomixcomics:
+  - rscadd: Adds three new potted plants.
+2025-01-02:
+  ASmallCuteCat:
+  - qol: You can now create Slimy Meat (the stuff you get from clams and molluscs)
+      at the biogenerator, for 75 points per item.
+  FlamingLily:
+  - rscadd: Updated the Aphy plush's description to accurately reflect the sociopolitical
+      situation on Mars.
+  hazelmouse:
+  - bugfix: Vaurca Consulars with Federation or Hegemony citizenships now properly
+      spawn with thermic blasters on their belt slot.
+  - bugfix: Vaurca Consulars with C'thur or K'lax citizenships no longer spawn with
+      an energy pistol in addition to their thermic blaster.
+2025-01-04:
+  Geeves:
+  - rscadd: Psionic apexes now more reliably flip bottles upright or onto their cap.
+  Tag114:
+  - rscadd: Assistants can now start with faction backpacks.
+  Warbidon:
+  - spellcheck: Skrell have replaced the Social Credit Score with Social Compatibility
+      Index.
+  hazelmouse:
+  - rscadd: Medical equipment lockers now spawn with full-body Tajaran surgical garbs,
+      intended for use during surgery
+  victorShchagin:
+  - bugfix: Airlocks, vendors, and other machinery no longer cause continuous shocks
+      to the user while the TGUI window is open.
+2025-01-05:
+  Jasorn:
+  - bugfix: Fixed sand showing up as glass in the ore console. Also used defines in
+      ore_datum where they should be instead of strings

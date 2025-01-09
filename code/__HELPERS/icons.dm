@@ -895,8 +895,10 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 		if(A)
 			var/icon/img = getFlatIcon(A)
 			if(istype(img, /icon))
-				if(istype(A, /mob/living) && A:lying)
-					img.BecomeLying()
+				if(istype(A, /mob/living))
+					var/mob/living/L = A
+					if(L.lying)
+						img.BecomeLying()
 				var/xoff = (A.x - tx) * 32
 				var/yoff = (A.y - ty) * 32
 				cap.Blend(img, blendMode2iconMode(A.blend_mode),  A.pixel_x + xoff, A.pixel_y + yoff)

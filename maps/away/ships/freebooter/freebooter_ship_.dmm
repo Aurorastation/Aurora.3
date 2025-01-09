@@ -66,12 +66,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/ammo)
 "ajb" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -124,7 +119,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)
@@ -202,7 +197,11 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, main gun"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
 /area/ship/freebooter_ship/gunnery)
 "aEa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -214,13 +213,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/engineering{
 	name = "Generator Compartment";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
@@ -438,7 +439,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "bhA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/vacuum{
 	pixel_y = 30
 	},
@@ -502,7 +503,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "bsf" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -560,7 +561,6 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "buV" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -571,6 +571,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -646,12 +649,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "bCW" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
@@ -664,12 +662,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
 "bFv" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
@@ -688,18 +681,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "bJj" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/northright,
-/turf/simulated/floor,
-/area/ship/freebooter_ship/engineering)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/freelancer,
+/obj/item/clothing/head/helmet/space/void/freelancer,
+/obj/item/tank/jetpack/carbondioxide,
+/turf/simulated/floor/tiled/dark,
+/area/ship/freebooter_ship/foyer)
 "bPw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -737,12 +729,7 @@
 "bTz" = (
 /obj/structure/target_stake,
 /obj/item/target/syndicate,
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/ammo)
 "bWt" = (
@@ -818,12 +805,7 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "cnH" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/forehallwayport)
@@ -844,7 +826,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "cCu" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
 	pixel_x = 6
@@ -873,12 +855,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
 "cEX" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1074,7 +1051,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -1138,12 +1115,7 @@
 "dZH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1352,7 +1324,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "eDX" = (
@@ -1379,7 +1352,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "fdD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable{
@@ -1432,12 +1405,7 @@
 "fjD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
@@ -1447,10 +1415,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
-"fnE" = (
-/obj/structure/viewport/unathi,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/freebooter_ship/gunnery)
 "foU" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -1469,12 +1433,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
@@ -1495,7 +1454,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/atmos{
 	name = "Propellant Management";
 	dir = 4
@@ -1503,10 +1461,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
 "fGM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1558,7 +1519,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1584,7 +1545,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1794,7 +1755,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -1825,12 +1786,7 @@
 	pixel_x = -32
 	},
 /obj/item/paper/crumpled,
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "hhA" = (
@@ -1891,7 +1847,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -1949,7 +1905,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster1)
 "hQd" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
@@ -2055,7 +2011,7 @@
 "idP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2086,12 +2042,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "igB" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2111,7 +2062,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -2194,7 +2145,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2484,14 +2435,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/forehallway)
 "koD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -2564,12 +2515,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "kAt" = (
@@ -2621,7 +2567,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2683,7 +2629,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -2754,7 +2700,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "lck" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -2867,7 +2813,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/foyer)
 "lvN" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2891,10 +2837,12 @@
 "lwO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/random/voidsuit/freebooter,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/freelancer,
+/obj/item/clothing/head/helmet/space/void/freelancer,
 /obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
@@ -2992,7 +2940,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3038,12 +2986,7 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
 "mbg" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "mbN" = (
@@ -3147,12 +3090,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "msI" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
@@ -3205,7 +3143,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
 "mGn" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3219,7 +3157,9 @@
 /area/ship/freebooter_ship/foyer)
 "mJt" = (
 /obj/structure/table/steel,
-/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/ammo)
 "mLD" = (
@@ -3242,12 +3182,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "mON" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/item/gamehelm/black,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/lockers)
@@ -3282,7 +3217,7 @@
 	target_pressure = 250
 	},
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)
@@ -3463,7 +3398,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -3742,7 +3677,7 @@
 /area/ship/freebooter_ship/engineering)
 "oHt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -3853,7 +3788,10 @@
 /area/ship/freebooter_ship/exterior)
 "oUu" = (
 /obj/structure/table/steel,
-/obj/item/clothing/ears/earmuffs/earphones/headphones,
+/obj/item/clothing/ears/earmuffs/earphones/headphones{
+	pixel_x = -4;
+	pixel_y = 3
+	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/ammo)
@@ -3998,7 +3936,7 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)
 "ptN" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable{
@@ -4128,12 +4066,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
 "qej" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -4229,7 +4169,7 @@
 "qvJ" = (
 /obj/machinery/atmospherics/binary/pump,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -4327,7 +4267,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4397,7 +4337,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -4587,12 +4527,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "rAU" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -4641,12 +4576,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunneryentrance)
 "rEr" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "rFB" = (
@@ -4941,7 +4871,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "sIh" = (
@@ -5163,12 +5093,7 @@
 	dir = 1;
 	pixel_y = 22
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5213,12 +5138,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "tMA" = (
@@ -5293,12 +5213,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "tYf" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -5572,12 +5487,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5605,7 +5515,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5736,7 +5646,7 @@
 /turf/simulated/floor/greengrid,
 /area/ship/freebooter_ship/thruster2)
 "vDD" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
@@ -5849,11 +5759,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/dorms)
 "vUh" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5964,7 +5876,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -6067,14 +5979,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft,
-/turf/simulated/floor,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
 "wLI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6092,7 +5999,7 @@
 /obj/machinery/shower{
 	pixel_y = 17
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/head)
 "wMd" = (
@@ -6141,7 +6048,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "wUy" = (
@@ -6237,12 +6144,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster1)
 "xfg" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
@@ -6313,7 +6215,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/closet)
 "xvT" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
@@ -6347,7 +6249,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -6399,7 +6301,7 @@
 /area/ship/freebooter_ship/gunnery)
 "xKt" = (
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -6423,7 +6325,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "xQS" = (
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/map_effect/marker/airlock{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
@@ -35734,7 +35636,7 @@ nwH
 wLI
 wGc
 wGc
-fnE
+kBd
 xRX
 xRX
 xRX
@@ -39036,7 +38938,7 @@ bdI
 lHL
 rnp
 mvP
-pfg
+bJj
 lwO
 lfB
 gIY
@@ -39535,7 +39437,7 @@ qvJ
 aRA
 bBW
 pkY
-bJj
+wJR
 jhL
 xRX
 vZW
@@ -41904,7 +41806,7 @@ lzb
 lzb
 vTz
 vTz
-xRX
+vTz
 xRX
 xRX
 xRX
@@ -42932,7 +42834,7 @@ rbz
 rbz
 rbz
 rbz
-xRX
+rbz
 xRX
 xRX
 xRX

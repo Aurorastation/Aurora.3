@@ -167,7 +167,7 @@
 						src.name = "Anchored Windoor Assembly"
 
 			//Adding airlock electronics for access. Step 6 complete.
-			else if(istype(attacking_item, /obj/item/airlock_electronics) && attacking_item:icon_state != "door_electronics_smoked")
+			else if(istype(attacking_item, /obj/item/airlock_electronics) && attacking_item.icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = attacking_item
 				if(!EL.is_installed)
 					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)

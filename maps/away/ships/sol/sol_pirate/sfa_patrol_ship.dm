@@ -5,8 +5,8 @@
 	prefix = "ships/sol/sol_pirate/"
 	suffix = "sfa_patrol_ship.dmm"
 
-	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	spawn_weight = 1
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	spawn_weight = 0.5 // Lowered to represent increasing scarcity of faction.
 	ship_cost = 1
 	id = "sfa_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)

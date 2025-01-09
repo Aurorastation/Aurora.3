@@ -584,7 +584,7 @@ var/list/VVdynamic_lock = list(
 	if (!istype(O, /atom))
 		original_name = "[REF(O)] ([O])"
 	else
-		original_name = O:name
+		original_name = O.name
 
 	if(holder.marked_datum && class == "marked datum ([holder.marked_datum.type])")
 		class = "marked datum"

@@ -87,22 +87,22 @@
 		return
 	toggle_open(user)
 
-/obj/structure/fireaxecabinet/MouseDrop(over_object, src_location, over_location)
-	if(over_object == usr)
-		var/mob/user = over_object
-		if(!istype(user))
+/obj/structure/fireaxecabinet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over == user)
+		var/mob/mob_dropped_over = over
+		if(!istype(mob_dropped_over))
 			return
 
 		if(!open)
-			to_chat(user, SPAN_NOTICE("\The [src] is closed."))
+			to_chat(mob_dropped_over, SPAN_NOTICE("\The [src] is closed."))
 			return
 
 		if(!fireaxe)
-			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
+			to_chat(mob_dropped_over, SPAN_NOTICE("\The [src] is empty."))
 			return
 
-		fireaxe.forceMove(get_turf(user))
-		user.put_in_hands(fireaxe)
+		fireaxe.forceMove(get_turf(mob_dropped_over))
+		mob_dropped_over.put_in_hands(fireaxe)
 		fireaxe = null
 		update_icon()
 

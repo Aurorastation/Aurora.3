@@ -32,10 +32,10 @@
 	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
 	icon_state = "syndie_pod"
 
-/obj/vehicle/droppod/MouseDrop()
+/obj/vehicle/droppod/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	return
 
-/obj/vehicle/droppod/MouseDrop_T()
+/obj/vehicle/droppod/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/vehicle/droppod/emag_act()
