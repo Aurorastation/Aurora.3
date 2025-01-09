@@ -11,7 +11,7 @@
 	name = "Viridis Noble"
 	desc = "The elevation of Dionae to nobility in 2466 was a controversial decision, but one deemed necessary for the continued operation of Project Viridis. Since their creation, the noble gestalts known as the Lords Verdant have created many offshoots, which are deemed to hold the station of lesser nobility in Izweski society. Many of these gestalts have been sent to other regions of the Hegemony and even beyond, in the hopes of building connections and securing the still-fragile political position of their progenitors."
 	important_information = "The noble gestalts of the Viridis are carefully cultivated to serve in their roles, and only specific mindtypes are permitted to exist among them. A list of these can be found on the wiki."
-	possible_accents = list(ACCENT_SANDSONG,ACCENT_WASTESONG)
+	possible_accents = list(ACCENT_GARDENSONG)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)
 

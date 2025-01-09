@@ -53,7 +53,7 @@
 //Unathi Influenced Accents
 /datum/accent/sandsong
 	name = ACCENT_SANDSONG
-	description = "Found exclusively in Dionae hailing from the Unathi-Dominated world of Moghes, Sandsong is a distinct variation of Rootsong notable for having its tempo much more drawn out, with tones of higher pitches especially having a much more exaggerated sound. Dionae speaking with the Sandsong accent will typically hold certain speech patterns held by Unathi such as hissing out their S’s and difficulties pronouncing the letter X. "
+	description = "Found exclusively in Dionae hailing from the Unathi-Dominated world of Moghes, Sandsong is a distinct variation of Rootsong notable for having its tempo much more drawn out, with tones of higher pitches especially having a much more exaggerated sound. Dionae speaking with the Sandsong accent will typically hold certain speech patterns held by Unathi such as hissing out their S’s and difficulties pronouncing the letter X."
 	tag_icon = "dionae_sandsong"
 	text_tag = "SDS"
 
@@ -62,6 +62,12 @@
 	description = "Originating from the irradiated Moghes Wastes, Wastesong is an accent spoken by Dionae who found themselves being bathed in the Wasteland’s radiation, making them healthy and much more resilient than some of their other planet-bound brethren, but also giving them a slightly distinct accent notable for having a lower-pitched voice compared to regular Rootsong but also a much faster tempo. Much like Sandsong, Dionae with the Wasteland accent will typically carry similar speech patterns to Unathi such as hissing out their S’s."
 	tag_icon = "dionae_wastesong"
 	text_tag = "WES"
+
+/datum/accent/gardensong
+	name = ACCENT_GARDENSONG
+	description = "Originating from the gardens of Lazhi, Gardensong is an accent spoken by the gestalts grown to serve as rulers of the Viridis - the Lords Verdant and their offspring. This accent is similar to Sandsong, though with a greater deal of influence from the accents of Unathi Heartland nobility. Its tempo is faster than that of Sandsong, with a flowing and airy tone lending it a pleasant musicality to non-Dionae ears - which some speculate was deliberately engineered by the Governor of the Viridis to better ingratiate her project to the Hegemony at large."
+	tag_icon = "dionae_gardensong"
+	text_tag = "GDS"
 
 //Skrell influenced Accents
 /datum/accent/wavesong
