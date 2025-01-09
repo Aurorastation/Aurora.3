@@ -7,6 +7,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	name = "pants parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/pants/pants.dmi'
+	species_sprite_adaption_type = WORN_PANTS
 	slot_flags = SLOT_PANTS
 	contained_sprite = TRUE
 	body_parts_covered = LOWER_TORSO | LEGS
@@ -25,7 +26,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
-			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE, src)
 			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
@@ -93,7 +94,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 /obj/item/clothing/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_un-emis", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
@@ -107,7 +108,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 /obj/item/clothing/pants/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_alt_un-emis", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
