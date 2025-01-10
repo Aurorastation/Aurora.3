@@ -5,7 +5,6 @@
 	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5

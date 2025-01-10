@@ -1,9 +1,9 @@
 /obj/item/device/taperecorder
 	name = "universal recorder"
 	desc = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
+	icon = 'icons/obj/item/device/taperecorder.dmi'
 	icon_state = "taperecorder_idle"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 
 	matter = list(MATERIAL_ALUMINIUM = 60, MATERIAL_GLASS = 30)

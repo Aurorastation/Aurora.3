@@ -6,7 +6,7 @@
 	icon = 'icons/obj/item/device/t_scanner.dmi'
 	icon_state = "t-ray0"
 	item_state = "t-ray"
-	contained_sprite = TRUE
+
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_ALUMINIUM = 50)

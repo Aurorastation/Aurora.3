@@ -6,7 +6,6 @@
 	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -114,7 +113,6 @@
 	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 

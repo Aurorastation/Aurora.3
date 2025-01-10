@@ -4,7 +4,6 @@
 	icon = 'icons/obj/item/device/oxycandle.dmi'
 	icon_state = "oxycandle"
 	item_state = "oxycandle"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL // Should fit into internal's box or maybe pocket
 	var/target_pressure = ONE_ATMOSPHERE
 	var/datum/gas_mixture/air_contents = null

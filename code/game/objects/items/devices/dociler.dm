@@ -6,7 +6,6 @@
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 	force = 0
 	var/loaded = 1
 	var/mode = "completely"

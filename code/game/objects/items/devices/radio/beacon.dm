@@ -5,7 +5,6 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 	desc = "A sophisticated beacon with integrated bluespace circuitry, capable of being targetted by a teleportation hub for localized jumps."
 	icon_state = "beacon"
 	item_state = "signaler"
-	contained_sprite = TRUE
 	show_modify_on_examine = FALSE
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)

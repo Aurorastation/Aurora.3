@@ -6,15 +6,11 @@
 	icon = 'icons/obj/item/device/laser_pointer.dmi'
 	icon_state = "pointer"
 	item_state = "pen"
-	contained_sprite = TRUE
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_TINY
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
-
-
-
 
 /obj/item/device/laser_pointer/red
 	pointer_icon_state = "red_laser"

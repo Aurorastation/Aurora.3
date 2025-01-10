@@ -4,7 +4,6 @@
 	icon = 'icons/obj/item/device/uv_light.dmi'
 	icon_state = "uv_off"
 	item_state = "electronic"
-	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 150)

@@ -10,7 +10,6 @@
 	icon = 'icons/obj/item/device/paint_sprayer.dmi'
 	icon_state = "paint_sprayer"
 	item_state = "mister"
-	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
 	var/paint_colour = COLOR_WHITE

@@ -6,7 +6,6 @@
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 	var/obj/item/organ/augment_type
 	var/new_augment
 

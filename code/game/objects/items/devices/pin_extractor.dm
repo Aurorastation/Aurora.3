@@ -4,7 +4,6 @@
 	icon = 'icons/obj/item/device/pin_extractor.dmi'
 	icon_state = "pin_extractor"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	action_button_name = "Toggle extractor"

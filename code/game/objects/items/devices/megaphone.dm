@@ -6,7 +6,6 @@
 	icon = 'icons/obj/item/device/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 

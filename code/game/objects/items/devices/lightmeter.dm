@@ -6,8 +6,6 @@
 	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
-	contained_sprite = TRUE
-
 	// Copied from debugger.dm
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11

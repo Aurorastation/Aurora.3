@@ -25,7 +25,6 @@
 	icon = 'icons/obj/item/device/plant_analyzer.dmi'
 	icon_state = "hydro"
 	item_state = "hydro"
-	contained_sprite = TRUE
 	var/form_title
 	var/last_data
 	matter = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)

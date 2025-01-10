@@ -23,7 +23,6 @@ var/list/active_radio_jammers = list()
 	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	var/active = JAMMER_OFF
 	var/radius = 7

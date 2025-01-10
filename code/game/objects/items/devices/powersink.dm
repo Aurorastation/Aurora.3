@@ -6,7 +6,6 @@
 	icon = 'icons/obj/item/device/powersink.dmi'
 	icon_state = "powersink0"
 	item_state = "powersink0"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 5

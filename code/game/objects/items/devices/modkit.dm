@@ -9,7 +9,6 @@
 	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
 	item_state = "restock_unit"
-	contained_sprite = TRUE
 	var/parts = MODKIT_FULL
 	var/target_species = BODYTYPE_HUMAN
 	var/is_multi_species = FALSE //can this modkit change things for multiple species?

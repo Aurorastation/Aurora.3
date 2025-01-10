@@ -6,7 +6,6 @@
 	icon_state = "binoculars"
 	item_state = "binoculars"
 	action_button_name = "Toggle Binoculars"
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
 	w_class = WEIGHT_CLASS_SMALL

@@ -3,7 +3,6 @@
 	icon = 'icons/obj/item/device/pipe_painter.dmi'
 	icon_state = "pipe_painter"
 	item_state = "pipe_painter"
-	contained_sprite = TRUE
 	var/list/modes
 	var/mode
 

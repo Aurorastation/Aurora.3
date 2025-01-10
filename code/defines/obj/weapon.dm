@@ -464,7 +464,6 @@
 	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 20

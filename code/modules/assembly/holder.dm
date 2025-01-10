@@ -3,7 +3,6 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	throwforce = 5

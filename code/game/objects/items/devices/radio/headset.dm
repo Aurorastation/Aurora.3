@@ -248,7 +248,6 @@
 	icon_state = "clip"
 	item_state = "clip"
 	slot_flags = SLOT_WRISTS | SLOT_EARS
-	contained_sprite = TRUE
 
 /obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
 	set category = "Object"

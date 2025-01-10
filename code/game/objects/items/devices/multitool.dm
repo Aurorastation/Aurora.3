@@ -11,7 +11,6 @@
 	icon_state = "multitool"
 	item_state = "multitool"
 	item_icons = null
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
 	w_class = WEIGHT_CLASS_SMALL

@@ -4,7 +4,6 @@
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
-	contained_sprite = TRUE
 	force = 16
 	throwforce = 10
 	throw_speed = 1

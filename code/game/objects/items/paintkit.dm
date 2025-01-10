@@ -2,7 +2,6 @@
 	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
 	item_state = "restock_unit"
-	contained_sprite = TRUE
 	var/new_name = "exosuit"    //What is the variant called?
 	var/new_desc = "An exosuit." //How is the new exosuit described?
 	var/new_icon = "ripley"  //What base icon will the new exosuit use?

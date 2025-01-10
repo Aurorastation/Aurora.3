@@ -4,7 +4,6 @@
 	icon = 'icons/obj/item/device/tvcamera.dmi'
 	icon_state = "camcorder"
 	item_state = "camcorder"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"

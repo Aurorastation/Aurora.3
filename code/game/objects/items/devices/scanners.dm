@@ -13,7 +13,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/healthanalyzer.dmi'
 	icon_state = "health"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -378,7 +377,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -490,7 +488,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -533,7 +530,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/slime_scanner.dmi'
 	icon_state = "slime_scanner"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	origin_tech = list(TECH_BIO = 1)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -579,7 +575,6 @@ BREATH ANALYZER
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	icon = 'icons/obj/item/device/price_scanner.dmi'
 	icon_state = "price_scanner"
-	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -602,7 +597,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -714,7 +708,6 @@ BREATH ANALYZER
 	icon = 'icons/obj/item/device/advanced_healthanalyzer.dmi'
 	icon_state = "health_adv"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)

@@ -20,7 +20,6 @@ effective or pretty fucking useless.
 	icon = 'icons/obj/item/device/batterer.dmi'
 	icon_state = "batterer"
 	item_state = "electronic"
-	contained_sprite = TRUE
 	throwforce = 5
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
@@ -60,7 +59,6 @@ effective or pretty fucking useless.
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 
 /obj/item/device/liidrafier/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return

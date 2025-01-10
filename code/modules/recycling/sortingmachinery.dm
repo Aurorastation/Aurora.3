@@ -252,7 +252,6 @@
 	desc = "Used to set the destination of properly wrapped packages."
 	icon = 'icons/obj/item/device/dest_tagger.dmi'
 	icon_state = "dest_tagger"
-	contained_sprite = TRUE
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL

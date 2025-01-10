@@ -394,8 +394,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
-	contained_sprite = TRUE
-
 	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = WEIGHT_CLASS_SMALL
 
