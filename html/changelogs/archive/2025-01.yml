@@ -31,3 +31,21 @@
   Jasorn:
   - bugfix: Fixed sand showing up as glass in the ore console. Also used defines in
       ore_datum where they should be instead of strings
+2025-01-10:
+  FluffyGhost:
+  - refactor: Added various events to the dcs system in regards to click handling.
+  - refactor: Refactored various mouse related procs.
+  - bugfix: Fixed MUI mask.
+  - bugfix: Fixed AI jump on double click.
+  - bugfix: Fixed some runtimes with the click handler system.
+  - code_imp: Updated the click handler system.
+  - bugfix: Fixed fireman carry.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a pants slot. Check your loadout. Note that they are no longer a
+      uniform slot item and you no longer attach accessories to them.
+  - rscadd: Kneepads, leather chaps, and suspenders now are attached to pants rather
+      than uniform slot items.
+  - rscadd: Shirts are now a uniform slot item and are no longer accessories.
+  - bugfix: Fixes accessories not properly overlaying on uniform items.
+  Yonnimer:
+  - rscadd: Changes the Geras Dionae min age from 30 to 1.
