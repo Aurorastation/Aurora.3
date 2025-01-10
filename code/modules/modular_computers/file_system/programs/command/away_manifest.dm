@@ -8,7 +8,7 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	usage_flags = PROGRAM_ALL_REGULAR
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_SILICON
 	tgui_id = "AwayShuttleManifest"
 	var/datum/record/shuttle_manifest/active_record
 
