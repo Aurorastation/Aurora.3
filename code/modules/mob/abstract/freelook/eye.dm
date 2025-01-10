@@ -99,7 +99,7 @@
 		return
 	remove_visual(owner)
 	LAZYREMOVE(owner.additional_vision_handlers, src)
-	visualnet.remove_eye(src)
+	visualnet?.remove_eye(src)
 	owner.eyeobj = null
 	if(owner.client)
 		owner.client.eye = owner

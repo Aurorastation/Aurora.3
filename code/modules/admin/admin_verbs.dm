@@ -759,7 +759,7 @@ var/list/admin_verbs_cciaa = list(
 		return
 	var/datum/click_handler/handler = mob.GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
-		usr.PopClickHandler()
+		usr.RemoveClickHandler(/datum/click_handler/build_mode)
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 	feedback_add_details("admin_verb","TBMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

@@ -46,6 +46,7 @@ var/global/photo_count = 0
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/New()
+	. = ..()
 	id = photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
