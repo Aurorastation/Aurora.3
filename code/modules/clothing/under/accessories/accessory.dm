@@ -33,7 +33,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clothing/accessory/proc/get_inv_overlay(var/mob/M, var/force = FALSE, var/obj/item/clothing/attached_to)
+/obj/item/clothing/accessory/proc/get_inv_overlay(var/mob/M, var/force = FALSE)
 	if(!accessory_mob_overlay)
 		get_accessory_mob_overlay(M, force)
 	var/I = accessory_mob_overlay.icon
@@ -41,11 +41,11 @@
 	if(!inv_overlay || force)
 		if(icon_override)
 			if(contained_sprite)
-				tmp_icon_state = "[tmp_icon_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
+				tmp_icon_state = "[tmp_icon_state]_w"
 			else if("[tmp_icon_state]_tie" in icon_states(icon_override))
 				tmp_icon_state = "[tmp_icon_state]_tie"
 		else if(contained_sprite)
-			tmp_icon_state = "[tmp_icon_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
+			tmp_icon_state = "[tmp_icon_state]_w"
 		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
@@ -98,7 +98,7 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.AddOverlays(get_inv_overlay(user, FALSE, has_suit))
+	has_suit.AddOverlays(get_inv_overlay(user))
 	if(user)
 		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
