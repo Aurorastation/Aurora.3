@@ -763,3 +763,13 @@
 	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
 	icon_state = "amapola_ute_hat"
 	item_state = "amapola_ute_hat"
+
+/obj/item/clothing/head/peaked_cap
+	name = "peaked cap"
+	desc = "A military-style peaked cap."
+	icon_state = "peaked_cap"
+	item_state = "peaked_cap"
+	icon = 'icons/clothing/head/peaked_cap.dmi'
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "visor"

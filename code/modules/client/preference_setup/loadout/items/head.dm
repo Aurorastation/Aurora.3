@@ -506,6 +506,14 @@
 	display_name = "artist beret"
 	path = /obj/item/clothing/head/beret/artist/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/peakedcap
+	display_name = "colorable peaked cap"
+	path = /obj/item/clothing/head/peaked_cap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	allowed_roles = list("Head of Security", "Security Officer", "Warden", "Investigator", "Security Personnel",
+	"Captain", "Executive Officer", "Chief Engineer", "Research Director", "Chief Medical Officer", "Operations Manager")
+
 /*
 	Block Hair Adjustment
 */
