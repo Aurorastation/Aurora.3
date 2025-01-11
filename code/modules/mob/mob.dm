@@ -384,7 +384,7 @@
 	set category = "IC"
 
 	//examinate(usr, A)
-	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(examinate), src, A))
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, GLOBAL_PROC_REF(examinate), src, A))
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
