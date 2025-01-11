@@ -36,7 +36,7 @@
 /obj/outfit/admin/adhomai_amohdan
 	name = "Amohdan Swordsman"
 
-	uniform = /obj/item/clothing/under/pants/tajaran
+	pants = /obj/item/clothing/pants/tajaran
 	head = /obj/item/clothing/head/helmet/amohda
 	suit = /obj/item/clothing/suit/armor/amohda
 	shoes = /obj/item/clothing/shoes/combat

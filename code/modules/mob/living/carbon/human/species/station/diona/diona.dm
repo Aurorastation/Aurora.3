@@ -8,7 +8,7 @@
 	height_min = 100
 	height_max = 250
 	total_health = 240
-	age_min = 30
+	age_min = 1
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
