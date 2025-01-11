@@ -49,3 +49,10 @@
   - bugfix: Fixes accessories not properly overlaying on uniform items.
   Yonnimer:
   - rscadd: Changes the Geras Dionae min age from 30 to 1.
+2025-01-11:
+  Ben10083:
+  - bugfix: Shuttle manifest can now be accessed on cyborg or AI integrated computers.
+  Geeves:
+  - rscadd: Added a blurb to the Odyssey early announcement detailing that crew from
+      all departments are encouraged to volunteer, and that they should be accepted
+      in almost all circumstances.
