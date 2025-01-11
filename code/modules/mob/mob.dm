@@ -416,10 +416,11 @@
 
 	if(!isturf(src.loc) || !(pointing_at in range(world.view, get_turf(src))))
 		return FALSE
-	if(next_point_time >= world.time)
+	if(TIMER_COOLDOWN_RUNNING(src, "point_verb_emote_cooldown"))
 		return FALSE
+	else
+		TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 2.5 SECONDS)
 
-	next_point_time = world.time + 25
 	face_atom(pointing_at)
 	if(isturf(pointing_at))
 		if(pointing_effect)
