@@ -176,3 +176,35 @@ var/global/list/fusion_reactions
 	radiation = 30
 	instability = 5
 	products = list("uranium" = 10, "lead" = 10, "borosilicate glass" = 10) // Psuedoscience but here we are
+
+// More reactions to mess around with, added by ASCC, everything past this is her word salad
+/singleton/fusion_reaction/plastic_CO2
+	p_react = "plastic"
+	s_react = GAS_CO2
+	minimum_energy_level = 10000
+	energy_consumption = 7
+	energy_production = 1
+	radiation = 0
+	instability = 3
+	products = list("plasteel" = 10)
+
+/singleton/fusion_reaction/steel_oxygen
+	p_react = "steel"
+	s_react = GAS_OXYGEN
+	minimum_energy_level = 40000
+	energy_consumption = 5
+	energy_production = 0.6
+	radiation = 2
+	instability = 4
+	products = list("diamond" = 5)
+	//ADJUST THIS VALUE
+
+/singleton/fusion_reaction/plasteel_titanium
+	p_react = "plasteel"
+	s_react = "titanium"
+	minimum_energy_level = 60000
+	energy_consumption = 10
+	energy_production = 1
+	radiation = 5
+	instability = 10
+	products = list("plastitanium alloy" = 5)

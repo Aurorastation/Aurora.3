@@ -77,3 +77,61 @@
 
 /obj/item/fuel_assembly/hydrogen/New(newloc)
 	..(newloc, MATERIAL_HYDROGEN_METALLIC)
+
+// New fuel rods for messing around. Added by ASCC, all of my additions should go after this
+/obj/item/fuel_assembly/plastic/New(newloc)
+	..(newloc, MATERIAL_PLASTIC)
+
+/obj/item/fuel_assembly/plasteel/New(newloc)
+	..(newloc, MATERIAL_PLASTEEL)
+
+/obj/item/fuel_assembly/steel/New(newloc)
+	..(newloc, MATERIAL_STEEL)
+
+/obj/item/fuel_assembly/glass/New(newloc)
+	..(newloc, MATERIAL_GLASS)
+
+/obj/item/fuel_assembly/gold/New(newloc)
+	..(newloc, MATERIAL_GOLD)
+
+/obj/item/fuel_assembly/silver/New(newloc)
+	..(newloc, MATERIAL_SILVER)
+
+/obj/item/fuel_assembly/diamond/New(newloc)
+	..(newloc, MATERIAL_DIAMOND)
+
+/obj/item/fuel_assembly/uranium/New(newloc)
+	..(newloc, MATERIAL_URANIUM)
+
+/obj/item/fuel_assembly/iron/New(newloc)
+	..(newloc, MATERIAL_IRON)
+
+/obj/item/fuel_assembly/sandstone/New(newloc)
+	..(newloc, MATERIAL_SANDSTONE)
+
+/obj/item/fuel_assembly/platinum/New(newloc)
+	..(newloc, MATERIAL_PLATINUM)
+
+/obj/item/fuel_assembly/bronze/New(newloc)
+	..(newloc, MATERIAL_BRONZE)
+
+/obj/item/fuel_assembly/marble/New(newloc)
+	..(newloc, MATERIAL_MARBLE)
+
+/obj/item/fuel_assembly/titanium/New(newloc)
+	..(newloc, MATERIAL_TITANIUM)
+
+/obj/item/fuel_assembly/sand/New(newloc)
+	..(newloc, MATERIAL_SAND)
+
+/obj/item/fuel_assembly/mhydrogen/New(newloc)
+	..(newloc, MATERIAL_HYDROGEN_METALLIC)
+
+/obj/item/fuel_assembly/graphite/New(newloc)
+	..(newloc, MATERIAL_GRAPHITE)
+
+/obj/item/fuel_assembly/aluminium/New(newloc)
+	..(newloc, MATERIAL_ALUMINIUM)
+
+/obj/item/fuel_assembly/lead/New(newloc)
+	..(newloc, MATERIAL_LEAD)

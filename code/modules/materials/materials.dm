@@ -291,6 +291,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
 	golem = SPECIES_GOLEM_URANIUM
+	is_fusion_fuel = TRUE
 
 /material/diamond
 	name = MATERIAL_DIAMOND
@@ -310,6 +311,7 @@
 	golem = SPECIES_GOLEM_DIAMOND
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+	is_fusion_fuel = TRUE
 
 /material/gold
 	name = MATERIAL_GOLD
@@ -323,6 +325,7 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_GOLD
+	is_fusion_fuel = TRUE
 
 /material/bronze
 	name = MATERIAL_BRONZE
@@ -334,6 +337,7 @@
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	golem = SPECIES_GOLEM_BRONZE
+	is_fusion_fuel = TRUE
 
 /material/osmium
 	name = MATERIAL_OSMIUM
@@ -356,6 +360,7 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_SILVER
+	is_fusion_fuel = TRUE
 
 /material/phoron
 	name = MATERIAL_PHORON
@@ -419,6 +424,7 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+	is_fusion_fuel = TRUE
 
 /material/concrete
 	name = MATERIAL_CONCRETE
@@ -443,6 +449,7 @@
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 
 /material/diona
@@ -494,6 +501,7 @@
 	golem = SPECIES_GOLEM_PLASTEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 /material/plasteel/titanium
 	name = MATERIAL_TITANIUM
@@ -508,6 +516,7 @@
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"
 	golem = SPECIES_GOLEM_TITANIUM
+	is_fusion_fuel = TRUE
 
 /material/glass
 	name = MATERIAL_GLASS
@@ -533,6 +542,7 @@
 	golem = SPECIES_GOLEM_GLASS
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+	is_fusion_fuel = TRUE
 
 /material/glass/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
 
@@ -684,6 +694,7 @@
 	golem = SPECIES_GOLEM_PLASTIC
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	is_fusion_fuel = TRUE
 
 /material/plastic/holographic
 	name = MATERIAL_PLASTIC_HOLO
@@ -720,6 +731,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE
 
 /material/iron
 	name = MATERIAL_IRON
@@ -733,6 +745,7 @@
 	golem = SPECIES_GOLEM_IRON
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 /material/aluminium
 	name = MATERIAL_ALUMINIUM
@@ -742,6 +755,7 @@
 	conductivity = 29.48
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 /material/lead
 	name = MATERIAL_LEAD
@@ -753,6 +767,7 @@
 	sheet_plural_name = "ingots"
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+	is_fusion_fuel = TRUE
 
 // Adminspawn only, do not let anyone get this.
 /material/elevatorium
@@ -1192,6 +1207,7 @@
 	sheet_plural_name = "bars"
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+	is_fusion_fuel = TRUE
 
 /material/tritium
 	name = MATERIAL_TRITIUM

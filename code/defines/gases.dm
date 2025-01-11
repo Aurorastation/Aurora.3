@@ -11,12 +11,14 @@
 	name = "Nitrogen"
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/carbon_dioxide
 	id = GAS_CO2
 	name = "Carbon Dioxide"
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/phoron
 	id = GAS_PHORON
@@ -50,6 +52,7 @@
 	tile_overlay = "sleeping_agent"
 	overlay_limit = 1
 	flags = XGM_GAS_OXIDIZER
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/hydrogen/deuterium
 	id = GAS_DEUTERIUM
@@ -104,6 +107,7 @@
 
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/chlorine
 	id = GAS_CHLORINE
@@ -112,7 +116,7 @@
 	overlay_limit = 0.5
 	specific_heat = 5	// J/(mol*K)
 	molar_mass = 0.017	// kg/mol
-	flags = XGM_GAS_CONTAMINANT
+	flags = XGM_GAS_CONTAMINANT|XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/boron
 	id = GAS_BORON
