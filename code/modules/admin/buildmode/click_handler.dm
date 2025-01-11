@@ -1,5 +1,5 @@
 /datum/click_handler/build_mode
-	handler_flags = CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT
+	flags = CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT
 	var/dir
 
 	var/list/build_modes

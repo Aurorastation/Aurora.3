@@ -171,6 +171,7 @@
 	icon_state = "holster_hip"
 	item_state = "holster_hip"
 
+
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."

@@ -46,7 +46,9 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/item/paper/crumpled,
+/obj/item/paper/crumpled{
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "akg" = (
@@ -150,6 +152,7 @@
 	pixel_y = 23;
 	density = 0
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "aHv" = (
@@ -214,12 +217,30 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
-/obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_x = -4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "aSK" = (
@@ -242,13 +263,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "aTX" = (
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -259,7 +273,10 @@
 	name = "Lavatory";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
 "aZw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -301,11 +318,15 @@
 	},
 /obj/structure/table/wood,
 /obj/item/ammo_magazine/mc9mm{
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
-/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai{
+	pixel_x = -1;
+	pixel_y = 2
+	},
 /obj/item/clothing/head/tajaran/orbital_captain{
-	pixel_y = 8
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
@@ -342,12 +363,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod2)
 "bpG" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -408,33 +424,27 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "buK" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
 "buM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/reagent_containers/food/drinks/bottle/gin{
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 7
 	},
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/vodka{
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/bottle/whitewine,
+/obj/item/reagent_containers/food/drinks/bottle/whitewine{
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "bxf" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/closet/cabinet,
 /obj/item/paper/fluff/freeboter_ship/captain_note,
 /turf/simulated/floor,
@@ -449,12 +459,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod8)
@@ -513,12 +518,7 @@
 /turf/simulated/wall,
 /area/ship/freebooter_ship/pod8)
 "cmI" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -539,12 +539,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "cFm" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/tastybread{
 	pixel_y = 3;
@@ -669,7 +664,6 @@
 	},
 /area/ship/freebooter_ship/pod2)
 "dFi" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -683,6 +677,9 @@
 	name = "Cargo Storage Module";
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "dHA" = (
@@ -691,23 +688,24 @@
 /obj/structure/sign/flag/biesel{
 	pixel_x = -32
 	},
-/obj/item/clothing/suit/storage/legion,
+/obj/item/clothing/suit/storage/legion{
+	pixel_x = 6;
+	pixel_y = -2
+	},
 /obj/item/clothing/head/beret/legion/sentinel{
 	pixel_y = 10
 	},
-/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster{
+	pixel_x = -3;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "dHO" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -740,7 +738,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "dXK" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -754,15 +751,13 @@
 	name = "Custom Module";
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod4)
 "eaO" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -921,17 +916,9 @@
 	pixel_x = 5;
 	pixel_y = 18
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "wooden lattice";
-	color = "#CE9175"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "flG" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -940,6 +927,9 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Cabin #2";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -989,7 +979,10 @@
 	pixel_x = 7
 	},
 /obj/machinery/firealarm/east,
-/obj/item/rig/eva,
+/obj/item/rig/eva{
+	pixel_x = -2;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fJo" = (
@@ -1039,14 +1032,38 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca{
+	pixel_x = -4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fRD" = (
@@ -1060,7 +1077,6 @@
 /obj/effect/floor_decal/corner/red/full,
 /obj/item/primer/low,
 /obj/structure/table/rack,
-/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "fTG" = (
@@ -1076,13 +1092,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
 "fTT" = (
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1093,7 +1102,10 @@
 	name = "Lavatory";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
 "fUN" = (
 /obj/effect/floor_decal/corner/red{
@@ -1147,8 +1159,8 @@
 /area/ship/freebooter_ship/pod1)
 "glJ" = (
 /obj/machinery/reagentgrinder{
-	pixel_x = 1;
-	pixel_y = 7
+	pixel_x = 3;
+	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
@@ -1200,6 +1212,7 @@
 /obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/head/helmet/bucket,
+/obj/random/civgun,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "gGE" = (
@@ -1211,11 +1224,13 @@
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/material/hatchet/machete/steel,
-/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel{
+	pixel_x = 6;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "gSo" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1227,6 +1242,9 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Habitation Module";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1337,12 +1355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "hIE" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/effect/ghostspawpoint{
@@ -1361,25 +1374,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
-"hQA" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "wooden lattice";
-	color = "#CE9175"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_ship/pod7)
 "hWE" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -1406,9 +1400,9 @@
 	id_tag = "freebooter_brig"
 	},
 /obj/machinery/door/firedoor/noid{
-	dir = 8
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
 "iaK" = (
 /obj/effect/floor_decal/corner/beige,
@@ -1551,7 +1545,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "jjA" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1563,6 +1556,9 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Secure NanoTrasen Module";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1654,18 +1650,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "kaR" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "wooden lattice";
-	color = "#CE9175"
-	},
 /obj/structure/cable,
 /obj/machinery/power/apc/south{
 	req_access = null
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "kbC" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -1690,12 +1679,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "kev" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1758,7 +1742,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "krH" = (
-/obj/item/paper/crumpled/bloody,
+/obj/item/paper/crumpled/bloody{
+	pixel_x = -5;
+	pixel_y = 9
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1770,6 +1757,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "kuG" = (
+/obj/structure/lattice/catwalk,
 /turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)
 "kuV" = (
@@ -1850,11 +1838,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "kBP" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2055,7 +2045,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "mbX" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2067,6 +2056,9 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Refinery Module";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2100,14 +2092,18 @@
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/civgun,
-/obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/item/material/knife/bayonet,
 /obj/item/material/knife/bayonet,
 /obj/item/material/knife/butterfly/switchblade,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/head/helmet/security/generic,
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/ammo_magazine/a556/carbine,
+/obj/item/gun/projectile/automatic/mini_uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "mCb" = (
@@ -2185,12 +2181,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/pod7)
 "mSI" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/bed/padded,
 /obj/item/bedsheet/syndie{
 	desc = "It has a syndicate emblem and it has an aura of anti-corporatism."
@@ -2248,7 +2239,6 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/freebooter_ship/pod1)
 "ngc" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2257,6 +2247,9 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Cabin #1";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2273,12 +2266,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "nqC" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
@@ -2422,6 +2410,7 @@
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "ogz" = (
@@ -2481,9 +2470,13 @@
 	req_access = null
 	},
 /obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
 /obj/item/grenade/frag,
 /obj/item/device/flashlight/maglight,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "oyT" = (
@@ -2650,12 +2643,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pup" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/structure/coatrack,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2707,19 +2695,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
 "pBl" = (
-/obj/item/paper/crumpled,
+/obj/item/paper/crumpled{
+	pixel_x = 4;
+	pixel_y = 3
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "pDZ" = (
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2730,7 +2714,10 @@
 	name = "Lavatory";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
 "pEW" = (
 /obj/effect/decal/cleanable/blood,
@@ -2790,6 +2777,14 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 21;
+	pixel_x = 4
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 31;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pXP" = (
@@ -2808,14 +2803,14 @@
 	pixel_y = 6
 	},
 /obj/item/stack/material/gold{
-	pixel_x = 8;
-	pixel_y = -3
+	pixel_x = 1
 	},
 /obj/item/stack/material/gold{
 	pixel_x = 5
 	},
 /obj/item/stack/material/gold{
-	pixel_x = 8
+	pixel_x = 3;
+	pixel_y = 2
 	},
 /obj/item/cell/super{
 	pixel_y = 11
@@ -2846,13 +2841,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "pZO" = (
-/obj/effect/floor_decal/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2863,7 +2851,10 @@
 	name = "Lavatory";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
 "qeD" = (
 /obj/effect/floor_decal/corner/red/full,
@@ -2915,7 +2906,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "qst" = (
-/obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -2927,6 +2917,9 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Cabin #1";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2961,12 +2954,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "qAl" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "qCi" = (
@@ -2975,14 +2963,38 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ship_ammunition/francisca/ap{
+	pixel_x = -4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "qDn" = (
@@ -2994,18 +3006,12 @@
 /area/ship/freebooter_ship/pod4)
 "qDs" = (
 /obj/structure/closet/cabinet,
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/item/paper/fluff/freeboter_ship/captain_note,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod1)
 "qEc" = (
-/obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3020,15 +3026,13 @@
 	name = "Hydroponics Module";
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "qNb" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -3061,8 +3065,14 @@
 	dir = 1
 	},
 /obj/structure/table/glass,
-/obj/item/folder/yellow,
-/obj/item/paper/crumpled,
+/obj/item/folder/yellow{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/paper/crumpled{
+	pixel_x = -7;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "rtf" = (
@@ -3104,11 +3114,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod4)
 "rKU" = (
 /obj/effect/decal/cleanable/blood,
@@ -3162,12 +3174,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/freebooter_ship/pod7)
 "sck" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -3263,9 +3270,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/phoron{
-	start_pressure = 332
-	},
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "sUa" = (
@@ -3297,15 +3302,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_ship/exterior)
 "sUZ" = (
-/obj/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/biogenerator,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "sVs" = (
-/obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3317,6 +3319,9 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Two Person Cabin Module";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -3373,9 +3378,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/phoron{
-	start_pressure = 165
-	},
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "tth" = (
@@ -3489,9 +3492,10 @@
 	},
 /area/ship/freebooter_ship/pod8)
 "uxz" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod7)
 "uCl" = (
 /obj/structure/lattice/catwalk,
@@ -3610,7 +3614,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "vgl" = (
-/obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
@@ -3624,6 +3627,9 @@
 	name = "Cabin #2";
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
 "vhp" = (
@@ -3634,10 +3640,10 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/cowboy,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/pants/tacticool,
 /obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/head/sol/marine,
 /obj/item/clothing/under/rank/sol,
@@ -3646,8 +3652,8 @@
 /obj/item/clothing/under/dominia/fleet/armsman,
 /obj/item/clothing/head/dominia/fleet,
 /obj/item/clothing/head/dominia/fleet/armsman,
-/obj/item/clothing/under/pants/jeans,
-/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/pants/jeans,
+/obj/item/clothing/pants/jeansblack,
 /obj/item/clothing/head/beanie/random,
 /obj/item/clothing/head/beanie/random,
 /obj/item/clothing/head/headbando/random,
@@ -3794,7 +3800,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/item/rig/light/offworlder,
-/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab{
+	pixel_x = -2;
+	pixel_y = -2
+	},
 /obj/item/clothing/mask/offworlder{
 	color = "#495681";
 	pixel_y = 8;
@@ -3818,8 +3827,13 @@
 /area/ship/freebooter_ship/pod3)
 "wnq" = (
 /obj/structure/table/steel,
-/obj/item/gun/projectile/automatic/improvised,
+/obj/item/gun/projectile/automatic/improvised{
+	pixel_y = 12
+	},
 /obj/effect/floor_decal/corner/red/full,
+/obj/item/grenade/frag{
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "wuO" = (
@@ -3863,7 +3877,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "wRc" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3911,16 +3927,23 @@
 "wYs" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/lunchbox/swimstars_axic/filled{
-	pixel_x = -5
+	pixel_x = 3
 	},
 /obj/item/laser_components/modifier/grip{
-	pixel_y = 8
+	pixel_y = 12;
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/obj/item/material/twohanded/baseballbat/metal,
-/obj/item/material/twohanded/baseballbat/metal,
+/obj/item/material/twohanded/baseballbat/metal{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/material/twohanded/baseballbat/metal{
+	pixel_x = -12;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "wYH" = (
@@ -3968,15 +3991,21 @@
 /area/ship/freebooter_ship/pod2)
 "xLr" = (
 /obj/structure/table/steel,
-/obj/item/receivergun,
+/obj/item/receivergun{
+	pixel_x = 3
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/item/material/kitchen/utensil/knife/boot,
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "xOG" = (
 /obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "xPX" = (
@@ -4000,37 +4029,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "ygM" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
+/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod6)
-"yjk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "wooden lattice";
-	color = "#CE9175"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_ship/pod7)
 
 (1,1,1) = {"
 poF
@@ -4163,7 +4168,7 @@ poF
 xRX
 poF
 poF
-poF
+uCl
 uCl
 kuG
 uCl
@@ -5499,7 +5504,7 @@ xRX
 pRO
 fNZ
 kpR
-hQA
+ija
 wLs
 wLs
 pRO
@@ -5552,7 +5557,7 @@ xRX
 pRO
 bPE
 kpR
-yjk
+ija
 epB
 liN
 pRO

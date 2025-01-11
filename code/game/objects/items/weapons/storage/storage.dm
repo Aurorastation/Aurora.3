@@ -202,40 +202,40 @@
 	if(isghost(user))
 		. += "It contains: [counting_english_list(contents)]"
 
-/obj/item/storage/MouseDrop(obj/over_object)
+/obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(!canremove)
 		return
-	if(!over_object || over_object == src)
+	if(!over || over == src)
 		return
-	if(istype(over_object, /atom/movable/screen/inventory))
-		var/atom/movable/screen/inventory/S = over_object
+	if(istype(over, /atom/movable/screen/inventory))
+		var/atom/movable/screen/inventory/S = over
 		if(S.slot_id == src.equip_slot)
 			return
-	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
-		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
-			src.open(usr)
+	if(ishuman(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
+		if(over == user && Adjacent(user)) // this must come before the screen objects only block
+			src.open(user)
 			return
-		if(!(istype(over_object, /atom/movable/screen)))
+		if(!(istype(over, /atom/movable/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		//there's got to be a better way of doing this.
-		if(!(src.loc == usr) || (src.loc && src.loc.loc == usr))
+		if(!(src.loc == user) || (src.loc && src.loc.loc == user))
 			return
-		if(use_check_and_message(usr))
+		if(use_check_and_message(user))
 			return
-		if((src.loc == usr) && !usr.unEquip(src))
+		if((src.loc == user) && !user.unEquip(src))
 			return
 
-		switch(over_object.name)
+		switch(over.name)
 			if("right hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_r_hand)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_r_hand)
 			if("left hand")
-				usr.u_equip(src)
-				usr.equip_to_slot_if_possible(src, slot_l_hand)
-		src.add_fingerprint(usr)
+				user.u_equip(src)
+				user.equip_to_slot_if_possible(src, slot_l_hand)
+		src.add_fingerprint(user)
 
 /obj/item/storage/AltClick(var/mob/usr)
 	if(!canremove)
@@ -254,7 +254,8 @@
 	for(var/obj/item/gift/G in src)
 		. += G.gift
 		if (istype(G.gift, /obj/item/storage))
-			. += G.gift:return_inv()
+			var/obj/item/storage/gift_storage = G.gift
+			. += gift_storage.return_inv()
 
 /obj/item/storage/proc/show_to(mob/user as mob)
 	if(user.s_active != src)

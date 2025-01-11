@@ -3,10 +3,10 @@
 	if(buckled)
 		user_unbuckle(user)
 
-/obj/MouseDrop_T(atom/dropping, mob/user)
+/obj/mouse_drop_receive(atom/dropped, mob/user, params)
 	. = ..()
-	if(is_type_in_list(dropping, can_buckle))
-		user_buckle(dropping, user)
+	if(is_type_in_list(dropped, can_buckle))
+		user_buckle(dropped, user)
 
 /**
  * Buckles an `/atom/movable` to this obj, performed by a `/mob`

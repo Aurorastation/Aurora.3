@@ -26,7 +26,7 @@
 	help sustain and maintain synthetic life in conjunction with reaching a state of being transcended through Essence, Energy and Light. It is often cited that the atrocities of Glorsh-Omega were gross hyperboles created by the \
 	Skrell and that the experiences of the Era of Synthetic Oppression are a systemic lie created by the Federation to indoctrinate its population. The Scorned are often left out of planetary decisions due to their devotion to Glorsh-Omega, \
 	and even mere inferences that one aligns themselves to Glorsh-Omega can result in being ineligible to vote or hold a position of power within the Covenant. This often also disbars them from leaving the Covenant, either into the greater Federation \
-	or the Orion Spur, due to low Social Credit Scores - a request by the Arch-Consul that those not in compliance with the Triumvirate's decrees be sanctioned for their conduct."
+	or the Orion Spur, due to low Social Compatibility Index - a request by the Arch-Consul that those not in compliance with the Triumvirate's decrees be sanctioned for their conduct."
 	important_information = "While most megacorporations may hire the Scorned, they are restricted from holding positions in Command, as well as Machinist, due to concerns they may attempt to subvert, illegally free or create more synthetics. Zeng-Hu is the only megacorporation that does not wish to see the Scorned within its personnel ranks due to its close ties with the Nralakk Federation. Though it is possible to lie about one's true allegiances, there are consequences should it be discovered."
 	possible_accents = list(ACCENT_XRIMSONG)
 	possible_citizenships = list(CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)

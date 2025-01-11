@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an exosuit compatible kinetic accelerator, capable of clearing vast swathes of mineable walls. Machinists can print them at a steep steel cost, and the mining mech dropped from the dropper comes with it equipped."

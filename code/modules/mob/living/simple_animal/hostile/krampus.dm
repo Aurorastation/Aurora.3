@@ -154,7 +154,7 @@
 	minbodytemp = 0
 
 	faction = "Krampus"
-	move_to_delay = 4
+	speed = 4
 
 	tameable = FALSE
 

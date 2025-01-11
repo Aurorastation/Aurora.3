@@ -813,7 +813,17 @@ var/list/localhost_addresses = list(
 		else
 			CRASH("Age check regex failed for [src.ckey]")
 
+/client/Click(atom/object, atom/location, control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
+	..()
+
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	var/list/modifiers = params2list(params)
+
+	if(!drag_start) // If we're just starting to drag
+		drag_start = world.time
+		drag_details = modifiers.Copy()
+
 	. = ..()
 
 	if(over_object)
@@ -831,7 +841,18 @@ var/list/localhost_addresses = list(
 
 	CHECK_TICK
 
-/client/MouseDown(object, location, control, params)
+/client/MouseDrop(atom/src_object, atom/over_object, atom/src_location, atom/over_location, src_control, over_control, params)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	..()
+	drag_start = 0
+	drag_details = null
+
+/client/MouseDown(datum/object, location, control, params)
+	if(QDELETED(object)) //Yep, you can click on qdeleted things before they have time to nullspace. Fun.
+		return
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
 	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
@@ -893,6 +914,8 @@ var/list/localhost_addresses = list(
 			sleep(G.fire_delay)
 
 /client/MouseUp(object, location, control, params)
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		src = src //This doesn't do shit, when you implement click interception change this
 	autofire_aiming_at[1] = null
 
 /atom/proc/is_auto_clickable()

@@ -41,9 +41,11 @@
 
 
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
-		return 1
-	return 0
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_HUMAN)
+			return TRUE
+	return FALSE
 
 /proc/isoffworlder(A)
 	if(ishuman(A))
@@ -71,7 +73,8 @@
 
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_TAJARA)
 				return 1
 			if(SPECIES_TAJARA_ZHAN)
@@ -86,7 +89,8 @@
 
 /proc/isskrell(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_SKRELL)
 				return 1
 			if (SPECIES_SKRELL_AXIORI)
@@ -97,7 +101,8 @@
 
 /proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if(SPECIES_VAURCA_WORKER)
 				if(isbreeder)
 					return FALSE
@@ -151,9 +156,11 @@
 	return FALSE
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
-		return 1
-	return 0
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_SKELETON)
+			return TRUE
+	return FALSE
 
 /proc/iszombie(A)
 	if(ishuman(A))
@@ -188,7 +195,8 @@
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_MONKEY)
 				return 1
 			if (SPECIES_MONKEY_TAJARA)
@@ -802,6 +810,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		return slot_shoes
 	else if (H.wrists == src)
 		return slot_wrists
+	else if (H.pants == src)
+		return slot_pants
 	else
 		return null//We failed to find the slot
 

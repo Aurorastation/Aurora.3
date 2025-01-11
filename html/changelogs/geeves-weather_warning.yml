@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Atmospheric probes will now relay changes in weather when deployed. Analog radios can be tuned into the weather broadcast and receive it, provided they're in the same sector / connected z-levels."
-  - bugfix: "Fixed weather transitions to rainy / icy weather not working."
-  - qol: "Changed rainy / icy weather to have a blue color, reducing eye strain."
