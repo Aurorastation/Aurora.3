@@ -56,3 +56,12 @@
   - rscadd: Added a blurb to the Odyssey early announcement detailing that crew from
       all departments are encouraged to volunteer, and that they should be accepted
       in almost all circumstances.
+2025-01-12:
+  ChangeMe:
+  - rscadd: Added Research staff access to the air alarms on the Quark.
+  - rscadd: Added a recharger, shortwave radio, basic first-aid kit, two pneumalin
+      autoinhalers, and an expedition tent the Quark.
+  - rscadd: Added purple Research coloured shortwave radios to the Research expedition
+      prep area.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes plate carrier accessories not showing up.
