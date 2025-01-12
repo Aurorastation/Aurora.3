@@ -13,13 +13,6 @@
 "g" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"i" = (
-/obj/machinery/ship_weapon/francisca/compact{
-	pixel_x = -7;
-	pixel_y = 11
-	},
-/turf/template_noop,
-/area/space)
 "n" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/tiled/dark/full,
@@ -1918,7 +1911,7 @@ a
 a
 a
 a
-i
+a
 a
 a
 a
@@ -3193,9 +3186,9 @@ J
 a
 J
 J
-a
-a
-a
+R
+R
+R
 J
 a
 a
@@ -3450,9 +3443,9 @@ g
 a
 a
 J
-a
-a
-a
+W
+W
+W
 J
 a
 a
@@ -3692,8 +3685,8 @@ a
 J
 J
 J
-J
-J
+g
+g
 J
 J
 J
@@ -5748,8 +5741,8 @@ a
 J
 J
 J
-J
-J
+g
+g
 J
 J
 J
@@ -6020,9 +6013,9 @@ g
 a
 a
 J
-a
-a
-a
+W
+W
+W
 J
 a
 a
@@ -6277,9 +6270,9 @@ J
 a
 J
 J
-a
-a
-a
+R
+R
+R
 J
 a
 a
