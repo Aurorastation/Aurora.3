@@ -958,3 +958,11 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/**
+ * This proc is used to override speech checks for human mobs.
+ * If it returns FALSE, the mob will not be able to speak.
+ * Make sure to give the user the relevant error message in the override.
+ */
+/datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	return TRUE

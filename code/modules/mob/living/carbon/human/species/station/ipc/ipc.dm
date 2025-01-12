@@ -88,7 +88,12 @@
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
@@ -380,11 +385,6 @@
 	. = ..()
 	check_tag(H, H.client)
 
-/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
-		return TRUE
-	return FALSE
-
 /datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
 	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
 	if(!C.cell)
@@ -402,3 +402,19 @@
 
 /datum/species/machine/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be in standby.\n")
+
+/datum/species/machine/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	var/obj/item/organ/internal/machine/voice_synthesizer/voice_synth = speaker.internal_organs_by_name[BP_VOICE_SYNTHESIZER]
+	if(istype(voice_synth))
+		return TRUE
+	else
+		to_chat(speaker, SPAN_WARNING("You cannot synthesize a voice without your [BP_VOICE_SYNTHESIZER]!"))
+		return FALSE
+
+/datum/species/machine/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)
+	var/obj/item/organ/internal/machine/voice_synthesizer/voice_synth = H.internal_organs_by_name[BP_VOICE_SYNTHESIZER]
+	if(istype(voice_synth))
+		if(voice_synth.is_bruised())
+			// at most, 30 * 2 + 10 = 70, which is the maximum value we can use for Gibberish
+			message = Gibberish(message, voice_synth.damage * 2 + (voice_synth.is_broken() ? 10 : 0))
+		return list(HSP_MSG = message, HSP_VERB = pick(list("crackles", "buzzes")))

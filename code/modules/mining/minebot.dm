@@ -30,7 +30,7 @@
 	cell.maxcharge = 10000
 	cell.charge = 10000
 
-	mmi = /obj/item/organ/internal/mmi_holder/circuit
+	mmi = /obj/item/organ/internal/machine/posibrain/circuit
 
 	// Allows mining drones to pull ore boxes, might be useful for supporting miners
 	pull_list |= /obj/structure/ore_box

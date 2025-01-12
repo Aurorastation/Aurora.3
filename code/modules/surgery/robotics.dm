@@ -436,7 +436,7 @@
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
 	var/obj/item/device/mmi/M = tool
-	var/obj/item/organ/internal/mmi_holder/holder = new(target, 1)
+	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)
 	holder.stored_mmi = tool
