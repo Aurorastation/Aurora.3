@@ -429,7 +429,7 @@
 		pointing_effect.set_invisibility(invisibility)
 		addtimer(CALLBACK(src, PROC_REF(end_pointing_effect), pointing_effect), 2 SECONDS)
 	else if(!invisibility)
-		var/atom/movable/M = A
+		var/atom/movable/M = pointing_at
 		M.add_point_filter()
 		M.handle_pointed_at(src)
 	SEND_SIGNAL(src, COMSIG_MOB_POINT, pointing_at)
