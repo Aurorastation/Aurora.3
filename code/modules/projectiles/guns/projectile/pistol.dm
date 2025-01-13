@@ -113,6 +113,9 @@
 	else
 		icon_state = "secgun-e"
 
+/obj/item/gun/projectile/sec/unloaded
+	magazine_type = null
+
 /obj/item/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
 
