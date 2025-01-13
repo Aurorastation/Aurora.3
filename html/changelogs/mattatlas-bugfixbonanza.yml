@@ -68,5 +68,5 @@ changes:
   - bugfix: "Apple pies now count for the pie bounty."
   - bugfix: "Changeling chameleon claws no longer spawn in the warehouse."
   - bugfix: "Admin click-drag to possess has been fixed."
-  - bugfix: "Added a minimum damage threshold to delimb, in order to stops ridiculously small damage from taking off limbs. The threshold is the organ's max damage divided by 3."
+  - bugfix: "Fixed the minimum damage threshold to delimb. Limbs won't be cut off or gibbed by very small amounts of damage anymore."
   - bugfix: "The Pull psionic ability no longer pulls anchored objects."
