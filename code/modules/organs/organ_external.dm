@@ -513,6 +513,8 @@
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE))
+			if((brute_dam + burn_dam) < (max_damage / 3))
+				return
 
 			if((brute_dam + burn_dam) >= (max_damage * GLOB.config.organ_health_multiplier))
 

@@ -12,6 +12,7 @@
 	universal_speak = 1
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
+	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
 
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
