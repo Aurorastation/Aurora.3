@@ -431,7 +431,7 @@
 	else if(!invisibility)
 		var/atom/movable/M = A
 		M.add_point_filter()
-	A.handle_pointed_at(src)
+		A.handle_pointed_at(src)
 	SEND_SIGNAL(src, COMSIG_MOB_POINT, pointing_at)
 	return TRUE
 
