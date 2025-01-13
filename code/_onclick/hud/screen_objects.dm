@@ -346,8 +346,8 @@
 					if(H.last_special + 50 > world.time)
 						return
 					H.last_special = world.time
-				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
-				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+				to_chat(H, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
+				for(var/turf/T in view(H.client.view + 3, H)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue
 					var/turf/above_turf = GET_TURF_ABOVE(T)
@@ -356,17 +356,17 @@
 					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
 					up_image.plane = LIGHTING_LAYER + 1
 					up_image.layer = LIGHTING_LAYER + 1
-					usr << up_image
+					H << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T1 = get_turf(usr)
+			var/turf/T1 = get_turf(H)
 			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
-				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
+				to_chat(H, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
+				H.look_up_open_space(T1)
 			else
-				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
+				to_chat(H, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
