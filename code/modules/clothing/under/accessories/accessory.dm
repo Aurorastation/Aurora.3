@@ -51,6 +51,8 @@
 	if(build_from_parts && overlay_in_inventory)
 		inv_overlay.ClearOverlays()
 		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_w_acc", accent_color, flags=accent_flags))
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
