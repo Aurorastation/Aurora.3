@@ -109,6 +109,7 @@
 #define WORN_MASK	"_ma"
 #define WORN_WRISTS	"_wr"
 #define WORN_PANTS	"_pa"
+#define WORN_ACCESS	"_ac"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1

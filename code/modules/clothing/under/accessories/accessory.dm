@@ -7,7 +7,6 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_SMALL
-
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
@@ -54,7 +53,7 @@
 		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE, var/obj/item/clothing/attached_to)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/I
 	if(icon_override)
 		I = icon_override
@@ -70,12 +69,12 @@
 	if(icon_override)
 		if(contained_sprite)
 			auto_adapt_species(H)
-			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_ACCESS]"
 		else if("[tmp_icon_state]_mob" in icon_states(I))
 			tmp_icon_state = "[tmp_icon_state]_mob"
 	else if(contained_sprite)
 		auto_adapt_species(H)
-		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_ACCESS]"
 	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(build_from_parts || has_accents)
 		accessory_mob_overlay.ClearOverlays()
@@ -335,7 +334,7 @@
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon = 'icons/obj/clothing/scarves.dmi'
+	icon = 'icons/obj/item/clothing/accessory/scarves.dmi'
 	icon_state = "scarf0"
 	item_state = "scarf0"
 	contained_sprite = TRUE
@@ -379,7 +378,7 @@
 /obj/item/clothing/accessory/shawl
 	name = "cozy shawl"
 	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
-	icon = 'icons/obj/clothing/shawl.dmi'
+	icon = 'icons/obj/item/clothing/accessory/shawl.dmi'
 	icon_state = "shawl"
 	item_state = "shawl"
 	contained_sprite = TRUE
