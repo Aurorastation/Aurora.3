@@ -81,15 +81,6 @@
 	icon_state = "skirt_straightlong"
 	item_state = "skirt_straightlong"
 
-/obj/item/clothing/pants/skirt/offworlder
-	name = "\improper CR skirt"
-	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
-	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
-	contained_sprite = TRUE
-	icon_state = "crskirt"
-	item_state = "crskirt"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 /obj/item/clothing/pants/skirt/jumper
 	name = "jumper skirt"
 	desc = "A short skirt with two large shoulder straps."

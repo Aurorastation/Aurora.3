@@ -692,7 +692,7 @@
 	desc_extended = "One of the most prominent symbols of the Moroz Holy Tribunal is 'The Eye', with the square representing the four corners of the universe and the central 'eye' being the \
 	Tribunal that watches all. Necklaces and amulets made from this symbol often have the eye being able to rotate. Although there is no official stance, others argue that necklaces should be made \
 	from bare metal to represent how the Tribunal sees the unvarnished truth, while others insist that they must be made from gold to glorify the religion."
-	icon = 'icons/clothing/accessories/dominia_amulet.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dominia_amulet.dmi'
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
@@ -702,7 +702,7 @@
 	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
 			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
 	desc_extended = ""
-	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
+	icon = 'icons/obj/item/clothing/accessory/lyodii_amulet.dmi'
 	icon_state = "lyodii_amulet"
 	item_state = "lyodii_amulet"
 
@@ -710,7 +710,7 @@
 	name = "tribunal investigator card"
 	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			In essence the religion police of the Tribunal, these investigators are found through the entirety of the Empire of Dominia."
-	icon = 'icons/clothing/accessories/tic_cards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/tic_cards.dmi'
 	icon_state = "tic_card"
 	item_state = "tic_card"
 
@@ -877,7 +877,7 @@
 	desc = "A sleeve patch worn by non-commissioned officers of the Imperial Army."
 	desc_extended = "Non-commissioned officers form the backbone of the Imperial Army's troops. Typically recruited from Novi Jadran's countryside, they are well-trained \
 	and well-motivated soldiers focused on ensuring their troops' survival and their mission's success."
-	icon = 'icons/clothing/accessories/dominia_nco_badge.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dominia_nco_badge.dmi'
 	icon_state = "dom_nco"
 	item_state = "dom_nco"
 

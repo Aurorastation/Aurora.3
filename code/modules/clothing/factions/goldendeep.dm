@@ -226,7 +226,7 @@
 	desc = "For the hard working Thesian of the Golden Deep. Able to carry tools and withstand the rigors of work within the collective."
 	icon_state = "thesian_webbing"
 	item_state = "thesian_webbing"
-	icon = 'icons/clothing/accessories/thesian_webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/thesian_webbing.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 

@@ -93,7 +93,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 
 /obj/item/clothing/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_w_uniform_str)
+	if(slot == slot_pants_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
@@ -107,7 +107,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 
 /obj/item/clothing/pants/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_w_uniform_str)
+	if(slot == slot_pants_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I

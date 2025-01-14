@@ -274,7 +274,7 @@
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
 	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
-	icon = 'icons/clothing/accessories/stethoscope.dmi'
+	icon = 'icons/obj/item/clothing/accessory/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
 	contained_sprite = TRUE
@@ -524,7 +524,7 @@
 	name = "yellow sash"
 	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
 	desc_extended = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
-	icon = 'icons/clothing/accessories/sash.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
 	contained_sprite = TRUE
@@ -570,7 +570,7 @@
 	desc = "A sash, designed to be worn around the waist."
 	item_state = "sash_horizontal"
 	icon_state = "sash_horizontal"
-	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -848,7 +848,7 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
 	contained_sprite = TRUE
@@ -942,7 +942,7 @@
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
-	icon = 'icons/clothing/accessories/kneepads.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kneepads.dmi'
 	icon_state = "kneepads"
 	item_state = "kneepads"
 	contained_sprite = TRUE
@@ -952,7 +952,7 @@
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
-	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon = 'icons/obj/item/clothing/accessory/blood_patch.dmi'
 	icon_state = "onegtag"
 	contained_sprite = TRUE
 
@@ -1074,7 +1074,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/bz_mantle.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE
@@ -1091,7 +1091,7 @@
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"
 	desc = "A comfortable tactical coif that goes around the head."
-	icon = 'icons/clothing/accessories/goon_coif.dmi'
+	icon = 'icons/obj/item/clothing/accessory/goon_coif.dmi'
 	body_parts_covered = HEAD
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
@@ -1267,7 +1267,7 @@
 /obj/item/clothing/accessory/pronoun
 	name = "any/all pronouns pin"
 	desc = "A pin denoting the wearer's pronouns: any/all."
-	icon = 'icons/clothing/accessories/pronoun_pin.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pronoun_pin.dmi'
 	icon_state = "pronounpin"
 	item_state = "pronounpin"
 	worn_overlay = "over"
@@ -1308,7 +1308,7 @@
 /obj/item/clothing/accessory/led_collar
 	name = "\improper LED collar"
 	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
-	icon = 'icons/clothing/accessories/led_collar.dmi'
+	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
