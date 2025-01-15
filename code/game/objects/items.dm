@@ -642,7 +642,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
 	"[slot_tie]" = SLOT_TIE,
-	"[slot_wrists]" = SLOT_WRISTS
+	"[slot_wrists]" = SLOT_WRISTS,
+	"[slot_pants]" = SLOT_PANTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -1327,7 +1328,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		else
 			apply_outline(L) //if the player's alive and well we send the command with no color set, so it uses the theme's color
 
-/obj/item/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	remove_outline()
 

@@ -4528,3 +4528,25 @@
 	result = /singleton/reagent/drink/lovebug_boba
 	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/nutriment/cherryjelly = 1, /singleton/reagent/drink/strawberryjuice = 1, /singleton/reagent/drink/boba = 1)
 	result_amount = 6
+
+/datum/chemical_reaction/drink/dyn_boba
+	name = "dyn boba"
+	id = "boba_dyn"
+	result = /singleton/reagent/drink/dyn_boba
+	required_reagents = list(/singleton/reagent/drink/dynjuice/cold = 5, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+// Other
+/datum/chemical_reaction/gravy
+	name = "gravy"
+	id = "gravy"
+	result = /singleton/reagent/condiment/gravy
+	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/flour = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/drink/chocolate_soda
+	name = "Chocolate Soda"
+	id = "chocolate_soda"
+	result = /singleton/reagent/drink/chocolate_soda
+	required_reagents = list(/singleton/reagent/nutriment/coco = 1, /singleton/reagent/drink/space_cola = 1, /singleton/reagent/drink/sodawater = 3)
+	result_amount = 5

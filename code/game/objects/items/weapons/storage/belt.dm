@@ -502,6 +502,7 @@
 		/obj/item/weldingtool,
 		/obj/item/wirecutters,
 		/obj/item/wrench,
+		/obj/item/powerdrill,
 		/obj/item/resonator,
 		/obj/item/oreportal,
 		/obj/item/oremagnet,
@@ -538,7 +539,8 @@
 		/obj/item/gun/custom_ka,
 		/obj/item/device/orbital_dropper,
 		/obj/item/ore_detector,
-		/obj/item/device/spaceflare
+		/obj/item/device/spaceflare,
+		/obj/item/cell
 		)
 
 /obj/item/storage/belt/mining/full

@@ -332,6 +332,7 @@
 /datum/exoplanet_theme/proc/on_turf_generation(turf/T, area/use_area)
 	if(use_area && istype(T.loc, world.area))
 		ChangeArea(T, use_area) // Switch our generated turfs from world.area (space) to our chosen exoplanet area
+
 	if(surface_color && is_type_in_list(T, surface_turfs))
 		T.color = surface_color
 

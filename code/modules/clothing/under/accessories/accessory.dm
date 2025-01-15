@@ -8,16 +8,21 @@
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_SMALL
 
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
+	)
+
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
+	var/accessory_layer = ACCESSORY_LAYER_MIDDLE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
-	)
 	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
@@ -49,7 +54,7 @@
 		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE, var/obj/item/clothing/attached_to)
 	var/I
 	if(icon_override)
 		I = icon_override
@@ -65,12 +70,12 @@
 	if(icon_override)
 		if(contained_sprite)
 			auto_adapt_species(H)
-			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
 		else if("[tmp_icon_state]_mob" in icon_states(I))
 			tmp_icon_state = "[tmp_icon_state]_mob"
 	else if(contained_sprite)
 		auto_adapt_species(H)
-		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][attached_to? "[attached_to.species_sprite_adaption_type]" : "[WORN_UNDER]"]"
 	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(build_from_parts || has_accents)
 		accessory_mob_overlay.ClearOverlays()
@@ -93,7 +98,7 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.AddOverlays(get_inv_overlay())
+	has_suit.AddOverlays(get_inv_overlay(user))
 	if(user)
 		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
@@ -324,6 +329,8 @@
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
+	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -382,6 +389,8 @@
 	desc = "A pair of loose, brown leather chaps."
 	icon_state = "chaps"
 	item_state = "chaps"
+	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -937,6 +946,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"

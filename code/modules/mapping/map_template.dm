@@ -68,11 +68,13 @@
 
 	var/datum/space_level/base_level = null
 	for(var/traits_for_level in traits)
-		var/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
 		if(!base_level)
 			base_level = level
+		GLOB.map_templates["[level.z_value]"] = src
 
 	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
+
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		atoms_to_initialise += M.atoms_to_initialise
@@ -86,7 +88,6 @@
 		if (base_turf_for_zs)
 			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		SSatlas.current_map.player_levels |= z_index
-		GLOB.map_templates["[z_index]"] = src
 
 	smooth_zlevel(world.maxz)
 	require_area_resort()

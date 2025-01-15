@@ -269,7 +269,7 @@
 		/obj/item/clothing/suit/storage/hooded/tajaran                  = TRADER_ALL,
 		/obj/item/clothing/under/tajaran/fancy			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tajaran/summer			= TRADER_THIS_TYPE,
-		/obj/item/clothing/under/pants/tajaran			= TRADER_THIS_TYPE,
+		/obj/item/clothing/pants/tajaran			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tajaran/raakti_shariim			= TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/storage/tajaran/fancy			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tajaran/nka_noble			= TRADER_THIS_TYPE,

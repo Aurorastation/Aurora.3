@@ -2,6 +2,7 @@
 	name = "ground"
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroid"
+	does_footprint = TRUE
 
 /turf/simulated/floor/exoplanet/barren/update_icon()
 	overlays.Cut()

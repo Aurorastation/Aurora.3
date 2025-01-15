@@ -1,0 +1,102 @@
+2025-01-01:
+  DreamySkrell, Tomixcomics:
+  - rscadd: Adds three new potted plants.
+2025-01-02:
+  ASmallCuteCat:
+  - qol: You can now create Slimy Meat (the stuff you get from clams and molluscs)
+      at the biogenerator, for 75 points per item.
+  FlamingLily:
+  - rscadd: Updated the Aphy plush's description to accurately reflect the sociopolitical
+      situation on Mars.
+  hazelmouse:
+  - bugfix: Vaurca Consulars with Federation or Hegemony citizenships now properly
+      spawn with thermic blasters on their belt slot.
+  - bugfix: Vaurca Consulars with C'thur or K'lax citizenships no longer spawn with
+      an energy pistol in addition to their thermic blaster.
+2025-01-04:
+  Geeves:
+  - rscadd: Psionic apexes now more reliably flip bottles upright or onto their cap.
+  Tag114:
+  - rscadd: Assistants can now start with faction backpacks.
+  Warbidon:
+  - spellcheck: Skrell have replaced the Social Credit Score with Social Compatibility
+      Index.
+  hazelmouse:
+  - rscadd: Medical equipment lockers now spawn with full-body Tajaran surgical garbs,
+      intended for use during surgery
+  victorShchagin:
+  - bugfix: Airlocks, vendors, and other machinery no longer cause continuous shocks
+      to the user while the TGUI window is open.
+2025-01-05:
+  Jasorn:
+  - bugfix: Fixed sand showing up as glass in the ore console. Also used defines in
+      ore_datum where they should be instead of strings
+2025-01-10:
+  FluffyGhost:
+  - refactor: Added various events to the dcs system in regards to click handling.
+  - refactor: Refactored various mouse related procs.
+  - bugfix: Fixed MUI mask.
+  - bugfix: Fixed AI jump on double click.
+  - bugfix: Fixed some runtimes with the click handler system.
+  - code_imp: Updated the click handler system.
+  - bugfix: Fixed fireman carry.
+  Wowzewow (Wezzy):
+  - rscadd: Adds a pants slot. Check your loadout. Note that they are no longer a
+      uniform slot item and you no longer attach accessories to them.
+  - rscadd: Kneepads, leather chaps, and suspenders now are attached to pants rather
+      than uniform slot items.
+  - rscadd: Shirts are now a uniform slot item and are no longer accessories.
+  - bugfix: Fixes accessories not properly overlaying on uniform items.
+  Yonnimer:
+  - rscadd: Changes the Geras Dionae min age from 30 to 1.
+2025-01-11:
+  Ben10083:
+  - bugfix: Shuttle manifest can now be accessed on cyborg or AI integrated computers.
+  Geeves:
+  - rscadd: Added a blurb to the Odyssey early announcement detailing that crew from
+      all departments are encouraged to volunteer, and that they should be accepted
+      in almost all circumstances.
+2025-01-12:
+  ChangeMe:
+  - rscadd: Added Research staff access to the air alarms on the Quark.
+  - rscadd: Added a recharger, shortwave radio, basic first-aid kit, two pneumalin
+      autoinhalers, and an expedition tent the Quark.
+  - rscadd: Added purple Research coloured shortwave radios to the Research expedition
+      prep area.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes plate carrier accessories not showing up.
+2025-01-13:
+  RustingWithYou:
+  - rscadd: Adds origins and an accent for the Viridis.
+  - rscadd: Allows Dionae to be Hegemony consulars.
+2025-01-14:
+  Ben10083:
+  - refactor: Refactored how merchant program is handled, removing need for various
+      presets for each merchant faction.
+  - bugfix: Minor fixes to Golden Deep Ship.
+  Geeves:
+  - rscadd: All the ballistic weapons in the armory now start unloaded. Magazines
+      and rounds that would've spawned in the weapon now spawns in the ammo lockers.
+      In effect, two beanbags shells have been added to the armory.
+  MattAtlas:
+  - bugfix: Fixed PDAs not being automatically updated by the Force Change Name admin
+      action.
+  - bugfix: Announcements from non-Horizon ships drifting into hazards no longer spawn
+      observer chat. You will only get the announcements if you are on the same z-level.
+      The Horizon will still send its announcements globally.
+  - bugfix: Offships no longer send newscaster announcements.
+  - bugfix: Fixed ling stings not working. Again.
+  - bugfix: The robotics core console no longer reverts into a normal R&D console
+      when disassembled and reassembled.
+  - bugfix: The robotics core console now has its own circuit that can be made through
+      R&D.
+  - bugfix: Fixed the message that simple mobs print when they step on a trap.
+  - bugfix: Fixed the foam sword sprite.
+  - bugfix: Fixed damaged wall overlays.
+  - bugfix: Fixed the INDRA field getting messed up by pointing at it.
+  - bugfix: Apple pies now count for the pie bounty.
+  - bugfix: Changeling chameleon claws no longer spawn in the warehouse.
+  - bugfix: Admin click-drag to possess has been fixed.
+  - bugfix: Fixed the minimum damage threshold to delimb. Limbs won't be cut off or
+      gibbed by very small amounts of damage anymore.
+  - bugfix: The Pull psionic ability no longer pulls anchored objects.

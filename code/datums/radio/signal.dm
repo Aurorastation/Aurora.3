@@ -17,7 +17,7 @@
 
 /datum/signal/proc/debug_print()
 	if (source)
-		. = "signal = {source = '[source]' ([source:x],[source:y],[source:z])\n"
+		. = "signal = {source = '[source]' ([source.x],[source.y],[source.z])\n"
 	else
 		. = "signal = {source = '[source]' ()\n"
 	for (var/i in data)
