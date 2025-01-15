@@ -12,6 +12,7 @@
 	universal_speak = 1
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
+	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
 
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
@@ -430,11 +431,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.add_hiddenprint(src)
 		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
 
-/mob/abstract/ghost/observer/pointed(atom/A as mob|obj|turf in view())
-	if(!..())
-		return 0
-	src.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
-	return 1
+/mob/abstract/ghost/observer/pointed(atom/pointing_at)
+	. = ..()
+	if(!.)
+		return
+
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [pointing_at]</span>")
 
 /mob/abstract/ghost/observer/proc/manifest(mob/user)
 	is_manifest = 0

@@ -701,7 +701,7 @@
 /obj/item/clothing/mask/offworlder{
 	color = "#7d3e6a"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#604343"
 	},
 /obj/item/clothing/under/offworlder{
@@ -756,10 +756,10 @@
 	color = "#7B5143"
 	},
 /obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/tshirt/skrell/nebula/black,
 /obj/item/clothing/ears/skrell/scrunchy,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/gloves/offworlder{
 	color = "#604343"
 	},
@@ -774,7 +774,7 @@
 /obj/item/clothing/accessory/dressshirt{
 	color = "#bbbbbb"
 	},
-/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/pants/jeansblack,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/sidecap{
 	color = "#2E2E2E";

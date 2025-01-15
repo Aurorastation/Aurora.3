@@ -8,7 +8,7 @@
 	height_min = 100
 	height_max = 250
 	total_health = 240
-	age_min = 30
+	age_min = 1
 	age_max = 1000
 	default_genders = list(PLURAL)
 	selectable_pronouns = list(NEUTER, PLURAL)
@@ -18,7 +18,7 @@
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	language = LANGUAGE_ROOTSONG
-	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA, LANGUAGE_UNATHI)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
