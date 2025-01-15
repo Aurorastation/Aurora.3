@@ -74,7 +74,6 @@
 /obj/outfit/job/assistant/waiter
 	name = "Wait Staff"
 	uniform = /obj/item/clothing/under/waiter
-  
 /datum/job/visitor
 	title = "Off-Duty Crew Member"
 	flag = VISITOR
