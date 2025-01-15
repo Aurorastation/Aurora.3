@@ -46,6 +46,14 @@
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
 
+	/*
+	* Lazy associative list of currently active cooldowns.
+	*
+	* cooldowns [ COOLDOWN_INDEX ] = add_timer()
+	* add_timer() returns the truthy value of -1 when not stoppable, and else a truthy numeric index
+	*/
+	var/list/cooldowns
+
 	/// Used to avoid unnecessary refstring creation in Destroy().
 	var/tmp/has_state_machine = FALSE
 
@@ -146,6 +154,37 @@
 
 	for(var/target in _signal_procs)
 		UnregisterSignal(target, _signal_procs[target])
+
+/**
+ * Callback called by a timer to end an associative-list-indexed cooldown.
+ *
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
+ *
+ * This sends a signal reporting the cooldown end.
+ */
+/proc/end_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_STOP(index))
+	TIMER_COOLDOWN_END(source, index)
+
+
+/**
+ * Proc used by stoppable timers to end a cooldown before the time has ran out.
+ *
+ * Arguments:
+ * * source - datum storing the cooldown
+ * * index - string index storing the cooldown on the cooldowns associative list
+ *
+ * This sends a signal reporting the cooldown end, passing the time left as an argument.
+ */
+/proc/reset_cooldown(datum/source, index)
+	if(QDELETED(source))
+		return
+	SEND_SIGNAL(source, COMSIG_CD_RESET(index), S_TIMER_COOLDOWN_TIMELEFT(source, index))
+	TIMER_COOLDOWN_END(source, index)
 
 ///Generate a tag for this /datum, if it implements one
 ///Should be called as early as possible, best would be in New, to avoid weakref mistargets

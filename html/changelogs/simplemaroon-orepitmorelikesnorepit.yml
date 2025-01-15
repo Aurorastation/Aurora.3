@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: ChangeMe
+author: SimpleMaroon
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added Research staff access to the air alarms on the Quark."
-  - rscadd: "Added a recharger, shortwave radio, basic first-aid kit, two pneumalin autoinhalers, and an expedition tent the Quark."
-  - rscadd: "Added purple Research coloured shortwave radios to the Research expedition prep area."
+  - rscadd: "Added Orepit citizenship, which is unique to human Orepitters and IPCs. This is the only citizenship option both Orepit origins are able to select."
+  - qol: "Both Orepit origins now include information on job/faction limitations and which accent to pick for human Orepitters."
