@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added four new assistant alt titles: Wait Staff, Technical Assistant, Lab Assistant, and Medical Orderly (These are still ASSISTANTS, and cannot perform the relevant departmental skills. These are also different from learner roles, such as the Interns.)"
-  - rscadd: "Renamed the existing "Lab Assistant" (The learner role) to "Research Intern" to better represent the intent for the role and to make space for the alt title."
+  - rscadd: "Added four new assistant alt titles: Wait Staff, Technical Assistant, Lab Assistant, and Medical Orderly. (These are still ASSISTANTS, and cannot perform the relevant departmental skills. These are also different from learner roles, such as the Interns.)"
+  - rscadd: "Renamed the existing Lab Assistant (The learner role) to Research Intern to better represent the intent for the role and to make space for the alt title."
