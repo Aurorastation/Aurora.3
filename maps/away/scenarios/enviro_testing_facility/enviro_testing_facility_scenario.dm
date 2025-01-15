@@ -1,6 +1,6 @@
 /singleton/scenario/enviro_testing_facility
 	name = "Environmental Testing Facility Zoya"
-	desc = "A research and development facility on a barren planet, in a otherwise uninteresting sector. \
+	desc = "A environmental testing facility on a barren planet, in a otherwise uninteresting sector. \
 			SCCV Horizon, the closest ship in this sector, was dispatched to investigate."
 	scenario_site_id = "enviro_testing_facility"
 
@@ -10,13 +10,13 @@
 	scenario_announcements = /singleton/scenario_announcements/enviro_testing_facility
 
 	roles = list(
-		/singleton/role/enviro_testing_facility,
-		/singleton/role/enviro_testing_facility/mercenary,
-		/singleton/role/enviro_testing_facility/mercenary/medic,
-		/singleton/role/enviro_testing_facility/mercenary/engineer,
-		/singleton/role/enviro_testing_facility/director,
-		/singleton/role/enviro_testing_facility/scientist,
-		/singleton/role/enviro_testing_facility/engineer,
+		// /singleton/role/enviro_testing_facility,
+		// /singleton/role/enviro_testing_facility/mercenary,
+		// /singleton/role/enviro_testing_facility/mercenary/medic,
+		// /singleton/role/enviro_testing_facility/mercenary/engineer,
+		// /singleton/role/enviro_testing_facility/director,
+		// /singleton/role/enviro_testing_facility/scientist,
+		// /singleton/role/enviro_testing_facility/engineer,
 	)
 	default_outfit = /obj/outfit/admin/generic/enviro_testing_facility_crew
 
@@ -26,13 +26,14 @@
 
 /singleton/scenario_announcements/enviro_testing_facility
 	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon. There's been some proprietary Zeng-Hu tech reported missing from nearby corporate facilities, \
-	recently tracked down to a planet, Juliett-Enderly, located in your current sector. You are the closest to this planet, and should investigate and \
-	recover any stolen tech, if any is found. Approach with caution, but heavy resistance is not expected, as monitored ship traffic is light around here. \
-	Landing sites have been registered and cleared, you may now depart to the planet."
-
-	offship_announcement_message = "An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck."
-
+	horizon_unrestrict_landing_message = "\
+		Greetings, SCCV Horizon. \
+		You are to investigate and report back of your findings.\
+		"
+	offship_announcement_message = "\
+		An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck.\
+		"
+/*
 /singleton/role/enviro_testing_facility
 	name = "Mercenary Team Lead"
 	desc = "You are the leader of a mercenary detachment found in the outpost. Your team could have been an independent mercenary company contracted \
@@ -77,3 +78,4 @@
 	desc = "You are an engineer in charge of keeping the outpost functioning. Luckily, your utility to someone else might be what saves your skin \
 			this time around..."
 	outfit = /obj/outfit/admin/generic/enviro_testing_facility_crew/engineer
+*/
