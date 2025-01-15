@@ -1,3 +1,7 @@
+
+// --------------------------
+
+/// Door helper base/parent type.
 /obj/effect/map_effect/door_helper
 	layer = CLOSED_DOOR_LAYER + 0.01
 
@@ -12,12 +16,20 @@
 /obj/effect/map_effect/door_helper/proc/modify_door(obj/machinery/door/D)
 	return
 
+// --------------------------
+
+/// Directional access unrestriction.
+/// Removes access requirement on the door it is placed on top of, in the helper's direction.
+/// Example use: entering a room or department requires an ID access, but leaving it is always possible without any ID.
 /obj/effect/map_effect/door_helper/unres
 	icon_state = "unres_door"
 
 /obj/effect/map_effect/door_helper/unres/modify_door(obj/machinery/door/D)
 	D.unres_dir ^= dir
 
+// --------------------------
+
+/// Ship alert level dependent access.
 /obj/effect/map_effect/door_helper/level_access
 	icon_state = "level_door"
 
@@ -60,6 +72,8 @@
 	"delta" = list(19,38)
 )
 
+// --------------------------
+
 /// Locks/bolts any (lockable) door/airlock this marker is placed on.
 /obj/effect/map_effect/door_helper/lock
 	icon_state = "locked"
@@ -70,3 +84,16 @@
 		var/obj/machinery/door/airlock/A = D
 		A.locked = TRUE
 		A.set_airlock_overlays(AIRLOCK_CLOSED)
+
+// --------------------------
+
+/// Adds access requirements to the door this helper is placed on.
+/obj/effect/map_effect/door_helper/access_req
+	icon_state = "access"
+
+/obj/effect/map_effect/door_helper/access_req/modify_door(obj/machinery/door/door)
+	. = ..()
+	if(isairlock(door) || istype(door, /obj/machinery/door/window))
+		var/obj/machinery/door/airlock/airlock = door
+		airlock.req_access = req_access
+		airlock.req_one_access = req_one_access
