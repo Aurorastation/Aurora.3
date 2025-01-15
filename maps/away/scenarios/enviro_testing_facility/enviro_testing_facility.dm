@@ -70,24 +70,28 @@
 
 /obj/effect/overmap/visitable/sector/enviro_testing_facility/generate_ground_survey_result()
 	..()
-	if(prob(80))
-		ground_survey_result += "<br>Analysis indicates sands rich in silica"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>Muddy dirt rich in organic material"
-	// if(prob(40))
-	// 	ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
-	// if(prob(60))
-	// 	ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
-	// if(prob(10))
-	// 	ground_survey_result += "<br>Traces of fissile material"
+	if(prob(50))
+		ground_survey_result += "<br>Evidence of lava tubes being present in the subsurface"
+	if(prob(50))
+		ground_survey_result += "<br>Water ice pockets detected deep underground"
+	if(prob(50))
+		ground_survey_result += "<br>No geothermal activity observed in the planetary core"
+	if(prob(50))
+		ground_survey_result += "<br>Micro-textural analysis indicates availability of fissile material"
+	if(prob(50))
+		ground_survey_result += "<br>Surface soil may provide adequate radiation shielding"
+	if(prob(50))
+		ground_survey_result += "<br>Silicon carbides found deep in the crust"
+	if(prob(50))
+		ground_survey_result += "<br>Oxygen found in locally stable metal oxides"
+	if(prob(40))
+		ground_survey_result += "<br>Regolith rich in heavy silicate alloys"
+	if(prob(30))
+		ground_survey_result += "<br>Relatively high abundance of fusile material, accumulated on the surface by the solar wind"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fusile material"
+	if(prob(10))
+		ground_survey_result += "<br>Carbon nanotubes naturally found in the regolith"
 
 // --------------------------------------------------- misc
 
