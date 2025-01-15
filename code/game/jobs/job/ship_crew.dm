@@ -48,6 +48,11 @@
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
+	backpack_faction = /obj/item/storage/backpack/nt
+	satchel_faction = /obj/item/storage/backpack/satchel/nt
+	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
+	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
+
 /obj/outfit/job/assistant/lab_assistant
 	name = "Lab Assistant"
 	uniform = /obj/item/clothing/under/color/lightpurple
