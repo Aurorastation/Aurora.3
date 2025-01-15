@@ -1,5 +1,6 @@
 /obj/item/organ/internal/heart
 	name = "heart"
+	desc = "When it's calling to you, you'd better listen."
 	icon_state = "heart-on"
 	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
