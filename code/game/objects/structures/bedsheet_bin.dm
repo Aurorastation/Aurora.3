@@ -73,20 +73,21 @@ LINEN BINS
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/MouseDrop(mob/user)
-	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
-			if( !user.get_active_hand() )		//if active hand is empty
+/obj/item/bedsheet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(!istype(over, /mob/living/carbon/slime) && !istype(over, /mob/living/simple_animal))
+			var/mob/mouse_dropped_over = over
+			if( !mouse_dropped_over.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/bedsheet/update_icon()

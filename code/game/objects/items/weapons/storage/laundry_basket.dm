@@ -58,8 +58,8 @@
 	return
 
 
-/obj/item/storage/laundry_basket/MouseDrop(obj/over_object as obj)
-	if(over_object == usr)
+/obj/item/storage/laundry_basket/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over == user)
 		return
 	else
 		return ..()

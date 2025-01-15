@@ -246,19 +246,32 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
+/// Handles displaying bandages on the mob icon, and whether the mob should have the add/remove bandages verb attached to it
 /mob/living/carbon/human/proc/update_bandages(var/update_icons = TRUE)
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
 
 	var/list/ovr
-	if(overlays_raw[MOB_DAMAGE_LAYER])
-		for(var/obj/item/organ/external/O in organs)
-			if(O.is_stump())
-				continue
-			var/bandage_level = O.bandage_level()
-			if(bandage_level)
-				LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
+	for(var/obj/item/organ/external/O in organs)
+		if(O.is_stump())
+			continue
+		var/bandage_level = O.bandage_level
+		if(bandage_level)
+			LAZYADD(ovr, image(bandage_icon, "[O.icon_name][bandage_level]"))
+
+	// this next part handles whether the mob should have the Remove Bandages verb available
+	// obviously this is a little hacky, since this is the icon update function, but it's also the best place we loop through
+	// the various organs and calculate their bandage level
+	var/had_bandages = LAZYLEN(overlays_raw[BANDAGE_LAYER])
+	var/has_bandages = LAZYLEN(ovr)
+
+	// gained bandages
+	if(!had_bandages && has_bandages)
+		add_verb(src, /mob/living/carbon/human/proc/remove_bandages)
+	// lost bandages
+	else if(had_bandages && !has_bandages)
+		remove_verb(src, /mob/living/carbon/human/proc/remove_bandages)
 
 	overlays_raw[BANDAGE_LAYER] = ovr
 	if(update_icons)
@@ -268,7 +281,6 @@ There are several things that need to be remembered:
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
 /obj/item/proc/worn_overlays(icon_file)
-	. = null
 	. = list()
 	var/mutable_appearance/M = null
 	if(build_from_parts)
@@ -792,7 +804,7 @@ There are several things that need to be remembered:
 			var/layer = L_EAR_LAYER
 			var/layer_alt = L_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = l_ear
-			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
+			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = L_EAR_LAYER_ALT
 				layer_alt = L_EAR_LAYER
 
@@ -833,7 +845,7 @@ There are several things that need to be remembered:
 			var/layer = R_EAR_LAYER
 			var/layer_alt = R_EAR_LAYER_ALT
 			var/obj/item/device/radio/headset/wrist/W = r_ear
-			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
+			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = R_EAR_LAYER_ALT
 				layer_alt = R_EAR_LAYER
 
@@ -1193,7 +1205,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
 	if (QDELETED(src))
 		return
 
@@ -1233,7 +1245,7 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon(forceDirUpdate = TRUE)
 
-/mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
 	if (QDELETED(src))
 		return
 
@@ -1276,9 +1288,9 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[WRISTS_LAYER_UNDER] = null
-	overlays_raw[WRISTS_LAYER_UNIFORM] = null
-	overlays_raw[WRISTS_LAYER_OVER] = null
+	overlays_raw[UNDER_UNIFORM_LAYER_WR] = null
+	overlays_raw[ABOVE_UNIFORM_LAYER_WR] = null
+	overlays_raw[ABOVE_SUIT_LAYER_WR] = null
 
 	if(check_draw_wrists())
 		var/mob_icon
@@ -1307,12 +1319,57 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/wrist_layer = WRISTS_LAYER_OVER
+		var/wrist_layer = ABOVE_SUIT_LAYER_WR
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
 			wrist_layer = W.mob_wear_layer
 
 		overlays_raw[wrist_layer] = wrists_overlay
+
+	if(update_icons)
+		update_icon()
+
+/mob/living/carbon/human/update_inv_pants(var/update_icons=1)
+	if (QDELETED(src))
+		return
+
+	overlays_raw[UNDER_UNIFORM_LAYER_PA] = null
+	overlays_raw[ABOVE_UNIFORM_LAYER_PA] = null
+	overlays_raw[ABOVE_SUIT_LAYER_PA] = null
+
+	if(check_draw_pants())
+		var/mob_icon
+		var/mob_state = pants.item_state || pants.icon_state
+		if(pants.contained_sprite)
+			if(pants.icon_override)
+				mob_icon = pants.icon_override
+			else if(pants.sprite_sheets && pants.sprite_sheets[GET_BODY_TYPE])
+				mob_icon = pants.sprite_sheets[GET_BODY_TYPE]
+			else
+				mob_icon = pants.icon
+			pants.auto_adapt_species(src)
+			mob_state = "[UNDERSCORE_OR_NULL(pants.icon_species_tag)][pants.item_state][WORN_PANTS]"
+		else
+			if(pants.item_state_slots && pants.item_state_slots[slot_pants_str])
+				mob_state = pants.item_state_slots[slot_pants_str]
+
+			//determine icon to use
+			if(pants.item_icons && (slot_pants_str in pants.item_icons))
+				mob_icon = pants.item_icons[slot_pants_str]
+			else if(pants.icon_override)
+				mob_icon = pants.icon_override
+				mob_state += WORN_PANTS
+			else
+				mob_icon = INV_PANTS_DEF_ICON
+
+		var/image/pants_overlay = pants.get_mob_overlay(src, mob_icon, mob_state, slot_pants_str)
+
+		var/pants_layer = ABOVE_SUIT_LAYER_PA
+		if(istype(pants, /obj/item/clothing/pants))
+			var/obj/item/clothing/pants/P = pants
+			pants_layer = P.mob_wear_layer
+
+		overlays_raw[pants_layer] = pants_overlay
 
 	if(update_icons)
 		update_icon()
@@ -1595,6 +1652,18 @@ There are several things that need to be remembered:
 	else if (wrists.flags_inv & ALWAYSDRAW)
 		return TRUE
 	else if (wear_suit?.flags_inv & HIDEWRISTS)
+		return FALSE
+	else
+		return TRUE
+
+/mob/living/carbon/human/proc/check_draw_pants()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	if (!pants)
+		return FALSE
+	else if (pants.flags_inv & ALWAYSDRAW)
+		return TRUE
+	else if (pants.flags_inv & HIDEPANTS)
 		return FALSE
 	else
 		return TRUE

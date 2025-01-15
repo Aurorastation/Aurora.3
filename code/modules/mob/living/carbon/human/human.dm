@@ -1884,11 +1884,11 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	if(ishuman(over_object))
-		var/mob/living/carbon/human/H = over_object
+/mob/living/carbon/human/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(ishuman(over))
+		var/mob/living/carbon/human/H = over
 		if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
-			get_scooped(H, (usr == src))
+			get_scooped(H, (user == src))
 			return
 	return ..()
 

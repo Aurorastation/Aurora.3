@@ -1,3 +1,8 @@
+#define MODSUIT_REGULAR "Regular"
+#define MODSUIT_SHORTSLEEVE "Shortsleeve"
+#define MODSUIT_PANTS "Pants"
+#define MODSUIT_SHORTS "Shorts"
+
 // PMCG Modsuit
 /obj/item/clothing/under/pmc_modsuit
 	name = "\improper PMCG modsuit"
@@ -10,47 +15,46 @@
 	item_state = "pmcg_modsuit"
 	contained_sprite = TRUE
 	action_button_name = "Change Modsuit"
-	var/modsuit_mode = 0
-	var/list/names = list(
-		"\improper PMCG modsuit",
-		"\improper PMCG shortsleeved modsuit",
-		"\improper PMCG modsuit pants",
-		"\improper PMCG shorts modsuit")
+
+	/// The current display mode of the modsuit
+	var/modsuit_mode = MODSUIT_REGULAR
+
+	/// The possible options the modsuit can be configured into, it's a key value list which get populated in Initialize, the key is the name of the mode, while the value is the icon for the radial menu
+	var/list/configuration_options = list(
+		MODSUIT_REGULAR,
+		MODSUIT_SHORTSLEEVE,
+		MODSUIT_PANTS,
+		MODSUIT_SHORTS
+	)
 
 /obj/item/clothing/under/pmc_modsuit/Initialize()
-	for(var/option in names)
-		if(!modsuit_mode)
-			names[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', icon_state)
-			modsuit_mode = 1
-		else
-			names[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
-	modsuit_mode = 0
-	.=..()
+	. = ..()
+	for(var/option in configuration_options)
+		configuration_options[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', initial(icon_state) + "_" + option)
+
+/obj/item/clothing/under/pmc_modsuit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += SPAN_NOTICE("It's currently in the [SPAN_BOLD("[modsuit_mode]")] configuration.")
 
 /obj/item/clothing/under/pmc_modsuit/attack_self(mob/user)
 	select_modsuit(user)
 
+/// Opens the radial menu to let the user select their modsuit configuration
 /obj/item/clothing/under/pmc_modsuit/proc/select_modsuit(mob/user)
-	var/modsuit_choice = RADIAL_INPUT(user, names)
+	var/modsuit_choice = RADIAL_INPUT(user, configuration_options)
 	if(!modsuit_choice)
 		return
-	modsuit_mode = names.Find(modsuit_choice) - 1
 
+	modsuit_mode = modsuit_choice
 	selected_modsuit(user)
-	update_clothing_icon()
 
-/obj/item/clothing/under/pmc_modsuit/proc/selected_modsuit(mob/user as mob)
-	if(!modsuit_mode)
-		name = initial(name)
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
-	else
-		name = names[modsuit_mode + 1]
-		icon_state = initial(icon_state) + "_[modsuit_mode]"
-		item_state = initial(item_state) + "_[modsuit_mode]"
-
+/// Updates the clothing icon with the new modsuit_mode
+/obj/item/clothing/under/pmc_modsuit/proc/selected_modsuit(mob/user)
+	icon_state = initial(icon_state) + "_[modsuit_mode]"
+	item_state = initial(item_state) + "_[modsuit_mode]"
 	update_clothing_icon()
-	user.update_action_buttons()
+	if(user)
+		user.update_action_buttons()
 
 /obj/item/clothing/under/pmc_modsuit/verb/change_modsuit()
 	set name = "Change Modsuit"
@@ -60,6 +64,11 @@
 		return
 
 	select_modsuit(usr)
+
+#undef MODSUIT_REGULAR
+#undef MODSUIT_SHORTSLEEVE
+#undef MODSUIT_PANTS
+#undef MODSUIT_SHORTS
 
 /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	name = "wildlands squadron uniform"

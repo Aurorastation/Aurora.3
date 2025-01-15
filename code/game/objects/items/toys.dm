@@ -1143,7 +1143,7 @@
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
-	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. The original Aphy was tragically lost alongside Hephaestus' Mars headquarters during the Violet Dawn disaster, but the unit lives on as a cutesy, marketable mascot."
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 
@@ -1313,7 +1313,7 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/sword.dmi'
+	icon = 'icons/obj/sword_64.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = WEIGHT_CLASS_BULKY

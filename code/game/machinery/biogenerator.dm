@@ -50,6 +50,11 @@
 	name = "Synthetic Meat"
 	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 
+/singleton/biorecipe/food/slimymeat
+	name = "Slimy Meat"
+	object = /obj/item/reagent_containers/food/snacks/fish/mollusc
+	cost = 75
+
 /singleton/biorecipe/food/soywafers
 	name = "Soy Wafers"
 	object = /obj/item/reagent_containers/food/snacks/soywafers

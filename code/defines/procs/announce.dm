@@ -8,7 +8,7 @@
 	var/sound
 	var/newscast = 0
 	var/print = 0
-	var/channel_name = "Station Announcements"
+	var/channel_name = "Announcements"
 	var/announcement_type = "Announcement"
 
 /datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
@@ -47,15 +47,17 @@
 		if(isnewplayer(M))
 			continue
 
-		if(isghost(M) || (!isdeaf(M) && (GET_Z(M) in (zlevels | SSatlas.current_map.admin_levels))))
+		// Due to spam, only print announcements if the ghost is in the matching z-level, OR if it's a Horizon message.
+		if(isghost(M) || (!isdeaf(M) && ((GET_Z(M) in zlevels) || zlevels == SSatlas.current_map.contact_levels)))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
 				if(message_sound && !isdeaf(M) && (M.client?.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
-	if(do_newscast)
+
+	if(do_newscast && zlevels == SSatlas.current_map.contact_levels)
 		NewsCast(message, message_title)
-	if(do_print)
+	if(do_print && zlevels == SSatlas.current_map.contact_levels)
 		post_comm_message(message_title, message)
 	Log(message, message_title)
 

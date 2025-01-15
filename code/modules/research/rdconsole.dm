@@ -874,6 +874,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	id = 1
 	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
+	circuit = /obj/item/circuitboard/robotics_console
 
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"

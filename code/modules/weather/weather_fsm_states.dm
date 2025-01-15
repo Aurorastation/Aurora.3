@@ -29,12 +29,18 @@ ABSTRACT_TYPE(/singleton/state/weather)
 	weather.icon_state = icon_state
 	weather.alpha = alpha
 
-	if(is_liquid && weather.water_material)
-		var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
-		weather.color = mat.icon_colour
-	else if(is_ice && weather.ice_material)
-		var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
-		weather.color = mat.icon_colour
+	// Temporarily removing the material checks, we do not have the same material system as Nebula
+	// if(is_liquid && weather.water_material)
+	// 	var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
+	// 	weather.color = mat.icon_colour
+	// else if(is_ice && weather.ice_material)
+	// 	var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
+	// 	weather.color = mat.icon_colour
+
+	if(is_liquid)
+		weather.color = "#689dd4"
+	else if(is_ice)
+		weather.color = "#a9c8e8"
 	else
 		weather.color = COLOR_WHITE
 

@@ -411,7 +411,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su_emis" : "jacket_highvis_su_emis"]", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su-emis" : "jacket_highvis_su-emis"]", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 

@@ -419,6 +419,8 @@
 	taste_description = "chalky starch"
 	color = "#DFDEA1"
 	condiment_name = "Adhomian flour sack"
+	condiment_desc = "Flour ground from pure Adhomian blizzard ears!"
+	condiment_icon_state = "flour_blizzard"
 
 /singleton/reagent/nutriment/coco
 	name = "Coco Powder"
@@ -6986,6 +6988,17 @@
 	glass_desc = "Ancient boba-tea marketing teams believed this cherry-strawberry flavored drink holds magical powers of love! What does that mean? Nobody knows!"
 	glass_center_of_mass = list("x"=15, "y"=10)
 
+/singleton/reagent/drink/dyn_boba
+	name = "Dyn Boba Tea"
+	description = "Dyn ice tea with boba pearls."
+	nutrition = 3
+	color = "#00ecec"
+	taste_description = "fizzy mint tapioca tea"
+	glass_icon_state = "boba_dyn"
+	glass_name = "dyn boba"
+	glass_desc = "A dyn boba drink, sometimes referred to as 'boba dyn', combining both skrell and human cultures of putting tasty, soft, chewy things in drinks."
+	glass_center_of_mass = list("x"=15, "y"=10)
+
 /singleton/reagent/drink/zobo
 	name = "Zobo"
 	description = "A roselle juice popular across Eridani, often drunk cold."
@@ -6995,3 +7008,22 @@
 	glass_icon_state = "zobo_glass"
 	glass_name = "glass of zobo"
 	glass_desc = "A roselle juice popular across Eridani, often drunk cold."
+
+/singleton/reagent/condiment/gravy
+	name = "Gravy"
+	description = "A thick sauce made from the juice of meat that occurs naturally during cooking."
+	taste_description = "gravy"
+	color = "#a36a35"
+	condiment_desc = "A thick meaty sauce for your dishes."
+	taste_mult = 3
+
+/singleton/reagent/drink/chocolate_soda
+	name = "Chocolate Soda"
+	description = "Chocolate flavored soda made with real cocoa, popular in Mictlan under the name Mojoka."
+	color = "#3b1e10"
+	taste_description = "fizzy chocolate"
+	carbonated = TRUE
+
+	glass_icon_state = "chocolate_soda"
+	glass_name = "glass of chocolate soda"
+	glass_desc = "Mostly popular in Mictlan under the local name 'mojoka', this drink, mostly popular in friendly gatherings and celebrations, is in essence, a chocolate flavored soda made with real cocoa."

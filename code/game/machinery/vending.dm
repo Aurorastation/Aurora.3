@@ -2,13 +2,18 @@
  *  Datum used to hold information about a product in a vending machine
  */
 /datum/data/vending_product
-	var/product_name = "generic" // Display name for the product
+	/// Display name for the product
+	var/product_name = "generic"
 	var/product_path = null
-	var/amount = 0  // Amount held in the vending machine
+	/// Amount held in the vending machine
+	var/amount = 0
 	var/max_amount = 0
-	var/price = 0  // Price to buy one
-	var/display_color = null  // Display color for vending machine listing
-	var/category = CAT_NORMAL  // CAT_HIDDEN for contraband, CAT_COIN for premium
+	/// Price to buy one
+	var/price = 0
+	/// Display color for vending machine listing
+	var/display_color = null
+	/// `CAT_HIDDEN` for contraband, `CAT_COIN` for premium
+	var/category = CAT_NORMAL
 	var/icon/product_icon
 	var/icon/icon_state
 
@@ -52,24 +57,34 @@
 	manufacturer = "idris"
 	z_flags = ZMM_MANGLE_PLANES
 
-	var/icon_vend //Icon_state when vending
-	var/icon_deny //Icon_state when denying
+	/// `icon_state` when vending
+	var/icon_vend
+	/// `icon_state` when denying
+	var/icon_deny
 	var/icon_screen
 
 	// Power
 	idle_power_usage = 10
-	var/vend_power_usage = 150 //actuators and stuff
+	/// Actuators and stuff. How much power is used when vending an item
+	var/vend_power_usage = 150
 
 	// Vending-related
-	var/active = 1 //No sales pitches if off!
-	var/vend_ready = 1 //Are we ready to vend?? Is it time??
-	var/vend_delay = 10 //How long does it take to vend?
+	/// No sales pitches if off!
+	var/active = TRUE
+	/// Are we ready to vend?? Is it time??
+	var/vend_ready = TRUE
+	/// How long does it take to vend?
+	var/vend_delay = 10
 	var/vending = FALSE
 
-	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
-	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
-	var/status_message = "" // Status screen messages like "insufficient funds", displayed in NanoUI
-	var/status_error = 0 // Set to 1 if status_message is an error
+	/// Bitmask of categories we're currently showing. Defines in `machinery.dm`
+	var/categories = CAT_NORMAL
+	/// What we're requesting payment for right now
+	var/datum/data/vending_product/currently_vending = null
+	/// Status screen messages like "insufficient funds", displayed in NanoUI
+	var/status_message = ""
+	/// Set to 1 if status_message is an error
+	var/status_error = 0
 
 	/*
 		Variables used to initialize the product list
@@ -81,52 +96,76 @@
 	var/list/premium 	= list() // No specified amount = only one in stock
 	var/list/prices     = list() // Prices for each item, list(/type/path = price), items not in the list don't have a price.
 
-	// List of vending_product items available.
+	/// List of vending_product items available.
 	var/list/product_records = list()
 
 
 	// Variables used to initialize advertising
-	var/product_slogans = "" //String of slogans spoken out loud, separated by semicolons
-	var/product_ads = "" //String of small ad messages in the vending screen
-
+	/// String of slogans spoken out loud, separated by semicolons
+	var/product_slogans = ""
+	/// Set on init. Populated by `product_slogans`
+	var/list/slogan_list = list()
+	/// String of small ad messages in the vending screen
+	var/product_ads = ""
+	/// Set on init. Populated by `product_ads`
 	var/list/ads_list = list()
+	/// String of messages spoken when item is vended, seperated by semicolons
+	var/vend_reply = ""
+	/// Set on init. Populated by `vend_reply`
+	var/list/reply_list = list()
 
 	// Stuff relating vocalizations
-	var/list/slogan_list = list()
-	var/shut_up = 1 //Stop spouting those godawful pitches!
-	var/vend_reply //Thank you for shopping!
+	/// Stop spouting those godawful pitches!
+	var/shut_up = TRUE
+	/// When did we last reply?
 	var/last_reply = 0
-	var/last_slogan = 0 //When did we last pitch?
-	var/slogan_delay = 6000 //How long until we can pitch again?
+	/// When did we last pitch?
+	var/last_slogan = 0
+	/// How long until we can pitch again?
+	var/slogan_delay = 10 MINUTES
 
 	// Things that can go wrong
-	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
-	var/seconds_electrified = 0 //Shock customers like an airlock.
-	var/shoot_inventory = 0 //Fire items at customers! We're broken!
+	/// Ignores if somebody doesn't have card access to that machine.
+	emagged = FALSE
+	/// Shock customers like an airlock.
+	var/seconds_electrified = 0
+	/// Fire items at customers! We're broken!
+	var/shoot_inventory = FALSE
 	var/shoot_inventory_chance = 1
 
-	var/scan_id = 1
+	/// If `TRUE`, this vendor checks IDs.
+	var/scan_id = TRUE
 	var/obj/item/coin/coin
 	var/datum/wires/vending/wires = null
 
-	var/can_move = 1	//if you can wrench the machine out of place
-	var/vend_id = "generic"	//Id of the refill cartridge that has to be used
-	var/restock_items = 0	//If items can be restocked into the vending machine
-	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
-	var/random_itemcount = 1 //If the number of items should be randomized
+	/// If you can wrench the machine out of place
+	var/can_move = TRUE
+	/// Id of the refill cartridge that has to be used
+	var/vend_id = "generic"
+	/// If items can be restocked into the vending machine
+	var/restock_items = FALSE
+	/// Items that can not be restocked if `restock_items` is enabled
+	var/list/restock_blocked_items = list()
+	/// If the number of items should be randomized
+	var/random_itemcount = TRUE
 	var/sel_key = 0
 
-	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
+	/// -1 means cooling, 1 means heating, 0 means doing nothing.
+	var/temperature_setting = 0
 
-	var/cooling_temperature = T0C + 5 //Best temp for soda.
-	var/heating_temperature = T0C + 57 //Best temp for coffee.
+	/// Best temp for soda. Called when `temperature_setting` = -1
+	var/cooling_temperature = T0C + 5
+	/// Best temp for coffee. Called when `temperature_setting` = 1
+	var/heating_temperature = T0C + 57
 
+	/// Sound made when an item is vended
 	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
-	///Lighting mask for vending machine
+	/// Lighting mask for vending machine
 	var/light_mask
 
-	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	/// This is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	var/ui_size = 80
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
@@ -145,6 +184,9 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
+
+	if(src.vend_reply)
+		src.reply_list += text2list(src.vend_reply, ";")
 
 	reset_light()
 	build_products()
@@ -302,7 +344,10 @@
 		user.drop_from_inventory(attacking_item,src)
 		coin = attacking_item
 		categories |= CAT_COIN
-		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
+		if(coin.string_attached)
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src], but with the attached string hanging outside the vendor ready to be pulled out!"))
+		else
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
 	else if(attacking_item.iswrench())
@@ -679,11 +724,12 @@
 		if(coin.string_attached)
 			if(prob(50))
 				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
+				coin.forceMove(src.loc)
+				user.put_in_hands(coin)
+				coin = null
 			else
 				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
-				QDEL_NULL(coin)
-		else
-			QDEL_NULL(coin)
+		QDEL_NULL(coin)
 
 		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
 		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
@@ -698,8 +744,8 @@
 		R.amount--
 		SStgui.update_uis(src)
 
-	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		src.speak(src.vend_reply)
+	if(!src.shut_up && ((src.last_reply + (src.vend_delay + 200)) <= world.time) && length(src.reply_list))
+		src.speak(pick(src.reply_list))
 		src.last_reply = world.time
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
@@ -766,14 +812,14 @@
 
 /obj/machinery/vending/proc/speak(var/message)
 	if(stat & NOPOWER)
-		return
+		return FALSE
 
 	if (!message)
-		return
+		return FALSE
 
 	for(var/mob/O in hearers(src, null))
 		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
-	return
+	return TRUE
 
 /obj/machinery/vending/power_change()
 	..()
@@ -791,7 +837,7 @@
 		ClearOverlays()
 		set_light(0)
 
-//Oh no we're malfunctioning!  Dump out some product and break.
+/// Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()
 	for(var/datum/data/vending_product/R in src.product_records)
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
@@ -810,12 +856,12 @@
 	src.icon_state = "[initial(icon_state)]-broken"
 	return
 
-//Somebody cut an important wire and now we're following a new definition of "pitch."
+/// Somebody cut an important wire and now we're following a new definition of "pitch."
 /obj/machinery/vending/proc/throw_item()
 	var/obj/item/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
-		return 0
+		return FALSE
 
 	for(var/datum/data/vending_product/R in shuffle(product_records))
 		if (R.amount <= 0) //Try to use a record that actually has something to dump.
@@ -832,9 +878,9 @@
 		return FALSE
 	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
-	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3), src)
+	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3))
 	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
-	return 1
+	return TRUE
 
 // screens go over the lighting layer, so googly eyes go under them
 /obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
