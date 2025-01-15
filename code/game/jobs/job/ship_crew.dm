@@ -50,16 +50,19 @@
 
 /obj/outfit/job/assistant/lab_assistant
 	name = "Lab Assistant"
+	uniform = /obj/item/clothing/under/color/lightpurple
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/safety/goggles/science
 
 /obj/outfit/job/assistant/tech_assistant
 	name = "Technical Assistant"
+	uniform = /obj/item/clothing/under/color/yellowgreen
 	suit = /obj/item/clothing/suit/storage/hazardvest
 	backpack_contents = list(/obj/item/device/debugger = 1)
 
 /obj/outfit/job/assistant/med_assistant
 	name = "Medical Orderly"
+	uniform = /obj/item/clothing/under/color/blue
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	backpack_contents = list(/obj/item/reagent_containers/spray/sterilizine = 1)
 
