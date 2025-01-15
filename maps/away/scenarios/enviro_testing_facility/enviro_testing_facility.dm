@@ -35,7 +35,7 @@
 	name = "Anastasia-Archippos, Barren Planet"
 	desc = "\
 		Barren planet, covered in loose rocks, mountains, craters, with a expansive cave system deep underground. \
-		The planet, amusingly, holds a standard breathable atmosphere, and there are some traces of carbon-based life. \
+		The planet, however, holds a standard breathable atmosphere, and there are some traces of carbon-based life. \
 		Landing site is in a valley, near some facility carved into the mountain.\
 		"
 	icon_state = "globe2"
@@ -102,3 +102,15 @@
 /obj/item/research_slip/enviro_testing_facility
 	icon_state = "slip_generic"
 	origin_tech = list(TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_DATA = 4, TECH_ENGINEERING = 6, TECH_COMBAT = 6)
+
+/obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/control
+	req_access = /datum/access/enviro_testing_facility_access_control::id
+
+/obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres
+	req_access = /datum/access/enviro_testing_facility_access_medres::id
+
+/obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/engops
+	req_access = /datum/access/enviro_testing_facility_access_engops::id
+
+/obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/sec
+	req_access = /datum/access/enviro_testing_facility_access_sec::id
