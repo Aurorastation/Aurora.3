@@ -329,12 +329,7 @@
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/storage/pill_bottle/smart = 2,
-		/obj/item/reagent_containers/pill/cocaine = 3,
-		/obj/item/reagent_containers/pill/contemplus = 3,
-		/obj/item/reagent_containers/pill/sparkle = 3,
-		/obj/item/reagent_containers/pill/spotlight = 3,
-		/obj/item/reagent_containers/pill/heroin = 2,
-		/obj/item/reagent_containers/pill/joy = 2,
+		/obj/random/contraband/pill = 3,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/krokjuice = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/impedrezene = 0.4,
@@ -361,12 +356,7 @@
 		/obj/item/gun/projectile/pistol = 0.2,
 		/obj/item/gun/projectile/revolver/derringer = 0.4,
 		/obj/item/gun/projectile/shotgun/improvised/sawn = 0.3,
-		/obj/item/storage/pill_bottle/cocaine = 1,
-		/obj/item/storage/pill_bottle/contemplus = 1,
-		/obj/item/storage/pill_bottle/sparkle = 1,
-		/obj/item/storage/pill_bottle/spotlight = 1,
-		/obj/item/storage/pill_bottle/heroin = 1,
-		/obj/item/storage/pill_bottle/joy = 1,
+		/obj/random/contraband/pillbottle = 1,
 		/obj/item/material/knife/butterfly/switchblade = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
@@ -374,6 +364,31 @@
 		/obj/item/toy/balloon/syndicate = 4
 	)
 
+/obj/random/contraband/pill
+	name = "random contraband pill"
+	desc = "This is a random pill of illegal drugs."
+	icon_state = "knife"
+	problist = list(
+		/obj/item/reagent_containers/pill/cocaine = 3,
+		/obj/item/reagent_containers/pill/contemplus = 3,
+		/obj/item/reagent_containers/pill/sparkle = 3,
+		/obj/item/reagent_containers/pill/spotlight = 3,
+		/obj/item/reagent_containers/pill/heroin = 2,
+		/obj/item/reagent_containers/pill/joy = 2
+	)
+
+/obj/random/contraband/pillbottle
+	name = "random contraband pill bottle"
+	desc = "This is a random bottle of illegal pills."
+	icon_state = "knife"
+	problist = list(
+		/obj/item/storage/pill_bottle/cocaine = 1,
+		/obj/item/storage/pill_bottle/contemplus = 1,
+		/obj/item/storage/pill_bottle/sparkle = 1,
+		/obj/item/storage/pill_bottle/spotlight = 1,
+		/obj/item/storage/pill_bottle/heroin = 1,
+		/obj/item/storage/pill_bottle/joy = 1
+	)
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
