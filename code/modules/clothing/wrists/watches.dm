@@ -49,15 +49,6 @@
 	slot_flags = SLOT_WRISTS | SLOT_BELT | SLOT_S_STORE
 	var/closed = FALSE
 
-/obj/item/clothing/wrists/watch/pocketwatch/on_slotmove(mob/user, slot)
-	switch(slot)
-		if(slot_s_store)
-			mob_wear_layer = ABOVE_SUIT_LAYER_WR
-		if(slot_belt)
-			mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
-		if(slot_wrists)
-			mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
-
 /obj/item/clothing/wrists/watch/pocketwatch/AltClick(mob/user)
 	if(!closed)
 		icon_state = "[initial(icon_state)]_closed"
