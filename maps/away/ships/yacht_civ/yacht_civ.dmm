@@ -1133,7 +1133,7 @@
 /obj/item/coin/gold{
 	pixel_x = 7
 	},
-/obj/item/pocketwatch{
+/obj/item/clothing/wrists/watch/pocketwatch{
 	pixel_x = -4;
 	pixel_y = 6
 	},

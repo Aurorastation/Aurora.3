@@ -692,7 +692,7 @@
 /area/adhomai_village)
 "LL" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Mv" = (

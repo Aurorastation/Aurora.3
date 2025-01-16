@@ -40,10 +40,51 @@
 /obj/item/clothing/wrists/watch/spy/checktime()
 	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
 
+/obj/item/clothing/wrists/watch/pocketwatch
+	name = "pocketwatch"
+	desc = "A watch that goes in your pocket."
+	desc_extended = "Because your wrists have better things to do. Can go on your belt, suit storage, or on your wrist to create different appearances."
+	icon_state = "pocketwatch"
+	item_state = "pocketwatch"
+	slot_flags = SLOT_WRISTS | SLOT_BELT | SLOT_S_STORE
+	var/closed = FALSE
+
+/obj/item/clothing/wrists/watch/pocketwatch/on_slotmove(mob/user, slot)
+	switch(slot)
+		if(slot_s_store)
+			mob_wear_layer = ABOVE_SUIT_LAYER_WR
+		if(slot_belt)
+			mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
+		if(slot_wrists)
+			mob_wear_layer = ABOVE_UNIFORM_LAYER_WR
+
+/obj/item/clothing/wrists/watch/pocketwatch/AltClick(mob/user)
+	if(!closed)
+		icon_state = "[initial(icon_state)]_closed"
+		to_chat(user, "You clasp \the [name] shut.")
+		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
+	else
+		icon_state = "[initial(icon_state)]"
+		to_chat(user, "You flip \the [name] open.")
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+	closed = !closed
+
 /obj/item/clothing/wrists/watch/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (distance <= 1)
 		checktime()
+
+/obj/item/clothing/wrists/watch/pocketwatch/checktime(mob/user)
+	if(closed)
+		to_chat(usr, "You check your watch, realising it's closed.")
+	else
+		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
+
+/obj/item/clothing/wrists/watch/pocketwatch/pointatwatch()
+	if(closed)
+		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+	else
+		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/wrists/watch/verb/checktime()
 	set category = "Object"
