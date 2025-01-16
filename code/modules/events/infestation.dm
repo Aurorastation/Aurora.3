@@ -53,6 +53,10 @@
 /datum/event/infestation/start()
 	..()
 
+	if(chosen_mob == INFESTATION_HIVEBOTS) {
+		hivebot_message()
+	}
+
 	spawn_mobs()
 
 /datum/event/infestation/proc/choose_area()
@@ -130,6 +134,14 @@
 /datum/event/infestation/proc/spawn_mobs()
 	for(var/spawned_mob in chosen_mob_types)
 		new spawned_mob(chosen_area.random_space())
+
+/// Sends out a message to all IPCs on the ship warning them that hivebots are present.
+/datum/event/infestation/proc/hivebot_message()
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list) {
+		if(isipc(H) && (H.z in affecting_z)) {
+			to_chat(H, FONT_LARGE(SPAN_CULT("Suddenly, your internals are pierced by a terrible abnormality! Something antithetical to your existence has come terribly close, and it wishes for you to unite with it...")))
+		}
+	}
 
 /datum/event/infestation/announce()
 	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
