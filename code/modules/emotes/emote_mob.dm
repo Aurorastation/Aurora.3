@@ -176,7 +176,7 @@
 		if(M.client)
 			hear_clients |= M.client
 
-	animated_chat_message = "<font color='#f3ef09'>*</font> " + animated_chat_message
+	animated_chat_message = SPAN_COLOR("#f3ef09", "*") + animated_chat_message
 	animate_chat(animated_chat_message, null, TRUE, hear_clients, 30)
 
 // Specific mob type exceptions below.
