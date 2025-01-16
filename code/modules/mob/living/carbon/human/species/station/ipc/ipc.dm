@@ -159,6 +159,7 @@
 	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.move_charge_factor = move_charge_factor
+	H.AddComponent(/datum/component/synthetic_internals)
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
