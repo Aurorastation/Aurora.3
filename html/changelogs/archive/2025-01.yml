@@ -100,3 +100,13 @@
   - bugfix: Fixed the minimum damage threshold to delimb. Limbs won't be cut off or
       gibbed by very small amounts of damage anymore.
   - bugfix: The Pull psionic ability no longer pulls anchored objects.
+2025-01-16:
+  Acetrea:
+  - bugfix: Gave kitchen utensils their proper in-hand sprites.
+  SimpleMaroon:
+  - rscadd: Added Orepit citizenship, which is unique to human Orepitters and IPCs.
+      This is the only citizenship option both Orepit origins are able to select.
+  - qol: Both Orepit origins now include information on job/faction limitations and
+      which accent to pick for human Orepitters.
+  WowzewoW (Wezzy):
+  - bugfix: Fixes accessories not appearing when attached to outerwear items.
