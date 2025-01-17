@@ -110,3 +110,6 @@
       which accent to pick for human Orepitters.
   WowzewoW (Wezzy):
   - bugfix: Fixes accessories not appearing when attached to outerwear items.
+2025-01-17:
+  ClemTheDuck:
+  - bugfix: Should fix some modular armour accessories not appearing on armour.
