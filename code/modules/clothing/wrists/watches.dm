@@ -52,13 +52,17 @@
 /obj/item/clothing/wrists/watch/pocketwatch/AltClick(mob/user)
 	if(!closed)
 		icon_state = "[initial(icon_state)]_closed"
-		to_chat(user, "You clasp \the [name] shut.")
+		user.visible_message(SPAN_NOTICE("[user] clasps \the [name] shut."), SPAN_NOTICE("You clasp \the [name] shut."))
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	else
 		icon_state = "[initial(icon_state)]"
-		to_chat(user, "You flip \the [name] open.")
+		user.visible_message(SPAN_NOTICE("[user] flips \the [name] open."), SPAN_NOTICE("You flip \the [name] open."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
+
+/obj/item/clothing/wrists/watch/pocketwatch/get_wrist_examine_text(mob/user)
+	var/mob/living/carbon/human/H = user
+	return "in [user.get_pronoun("his")] pocket[H.pants ? ", the chain connected to [user.get_pronoun("his")] [H.pants.name]'s belt loop" : ""]"
 
 /obj/item/clothing/wrists/watch/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
