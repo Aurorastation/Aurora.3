@@ -58,5 +58,5 @@ changes:
   - refactor: "Refactored poster code to use singletons instead of a global list."
   - refactor: "Mappers can now use defined poster subtypes to place posters instead of editing variables."
   - code_imp: "Mappers can now specify poster design in rolled up posters as well."
-  - bugfix: "Fixed wierdness relating to mapped in posters changing their design when removed from wall."
+  - bugfix: "Fixed weirdness relating to mapped in posters changing their design when removed from wall."
   - rscadd: "TCAF Corvette now has recruitment posters in their recruitment supplies crate."
