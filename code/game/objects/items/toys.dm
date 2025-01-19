@@ -1319,6 +1319,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
+	worn_x_dimension = 64
+	worn_y_dimension = 64
 
 /obj/item/inflatable_duck
 	name = "inflatable duck"

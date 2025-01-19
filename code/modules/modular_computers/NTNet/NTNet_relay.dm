@@ -5,7 +5,7 @@
 	use_power = POWER_USE_ACTIVE
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
-	icon_state = "ntnet"
+	icon_state = "relay"
 	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
@@ -42,11 +42,9 @@
 	if(!operable())
 		icon_state += "_off"
 	else if(dos_failure)
-		AddOverlays("ntnet_o_problem")
+		AddOverlays("relay_traitor")
 	else if(!enabled)
-		AddOverlays("ntnet_o_error")
-	else
-		AddOverlays("ntnet_o_ok")
+		AddOverlays("relay_traitor_activate")
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
