@@ -38,7 +38,7 @@
 			if(istype(target))
 				ManualFollow(target)
 
-/mob/abstract/ghost/ClickOn(var/atom/A, var/params)
+/mob/abstract/ghost/ClickOn(atom/A, params)
 	if(!canClick())
 		return
 	setClickCooldown(4)

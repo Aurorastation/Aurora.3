@@ -196,7 +196,7 @@ var/global/list/valid_bloodtypes = list(
 	pref.r_facial = sanitize_integer(pref.r_facial, 0, 255, initial(pref.r_facial))
 	pref.g_facial = sanitize_integer(pref.g_facial, 0, 255, initial(pref.g_facial))
 	pref.b_facial = sanitize_integer(pref.b_facial, 0, 255, initial(pref.b_facial))
-	pref.s_tone   = sanitize_integer(pref.s_tone, -185, 5, initial(pref.s_tone))
+	pref.s_tone   = sanitize_integer(pref.s_tone, -mob_species.upper_skin_tone_bound + 35, -mob_species.lower_skin_tone_bound + 35, initial(pref.s_tone))
 	pref.r_skin   = sanitize_integer(pref.r_skin, 0, 255, initial(pref.r_skin))
 	pref.g_skin   = sanitize_integer(pref.g_skin, 0, 255, initial(pref.g_skin))
 	pref.b_skin   = sanitize_integer(pref.b_skin, 0, 255, initial(pref.b_skin))
@@ -236,7 +236,7 @@ var/global/list/valid_bloodtypes = list(
 	out += "Species: <a href='?src=[REF(src)];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=[REF(src)];blood_type=1'>[pref.b_type]</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
-		out += "Skin Tone: <a href='?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
+		out += "Skin Tone: <a href='?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.upper_skin_tone_bound]</a><br>"
 	out += "Disabilities: <a href='?src=[REF(src)];trait_add=1'>Adjust</a><br>"
 	for(var/M in pref.disabilities)
 		out += "     [M] <a href='?src=[REF(src)];trait_remove=[M]'>-</a><br>"
@@ -611,9 +611,9 @@ var/global/list/valid_bloodtypes = list(
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_SKIN_TONE))
 			return TOPIC_NOACTION
-		var/new_s_tone = tgui_input_number(user, "Choose your character's skin-tone. (Light 30 - 220 Dark)", "Character Preference", (-pref.s_tone) + 35, 220, 30)
+		var/new_s_tone = tgui_input_number(user, "Choose your character's skin-tone. (Light [mob_species.lower_skin_tone_bound] - [mob_species.upper_skin_tone_bound] Dark)", "Character Preference", (-pref.s_tone) + 35, mob_species.upper_skin_tone_bound, mob_species.lower_skin_tone_bound)
 		if(new_s_tone && has_flag(mob_species, HAS_SKIN_TONE) && CanUseTopic(user))
-			pref.s_tone = 35 - max(min( round(new_s_tone), 220),30)
+			pref.s_tone = 35 - clamp(round(new_s_tone), mob_species.lower_skin_tone_bound, mob_species.upper_skin_tone_bound)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])

@@ -280,17 +280,27 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 
-/obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
-	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
-	var/fullScan = FALSE //Toggle whether to do full or basic scan
+/// Special health analyzer used by the exosuit health analyzer.
+/obj/item/device/healthanalyzer/mech
+	name = "mounted health analyzer"
+	var/obj/machinery/body_scanconsole/connected = null
+	/// Toggle whether to do full or basic scan
+	var/fullScan = FALSE
+
+/obj/item/device/healthanalyzer/mech/get_hardpoint_maptext()
+	return "[(fullScan ? "Full" : "Basic")]"
 
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
-	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
-	internal_bodyscanner.use_power = FALSE
+	if(!connected)
+		var/obj/machinery/body_scanconsole/S = new (src)
+		S.forceMove(src)
+		S.update_use_power(POWER_USE_OFF)
+		connected = S
 
 /obj/item/device/healthanalyzer/mech/Destroy()
-	QDEL_NULL(internal_bodyscanner)
+	if(connected)
+		QDEL_NULL(connected)
 	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
@@ -298,38 +308,92 @@
 	if(istype(HA))
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
+		if(HA.fullScan)
+			icon_state = "mecha_healthyanalyzer_alt"
+		else
+			icon_state = "mecha_healthyanalyzer"
+		update_icon()
+		owner.update_icon()
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
+	var/mob/living/heavy_vehicle/user_vehicle = user
+	if(!istype(user_vehicle))
+		to_chat(user, SPAN_NOTICE("Only Exosuits can handle this equipment!"))
+		return FALSE
 	if(!fullScan)
-		var/mob/living/heavy_vehicle/user_vehicle = user
-		if(istype(user_vehicle))
-			for(var/mob/pilot in user_vehicle.pilots)
-				health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
+		for(var/mob/pilot in user_vehicle.pilots)
+			health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
 	else
-		user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].",
+		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
-		if(do_after(user, 7 SECONDS))
-			print_scan(target_mob, user)
-			add_fingerprint(user)
+		for(var/mob/pilot in user_vehicle.pilots)
+			if(!do_after(pilot, 7 SECONDS, target_mob, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK)) // Pilots must not move while scanning
+				return FALSE
+		print_scan(target_mob, user_vehicle)
 
-/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user.loc, internal_bodyscanner.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
-	if(ishuman(user) && !(user.l_hand && user.r_hand))
-		user.put_in_hands(R)
-	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
+/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user_vehicle.loc, connected.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
+	for(var/mob/pilot in user_vehicle.pilots)
+		R.show_content(pilot)
+	user_vehicle.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
+	playsound(user_vehicle.loc, /singleton/sound_category/print_sound, 50, 1)
+	R.forceMove(user_vehicle.loc)
 
 /obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 
-	var/list/medical_data = list(
+	var/displayed_stat = H.stat
+	var/blood_oxygenation = H.get_blood_oxygenation()
+	if(H.status_flags & FAKEDEATH)
+		displayed_stat = DEAD
+		blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
+	switch(displayed_stat)
+		if(CONSCIOUS)
+			displayed_stat = "Conscious"
+		if(UNCONSCIOUS)
+			displayed_stat = "Unconscious"
+		if(DEAD)
+			displayed_stat = "DEAD"
+
+	var/pulse_result
+	if(H.should_have_organ(BP_HEART))
+		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+		if(!heart)
+			pulse_result = 0
+		else if(BP_IS_ROBOTIC(heart))
+			pulse_result = -2
+		else if(H.status_flags & FAKEDEATH)
+			pulse_result = 0
+		else
+			pulse_result = H.get_pulse(GETPULSE_TOOL)
+	else
+		pulse_result = -1
+
+	if(pulse_result == ">250")
+		pulse_result = -3
+
+	var/datum/reagents/R = H.bloodstr
+
+	connected.has_internal_injuries = FALSE
+	connected.has_external_injuries = FALSE
+	var/list/bodyparts = connected.get_external_wound_data(H)
+	var/list/organs = connected.get_internal_wound_data(H)
+
+	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
+		"stat" = displayed_stat,
+		"name" = H.name,
+		"species" = H.get_species(),
+
 		"brain_activity" = H.get_brain_status(),
+		"pulse" = text2num(pulse_result),
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
+		"blood_type" = H.dna.b_type,
 
 		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
 		"fireloss" = get_severity(H.getFireLoss(), TRUE),
@@ -341,18 +405,18 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
-		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
-		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
-		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
-		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
-		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
-		"disabilities" = H.sdisabilities,
-		"lung_ruptured" = H.is_lung_ruptured(),
-		"lung_rescued" = H.is_lung_rescued(),
-		"external_organs" = H.organs.Copy(),
-		"internal_organs" = H.internal_organs.Copy(),
-		"species_organs" = H.species.has_organ
+		"inaprovaline_amount" = REAGENT_VOLUME(R, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(R, /singleton/reagent/dexalin),
+		"soporific_amount" = REAGENT_VOLUME(R, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(R, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(R, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(R, /singleton/reagent/thetamycin),
+		"other_amount" = R.total_volume - (REAGENT_VOLUME(R, /singleton/reagent/inaprovaline) + REAGENT_VOLUME(R, /singleton/reagent/soporific) + REAGENT_VOLUME(R, /singleton/reagent/bicaridine) + REAGENT_VOLUME(R, /singleton/reagent/dexalin) + REAGENT_VOLUME(R, /singleton/reagent/dermaline) + REAGENT_VOLUME(R, /singleton/reagent/thetamycin)),
+		"bodyparts" = bodyparts,
+		"organs" = organs,
+		"has_internal_injuries" = connected.has_internal_injuries,
+		"has_external_injuries" = connected.has_external_injuries,
+		"missing_limbs" = connected.get_missing_limbs(H),
+		"missing_organs" = connected.get_missing_organs(H)
 		)
-	return medical_data
+	return occupant_data

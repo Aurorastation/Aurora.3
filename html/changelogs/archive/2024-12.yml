@@ -1,0 +1,250 @@
+2024-12-01:
+  Ben10083:
+  - bugfix: Xenobiology North cells now have access requirements.
+  - bugfix: Players can no longer actidently insert power cells instead of power cores
+      into exosuit chassis. Chassis description updated to reflect this.
+  MattAtlas:
+  - bugfix: Fixed sensor reports or comm messages in general not being printed at
+      sensors consoles.
+  OolongCow:
+  - bugfix: Fixes a coding oversight causing first aid lockers to not spawn kits.
+2024-12-02:
+  hazelmouse:
+  - bugfix: Resolved an error preventing proper access to the Expeditionary Weaponry
+      secure locker in the Pilot Room.
+2024-12-04:
+  Ben10083:
+  - bugfix: AI can remote control mechs again.
+  - bugfix: Remote controlled exosuits now can travel between zlevels if capable.
+  - bugfix: Remote control no longer makes the client lose verbs until restart.
+  - bugfix: Remote controlled exosuit radios now will use the channels the user has
+      access to.
+  - qol: Pressing eject in a remotely controlled mech now exits remote control.
+  - code_imp: DMdoced lists.dm
+  - bugfix: AI shell and Exosuit adv health analyser now works properly.
+  - qol: Increased feedback for which mode the exosuit health analyser is on.
+  OolongCow:
+  - rscadd: Adds a pill bottle of inaprovaline and an emergency autoinjector to basic
+      first aid kits
+  - rscdel: Removes the cough syrup pills and health analyzer from basic first aid
+      kits.
+  notagonk:
+  - qol: Rearranges the HOS' office and surrounding maintenance to smooth out some
+      accessibility issues.
+2024-12-05:
+  Ben10083:
+  - bugfix: Restores missing wiring behind Head of Security Office.
+2024-12-06:
+  ShimmerIsTaken:
+  - rscadd: Added a Solarian army peacekeeper beret.
+  Yonnimer:
+  - rscadd: Adds several new Dionae loadout items.
+  - rscdel: Removes some redundant dionae items & ships.
+  hazelmouse:
+  - rscadd: Introduces new sprites for the Gargoyle voidsuit and its SFA and SSMD
+      variants, including an additional variant for the SPLF. Other Gargoyle variants
+      still in the codebase, including the SRF suits, are unchanged.
+  - rscadd: 'Implemented mundane QoL changes to the Dominian Science ship and Hephaestus
+      Cyclops ship. '
+2024-12-10:
+  Ben10083:
+  - bugfix: Holopad forced calls now work again.
+  - qol: Holopad forced calls option toggles off after a call.
+  - qol: Force calls can be terminated by recieving holopad by command members.
+  Butterrobber202:
+  - balance: Removed the intense slowdown from the Captain's voidsuit.
+  hazelmouse:
+  - rscadd: Transitions the Assunzionii Rook voidsuit into a pure science voidsuit,
+      rather than a combat-capable suit.
+  - rscadd: Adds the Assunzionii Rook voidsuit to the loadout via a modkit available
+      to Assunzionii humans and synthetics, allowing research voidsuits to be transformed
+      into the Assunzionii Rook.
+2024-12-12:
+  hazelmouse:
+  - rscadd: Added the SPLF Raider ghostrole to the Corporate Reconstruction Zone sector.
+      To be considered either a gaggle of unruly pirates or a heroic band of freedom
+      fighters, depending on one's perspective.
+2024-12-16:
+  Geeves:
+  - rscadd: Added extended rubber .45 mags to the autolathe.
+  Stev-the-third:
+  - rscadd: Adds a 2-Z Level odyssey map called the Arctic Valley and the Nuclear
+      Silo.
+  - rscadd: Adds all of the additional supporting files to make an odyssey map work.
+      and stuff.
+  - imageadd: Adds an accepted stamp.
+  - imageadd: Adds directionals for buffet trays.
+  - imageadd: Adds a decorative nuclear missile.
+  - rscadd: Adds violet lights and decayed streetlights.
+  - rscadd: Makes the missile silo cap a physical object.
+  Wowzewow (Wezzy):
+  - rscadd: Sorts and adds new sprites for telecomms equipment.
+  hazelmouse:
+  - bugfix: The Xenobotanist can now access their NanoMed.
+  - qol: The Operations Lobby first aid locker no longer contains the autolathe supplies
+      at round start.
+2024-12-19:
+  Ben10083:
+  - bugfix: TCAF Away Ship shutters now have proper access.
+  DreamySkrell:
+  - rscadd: Crystal Planet Outpost Update. Adds submaps and exoplanet generation.
+  - rscadd: Cryo Outpost Update. Updates exoplanet generation with hot air and light.
+  - rscadd: Away Site Exoplanet Generation Improvements. Allows setting atmos for
+      all exoplanet turfs on the map.
+  - rscadd: Away Site Exoplanet Generation Improvements. Exoplanet turfs can have
+      light if they are outside.
+  - rscadd: Away Site Exoplanet Generation Improvements. Base Turf fixes, explosions
+      do not turn turfs into space, and destroying or mining turfs is generally better
+      handled.
+  FabianK3:
+  - bugfix: Added missing emissives for the regular high visibility jacket.
+  FluffyGhost:
+  - rscadd: Added a comet expulsion event, coming towards the main map, if not dodged
+      causes some meteors that then explode, the explosion power can be reduced by
+      shields.
+  - code_imp: Some DMDocs, code cleanups and other things noone else cares about.
+  Geeves:
+  - rscadd: Being added to a shuttle manifest will now update the crew manifest to
+      indicate that you're on an away mission on that shuttle.
+2024-12-25:
+  Ben10083:
+  - rscadd: Replaces Docking port program for AI internal computer with Shuttle Manifest.
+  - rscadd: Synthetics can now use Shuttle Manifest.
+  - bugfix: Adds several missing hangar lockdown blast doors.
+  - experiment: Moved around what law boards are generated in vault, and what are
+      stored in AI upload.
+  - balance: More dangerous AI law boards such as T.Y.R.A.N.T. moved to Vault loot
+      pool.
+  - balance: Increased the amount of weapons and lawboards spawned in Vault.
+  - spellcheck: Changed all vessel and station references in lawsets to 'assigned
+      station' to have laws fit for any environment.
+  - spellcheck: Various references of station set to instead display the current map
+      name (Horizon) where appliable.
+  DreamySkrell:
+  - bugfix: Fortune cookie fix.
+  FlamingLily:
+  - rscadd: Added an *alarm emote for IPCs
+  FluffyGhost:
+  - code_imp: Added a bunch of flags for passflags on things that were previously
+      missing them.
+  - refactor: Removed snowflake passthrow var, it's a passflag now.
+  - refactor: Updated ClickCross and Adjacency code.
+  - rscadd: It's now possible to interact with things that are adjacent but otherwise
+      have a machine (or other appropriate items) blocking them, eg. think of an APC
+      on the wall with a machine in front of it.
+  Geeves:
+  - rscadd: Cargo delivery packages now have colored tags on them which should hopefully
+      make it easier to distinguish between them, instead of changing the entire package's
+      color.
+  - rscadd: Delivering a package now outputs another, allowing you to continuously
+      deliver throughout the round, should you choose to.
+  - bugfix: Fixed cargo packages runtiming on the runtime map.
+  - bugfix: Dropping a drill directly onto a turf with underground resources will
+      no longer delete the resources.
+  - rscadd: Bandages now do not disappear as damage heals, instead, a special Remove
+      Bandages verb must be used to remove bandages. This cannot be used to re-open
+      wounds for now, and can only be used if the bandage would've downgraded / disappeared
+      at that point.
+  - balance: Taking damage on a bandaged limb now removes the bandages.
+  - rscadd: You can now ctrl+click on any worn clothing item that has accessories
+      attached to quickly open the accessory removal radial menu.
+  - rscadd: Removing accessories with the radial accessory removal menu will now reopen
+      that menu until either all the accessories are removed, or you click the close
+      button.
+  - rscadd: Plate Carrier armor accessories will now always render below other accessories,
+      so you don't need to shuffle everything to layer them correctly.
+  - rscadd: The PMCG modsuit can now be configured inside the loadout.
+  - rscadd: Added an exosuit compatible kinetic accelerator, capable of clearing vast
+      swathes of mineable walls. Machinists can print them at a steep steel cost,
+      and the mining mech dropped from the dropper comes with it equipped.
+  - rscadd: Atmospheric probes will now relay changes in weather when deployed. Analog
+      radios can be tuned into the weather broadcast and receive it, provided they're
+      in the same sector / connected z-levels.
+  - bugfix: Fixed weather transitions to rainy / icy weather not working.
+  - qol: Changed rainy / icy weather to have a blue color, reducing eye strain.
+  GeneralCamo:
+  - rscadd: Added the Nosferatu hardsuit, designed for usage by Solarian Alliance
+      special forces, for future use.
+  HanSolo1519:
+  - rscadd: Adds roundstart organ scarring through the disabilities menu.
+  Stev-the-third:
+  - imageadd: Adds slot machine, confirmation and question mark IPC faces.
+  Tomixcomics:
+  - rscadd: 'Added 5 new food dishes: 3 grilled cheese sandwich varieties, elotes,
+      biscuits and gravy, and steak tartare.'
+  - rscadd: 'Added 2 new drinks: dyn boba tea and chocolate soda.'
+  - rscadd: Added gravy and gravy boats, along with sprite variants for mashed potatoes
+      and schnitzels that had gravy poured on them.
+  - imageadd: Added a new sprite for blizzard ears flour boxes.
+  hazelmouse:
+  - balance: The SFA Patrol Ship ghostrole now spawns with half the regularity.
+  - balance: The SFA Patrol Ship ghostrole no longer spawns in the Corporate Reconstruction
+      Zone.
+  - rscadd: Remapped the SCCV Intrepid to be more compatible with Odyssey expeditions,
+      and to be smoother and easier for larger expeditions generally. The new Intrepid
+      is designed to be able to take on a large bulker of passengers and equipment
+      without as many issues.
+  - balance: Adjusted pressure of SCC-specific airlock tanks from 300 to 600kpa, to
+      be consistent with the canister airlock variant.
+2024-12-27:
+  FluffyGhost:
+  - refactor: Refactored mousedrag procs, added signals, some safeguards, did some
+      cleanups around, renamed them to make a little more sense. Mostly put in line
+      with TG's code.
+  - rscadd: Fast clicking and releasing with a drag, depending on the grace period
+      and how fast it is done, can be counted as clicks, to aid in combat scenarios
+      where you spamclick.
+  Geeves:
+  - rscadd: Added an exosuit compatible ore summoner, capable of pulling ore directly
+      into an ore box held within the exosuit's clamp. Machinists can print them at
+      the cost of steel and glass, and the mining mech dropped from the dropper comes
+      with it equipped.
+  - rscadd: Added a 'Rubber' skin preset for Shells in character creation, which makes
+      their skin look cheap and uncanny.
+  - refactor: Added backend support for species to have different max and min skin
+      tone values, currently unused.
+  - balance: Tweaked mobs to use the universal speed variable when chasing after a
+      target.
+  - balance: Made Reavers move much slower when pursuing a target.
+  - balance: Explorer's belts can now hold impact wrenches and power cells.
+  Kano:
+  - bugfix: Fixed an issue causing air alarm frames appearing on opposite direction
+      when put on wall. Also fixed a few inconsistencies about frames.
+  hazelmouse:
+  - qol: Implemented various QoL improvements to the Golden Deep, SPLF, Freebooter,
+      and House Volvalaad offship ghostroles.
+  - balance: The Freebooter ship now spawns with three guaranteed guns and two guaranteed
+      armored voidsuits, replacing the same number of randomised spawners. This should
+      help bring the ship up to par with other similar ships in boarding actions.
+2024-12-29:
+  ASmallCuteCat:
+  - spellcheck: Changed the description of the tame space carp for better consistency.
+      Their cuteness remains unchanged.
+  Ben10083:
+  - bugfix: Vending Machines can now launch inventory at people again (Yippee!)
+  - bugfix: Fixed functionality relating to attaching a string to a coin to cheat
+      vending machines.
+  - code_imp: DMdocs for vending.dm.
+  FluffyGhost:
+  - bugfix: Fixed the APC damage event not working.
+  - balance: APC damage event now has actual damages instead of merely emagging the
+      APC.
+  - balance: Added APC damage event of level moderate and major to the rotation.
+  Geeves:
+  - rscadd: Examining a mining drill while standing next to it will now display the
+      ore inside it.
+  - bugfix: Ore detector blips no longer causes clicks and the right-click menu to
+      pass through the turf that's beneath you.
+  - balance: Flares now burn brighter, longer, are smaller items (can bring more),
+      and flare boxes now contain 12 of them, up from 4.
+  GeneralCamo:
+  - rscadd: Re-added the turbine, a generator which takes in hot gasses from one end,
+      outputs exhaust the other, and produces power from the resulting RPM.
+  MattAtlas:
+  - bugfix: Fixes an extremely annoying log messaging admins for no reason.
+  Stev-the-third:
+  - imageadd: Adds an Orion Express screen for Baseliners.
+2024-12-30:
+  hazelmouse:
+  - qol: Exoplanet turfs no longer cause characters to leave footprints, with the
+      exception of mineral asteroid and barren exoplanet turfs.

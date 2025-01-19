@@ -271,8 +271,8 @@ GLOBAL_LIST_EMPTY(process_objectives)
 					return 0
 	return 1
 
-/datum/objective/silence
-	explanation_text = "Do not allow anyone to escape the station.  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
+/datum/objective/silence/New()
+	explanation_text = "Do not allow anyone to escape the [station_name()].  Only allow the shuttle to be called when everyone is dead and your story is the only one left."
 
 /datum/objective/silence/check_completion()
 	if(!evacuation_controller.round_over())
@@ -411,14 +411,19 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	return 0
 
 
-/datum/objective/nuclear
-	explanation_text = "Destroy the station with a nuclear device."
+/datum/objective/nuclear/New()
+	explanation_text = "Destroy the [station_name()] with a nuclear device."
 
 /datum/objective/steal
 	var/obj/item/steal_target
 	var/target_name
 
-	var/global/possible_items[] = list(
+	var/global/possible_items[] = list()
+
+	var/global/possible_items_special[] = list()
+
+/datum/objective/steal/New()
+	possible_items = list(
 		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 		"a hand teleporter" = /obj/item/hand_tele,
 		"a RFD C-Class" = /obj/item/rfd/construction,
@@ -426,7 +431,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/aicard,
 		"a pair of magboots" = /obj/item/clothing/shoes/magboots,
-		"the station blueprints" = /obj/item/blueprints,
+		"the [station_name()] blueprints" = /obj/item/blueprints,
 		"a nasa voidsuit" = /obj/item/clothing/suit/space/void,
 		"28 moles of phoron (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
@@ -440,8 +445,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/carrier/ablative
 	)
-
-	var/global/possible_items_special[] = list(
+	possible_items_special = list(
 		/*"nuclear authentication disk" = /obj/item/disk/nuclear,*///Broken with the change to nuke disk making it respawn on z level change.
 		"nuclear gun" = /obj/item/gun/energy/gun/nuclear,
 		"diamond drill" = /obj/item/pickaxe/diamonddrill,
@@ -473,8 +477,8 @@ GLOBAL_LIST_EMPTY(process_objectives)
 	if (new_target == "custom")
 		var/obj/item/custom_target = input("Select type:","Type") as null|anything in typesof(/obj/item)
 		if (!custom_target) return
-		var/tmp_obj = new custom_target
-		var/custom_name = tmp_obj:name
+		var/obj/item/tmp_obj = new custom_target
+		var/custom_name = tmp_obj.name
 		qdel(tmp_obj)
 		custom_name = sanitize(input("Enter target name:", "Objective target", custom_name) as text|null)
 		if (!custom_name) return
@@ -746,7 +750,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target = "diamond"
 			target_amount = 20
 
-	explanation_text = "Ransack the station and escape with [target_amount] [target]."
+	explanation_text = "Ransack the [SSatlas.current_map.station_name] and escape with [target_amount] [target]."
 
 /datum/objective/heist/salvage/check_completion()
 	var/total_amount = 0
@@ -819,7 +823,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 
 /datum/objective/cult/survive/New()
 	..()
-	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape on the shuttle to spread their work on an another station."
+	explanation_text = "Our knowledge must live on. Make sure at least [target_amount] acolytes escape to spread their work elsewhere."
 
 /datum/objective/cult/survive/check_completion()
 	var/acolytes_survived = 0

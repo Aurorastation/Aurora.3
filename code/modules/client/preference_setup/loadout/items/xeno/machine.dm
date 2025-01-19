@@ -204,9 +204,9 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 /datum/gear/accessory/goldendeep/New()
 	..()
 	var/list/goldendeepshirt = list()
-	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/accessory/goldendeep
-	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/accessory/goldendeep/pompous
-	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/accessory/goldendeep/clothwrappeduniform
+	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/under/dressshirt/goldendeep
+	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/under/dressshirt/goldendeep/pompous
+	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform
 	gear_tweaks += new /datum/gear_tweak/path(goldendeepshirt)
 
 /datum/gear/accessory/goldendeepouter
@@ -330,3 +330,12 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	sacredicon["golden deep sacred icon"] = /obj/item/storage/backpack/goldendeep
 	sacredicon["golden deep sacred icon (baseline)"] = /obj/item/storage/backpack/goldendeep/baseline
 	gear_tweaks += new /datum/gear_tweak/path(sacredicon)
+
+// See the utility tab for the human variant.
+/datum/gear/utility/ipc_assunzione_kit
+	display_name = "synthetic assunzionii voidsuit kit"
+	path = /obj/item/voidsuit_modkit/assunzione/ipc
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"

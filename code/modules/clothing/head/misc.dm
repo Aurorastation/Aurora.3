@@ -11,7 +11,7 @@
 /obj/item/clothing/head/pin
 	name = "hair pin"
 	desc = "A nice hair pin."
-	icon = 'icons/obj/item/clothing/accessory/hair_pins.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_pins.dmi'
 	contained_sprite = TRUE
 	icon_state = "pin"
 	item_state = "pin"
@@ -85,7 +85,7 @@
 /obj/item/clothing/head/pin/ribbon
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
-	icon = 'icons/obj/item/clothing/accessory/hair_ribbons.dmi'
+	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/pin/ribbon/head

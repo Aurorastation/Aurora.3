@@ -195,13 +195,23 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      - name: Download OpenDream Compiler
-        run: |
-          bash tools/ci/install_od.sh
+      #Setup the .NET dependency to what is needed by OpenDream
+      - name: Setup DotNet Dependency
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.100
 
+      #Prepare the precompiled OpenDream compiler
+      - name: Prepare OpenDream Compiler
+        run: |
+          cd $HOME
+          wget -v https://github.com/OpenDreamProject/OpenDream/releases/download/latest/DMCompiler_linux-x64.tar.gz
+          tar -xf DMCompiler_linux-x64.tar.gz
+
+      #Run OpenDream on the DME
       - name: Run OpenDream
         run: |
-          tools/ci/run_od.sh
+          dotnet $HOME/DMCompiler_linux-x64/DMCompiler.dll --suppress-unimplemented aurorastation.dme
 
 ###########################################
 ############### TGUI LINTING ##############

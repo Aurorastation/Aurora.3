@@ -3,7 +3,6 @@
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
 	icon_state = "grass"
 	footstep_sound = /singleton/sound_category/grass_footstep
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/konyang/no_edge
 	has_edge_icon = FALSE
@@ -49,7 +48,6 @@
 	icon_state = "dirt"
 	layer = 1.99//to let the grass edges go over it, which otherwise doesnt happen due to positioning and byond layering
 	footstep_sound = /singleton/sound_category/asteroid_footstep
-	does_footprint = FALSE
 	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/dirt_konyang/cave
@@ -67,5 +65,4 @@
 	icon_state = "sand"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	smoothing_flags = SMOOTH_FALSE
-	does_footprint = FALSE
 	has_edge_icon = FALSE

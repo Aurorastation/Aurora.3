@@ -7,17 +7,21 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_SMALL
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
+	)
 
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
+	var/accessory_layer = ACCESSORY_LAYER_MIDDLE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
-	)
 	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
@@ -47,6 +51,8 @@
 	if(build_from_parts && overlay_in_inventory)
 		inv_overlay.ClearOverlays()
 		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_w_acc", accent_color, flags=accent_flags))
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
@@ -65,12 +71,12 @@
 	if(icon_override)
 		if(contained_sprite)
 			auto_adapt_species(H)
-			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_ACCESS]"
 		else if("[tmp_icon_state]_mob" in icon_states(I))
 			tmp_icon_state = "[tmp_icon_state]_mob"
 	else if(contained_sprite)
 		auto_adapt_species(H)
-		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_ACCESS]"
 	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 	if(build_from_parts || has_accents)
 		accessory_mob_overlay.ClearOverlays()
@@ -93,7 +99,7 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.AddOverlays(get_inv_overlay())
+	has_suit.AddOverlays(get_inv_overlay(user))
 	if(user)
 		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
@@ -268,7 +274,7 @@
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
 	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
-	icon = 'icons/clothing/accessories/stethoscope.dmi'
+	icon = 'icons/obj/item/clothing/accessory/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
 	contained_sprite = TRUE
@@ -324,11 +330,13 @@
 	desc = "They suspend the illusion of the mime's play."
 	icon_state = "suspenders"
 	item_state = "suspenders"
+	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
 	desc = "A simple scarf, to protect your neck from the cold of space."
-	icon = 'icons/obj/clothing/scarves.dmi'
+	icon = 'icons/obj/item/clothing/accessory/scarves.dmi'
 	icon_state = "scarf0"
 	item_state = "scarf0"
 	contained_sprite = TRUE
@@ -372,7 +380,7 @@
 /obj/item/clothing/accessory/shawl
 	name = "cozy shawl"
 	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
-	icon = 'icons/obj/clothing/shawl.dmi'
+	icon = 'icons/obj/item/clothing/accessory/shawl.dmi'
 	icon_state = "shawl"
 	item_state = "shawl"
 	contained_sprite = TRUE
@@ -382,6 +390,8 @@
 	desc = "A pair of loose, brown leather chaps."
 	icon_state = "chaps"
 	item_state = "chaps"
+	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -514,7 +524,7 @@
 	name = "yellow sash"
 	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
 	desc_extended = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
-	icon = 'icons/clothing/accessories/sash.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
 	contained_sprite = TRUE
@@ -560,7 +570,7 @@
 	desc = "A sash, designed to be worn around the waist."
 	item_state = "sash_horizontal"
 	icon_state = "sash_horizontal"
-	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -838,7 +848,7 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
 	contained_sprite = TRUE
@@ -932,16 +942,17 @@
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
-	icon = 'icons/clothing/accessories/kneepads.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kneepads.dmi'
 	icon_state = "kneepads"
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
-	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon = 'icons/obj/item/clothing/accessory/blood_patch.dmi'
 	icon_state = "onegtag"
 	contained_sprite = TRUE
 
@@ -1063,7 +1074,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/bz_mantle.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE
@@ -1080,7 +1091,7 @@
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"
 	desc = "A comfortable tactical coif that goes around the head."
-	icon = 'icons/clothing/accessories/goon_coif.dmi'
+	icon = 'icons/obj/item/clothing/accessory/goon_coif.dmi'
 	body_parts_covered = HEAD
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
@@ -1256,7 +1267,7 @@
 /obj/item/clothing/accessory/pronoun
 	name = "any/all pronouns pin"
 	desc = "A pin denoting the wearer's pronouns: any/all."
-	icon = 'icons/clothing/accessories/pronoun_pin.dmi'
+	icon = 'icons/obj/item/clothing/accessory/pronoun_pin.dmi'
 	icon_state = "pronounpin"
 	item_state = "pronounpin"
 	worn_overlay = "over"
@@ -1297,7 +1308,7 @@
 /obj/item/clothing/accessory/led_collar
 	name = "\improper LED collar"
 	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
-	icon = 'icons/clothing/accessories/led_collar.dmi'
+	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE

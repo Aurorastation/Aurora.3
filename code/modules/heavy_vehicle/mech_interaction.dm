@@ -1,22 +1,22 @@
-/mob/living/MouseDrop(atom/over)
-	if(usr == src && usr != over)
+/mob/living/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == src && user != over)
 		if(istype(over, /mob/living/heavy_vehicle))
-			if(usr.mob_size >= MOB_SMALL && usr.mob_size <= 14)
+			if(user.mob_size >= MOB_SMALL && user.mob_size <= 14)
 				var/mob/living/heavy_vehicle/M = over
 				if(M.enter(src))
 					return
 			else
-				to_chat(usr, SPAN_WARNING("You cannot pilot a mech of this size."))
+				to_chat(user, SPAN_WARNING("You cannot pilot a mech of this size."))
 				return
 	return ..()
 
-/mob/living/heavy_vehicle/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/machinery/portable_atmospherics/canister/C = dropping
+/mob/living/heavy_vehicle/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C))
-		body.MouseDrop_T(dropping, user)
+		body.mouse_drop_receive(arglist(args))
 	else . = ..()
 
-/mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
+/mob/living/heavy_vehicle/ClickOn(atom/A, params, mob/user)
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
@@ -127,7 +127,7 @@
 					ruser = user
 				temp_system.afterattack(A,ruser,adj,params)
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
-				log_and_message_admins("used [temp_system] targetting [A]", user, src.loc)
+				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays
 			var/extra_delay = 0
 			if(ME != null)
@@ -233,11 +233,13 @@
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
-	return 1
+	return TRUE
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
 		return
+	if(remote)
+		usr.body_return()
 	if(hatch_closed)
 		if(hatch_locked)
 			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))

@@ -52,8 +52,7 @@
 	QDEL_NULL(ability_master)
 
 	if(click_handlers)
-		click_handlers.QdelClear()
-		QDEL_NULL(click_handlers)
+		QDEL_LIST(click_handlers)
 
 	return ..()
 
@@ -383,7 +382,8 @@
 	set name = "Examine"
 	set category = "IC"
 
-	examinate(usr, A)
+	//examinate(usr, A)
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, GLOBAL_PROC_REF(examinate), src, A))
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -408,25 +408,31 @@
 	set name = "Point To"
 	set category = "Object"
 
-	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return FALSE
-	if(next_point_time >= world.time)
-		return FALSE
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
 
-	next_point_time = world.time + 25
-	face_atom(A)
-	if(isturf(A))
+/// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
+/// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
+/mob/proc/_pointed(atom/pointing_at)
+
+	if(!isturf(src.loc) || !(pointing_at in range(world.view, get_turf(src))))
+		return FALSE
+	if(TIMER_COOLDOWN_RUNNING(src, "point_verb_emote_cooldown"))
+		return FALSE
+	else
+		TIMER_COOLDOWN_START(src, "point_verb_emote_cooldown", 2.5 SECONDS)
+
+	face_atom(pointing_at)
+	if(isturf(pointing_at))
 		if(pointing_effect)
 			end_pointing_effect()
-		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect = new /obj/effect/decal/point(pointing_at)
 		pointing_effect.set_invisibility(invisibility)
 		addtimer(CALLBACK(src, PROC_REF(end_pointing_effect), pointing_effect), 2 SECONDS)
 	else if(!invisibility)
-		var/atom/movable/M = A
-		M.add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
-		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom/movable, remove_filter), "pointglow"), 2 SECONDS)
-	A.handle_pointed_at(src)
-	SEND_SIGNAL(src, COMSIG_MOB_POINT, A)
+		var/atom/movable/M = pointing_at
+		M.add_point_filter()
+		M.handle_pointed_at(src)
+	SEND_SIGNAL(src, COMSIG_MOB_POINT, pointing_at)
 	return TRUE
 
 /mob/proc/end_pointing_effect()
@@ -437,6 +443,10 @@
 	set category = "Object"
 	set src = usr
 
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_mode)))
+
+///proc version to finish /mob/verb/mode() execution. used in case the proc needs to be queued for the tick after its first called
+/mob/proc/execute_mode()
 	if(hand)
 		var/obj/item/W = l_hand
 		if (W)
@@ -698,13 +708,20 @@
 			return 1
 	return 0
 
-/mob/MouseDrop(mob/M as mob)
+/mob/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(M != usr) return
-	if(usr == src) return
-	if(!Adjacent(usr)) return
-	if(istype(M,/mob/living/silicon/ai)) return
-	show_inv(usr)
+	var/mob/M = over
+	if(M != user)
+		return
+	if(user == src)
+		return
+	if(!Adjacent(user))
+		return
+
+	if(istype(M,/mob/living/silicon/ai))
+		return
+
+	show_inv(user)
 
 
 /mob/verb/stop_pulling()

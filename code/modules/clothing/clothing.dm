@@ -400,6 +400,12 @@
 	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
 		body_temperature_change += accessory.body_temperature_change
 
+/obj/item/clothing/CtrlClick(var/mob/user)
+	if(loc == user && LAZYLEN(accessories))
+		remove_accessory_handler(user, TRUE)
+		return
+	return ..()
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
@@ -732,7 +738,7 @@
 			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
-			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
@@ -1073,7 +1079,7 @@
 			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
-			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
@@ -1172,12 +1178,12 @@
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
+	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
-			var/image/accessory_image = A.get_accessory_mob_overlay(H)
+			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
