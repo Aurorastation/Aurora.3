@@ -33,7 +33,7 @@
 	watchtype["holo watch"] = /obj/item/clothing/wrists/watch/holo
 	watchtype["leather watch"] = /obj/item/clothing/wrists/watch/leather
 	watchtype["spy watch"] = /obj/item/clothing/wrists/watch/spy
-	watchtype["pocketwatch"] = /obj/item/pocketwatch
+	watchtype["pocketwatch"] = /obj/item/clothing/wrists/watch/pocketwatch
 	gear_tweaks += new /datum/gear_tweak/path(watchtype)
 
 /*
