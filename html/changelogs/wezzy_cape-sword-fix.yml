@@ -57,3 +57,5 @@ delete-after: True
 changes:
   - bugfix: "Fixes Poncho/Cape accessory sprites."
   - bugfix: "Fixes foam sword sprite."
+  - bugfix: "Fixes NTnet relay sprite."
+  - bugfix: "Fixes message server using the wrong sprite."

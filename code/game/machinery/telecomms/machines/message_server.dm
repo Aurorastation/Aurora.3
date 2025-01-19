@@ -67,7 +67,6 @@
 				priority = "Undetermined"
 
 /obj/machinery/telecomms/message_server
-	icon = 'icons/obj/machinery/research.dmi'
 	icon_state = "server"
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
@@ -166,12 +165,12 @@
 		..()
 
 /obj/machinery/telecomms/message_server/update_icon()
-	if(!operable(EMPED))
-		icon_state = "server-nopower"
-	else if (!use_power)
-		icon_state = "server-off"
-	else
-		icon_state = "server-on"
+	icon_state = initial(icon_state)
+	ClearOverlays()
+	if(panel_open)
+		icon_state += "_o"
+	if(!operable())
+		icon_state += "_off"
 
 /datum/signal/subspace/pda
 	frequency = PUB_FREQ
