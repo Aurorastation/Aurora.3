@@ -102,12 +102,7 @@
 
 /// Static access subtype, to be subtyped further while overriding the var, or to be mapped in with accesses.
 /obj/machinery/computer/access_terminal/static_access
-	var/list/datum/access/available_accesses = list(
-		/datum/access/enviro_testing_facility_access_control,
-		/datum/access/enviro_testing_facility_access_engops,
-		/datum/access/enviro_testing_facility_access_medres,
-		/datum/access/enviro_testing_facility_access_sec,
-	)
+	var/list/datum/access/available_accesses = list()
 
 /obj/machinery/computer/access_terminal/static_access/get_available_accesses()
 	. = available_accesses

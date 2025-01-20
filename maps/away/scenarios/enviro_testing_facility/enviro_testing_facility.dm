@@ -23,7 +23,7 @@
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	unit_test_groups = list(1)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: remove
+	// template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: remove
 
 /singleton/submap_archetype/enviro_testing_facility
 	map = "Environmental Testing Facility"
