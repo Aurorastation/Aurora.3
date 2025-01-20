@@ -15,6 +15,7 @@
 		/obj/item/clothing/under/suit_jacket,
 		/obj/item/clothing/under/sl_suit,
 	)
+	suit = null
 	shoes = list(
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/laceup/brown,

@@ -12,9 +12,13 @@
 	scenario_announcements = /singleton/scenario_announcements/ruined_propellant_depot
 
 	roles = list(
-		/singleton/role/ruined_propellant_depot,
-		/singleton/role/ruined_propellant_depot/engineer,
-		/singleton/role/ruined_propellant_depot/director,
+		/singleton/role/generic_crew,
+		/singleton/role/generic_engineer,
+		/singleton/role/generic_research,
+		/singleton/role/generic_medical,
+		/singleton/role/generic_security,
+		/singleton/role/generic_miner,
+		/singleton/role/generic_business,
 	)
 	default_outfit = /obj/outfit/admin/generic/ruined_propellant_depot_crew
 	actor_accesses = list(/datum/access/ruined_propellant_depot_access)

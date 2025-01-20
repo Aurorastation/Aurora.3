@@ -182,7 +182,7 @@
 
 	// ask the user
 	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(usr,
-		"Choose teleport destination, to go to the Odyssey Scenario site. You cannot go back to this area after teleporting.", "Teleport Destination",
+		"Choose teleport destination, to go to the odyssey scenario site. You cannot go back to this area after teleporting.", "Teleport Destination",
 		possible_pois
 	)
 

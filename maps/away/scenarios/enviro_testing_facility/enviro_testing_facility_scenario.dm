@@ -10,13 +10,13 @@
 	scenario_announcements = /singleton/scenario_announcements/enviro_testing_facility
 
 	roles = list(
-		// /singleton/role/enviro_testing_facility,
-		// /singleton/role/enviro_testing_facility/mercenary,
-		// /singleton/role/enviro_testing_facility/mercenary/medic,
-		// /singleton/role/enviro_testing_facility/mercenary/engineer,
-		// /singleton/role/enviro_testing_facility/director,
-		// /singleton/role/enviro_testing_facility/scientist,
-		// /singleton/role/enviro_testing_facility/engineer,
+		/singleton/role/generic_crew,
+		/singleton/role/generic_engineer,
+		/singleton/role/generic_research,
+		/singleton/role/generic_medical,
+		/singleton/role/generic_security,
+		/singleton/role/generic_miner,
+		/singleton/role/generic_business,
 	)
 	default_outfit = /obj/outfit/admin/generic
 	actor_accesses = list(
