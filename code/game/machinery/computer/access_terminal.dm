@@ -11,7 +11,7 @@
 	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "guest"
 	icon_scanline = "altcomputerw-scanline"
-	density = TRUE
+	density = FALSE
 	appearance_flags = TILE_BOUND
 
 	var/obj/item/card/id/held_card

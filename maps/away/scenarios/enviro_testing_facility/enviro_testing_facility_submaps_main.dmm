@@ -933,9 +933,6 @@
 "aYl" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/table/steel,
-/obj/structure/table/steel,
-/obj/structure/table/steel,
-/obj/structure/table/steel,
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 4

@@ -48,7 +48,7 @@ export const AccessTerminal = (props, context) => {
               {data.is_agent_id ? (
                 <LabeledList.Item label="Agent ID?">YES</LabeledList.Item>
               ) : (
-                <></>
+                ''
               )}
             </LabeledList>
           ) : (
@@ -60,7 +60,7 @@ export const AccessTerminal = (props, context) => {
             {data.available_accesses
               ?.filter((a) => data.card_accesses.includes(a.id))
               .map((access) => (
-                <LabeledList.Item label={access.desc}>
+                <LabeledList.Item label={access.desc} key={access.id}>
                   <Button
                     content="Remove from Card"
                     onClick={() =>
@@ -75,7 +75,7 @@ export const AccessTerminal = (props, context) => {
           {data.available_accesses
             ?.filter((a) => !data.card_accesses.includes(a.id))
             .map((access) => (
-              <LabeledList.Item label={access.desc}>
+              <LabeledList.Item label={access.desc} key={access.id}>
                 <Button
                   content="Add to Card"
                   onClick={() =>

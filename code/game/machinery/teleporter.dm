@@ -151,20 +151,21 @@
 		var/obj/item/card/id/user_id = user.GetIdCard()
 		if(!user_id || !istype(user_id))
 			var/choice = tgui_alert(usr,
-				"Current odyssey scenario has defined ID access, but you do not seem to have an ID on you.",
-				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+				"Current odyssey scenario has defined ID access, but you do not seem to have an ID on you. You can get one from the actor vendor.",
+				"Teleport Warning", list("Ok", "Cancel")
 			)
 			if(choice == "Cancel")
 				return
 
 		// check if they have actor accesses set on the scenario definition
 		var/list/scenario_access_ids = list()
-		for(var/datum/access/access in SSodyssey.scenario.actor_accesses)
-			scenario_access_ids += access.id
+		for(var/access in SSodyssey.scenario.actor_accesses)
+			var/datum/access/access_datum = access
+			scenario_access_ids += access_datum::id
 		if(isemptylist(user_id.access & scenario_access_ids))
 			var/choice = tgui_alert(usr,
-				"Current odyssey scenario has defined ID access, but you do not seem to have an ID with any such accesses.",
-				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+				"Current odyssey scenario has defined ID access, but you do not seem to have an ID with any such access. You can change access of your ID using the actor access terminal.",
+				"Teleport Warning", list("Ok", "Cancel")
 			)
 			if(choice == "Cancel")
 				return
@@ -174,8 +175,8 @@
 		var/mob/living/living = user
 		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
 			var/choice = tgui_alert(usr,
-				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel.",
-				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel. You can get one from the actor vendor.",
+				"Teleport Warning", list("Ok", "Cancel")
 			)
 			if(choice == "Cancel")
 				return

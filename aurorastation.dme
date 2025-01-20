@@ -541,6 +541,7 @@
 #include "code\datums\outfits\event\outfit_generic\business.dm"
 #include "code\datums\outfits\event\outfit_generic\engineering.dm"
 #include "code\datums\outfits\event\outfit_generic\medical.dm"
+#include "code\datums\outfits\event\outfit_generic\mercenary.dm"
 #include "code\datums\outfits\event\outfit_generic\mining.dm"
 #include "code\datums\outfits\event\outfit_generic\science.dm"
 #include "code\datums\outfits\event\outfit_generic\security.dm"

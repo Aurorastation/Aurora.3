@@ -20,7 +20,7 @@
 		/singleton/role/generic_miner,
 		/singleton/role/generic_business,
 	)
-	default_outfit = /obj/outfit/admin/generic/ruined_propellant_depot_crew
+	default_outfit = /obj/outfit/admin/generic
 	actor_accesses = list(/datum/access/ruined_propellant_depot_access)
 	radio_frequency_name = "Propellant Depot AG5"
 

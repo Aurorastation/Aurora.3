@@ -45,3 +45,8 @@
 	name = "Generic Businessperson"
 	desc = "You are some businessperson, dressed in a nice suit, with a wallet full of cash."
 	outfit = /obj/outfit/admin/generic/business
+
+/singleton/role/generic_mercenary
+	name = "Generic Mercenary"
+	desc = "You are some mercenary, dressed all tacticool, with a plate carrier and helmet, 9mm pistol with a few mags, and zipties."
+	outfit = /obj/outfit/admin/generic/mercenary
