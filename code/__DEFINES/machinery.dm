@@ -83,6 +83,7 @@
 #define NETWORK_CANARY "Canary" // horizon shuttle, scout/fighter
 #define NETWORK_QUARK "Quark" // horizon shuttle, xenoarch/science
 #define NETWORK_NEWS "News"
+#define NETWORK_CRYO_OUTPOST "#187-D Outpost"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.

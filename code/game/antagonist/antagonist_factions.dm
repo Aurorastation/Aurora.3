@@ -21,7 +21,7 @@
 	if(!player || !faction || !player.current)
 		return
 
-	if(!faction.faction_verb || !faction.faction_descriptor || !faction.faction_verb)
+	if(!faction.faction_descriptor || !LAZYLEN(faction.faction_verbs))
 		return
 
 	if(faction.is_antagonist(player))

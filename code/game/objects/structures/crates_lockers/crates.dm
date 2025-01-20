@@ -146,9 +146,9 @@
 				pixel_y = -4
 
 //For putting on tables
-/obj/structure/closet/crate/MouseDrop(atom/over_object)
-	if (istype(over_object, /obj/structure/table))
-		put_on_table(over_object, usr)
+/obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if (istype(over, /obj/structure/table))
+		put_on_table(over, user)
 		return TRUE
 	else
 		return ..()
@@ -588,7 +588,25 @@
 //	new /obj/item/pestspray(src)
 //	new /obj/item/pestspray(src)
 
+// Spawns with everything you need to make your very own field kitchen! (assuming you have power)
+// Contains enough to create a stove and oven. Using loops for anything above one for readability. Best paired with a freezer with ingredients.
+// Intended to provide enough equipment that more than just chefs can function as field cooks on expeditions.
+/obj/structure/closet/crate/field_kitchen
 
+/obj/structure/closet/crate/field_kitchen/fill()
+	for(var/_ in 1 to 6)
+		new /obj/item/stock_parts/capacitor(src)
+	for(var/_ in 1 to 4)
+		new /obj/item/stock_parts/matter_bin(src)
+	for(var/_ in 1 to 2)
+		new /obj/item/stock_parts/scanning_module(src)
+	new /obj/item/circuitboard/oven(src)
+	new /obj/item/circuitboard/stove(src)
+	new /obj/item/stack/cable_coil(src)
+	new /obj/item/storage/box/kitchen(src)
+	new /obj/item/reagent_containers/spray/cleaner(src)
+	new /obj/item/storage/box/gloves(src)
+	new /obj/item/storage/box/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance

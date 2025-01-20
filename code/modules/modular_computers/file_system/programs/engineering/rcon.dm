@@ -16,6 +16,9 @@
 	tgui_theme = "hephaestus"
 	ui_auto_update = FALSE
 
+/datum/computer_file/program/rcon_console/New()
+	..()
+
 /datum/computer_file/program/rcon_console/ui_data(mob/user)
 	var/list/data = initial_data()
 

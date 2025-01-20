@@ -143,7 +143,7 @@ var/bomb_set
 				return TRUE
 	return ..()
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_ghost(mob/user)
 	attack_hand(user)
 
 /obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
@@ -361,9 +361,9 @@ var/bomb_set
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the station!</b>")
+			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the [station_name(TRUE)]!</b>")
 		else if(off_station == 2)
-			to_world("<b>A nuclear device was set off, but the device was not on the station!</b>")
+			to_world("<b>A nuclear device was set off, but the device was not on the [station_name(TRUE)]!</b>")
 		else
 			to_world("<b>The station was destoyed by the nuclear blast!</b>")
 

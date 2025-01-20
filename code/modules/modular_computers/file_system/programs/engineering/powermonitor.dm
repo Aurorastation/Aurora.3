@@ -3,7 +3,7 @@
 	filedesc = "Power Monitoring"
 	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
-	extended_desc = "This program connects to sensors around the station to provide information about electrical systems"
+	extended_desc = "This program connects to sensors around the station to provide information about electrical systems."
 	ui_header = "power_norm.gif"
 	required_access_run = ACCESS_ENGINE
 	required_access_download = ACCESS_CE
@@ -17,6 +17,9 @@
 	var/has_alert = FALSE
 	var/list/grid_sensors
 	var/active_sensor	//name_tag of the currently selected sensor
+
+/datum/computer_file/program/power_monitor/New()
+	..()
 
 /datum/computer_file/program/power_monitor/ui_data(mob/user)
 	var/list/data = initial_data()

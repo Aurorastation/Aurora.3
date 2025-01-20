@@ -63,6 +63,9 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// The typepath of the visitable our main map is, for example /obj/effect/overmap/visitable/ship/sccv_horizon
+	var/overmap_visitable_type
+
 	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
 	/// Ports of call are taken from the current map sector.
 	var/ports_of_call = FALSE
@@ -324,15 +327,6 @@
 	for(var/datum/map_template/template in selected)
 		var/bounds = template.load_new_z()
 		if(bounds)
-			// do away site exoplanet generation, if needed
-			var/datum/map_template/ruin/away_site/away_site = template
-			if(istype(away_site) && away_site.exoplanet_themes)
-				for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
-					for(var/marker_turf_type in away_site.exoplanet_themes)
-						var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
-						var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
-						exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
-			// fin
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")

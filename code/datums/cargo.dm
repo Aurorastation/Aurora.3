@@ -214,7 +214,7 @@
 			if("rejected")
 				return "Rejected"
 			if("shipped")
-				return "Shipped to the Station"
+				return "Shipped to the [station_name(TRUE)]"
 			if("delivered")
 				return "Delivered"
 			else

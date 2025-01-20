@@ -68,11 +68,13 @@
 
 	var/datum/space_level/base_level = null
 	for(var/traits_for_level in traits)
-		var/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
 		if(!base_level)
 			base_level = level
+		GLOB.map_templates["[level.z_value]"] = src
 
 	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
+
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		atoms_to_initialise += M.atoms_to_initialise
@@ -88,7 +90,9 @@
 		SSatlas.current_map.player_levels |= z_index
 
 	smooth_zlevel(world.maxz)
-	resort_all_areas()
+	require_area_resort()
+
+	post_exoplanet_generation(bounds)
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
@@ -214,3 +218,10 @@
 	for (var/max_bound in list(MAP_MAXX, MAP_MAXY, MAP_MAXZ))
 		bounds_to_combine[max_bound] = max(existing_bounds[max_bound], new_bounds[max_bound])
 	return bounds_to_combine
+
+/**
+ * In case the away site spawns with an exoplanet, use this proc to handle any post-generation.
+ * For example, turning market turfs into exoplanet turfs with themes.
+ */
+/datum/map_template/proc/post_exoplanet_generation(bounds)
+	return

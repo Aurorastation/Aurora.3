@@ -50,9 +50,10 @@
 	hardpoint_tag = null
 	. = ..()
 
-/atom/movable/screen/mecha/hardpoint/MouseDrop()
+/atom/movable/screen/mecha/hardpoint/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(holding) holding.screen_loc = screen_loc
+	if(holding)
+		holding.screen_loc = screen_loc
 
 /atom/movable/screen/mecha/hardpoint/proc/update_system_info()
 	// No point drawing it if we have no item to use or nobody to see it.

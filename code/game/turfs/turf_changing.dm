@@ -24,9 +24,14 @@
 		QUEUE_SMOOTH(src)
 
 	if (SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
+		// exoplanet
+		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
+		if (istype(exoplanet) && istype(exoplanet.theme))
+			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area)
+		// away site
+		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
+		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
+			away_site.exoplanet_theme_base.on_turf_generation(src, null)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
@@ -53,6 +58,7 @@
 	var/list/old_decals = decals
 	var/old_outside = is_outside
 	var/old_is_open = is_open()
+	var/list/old_resources = resources ? resources.Copy() : null
 
 	changing_turf = TRUE
 
@@ -61,6 +67,7 @@
 
 	// So we call destroy.
 	qdel(src)
+
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_listen_lookup = _listen_lookup?.Copy()
 	var/list/old_signal_procs = _signal_procs?.Copy()
@@ -137,6 +144,8 @@
 	new_turf.post_change(!mapload)
 
 	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
+
+	new_turf.resources = old_resources
 
 	. = new_turf
 

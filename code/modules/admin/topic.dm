@@ -161,7 +161,7 @@
 
 		switch(href_list["simplemake"])
 			if("observer")
-				M.change_mob_type( /mob/abstract/observer , null, null, delmob )
+				M.change_mob_type( /mob/abstract/ghost/observer , null, null, delmob )
 			if("nymph")
 				M.change_mob_type( /mob/living/carbon/alien/diona , null, null, delmob )
 			if("human")
@@ -731,7 +731,7 @@
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		sleep(2)
 		C.jumptomob(M)
@@ -751,7 +751,7 @@
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isobserver(usr))
+		if(!isghost(usr))
 			C.admin_ghost()
 		C.jumptocoord(x,y,z)
 
@@ -1177,7 +1177,7 @@
 
 		if(target)
 			for (var/path in paths)
-				for (var/i = 0; i < number; i++)
+				for (var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
 						var/turf/N = O.ChangeTurf(path)
@@ -1313,7 +1313,7 @@
 					SSnews.wanted_issue.body = src.admincaster_feed_message.body
 					SSnews.wanted_issue.backup_author = src.admincaster_feed_message.backup_author
 					src.admincaster_screen = 19
-				log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [src.admincaster_feed_message.author]!")
+				log_admin("[key_name_admin(usr)] issued a [station_name(TRUE)]-wide Wanted Notification for [src.admincaster_feed_message.author]!")
 		src.access_news_network()
 
 	else if(href_list["ac_cancel_wanted"])
@@ -1591,7 +1591,7 @@
 	if(client && eyeobj)
 		return "|<A HREF='?[source];adminplayerobservejump=[REF(eyeobj)]'>EYE</A>"
 
-/mob/abstract/observer/extra_admin_link(var/source)
+/mob/abstract/ghost/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
 		return "|<A HREF='?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
 

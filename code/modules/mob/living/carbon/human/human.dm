@@ -1187,7 +1187,7 @@
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
-	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
+	for(var/mob/abstract/ghost/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
 /mob/living/carbon/human/proc/remoteobserve()
@@ -1884,11 +1884,11 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/MouseDrop(var/atom/over_object)
-	if(ishuman(over_object))
-		var/mob/living/carbon/human/H = over_object
+/mob/living/carbon/human/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(ishuman(over))
+		var/mob/living/carbon/human/H = over
 		if(holder_type && istype(H) && H.a_intent == I_HELP && !H.lying && !issmall(H) && Adjacent(H))
-			get_scooped(H, (usr == src))
+			get_scooped(H, (user == src))
 			return
 	return ..()
 

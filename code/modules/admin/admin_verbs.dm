@@ -51,6 +51,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -136,7 +137,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -392,6 +394,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_odyssey,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
@@ -424,6 +427,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/dsay,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
 	/datum/admins/proc/paralyze_mob,
@@ -492,6 +496,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
 )
 
@@ -513,8 +518,8 @@ var/list/admin_verbs_cciaa = list(
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
+		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
 		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
 		if(holder.rights & R_CCIAA)			add_verb(src, admin_verbs_cciaa)
@@ -572,9 +577,9 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 	set name = "Aghost"
 	if(!holder)	return
-	if(istype(mob,/mob/abstract/observer))
+	if(isobserver(mob))
 		//re-enter
-		var/mob/abstract/observer/ghost = mob
+		var/mob/abstract/ghost/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.")
@@ -589,7 +594,7 @@ var/list/admin_verbs_cciaa = list(
 	else
 		//ghostize
 		var/mob/body = mob
-		var/mob/abstract/observer/ghost = body.ghostize(1)
+		var/mob/abstract/ghost/observer/ghost = body.ghostize(1)
 		ghost.admin_ghosted = 1
 		if(body)
 			body.teleop = ghost
@@ -630,6 +635,13 @@ var/list/admin_verbs_cciaa = list(
 		global_check_antags.ui_interact(usr)
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
+
+/client/proc/odyssey_panel()
+	set name = "View Odyssey Panel"
+	set category = "Admin"
+
+	SSodyssey.ui_interact(mob)
+	feedback_add_details("admin_verb","ODP")
 
 /client/proc/jobbans()
 	set name = "Display Job bans"
@@ -704,9 +716,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Drop Bomb"
 	set desc = "Cause an explosion of varying strength at your location."
 
-	var/turf/epicenter = mob.loc
-	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
+	var/turf/epicenter = get_turf(mob)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if(null)
 			return 0
@@ -896,7 +907,7 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/change_security_level()
 	set name = "Set security level"
-	set desc = "Sets the station security level"
+	set desc = "Sets the station's security level"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -923,9 +934,9 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN))	return
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
+	var/mob/living/carbon/human/selected_human = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
 
-	if(!istype(M, /mob/living/carbon/human))
+	if(!istype(selected_human, /mob/living/carbon/human))
 		to_chat(usr, SPAN_WARNING("You can only do this to humans!"))
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
@@ -933,54 +944,53 @@ var/list/admin_verbs_cciaa = list(
 			return
 	var/new_facial = input("Please select facial hair color.", "Character Generation") as color
 	if(new_facial)
-		M.r_facial = hex2num(copytext(new_facial, 2, 4))
-		M.g_facial = hex2num(copytext(new_facial, 4, 6))
-		M.b_facial = hex2num(copytext(new_facial, 6, 8))
+		selected_human.r_facial = hex2num(copytext(new_facial, 2, 4))
+		selected_human.g_facial = hex2num(copytext(new_facial, 4, 6))
+		selected_human.b_facial = hex2num(copytext(new_facial, 6, 8))
 
 	var/new_hair = input("Please select hair color.", "Character Generation") as color
 	if(new_facial)
-		M.r_hair = hex2num(copytext(new_hair, 2, 4))
-		M.g_hair = hex2num(copytext(new_hair, 4, 6))
-		M.b_hair = hex2num(copytext(new_hair, 6, 8))
+		selected_human.r_hair = hex2num(copytext(new_hair, 2, 4))
+		selected_human.g_hair = hex2num(copytext(new_hair, 4, 6))
+		selected_human.b_hair = hex2num(copytext(new_hair, 6, 8))
 
 	var/new_eyes = input("Please select eye color.", "Character Generation") as color
 	if(new_eyes)
-		M.r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		M.g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		M.b_eyes = hex2num(copytext(new_eyes, 6, 8))
-		M.update_eyes()
+		selected_human.r_eyes = hex2num(copytext(new_eyes, 2, 4))
+		selected_human.g_eyes = hex2num(copytext(new_eyes, 4, 6))
+		selected_human.b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		selected_human.update_eyes()
 
 	var/new_skin = input("Please select body color. This is for Tajaran, Unathi, and Skrell only!", "Character Generation") as color
 	if(new_skin)
-		M.r_skin = hex2num(copytext(new_skin, 2, 4))
-		M.g_skin = hex2num(copytext(new_skin, 4, 6))
-		M.b_skin = hex2num(copytext(new_skin, 6, 8))
+		selected_human.r_skin = hex2num(copytext(new_skin, 2, 4))
+		selected_human.g_skin = hex2num(copytext(new_skin, 4, 6))
+		selected_human.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: 30-220. Higher is darker.", "Character Generation")  as text
+	var/new_tone = input("Please select skin tone level: (Light [selected_human.species.lower_skin_tone_bound] - [selected_human.species.upper_skin_tone_bound] Dark). Higher is darker.", "Character Generation")  as text
 
 	if (new_tone)
-		M.s_tone = max(min(round(text2num(new_tone)), 220), 30)
-		M.s_tone =  -M.s_tone + 35
+		selected_human.s_tone = 35 - clamp(round(text2num(new_tone)), selected_human.species.lower_skin_tone_bound, selected_human.species.upper_skin_tone_bound)
 
 	// hair
 	var/new_hstyle = input(usr, "Select a hair style", "Grooming")  as null|anything in GLOB.hair_styles_list
 	if(new_hstyle)
-		M.h_style = new_hstyle
+		selected_human.h_style = new_hstyle
 
 	// facial hair
 	var/new_fstyle = input(usr, "Select a facial hair style", "Grooming")  as null|anything in GLOB.facial_hair_styles_list
 	if(new_fstyle)
-		M.f_style = new_fstyle
+		selected_human.f_style = new_fstyle
 
 	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
 	if (new_gender)
 		if(new_gender == "Male")
-			M.gender = MALE
+			selected_human.gender = MALE
 		else
-			M.gender = FEMALE
-	M.update_hair()
-	M.update_body()
-	M.check_dna(M)
+			selected_human.gender = FEMALE
+	selected_human.update_hair()
+	selected_human.update_body()
+	selected_human.check_dna(selected_human)
 
 /client/proc/playernotes()
 	set name = "Show Player Info"
