@@ -359,10 +359,7 @@
 	paid_by_id = user_id
 	return "The order has been paid for"
 
-/*
-	A cargo order item. Part of a category.
-	specifies the item, the supplier and the price of the item
-*/
+///	A cargo order item. Part of a category. Specifies the item, the supplier and the price of the item
 /datum/cargo_order_item
 	var/singleton/cargo_item/ci //Item that has been ordered
 	var/price //Price of the item with the given supplier

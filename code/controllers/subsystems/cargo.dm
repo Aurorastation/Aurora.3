@@ -615,7 +615,7 @@ SUBSYSTEM_DEF(cargo)
 
 	return 1
 
-//Dumps the cargo orders to the database when the round ends
+/// Dumps the cargo orders to the database when the round ends.
 /datum/controller/subsystem/cargo/proc/dump_orders()
 	if(dumped_orders)
 		log_subsystem_cargo("SQL: Orders already dumped. Cargo data dump has been aborted.")

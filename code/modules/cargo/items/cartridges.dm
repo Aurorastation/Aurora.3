@@ -21,7 +21,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ale
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +35,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/beer
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -49,7 +49,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/champagne
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/coffee
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -77,7 +77,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cognac
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -91,7 +91,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cola
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -105,7 +105,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/cream
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -119,7 +119,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dr_gibb
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -133,7 +133,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/gin
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -147,7 +147,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/ice
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -161,7 +161,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/icetea
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -175,7 +175,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/kahlua
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -189,7 +189,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -203,7 +203,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/lime
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -217,7 +217,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/mead
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -231,7 +231,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/orange
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -245,7 +245,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/rum
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -259,7 +259,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/smw
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -273,7 +273,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/sodawater
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -287,7 +287,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/spaceup
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -301,7 +301,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tea
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -315,7 +315,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tequila
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -329,7 +329,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/tonic
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -343,7 +343,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vermouth
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -357,7 +357,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/vodka
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -371,7 +371,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/watermelon
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -385,7 +385,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/whiskey
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -399,7 +399,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/wine
 	)
-	access = ACCESS_BAR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

@@ -1,6 +1,5 @@
 
-// Master singleton for cargo_items.
-
+/// Master singleton for cargo items. Contains data relating to what a cargo item spawns, price, desc, supplier, access, etc.
 /singleton/cargo_item
 	/// The category this item belongs to. This MUST match the cargo_category "name" this item belongs to.
 	var/category = "miscellaneous"
