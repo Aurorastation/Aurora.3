@@ -113,3 +113,24 @@
 2025-01-17:
   ClemTheDuck:
   - bugfix: Should fix some modular armour accessories not appearing on armour.
+2025-01-20:
+  Flaminglily:
+  - rscadd: Added a significantly more diverse amount of contraband drugs to be found
+      in the maintenance tunnels.
+  Furrycactus:
+  - rscadd: Changes the colour of the modulator gas line on the Bluespace Drive to
+      cyan, so it's not the same colour as the Phoron line.
+  SimpleMaroon:
+  - imageadd: Added a variety of different sprites to the pocketwatch, depending on
+      if you wear it on your wrist, your belt, or your suit storage.
+  - code_imp: Changed the pocketwatch to be a subtype of other watches instead of
+      its own thing.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Poncho/Cape accessory sprites.
+  - bugfix: Fixes foam sword sprite.
+  - bugfix: Fixes NTnet relay sprite.
+  - bugfix: Fixes message server using the wrong sprite.
+  hazelmouse:
+  - qol: The armory now contains six total 5.56mm carbine magazines, instead of four
+      magazines and two singular 5.56mm bullet casings.
+  - bugfix: The shuttle airlock of the SPLF ghostrole now functions properly.
