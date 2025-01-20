@@ -783,7 +783,7 @@
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "\improper Luceian cloak"
 	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
-	icon = 'icons/clothing/suits/capes/assunzione_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/assunzione_cloak.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"

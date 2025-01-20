@@ -421,7 +421,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/adhomai_watch
 	display_name = "adhomian watch selection"
 	description = "A selection of Adhomian watches."
-	path = /obj/item/pocketwatch/adhomai
+	path = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -429,7 +429,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/adhomai_watch/New()
 	..()
 	var/list/watch = list()
-	watch["adhomian pocket watch"] = /obj/item/pocketwatch/adhomai
+	watch["adhomian pocket watch"] = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	watch["male adhomian wrist watch"] = /obj/item/clothing/wrists/watch/tajara
 	watch["female adhomian wrist watch"] = /obj/item/clothing/wrists/watch/tajara/female
 	gear_tweaks += new /datum/gear_tweak/path(watch)

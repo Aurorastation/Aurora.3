@@ -998,6 +998,7 @@
 	pixel_y = 26
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/splf)
 "fA" = (
@@ -8978,6 +8979,7 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/splf_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/splf)
 "ZC" = (
@@ -9042,7 +9044,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(246)
+	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;

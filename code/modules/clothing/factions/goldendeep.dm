@@ -143,7 +143,7 @@
 	desc = "Viewed as ostentatious by outsiders (and perhaps insiders, for that matter) capes nonetheless remain as a means of quickly broadcasting one's status (or pretentions of status)."
 	icon_state = "golden_cape"
 	item_state = "golden_cape"
-	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/golden_cape.dmi'
 	contained_sprite = TRUE
 	icon_override = null
 	protects_against_weather = FALSE
@@ -153,7 +153,7 @@
 	desc = "A long and flowing cloak used by members of Golden Deep evocative of trenchcoats. Curiously, many investigatorial synthetics within the collective favor these cloaks."
 	icon_state = "flowing_cloak"
 	item_state = "flowing_cloak"
-	icon = 'icons/clothing/suits/capes/flowing_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/flowing_cloak.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/accessory/poncho/goldendeep/elegantcloak
@@ -161,7 +161,7 @@
 	desc = "Billowing fabric for all classes with a regal clasp that hints at its original merchant designers."
 	icon_state = "elegant_cloak"
 	item_state = "elegant_cloak"
-	icon = 'icons/clothing/suits/capes/elegant_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/elegant_cloak.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/accessory/poncho/goldendeep/furwrap
@@ -169,14 +169,14 @@
 	desc = "The fur of an animal, soft and fluffy, now repurposed as a decorative neck wrap."
 	icon_state = "fur_wrap"
 	item_state = "fur_wrap"
-	icon = 'icons/clothing/suits/capes/fur_wrap.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/fur_wrap.dmi'
 
 /obj/item/clothing/accessory/poncho/goldendeep/desertadornment
 	name = "desert adornment"
 	desc = "Lightweight and soft, this sleeveless coat feels like it's hardly anything at all, but it keeps the sun from bearing down on the wearer."
 	icon_state = "desert_adornment"
 	item_state = "desert_adornment"
-	icon = 'icons/clothing/suits/capes/desert_adornment.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/desert_adornment.dmi'
 
 //head slot
 
