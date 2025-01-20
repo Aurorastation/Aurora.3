@@ -17,10 +17,10 @@
 		/singleton/role/ruined_propellant_depot/director,
 	)
 	default_outfit = /obj/outfit/admin/generic/ruined_propellant_depot_crew
+	actor_accesses = list(/datum/access/ruined_propellant_depot_access)
+	radio_frequency_name = "Propellant Depot AG5"
 
 	base_area = /area/ruined_propellant_depot
-
-	radio_frequency_name = "Propellant Depot AG5"
 
 /singleton/scenario_announcements/ruined_propellant_depot
 	horizon_announcement_title = "SCC Central Command Outpost"

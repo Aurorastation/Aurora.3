@@ -129,7 +129,8 @@
 /// Teleports actors to the odyssey scenario away site.
 /// Uses holomap POIs as possible destinations.
 /obj/machinery/teleport_odyssey
-	name = "teleport"
+	name = "actor teleport pad"
+	desc = "Teleports odyssey actors to the odyssey scenario away site. Very convenient."
 	icon = 'icons/obj/teleporter.dmi'
 	icon_state = "pad_active"
 	density = TRUE
@@ -141,6 +142,43 @@
 	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)
 		if(poi.z in SSodyssey.scenario_zlevels)
 			possible_pois += poi
+	if(isemptylist(possible_pois))
+		tgui_alert(usr, "Can't find any teleport destinations.", "Teleport Error")
+
+	// actor check for id access
+	if(SSodyssey.scenario && SSodyssey.scenario.actor_accesses && !isemptylist(SSodyssey.scenario.actor_accesses))
+		// check if they have an id at all
+		var/obj/item/card/id/user_id = user.GetIdCard()
+		if(!user_id || !istype(user_id))
+			var/choice = tgui_alert(usr,
+				"Current odyssey scenario has defined ID access, but you do not seem to have an ID on you.",
+				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+			)
+			if(choice == "Cancel")
+				return
+
+		// check if they have actor accesses set on the scenario definition
+		var/list/scenario_access_ids = list()
+		for(var/datum/access/access in SSodyssey.scenario.actor_accesses)
+			scenario_access_ids += access.id
+		if(isemptylist(user_id.access & scenario_access_ids))
+			var/choice = tgui_alert(usr,
+				"Current odyssey scenario has defined ID access, but you do not seem to have an ID with any such accesses.",
+				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+			)
+			if(choice == "Cancel")
+				return
+
+	// actor check for radio headset
+	if(SSodyssey.scenario && SSodyssey.scenario.radio_frequency_name)
+		var/mob/living/living = user
+		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
+			var/choice = tgui_alert(usr,
+				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel.",
+				"Teleport Warning", list("Ok, this is intentional", "Cancel")
+			)
+			if(choice == "Cancel")
+				return
 
 	// ask the user
 	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(usr,

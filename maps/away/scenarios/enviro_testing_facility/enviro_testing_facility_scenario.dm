@@ -18,16 +18,22 @@
 		// /singleton/role/enviro_testing_facility/scientist,
 		// /singleton/role/enviro_testing_facility/engineer,
 	)
-	default_outfit = /obj/outfit/admin/generic/enviro_testing_facility_crew
+	default_outfit = /obj/outfit/admin/generic
+	actor_accesses = list(
+		/datum/access/enviro_testing_facility_access_control,
+		/datum/access/enviro_testing_facility_access_engops,
+		/datum/access/enviro_testing_facility_access_medres,
+		/datum/access/enviro_testing_facility_access_sec,
+	)
+	radio_frequency_name = "Env-Test Facility Zoya"
 
 	base_area = /area/enviro_testing_facility
-
-	radio_frequency_name = "Env-Test Facility Zoya"
 
 /singleton/scenario_announcements/enviro_testing_facility
 	horizon_announcement_title = "SCC Central Command Outpost"
 	horizon_unrestrict_landing_message = "\
-		Greetings, SCCV Horizon. \
+		Greetings, SCCV Horizon. We have observed some unusual extranet traffic \
+		from a environmental testing facility in your current sector. \
 		You are to investigate and report back of your findings.\
 		"
 	offship_announcement_message = "\
