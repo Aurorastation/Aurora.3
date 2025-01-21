@@ -518,32 +518,6 @@ var/global/list/area_blurb_stated_to = list()
 		return pick(turfs)
 	else return null
 
-// Changes the area of T to A. Do not do this manually.
-// Area is expected to be a non-null instance.
-/proc/ChangeArea(var/turf/T, var/area/A)
-	if(!istype(A))
-		CRASH("Area change attempt failed: invalid area supplied.")
-	var/old_outside = T.is_outside()
-	var/area/old_area = get_area(T)
-	if(old_area == A)
-		return
-	A.contents.Add(T)
-	if(old_area)
-		old_area.Exited(T, A)
-		for(var/atom/movable/AM in T)
-			old_area.Exited(AM, A)
-	A.Entered(T, old_area)
-	for(var/atom/movable/AM in T)
-		A.Entered(AM, old_area)
-
-	for(var/obj/machinery/M in T)
-		M.shuttle_move(T)
-
-	T.last_outside_check = OUTSIDE_UNCERTAIN
-	var/outside_changed = T.is_outside() != old_outside
-	if(T.is_outside == OUTSIDE_AREA && outside_changed)
-		T.update_weather()
-
 /**
 * Displays an area blurb on a mob's screen.
 *
