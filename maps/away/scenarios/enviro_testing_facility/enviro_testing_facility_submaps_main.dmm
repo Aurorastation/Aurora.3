@@ -8630,7 +8630,7 @@
 "jhj" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Offices - 1"
+	c_tag = "Control - Offices - 1"
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
@@ -15570,7 +15570,7 @@
 /area/template_noop)
 "qNm" = (
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Offices - 1"
+	c_tag = "Control - Offices - 1"
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
@@ -18533,7 +18533,7 @@
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 1;
-	c_tag = "Offices - 2"
+	c_tag = "Control - Offices - 2"
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
@@ -20487,7 +20487,7 @@
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Offices - 2"
+	c_tag = "Control - Offices - 2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)

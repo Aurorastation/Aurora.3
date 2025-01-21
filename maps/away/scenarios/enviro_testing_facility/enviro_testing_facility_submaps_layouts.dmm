@@ -5992,6 +5992,10 @@
 "vo" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/camera/network/enviro_testing_facility{
+	c_tag = "Control - Comms/Sensor Room";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/facility_controls)
 "vp" = (
