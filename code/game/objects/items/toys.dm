@@ -1313,12 +1313,14 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/sword.dmi'
+	icon = 'icons/obj/sword_64.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
+	worn_x_dimension = 64
+	worn_y_dimension = 64
 
 /obj/item/inflatable_duck
 	name = "inflatable duck"

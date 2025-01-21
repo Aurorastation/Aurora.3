@@ -432,7 +432,7 @@
 	return ..()
 
 /obj/item/grab/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	var/mob/living/carbon/human/H = affecting
+	var/mob/living/carbon/human/H = over
 	if(wielded || affecting.buckled_to || !istype(H) || assailant != H || H.get_active_hand() != src)
 		return
 	if(!ishuman(affecting))
