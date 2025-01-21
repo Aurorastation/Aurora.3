@@ -309,6 +309,20 @@
 	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
+/datum/gear/suit/dominia_cape_colorable
+	display_name = "dominian cape selection, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/suit/dominia_cape_colorable/New()
+	..()
+	var/list/dominiacape = list()
+	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	dominiacape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
+	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
 /datum/gear/suit/dominia_medical_cape
 	display_name = "tribunalist medical cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
