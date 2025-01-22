@@ -248,6 +248,7 @@
 	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/newsboy
 	hats_colourable["hat, legionnaire"] = /obj/item/clothing/head/legionnaire
 	hats_colourable["hat, boonie"] = /obj/item/clothing/head/bucket/boonie
+	hats_colourable["hat, camo boonie"] = /obj/item/clothing/head/bucket/boonie/camo
 
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
