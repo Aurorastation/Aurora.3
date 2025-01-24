@@ -37448,25 +37448,25 @@
 /obj/structure/table/rack/clothing{
 	dir = 4
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = -4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = -4;
 	pixel_x = 6
 	},
