@@ -1,8 +1,8 @@
 /obj/item/device/orbital_dropper
 	name = "laser targeting dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "drillpointer"
+	icon = 'icons/obj/item/device/binoculars.dmi'
+	icon_state = "binoculars"
 	item_state = "binoculars"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -59,7 +59,7 @@
 	add_fingerprint(user)
 
 	//laser pointer image
-	icon_state = "drillpointer_on"
+	icon_state = "binoculars_high"
 	var/list/showto = list()
 	for(var/mob/M in viewers(targloc))
 		if(M.client)
@@ -91,7 +91,7 @@
 	addtimer(CALLBACK(src, PROC_REF(orbital_drop), targloc, user), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
-	icon_state = "drillpointer"
+	icon_state = "binoculars"
 
 /obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target, var/user)
 	if(!map)

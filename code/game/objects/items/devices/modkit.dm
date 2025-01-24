@@ -6,7 +6,9 @@
 /obj/item/device/modkit
 	name = "voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
 	var/parts = MODKIT_FULL
 	var/target_species = BODYTYPE_HUMAN
 	var/is_multi_species = FALSE //can this modkit change things for multiple species?
@@ -105,8 +107,10 @@
 
 /obj/item/voidsuit_modkit
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
@@ -235,8 +239,10 @@
 
 /obj/item/voidsuit_modkit_multi //for converting between a large range of options instead of having 5000 subtypes
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box designed to modify a voidsuit to a selection of alternate options."
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\

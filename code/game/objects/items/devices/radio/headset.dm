@@ -1,6 +1,7 @@
 /obj/item/device/radio/headset
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
+	icon = 'icons/obj/item/device/radio/headset.dmi'
 	icon_state = "headset"
 	item_state = "headset"
 	matter = list(MATERIAL_ALUMINIUM = 75)
@@ -193,6 +194,7 @@
 
 /obj/item/device/radio/headset/alt
 	name = "bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "headset_alt"
 	item_state = "headset_alt"
 
@@ -200,6 +202,7 @@
 	name = "soundproof headset"
 	desc = "A sound isolating version of the common radio headset."
 	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
+	icon = 'icons/obj/item/device/radio/headset_alt_double.dmi'
 	icon_state = "earset"
 	item_state = "earset"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
@@ -209,6 +212,7 @@
 	name = "wristbound radio"
 	desc = "A radio designed to fit on the wrist. Often known for broadcasting loudly enough that those closeby might overhear it."
 	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	icon = 'icons/obj/item/device/radio/headset_wrist.dmi'
 	icon_state = "wristset"
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
@@ -240,11 +244,10 @@
 	name = "clip-on radio"
 	desc = "A radio designed to clip onto your clothes. Often known for broadcasting loudly enough that those closeby might overhear it."
 	desc_info = "This radio can be heard by people standing next to the one wearing it."
-	icon = 'icons/obj/item/tools/radio/clip.dmi'
+	icon = 'icons/obj/item/device/radio/headset_clip.dmi'
 	icon_state = "clip"
 	item_state = "clip"
 	slot_flags = SLOT_WRISTS | SLOT_EARS
-	contained_sprite = TRUE
 
 /obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
 	set category = "Object"
@@ -283,11 +286,13 @@
 	name = "service radio headset"
 	desc = "Headset used by the service staff, tasked with keeping the station full, happy and clean."
 	icon_state = "srv_headset"
+	item_state = "srv_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
 /obj/item/device/radio/headset/headset_service/alt
 	name = "service radio bowman headset"
-	icon_state = "headset_alt"
+	icon_state = "srv_headset_alt"
+	item_state = "srv_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/service
 	name = "soundproof service headset"
@@ -444,8 +449,8 @@
 
 /obj/item/device/radio/headset/alt/double/mining
 	name = "soundproof mining headset"
-	icon_state = "earset_Mine"
-	item_state = "earset_Mine"
+	icon_state = "earset_mine"
+	item_state = "earset_mine"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
 /obj/item/device/radio/headset/wrist/cargo/mining
@@ -689,8 +694,8 @@
 
 /obj/item/device/radio/headset/alt/double/sec
 	name = "soundproof security headset"
-	icon_state = "earset_Sec"
-	item_state = "earset_Sec"
+	icon_state = "earset_sec"
+	item_state = "earset_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
 /obj/item/device/radio/headset/wrist/sec
