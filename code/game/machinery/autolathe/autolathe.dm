@@ -269,7 +269,8 @@
 /obj/machinery/autolathe/proc/start_processing_queue_item()
 	if(does_flick)
 		//Fancy autolathe animation.
-		AddOverlays("process")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 	autolathe_flags |= AUTOLATHE_STARTED|AUTOLATHE_BUSY
 
 /obj/machinery/autolathe/proc/process_queue_item()
@@ -292,14 +293,20 @@
 
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
-	CutOverlays("process")
+	CutOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+	CutOverlays("[icon_state]_lights_working")
 	I.update_icon()
 	update_use_power(POWER_USE_IDLE)
 
 	return TRUE
 
 /obj/machinery/autolathe/update_icon()
-	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -384,11 +391,14 @@
 
 	// Plays metal insertion animation.
 	if(istype(eating, /obj/item/stack/material))
-		var/obj/item/stack/material/sheet = eating
-		var/icon/load = icon(icon, "load")
-		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
-		AddOverlays(load)
-		CUT_OVERLAY_IN(load, 6)
+		var/obj/item/stack/material/stack = eating
+		var/mutable_appearance/M = mutable_appearance(icon, "material_insertion")
+		M.color = stack.material.icon_colour
+		//first play the insertion animation
+		flick_overlay_view(M, 1 SECONDS)
+
+		//now play the progress bar animation
+		flick_overlay_view(mutable_appearance(icon, "autolathe_progress"), 1 SECONDS)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
