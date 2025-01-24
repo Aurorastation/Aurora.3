@@ -69,7 +69,8 @@
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/zavodskoi,
 		"Security Personnel" = /obj/outfit/job/officer/event/zavodskoi,
 		"Engineering Personnel" = /obj/outfit/job/engineer/event/zavodskoi,
-		"Science Personnel" = /obj/outfit/job/scientist/event/zavodskoi
+		"Science Personnel" = /obj/outfit/job/scientist/event/zavodskoi,
+		"Machinist" = /obj/outfit/job/machinist/zavodskoi
 	)
 
 /obj/outfit/job/officer/zavodskoi
@@ -276,6 +277,17 @@
 	name = "Corporate Reporter - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/librarian/zavod
+	id = /obj/item/card/id/zavodskoi
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
+
+/obj/outfit/job/machinist/zavodskoi
+	name = "Machinist - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/machinist/zavod
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod

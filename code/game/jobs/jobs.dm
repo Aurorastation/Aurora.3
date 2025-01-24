@@ -125,7 +125,6 @@ var/list/cargo_positions = list(
 	"Operations Manager",
 	"Hangar Technician",
 	"Shaft Miner",
-	"Machinist",
 	"Operations Personnel"
 )
 
@@ -145,7 +144,8 @@ var/list/civilian_positions = list(
 	"Off-Duty Crew Member",
 	"Passenger",
 	"Merchant",
-	"Corporate Reporter"
+	"Corporate Reporter",
+	"Machinist"
 )
 
 var/list/security_positions = list(

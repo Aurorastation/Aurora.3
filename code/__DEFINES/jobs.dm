@@ -10,6 +10,7 @@
 #define CHAPLAIN_ROLE /datum/job/chaplain
 #define DIPLOMATIC_AIDE_ROLE /datum/job/diplomatic_aide
 #define CORPORATE_AIDE_ROLE /datum/job/corporate_aide
+#define MACHINIST_ROLE /datum/job/machinist
 
 //Event Roles
 //Used for generic department jobs for off-ship events
@@ -31,10 +32,10 @@
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med, /datum/job/eventmed)
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/eventeng)
 #define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/librarian, /datum/job/eventsrv)
-#define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/journalist)
+#define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/journalist, /datum/job/machinist)
 #define NON_CREW_CIVILIAN_ROLES list(/datum/job/passenger, /datum/job/merchant)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec, /datum/job/eventsec)
-#define OPERATIONS_ROLES list(/datum/job/hangar_tech, /datum/job/mining, /datum/job/machinist, /datum/job/eventops)
+#define OPERATIONS_ROLES list(/datum/job/hangar_tech, /datum/job/mining, /datum/job/eventops)
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
 
 #define ALL_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, NON_CREW_CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
@@ -45,8 +46,8 @@
 #define NT_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define PMC_ROLES list(SECURITY_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
 #define IDRIS_ROLES list(SECURITY_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
-#define ZAVOD_ROLES list(SECURITY_ROLES, SCIENCE_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
-#define ZENG_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
-#define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE)
-#define ORION_ROLES list(OPERATIONS_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, SERVICE_ROLES)
+#define ZAVOD_ROLES list(SECURITY_ROLES, SCIENCE_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, MACHINIST_ROLE)
+#define ZENG_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, MACHINIST_ROLE)
+#define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, MACHINIST_ROLE)
+#define ORION_ROLES list(OPERATIONS_ROLES, CIVILIAN_ROLES, REPRESENTATIVE_ROLE, SERVICE_ROLES, MACHINIST_ROLE)
 #define INDEP_ROLES list(NON_CREW_CIVILIAN_ROLES, CONSULAR_ROLE, JOURNALIST_ROLE, CHAPLAIN_ROLE, OFF_DUTY_CREW_MEMBER_ROLE, JOURNALIST_ROLE, DIPLOMATIC_AIDE_ROLE)
