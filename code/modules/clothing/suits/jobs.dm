@@ -308,7 +308,7 @@
 /obj/item/clothing/suit/storage/machinist
 	name = "machinist jacket"
 	desc = "Functional, rugged durability. The perfect workwear for tinkering with muscle cars, robots and giant mechas."
-	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "machinist_jacket"
 	item_state = "machinist_jacket"
 	contained_sprite = TRUE

@@ -269,7 +269,7 @@
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
 	contained_sprite = TRUE
-	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_machinist"
 	item_state = "nt_machinist"
 
@@ -280,6 +280,14 @@
 /obj/item/clothing/under/rank/machinist/orion
 	icon_state = "orion_machinist"
 	item_state = "orion_machinist"
+
+/obj/item/clothing/under/rank/machinist/zavod
+	icon_state = "zavod_machinist"
+	item_state = "zavod_machinist"
+
+/obj/item/clothing/under/rank/machinist/zeng
+	icon_state = "zeng_machinist"
+	item_state = "zeng_machinist"
 
 /obj/item/clothing/under/rank/machinist/einstein
 	name = "einstein machinist's jumpsuit"
