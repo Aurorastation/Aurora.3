@@ -55,7 +55,7 @@
 // Machinist
 /obj/structure/closet/secure_closet/machinist
 	name = "machinist's locker"
-	icon_state = "machinist"
+	icon_state = "generic"
 	req_access = list(ACCESS_ROBOTICS)
 
 /obj/structure/closet/secure_closet/machinist/fill()
@@ -69,6 +69,8 @@
 	new /obj/item/clothing/gloves/yellow/specialt(src)
 	new /obj/item/clothing/under/rank/machinist/orion(src)
 	new /obj/item/clothing/under/rank/machinist/heph(src)
+	new /obj/item/clothing/under/rank/machinist/zavod(src)
+	new /obj/item/clothing/under/rank/machinist/zeng(src)
 	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/ipc_tag_scanner(src)
