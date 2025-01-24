@@ -2,7 +2,7 @@
 	name = "Stargazer"
 	full_name = "Idris Stargazer Cruise Vessel"
 	path = "event/idris_cruise"
-	lobby_icons = list('icons/misc/titlescreens/idris_cruise/idris_cruise.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/idris_cruise/idris_cruise.dmi')
 	lobby_transitions = FALSE
 
 	allowed_jobs = list(/datum/job/visitor, /datum/job/passenger)

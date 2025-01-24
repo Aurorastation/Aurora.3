@@ -2,7 +2,7 @@
 	name = "GenericDock"
 	full_name = "Generic Dock"
 	path = "event/generic_dock"
-	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
 	lobby_transitions = 10 SECONDS
 
 	allowed_jobs = list(/datum/job/visitor)

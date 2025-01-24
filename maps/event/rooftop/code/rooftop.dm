@@ -2,7 +2,7 @@
 	name = "Rooftop"
 	full_name = "Mendell City Rooftop"
 	path = "event/rooftop"
-	lobby_icons = list('icons/misc/titlescreens/mendell/mendell_city.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/mendell/mendell_city.dmi')
 	lobby_transitions = FALSE
 
 	allowed_jobs = list(/datum/job/visitor)

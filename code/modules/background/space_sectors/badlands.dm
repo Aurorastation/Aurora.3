@@ -86,8 +86,7 @@
 	starlight_color = "#50b7bb"
 	starlight_power = 2
 	starlight_range = 4
-	sector_lobby_art = list('icons/misc/titlescreens/lore/cold_dawn.dmi')
-	sector_lobby_transitions = 0
+	lobby_icon_image_paths = list('icons/misc/titlescreens/lore/cold_dawn.dmi')
 	sector_welcome_message = 'sound/AI/adhomai_welcome.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/tajara_hud.dmi'
 	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'

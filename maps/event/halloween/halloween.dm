@@ -2,7 +2,7 @@
 	name = "Skyscraper"
 	full_name = "Xanu Skyscraper Rooftops"
 	path = "event/halloween"
-	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi')
 	lobby_transitions = FALSE
 	allowed_jobs = list(/datum/job/visitor)
 	force_spawnpoint = TRUE
