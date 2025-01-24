@@ -1,7 +1,7 @@
 /obj/item/device/encryptionkey
 	name = "standard encryption key"
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/item/device/encryptionkey.dmi'
 	icon_state = "cypherkey"
 	item_state = ""
 	w_class = WEIGHT_CLASS_TINY
@@ -101,7 +101,7 @@
 /obj/item/device/encryptionkey/bluespace
 	name = "bluespace encryption key"
 	desc = "A nonsensical mimicry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
-	icon_state = "bs_cyperkey"
+	icon_state = "bs_cypherkey"
 	additional_channels = list(CHANNEL_BLUESPACE = TRUE)
 	origin_tech = list(TECH_BLUESPACE = 3)
 	syndie = TRUE
@@ -266,7 +266,7 @@
 /obj/item/storage/box/fancy/keypouch
 	name = "encryption key pouch"
 	desc = "A pouch designed to store three encryption keys."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/item/device/encryptionkey.dmi'
 	icon_state = "keypouch0"
 	icon_type = "key"
 	storage_type = "pouch"

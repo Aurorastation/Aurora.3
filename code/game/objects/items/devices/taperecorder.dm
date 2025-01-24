@@ -1,7 +1,8 @@
 /obj/item/device/taperecorder
 	name = "universal recorder"
 	desc = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
-	icon_state = "taperecorderidle"
+	icon = 'icons/obj/item/device/taperecorder.dmi'
+	icon_state = "taperecorder_idle"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -73,7 +74,7 @@
 	emagged = TRUE
 	recording = FALSE
 	to_chat(user, SPAN_NOTICE("PZZTTPFFFT"))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 	return TRUE
 
 /obj/item/device/taperecorder/proc/explode()
@@ -96,7 +97,7 @@
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
-	icon_state = "taperecorderrecording"
+	icon_state = "taperecorder_recording"
 	if(time_recorded < 3600 && !playing)
 		to_chat(usr, SPAN_NOTICE("Recording started."))
 		recording = TRUE
@@ -108,7 +109,7 @@
 			time_recorded++
 			sleep(10)
 		recording = FALSE
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 	else
 		to_chat(usr, SPAN_NOTICE("Either your tape recorder's memory is full, or it is currently playing back its memory."))
@@ -129,12 +130,12 @@
 		timestamp += time_recorded
 		stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] Recording stopped."
 		to_chat(usr, SPAN_NOTICE("Recording stopped."))
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 	else if(playing)
 		playing = FALSE
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
-		icon_state = "taperecorderidle"
+		icon_state = "taperecorder_idle"
 		return
 
 /obj/item/device/taperecorder/verb/clear_memory()
@@ -174,7 +175,7 @@
 		to_chat(usr, SPAN_WARNING("You're already playing!"))
 		return
 	playing = TRUE
-	icon_state = "taperecorderplaying"
+	icon_state = "taperecorder_playing"
 	to_chat(usr, SPAN_NOTICE("Playing started."))
 	for(var/i = 1, time_recorded < 3600, sleep(10 * play_sleep_seconds))
 		if(!playing)
@@ -196,7 +197,7 @@
 			audible_message("<font color=Maroon><B>Tape Recorder</B>: Skipping [play_sleep_seconds] seconds of silence.</font>", hearing_distance = 3)
 			play_sleep_seconds = 1
 		i++
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 	playing = FALSE
 	if(emagged)
 		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3)
@@ -283,7 +284,7 @@
 		if(emagged)
 			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 			return
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 		if(time_recorded < 3600 && !playing)
 			to_chat(usr, SPAN_NOTICE("Recording started."))
 			recording = TRUE
@@ -295,7 +296,7 @@
 				time_recorded++
 				sleep(10)
 			recording = FALSE
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 		else
 			to_chat(usr, SPAN_WARNING("Either \the [src]'s memory is full, or it is currently playing back its memory."))
@@ -308,7 +309,7 @@
 			timestamp += time_recorded
 			stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] Recording stopped."
 			to_chat(usr, SPAN_NOTICE("Recording stopped."))
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 		else if(emagged)
 			to_chat(usr, SPAN_WARNING("\The [src]'s buttons doesn't react!"))
@@ -316,7 +317,7 @@
 		else if(playing)
 			playing = FALSE
 			audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
-			icon_state = "taperecorderidle"
+			icon_state = "taperecorder_idle"
 			return
 
 /obj/item/device/taperecorder/attackby(obj/item/attacking_item, mob/user)

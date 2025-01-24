@@ -3,8 +3,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps-com"
+	item_state = "radio"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)

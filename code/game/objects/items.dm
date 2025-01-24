@@ -288,13 +288,9 @@
 		AddOverlays(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
-	icon = 'icons/obj/device.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
-		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
+	contained_sprite = TRUE
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
