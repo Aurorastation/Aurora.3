@@ -39,11 +39,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/machinist
 	tablet = /obj/item/modular_computer/handheld/preset/supply/machinist
 
-	headset = /obj/item/device/radio/headset/headset_cargo
-	bowman = /obj/item/device/radio/headset/headset_cargo/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/cargo
-	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
+	headset = /obj/item/device/radio/headset/headset_medsci
+	bowman = /obj/item/device/radio/headset/headset_medsci/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/medsci
+	wrist_radio = /obj/item/device/radio/headset/wrist/medsci
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/medsci
 
 	belt_contents = list(
 		/obj/item/screwdriver = 1,

@@ -835,6 +835,29 @@
 	icon_state = "medsci_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_medsci
 
+/obj/item/device/radio/headset/headset_medsci/alt
+	name = "medical research bowman headset"
+	icon_state = "medsci_headset_alt"
+	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/alt/double/medsci
+	name = "soundproof medical research headset"
+	icon_state = "earset_medsci"
+	item_state = "earset_medsci"
+	ks2type = /obj/item/device/encryptionkey/headset_medsci
+
+/obj/item/device/radio/headset/wrist/medsci
+	name = "wristbound medical research radio"
+	icon_state = "wristset_medsci"
+	item_state = "wristset_medsci"
+	ks2type = /obj/item/device/encryptionkey/headset_medsci
+
+/obj/item/device/radio/headset/wrist/clip/medsci
+	name = "clip-on medical research radio"
+	icon_state = "clip_medsci"
+	item_state = "clip_medsci"
+	ks2type = /obj/item/device/encryptionkey/headset_medsci
+
 /obj/item/device/radio/headset/hivenet
 	translate_hivenet = 1
 	ks2type = /obj/item/device/encryptionkey/hivenet
