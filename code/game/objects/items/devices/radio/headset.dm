@@ -840,7 +840,7 @@
 	icon_state = "medsci_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_medsci
 
-/obj/item/device/radio/headset/headset_medsci/alt
+/obj/item/device/radio/headset/alt/headset_medsci
 	name = "medical research bowman headset"
 	icon_state = "medsci_headset_alt"
 	item_state = "headset_alt"

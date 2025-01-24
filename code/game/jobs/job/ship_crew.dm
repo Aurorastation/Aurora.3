@@ -40,7 +40,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/supply/machinist
 
 	headset = /obj/item/device/radio/headset/headset_medsci
-	bowman = /obj/item/device/radio/headset/headset_medsci/alt
+	bowman = /obj/item/device/radio/headset/alt/headset_medsci
 	double_headset = /obj/item/device/radio/headset/alt/double/medsci
 	wrist_radio = /obj/item/device/radio/headset/wrist/medsci
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/medsci
