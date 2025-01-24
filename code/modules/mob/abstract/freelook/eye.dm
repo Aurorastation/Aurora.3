@@ -67,7 +67,7 @@
 /mob/abstract/eye/pointed()
 	set popup_menu = 0
 	set src = usr.contents
-	return 0
+	return FALSE
 
 /mob/abstract/eye/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
@@ -99,7 +99,7 @@
 		return
 	remove_visual(owner)
 	LAZYREMOVE(owner.additional_vision_handlers, src)
-	visualnet.remove_eye(src)
+	visualnet?.remove_eye(src)
 	owner.eyeobj = null
 	if(owner.client)
 		owner.client.eye = owner

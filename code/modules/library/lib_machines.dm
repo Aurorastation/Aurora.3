@@ -479,6 +479,7 @@
 
 /obj/machinery/bookbinder/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/paper = attacking_item
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
@@ -486,7 +487,7 @@
 			to_chat(user, SPAN_WARNING("You must wait for \the [src] to finish its current operation!"))
 			return
 		var/turf/T = get_turf(src)
-		user.drop_from_inventory(attacking_item,src)
+		user.drop_from_inventory(paper,src)
 		user.visible_message(SPAN_NOTICE("\The [user] loads some paper into \the [src]."), SPAN_NOTICE("You load some paper into \the [src]."))
 		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
 		playsound(T, 'sound/bureaucracy/binder.ogg', 75, 1)
@@ -495,16 +496,17 @@
 		binding = FALSE
 		if(!anchored)
 			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."))
-			attacking_item.forceMove(T)
+			paper.forceMove(T)
 			return
 		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
 		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(T)
-		b.dat = attacking_item:info
+		b.dat = paper.info
 		b.name = "blank book"
 		b.icon_state = "book[rand(1,7)]"
-		qdel(attacking_item)
+		qdel(paper)
 		return
+
 	if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)

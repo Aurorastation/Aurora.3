@@ -262,9 +262,10 @@
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else
-			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
+			if (istype(src,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = src
-				H.w_uniform.add_fingerprint(M)
+				if(H.w_uniform)
+					H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
 			var/mob/living/carbon/human/H

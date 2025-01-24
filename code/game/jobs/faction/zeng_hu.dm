@@ -57,6 +57,7 @@
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zeng_hu,
 		"Corporate Reporter" = /obj/outfit/job/journalist/zeng_hu,
 		"Corporate Liaison" = /obj/outfit/job/representative/zeng_hu,
+		"Assistant" = /obj/outfit/job/assistant/zeng_hu,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/zeng_hu,
 		"Science Personnel" = /obj/outfit/job/scientist/event/zeng_hu,
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/zeng_hu
@@ -244,6 +245,16 @@
 	name = "Corporate Reporter - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/librarian/zeng
+	id = /obj/item/card/id/zeng_hu
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+/obj/outfit/job/assistant/zeng_hu
+	name = "Assistant - Zeng-Hu"
+
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_faction = /obj/item/storage/backpack/zeng

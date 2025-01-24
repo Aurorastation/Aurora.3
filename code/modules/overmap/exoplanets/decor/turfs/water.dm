@@ -1,5 +1,4 @@
 /turf/simulated/floor/exoplanet/water
-	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
 	has_resources = FALSE

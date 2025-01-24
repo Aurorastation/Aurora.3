@@ -15,6 +15,10 @@
 
 	var/static/list/call_area_names
 
+/obj/machinery/computer/drone_control/New()
+	..()
+	desc = "Used to monitor the [station_name(TRUE)]'s drone population and the assembler that services them."
+
 /obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return

@@ -195,7 +195,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 6)
 	random_itemcount = 1
 	req_access = list()
-	restock_items = 1
+	restock_items = TRUE
 
 /obj/machinery/vending/boozeomat/abandoned
 	// badly stocked, with trash, junk, etc
@@ -218,7 +218,7 @@
 		/obj/item/broken_bottle = 5)
 	random_itemcount = 1
 	req_access = list()
-	restock_items = 1
+	restock_items = TRUE
 	use_power = 0
 
 /obj/machinery/vending/assist
@@ -242,7 +242,7 @@
 		/obj/item/device/multitool/ = 2
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
-	restock_items = 1
+	restock_items = TRUE
 	light_color = COLOR_GUNMETAL
 
 /obj/machinery/vending/assist/synd
@@ -704,7 +704,7 @@
 	premium = list(
 		/obj/item/clothing/head/collectable/petehat = 1
 	)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_BLUE_GRAY
 	manufacturer = "scc"
@@ -844,7 +844,7 @@
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper
 		)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "zavodskoi"
@@ -1047,7 +1047,7 @@
 		/obj/item/seeds/wulumunushaseed = 90,
 		/obj/item/seeds/ylpha = 95
 	)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
@@ -1117,6 +1117,7 @@
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
 		/obj/item/reagent_containers/bowl/plate = 10,
+		/obj/item/reagent_containers/bowl/gravy_boat = 8,
 		/obj/item/reagent_containers/glass/bottle/syrup = 4,
 	)
 	contraband = list(
@@ -1125,7 +1126,7 @@
 	premium = list(
 		/obj/item/storage/toolbox/lunchbox/scc/filled = 2,
 	)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_STEEL
 
@@ -1229,7 +1230,7 @@
 		/obj/item/weldingtool,
 		/obj/item/weldingtool/hugetank
 	)
-	restock_items = 1
+	restock_items = TRUE
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
@@ -1259,7 +1260,7 @@
 	premium = list(
 		/obj/item/storage/belt/utility = 3
 	)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
@@ -1361,7 +1362,7 @@
 		/obj/item/weldingtool,
 		/obj/item/light/tube
 	)
-	restock_items = 1
+	restock_items = TRUE
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
@@ -1397,7 +1398,7 @@
 		/obj/item/device/flash,
 		/obj/item/light/tube
 	)
-	restock_items = 1
+	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "hephaestus"
@@ -1528,7 +1529,7 @@
 		/obj/item/material/knife/butterfly/switchblade = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
 		/obj/item/clothing/under/tajaran/summer = 2,
-		/obj/item/clothing/under/pants/tajaran = 2,
+		/obj/item/clothing/pants/tajaran = 2,
 		/obj/item/clothing/under/dress/tajaran =2,
 		/obj/item/clothing/under/dress/tajaran/blue = 2,
 		/obj/item/clothing/under/dress/tajaran/green = 2,

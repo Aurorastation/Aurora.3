@@ -642,7 +642,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
 	"[slot_tie]" = SLOT_TIE,
-	"[slot_wrists]" = SLOT_WRISTS
+	"[slot_wrists]" = SLOT_WRISTS,
+	"[slot_pants]" = SLOT_PANTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -1078,14 +1079,29 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	return FALSE
 
-//Used for selecting a random pixel placement, usually on initialize. Checks for pixel_x/y to not interfere with mapped in items.
+/**
+ * Randomizes the pixel_x and pixel_y variables of the item if they are not already set, based on `randpixel`
+ *
+ * Returns `TRUE` if the item was randomized, `FALSE` otherwise
+ *
+ * This should _not_ be called from `New()`, only from `Initialize()` or other procs that are called after the maploader has already finished loading the item
+ */
 /obj/item/proc/randpixel_xy()
-	if(!pixel_x && !pixel_y)
-		pixel_x = rand(-randpixel, randpixel)
-		pixel_y = rand(-randpixel, randpixel)
-		return TRUE
-	else
+	SHOULD_NOT_SLEEP(TRUE)
+
+	#if defined(TESTING)
+	if(!(src.flags_1 & INITIALIZED_1))
+		stack_trace("Item [src] was not initialized before calling randpixel_xy()!")
 		return FALSE
+	#endif
+
+	// If the item is qdel'd, has already been randomized or has already a pixel_x or pixel_y set, don't do anything and return FALSE
+	if(QDELETED(src) || pixel_x || pixel_y)
+		return FALSE
+
+	pixel_x = rand(-randpixel, randpixel)
+	pixel_y = rand(-randpixel, randpixel)
+	return TRUE
 
 /obj/item/do_simple_ranged_interaction(var/mob/user)
 	if(user)
@@ -1312,7 +1328,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		else
 			apply_outline(L) //if the player's alive and well we send the command with no color set, so it uses the theme's color
 
-/obj/item/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	remove_outline()
 

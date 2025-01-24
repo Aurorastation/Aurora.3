@@ -53,7 +53,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
-	l_pocket = /obj/item/pocketwatch/adhomai
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	l_ear = null
 
 	id = null
@@ -117,7 +117,7 @@
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(

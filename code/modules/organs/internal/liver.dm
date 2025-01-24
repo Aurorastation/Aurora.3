@@ -1,5 +1,6 @@
 /obj/item/organ/internal/liver
 	name = "liver"
+	desc = "If it stops working, should it be called the die-er?"
 	icon_state = "liver"
 	organ_tag = BP_LIVER
 	parent_organ = BP_GROIN
