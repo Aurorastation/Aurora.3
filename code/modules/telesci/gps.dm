@@ -73,7 +73,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/device/gps/attack_self(var/mob/user as mob)
+/obj/item/device/gps/attack_self(mob/user, modifiers)
 	if(!emped)
 		ui_interact(user)
 
