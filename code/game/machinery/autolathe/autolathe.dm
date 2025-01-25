@@ -47,6 +47,7 @@
 	..()
 	wires = new(src)
 	print_loc = src
+	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
@@ -296,12 +297,15 @@
 	CutOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
 	CutOverlays("[icon_state]_lights_working")
 	I.update_icon()
+	flick_overlay_view(mutable_appearance(icon, "[icon_state]_print"), 1 SECONDS)
 	update_use_power(POWER_USE_IDLE)
 
 	return TRUE
 
 /obj/machinery/autolathe/update_icon()
-	ClearOverlays()
+	CutOverlays("[icon_state]_panel")
+	CutOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+	CutOverlays("[icon_state]_lights")
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 	if(!(stat & (NOPOWER|BROKEN)))
@@ -402,7 +406,9 @@
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
-		var/amount_needed = total_used / mass_per_sheet
+		var/amount_needed
+		if(total_used && mass_per_sheet)
+			amount_needed = total_used / mass_per_sheet
 		stack.use(min(stack.get_amount(), (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1)) // Prevent maths imprecision from leading to infinite resources
 	else
 		user.remove_from_mob(O)
