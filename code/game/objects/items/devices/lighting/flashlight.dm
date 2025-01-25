@@ -399,10 +399,6 @@
 	desc = "A mining lantern. Accepts larger cells than normal flashlights."
 	icon_state = "lantern"
 	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
 	attack_verb = list("bludgeoned, bashed, whacked")
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
