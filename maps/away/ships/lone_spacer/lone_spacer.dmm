@@ -771,7 +771,7 @@
 	color = "#494949"
 	},
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	color = "#bbbbbb"
 	},
 /obj/item/clothing/pants/jeansblack,
