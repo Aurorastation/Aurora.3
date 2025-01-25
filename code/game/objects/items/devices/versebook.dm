@@ -2,10 +2,6 @@
 	name = "\improper versebook"
 	desc = "If you see this, someone fucked up. Make a issue request."
 	desc_extended = "No, seriously. Make a issue request"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi',
-		)
 	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominia"

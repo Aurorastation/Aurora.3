@@ -291,6 +291,7 @@
 
 /obj/item/device/radio/headset/headset_service/alt
 	name = "service radio bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "srv_headset_alt"
 	item_state = "srv_headset_alt"
 
@@ -320,6 +321,7 @@
 
 /obj/item/device/radio/headset/heads/xo/alt
 	name = "executive officer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "hop_headset_alt"
 	item_state = "headset_alt"
 
@@ -353,6 +355,7 @@
 
 /obj/item/device/radio/headset/headset_eng/alt
 	name = "engineering bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "eng_headset_alt"
 	item_state = "headset_alt"
 
@@ -382,6 +385,7 @@
 
 /obj/item/device/radio/headset/heads/ce/alt
 	name = "chief engineer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "ce_headset_alt"
 	item_state = "headset_alt"
 
@@ -415,6 +419,7 @@
 
 /obj/item/device/radio/headset/headset_cargo/alt
 	name = "cargo bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cargo_headset_alt"
 	item_state = "headset_alt"
 
@@ -471,6 +476,7 @@
 
 /obj/item/device/radio/headset/operations_manager/alt
 	name = "operations manager bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "qm_headset_alt"
 	item_state = "headset_alt"
 
@@ -504,6 +510,7 @@
 
 /obj/item/device/radio/headset/headset_med/alt
 	name = "medical bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "med_headset_alt"
 	item_state = "headset_alt"
 
@@ -533,6 +540,7 @@
 
 /obj/item/device/radio/headset/heads/cmo/alt
 	name = "chief medical officer's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cmo_headset_alt"
 	item_state = "headset_alt"
 
@@ -566,6 +574,7 @@
 
 /obj/item/device/radio/headset/headset_sci/alt
 	name = "science bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/sci
@@ -594,6 +603,7 @@
 
 /obj/item/device/radio/headset/headset_xenoarch/alt
 	name = "xenoarchaeology bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/xenoarch
@@ -622,6 +632,7 @@
 
 /obj/item/device/radio/headset/headset_anom/alt
 	name = "anomalist bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
 /obj/item/device/radio/headset/alt/double/anom
@@ -656,6 +667,7 @@
 
 /obj/item/device/radio/headset/heads/rd/alt
 	name = "research director's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "rd_headset_alt"
 	item_state = "headset_alt"
 
@@ -689,6 +701,7 @@
 
 /obj/item/device/radio/headset/headset_sec/alt
 	name = "security bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
@@ -718,6 +731,7 @@
 
 /obj/item/device/radio/headset/headset_warden/alt
 	name = "warden bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sec_headset_alt"
 	item_state = "headset_alt"
 
@@ -747,6 +761,7 @@
 
 /obj/item/device/radio/headset/heads/hos/alt
 	name = "head of security's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "hos_headset_alt"
 	item_state = "headset_alt"
 
@@ -780,6 +795,7 @@
 
 /obj/item/device/radio/headset/headset_com/alt
 	name = "command bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -809,6 +825,7 @@
 
 /obj/item/device/radio/headset/heads/captain/alt
 	name = "captain's bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "cap_headset_alt"
 	item_state = "headset_alt"
 
@@ -863,6 +880,7 @@
 
 /obj/item/device/radio/headset/syndicate/alt
 	name = "military bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "syn_headset_alt"
 	item_state = "headset_alt"
 
@@ -958,6 +976,7 @@
 
 /obj/item/device/radio/headset/ert/alt
 	name = "emergency response team bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -980,6 +999,7 @@
 
 /obj/item/device/radio/headset/representative/alt
 	name = "representative bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 

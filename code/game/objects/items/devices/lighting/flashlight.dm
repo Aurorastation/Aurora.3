@@ -3,10 +3,6 @@
 	desc = "A hand-held emergency light."
 	desc_info = "Use this item in your hand, to turn on the light. Click this light with the opposite hand, to remove the cell contained inside."
 	icon = 'icons/obj/lighting.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
-		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = WEIGHT_CLASS_SMALL
@@ -399,10 +395,6 @@
 	desc = "A mining lantern. Accepts larger cells than normal flashlights."
 	icon_state = "lantern"
 	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
 	attack_verb = list("bludgeoned, bashed, whacked")
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
