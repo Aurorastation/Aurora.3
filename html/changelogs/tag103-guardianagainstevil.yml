@@ -1,6 +1,0 @@
-author: Tag103
-
-delete-after: True
-
-changes:
-  - bugfix: "Default gargoyle voidsuits and SFA gargoyle voidsuits no longer have their sprites swapped with each other."
