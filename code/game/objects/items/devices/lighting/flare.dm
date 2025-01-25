@@ -156,11 +156,7 @@
 	icon_state = "torch-empty"
 	item_state = "torch-empty"
 	icon = 'icons/obj/lighting.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
-		)
-
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
