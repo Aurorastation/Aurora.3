@@ -157,6 +157,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
+/datum/gear/utility/paper
+	display_name = "colorable paper"
+	path = /obj/item/paper
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/paper/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/paper_data()
+
 /datum/gear/utility/pills
 	display_name = "pill bottle selection"
 	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
