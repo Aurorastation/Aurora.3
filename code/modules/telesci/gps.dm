@@ -27,13 +27,6 @@ GLOBAL_LIST_EMPTY(gps_list)
 	var/process_interval = 6 SECONDS
 	var/last_process = 0
 
-/obj/item/device/gps/attack_self(var/mob/user as mob)
-	if(!emped)
-		ui_interact(user)
-
-	var/turf/T = get_turf(src)
-	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
-
 /obj/item/device/gps/Initialize()
 	. = ..()
 	compass = new(src)
@@ -79,6 +72,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 		implanted_into = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/device/gps/attack_self(var/mob/user as mob)
+	if(!emped)
+		ui_interact(user)
+
+	var/turf/T = get_turf(src)
+	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
 
 /obj/item/device/gps/update_icon()
 	ClearOverlays()
