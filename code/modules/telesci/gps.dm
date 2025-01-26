@@ -73,6 +73,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
+/obj/item/device/gps/attack_self(mob/user, modifiers)
+	if(!emped)
+		ui_interact(user)
+
+	var/turf/T = get_turf(src)
+	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
+
 /obj/item/device/gps/update_icon()
 	ClearOverlays()
 	if(emped)

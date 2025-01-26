@@ -343,6 +343,7 @@
 
 /obj/item/device/radio/headset/ert/ccia/alt
 	name = "central command internal affairs bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 

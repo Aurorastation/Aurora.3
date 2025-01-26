@@ -134,3 +134,42 @@
   - qol: The armory now contains six total 5.56mm carbine magazines, instead of four
       magazines and two singular 5.56mm bullet casings.
   - bugfix: The shuttle airlock of the SPLF ghostrole now functions properly.
+2025-01-25:
+  ASmallCuteCat:
+  - qol: More organs now have description text. Enjoy my stupid sense of humor, or
+      lack thereof. The taste of said organs has not been affected.
+  ChangeMe:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  Furrycactus:
+  - rscadd: Added a chemistry equipment locker to the Research chemistry lab, to allow
+      for easier storage, transport, and testing of any produced substances.
+  - rscadd: Added two large beakers to the Research chemistry lab.
+  - rscadd: Added a pipe connection from the connectors in Atmospherics to a connector
+      in storage behind the Bluespace Drive, to cut out the hardest and most tedious
+      portion of piping a gas mix to the drive.
+  MattAtlas:
+  - rscadd: Visible emotes now have runetext as well.
+  SimpleMaroon:
+  - rscadd: Added a corporate peaked cap selection to the loadout for Security, the
+      Captain, and the XO. They look like the Warden's hat, but also come in options
+      with no logo for more customization.
+  - imageadd: Added an HPS Narrows flag and banner to the loadout.
+  - qol: Pocket watches now have held sprites for both open and closed states, as
+      well as flipped sprites for when worn on the wrists.
+  Tag103:
+  - bugfix: Default gargoyle voidsuits and SFA gargoyle voidsuits no longer have their
+      sprites swapped with each other.
+  Wowzewow (Wezzy):
+  - imageadd: Resprites devices, fixes inhands, puts them in contained sprites.
+  - imageadd: Adds new mounted flash sprites.
+  - imagedel: Removes superfluous GPS item.
+  pocheto:
+  - imageadd: Added 25 new screens for Baseline IPCs.
+2025-01-26:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes books and flashlight bad icons.
+  - bugfix: Fixes the GPS.
+  - bugfix: Removes duplicate mimosa entry. Fixes invisible mimosa bug.
+  - bugfix: Fixes some mapped shirts with wrong paths.
