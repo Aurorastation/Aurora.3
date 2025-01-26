@@ -167,3 +167,9 @@
   - imagedel: Removes superfluous GPS item.
   pocheto:
   - imageadd: Added 25 new screens for Baseline IPCs.
+2025-01-26:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes books and flashlight bad icons.
+  - bugfix: Fixes the GPS.
+  - bugfix: Removes duplicate mimosa entry. Fixes invisible mimosa bug.
+  - bugfix: Fixes some mapped shirts with wrong paths.
