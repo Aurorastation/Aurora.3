@@ -77,6 +77,6 @@
 
 /obj/item/tracker_electronics
 	name = "tracker electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	w_class = WEIGHT_CLASS_SMALL

@@ -3,11 +3,9 @@
 	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
-	// To-do track down where the hell this sprite went?
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
-	contained_sprite = TRUE
 	force = 0
 	var/loaded = 1
 	var/mode = "completely"
@@ -59,11 +57,11 @@
 		L.name = name
 
 	loaded = 0
-	icon_state = "animal_tagger0"
+	icon_state = "decloner0"
 	addtimer(CALLBACK(src, PROC_REF(do_recharge)), 5 MINUTES)
 
 
 /obj/item/device/dociler/proc/do_recharge()
 	loaded = 1
-	icon_state = "animal_tagger1"
+	icon_state = "decloner"
 	src.visible_message("\The [src] beeps, refilling itself.")

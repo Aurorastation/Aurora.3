@@ -391,8 +391,9 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 //for revs to create their own central command reports
 /obj/item/device/announcer
 	name = "relay positioning device"
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
 	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = WEIGHT_CLASS_SMALL
 

@@ -1200,7 +1200,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/item/clothing/accessory/dressshirt/alt,
+/obj/item/clothing/under/dressshirt/alt,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/kneepads,
 /obj/item/clothing/accessory/storage/overalls,

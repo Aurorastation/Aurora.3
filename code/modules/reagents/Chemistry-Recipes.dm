@@ -3175,13 +3175,6 @@
 	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/drink/mimosa
-	name = "Mimosa"
-	id = "mimosa"
-	result = /singleton/reagent/alcohol/mimosa
-	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/drink/orangejuice = 1)
-	result_amount = 2
-
 /datum/chemical_reaction/drink/lights_edge
 	name = "Light's Edge"
 	id = "lights_edge"

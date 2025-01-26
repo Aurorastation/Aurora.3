@@ -506,6 +506,28 @@
 	display_name = "artist beret"
 	path = /obj/item/clothing/head/beret/artist/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/peakedcap
+	display_name = "corporate peaked cap selection"
+	description = "A selection of corporate-colored peaked caps. Note that the cap should align with your character's chosen faction."
+	path = /obj/item/clothing/head/peaked_cap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Head of Security", "Security Officer", "Warden", "Investigator", "Security Personnel",
+	"Captain", "Executive Officer")
+
+/datum/gear/head/peakedcap/New()
+	..()
+	var/list/caps = list()
+	caps["peaked cap, Zavodskoi Interstellar"] = /obj/item/clothing/head/peaked_cap/zavodskoi
+	caps["peaked cap, Zavodskoi Interstellar, no logo"] = /obj/item/clothing/head/peaked_cap/zavodskoi/no_logo
+	caps["peaked cap, Zavodskoi Interstellar, alt"] = /obj/item/clothing/head/peaked_cap/zavodskoi/alt
+	caps["peaked cap, Zavodskoi Interstellar, alt, no logo"] = /obj/item/clothing/head/peaked_cap/zavodskoi/alt/no_logo
+	caps["peaked cap, Idris Incorporated"] = /obj/item/clothing/head/peaked_cap/idris
+	caps["peaked cap, Idris Incorporated, no logo"] = /obj/item/clothing/head/peaked_cap/idris/no_logo
+	caps["peaked cap, Private Military Contracting Group"] = /obj/item/clothing/head/peaked_cap/pmcg
+	caps["peaked cap, Private Military Contracting Group, no logo"] = /obj/item/clothing/head/peaked_cap/pmcg/no_logo
+	gear_tweaks += new /datum/gear_tweak/path(caps)
+
 /*
 	Block Hair Adjustment
 */
