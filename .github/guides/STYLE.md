@@ -809,6 +809,7 @@ All variables, procs and classes that do not have a clear name / signature must 
 
 ### How to document
 Single-line documentation is done with a `///` comment immediately above what it is documenting
+
 Multi-line documentation is done with a `/**` comment immediately above what it is documenting, and a `*/` at the end of the comment, with an asterisk space-aligned, eg:
 ```
 /**
@@ -819,7 +820,9 @@ Multi-line documentation is done with a `/**` comment immediately above what it 
  ```
 
 In multi-line documentation, you can use `*` to make a bullet point, enclose something in `**` to make it bold, enclose something in `__` to make it italic, and prepend something at the start of the block with `#` to make it a header. 
+
 A block surrounded by \`\`\` (in multiline) or \` (in single line) will be rendered as code.
+
 One empty line separates the various lines in the final rendering unless they are bullet points.
 
 eg:
@@ -855,6 +858,7 @@ When documenting a proc, we give at least a short description and a description 
 ```
 
 You can expand on the description of the proc by adding a longer description as seen fit / useful.
+
 The DMDoc must make relatively clear what the proc does / why you would use it, what params do / are used for / it expects,
 and if it returns anything, what it returns (and the meaning of that return).
 
@@ -864,3 +868,34 @@ Document a variable by giving a short description of what it is, what it is used
 If the variable is a list, the DMDoc must indicate what the expected content of the list is. If it's an associative list, the DMDoc must indicate what the expected keys/values types are, aka the structure of the list. If it's a lazylist, the DMDoc must indicate so.
 
 Untyped variables (eg. `var/some_variable`) must be documented extensively, indicating what they can contain under what conditions.
+
+### Use comments where possible and sensible
+Comments are a great way to describe what you are doing in a proc, and should be used in procs to give a general idea of what you are doing (and why).
+This allows the reader to understand what a section of the proc is doing without having to painstakingly read the whole code contained in it, thus lightening the mental load.
+
+All comments inside a proc should **not** be DMDoc comments, but plain ones. You should use DMDoc comments **only** to document classes, procs, and class variables.
+
+Do not use comments to mark obvious things, like the start or end of a file, unless they document the content of the file.
+
+You can and should use comments to separate logical blocks of classes, eg:
+```dm
+/obj/item/mything
+
+/*#######################
+	MyOtherThings
+#######################*/
+
+/obj/item/mything/myotherthing
+/obj/item/mything/myotherthing2
+/obj/item/mything/myotherthing3
+/obj/item/mything/myotherthing4
+
+/*#######################
+	MyOtherOtherThings
+#######################*/
+
+/obj/item/mything/myotherotherthing
+/obj/item/mything/myotherotherthing2
+/obj/item/mything/myotherotherthing3
+/obj/item/mything/myotherotherthing4
+```
