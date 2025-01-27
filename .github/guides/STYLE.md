@@ -501,6 +501,17 @@ It's generally a good idea to separate logical blocks with empty lines, eg:
 
 This is in large part arbirary, but you should try to keep the code readable and understandable to a quick glance at it when possible. It is ultimately up to devs discretion if the code is readable and understandable.
 
+## Use typed procs where possible
+DM uses classes (types) to group variables and procs, and you should do the same when possible.
+```dm
+// BAD
+/proc/sum_mythings(obj/item/mything/thing1, obj/item/mything/thing2)
+	return thing1.value + thing2.value
+
+// GOOD
+/obj/item/mything/proc/sum_with(obj/item/mything/thing_to_sum_with)
+	return (src.value + thing_to_sum_with.value)
+```
 
 ## Multi-lining
 
