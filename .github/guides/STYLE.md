@@ -1,5 +1,7 @@
 # Style Guide
-This is the style you must follow when writing code. It's important to note that large parts of the codebase do not consistently follow these rules, but this does not free you of the requirement to follow them.
+This is the style you must follow when writing code. It's important to note that large parts of the codebase do not consistently follow these rules, but this does not free you of the requirement to follow them. Exceptions might be granted (primarily for ports) at the discretion of the devs.
+
+Thank you to /tg/station for the original style guide, from which this was adapted from.
 
 1. [General Guidelines](#general-guidelines)
 2. [Paths and Inheritence](#paths-and-inheritence)
