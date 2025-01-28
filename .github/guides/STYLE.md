@@ -408,6 +408,32 @@ could not use `::` as the provided types are not static.
 ### Vars should not be accessed with the runtime operator `:` whenever possible
 Unless absolutely unavoidable, use the compile-time operator `.` to access vars instead of the runtime operator `:`.
 
+### Text variables
+Do not leave empty lines just to isolate the text, the text should start right after the `"` and end right before the `"`.
+
+Any newline should be preceded by the space in a phrase, and phrases should only be broken in a newline after complete words
+
+```dm
+// Good
+/obj/item/mything
+	var/text_var = "This is a test variable \
+					that spans multiple lines"
+
+// Bad, wasted lines
+/obj/item/mything
+	var/text_var = "\
+					This is a test variable \
+					that spans multiple lines\
+					"
+
+// Bad, breaks incorrectly
+/obj/item/mything
+	var/text_var = "This is a test varia\
+					ble that spans multiple lines"
+```
+
+Regular expressions, especially complex ones, should use the unescapable raw string delimiter with single apostrophe (`@'my_regex'`) over escaping special characters.
+
 ## Procs
 
 ### Getters and setters
@@ -500,7 +526,7 @@ The procs should be marked with the appropriate markers, eg:
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
 	
-	return (src.value + other_thing.value)
+	return (value + other_thing.value)
 ```
 
 ### Respect the proc signature when inheriting from it
@@ -604,7 +630,7 @@ DM uses classes (types) to group variables and procs, and you should do the same
 
 // GOOD
 /obj/item/mything/proc/sum_with(obj/item/mything/thing_to_sum_with)
-	return (src.value + thing_to_sum_with.value)
+	return (value + thing_to_sum_with.value)
 ```
 
 ## Multi-lining
@@ -669,41 +695,90 @@ With few exceptions (mainly for readability), do not declare variables in procs 
 ```dm
 // BAD, some_var is only used once in the proc and is useless
 /obj/item/proc/do_something()
-	var/some_var = (src.some_other_var || src.another_var)
+	var/some_var = (some_other_var || another_var)
 	if(some_var)
-		src.do_something_else()
+		do_something_else()
 
 // BAD, the iterator isn't used
 /obj/item/proc/do_something()
-	for(var/i in 1 to length(src.some_list))
-		src.do_something_else()
+	for(var/i in 1 to length(some_list))
+		do_something_else()
 
 // Acceptable to break the line from being too long and/or for understandability (the var name documents an intent that would otherwise not be clear/obvious)
 // note that in performance critical code, this would be more scrutinized, and likely told to be refactored in a macro (#macros), while on less performance critical code,
 // where it doesn't matter as much, it would be more acceptable
 /obj/item/proc/do_something()
-	var/explicative_named_var = (src.condition1 && (src.is_condition() || src.another_condition) || src.guess_what_this_is?.some_other_var && src.yet_another_var)
+	var/explicative_named_var = (condition1 && (is_condition() || another_condition) || guess_what_this_is?.some_other_var && yet_another_var)
 	if(explicative_named_var)
-		src.do_something_else()
+		do_something_else()
 
 // OK, some_var is used more than once in the proc
 /obj/item/proc/do_something()
-	var/some_var = (src.some_other_var || src.another_var)
+	var/some_var = (some_other_var || another_var)
 	if(some_var)
-		src.do_something_else()
+		do_something_else()
 	
 	more_code
 
 	if(another_var && some_var)
-		src.do_something_else_again()
+		do_something_else_again()
 ```
 
 Exception to this would be `_` in an interative loop, which by convention indicates a variable that is not important / to be ignored, eg:
 ```dm
 // OK, by convention the underscore means to ignore the iterator
 /obj/item/proc/do_something()
-	for(var/_ in 1 to length(src.some_list))
-		src.do_something_else()
+	for(var/_ in 1 to length(some_list))
+		do_something_else()
+```
+
+### Passthrough arguments to a proc
+If you need to passthrough the same arguments from one proc to the other, use `arglist(args)`
+```dm
+// Bad
+/obj/item/container/do_something(arg1, arg2, arg3)
+	contained_item.do_something(arg1, arg2, arg3)
+
+// Good
+/obj/item/container/do_something(arg1, arg2, arg3)
+	contained_item.do_something(arglist(args))
+```
+
+### Single calls to procs with nullcheck
+If you need to call a proc on a variable with a nullcheck, and no further check is needed, use the conditional access operator `?.`
+```dm
+// Bad
+/obj/item/container/do_something()
+	code
+	if(contained_item)
+		contained_item.do_something()
+	more_code
+
+// Good
+/obj/item/container/do_something()
+	code
+	contained_item?.do_something()
+	more_code
+
+// Bad, you are doing more than a single check now
+/obj/item/container/do_something()
+	code
+	contained_item?.do_something()
+	contained_item?.do_something_else()
+	if(contained_item?.some_var)
+		more_code
+	even_more_code
+```
+
+Notable exception to this, is in guard statements for procs where it wouldn't make sense to do anything if said var is null, eg:
+```dm
+// OK! The proc wouldn't make sense to do anything if the head is missing,
+// so the guard statement is good here even if it would have been only a
+// single use instance
+/mob/living/carbon/human/proc/behead()
+	if(!head)
+		return
+	head.drop_limb()
 ```
 
 ## Macros
