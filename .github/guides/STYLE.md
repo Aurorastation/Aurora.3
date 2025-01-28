@@ -733,7 +733,7 @@ Exception to this would be `_` in an interative loop, which by convention indica
 ```
 
 ### Passthrough arguments to a proc
-If you need to passthrough the same arguments from one proc to the other, use `arglist(args)`
+If you need to passthrough the same arguments from one proc to the other, use `arglist(args)`.
 ```dm
 // Bad
 /obj/item/container/do_something(arg1, arg2, arg3)
@@ -1029,7 +1029,7 @@ We use DMDoc to document the codebase, this allows us to read the documentation 
 All variables, procs and classes that do not have a clear name / signature must be documented using DMDoc.
 
 ### How to document
-Single-line documentation is done with a `///` comment immediately above what it is documenting
+Single-line documentation is done with a `///` comment immediately above what it is documenting.
 
 Multi-line documentation is done with a `/**` comment immediately above what it is documenting, and a `*/` at the end of the comment, with an asterisk space-aligned, eg:
 ```
