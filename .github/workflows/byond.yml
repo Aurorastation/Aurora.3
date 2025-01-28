@@ -236,23 +236,13 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      #Restore YARN (Node packages) cache
-      - name: Restore Yarn cache
-        uses: actions/cache@v4
-        with:
-          path: tgui/.yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       #Setup NodeJS using YARN as cache
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          cache-dependency-path: tgui/yarn.lock
           node-version: ${{ env.NODE_VERSION_LTS }}
           cache: 'yarn'
+          cache-dependency-path: tgui/yarn.lock
 
       #Lint TGUI
       - name: Check Tgui
