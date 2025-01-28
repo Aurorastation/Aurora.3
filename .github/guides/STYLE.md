@@ -19,14 +19,14 @@ Do not use tabs/spaces for indentation in the middle of a code line. Not only is
 
 ```dm
 // Bad
-#define SPECIES_MOTH			"moth"
-#define SPECIES_LIZARDMAN		"lizardman"
-#define SPECIES_FELINID			"felinid"
+#define SPECIES_VAURCA			"vaurca"
+#define SPECIES_UNATHI		"unathi"
+#define SPECIES_TAJARA			"tajara"
 
 // Good
-#define SPECIES_MOTH "moth"
-#define SPECIES_LIZARDMAN "lizardman"
-#define SPECIES_FELINID "felinid"
+#define SPECIES_VAURCA "vaurca"
+#define SPECIES_UNATHI "unathi"
+#define SPECIES_TAJARA "tajara"
 ```
 
 ### Control statements
@@ -209,7 +209,7 @@ The use of this is not allowed in this project as it makes finding definitions v
 The previous code made compliant:
 
 ```DM
-// Matches Aurostation style.
+// Matches Aurorastation style.
 /datum/datum1
 	var/varname1
 	var/varname2
