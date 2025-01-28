@@ -231,6 +231,15 @@ eg: `/datum/blue_bird`, not `/datum/BLUEBIRD` or `/datum/BlueBird` or `/datum/Bl
 ### Datum type paths must began with "datum"
 In DM, this is optional, but omitting it makes finding definitions harder.
 
+### Abstract types
+All types that are not meant to be instantiated directly because they should be derived from must be declared as abstract types, eg:
+```dm
+ABSTRACT_TYPE(/obj/item/animal)
+	code
+```
+
+You should use abstract types when possible and sensible to provide the functionality without delving into the implementation details, and then derive from it with the implementation details.
+For example, the above code would describe what an animal does (eg. with walk(), eat(), run() or whatever), then the derivate types would specify the implementation details, eg. an elephant would flattern whoever it's run against, while a mouse would just run below the person. This is highly subjective where goes where (and to what extent), but it's a good practice to follow where reasonable
 
 ## Variables
 
@@ -271,6 +280,52 @@ This also applies to lists, though at the moment DM doesn't do anything, the lis
 ```dm
 /obj/item/something
 	var/list/mob/carbon/human/human_targets_hit = list()
+```
+
+Associative lists are exempted from this, they should be declared as flat lists and the DMDoc should describe the keys and values types, aka
+describe the list structure, eg:
+```dm
+/obj/item/something
+	/**
+	 * A list of all the targets that have been hit by this item, and how much damage they took from us
+	 *
+	 * Key is an `atom/movable`, value is a `number`
+	 */
+	var/list/hit_targets_damage_done = list()
+```
+
+A special case is lists that might contain multiple types, this is heavily discouraged and almost always avoidable, but in cases where it's not, the list must be
+declared as a flat list, and the types it can contain specified in the DMDoc that documents the variable, eg:
+```dm
+/obj/item/something
+	/**
+	 * A list of all the targets that have been hit by this item
+	 *
+	 * This list can contain a `/mob`, an `/obj`, a `/turf` or an `/icon`
+	 */
+	var/list/hit_targets = list()
+```
+
+Note that, if the above list did not contain an icon, it should have been declared with their closest type common parent
+and the content it expects (or does NOT expect) listed in the DMDoc instead, whichever is more convenient, eg:
+```dm
+// Ok
+/obj/item/something
+	/**
+	 * A list of all the targets that have been hit by this item
+	 *
+	 * This list can contain `/mob`, `/obj` or `/turf` instances
+	 */
+	var/list/atom/movable/hit_targets = list(/icon)
+
+// Even better
+/obj/item/something
+	/**
+	 * A list of all the targets that have been hit by this item
+	 *
+	 * This list can contain any `/atom/movable` instance except `/area`
+	 */
+	var/list/atom/hit_targets = list(/icon)
 ```
 
 ### Naming things when typecasting
