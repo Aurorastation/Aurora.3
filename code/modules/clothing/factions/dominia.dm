@@ -184,6 +184,21 @@
 	item_state = "zhao_capez"
 	cape_backing_state = "capez_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	icon_state = "dominian_cape_colorable"
+	item_state = "dominian_cape_colorable"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
+	icon_state = "dominian_capew_colorable"
+	item_state = "dominian_capew_colorable"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/zavod/colorable
+	icon_state = "dominian_capez_colorable"
+	item_state = "dominian_capez_colorable"
+	has_accents = TRUE
+
 
 /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	name = "dominian military cape"
