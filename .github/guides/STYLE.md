@@ -37,6 +37,43 @@ Do not use tabs/spaces for indentation in the middle of a code line. Not only is
 * Chained conditions that are checked only once for existence should be collapsed (eg: `if(thing.my_variable?.my_other_variable)` not `if(thing.my_variable && thing.my_variable.my_other_variable)`)
 * Unless necessary (eg. in a macro), C-style code must **not** be used (eg: `if(something){do_something();}` would be wrong)
 
+#### Iteration over ranges and lists
+Iterations over number ranges should generally be done with a `for(var/<var> in <start_number> to <end_number>)` loop
+
+Iterations over lists should generally be done with a `for(var/<var> in <list>)` loop
+
+```dm
+// Good! The underscore is a convention to indicate that the iterator is not important
+// the structure of the loop indicates the range in numbers
+for(var/_ in 1 to 10)
+	// do stuff
+
+// Good! The variable is typed, with a descriptive name of the object it's iterating over
+for(var/obj/item/items_in_mob_backpack in mob.backpack_contents)
+	// do stuff
+
+// Good! This would indicate that we are assured that the list mob.backpack_contents only contains /obj/item instances
+// we know that because we have declared it as var/list/obj/item/backpack_contents, 
+// so we espect the content to be of the correct type already
+for(var/obj/item/items_in_mob_backpack as anything in mob.backpack_contents)
+	// do stuff
+
+// Bad! There is no reason to take the iterator here, not only it's harder to read and follow,
+// it also loses efficiency as you're allocating two vars when you can avoid it
+for(var/i in length(mob.backpack_contents))
+	var/obj/item/item_in_mob_backpack = mob.backpack_contents[i]
+	// do stuff with item_in_mob_backpack
+
+// Egregiously bad! Ontop of what said above, you should generally never use C-style code, especially if avoidable
+for(var/i = 0, i < length(mob.backpack_contents), i++)
+	var/obj/item/item_in_mob_backpack = mob.backpack_contents[i]
+	// do stuff with item_in_mob_backpack
+// Did you catch that? This would crash because list indexes starts at 1, not 0, also the condition is wrong even if you fix the starting number
+// and it would skip one element; it's also slightly slower. Now you see why you shouldn't use this if possible
+```
+
+Exceptions can apply for performance reasons or for special cases, eg a subsystem that has to interrupt the iterations and resume later could use a `while` loop and store the index for when it resumes, however without a valid, good reason, you should stick to this.
+
 ### Operators
 #### Spacing
 * Operators that should be separated by spaces
@@ -572,6 +609,47 @@ AddComponent( \
 
 Backslashes should **only** be used when necessary, and they are only necessary for macros.
 
+### No useless variables in procs
+With few exceptions (mainly for readability), do not declare variables in procs that do not have any use, eg.
+```dm
+// BAD, some_var is only used once in the proc and is useless
+/obj/item/proc/do_something()
+	var/some_var = (src.some_other_var || src.another_var)
+	if(some_var)
+		src.do_something_else()
+
+// BAD, the iterator isn't used
+/obj/item/proc/do_something()
+	for(var/i in 1 to length(src.some_list))
+		src.do_something_else()
+
+// Acceptable to break the line from being too long and/or for understandability (the var name documents an intent that would otherwise not be clear/obvious)
+// note that in performance critical code, this would be more scrutinized, and likely told to be refactored in a macro (#macros), while on less performance critical code,
+// where it doesn't matter as much, it would be more acceptable
+/obj/item/proc/do_something()
+	var/explicative_named_var = (src.condition1 && (src.is_condition() || src.another_condition) || src.guess_what_this_is?.some_other_var && src.yet_another_var)
+	if(explicative_named_var)
+		src.do_something_else()
+
+// OK, some_var is used more than once in the proc
+/obj/item/proc/do_something()
+	var/some_var = (src.some_other_var || src.another_var)
+	if(some_var)
+		src.do_something_else()
+	
+	more_code
+
+	if(another_var && some_var)
+		src.do_something_else_again()
+```
+
+Exception to this would be `_` in an interative loop, which by convention indicates a variable that is not important / to be ignored, eg:
+```dm
+// OK, by convention the underscore means to ignore the iterator
+/obj/item/proc/do_something()
+	for(var/_ in 1 to length(src.some_list))
+		src.do_something_else()
+```
 
 ## Macros
 
