@@ -671,7 +671,7 @@ In here, we rely on the external `max_health` value.
 Here are two examples of non-hygienic macros, because it affects its call site:
 
 ```dm
-#define DECLARE_MOTH(name) var/mob/living/moth/moth = new(##name)
+#define DECLARE_VAURCA(name) var/mob/living/vaurca/vaurca = new(##name)
 #define RETURN_IF(condition) if (condition) { return; }
 ```
 
@@ -680,12 +680,12 @@ We say something has [**side effects**](https://en.wikipedia.org/wiki/Side_effec
 
 For example, this has no side effects, and is pure:
 ```dm
-#define MOTH_MAX_HEALTH 500
+#define VAURCA_MAX_HEALTH 500
 ```
 
 This, however, performs a side effect of updating the health:
 ```dm
-#define MOTH_SET_HEALTH(moth, new_health) ##moth.set_health(##new_health)
+#define VAURCA_SET_HEALTH(vaurca, new_health) ##vaurca.set_health(##new_health)
 ```
 
 Now that you're caught up on the terms, let's get into the guidelines.
@@ -742,13 +742,13 @@ This relies on "max_health", but it is not obviously clear what the source is. T
 When a macro can't be hygienic, such as in the case where a macro is preferred to do something like define a variable, it should still do its best to rely only on input given to it:
 
 ```dm
-#define DECLARE_MOTH(name) var/mob/living/moth/moth = new(##name)
+#define DECLARE_VAURCA(name) var/mob/living/vaurca/vaurca = new(##name)
 ```
 
 ...would ideally be written as...
 
 ```dm
-#define DECLARE_MOTH(var_name, name) var/mob/living/moth/##var_name = new(##name)
+#define DECLARE_VAURCA(var_name, name) var/mob/living/vaurca/##var_name = new(##name)
 ```
 
 As usual, exceptions exist--for instance, accessing a global like a subsystem within a macro is generally acceptable. It is up to dev discretion where this is acceptable.
