@@ -306,7 +306,7 @@ declared as a flat list, and the types it can contain specified in the DMDoc tha
 	var/list/hit_targets = list()
 ```
 
-Note that, if the above list did not contain an icon, it should have been declared with their closest type common parent
+Note that, if the above list did not contain an icon, it should have been declared with their closest common parent type
 and the content it expects (or does NOT expect) listed in the DMDoc instead, whichever is more convenient, eg:
 ```dm
 // Ok
