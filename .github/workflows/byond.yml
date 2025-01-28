@@ -397,15 +397,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
@@ -518,15 +520,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
@@ -641,15 +645,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
@@ -764,15 +770,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
@@ -886,15 +894,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
@@ -1007,15 +1017,17 @@ jobs:
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
 
+      #Install flyway
+      - name: Install Flyway
+        run: |
+          tools/ci/install_flyway.sh
+
       #Apply the database migration
-      - name: Flyway migrate database
-        uses: red-gate/FlywayGitHubAction@main
-        with:
-          url: jdbc:mariadb://localhost:${{job.services.mariadb.ports[3306]}}/game
-          user: root
-          password: root
-          locations: filesystem:SQL/migrate-2023
-          extraArgs: -table=schema_version_2023 -validateMigrationNaming="true"
+      - name: Apply Database Migrations (FlyWay)
+        env:
+          PORT: ${{ job.services.mariadb.ports[3306] }}
+        run: |
+          $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
 
       - name: Install BYOND & rust_g
         run: |
