@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Remaps the Operations Manager's office and update the contents of their locker."
+  - qol: "Remaps the Operations Manager and Executive Officer's offices."
+  - qol: "Minor changes to all other Command offices."
