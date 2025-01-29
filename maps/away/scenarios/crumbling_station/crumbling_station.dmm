@@ -2524,6 +2524,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "agU" = (
@@ -17856,6 +17857,23 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor,
 /area/crumbling_station/maints/civilian)
+"kCu" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/floor/airless,
+/area/crumbling_station/asteroid/exterior)
 "kGE" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -17973,6 +17991,10 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/command/foyer)
+"mux" = (
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/floor/airless,
+/area/crumbling_station/asteroid/exterior)
 "mFl" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -18141,7 +18163,6 @@
 /area/crumbling_station/maints/civilian)
 "pxz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/space_heater,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crumbling_station/engi/hard_storage)
 "pDb" = (
@@ -18336,6 +18357,15 @@
 	},
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/dark,
+/area/crumbling_station/engi/atmospherics)
+"rwB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor,
 /area/crumbling_station/engi/atmospherics)
 "ryf" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -18690,6 +18720,21 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor,
 /area/crumbling_station/maints/custodial)
+"wID" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/floor/airless,
+/area/crumbling_station/asteroid/exterior)
 "wKZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -31894,23 +31939,23 @@ ayn
 ayn
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 ayn
@@ -32922,23 +32967,23 @@ ayn
 ayn
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 ayn
@@ -33950,23 +33995,23 @@ ayn
 ajv
 ayI
 aMO
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
-aaT
-aaT
-aaT
-aaT
-aaT
+mux
 axA
 ayI
 ayI
@@ -34978,23 +35023,23 @@ ayn
 ayn
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 ayn
@@ -36006,23 +36051,23 @@ ayn
 ayn
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 ayn
@@ -42531,7 +42576,7 @@ aFU
 aUy
 agS
 akv
-asK
+rwB
 anc
 aHy
 aiw
@@ -50398,23 +50443,23 @@ ayn
 ayn
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 ayn
@@ -51426,23 +51471,23 @@ ayn
 ayn
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 aEm
-acR
+kCu
 aHQ
 ayn
 ayn
@@ -52454,23 +52499,23 @@ ayn
 ajv
 ayI
 aMO
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
+mux
 aaT
 aaT
 aaT
-aaT
-aaT
-aaT
-aaT
-aaT
+mux
 axA
 ayI
 ayI
@@ -53482,23 +53527,23 @@ ayn
 ayn
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 ayn
@@ -54510,23 +54555,23 @@ ayn
 ayn
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 aEm
-awQ
+wID
 aHQ
 ayn
 ayn
