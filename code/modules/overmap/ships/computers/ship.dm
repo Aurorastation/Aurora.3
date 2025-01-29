@@ -29,9 +29,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(attacking_item.iscoil()) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
-			to_chat(usr, SPAN_NOTICE("\The [src] does not require repairs."))
+			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))
 		else
-			to_chat(usr, SPAN_NOTICE("You attempt to replace some cabling for \the [src]..."))
+			to_chat(usr, SPAN_BOLD("You attempt to replace some cabling for \the [src]..."))
 			while(C.can_use(2, user))
 				if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 					if(hotwire_progress < initial(hotwire_progress))
@@ -40,23 +40,23 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 						if(hotwire_progress >= initial(hotwire_progress))
 							restore_access(user)
 							return
-						to_chat(usr, SPAN_NOTICE("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
+						to_chat(usr, SPAN_BOLD("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
 	if(attacking_item.iswirecutter()) // Hotwiring
 		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
-			to_chat(user, SPAN_NOTICE("[src] is not access-locked."))
+			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return
 		// Begin hotwire
-		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_NOTICE("You open the maintenance panel and attempt to hotwire \the [src]..."))
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
 		while(hotwire_progress > 0)
 			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 				hotwire_progress--
 				if(hotwire_progress <= 0)
 					emag_act(user=user, hotwired=TRUE)
 					return
-				to_chat(user, SPAN_NOTICE("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
+				to_chat(user, SPAN_BOLD("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 30, TRUE)
 			else
 				return
@@ -81,19 +81,19 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 	if(initial(hotwire_progress) != hotwire_progress)
 		if(hotwire_progress != 0)
-			. += SPAN_SUBTLE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
+			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling. <i>Current progress: [(hotwire_progress / initial(hotwire_progress)) * 100]%</i>")
 		else
-			. += SPAN_SUBTLE("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
+			. += SPAN_ITALIC("The bottom panel appears open with wires hanging out. It can be repaired with additional cabling.")
 
-/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user, var/hotwired = FALSE)
+/obj/machinery/computer/ship/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/hotwired = FALSE)
 	if(emagged)
 		to_chat(user, SPAN_WARNING("\The [src] has already been subverted."))
 		return FALSE
 	emagged = TRUE
 	if(hotwired)
-		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
 	else
-		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_NOTICE("You short out the console's ID checking system. It's now available to everyone!"))
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
 	spark(src, 2, 0)
 	hotwire_progress = 0
 	return TRUE
