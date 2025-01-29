@@ -61,7 +61,7 @@
 							restore_access(user)
 							return
 						to_chat(usr, SPAN_NOTICE("You replace some broken cabling of \the [src] <b>([(hotwire_progress / initial(hotwire_progress)) * 100]%)</b>."))
-						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, 1)
+						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
 	if(attacking_item.iswirecutter()) // Hotwiring
