@@ -57,7 +57,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 					emag_act(user=user, hotwired=TRUE)
 					return
 				to_chat(user, SPAN_NOTICE("You snip some cabling from \the [src] <b>([((initial(hotwire_progress)-hotwire_progress) / initial(hotwire_progress)) * 100]%)</b>."))
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 30, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 30, TRUE)
 			else
 				return
 	return ..()
