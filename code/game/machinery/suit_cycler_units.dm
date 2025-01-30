@@ -99,7 +99,7 @@
 	helmet = /obj/item/clothing/head/helmet/space/void/captain
 	suit = /obj/item/clothing/suit/space/void/captain
 	boots = /obj/item/clothing/shoes/magboots
-	mask = /obj/item/clothing/mask/breath
+	mask = /obj/item/clothing/mask/gas/alt
 
 /obj/machinery/suit_cycler/science
 	name = "research suit cycler"
