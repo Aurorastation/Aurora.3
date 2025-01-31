@@ -114,7 +114,7 @@
 /datum/gear/utility/assunzione_kit
 	display_name = "assunzionii voidsuit kit"
 	path = /obj/item/voidsuit_modkit/assunzione
-	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/utility/wheelchair/color
