@@ -764,7 +764,8 @@
 /area/ship/ssmd_corvette/storage)
 "bYg" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/tiled/dark,
@@ -2032,7 +2033,8 @@
 /area/shuttle/ssmd_shuttle)
 "foE" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3466,7 +3468,8 @@
 /area/ship/ssmd_corvette/hangar)
 "jAa" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
