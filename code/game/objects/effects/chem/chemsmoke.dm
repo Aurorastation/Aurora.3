@@ -136,14 +136,14 @@
 	var/area/A = get_area(location)
 
 	var/where = "[A.name] | [location.x], [location.y]"
-	var/whereLink = "<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>[where]</a>"
+	var/whereLink = "<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>[where]</a>"
 
 	if(show_log)
 		if(carry.my_atom.fingerprintslast)
 			var/mob/M = get_mob_by_key(carry.my_atom.fingerprintslast)
 			var/more = ""
 			if(M)
-				more = "(<A HREF='?_src_=holder;adminmoreinfo=[REF(M)]'>?</a>)"
+				more = "(<A href='byond://?_src_=holder;adminmoreinfo=[REF(M)]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].")
 		else
@@ -155,7 +155,7 @@
 			mobnames += "Affected players: "
 			var/i = 1
 			do
-				mobnames += "<A HREF='?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
+				mobnames += "<A href='byond://?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
 				if (touched_mobs[i+1])
 					mobnames += ", "
 				i++

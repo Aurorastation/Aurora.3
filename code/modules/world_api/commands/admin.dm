@@ -98,8 +98,8 @@
 	if(!rank)
 		rank = "Admin"
 
-	var/message =	SPAN_WARNING("[rank] PM from <b><a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]")
-	var/amessage =	SPAN_NOTICE("[rank] PM from <a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]")
+	var/message =	SPAN_WARNING("[rank] PM from <b><a href='byond://?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]")
+	var/amessage =	SPAN_NOTICE("[rank] PM from <a href='byond://?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]")
 
 	C.received_discord_pm = world.time
 	C.discord_admin = queryparams["senderkey"]

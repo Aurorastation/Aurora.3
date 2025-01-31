@@ -1138,7 +1138,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
+	return "<a href='byond://?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour

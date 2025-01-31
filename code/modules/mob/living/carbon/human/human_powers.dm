@@ -399,14 +399,14 @@
 
 		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
 	last_special = world.time + 100
 
@@ -610,7 +610,7 @@
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 	var/obj/item/arrow/quill/A = new /obj/item/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, usr)
-	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
+	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 
 /mob/living/carbon/human/proc/dissolve()
 	set name = "Dissolve Self"
@@ -773,7 +773,7 @@
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
 		attack_log += "\[[time_stamp()]\]<span class='warning'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) </span>"
-		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
+		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
 		if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
@@ -799,7 +799,7 @@
 		var/mob/living/M = A
 		attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed into [key_name(M)]</span>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"
-		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
+		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
 
 	A.ex_act(2)
 
@@ -1367,8 +1367,8 @@
 
 	say(",9!an enormous surge of encrypted data, surging out into the wider Hivenet.")
 
-	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
-	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=[REF(src)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(src)]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[REF(src)]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=[REF(src)]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
+	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A href='byond://?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
+	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A href='byond://?_src_=holder;adminplayeropts=[REF(src)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(src)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(src)]'>SM</A>) ([admin_jump_link(src)]) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A href='byond://?_src_=holder;BlueSpaceArtillery=[REF(src)]'>BSA</A>) (<A href='byond://?_src_=holder;CentcommHiveReply=[REF(src)]'>RPLY</A>):</b> [msg]")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
@@ -1530,7 +1530,7 @@
 	var/choice = tgui_alert(src, "Are you sure you want to void [target]? This cannot be undone!", "Void User?", list("Proceed", "Cancel"))
 	if(choice == "Cancel")
 		return
-	msg_admin_attack("[key_name_admin(src)] attempted to void [key_name_admin(target)]'s neural socket! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
+	msg_admin_attack("[key_name_admin(src)] attempted to void [key_name_admin(target)]'s neural socket! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
@@ -2190,7 +2190,7 @@
 		var/obj/item/organ/internal/parasite/blackkois/infest = new()
 		infest.replaced(H, affected)
 
-		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 
 /mob/living/carbon/human/proc/phalanx_transmit()
 	set name = "Phalanx Hivenet Transmission"

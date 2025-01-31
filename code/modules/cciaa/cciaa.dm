@@ -54,7 +54,7 @@
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
 		to_chat(usr, SPAN_NOTICE("Message transmitted successfully."))
-		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
+		log_and_message_admins("sent a fax message to the [department] fax machine. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
 		sent_faxes += P
 	else
@@ -71,13 +71,13 @@
 		to_chat(usr, SPAN_WARNING("You do not have enough powers to do this."))
 		return
 
-	var/data = "<center><a href='?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
+	var/data = "<center><a href='byond://?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"
 	data += "<hr>"
 	data += "<center><b>Received Faxes:</b></center><br>"
 
 	if (arrived_faxes && arrived_faxes.len)
 		for (var/obj/item/item in arrived_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
+			data += "[item.name] - <a href='byond://?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been received.</center>"
 
@@ -85,7 +85,7 @@
 
 	if (sent_faxes && sent_faxes.len)
 		for (var/obj/item/item in sent_faxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
+			data += "[item.name] - <a href='byond://?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been sent out.</center>"
 

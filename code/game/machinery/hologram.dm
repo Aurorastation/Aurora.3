@@ -161,7 +161,7 @@ Possible to do for anyone motivated enough:
 					continue
 				if(!AreConnectedZLevels(AI.z, z))
 					continue
-				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='byond://?src=[REF(AI)];jumptoholopad=[REF(src)]'>\the [area]</a>."))
 				. = TRUE
 
 		if("call_holopad")

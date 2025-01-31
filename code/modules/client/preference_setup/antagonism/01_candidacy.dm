@@ -51,13 +51,13 @@
 		if(ban_reason == "AGE WHITELISTED")
 			dat += SPAN_DANGER("\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]<br>")
 		else if(is_global_banned || ban_reason)
-			dat += SPAN_DANGER("\[<a href='?src=[REF(user.client)];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]<br>")
+			dat += SPAN_DANGER("\[<a href='byond://?src=[REF(user.client)];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]<br>")
 		else if(establish_db_connection(GLOB.dbcon) && antag.required_age && antag.required_age > user.client?.player_age)
 			dat += "<span class='notice'>ACC TOO YOUNG</span><br>"
 		else if(antag.role_type in pref.be_special_role)
-			dat += "<b>Yes</b> / <a href='?src=[REF(src)];del_special=[antag.role_type]'>No</a></br>"
+			dat += "<b>Yes</b> / <a href='byond://?src=[REF(src)];del_special=[antag.role_type]'>No</a></br>"
 		else
-			dat += "<a href='?src=[REF(src)];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
+			dat += "<a href='byond://?src=[REF(src)];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
 		dat += "</td></tr>"
 	dat += "</table>"
 
