@@ -15,6 +15,8 @@
 
 	needspin = FALSE
 
+	is_wieldable = TRUE
+
 	var/blacklisted_grenades = list(
 		/obj/item/grenade/flashbang/clusterbang,
 		/obj/item/grenade/frag
@@ -79,6 +81,9 @@
 	return TRUE
 
 /obj/item/gun/launcher/grenade/unique_action(mob/user)
+	if(!wielded)
+		to_chat(user, SPAN_WARNING("You can't pump \the [src] without wielding it first!"))
+		return
 	pump(user)
 
 /obj/item/gun/launcher/grenade/attackby(obj/item/attacking_item, mob/user)
@@ -115,6 +120,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 	max_grenades = 0
+
+/obj/item/gun/launcher/grenade/underslung/unique_action(mob/user)
+	pump(user)
 
 //load and unload directly into chambered
 /obj/item/gun/launcher/grenade/underslung/load(obj/item/grenade/G, mob/user)

@@ -1,33 +1,47 @@
 /obj/item/gun/projectile/plasma
 	name = "plasma shotgun"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results."
-	icon = 'icons/obj/guns/slammer.dmi'
-	icon_state = "slammer"
-	item_state = "slammer"
+	icon = 'icons/obj/guns/plasma.dmi'
+	icon_state = "plasma"
+	item_state = "plasma"
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/plasma_slug
 	magazine_type = /obj/item/ammo_magazine/plasma
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma)
 	caliber = "plasma slug"
-	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
+	fire_sound = 'sound/weapons/gunshot/plasma.ogg'
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 	fire_delay = ROF_HEAVY
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/plasma/special_check(mob/user)
+	if(!wielded && is_wieldable)
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
+		return FALSE
+	return ..()
 
 /obj/item/gun/projectile/plasma/update_icon()
-	..()
 	if(ammo_magazine)
-		icon_state = "[initial(icon_state)]"
+		var/ratio = length(ammo_magazine.stored_ammo) / ammo_magazine.max_ammo
+		if(!length(ammo_magazine.stored_ammo))
+			ratio = 0
+		else
+			ratio = max((round(ratio, 0.25) * 100), 25)
+		icon_state = "[initial(icon_state)][ratio]"
+		item_state = "[initial(item_state)][ratio]"
 	else
 		icon_state = "[initial(icon_state)]-empty"
+		item_state = "[initial(item_state)]-empty"
+	..()
 
 /obj/item/gun/projectile/plasma/bolter
 	name = "plasma bolter"
 	desc = "A miniaturized, less efficient version of the infamous plasma slammer. Sacrifices much of its power for a more compact frame."
-	icon = 'icons/obj/guns/bolter.dmi'
-	icon_state = "bolter"
-	item_state = "bolter"
+	icon = 'icons/obj/guns/plasma_bolter.dmi'
+	icon_state = "plasma_bolter"
+	item_state = "plasma_bolter"
 	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	magazine_type = /obj/item/ammo_magazine/plasma/light
@@ -35,10 +49,12 @@
 	caliber = "plasma bolt"
 	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
 	fire_delay = ROF_RIFLE
+	is_wieldable = FALSE
 
 /obj/item/gun/energy/mountedplasma
 	name = "plasma cannon"
-	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
+	icon_state = "plasma_turret"
+	fire_sound = 'sound/weapons/gunshot/plasma.ogg'
 	burst = 2
 	burst_delay = 3
 	max_shots = 15
@@ -58,17 +74,3 @@
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	accuracy = 1
 	fire_delay = ROF_INTERMEDIATE
-
-/obj/item/gun/projectile/plasma/bolter/pistol/update_icon()
-	..()
-	if(ammo_magazine)
-		var/ratio = length(ammo_magazine.stored_ammo) / ammo_magazine.max_ammo
-		if(!length(ammo_magazine.stored_ammo))
-			ratio = 0
-		else
-			ratio = max((round(ratio, 0.25) * 100), 25)
-		icon_state = "[initial(icon_state)][ratio]"
-		item_state = "[initial(item_state)][ratio]"
-	else
-		icon_state = "[initial(icon_state)]-empty"
-		item_state = "[initial(item_state)]-empty"

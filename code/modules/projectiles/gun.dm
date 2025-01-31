@@ -46,7 +46,6 @@
 	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
-	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
 	contained_sprite = TRUE
@@ -154,7 +153,6 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
 
@@ -198,11 +196,10 @@
 		underlays += I
 
 	if(has_safety)
-		CutOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
-		safety_overlay = null
-		if(!isturf(loc)) // In a mob, holster or bag or something
-			safety_overlay = image(gun_gui_icons,"[safety()]")
-			AddOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
+		if(safety_state)
+			check_maptext(SMALL_FONTS(7, SPAN_COLOR(COLOR_BRIGHT_GREEN, "S")))
+		else
+			check_maptext(SMALL_FONTS(7, SPAN_RED("F")))
 
 	if(is_wieldable)
 		if(wielded)

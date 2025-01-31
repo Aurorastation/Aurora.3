@@ -147,7 +147,7 @@
 	item_state = "himeoblaster"
 	projectile_type = /obj/projectile/energy/blaster
 	usesound = 'sound/weapons/plasma_cutter.ogg'
-	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
+	fire_sound = 'sound/weapons/gunshot/plasma.ogg'
 	cell_type = /obj/item/cell/hydrogen
 	needspin = FALSE // can't remove the cell if it has a pin
 	charge_cost = 500 // 20 mag

@@ -4,8 +4,8 @@
 	desc_info = "This is an energy weapon.  To fire this weapon, toggle the safety with ctrl-click (or enable HARM intent), \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger."
 	icon = 'icons/obj/guns/ecarbine.dmi'
-	icon_state = "energykill100"
-	item_state = "energykill100"
+	icon_state = "energykill"
+	item_state = "energykill"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
 	update_icon_on_init = TRUE

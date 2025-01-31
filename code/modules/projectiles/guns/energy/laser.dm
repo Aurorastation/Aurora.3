@@ -2,8 +2,8 @@
 	name = "laser carbine"
 	desc = "A NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
-	icon_state = "laserrifle100"
-	item_state = "laserrifle100"
+	icon_state = "laser"
+	item_state = "laser"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -16,8 +16,6 @@
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
-
-	modifystate = "laserrifle"
 
 /obj/item/gun/energy/laser/mounted
 	name = "mounted laser carbine"

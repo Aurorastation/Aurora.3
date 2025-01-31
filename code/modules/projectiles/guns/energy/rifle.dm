@@ -42,8 +42,8 @@
 	desc = "A NanoTrasen designed laser weapon, designed to kill with concentrated energy blasts."
 	desc_extended = "The NT LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
 	icon = 'icons/obj/guns/laserrifle.dmi'
-	icon_state = "laserrifle"
-	item_state = "laserrifle"
+	icon_state = "laser"
+	item_state = "laser"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 15
@@ -62,6 +62,8 @@
 /obj/item/gun/energy/rifle/laser/practice
 	name = "practice laser rifle"
 	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
+	icon_state = "laserp"
+	item_state = "laser"
 	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/rifle/laser/noctiluca

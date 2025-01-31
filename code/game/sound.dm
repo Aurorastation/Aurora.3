@@ -775,7 +775,7 @@
 	'sound/weapons/gunshot/gunshot2.ogg',
 	'sound/weapons/gunshot/gunshot3.ogg',
 	'sound/weapons/gunshot/musket.ogg',
-	'sound/weapons/gunshot/slammer.ogg'
+	'sound/weapons/gunshot/plasma.ogg'
 )
 
 /singleton/sound_category/gunshots/ballistic
@@ -798,7 +798,7 @@
 	'sound/weapons/gunshot/gunshot2.ogg',
 	'sound/weapons/gunshot/gunshot3.ogg',
 	'sound/weapons/gunshot/musket.ogg',
-	'sound/weapons/gunshot/slammer.ogg'
+	'sound/weapons/gunshot/plasma.ogg'
 )
 
 /singleton/sound_category/gunshots/energy
