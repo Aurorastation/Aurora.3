@@ -57,5 +57,5 @@ delete-after: True
 changes:
   - rscadd: "Resprites the laser rifle, energy carbine, laser shotgun, energy rifle, lawgiver, grenade launcher, combat shotgun, bullpup carbine, 9mm SMG, LWAP, plasma bolter, grenade launcher and plasma slammer."
   - bugfix: "Grenade launcher now has a back sprite."
-  - tweak : "You now need to wield the grenade launcher to pump it. No more one-handed pumping."
-  - tweak : "You can now wield the plasma slammer. To look cool."
+  - balance : "You now need to wield the grenade launcher to pump it. No more one-handed pumping."
+  - rscadd : "You can now wield the plasma slammer. To look cool."
