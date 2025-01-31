@@ -259,8 +259,7 @@
 				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
 										SPAN_NOTICE("You put [L] into [src]."), range = 3)
 				qdel(attacking_item)
-				sleep(2.5 SECONDS)
-				update_icon()
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
 	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
@@ -309,9 +308,7 @@
 
 				if(user.pulling == L)
 					user.pulling = null
-			sleep(2.5 SECONDS)
-			update_icon()
-
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon(var/only_pickle = FALSE)
 	ClearOverlays()
@@ -461,8 +458,7 @@
 						SPAN_NOTICE("You climb into [src]."), range = 3)
 
 	put_mob(usr)
-	sleep(2.5 SECONDS)
-	update_icon()
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 	return
 
 /atom/proc/return_air_for_internal_lifeform(var/mob/living/lifeform)
