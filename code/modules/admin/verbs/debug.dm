@@ -499,3 +499,22 @@
 		for(var/atom/an_atom in world)
 			if(world.tick_usage > (100+(tick_offenses+jitter_this_run)))
 				stoplag()
+
+/**
+ * Enable Edge Dev Tools
+ */
+/client/proc/allow_browser_inspect()
+	set name = "Allow Browser Inspect"
+	set category = "Debug"
+	set desc = "Allow browser debugging via inspect"
+
+	var/client/client_caller = get_client(usr)
+	if(!istype(client_caller))
+		return
+
+	if(client_caller.byond_version < 516)
+		to_chat(client_caller, SPAN_WARNING("You can only use this on 516!"))
+		return
+
+	to_chat(client_caller, SPAN_NOTICE("You can now right click to use inspect on browsers."))
+	winset(client_caller, null, list("browser-options" = "+devtools"))
