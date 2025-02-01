@@ -270,9 +270,15 @@
 //Bridge
 /area/crew_quarters/heads/captain/office
 	name = "Command - Captain's Office"
+	icon_state = "captain"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads/captain/study
 	name = "Command - Captain's Study"
+	icon_state = "captain"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads/hop/xo
 	name = "Command - Executive Officer's Office"
