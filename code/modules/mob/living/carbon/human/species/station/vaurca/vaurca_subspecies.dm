@@ -380,9 +380,6 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	heat_level_2 = 400 //Default 400
 	heat_level_3 = 800 //Default 1000
 
-	hazard_high_pressure = 3000
-	warning_high_pressure = 2775
-
 	sprint_speed_factor = 1.0
 	stamina = 50
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet

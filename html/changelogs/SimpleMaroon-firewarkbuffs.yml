@@ -56,4 +56,3 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Firefighter helmets now have proper defense against high heat, meaning that wearing a whole firesuit works again."
-  - qol: "Vaurca Bulwarks now have higher pressure protection, since they can work in Engineering but can't wear voidsuits and have to rely on firesuits."
