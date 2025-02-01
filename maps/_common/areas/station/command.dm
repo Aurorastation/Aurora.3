@@ -83,9 +83,11 @@
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/crew_quarters/heads
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/crew_quarters/heads/hop
 	name = "Command - HoP's Office"

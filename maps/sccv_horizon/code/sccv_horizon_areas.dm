@@ -268,6 +268,12 @@
 	icon_state = "blue-red2"
 
 //Bridge
+/area/crew_quarters/heads/captain/office
+	name = "Command - Captain's Office"
+
+/area/crew_quarters/heads/captain/study
+	name = "Command - Captain's Study"
+
 /area/crew_quarters/heads/hop/xo
 	name = "Command - Executive Officer's Office"
 
