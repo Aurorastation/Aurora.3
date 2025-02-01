@@ -71,8 +71,6 @@
 			if(T != src && (T.z in GetConnectedZlevels(z)))
 				add_automatic_link(T)
 
-	update_icon()
-
 /obj/machinery/telecomms/Destroy()
 //	QDEL_NULL(soundloop)
 	SSmachinery.all_telecomms -= src
@@ -108,15 +106,13 @@
 			return
 
 /obj/machinery/telecomms/update_icon()
-	ClearOverlays()
-	if(operable())
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
-		AddOverlays("[icon_state]_lights")
-	if(panel_open)
-		AddOverlays("[icon_state]_panel")
+	var/state = construct_op ? "[initial(icon_state)]_o" : initial(icon_state)
+	if(!use_power)
+		state += "_off"
+
+	icon_state = state
 
 /obj/machinery/telecomms/process()
-	update_icon()
 	if(!use_power) return PROCESS_KILL
 	if(!operable(EMPED))
 		toggle_power(additional_flags = EMPED)

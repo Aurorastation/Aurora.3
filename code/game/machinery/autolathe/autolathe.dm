@@ -47,7 +47,6 @@
 	..()
 	wires = new(src)
 	print_loc = src
-	update_icon()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
@@ -270,8 +269,7 @@
 /obj/machinery/autolathe/proc/start_processing_queue_item()
 	if(does_flick)
 		//Fancy autolathe animation.
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
-		AddOverlays("[icon_state]_lights_working")
+		AddOverlays("process")
 	autolathe_flags |= AUTOLATHE_STARTED|AUTOLATHE_BUSY
 
 /obj/machinery/autolathe/proc/process_queue_item()
@@ -294,23 +292,14 @@
 
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
-	CutOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
-	CutOverlays("[icon_state]_lights_working")
+	CutOverlays("process")
 	I.update_icon()
-	flick_overlay_view(mutable_appearance(icon, "[icon_state]_print"), 1 SECONDS)
 	update_use_power(POWER_USE_IDLE)
 
 	return TRUE
 
 /obj/machinery/autolathe/update_icon()
-	CutOverlays("[icon_state]_panel")
-	CutOverlays(emissive_appearance(icon, "[icon_state]_lights"))
-	CutOverlays("[icon_state]_lights")
-	if(panel_open)
-		AddOverlays("[icon_state]_panel")
-	if(!(stat & (NOPOWER|BROKEN)))
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
-		AddOverlays("[icon_state]_lights")
+	icon_state = (panel_open ? "autolathe_panel" : "autolathe")
 
 //Updates overall lathe storage size.
 /obj/machinery/autolathe/RefreshParts()
@@ -395,20 +384,15 @@
 
 	// Plays metal insertion animation.
 	if(istype(eating, /obj/item/stack/material))
-		var/obj/item/stack/material/stack = eating
-		var/mutable_appearance/M = mutable_appearance(icon, "material_insertion")
-		M.color = stack.material.icon_colour
-		//first play the insertion animation
-		flick_overlay_view(M, 1 SECONDS)
-
-		//now play the progress bar animation
-		flick_overlay_view(mutable_appearance(icon, "autolathe_progress"), 1 SECONDS)
+		var/obj/item/stack/material/sheet = eating
+		var/icon/load = icon(icon, "load")
+		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
+		AddOverlays(load)
+		CUT_OVERLAY_IN(load, 6)
 
 	if(istype(eating, /obj/item/stack))
 		var/obj/item/stack/stack = eating
-		var/amount_needed
-		if(total_used && mass_per_sheet)
-			amount_needed = total_used / mass_per_sheet
+		var/amount_needed = total_used / mass_per_sheet
 		stack.use(min(stack.get_amount(), (round(amount_needed) == amount_needed)? amount_needed : round(amount_needed) + 1)) // Prevent maths imprecision from leading to infinite resources
 	else
 		user.remove_from_mob(O)
