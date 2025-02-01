@@ -220,3 +220,10 @@
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
 	name = "Ops Warehouse, Small Storage"
+
+/obj/item/storage/secure/safe/sccv_horizon/captain
+	starts_with = list(
+	/obj/item/disk/nuclear = 1,
+	/obj/item/pinpointer = 1,
+	/obj/item/card/id/captains_spare = 1
+	)
