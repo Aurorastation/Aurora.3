@@ -845,6 +845,56 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
+/obj/item/clothing/accessory/sol_pin/sfp
+	name = "Sol First Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "sfp-pin"
+	item_state = "sfp-pin"
+	overlay_state = "sfp-pin"
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/sol_pin/ssup
+	name = "Solarian Socialist Unity Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "ssup-pin"
+	item_state = "ssup-pin"
+	overlay_state = "ssup-pin"
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/sol_pin/spp
+	name = "Solarian People's Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "spp-pin"
+	item_state = "spp-pin"
+	overlay_state = "spp-pin"
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/sol_pin/spdp
+	name = "Solarian Popular Democratic Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "spdp-pin"
+	item_state = "spdp-pin"
+	overlay_state = "spdp-pin"
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/sol_pin/commie
+	name = "Communist Party of the Sol Alliance pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "commie-pin"
+	item_state = "commie-pin"
+	overlay_state = "commie-pin"
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
