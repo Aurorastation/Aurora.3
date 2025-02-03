@@ -22,7 +22,10 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/process_message(var/datum/ntnet_message/message, var/update_ui = TRUE)
 	var/admin_log = message.format_admin_log()
 	if (admin_log)
-		log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [GLOB.admin_log]", ckey=key_name(message.user), conversation=title)
+		if(message.user.client)
+			log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [GLOB.admin_log]", ckey=key_name(message.user), conversation=title)
+		else
+			log_ntirc("([message.nuser.username]) -> ([title]): [GLOB.admin_log]", ckey=key_name(message.user), conversation=title)
 
 	for(var/datum/ntnet_user/U in users)
 		for(var/datum/computer_file/program/chat_client/Cl in U.clients)

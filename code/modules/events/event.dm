@@ -1,5 +1,5 @@
 /datum/event_meta
-	var/name 		= ""
+	var/name = ""
 
 	///Whether or not the event is available for random selection at all
 	var/enabled = TRUE
