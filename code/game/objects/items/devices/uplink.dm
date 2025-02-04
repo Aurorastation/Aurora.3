@@ -74,14 +74,19 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	var/pda_code = ""
 
 
-// The hidden uplink MUST be inside an obj/item's contents.
 /obj/item/device/uplink/hidden/New()
-	spawn(2)
-		if(!istype(loc, /obj/item))
-			qdel(src)
 	..()
 	tgui_data = list()
 	update_tgui_data()
+
+/obj/item/device/uplink/hidden/Initialize(mapload, datum/mind/owner, new_telecrystals, new_bluecrystals)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/device/uplink/hidden/LateInitialize()
+	// The hidden uplink MUST be inside an obj/item's contents.
+	if(!istype(loc, /obj/item))
+		qdel(src)
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
