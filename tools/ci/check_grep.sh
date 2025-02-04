@@ -204,7 +204,7 @@ UNMANAGED_GLOBAL_VARS=`grep -r -c --include \*.dm -P --regexp=$UNMANAGED_GLOBAL_
 if [[ $UNMANAGED_GLOBAL_VARS -ne 181 ]]; then # THE COUNT CAN ONLY BE DECREASED, NEVER INCREASED
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: New unmanaged global vars, found $UNMANAGED_GLOBAL_VARS of them! Use GLOB or update the count ONLY IF YOU ARE REMOVING THEM!" >> code_error.log
-	echo `grep -r --include \*.dm -P --regexp=$UNMANAGED_GLOBAL_VARS_REGEXP` >> code_error.log
+	grep -r --include \*.dm -P --regexp=$UNMANAGED_GLOBAL_VARS_REGEXP >> code_error.log
 else
     echo "PASS: No new unmanaged globals are being added" >> code_error.log
 fi
