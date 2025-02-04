@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(default_uplink_selection, /datum/uplink_random_selection, new())
+GLOBAL_DATUM_INIT(default_uplink_selection, /datum/uplink_random_selection, new/datum/uplink_random_selection/default())
 
 /datum/uplink_random_item
 	var/uplink_item				// The uplink item
@@ -12,7 +12,7 @@ GLOBAL_DATUM_INIT(default_uplink_selection, /datum/uplink_random_selection, new(
 	src.keep_probability = keep_probability
 	src.reselect_probability = reselect_probability
 
-/datum/uplink_random_selection
+ABSTRACT_TYPE(/datum/uplink_random_selection)
 	var/list/datum/uplink_random_item/items
 
 /datum/uplink_random_selection/New()
