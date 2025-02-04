@@ -37,7 +37,7 @@
 	if (G.client)
 		P = G.client.prefs
 	else if (G.ckey)
-		P = preferences_datums[G.ckey]
+		P = GLOB.preferences_datums[G.ckey]
 	else
 		statuscode = 500
 		response = "Something went wrong, couldn't find the target's preferences datum"

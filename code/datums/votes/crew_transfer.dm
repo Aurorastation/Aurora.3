@@ -11,7 +11,7 @@ GLOBAL_VAR(last_transfer_vote)
 /datum/vote/crewtransfer/can_be_initiated(mob/by_who, forced)
 	. = ..()
 	//Transfer already in progress, noone can call another vote
-	if(SSatlas.current_map.shuttle_call_restart_timer || (evacuation_controller.state != EVAC_IDLE))
+	if(SSatlas.current_map.shuttle_call_restart_timer || (GLOB.evacuation_controller.state != EVAC_IDLE))
 		to_chat(by_who, SPAN_NOTICE("Transfer or evacuation are already in progress."))
 		return FALSE
 

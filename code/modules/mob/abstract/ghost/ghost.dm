@@ -99,7 +99,7 @@
 	var/list/L = list()
 	var/holyblock = FALSE
 
-	if(usr.invisibility <= SEE_INVISIBLE_LIVING || (usr.mind in cult.current_antagonists))
+	if(usr.invisibility <= SEE_INVISIBLE_LIVING || (usr.mind in GLOB.cult.current_antagonists))
 		for(var/turf/T in get_area_turfs(thearea))
 			if(!T.holy && has_ghost_restrictions)
 				L+=T

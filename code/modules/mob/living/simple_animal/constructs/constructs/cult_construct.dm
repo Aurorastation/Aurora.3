@@ -67,7 +67,7 @@
 /mob/living/simple_animal/construct/LateLogin()
 	. = ..()
 	if(!iscultist(src))
-		cult.add_antagonist_mind(mind)
+		GLOB.cult.add_antagonist_mind(mind)
 
 /mob/living/simple_animal/construct/death()
 	new /obj/item/ectoplasm(get_turf(src))

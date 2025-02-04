@@ -47,7 +47,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	if(length(sound_tokens))
 		return
 
-	sound_channels.ReleaseChannel(channel)
+	GLOB.sound_channels.ReleaseChannel(channel)
 	taken_channels -= sound_id
 	sound_tokens_by_sound_id -= sound_id
 
@@ -56,7 +56,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	. = taken_channels[sound_id] // Does this sound_id already have an assigned channel?
 	if(!.) // If not, request a new one.
-		. = sound_channels.RequestChannel(sound_id)
+		. = GLOB.sound_channels.RequestChannel(sound_id)
 		if(!.) // Oh no, still no channel. Abort
 			return
 		taken_channels[sound_id] = .

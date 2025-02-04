@@ -181,12 +181,12 @@
 	)
 
 /datum/topic_command/auth_client/run_command(queryparams)
-	if(!(queryparams["clienttoken"] in unauthed))
+	if(!(queryparams["clienttoken"] in GLOB.unauthed))
 		statuscode = 404
 		response = "Client with such token is not found."
 		return TRUE
 
-	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
+	var/mob/abstract/unauthed/una = GLOB.unauthed[queryparams["clienttoken"]]
 	if(!istype(una) || !una.client)
 		statuscode = 500
 		response = "Somethnig went horribly wrong."
@@ -217,12 +217,12 @@
 	)
 
 /datum/topic_command/get_auth_client_ip/run_command(queryparams)
-	if(!(queryparams["clienttoken"] in unauthed))
+	if(!(queryparams["clienttoken"] in GLOB.unauthed))
 		statuscode = 404
 		response = "Unauthed client with such token is not found."
 		return TRUE
 
-	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
+	var/mob/abstract/unauthed/una = GLOB.unauthed[queryparams["clienttoken"]]
 
 	if(!istype(una) || !una.client)
 		statuscode = 500

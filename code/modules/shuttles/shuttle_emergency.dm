@@ -5,7 +5,7 @@
 
 /datum/shuttle/autodock/ferry/emergency/New()
 	..()
-	emergency_controller = evacuation_controller
+	emergency_controller = GLOB.evacuation_controller
 	if(!istype(emergency_controller))
 		CRASH("Escape shuttle created without the appropriate controller type.")
 	if(emergency_controller.shuttle)
@@ -61,7 +61,7 @@
 			return 0
 
 		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
-		if(evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
+		if(GLOB.evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
 			return 0
 
 	return ..()

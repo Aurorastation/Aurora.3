@@ -118,7 +118,7 @@
 		authmsg += "[id_auth]<br>"
 	if (stamp)
 		authmsg += "[stamp]<br>"
-	for (var/obj/machinery/requests_console/Console in allConsoles)
+	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 		if (ckey(Console.department) == ckey(recipient))
 			if(!Console.operable())
 				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"

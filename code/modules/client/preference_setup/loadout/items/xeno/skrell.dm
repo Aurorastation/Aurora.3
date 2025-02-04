@@ -213,7 +213,7 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
-	gear_tweaks += list(compat_index_tweak)
+	gear_tweaks += list(GLOB.compat_index_tweak)
 
 // the whitelisted list ensures only people with skrell, vaurca, or diona whitelists can reach this check
 /datum/gear/accessory/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
@@ -247,7 +247,8 @@ ABSTRACT_TYPE(/datum/gear/ears/skrell)
 /*
 	Skrellian Social Compatibility Index
 */
-var/datum/gear_tweak/compat_index/compat_index_tweak = new()
+
+GLOBAL_DATUM_INIT(compat_index_tweak, /datum/gear_tweak/compat_index, new())
 
 /datum/gear_tweak/compat_index/get_contents(var/metadata)
 	return "Social Compatibility Index: [metadata]"

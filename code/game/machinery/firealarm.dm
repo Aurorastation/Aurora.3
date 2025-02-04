@@ -254,7 +254,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.clearAlarm(loc, FA)
+		GLOB.fire_alarm.clearAlarm(loc, FA)
 		FA.soundloop.stop(FA)
 	update_icon()
 	return
@@ -264,7 +264,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.triggerAlarm(loc, FA, duration)
+		GLOB.fire_alarm.triggerAlarm(loc, FA, duration)
 		FA.soundloop.start(FA)
 	update_icon()
 	return

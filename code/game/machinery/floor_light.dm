@@ -1,5 +1,3 @@
-var/list/floor_light_cache = list()
-
 /obj/machinery/floor_light
 	name = "floor light"
 	icon = 'icons/obj/machinery/floor_light.dmi'

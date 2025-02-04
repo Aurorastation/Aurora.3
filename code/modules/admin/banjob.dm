@@ -14,7 +14,8 @@
 		tgt = CKM.ckey;				\
 	}
 
-var/list/jobban_keylist = list() // Global jobban list.
+GLOBAL_LIST_INIT(jobban_keylist, list())
+GLOBAL_PROTECT(jobban_keylist)
 
 /*
  * Expected format:
@@ -70,11 +71,11 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// Create a new record if the client isn't logged already.
-	if (!jobban_keylist[key])
-		jobban_keylist[key] = list()
+	if (!GLOB.jobban_keylist[key])
+		GLOB.jobban_keylist[key] = list()
 
 	// Sanity catch. This shouldn't happen, but better safe than sorry.
-	if (jobban_keylist[key][rank] && !jobban_isexpired(jobban_keylist[key][rank], player, rank))
+	if (GLOB.jobban_keylist[key][rank] && !jobban_isexpired(GLOB.jobban_keylist[key][rank], player, rank))
 		log_and_message_admins("Attempted to apply a jobban to [key] while they already have an active ban. Job: [rank].")
 		return
 
@@ -84,7 +85,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		unban_time = world.realtime + (minutes MINUTES)
 
 	// Create the entry.
-	jobban_keylist[key][rank] = list(reason, unban_time)
+	GLOB.jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
 	if (GLOB.config.ban_legacy_system)
@@ -137,7 +138,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			antag_ban = TRUE
 
 		// Get the user's ckey.
-		var/list/entry = jobban_keylist[ckey]
+		var/list/entry = GLOB.jobban_keylist[ckey]
 
 		// If this is false, then we have no entry. As such, they have no active
 		// bans!
@@ -165,11 +166,11 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_loadbanfile()
 	var/savefile/S = new("data/job_full.ban")
-	S["bans"] >> jobban_keylist
+	S["bans"] >> GLOB.jobban_keylist
 	log_admin("Loading jobban_rank")
 
-	if (!jobban_keylist)
-		jobban_keylist = list()
+	if (!GLOB.jobban_keylist)
+		GLOB.jobban_keylist = list()
 		log_admin("jobban_keylist was empty")
 
 /**
@@ -195,14 +196,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 		var/job = query.item[3]
 		var/reason = query.item[4]
 
-		if (!jobban_keylist[ckey])
-			jobban_keylist[ckey] = list()
+		if (!GLOB.jobban_keylist[ckey])
+			GLOB.jobban_keylist[ckey] = list()
 
-		if (!jobban_keylist[ckey][job])
+		if (!GLOB.jobban_keylist[ckey][job])
 			// Insert it with 0 time because the expiration of a temp jobban for
 			// MySQL is dependent on the database and query itself. So we can just
 			// politely not care.
-			jobban_keylist[ckey][job] = list(reason, -1)
+			GLOB.jobban_keylist[ckey][job] = list(reason, -1)
 		else
 			// Woups. What happened here...?
 			log_and_message_admins("JOBBANS: Duplicate jobban entry in MySQL for [ckey]. Ban ID: #[query.item[1]]")
@@ -212,7 +213,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_savebanfile()
 	var/savefile/S = new("data/job_full.ban")
-	S["bans"] << jobban_keylist
+	S["bans"] << GLOB.jobban_keylist
 
 /**
  * Removes a jobban entry from the code and calls the config appropriate
@@ -234,7 +235,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		return
 
 	// Check for a player record.
-	var/list/entry = jobban_keylist[ckey]
+	var/list/entry = GLOB.jobban_keylist[ckey]
 	if (entry)
 		// Find the specific ban.
 		var/list/ban = entry[rank]
@@ -245,8 +246,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 			// If the entry is now empty, remove the entire ckey from the list.
 			if (!entry.len)
-				jobban_keylist[ckey] = null
-				jobban_keylist -= ckey
+				GLOB.jobban_keylist[ckey] = null
+				GLOB.jobban_keylist -= ckey
 
 			// Update appropriate ban files.
 			if (GLOB.config.ban_legacy_system)

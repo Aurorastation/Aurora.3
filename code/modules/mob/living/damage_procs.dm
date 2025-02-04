@@ -43,12 +43,12 @@
 	return TRUE
 
 /mob/living/proc/apply_damages(var/brute = 0, var/burn = 0, var/tox = 0, var/oxy = 0, var/clone = 0, var/halloss = 0, var/def_zone, var/damage_flags = 0)
-	if(brute)	apply_damage(brute, DAMAGE_BRUTE, def_zone, blocked)
-	if(burn)	apply_damage(burn, DAMAGE_BURN, def_zone, blocked)
-	if(tox)		apply_damage(tox, DAMAGE_TOXIN, def_zone, blocked)
-	if(oxy)		apply_damage(oxy, DAMAGE_OXY, def_zone, blocked)
-	if(clone)	apply_damage(clone, DAMAGE_CLONE, def_zone, blocked)
-	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, blocked)
+	if(brute)	apply_damage(brute, DAMAGE_BRUTE, def_zone, GLOB.blocked)
+	if(burn)	apply_damage(burn, DAMAGE_BURN, def_zone, GLOB.blocked)
+	if(tox)		apply_damage(tox, DAMAGE_TOXIN, def_zone, GLOB.blocked)
+	if(oxy)		apply_damage(oxy, DAMAGE_OXY, def_zone, GLOB.blocked)
+	if(clone)	apply_damage(clone, DAMAGE_CLONE, def_zone, GLOB.blocked)
+	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, GLOB.blocked)
 	return TRUE
 
 /**

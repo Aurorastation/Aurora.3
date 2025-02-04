@@ -1,4 +1,4 @@
-var/list/spells = typesof(/spell) //needed for the badmin verb for now
+GLOBAL_LIST_INIT(spells, typesof(/spell))
 
 /spell
 	var/name = "Spell"

@@ -1,4 +1,4 @@
-var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_random_selection/default()
+GLOBAL_DATUM_INIT(default_uplink_selection, /datum/uplink_random_selection, new())
 
 /datum/uplink_random_item
 	var/uplink_item				// The uplink item

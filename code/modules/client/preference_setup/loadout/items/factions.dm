@@ -362,10 +362,10 @@
 
 /datum/gear/faction/pmc_modsuit/New()
 	..()
-	gear_tweaks += list(gear_tweak_modsuit_configuration)
+	gear_tweaks += list(GLOB.gear_tweak_modsuit_configuration)
 
 
-var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_configuration, new())
 
 /datum/gear_tweak/modsuit_configuration
 	/// the configuration of the modsuit, using just a list of the names
@@ -435,7 +435,7 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	pmcg_sec_uniforms["Nexus Corporate uniform"] = /obj/item/clothing/under/rank/security/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"

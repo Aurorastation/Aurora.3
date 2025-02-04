@@ -1182,7 +1182,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		equipment = autoset(equipment, CHANNEL_OFF)
 		lighting = autoset(lighting, CHANNEL_OFF)
 		environ = autoset(environ, CHANNEL_OFF)
-		power_alarm.triggerAlarm(loc, src)
+		GLOB.power_alarm.triggerAlarm(loc, src)
 		autoflag = AUTOFLAG_OFF
 
 	// update icon & area power if anything changed
@@ -1206,27 +1206,27 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			lighting = autoset(lighting, CHANNEL_OFF_AUTO)
 			environ = autoset(environ, CHANNEL_OFF_AUTO)
 			autoflag = AUTOFLAG_ALL_ON
-			power_alarm.clearAlarm(loc, src)
+			GLOB.power_alarm.clearAlarm(loc, src)
 	else if((cell.percent() <= 30) && (cell.percent() > 15) && longtermpower < 0)                       // <30%, turn off equipment
 		if(autoflag != AUTOFLAG_ENVIRON_LIGHTS_ON)
 			equipment = autoset(equipment, CHANNEL_ON)
 			lighting = autoset(lighting, CHANNEL_OFF_AUTO)
 			environ = autoset(environ, CHANNEL_OFF_AUTO)
-			power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_ENVIRON_LIGHTS_ON
 	else if(cell.percent() <= 15)        // <15%, turn off lighting & equipment
 		if((autoflag > AUTOFLAG_ENVIRON_ON && longtermpower < 0) || (autoflag > AUTOFLAG_ENVIRON_ON && longtermpower >= 0))
 			equipment = autoset(equipment, CHANNEL_ON)
 			lighting = autoset(lighting, CHANNEL_ON)
 			environ = autoset(environ, CHANNEL_OFF_AUTO)
-			power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_ENVIRON_ON
 	else                                   // zero charge, turn all off
 		if(autoflag != AUTOFLAG_OFF)
 			equipment = autoset(equipment, CHANNEL_OFF)
 			lighting = autoset(lighting, CHANNEL_OFF)
 			environ = autoset(environ, CHANNEL_OFF)
-			power_alarm.triggerAlarm(loc, src)
+			GLOB.power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_OFF
 
 /obj/machinery/power/apc/proc/autoset(var/val, var/on)

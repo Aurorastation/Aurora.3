@@ -194,6 +194,21 @@ else
     echo "PASS: All proc signatures are respected in code" >> code_error.log
 fi
 
+##############################################################
+#	Use GLOB for anything new, no new unmanaged global vars
+##############################################################
+echo "Verifying no new unmanaged globals are being added" >> code_error.log
+
+UNMANAGED_GLOBAL_VARS=`grep -r --include \*.dm -P --regexp='^/*var/'`
+UNMANAGED_GLOBAL_VARS=`echo -n $PROC_SIGNATURES_NOT_RESPECTED | wc -l`
+if [[ $UNMANAGED_GLOBAL_VARS -ne 180 ]]; then # THE COUNT CAN ONLY BE DECREASED, NEVER INCREASED
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: New unmanaged global vars, use GLOB or update the count ONLY IF YOU ARE REMOVING THEM!" >> code_error.log
+	echo $PROC_SIGNATURES_NOT_RESPECTED >> code_error.log
+else
+    echo "PASS: No new unmanaged globals are being added" >> code_error.log
+fi
+
 
 #######################################
 #	Output the result of the checks

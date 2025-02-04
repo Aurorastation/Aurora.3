@@ -7,7 +7,7 @@
 #define VOLUME_MUSIC 30
 
 /// This list of names is here to make sure we don't state the area blurb to a mob more than once.
-var/global/list/area_blurb_stated_to = list()
+GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 /area
 	var/global/global_uid = 0
@@ -182,9 +182,9 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
-		atmosphere_alarm.clearAlarm(src, alarm_source)
+		GLOB.atmosphere_alarm.clearAlarm(src, alarm_source)
 	else
-		atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
+		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
 	for (var/obj/machinery/alarm/AA in src)
@@ -316,8 +316,6 @@ var/global/list/area_blurb_stated_to = list()
 		animate(src, color = "#FFFFFF", time = 0.5 SECONDS, easing = QUAD_EASING)	// Stop the animation.
 
 #undef DO_PARTY
-
-var/list/mob/living/forced_ambiance_list = new
 
 /area/Entered(mob/living/L)
 	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
@@ -524,8 +522,8 @@ var/list/mob/living/forced_ambiance_list = new
 			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
-	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
 		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.

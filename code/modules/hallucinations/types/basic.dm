@@ -17,12 +17,12 @@
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
 			to_chat(holder, "<h2 class='alert'>Welcome Object</h2>")
-			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard the Intrepid. [pick(SShallucinations.hallucinated_phrases)]"))
+			to_chat(holder, SPAN_ALERT("Transport signature of [pick(GLOB.adjectives)] origin detected in your path, an object appears to have been nesting aboard the Intrepid. [pick(SShallucinations.hallucinated_phrases)]"))
 
 		if(3)
 			sound_to(holder, 'sound/AI/scrubbers.ogg')
 			to_chat(holder, "<h2 class='alert'>Reminder: Backpressure Warning</h2>")
-			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
+			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(GLOB.adjectives)] surge. Some ejection of [pick(GLOB.adjectives)] contents will occur."))
 
 		if(4)
 			sound_to(holder, 'sound/AI/emergency_shuttle_leaving_dock.ogg')
@@ -42,7 +42,7 @@
 		if(7)
 			sound_to(holder, 'sound/AI/meteors_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
-			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with the [station_name(TRUE)]. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
+			to_chat(holder, SPAN_ALERT("A [pick(GLOB.adjectives)] meteor storm has been authorized for a destruction course with the [station_name(TRUE)]. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
 
 		if(8)
 			sound_to(holder,'sound/AI/fungi.ogg')

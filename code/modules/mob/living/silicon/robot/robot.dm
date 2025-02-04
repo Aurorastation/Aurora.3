@@ -346,11 +346,11 @@
 	if(module)
 		selecting_module = FALSE
 		return
-	if(!(mod_type in robot_modules))
+	if(!(mod_type in GLOB.robot_modules))
 		selecting_module = FALSE
 		return
 
-	var/module_type = robot_modules[mod_type]
+	var/module_type = GLOB.robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, GLOB.alldirs)
 

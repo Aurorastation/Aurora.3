@@ -532,7 +532,7 @@
 			return h
 	return 0
 
-/var/global/datum/ui_state/default/mech_state = new()
+GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 
 /datum/ui_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
 	if(istype(src_object))

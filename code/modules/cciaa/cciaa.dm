@@ -8,7 +8,7 @@
 		return
 
 	var/list/faxes = list()
-	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		faxes[F.department] = F
 
 	if(!length(faxes))
@@ -56,7 +56,7 @@
 		to_chat(usr, SPAN_NOTICE("Message transmitted successfully."))
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
-		sent_faxes += P
+		GLOB.sent_faxes += P
 	else
 		to_chat(usr, SPAN_WARNING("Message reply failed."))
 		qdel(P)
@@ -75,16 +75,16 @@
 	data += "<hr>"
 	data += "<center><b>Received Faxes:</b></center><br>"
 
-	if (arrived_faxes && arrived_faxes.len)
-		for (var/obj/item/item in arrived_faxes)
+	if (GLOB.arrived_faxes && GLOB.arrived_faxes.len)
+		for (var/obj/item/item in GLOB.arrived_faxes)
 			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been received.</center>"
 
 	data += "<hr><center><b>Sent Faxes:</b></center><br>"
 
-	if (sent_faxes && sent_faxes.len)
-		for (var/obj/item/item in sent_faxes)
+	if (GLOB.sent_faxes && GLOB.sent_faxes.len)
+		for (var/obj/item/item in GLOB.sent_faxes)
 			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=[REF(item)]'>view message</a><br>"
 	else
 		data += "<center>No faxes have been sent out.</center>"
