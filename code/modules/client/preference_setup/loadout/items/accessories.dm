@@ -624,3 +624,19 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sol_party_pin
+	display_name = "sol pin selection"
+	path = /obj/item/clothing/accessory/sol_pin
+	cost = 1
+
+/datum/gear/accessory/sol_party_pin/New()
+	..()
+	var/list/sol_party_pin = list()
+	sol_party_pin["sol pin"] = /obj/item/clothing/accessory/sol_pin
+	sol_party_pin["sol first party pin"] = /obj/item/clothing/accessory/sol_pin/sfp
+	sol_party_pin["sol socialist unity party pin"] = /obj/item/clothing/accessory/sol_pin/ssup
+	sol_party_pin["sol people's party pin"] = /obj/item/clothing/accessory/sol_pin/spp
+	sol_party_pin["sol popular democratic party pin"] = /obj/item/clothing/accessory/sol_pin/spdp
+	sol_party_pin["sol communist party pin"] = /obj/item/clothing/accessory/sol_pin/commie
+	gear_tweaks += new /datum/gear_tweak/path(sol_party_pin)
