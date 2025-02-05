@@ -56,7 +56,6 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
-	icon = 'icons/obj/cryogenics_split.dmi'
 	update_icon()
 	atmos_init()
 
@@ -109,12 +108,6 @@
 		update_icon()
 
 	return 1
-
-/obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/living/user, direction)
-	. = ..()
-
-	if(src.occupant == user && !user.stat)
-		go_out()
 
 /obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
 	ui_interact(user)
@@ -215,7 +208,7 @@
 		if("ejectOccupant")
 			if(!occupant || isslime(usr) || ispAI(usr))
 				return
-			go_out()
+			move_eject()
 
 		if("goFast")
 			current_stasis_mult = fast_stasis_mult
@@ -265,8 +258,8 @@
 			if(put_mob(L))
 				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
 										SPAN_NOTICE("You put [L] into [src]."), range = 3)
-
 				qdel(attacking_item)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
 	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
@@ -315,31 +308,24 @@
 
 				if(user.pulling == L)
 					user.pulling = null
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
-/obj/machinery/atmospherics/unary/cryo_cell/update_icon()
+/obj/machinery/atmospherics/unary/cryo_cell/update_icon(var/only_pickle = FALSE)
 	ClearOverlays()
 	icon_state = "pod[on]"
+
 	var/image/I
-
-	if(panel_open)
-		AddOverlays("pod_panel")
-
-	I = image(icon, "pod[on]_top")
-	I.pixel_z = 32
-	AddOverlays(I)
 
 	if(occupant)
 		var/image/pickle = image(occupant.icon, occupant.icon_state)
 		pickle.overlays = occupant.overlays
 		pickle.pixel_z = 11
 		AddOverlays(pickle)
+		I = image(icon, "pod_over")
+		AddOverlays(I)
 
-	I = image(icon, "lid[on]")
-	AddOverlays(I)
-
-	I = image(icon, "lid[on]_top")
-	I.pixel_z = 32
-	AddOverlays(I)
+	if(panel_open)
+		AddOverlays("pod_panel")
 
 	if(powered())
 		var/warn_state = "off"
@@ -351,12 +337,12 @@
 				warn_state = "warn"
 		I = overlay_image(icon, "lights_[warn_state]")
 		AddOverlays(I)
-		I = overlay_image(icon, "lights_[warn_state]_top")
-		I.pixel_z = 32
-		AddOverlays(I)
 		AddOverlays(emissive_appearance(icon, "lights_mask"))
-		I = emissive_appearance(icon, "lights_mask_top")
-		I.pixel_z = 32
+
+	if(occupant && !only_pickle)
+		I = image(icon, "pod_liquid")
+		AddOverlays(I)
+		I = image(icon, "pod_glass")
 		AddOverlays(I)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
@@ -403,6 +389,7 @@
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
 	update_use_power(POWER_USE_IDLE)
+	flick_overlay_view(mutable_appearance(icon, "pod_opening"), 2.5 SECONDS)
 	update_icon()
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
@@ -434,7 +421,8 @@
 	update_use_power(POWER_USE_ACTIVE)
 //	M.metabslow = 1
 	add_fingerprint(usr)
-	update_icon()
+	update_icon(TRUE)
+	flick_overlay_view(mutable_appearance(icon, "pod_closing"), 2.5 SECONDS)
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/verb/move_eject()
@@ -470,6 +458,7 @@
 						SPAN_NOTICE("You climb into [src]."), range = 3)
 
 	put_mob(usr)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 	return
 
 /atom/proc/return_air_for_internal_lifeform(var/mob/living/lifeform)
