@@ -76,10 +76,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/general_treatment)
-"aci" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/entrance)
 "acv" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/yellow{
@@ -125,12 +121,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"adW" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "afn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -160,6 +150,10 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/obj/item/folder/white{
+	pixel_x = 5;
+	pixel_y = 1
+	},
 /obj/item/device/mmi/digital/posibrain{
 	pixel_x = -2;
 	pixel_y = 11
@@ -169,7 +163,7 @@
 "aii" = (
 /obj/effect/floor_decal/corner/dark_green,
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
@@ -252,6 +246,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/research)
+"aoM" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/medical/lobby)
 "apd" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/engineering/storage_1)
@@ -424,6 +428,11 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"azU" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/hallway)
 "aAz" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -607,6 +616,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
+"aHV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "aIf" = (
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer{
@@ -641,6 +659,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
+"aJu" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/equipment)
 "aJT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/lube,
@@ -767,6 +794,9 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/item/stock_parts/subspace/analyzer{
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rd_office)
 "aPo" = (
@@ -781,12 +811,6 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
-"aQc" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
 "aRe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -854,6 +878,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
+"aUt" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/surgery_1)
 "aUA" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -880,15 +913,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/offices)
-"aVS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/electronics)
 "aVW" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/standard,
@@ -1105,6 +1129,12 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/control,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/chief_office)
+"bet" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "bfg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -1129,6 +1159,14 @@
 /obj/structure/table/steel,
 /obj/item/research_slip/enviro_testing_facility,
 /turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/rnd)
+"bgn" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
 "bgp" = (
 /obj/structure/bed/stool/chair{
@@ -1285,14 +1323,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/paramedic)
-"bmk" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "bmw" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#F3B786";
@@ -1326,6 +1356,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/cryo)
+"bnk" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/rnd)
 "bnS" = (
 /obj/machinery/light/colored/blue,
 /obj/effect/floor_decal/industrial/warning{
@@ -1339,15 +1376,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
-"bps" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "bqu" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -1423,6 +1451,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/enviro_testing_facility/inside/research/hallway)
+"btL" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "buj" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -1443,13 +1475,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/hallway)
-"bvB" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "bwg" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1536,24 +1561,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/hallway)
-"byS" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/security/hallway)
-"bze" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/surgery_1)
 "bzw" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#D7C897";
@@ -1621,14 +1628,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
-"bBo" = (
-/obj/effect/floor_decal/industrial/arrow/security{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
 "bBq" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -1770,15 +1769,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
-"bGi" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "bGq" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -1824,16 +1814,6 @@
 "bHB" = (
 /turf/template_noop,
 /area/enviro_testing_facility/inside/control/offices)
-"bHH" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/crew/canteen)
 "bHK" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -1891,6 +1871,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/recovery_2)
+"bLA" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/cells_1)
 "bLL" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green{
@@ -1925,6 +1912,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
+"bNc" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/control/offices)
 "bNA" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled,
@@ -1945,6 +1938,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
+"bOQ" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "bPp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/plasteel/full,
@@ -1998,6 +2000,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"bUL" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "bUO" = (
 /obj/item/clothing/under/tajaran,
 /obj/structure/closet/cabinet,
@@ -2030,6 +2039,13 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"bXt" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/lobby)
 "bXJ" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -2061,13 +2077,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/storage_2)
-"bYL" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/lobby)
 "bZk" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2089,6 +2098,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
+"car" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "cas" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -2166,6 +2181,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
+"cdp" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "cdN" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -2182,12 +2201,6 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/meeting)
-"cfN" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/control/offices)
 "cfZ" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -2324,13 +2337,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
-"cnq" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_1)
 "cnD" = (
 /obj/structure/flora/stump/adhomai,
 /obj/random/dirt_75,
@@ -2417,12 +2423,10 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
 "cpO" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/rnd)
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "cqb" = (
 /obj/machinery/light{
 	dir = 8
@@ -2430,6 +2434,13 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
+"cqg" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "cqk" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -2469,12 +2480,6 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/template_noop)
-"csi" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "csK" = (
 /obj/machinery/washing_machine,
 /obj/machinery/light/small{
@@ -2518,6 +2523,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"cuU" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "cvc" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 8
@@ -2566,6 +2577,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/electronics)
+"cwM" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "cxf" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -2594,13 +2611,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
-"cyD" = (
-/obj/effect/floor_decal/corner/pink/diagonal,
+"czc" = (
+/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/entrance)
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "czB" = (
 /obj/structure/flora/rock/desert/scrub,
 /turf/simulated/floor/exoplanet/desert{
@@ -2612,10 +2629,6 @@
 /obj/item/target,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
-"cAw" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
 "cBl" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/structure/cable/yellow{
@@ -2648,6 +2661,16 @@
 "cCU" = (
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/research/hallway)
+"cDa" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "cDA" = (
 /obj/structure/table/steel,
 /obj/random/tool,
@@ -2696,6 +2719,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
+"cFA" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "cGe" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -2745,15 +2776,6 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/enviro_testing_facility/inside/research/rd_office)
-"cIe" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/electronics)
 "cIl" = (
 /obj/structure/flora/tree/crystal,
 /obj/random/dirt_75,
@@ -2838,6 +2860,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
+"cOj" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "cPB" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -2856,7 +2886,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"cRt" = (
+"cRI" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
+"cRM" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/research/entrance)
+"cRQ" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -2867,10 +2910,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/storage)
-"cRM" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/research/entrance)
 "cRW" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/light{
@@ -2987,28 +3026,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/cells_2)
-"cWL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/storage_2)
 "cWR" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/storage_1)
-"cWZ" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
 "cXF" = (
 /obj/structure/closet/crate/elec,
 /obj/random/powercell,
@@ -3053,16 +3076,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
-"dag" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/medical/lobby)
 "dau" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
@@ -3230,13 +3243,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
-"dgy" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "dgI" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -3272,13 +3278,6 @@
 "dio" = (
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/template_noop)
-"djf" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/equipment)
 "djj" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -3356,12 +3355,6 @@
 "dlK" = (
 /turf/simulated/floor/carpet/brown,
 /area/template_noop)
-"dlP" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "dmX" = (
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 8
@@ -3454,6 +3447,13 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/research)
+"drv" = (
+/obj/effect/floor_decal/corner/dark_green,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "drR" = (
 /obj/machinery/light{
 	dir = 1
@@ -3467,12 +3467,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
-"dsC" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+"dsy" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/equipment)
 "dsI" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -3483,6 +3486,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"dsZ" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/hallway)
 "dtD" = (
 /obj/structure/closet/crate/plastic,
 /turf/template_noop,
@@ -3589,6 +3600,15 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/lobby)
+"dyK" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/offices)
 "dyX" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -3791,9 +3811,7 @@
 "dJF" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/cells_1)
 "dJH" = (
@@ -3802,6 +3820,12 @@
 /obj/item/gun/energy/crossbow,
 /turf/template_noop,
 /area/template_noop)
+"dJX" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "dKk" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -3814,6 +3838,10 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/hallway)
+"dKs" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/control/offices)
 "dKD" = (
 /obj/structure/table/steel,
 /obj/item/tank/oxygen{
@@ -3826,15 +3854,15 @@
 /obj/effect/decal/road_marking/crosswalk,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"dMg" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+"dMh" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "dMi" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/random/dirt_75,
@@ -3848,6 +3876,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
+"dNq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/storage_2)
 "dNz" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -3973,6 +4011,12 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
+"dSJ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "dUx" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -3992,15 +4036,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"dXj" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/control/offices)
 "dXq" = (
 /obj/structure/lattice/catwalk/indoor/grate/light,
 /obj/structure/cable/yellow{
@@ -4104,11 +4139,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"edq" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "edB" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/carpet/rubber,
@@ -4135,21 +4165,6 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
-"efb" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
-"efc" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/entrance)
 "efy" = (
 /obj/machinery/light{
 	dir = 8
@@ -4174,12 +4189,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"egs" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_2)
 "egB" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/north{
@@ -4245,11 +4254,6 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/offices)
-"eml" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/plating,
-/area/enviro_testing_facility/inside/engineering/secure_storage)
 "ems" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
@@ -4345,15 +4349,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
-"eqW" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/equipment)
 "eqY" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -4374,16 +4369,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/telescience)
-"ery" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "erT" = (
 /obj/structure/table/steel,
 /obj/item/device/mmi/digital/posibrain{
@@ -4392,12 +4377,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
-"esz" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/meeting)
 "esD" = (
 /obj/machinery/light{
 	dir = 4
@@ -4479,16 +4458,13 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"ewq" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
+"ewH" = (
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/storage_1)
+/area/enviro_testing_facility/inside/research/entrance)
 "ewY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4541,12 +4517,6 @@
 "eyL" = (
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/cryo)
-"eyQ" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "eyU" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -4636,6 +4606,15 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/engineering_storage,
 /turf/template_noop,
 /area/template_noop)
+"eDm" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "eDF" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4741,12 +4720,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/meeting)
-"eGY" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "eGZ" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -4788,24 +4761,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
 "eIY" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
-	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/electronics)
-"eJk" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/entrance)
+/area/enviro_testing_facility/inside/engineering/storage_1)
 "eJr" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/beaker/pitcher{
@@ -4815,19 +4779,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
-"eJy" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
-"eKH" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/general_treatment)
 "eKY" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -4862,15 +4813,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
-"eMW" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/electronics)
 "eNP" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -4907,18 +4849,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/general_treatment)
-"ePw" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
 "ePS" = (
 /obj/machinery/alarm/south{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
+"eQC" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "eRl" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -4943,6 +4885,13 @@
 	temperature = 303.15
 	},
 /area/template_noop)
+"eSz" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "eSK" = (
 /obj/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -5145,22 +5094,28 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/chem_lab)
+"ffp" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/medical/lobby)
 "ffq" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
+"fgf" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_2)
 "fgz" = (
 /turf/unsimulated/marker/red,
 /area/enviro_testing_facility/inside/crew/quarters)
-"fhy" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/meeting)
 "fhP" = (
 /obj/structure/closet/cabinet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_room_small,
@@ -5221,15 +5176,6 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
-"fmt" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "fmy" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Crystal Dome"
@@ -5421,6 +5367,10 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
+"fup" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "fuO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair,
@@ -5560,14 +5510,6 @@
 /obj/item/clothing/head/hardhat/paramedic,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/paramedic)
-"fAE" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/hallway)
 "fAR" = (
 /obj/machinery/light{
 	dir = 4
@@ -5575,6 +5517,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
 "fBo" = (
@@ -5590,6 +5533,15 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/research/hallway)
+"fCf" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "fCk" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -5833,10 +5785,28 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/storage_2)
+"fOD" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "fPx" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
+"fPH" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "fPL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -5853,9 +5823,21 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)
+"fQm" = (
+/obj/structure/table/standard,
+/obj/item/paper_scanner{
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/turf/simulated/floor/carpet/green,
+/area/enviro_testing_facility/inside/medical/chief_office)
 "fQy" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /turf/simulated/floor/carpet/rubber,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
+"fQJ" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "fQT" = (
 /obj/structure/railing/fence{
@@ -5963,6 +5945,16 @@
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/template_noop)
+"fVi" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/crew/canteen)
 "fVm" = (
 /obj/machinery/iv_drip,
 /obj/structure/cable/yellow{
@@ -6096,12 +6088,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/paramedic)
-"gaH" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/control/offices)
 "gaU" = (
 /obj/structure/table/reinforced/glass,
 /obj/item/paper_bin{
@@ -6286,6 +6272,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/research/rnd)
+"gjU" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "gkE" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
@@ -6295,6 +6288,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
+"glv" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "gmR" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
@@ -6345,6 +6342,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/research/entrance)
+"goh" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/security/hallway)
 "goI" = (
 /obj/machinery/computer/rdconsole/robotics{
 	dir = 4
@@ -6510,12 +6511,16 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
 "gwJ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/armory,
+/obj/item/storage/box/emps{
+	pixel_x = -3;
+	pixel_y = 6
 	},
-/turf/simulated/floor/plating,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
+/obj/item/storage/box/smokebombs,
+/turf/template_noop,
+/area/template_noop)
 "gwR" = (
 /obj/structure/closet,
 /obj/item/clothing/under/color/blue,
@@ -6635,6 +6640,12 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/recovery_1)
+"gAl" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "gAm" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -6644,12 +6655,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/pharmacy)
-"gAV" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "gAY" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -6681,6 +6686,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
+"gBC" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/meeting)
 "gBG" = (
 /obj/machinery/r_n_d/protolathe,
 /obj/effect/floor_decal/spline/plain{
@@ -6798,15 +6812,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/hos_office)
-"gGX" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/hallway)
 "gHA" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -7014,6 +7019,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"gUA" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "gWq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -7047,6 +7062,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
+"gYY" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/hallway)
 "gZc" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -7059,6 +7082,21 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/enviro_testing_facility/inside/medical/chief_office)
+"haI" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
+"hbb" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/offices)
 "hbp" = (
 /obj/structure/closet/cabinet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_room_big,
@@ -7241,16 +7279,6 @@
 "hku" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
-"hlc" = (
-/obj/effect/floor_decal/corner_wide/orange/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/chem_lab)
 "hlh" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -7265,6 +7293,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
+"hmU" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "hnf" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -7303,13 +7343,13 @@
 	},
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
-"hpd" = (
+"hpb" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_1)
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/meeting)
 "hpr" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -8
@@ -7398,12 +7438,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/crystal,
 /area/template_noop)
-"huO" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+"htm" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "huP" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/template_noop,
@@ -7550,16 +7596,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
-"hBK" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/hallway)
 "hBS" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -7569,13 +7605,6 @@
 "hCs" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
-"hCw" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
@@ -7594,6 +7623,14 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"hDu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/engineering/secure_storage)
 "hDX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -7670,14 +7707,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
-"hIy" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "hJJ" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/safety/goggles/science{
@@ -7719,10 +7748,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
-"hMt" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "hMx" = (
 /obj/effect/floor_decal/corner/pink/full,
 /obj/machinery/light,
@@ -8046,12 +8071,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/crew/quarters)
-"icq" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/control/offices)
 "icV" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -8254,6 +8273,15 @@
 "iov" = (
 /turf/simulated/floor/exoplanet/ice,
 /area/template_noop)
+"ioN" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/entrance)
 "ioO" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#D7C897";
@@ -8276,6 +8304,12 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"ipC" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/offices)
 "ipP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -8305,19 +8339,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
-"ira" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/entrance)
-"irj" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
 "irl" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes{
@@ -8465,6 +8486,12 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
+"ixm" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/control/offices)
 "ixz" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -8501,6 +8528,16 @@
 	temperature = 303.15
 	},
 /area/template_noop)
+"ixI" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/rnd)
 "ixU" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -8520,6 +8557,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/control/offices)
+"iyG" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/electronics)
 "iyZ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -8828,6 +8877,16 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"iMC" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/electronics)
 "iMD" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -8842,6 +8901,13 @@
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"iNr" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/lobby)
 "iNZ" = (
 /turf/simulated/floor/lino,
 /area/template_noop)
@@ -8908,12 +8974,6 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/electronics)
-"iRT" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/control/offices)
 "iTa" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/diamond,
@@ -8939,6 +8999,14 @@
 /obj/structure/table/wood,
 /obj/machinery/alarm/north{
 	req_one_access = null
+	},
+/obj/item/folder/white{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/folder/white{
+	pixel_x = 12;
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood,
 /area/enviro_testing_facility/inside/security/hos_office)
@@ -8992,14 +9060,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
-"iXq" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/lobby)
 "iXu" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 4
@@ -9033,6 +9093,15 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/engops,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
+"iYG" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/electronics)
 "iYU" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/cryo)
@@ -9109,12 +9178,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
-"jdL" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/control/offices)
 "jdO" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -9174,6 +9237,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"jga" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/box/emps{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/item/storage/box/smokebombs,
+/turf/template_noop,
+/area/template_noop)
 "jge" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -9202,10 +9275,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/security/cells_2)
-"jhV" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
 "jic" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -9246,6 +9315,15 @@
 /obj/structure/light_pole,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"jkc" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/research/electronics)
 "jkF" = (
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/template_noop)
@@ -9254,11 +9332,6 @@
 /obj/machinery/power/radial_floodlight,
 /turf/template_noop,
 /area/template_noop)
-"jkI" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/medical/lobby)
 "jkL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/plastic/full,
@@ -9270,10 +9343,6 @@
 /obj/machinery/shieldwallgen,
 /turf/template_noop,
 /area/template_noop)
-"jlK" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "jmJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/vending/dinnerware/plastic,
@@ -9336,6 +9405,11 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"jqB" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "jqD" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -9373,6 +9447,15 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"jsp" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "jsG" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/orange/diagonal,
@@ -9486,6 +9569,16 @@
 /obj/random/tool,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
+"jyP" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/hallway)
 "jzj" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -9507,6 +9600,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/crew/quarters)
+"jBd" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "jBp" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -9584,13 +9683,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/security)
-"jGw" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/medical/lobby)
 "jGE" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -9598,6 +9690,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/cryo)
+"jGP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
+"jHn" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "jHI" = (
 /obj/structure/flora/tree/crystal,
 /obj/effect/floor_decal/crystal/random,
@@ -9736,14 +9842,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
-"jQw" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/crew/canteen)
 "jSe" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
@@ -9805,16 +9903,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"jTL" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/hallway)
 "jUd" = (
 /obj/structure/table/stone/marble,
 /obj/structure/cash_register{
@@ -10183,13 +10271,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/paramedic)
-"kmr" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/medical/lobby)
 "knb" = (
 /obj/structure/table/stone/marble,
 /obj/structure/cash_register{
@@ -10202,6 +10283,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
+"kpt" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "kpy" = (
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/yellow{
@@ -10209,12 +10296,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
-"kpD" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "kpG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -10223,11 +10304,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
-"kpT" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/hallway)
 "kqj" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -10244,16 +10320,15 @@
 /obj/item/storage/box/smokebombs,
 /turf/template_noop,
 /area/template_noop)
-"kqz" = (
+"kqT" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/storage_2)
+/area/enviro_testing_facility/inside/control/offices)
 "kri" = (
 /obj/structure/bed/stool/chair,
 /obj/machinery/alarm/north{
@@ -10261,6 +10336,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/hallway)
+"krn" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "krG" = (
 /obj/item/stack/material/lead/full,
 /turf/template_noop,
@@ -10495,6 +10577,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
+"kyZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "kzN" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
@@ -10547,6 +10638,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/cryo)
+"kCR" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "kDb" = (
 /obj/structure/flora/bush/jungle/b/random,
 /obj/random/dirt_75,
@@ -10597,6 +10692,12 @@
 "kES" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/medical/pharmacy)
+"kFb" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "kFr" = (
 /obj/effect/floor_decal/corner/brown,
 /obj/structure/cable{
@@ -10773,13 +10874,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
-"kPv" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_2)
 "kQb" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/engineering_storage,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -10816,14 +10910,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/lobby)
-"kQZ" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/rnd)
 "kRm" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -10831,6 +10917,10 @@
 "kRD" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink/full,
+/obj/item/folder/white{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /obj/item/tape_roll{
 	pixel_y = 8;
 	pixel_x = 3
@@ -10846,13 +10936,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
-"kTf" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/hallway)
 "kUe" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 4
@@ -10997,12 +11080,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/chief_office)
-"lbD" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
 "lbG" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/yellow{
@@ -11118,13 +11195,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
-"leZ" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "lfk" = (
 /obj/machinery/deployable/barrier,
 /obj/random/dirt_75,
@@ -11177,15 +11247,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"ljC" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "lkk" = (
 /turf/simulated/wall/sandstone,
 /area/template_noop)
@@ -11224,15 +11285,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"lnF" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "lof" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -11298,6 +11350,14 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/offices,
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/control/offices)
+"lqU" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/hallway)
 "lqY" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -11319,7 +11379,23 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/electronics)
 "lsO" = (
+/obj/item/gun/energy/stunrevolver,
+/obj/item/melee/telebaton,
+/obj/item/handcuffs,
+/obj/item/device/flash,
+/obj/item/device/flashlight/maglight,
+/obj/item/storage/box/handcuffs,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/belt/security,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/mask/gas/alt,
 /obj/structure/closet/cabinet,
+/obj/item/clothing/suit/armor/carrier/generic{
+	pixel_x = -5
+	},
+/obj/item/clothing/head/helmet/security/generic{
+	pixel_x = 3
+	},
 /obj/item/gun/projectile/revolver/mateba,
 /turf/simulated/floor/carpet/lightblue,
 /area/enviro_testing_facility/inside/security/hos_office)
@@ -11397,6 +11473,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
+"lwV" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/lobby)
 "lxe" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -11433,6 +11517,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/security)
+"lyP" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/lobby)
 "lyS" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
@@ -11576,12 +11665,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
-"lGL" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/offices)
 "lGW" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/light,
@@ -11650,13 +11733,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/template_noop)
-"lKV" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+"lLF" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/surgery_2)
 "lLH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable/yellow{
@@ -11679,13 +11764,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"lMO" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "lNX" = (
 /obj/structure/closet/cabinet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/crew_lounge,
@@ -11780,12 +11858,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/hallway)
-"lRN" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "lRQ" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/lobby)
@@ -11797,6 +11869,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/security)
+"lTg" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/meeting)
 "lTz" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped,
@@ -11875,6 +11953,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
+"lXd" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "lXC" = (
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 1
@@ -11903,6 +11988,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
+"lYp" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/control/offices)
 "lYz" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -11934,6 +12025,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
+"lZT" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "mal" = (
 /obj/machinery/light{
 	dir = 1
@@ -11946,22 +12043,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/template_noop)
-"maW" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
-"mby" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/cells_1)
 "mdc" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/maintenance/research)
@@ -12076,15 +12157,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/hallway)
-"mhY" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/meeting)
 "miT" = (
 /mob/living/heavy_vehicle/premade/random/boring,
 /obj/random/dirt_75,
@@ -12132,12 +12204,6 @@
 /obj/structure/flora/rock/random,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
-"mjR" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/medical/hallway)
 "mka" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -12162,13 +12228,6 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/offices)
-"mke" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "mkW" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -12187,6 +12246,12 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/meeting)
+"mnq" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "mnu" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light{
@@ -12201,10 +12266,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
-"mnP" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "mpo" = (
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/hallway)
@@ -12312,6 +12373,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
+"mvC" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "mwc" = (
 /obj/structure/closet,
 /obj/item/clothing/under/color/white,
@@ -12381,6 +12455,13 @@
 /obj/structure/light_pole/konyang,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"mAw" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/recovery_2)
 "mAP" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
@@ -12415,6 +12496,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"mCA" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "mCB" = (
 /obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
@@ -12525,6 +12615,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/storage_1)
+"mGM" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "mGV" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -12623,12 +12717,29 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/storage_1)
+"mLN" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/cells_1)
 "mMe" = (
 /obj/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
+"mMR" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "mMX" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/ammo_magazine/a556/carbine/polymer{
@@ -12745,9 +12856,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
 "mXp" = (
@@ -12784,31 +12893,12 @@
 "mZv" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/research/hallway)
-"nae" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "nay" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/engineering_storage,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/storage_1)
-"nbj" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "nbm" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -12899,12 +12989,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/stalk,
 /area/template_noop)
-"ndP" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "nea" = (
 /obj/structure/railing/fence,
 /obj/random/dirt_75,
@@ -12954,10 +13038,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
-"nhe" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/hallway)
 "nhn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
@@ -13218,16 +13298,14 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
 "nvd" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/armory,
-/obj/item/storage/box/emps{
-	pixel_x = -3;
-	pixel_y = 6
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/item/storage/box/smokebombs,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "nvl" = (
 /obj/structure/closet/crate/tool,
 /obj/random/tool,
@@ -13262,12 +13340,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/canteen)
-"nwt" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "nwA" = (
 /obj/machinery/light,
 /obj/random/dirt_75,
@@ -13406,14 +13478,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
-"nCI" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "nDq" = (
 /obj/structure/table/standard,
 /obj/item/device/memorywiper,
@@ -13488,15 +13552,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/cells_2)
-"nHw" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/surgery_2)
 "nHS" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/table/glass{
@@ -13547,6 +13602,13 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/general_treatment)
+"nJA" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/medical/cryo)
 "nJI" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -13554,6 +13616,13 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/template_noop)
+"nJL" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_1)
 "nKb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -13586,19 +13655,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/secure_storage)
-"nMb" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
 "nMl" = (
 /obj/effect/floor_decal/crystal/random,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -13678,6 +13734,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/chem_lab)
+"nOd" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "nOl" = (
 /obj/machinery/optable,
 /obj/machinery/light{
@@ -13763,6 +13825,13 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
+"nTk" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/medical/lobby)
 "nTm" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -13898,10 +13967,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
-"nYh" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
 "nYP" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -14133,11 +14198,6 @@
 	temperature = 315.15
 	},
 /area/template_noop)
-"okf" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/hallway)
 "okq" = (
 /obj/structure/table/steel,
 /obj/random/medical{
@@ -14166,6 +14226,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/hallway)
+"olk" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/general_treatment)
 "olC" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -14248,6 +14314,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
+"opy" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/hallway)
 "opQ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -14274,13 +14346,12 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/offices)
-"osE" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
+"oti" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/medical/hallway)
 "oto" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/yellow{
@@ -14293,6 +14364,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/storage)
+"otC" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/research/electronics)
 "otM" = (
 /obj/item/device/integrated_electronics/detailer{
 	pixel_x = -3
@@ -14340,13 +14420,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
-"owD" = (
-/obj/effect/floor_decal/corner/dark_green,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
 "owS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -14649,15 +14722,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/medical/cryo)
-"oQy" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_2)
 "oQB" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -14674,6 +14738,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/lobby)
+"oRu" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/electronics)
 "oRH" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -14699,13 +14769,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"oSi" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/recovery_1)
 "oTb" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/random/dirt_75,
@@ -14821,6 +14884,13 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
+"oXn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "oXw" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light{
@@ -14872,6 +14942,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
+"oZL" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/entrance)
 "oZV" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
@@ -14991,6 +15066,11 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"peI" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/hallway)
 "pfs" = (
 /obj/structure/table/steel,
 /obj/item/device/mmi/digital/posibrain{
@@ -15013,13 +15093,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
-"phA" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "phC" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -15029,6 +15102,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
+"phF" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "phJ" = (
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/dark,
@@ -15240,16 +15321,6 @@
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"psB" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "psE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -15337,16 +15408,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/hallway)
-"pxT" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "pxW" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/carpet/purple,
@@ -15383,6 +15444,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
 "pzf" = (
@@ -15415,23 +15477,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/cryo)
-"pAa" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/lobby)
-"pAm" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/rnd)
 "pAV" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/chem_disp_cartridge/acetone{
@@ -15448,16 +15493,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"pBA" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/electronics)
 "pBL" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/template_noop,
@@ -15540,6 +15575,11 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
+"pEs" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/medical/lobby)
 "pEA" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -15547,15 +15587,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/hallway)
-"pFi" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
 "pFC" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/light{
@@ -15567,15 +15598,6 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/chief_office)
-"pGa" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "pGU" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -15623,13 +15645,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/template_noop)
-"pIQ" = (
+"pJm" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/medical/cryo)
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "pJu" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -15680,6 +15702,12 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"pLF" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/offices)
 "pLT" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/maintenance/security)
@@ -15719,12 +15747,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/research/meeting)
-"pMI" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/general_treatment)
 "pNS" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
@@ -15734,6 +15756,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/offices)
+"pOA" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "pOC" = (
 /obj/structure/table/steel,
 /obj/item/module/power_control{
@@ -15839,6 +15867,13 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/entrance)
+"pUg" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/rnd)
 "pUs" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -15896,31 +15931,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/enviro_testing_facility/inside/security/hos_office)
-"pWH" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "pWW" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
-"pYb" = (
+"pYd" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/mech_lab)
-"pYf" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
+/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "pZb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -15949,12 +15972,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
-"qas" = (
+"qad" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "qaE" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16035,25 +16058,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/cells_2)
-"qcz" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/control/offices)
 "qcX" = (
 /obj/effect/floor_decal/corner_wide/orange/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/pharmacy)
-"qdd" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/meeting)
 "qdh" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -16085,11 +16093,6 @@
 /obj/structure/bed/stool/chair/folding,
 /turf/template_noop,
 /area/template_noop)
-"qee" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/lobby)
 "qeO" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/light{
@@ -16110,14 +16113,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/equipment)
-"qff" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "qfv" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -16129,12 +16124,6 @@
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/cells_2)
-"qgq" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
 "qgy" = (
 /turf/simulated/wall/wood,
 /area/template_noop)
@@ -16146,6 +16135,13 @@
 /obj/item/reagent_containers/chem_disp_cartridge/copper,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/chem_lab)
+"qgJ" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/recovery_1)
 "qiJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16170,10 +16166,10 @@
 /obj/item/clothing/head/bandana/security,
 /obj/item/clothing/head/beret/security,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/gloves/black_leather,
 /obj/item/clothing/under/color/black,
-/obj/item/clothing/head/softcap/security,
 /obj/structure/closet/cabinet,
+/obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/head/softcap/security,
 /turf/simulated/floor/wood,
 /area/enviro_testing_facility/inside/security/hos_office)
 "qkd" = (
@@ -16228,6 +16224,15 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"qnK" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/equipment)
 "qnQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
@@ -16257,6 +16262,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/lobby)
+"qol" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/control/offices)
 "qor" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/main/department,
 /turf/simulated/wall,
@@ -16277,6 +16288,16 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/research/meeting)
+"qrp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "qrR" = (
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled/white,
@@ -16324,15 +16345,6 @@
 "qvm" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/engineering/secure_storage)
-"qvO" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/entrance)
 "qvR" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced,
@@ -16344,7 +16356,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "qwk" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
@@ -16366,6 +16377,13 @@
 "qxC" = (
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/general_treatment)
+"qxP" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_2)
 "qxW" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
@@ -16396,15 +16414,6 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
-"qzt" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/offices)
 "qAm" = (
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -16503,10 +16512,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/security)
-"qEy" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/security/hallway)
 "qEK" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -16630,6 +16635,15 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/security)
+"qLI" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "qLM" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/yellow{
@@ -16792,6 +16806,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
+"qTW" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/engineering/secure_storage)
 "qVK" = (
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
@@ -16824,20 +16843,13 @@
 "qXZ" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/medical/surgery_2)
-"qYa" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/control/offices)
-"qYU" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/random/dirt_75,
+"qYx" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/hallway)
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/hallway)
 "qZa" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/yellow{
@@ -17005,6 +17017,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
+"rhp" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/cells_2)
 "rht" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -17074,6 +17092,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
+"rjV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "rkA" = (
 /obj/machinery/computer/operating/terminal,
 /turf/simulated/floor/tiled/white,
@@ -17100,6 +17128,24 @@
 /obj/item/stack/material/gold/full,
 /turf/template_noop,
 /area/template_noop)
+"rlQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/research/entrance)
+"rmi" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "rmI" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -17133,6 +17179,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
+"rpN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "rql" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/random/dirt_75,
@@ -17145,13 +17201,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"rqU" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "rrM" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/corner/green/full{
@@ -17163,13 +17212,6 @@
 /obj/structure/light_pole/r,
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
-"rtq" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "rtO" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
@@ -17208,15 +17250,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/lobby)
-"rwo" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/engineering/equipment)
 "rwB" = (
 /obj/structure/light_pole/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -17276,15 +17309,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/chem_lab)
-"rCK" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
 "rCS" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -17302,12 +17326,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/lobby)
-"rEh" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
 "rEj" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -17347,6 +17365,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
 "rGp" = (
@@ -17375,6 +17396,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
+"rHZ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "rIA" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -17435,12 +17461,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/research/hallway)
-"rKq" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/cells_2)
 "rLq" = (
 /obj/structure/closet/secure_closet/brig,
 /obj/item/clothing/under/color/orange,
@@ -17450,6 +17470,15 @@
 /obj/random/dirt_75,
 /turf/simulated/mineral/lava,
 /area/template_noop)
+"rMe" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_2)
 "rMi" = (
 /obj/structure/closet,
 /obj/item/clothing/under/color/white,
@@ -17473,6 +17502,15 @@
 "rMZ" = (
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/paramedic)
+"rNE" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/storage_2)
 "rNI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -17582,6 +17620,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
+"rTD" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/lobby)
 "rTF" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -17596,15 +17640,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/research/meeting)
-"rTV" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/research/entrance)
 "rTW" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -17634,20 +17669,6 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/lobby)
-"rWr" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/hallway)
-"rWt" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/cells_1)
 "rWA" = (
 /obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/jingya,
@@ -17705,6 +17726,13 @@
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)
+"rXB" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_1)
 "rZj" = (
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/structure/closet/cabinet,
@@ -17902,6 +17930,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
+"sje" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "sjl" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -17934,6 +17972,13 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"skI" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "skR" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -18214,6 +18259,14 @@
 /obj/outfit/admin/generic/science,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/chem_lab)
+"sBl" = (
+/obj/effect/floor_decal/industrial/arrow/security{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "sBn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -18245,28 +18298,23 @@
 /obj/structure/light_pole/konyang/left,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
-"sCA" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "sCW" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
+"sDm" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "sDY" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/control/offices)
-"sEe" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/control/offices)
 "sEi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18277,13 +18325,6 @@
 /obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
-"sEF" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "sEM" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/crew/quarters)
@@ -18349,15 +18390,6 @@
 /obj/structure/flora/rock/snow,
 /turf/simulated/floor/exoplanet/snow,
 /area/template_noop)
-"sID" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/control/offices)
 "sIE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -18380,6 +18412,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/quarters)
+"sJK" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/meeting)
 "sKm" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/template_noop,
@@ -18398,9 +18439,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)
 "sKO" = (
@@ -18633,11 +18672,22 @@
 /obj/machinery/door/airlock/service,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
+"sZn" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "sZW" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/medical)
+"taI" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "taR" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials{
@@ -18696,15 +18746,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
-"tdT" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/medical/offices)
 "tdZ" = (
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -18750,6 +18791,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
+"teT" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "tgu" = (
 /obj/machinery/light,
 /turf/simulated/floor/reinforced,
@@ -18800,11 +18848,6 @@
 	temperature = 315.15
 	},
 /area/template_noop)
-"thx" = (
-/obj/effect/floor_decal/corner/pink/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/entrance)
 "thE" = (
 /obj/structure/closet,
 /obj/machinery/light{
@@ -18996,6 +19039,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/secure_storage)
+"tmJ" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/research/entrance)
 "tmZ" = (
 /obj/structure/closet/crate/rad/gear,
 /turf/template_noop,
@@ -19057,10 +19104,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/recovery_2)
-"tqc" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/hallway)
 "tqe" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -19075,6 +19118,15 @@
 "tqo" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/medical/hallway)
+"tqv" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "tqy" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -19116,12 +19168,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/cells_2)
-"ttU" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
 "tur" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/enviro_testing_facility/misc/engineering_storage,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -19278,16 +19324,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
-"tDn" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/control/offices)
-"tDo" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "tDI" = (
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa{
@@ -19354,10 +19390,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/chem_lab)
-"tEV" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
+"tEU" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "tFq" = (
 /obj/structure/closet/crate/tool,
 /obj/random/tool,
@@ -19452,6 +19496,10 @@
 /area/template_noop)
 "tLz" = (
 /obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_x = 4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/enviro_testing_facility/inside/security/hos_office)
 "tLG" = (
@@ -19527,14 +19575,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/medical/lobby)
+"tOG" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "tOM" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/emps{
-	pixel_x = -3;
-	pixel_y = 6
-	},
-/obj/item/storage/box/smokebombs,
+/obj/random/civgun/rifle,
+/obj/random/civgun,
 /turf/template_noop,
 /area/template_noop)
 "tPa" = (
@@ -19820,6 +19872,12 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
+"tYw" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/control/offices)
 "tZm" = (
 /obj/structure/table/steel,
 /obj/item/device/mmi/digital/robot{
@@ -19865,13 +19923,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/general_treatment)
-"ubs" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "ubH" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/chem_lab)
@@ -19906,6 +19957,13 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rd_office)
+"ufa" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "ufC" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -19974,6 +20032,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
+"ugS" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/general_treatment)
 "uhl" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffee/full{
@@ -20020,6 +20084,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/cells_2)
+"umY" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "unl" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -20080,6 +20150,12 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"uoN" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/quarters)
 "uoQ" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -20088,16 +20164,6 @@
 /obj/machinery/door/airlock/blue,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
-"uqm" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "uqv" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -20136,12 +20202,6 @@
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
-"usR" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/electronics)
 "utR" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
@@ -20236,14 +20296,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rnd)
-"uyl" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
 "uyu" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/table/glass{
@@ -20272,6 +20324,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
+"uzK" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/cells_2)
 "uBb" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -20305,6 +20363,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/storage_1)
+"uCL" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/research/entrance)
 "uDk" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/washing_machine,
@@ -20377,6 +20444,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/storage_1)
+"uIN" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/medical/hallway)
 "uJl" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency{
@@ -20410,6 +20484,16 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/cryo)
+"uJV" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/crew/canteen)
 "uKx" = (
 /obj/structure/barricade/wooden{
 	dir = 4
@@ -20432,15 +20516,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/lobby)
-"uLj" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "uLp" = (
 /obj/random/pizzabox{
 	pixel_y = 5
@@ -20565,12 +20640,6 @@
 "uQu" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/security/hallway)
-"uQz" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/cells_2)
 "uSb" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/chem_disp_cartridge/carbon,
@@ -20609,6 +20678,16 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"uUz" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "uUK" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/template_noop,
@@ -20650,6 +20729,28 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"uXE" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/hallway)
+"uXS" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/entrance)
+"uXV" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "uYq" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -20678,6 +20779,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/recovery_2)
+"uZa" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "uZs" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -20702,16 +20807,6 @@
 "vat" = (
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/medical/recovery_2)
-"vaI" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/maintenance/engineering_north)
 "vaY" = (
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
@@ -20800,6 +20895,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/canteen)
+"veM" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "vfq" = (
 /obj/structure/utility_pole/street/on{
 	pixel_y = 8;
@@ -20833,13 +20934,6 @@
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/sec,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
-"vhk" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/control/offices)
 "vhv" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/storage/box/produce,
@@ -20883,15 +20977,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/offices)
-"vkt" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/canteen)
 "vkB" = (
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/wood/maple,
@@ -20981,13 +21066,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"vqo" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/recovery_2)
 "vqJ" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -21050,11 +21128,6 @@
 /obj/outfit/admin/generic/business,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
-"vwr" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
 "vws" = (
 /obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/exoplanet/basalt,
@@ -21080,13 +21153,6 @@
 /obj/effect/decal/road_marking,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"vzr" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "vzP" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
@@ -21125,6 +21191,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/enviro_testing_facility/inside/crew/canteen)
+"vAz" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/medical/hallway)
 "vAC" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -21135,16 +21211,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/enviro_testing_facility/inside/security/armory)
-"vBE" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
 "vBG" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -21188,14 +21254,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"vCJ" = (
-/obj/effect/floor_decal/industrial/arrow/security,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/lobby)
 "vDv" = (
 /obj/item/stack/material/plastic/full,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/engineering_storage,
@@ -21248,12 +21306,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/quarters)
-"vEN" = (
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/slate,
-/area/enviro_testing_facility/inside/security/lobby)
 "vEX" = (
 /obj/structure/flora/grass/desert,
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -21334,6 +21386,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
+"vJJ" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/security/hallway)
 "vJO" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/masks{
@@ -21393,6 +21454,13 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/chief_office)
+"vKM" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/enviro_testing_facility/inside/engineering/robo_lab)
 "vKU" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/box{
@@ -21460,6 +21528,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/lino,
 /area/template_noop)
+"vOw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/crew/canteen)
 "vOD" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -21492,6 +21567,12 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
+"vPa" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
 "vPf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/yellow{
@@ -21549,13 +21630,6 @@
 /obj/effect/decal/road_marking/no_park,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"vTj" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/crew/quarters)
 "vTl" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -21631,15 +21705,6 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/hallway)
-"vWD" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/entrance)
 "vWH" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -21742,6 +21807,10 @@
 "wct" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/device/robotanalyzer{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/rd_office)
 "wcy" = (
@@ -21795,15 +21864,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/security)
-"weo" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "weY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -21891,12 +21951,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
-"whL" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/medical/offices)
 "whR" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/template_noop,
@@ -21993,6 +22047,18 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/template_noop)
+"wmD" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/hallway)
+"wmO" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/crew/canteen)
 "wnW" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -22028,12 +22094,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/hallway)
-"wpp" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/crew/canteen)
 "wpr" = (
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/pharmacy)
@@ -22080,6 +22140,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
+"wta" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/crew/quarters)
 "wtk" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -22092,8 +22160,22 @@
 	dir = 8
 	},
 /obj/structure/table/wood/maple,
+/obj/item/folder/white{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/folder/white{
+	pixel_x = 12;
+	pixel_y = 2
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/enviro_testing_facility/inside/research/rd_office)
+"wuB" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "wuD" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
@@ -22211,6 +22293,10 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/folder/white{
+	pixel_x = -11;
+	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
 /area/enviro_testing_facility/inside/security/hos_office)
@@ -22450,6 +22536,14 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
+"wQa" = (
+/obj/effect/floor_decal/industrial/arrow/security,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/lobby)
 "wQC" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -22490,6 +22584,15 @@
 "wRw" = (
 /turf/simulated/floor/tiled/freezer,
 /area/enviro_testing_facility/inside/crew/canteen)
+"wRA" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/security/hallway)
 "wRX" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -22525,20 +22628,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/storage_1)
-"wTo" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+"wTE" = (
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/crew/quarters)
-"wTG" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
-/area/enviro_testing_facility/inside/security/hallway)
+/area/enviro_testing_facility/inside/research/entrance)
 "wTI" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -22552,16 +22648,6 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/medical/offices)
-"wTU" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/crew/canteen)
 "wTV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
@@ -22591,6 +22677,19 @@
 /obj/structure/light_pole/konyang,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"wVh" = (
+/obj/structure/table/standard,
+/obj/item/folder/white{
+	pixel_x = -2;
+	pixel_y = 17
+	},
+/obj/item/device/advanced_healthanalyzer,
+/turf/simulated/floor/carpet/green,
+/area/enviro_testing_facility/inside/medical/chief_office)
+"wVB" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled,
+/area/enviro_testing_facility/inside/medical/cryo)
 "wVS" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -22613,15 +22712,6 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
-"wWz" = (
-/obj/effect/floor_decal/corner/pink{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/hallway)
 "wWB" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -22650,12 +22740,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
-"wYB" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/light,
-/area/enviro_testing_facility/inside/research/hallway)
 "wYE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -22772,6 +22856,8 @@
 /obj/structure/closet,
 /obj/outfit/admin/generic/medical,
 /obj/item/storage/box/syndie_kit/syringe_gun,
+/obj/item/storage/box/syndie_kit/stimulants,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /turf/simulated/floor/carpet/green,
 /area/enviro_testing_facility/inside/medical/chief_office)
 "xiB" = (
@@ -22815,10 +22901,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
-"xlI" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/medical/cryo)
 "xlJ" = (
 /obj/structure/table/steel,
 /obj/item/device/hand_labeler,
@@ -22904,6 +22986,15 @@
 	},
 /turf/simulated/floor/exoplanet/grass/stalk,
 /area/template_noop)
+"xrO" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "xrP" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -23051,6 +23142,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/chem_lab)
+"xDw" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/security/hallway)
 "xDD" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23190,6 +23288,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/cryo)
+"xNx" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/enviro_testing_facility/inside/control/offices)
 "xNy" = (
 /obj/machinery/light{
 	dir = 4
@@ -23215,6 +23319,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/template_noop)
+"xQa" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
+/area/enviro_testing_facility/inside/research/entrance)
 "xQf" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 1
@@ -23334,6 +23445,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
+"xVH" = (
+/obj/effect/floor_decal/corner_wide/orange/diagonal,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/research/chem_lab)
 "xWM" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/generic{
@@ -23348,13 +23469,6 @@
 "xYj" = (
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/hallway)
-"xYv" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/enviro_testing_facility/inside/research/rnd)
 "xZk" = (
 /obj/structure/flora/grass/junglegrass/rocky/random,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -23463,14 +23577,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/hallway)
-"ybN" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/enviro_testing_facility/inside/engineering/secure_storage)
 "ycs" = (
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/template_noop)
@@ -23573,12 +23679,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/maintenance/engineering_north)
-"ygq" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/enviro_testing_facility/inside/engineering/robo_lab)
 "ygB" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -23643,12 +23743,13 @@
 	},
 /area/template_noop)
 "ykl" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/civgun/rifle,
-/obj/random/civgun,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/enviro_testing_facility/inside/crew/canteen)
 "yku" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -23663,6 +23764,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/equipment)
+"ykV" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/maintenance/engineering_south)
 "ylv" = (
 /obj/structure/closet,
 /obj/item/clothing/under/color/blue,
@@ -25198,7 +25305,7 @@ nmN
 bfZ
 tqb
 vat
-adW
+jBd
 oQd
 tqo
 tqo
@@ -25600,9 +25707,9 @@ sMv
 sMv
 pUN
 pUN
-vqo
+mAw
 dZV
-hBK
+vAz
 djj
 ocI
 tqo
@@ -26613,9 +26720,9 @@ wQN
 iFu
 hwh
 kdm
-nae
+uIN
 wfZ
-pMI
+ugS
 qxC
 qxC
 qyE
@@ -26624,7 +26731,7 @@ qxC
 feS
 mZm
 njj
-mjR
+oti
 njj
 xFZ
 lPL
@@ -27014,16 +27121,16 @@ aWH
 aWH
 iGa
 iGa
-oSi
+qgJ
 kjN
-hBK
+vAz
 eHX
 mZm
 lBb
 uaw
 qQU
 qyE
-eKH
+olk
 cVb
 ePg
 mZm
@@ -27424,21 +27531,21 @@ sRc
 pwn
 evU
 aak
-dsC
-bps
+nOd
+bOQ
 oQd
-adW
+jBd
 oQd
 ckc
 oQd
 pwn
 kdm
-nhe
+glv
 qmD
-dag
+aoM
 mAP
 ggj
-kmr
+nTk
 hhz
 wLN
 duD
@@ -27610,7 +27717,7 @@ jLv
 dyX
 dyX
 nZU
-lnF
+jsp
 ebP
 kdm
 qeO
@@ -27624,9 +27731,9 @@ qeO
 kdm
 kdm
 nPt
-okf
+peI
 aak
-kTf
+qYx
 nPt
 kdm
 kdm
@@ -27635,12 +27742,12 @@ kdm
 kdm
 nPt
 kdm
-okf
+peI
 qmD
 oQJ
 xfy
 rvJ
-jkI
+pEs
 fcN
 wLN
 duD
@@ -27820,13 +27927,13 @@ mVi
 lof
 lof
 vWb
-nbj
+tEU
 lof
 wpm
 dXq
 lof
 skR
-ery
+sje
 nyT
 dKk
 cUU
@@ -27837,12 +27944,12 @@ lof
 dXq
 oJb
 lof
-ery
+sje
 tOA
 fIz
 gwB
 gwB
-jGw
+ffp
 iuc
 wLN
 duD
@@ -28216,7 +28323,7 @@ duD
 amI
 jeC
 hkp
-bze
+aUt
 ayb
 vXM
 pwn
@@ -28224,7 +28331,7 @@ kdm
 oQd
 bfg
 pWm
-nHw
+lLF
 kay
 iGt
 qXZ
@@ -28638,7 +28745,7 @@ jol
 kGx
 qIz
 tib
-fAE
+dsZ
 ocJ
 klk
 baH
@@ -28648,7 +28755,7 @@ cxV
 asN
 xFZ
 uYE
-pAa
+bXt
 roE
 vJO
 xFZ
@@ -29052,7 +29159,7 @@ jTC
 jTC
 jTC
 pcq
-whL
+ipC
 wTN
 irl
 jTC
@@ -29433,7 +29540,7 @@ dCW
 dPi
 ijg
 iYU
-xlI
+wVB
 prk
 iAq
 dvB
@@ -29446,9 +29553,9 @@ muY
 muY
 muY
 cxf
-okf
+peI
 dup
-tdT
+dyK
 kKr
 ivP
 kKr
@@ -29651,15 +29758,15 @@ ogM
 bgp
 lLH
 gxh
-qzt
+hbb
 dAE
 dfS
 dAE
-qzt
+hbb
 dAE
 wAp
 euk
-lGL
+pLF
 xAZ
 jTC
 wLN
@@ -30051,19 +30158,19 @@ muY
 uwR
 viC
 gZc
-xAg
-xAg
+wVh
+fQm
 muY
 hUS
-whL
+ipC
 elV
 jTC
 rhb
-whL
+ipC
 elV
 jTC
 fOl
-whL
+ipC
 oRH
 jTC
 wLN
@@ -30649,7 +30756,7 @@ gWq
 rQj
 xNv
 eDL
-pIQ
+nJA
 hSs
 chm
 bJX
@@ -33868,16 +33975,16 @@ duD
 sKm
 vfv
 vfv
-cnq
+nJL
 jIY
 dYk
-cnq
+nJL
 jIY
 wgu
-cnq
+nJL
 jIY
 mNg
-cnq
+nJL
 jIY
 xzK
 xzK
@@ -33893,13 +34000,13 @@ fEN
 hVr
 duD
 qfb
-pFi
+mMR
 cqb
 lww
 tif
 vaY
 eSO
-vCJ
+wQa
 feO
 vTR
 vaY
@@ -34080,9 +34187,9 @@ pSc
 pSc
 lDj
 lDj
-hpd
+rXB
 tJY
-rCK
+dMh
 bIl
 aEb
 old
@@ -34090,20 +34197,20 @@ fdk
 nNA
 uQu
 kUg
-gGX
+vJJ
 tRW
 uQu
 duD
 qfb
 gfJ
-qee
+lyP
 lww
-bYL
+iNr
 wgI
 wgI
-qee
+lyP
 feO
-iXq
+lwV
 vaY
 qfb
 wLN
@@ -34111,8 +34218,8 @@ duD
 sKm
 joJ
 duD
+jga
 tOM
-ykl
 nnS
 duD
 duD
@@ -34272,19 +34379,19 @@ duD
 sKm
 vfv
 ikw
-mby
+bLA
 cVC
 hcU
-mby
+bLA
 cVC
 qZa
-mby
+bLA
 cVC
 qKL
+mLN
 dJF
-rWt
 nFs
-qYU
+gYY
 xLz
 xLz
 xLz
@@ -34517,7 +34624,7 @@ dnX
 avn
 pRG
 wLV
-nvd
+gwJ
 duD
 duD
 duD
@@ -34693,14 +34800,14 @@ veb
 veb
 uQu
 irD
-cWZ
+xDw
 xbl
-aQc
+cwM
 vGx
 mpo
-wTG
+mGM
 iFN
-qgq
+dSJ
 gfJ
 wgI
 iTg
@@ -34710,7 +34817,7 @@ lRQ
 enL
 iTg
 fRt
-nYh
+sZn
 dpX
 wLN
 duD
@@ -34897,7 +35004,7 @@ veb
 tyn
 lbG
 sVr
-jTL
+jyP
 mGZ
 pDh
 bQi
@@ -34906,13 +35013,13 @@ iYk
 anZ
 xqV
 iFN
-qgq
+dSJ
 lRQ
 bHN
 vzV
 iTg
 fRt
-vEN
+rTD
 mFP
 wLN
 duD
@@ -35094,13 +35201,13 @@ aZU
 uQu
 byh
 xYj
-qEy
+goh
 txY
-maW
-kpT
+xrO
+azU
 xbl
-aQc
-irj
+cwM
+jHn
 mpo
 xNy
 wgz
@@ -35114,7 +35221,7 @@ kXn
 ePd
 iTg
 vaY
-qee
+lyP
 dpX
 wLN
 duD
@@ -35325,7 +35432,7 @@ wLV
 avn
 aYR
 wLV
-ykl
+tOM
 duD
 duD
 duD
@@ -35504,7 +35611,7 @@ tlO
 irD
 uQu
 mff
-byS
+wRA
 uny
 uQu
 lAQ
@@ -35717,9 +35824,9 @@ pod
 pkK
 ibE
 ibE
-bBo
+sBl
 jBE
-eJy
+teT
 wgI
 qfb
 wLN
@@ -35729,7 +35836,7 @@ mMX
 kcX
 gPo
 wLV
-nvd
+gwJ
 duD
 duD
 duD
@@ -36292,28 +36399,28 @@ duD
 sKm
 eZF
 wTW
-rKq
+fgf
 cFh
 umQ
-rKq
+fgf
 cFh
 bkq
-oQy
+rMe
 tsM
 fSs
-oQy
-kPv
+rMe
+qxP
 sVr
-rCK
+dMh
 bIl
 wQC
 bIl
 ktV
 lRB
 pDh
-rWr
+lqU
 vrm
-cRt
+cRQ
 lVI
 lVI
 oto
@@ -36504,9 +36611,9 @@ nHo
 nHo
 nHo
 nHo
-uQz
+rhp
 lLP
-qYU
+gYY
 xLz
 olh
 cRW
@@ -36536,7 +36643,7 @@ sKm
 mMX
 kcX
 kgq
-ykl
+tOM
 wLV
 duD
 duD
@@ -36696,16 +36803,16 @@ duD
 sKm
 eZF
 eZF
-egs
+uzK
 cFh
 qcw
-egs
+uzK
 cFh
 cWx
 snE
 cFh
 mhv
-egs
+uzK
 cFh
 uQu
 sei
@@ -37315,7 +37422,7 @@ eKY
 eKY
 uQu
 hLg
-irj
+jHn
 iMs
 veb
 tEp
@@ -37719,7 +37826,7 @@ eZF
 eZF
 uQu
 xGU
-lbD
+qad
 epr
 uQu
 wzC
@@ -39103,7 +39210,7 @@ duD
 duD
 pos
 miT
-nMb
+mvC
 gFy
 qSa
 gFy
@@ -39716,7 +39823,7 @@ pfs
 ohK
 kIw
 toP
-efb
+cuU
 cpD
 pos
 duD
@@ -39956,7 +40063,7 @@ azu
 giZ
 rTW
 vTo
-sCA
+rHZ
 wSL
 qpJ
 vJy
@@ -40112,7 +40219,7 @@ duD
 duD
 duD
 dcv
-ndP
+dJX
 qiJ
 xFR
 eLd
@@ -40120,8 +40227,8 @@ eLd
 eLd
 eLd
 xFR
-nwt
-mnP
+wuB
+fQJ
 dcv
 duD
 duD
@@ -40157,7 +40264,7 @@ efL
 qIv
 qpJ
 qpJ
-bvB
+lXd
 qpJ
 yaK
 not
@@ -40314,7 +40421,7 @@ duD
 duD
 duD
 uFL
-ndP
+dJX
 eYW
 ylB
 ylB
@@ -40323,7 +40430,7 @@ gPy
 bfE
 bfE
 jJi
-mnP
+fQJ
 uFL
 duD
 duD
@@ -40356,7 +40463,7 @@ qfe
 eoX
 xQT
 efL
-kpD
+ykV
 yaK
 yaK
 oed
@@ -40516,7 +40623,7 @@ duD
 duD
 duD
 dcv
-ndP
+dJX
 kFr
 nGQ
 cTH
@@ -40525,7 +40632,7 @@ cTH
 cTH
 jqD
 mhe
-mnP
+fQJ
 dcv
 duD
 duD
@@ -40553,7 +40660,7 @@ ggK
 dXh
 etg
 ctU
-eqW
+qnK
 qfe
 kkq
 xQT
@@ -40561,7 +40668,7 @@ efL
 ntM
 yaK
 tnc
-rqU
+gjU
 xEH
 xEH
 tur
@@ -40760,7 +40867,7 @@ efL
 efL
 efL
 efL
-lMO
+czc
 yaK
 oZm
 wYE
@@ -40957,7 +41064,7 @@ nbm
 cFt
 etg
 dHb
-rwo
+dsy
 hTN
 ghs
 efL
@@ -41125,7 +41232,7 @@ pos
 acA
 jfo
 sdK
-ndP
+dJX
 ydD
 wCh
 ePS
@@ -41563,7 +41670,7 @@ duD
 duD
 etg
 yep
-eqW
+qnK
 tMO
 ghs
 efL
@@ -41732,11 +41839,11 @@ hrk
 ccy
 pos
 hsb
-dgy
+skI
 eWD
 coB
 pos
-efb
+cuU
 kBn
 pos
 duD
@@ -41967,7 +42074,7 @@ nzl
 wxR
 etg
 omD
-rwo
+dsy
 teh
 iqU
 efL
@@ -42136,11 +42243,11 @@ ovw
 bjQ
 tVk
 dYQ
-dlP
+gAl
 ydD
 xZN
 ydD
-pYb
+bet
 fUJ
 pos
 duD
@@ -42168,15 +42275,15 @@ rPy
 xaH
 bsH
 pLU
-mXl
+aJu
 uPL
 uxu
-djf
+mXl
 iYp
 clI
 jrc
 ifo
-ewq
+eIY
 uwh
 uwh
 uIf
@@ -43159,7 +43266,7 @@ duD
 duD
 sKm
 wuY
-fmt
+pYd
 wuY
 wuY
 duD
@@ -43571,7 +43678,7 @@ duD
 ohn
 wWd
 gga
-cWL
+rNE
 bkD
 vCD
 pcU
@@ -43772,7 +43879,7 @@ duD
 duD
 ohn
 dgY
-kqz
+dNq
 cIU
 ohn
 dgY
@@ -43783,9 +43890,9 @@ vZR
 qLM
 sTU
 jir
-hIy
+cFA
 cdh
-uLj
+uXV
 aEz
 hRp
 eIx
@@ -44176,7 +44283,7 @@ dbp
 hmC
 hmC
 cTC
-vaI
+rjV
 gxW
 lqk
 kOX
@@ -44383,12 +44490,12 @@ oeU
 ygn
 cKP
 qSt
-qff
+phF
 cdh
-uLj
+uXV
 epS
 usi
-rtq
+pJm
 rTW
 rTW
 qvm
@@ -44398,9 +44505,9 @@ eNP
 vMO
 vMO
 eAO
-eml
+qTW
 dkI
-ybN
+hDu
 eAO
 rcn
 rcn
@@ -44960,7 +45067,7 @@ duD
 duD
 duD
 jtQ
-pYf
+umY
 wKL
 wKL
 bEX
@@ -44969,7 +45076,7 @@ mWU
 bEX
 wKL
 wKL
-jhV
+btL
 jtQ
 duD
 duD
@@ -45162,7 +45269,7 @@ duD
 duD
 duD
 uFL
-pYf
+umY
 ivf
 ivf
 ivf
@@ -45171,7 +45278,7 @@ ntX
 ivf
 ivf
 ivf
-jhV
+btL
 uFL
 duD
 duD
@@ -45193,7 +45300,7 @@ duD
 duD
 duD
 yaK
-qas
+lZT
 vZR
 yaK
 yaK
@@ -45364,7 +45471,7 @@ duD
 duD
 duD
 jtQ
-pYf
+umY
 cuO
 cuO
 gTM
@@ -45373,7 +45480,7 @@ oXH
 gTM
 cuO
 cuO
-jhV
+btL
 jtQ
 duD
 duD
@@ -46376,12 +46483,12 @@ duD
 irp
 ddH
 uSt
-cAw
+fup
 wDI
-ygq
-vwr
+veM
+cpO
 wDI
-ygq
+veM
 uSt
 fVZ
 irp
@@ -46779,14 +46886,14 @@ duD
 duD
 irp
 iaz
-rEh
+eQC
 tWF
 irp
 rXs
 ydh
 irp
 qyA
-rEh
+eQC
 oFn
 irp
 duD
@@ -47183,14 +47290,14 @@ duD
 duD
 irp
 iGu
-gwJ
+vKM
 oGX
 pCP
 oGX
 oGX
 pCP
 lQY
-gwJ
+vKM
 gWG
 irp
 duD
@@ -47230,7 +47337,7 @@ odD
 sOm
 sOm
 sOm
-esz
+lTg
 fSu
 bTX
 duD
@@ -47619,9 +47726,9 @@ hDX
 ruS
 hEU
 kIM
-aVS
+jkc
 mBl
-cIe
+otC
 kIM
 hDX
 ruS
@@ -48023,9 +48130,9 @@ hEi
 hEi
 fas
 iRC
-eMW
-usR
-usR
+iYG
+oRu
+oRu
 vFp
 lso
 ebH
@@ -48221,21 +48328,21 @@ aEF
 fTb
 phC
 phC
-sKF
+rmi
 phC
-uqm
+gUA
 nWE
-eIY
+iyG
 uxf
 hyR
 uxf
-pBA
+iMC
 mGh
 kaw
 xPz
-fhy
+hpb
 gss
-qdd
+gBC
 nbA
 mnm
 fLT
@@ -48415,7 +48522,7 @@ aJY
 mZv
 ibV
 pIz
-jlK
+uZa
 cpv
 rgN
 iWI
@@ -48625,7 +48732,7 @@ ekE
 oXC
 xlJ
 ahu
-cpO
+bnk
 uxN
 tuV
 qsU
@@ -48847,7 +48954,7 @@ rdn
 jbe
 bTX
 jat
-mhY
+sJK
 bTX
 dwv
 dwv
@@ -49223,7 +49330,7 @@ aJY
 mZv
 sMp
 hfL
-jlK
+uZa
 cpv
 rgN
 iWI
@@ -49248,13 +49355,13 @@ aNK
 atn
 aRx
 atn
-aci
+tmJ
 jHY
-efc
-qvO
+rlQ
+ioN
 aRx
 atn
-eJk
+ewH
 sRm
 wLN
 duD
@@ -49450,13 +49557,13 @@ kxK
 chs
 kxK
 chs
-thx
+oZL
 jHY
-cyD
+xQa
 chs
 kxK
 chs
-thx
+oZL
 yaD
 wLN
 duD
@@ -49652,13 +49759,13 @@ ejF
 lIK
 aRx
 lIK
-aci
+tmJ
 jHY
-rTV
+uCL
 lIK
 tAN
 tUe
-ira
+wTE
 sRm
 wLN
 duD
@@ -50036,14 +50143,14 @@ vVj
 bke
 iXi
 qCi
-phA
+sKF
 tir
-pAm
+ixI
 lWw
 eZn
 dsl
 dsl
-kQZ
+bgn
 rWM
 xfl
 rQa
@@ -50438,15 +50545,15 @@ mZv
 mZv
 mZv
 mZv
-ibS
-oOw
+hmU
+htm
 iPZ
 sBw
 lWD
 fWZ
 oJz
 aEx
-xYv
+pUg
 bga
 sTj
 owS
@@ -50678,8 +50785,8 @@ fgz
 fgz
 til
 sEM
-ttU
-aii
+sDm
+drv
 sEM
 sEM
 sEM
@@ -50842,20 +50949,20 @@ hUI
 hUI
 hUI
 mZv
-ibS
+fPH
 rFe
 gdc
 enF
 enF
-leZ
+taI
 rKj
-weo
-csi
+cRI
+vPa
 enF
 vZg
 gdc
 vZg
-leZ
+taI
 cpv
 jBy
 eYb
@@ -50866,7 +50973,7 @@ bBv
 pej
 bhv
 vsT
-hlc
+xVH
 xBq
 iiW
 iiW
@@ -51042,22 +51149,22 @@ nKI
 mZv
 dIw
 cCU
-tqc
+uXE
 cpv
-ljC
+tqv
 tco
 qxx
 bke
 qxx
-phA
+sKF
 uCb
-pWH
+eDm
 qxx
 qxx
 frP
 qxx
 qxx
-phA
+sKF
 tZC
 tdw
 hft
@@ -51251,17 +51358,17 @@ anW
 anW
 anW
 anW
-osE
+ufa
 rKj
 kBV
-wWz
+qLI
 eYC
 anW
 anW
-lRN
-osE
+wmD
+ufa
 cpv
-vWD
+uXS
 sgo
 gnY
 bCi
@@ -51662,7 +51769,7 @@ mpM
 dMi
 mZv
 rOI
-wYB
+opy
 rXg
 mZv
 qNA
@@ -53308,18 +53415,18 @@ ifz
 cZN
 ugq
 uuN
-tEV
+cdp
 sIE
-hCw
+eSz
 kXe
 cYk
 uuN
 ugq
 ugq
 uuN
-tEV
+cdp
 sIE
-eGY
+fOD
 uuN
 ugq
 bWg
@@ -53502,7 +53609,7 @@ duD
 duD
 sKm
 vOR
-lKV
+bUL
 gyq
 ifz
 gyq
@@ -53510,18 +53617,18 @@ gyq
 gyq
 sum
 lFX
-tDo
+pOA
 nbU
-bmk
+jGP
 kXe
 pGU
 kZv
 iVP
 iVP
 lxA
-nCI
+wta
 jmR
-psB
+uUz
 lxA
 kZv
 srX
@@ -53704,7 +53811,7 @@ duD
 duD
 sKm
 sIE
-owD
+aii
 grg
 grg
 grg
@@ -53712,18 +53819,18 @@ lbT
 fpi
 gse
 aFx
-edq
+jqB
 sIE
-eGY
+fOD
 nqk
 wWB
 foM
 xiR
 foM
 iKl
-tEV
+cdp
 sIE
-eGY
+fOD
 iKl
 iKl
 lFX
@@ -55309,7 +55416,7 @@ qdm
 wRw
 wRw
 sYT
-wpp
+wmO
 dFQ
 dFQ
 bnT
@@ -56121,7 +56228,7 @@ eSK
 fpv
 bFd
 bFd
-bHH
+fVi
 vVr
 ioS
 wLN
@@ -56133,7 +56240,7 @@ fgz
 fgz
 sEM
 iUb
-ePw
+uoN
 sEM
 fgz
 fgz
@@ -56476,8 +56583,8 @@ ksQ
 kVM
 kwL
 fPL
-iRT
-dXj
+qol
+kqT
 uUW
 vOX
 fPL
@@ -56517,7 +56624,7 @@ duD
 duD
 sKm
 omJ
-pGa
+mCA
 vAC
 adp
 tLG
@@ -56525,8 +56632,8 @@ rCa
 idm
 idm
 idm
-bGi
-ubs
+aHV
+vOw
 omJ
 wLN
 duD
@@ -56728,7 +56835,7 @@ qbq
 qbq
 qbq
 efZ
-hMt
+kCR
 vOR
 wLN
 duD
@@ -56877,7 +56984,7 @@ duD
 sKm
 iAY
 tVR
-jdL
+ixm
 buj
 fPL
 qOT
@@ -56886,7 +56993,7 @@ tHX
 qKU
 fPL
 buj
-jdL
+ixm
 rCS
 iAY
 wcz
@@ -56921,7 +57028,7 @@ duD
 duD
 sKm
 omJ
-gAV
+haI
 deI
 deI
 deI
@@ -56930,7 +57037,7 @@ qEK
 deI
 brV
 deI
-hMt
+kCR
 omJ
 wLN
 duD
@@ -57093,8 +57200,8 @@ fPL
 iAY
 iAY
 qTT
-jdL
-tDn
+ixm
+dKs
 bHB
 wLN
 duD
@@ -57281,7 +57388,7 @@ duD
 sKm
 iAY
 fRT
-qYa
+lYp
 fRT
 aDh
 cDD
@@ -57290,7 +57397,7 @@ cTA
 eZJ
 pit
 sdr
-iRT
+qol
 sdr
 pFC
 iAY
@@ -57344,8 +57451,8 @@ fgz
 fgz
 til
 sEM
-ttU
-aii
+sDm
+drv
 sEM
 fgz
 fgz
@@ -57497,7 +57604,7 @@ nKO
 eZJ
 sdr
 sdr
-icq
+bNc
 tpY
 iAY
 wLN
@@ -57901,7 +58008,7 @@ plN
 jhp
 wiq
 kDK
-jdL
+ixm
 cnd
 iAY
 wLN
@@ -58089,7 +58196,7 @@ duD
 sKm
 iAY
 aOo
-qcz
+xNx
 aOo
 qFJ
 ybE
@@ -58098,7 +58205,7 @@ cTA
 jhp
 qKb
 kDK
-sEe
+car
 kDK
 vBG
 iAY
@@ -58161,14 +58268,14 @@ ugq
 ugq
 ugq
 sum
-edq
+jqB
 tOa
-vBE
+cDa
 lFX
 uxF
 fZM
 ugq
-dMg
+nvd
 ugq
 rgw
 uxF
@@ -58305,7 +58412,7 @@ fPL
 iAY
 iAY
 nWC
-icq
+bNc
 kUY
 iAY
 wLN
@@ -58363,9 +58470,9 @@ lFX
 jSk
 lFX
 lFX
-edq
+jqB
 sIE
-eGY
+fOD
 sum
 sum
 lFX
@@ -58493,7 +58600,7 @@ duD
 sKm
 iAY
 kUY
-icq
+bNc
 aYm
 fPL
 cFk
@@ -58502,7 +58609,7 @@ cEx
 qKU
 fPL
 sdr
-iRT
+qol
 sdr
 rht
 iAY
@@ -58900,8 +59007,8 @@ fPx
 ufC
 fPx
 fPL
-sEe
-sID
+car
+fCf
 gTi
 vOX
 fPL
@@ -59566,8 +59673,8 @@ fgz
 fgz
 fgz
 sEM
-ePw
-uyl
+uoN
+cOj
 sEM
 sEM
 sEM
@@ -59970,8 +60077,8 @@ bbF
 eIC
 eIC
 eIC
-vTj
-vTj
+oXn
+oXn
 sEM
 fgz
 fgz
@@ -60168,7 +60275,7 @@ wLN
 duD
 sKm
 vOR
-lKV
+bUL
 ifz
 gyq
 iCV
@@ -60187,8 +60294,8 @@ fgz
 fgz
 fgz
 sEM
-eyQ
-pxT
+mnq
+rpN
 sEM
 fgz
 fgz
@@ -60370,7 +60477,7 @@ wLN
 duD
 sKm
 sIE
-huO
+kpt
 ifz
 gag
 ifz
@@ -60516,8 +60623,8 @@ fPx
 kdP
 fPx
 fPL
-iRT
-dXj
+qol
+kqT
 fPL
 fPx
 kdP
@@ -60591,8 +60698,8 @@ fgz
 fgz
 til
 sEM
-vzr
-wTo
+tOG
+qrp
 sEM
 fgz
 fgz
@@ -60716,9 +60823,9 @@ sKm
 iAY
 eDG
 mGV
-tDn
+dKs
 loG
-cfN
+kFb
 tqy
 fPL
 fPx
@@ -60925,7 +61032,7 @@ kvt
 fPL
 rCS
 wTI
-jdL
+ixm
 mkW
 tVR
 iAY
@@ -60970,7 +61077,7 @@ gPG
 idm
 idm
 idm
-mke
+pyS
 omJ
 wLN
 duD
@@ -61134,7 +61241,7 @@ iAY
 iAY
 sdr
 sdr
-vhk
+krn
 bHB
 wLN
 duD
@@ -61157,7 +61264,7 @@ wXk
 wXk
 liW
 eda
-gPG
+kCR
 vOR
 wLN
 duD
@@ -61329,12 +61436,12 @@ gkE
 aDh
 fRT
 fRT
-qYa
+lYp
 fRT
 fRT
 efy
 uCn
-gaH
+tYw
 hku
 eMz
 iAY
@@ -61971,7 +62078,7 @@ wLN
 duD
 sKm
 ioS
-sEF
+cqg
 gNU
 cak
 vJS
@@ -61980,7 +62087,7 @@ mPe
 eBy
 jYt
 iBj
-vkt
+kyZ
 ioS
 wLN
 duD
@@ -61999,9 +62106,9 @@ sum
 nHY
 lFX
 lFX
-tEV
+cdp
 sIE
-eGY
+fOD
 ecW
 mjm
 mFS
@@ -62137,12 +62244,12 @@ uLx
 qFJ
 aOo
 aOo
-qcz
+xNx
 aOo
 aOo
 thb
 loG
-gaH
+tYw
 hku
 eMz
 iAY
@@ -62201,10 +62308,10 @@ foM
 foM
 iKl
 foM
-edq
+jqB
 tOa
-hCw
-pxT
+eSz
+rpN
 foM
 uzE
 foM
@@ -62384,7 +62491,7 @@ bBB
 vdC
 svK
 qaZ
-wTU
+uJV
 ioS
 wLN
 duD
@@ -62541,7 +62648,7 @@ kvt
 fPL
 oTk
 rSU
-icq
+bNc
 aYm
 aYm
 iAY
@@ -62581,7 +62688,7 @@ iKL
 wBS
 wBS
 sYT
-jQw
+ykl
 fpv
 bti
 fyM
@@ -62736,9 +62843,9 @@ sKm
 iAY
 mfE
 njd
-tDn
+dKs
 loG
-cfN
+kFb
 tqy
 fPL
 ksQ
@@ -62799,7 +62906,7 @@ fgz
 fgz
 sEM
 iUb
-ePw
+uoN
 sEM
 duD
 duD
@@ -62940,8 +63047,8 @@ fPx
 ufC
 fzh
 fPL
-sEe
-sID
+car
+fCf
 fPL
 fPx
 lyS
