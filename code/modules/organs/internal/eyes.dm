@@ -1,5 +1,6 @@
 /obj/item/organ/internal/eyes
 	name = "eyeballs"
+	desc = "One could say that picking these up would be a sight to behold. Literally."
 	icon_state = "eyes"
 	gender = PLURAL
 	organ_tag = BP_EYES

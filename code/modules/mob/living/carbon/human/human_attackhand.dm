@@ -371,7 +371,7 @@
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
-			if(z_eye && z_eye.tile_shifted) //They're looking down in front of them.
+			if(z_eye) //They're looking down in front of them.
 				var/turf/T = loc
 				var/obj/structure/railing/problem_railing
 				var/same_loc = FALSE
