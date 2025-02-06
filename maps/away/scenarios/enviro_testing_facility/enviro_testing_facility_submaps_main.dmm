@@ -21566,7 +21566,7 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/research/meeting)
 "xDX" = (
-/obj/machinery/weapons_analyzer,
+/obj/machinery/r_n_d/weapons_analyzer,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
