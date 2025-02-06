@@ -142,11 +142,11 @@
 	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)
 		if(poi.z in SSodyssey.scenario_zlevels)
 			possible_pois += poi
-	if(isemptylist(possible_pois))
+	if(!length(possible_pois))
 		tgui_alert(user, "Can't find any teleport destinations.", "Teleport Error")
 
 	// actor check for id access
-	if(SSodyssey.scenario && SSodyssey.scenario.actor_accesses && !isemptylist(SSodyssey.scenario.actor_accesses))
+	if(SSodyssey.scenario && SSodyssey.scenario.actor_accesses && length(SSodyssey.scenario.actor_accesses))
 		// check if they have an id at all
 		var/obj/item/card/id/user_id = user.GetIdCard()
 		if(!user_id || !istype(user_id))
