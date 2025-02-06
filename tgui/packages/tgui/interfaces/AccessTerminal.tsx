@@ -3,14 +3,6 @@ import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 import { Button, LabeledList, NoticeBox, Section } from '../components';
 
-// data["is_card_in"] = TRUE
-// data["card_name"] = held_card.registered_name
-// data["card_assignment"] = held_card.assignment
-// data["card_rank"] = held_card.rank
-// data["is_agent_id"] = istype(held_card, /obj/item/card/id/syndicate)
-// data["available_accesses"] = available_accesses	// list("desc"="abcd", "id"=123)
-// data["id_accesses"] = held_card.access			// list(123)
-
 export type AccessTerminalData = {
   is_card_in: BooleanLike;
   card_name: string;

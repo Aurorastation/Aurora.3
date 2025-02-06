@@ -1,7 +1,7 @@
 
 // ------------------- base/parent type
 
-/singleton/role
+ABSTRACT_TYPE(/singleton/role)
 	/// The role's name.
 	var/name = "Generic Goon"
 	/// The role's description. It should contain the information on what it's supposed to do.

@@ -16,9 +16,6 @@
 
 	var/obj/item/card/id/held_card
 
-/obj/machinery/computer/access_terminal/Initialize()
-	. = ..()
-
 /obj/machinery/computer/access_terminal/Destroy()
 	if (held_card)
 		held_card.forceMove(loc)

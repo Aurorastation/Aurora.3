@@ -563,7 +563,7 @@
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Crew - Quarteers 1"
+	c_tag = "Crew - Quarters 1"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -1971,7 +1971,7 @@
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Crew - Canteen"
+	c_tag = "Crew - Mess Hall"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -2160,7 +2160,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Crew - Quarteers 2"
+	c_tag = "Crew - Quarters 2"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -5192,7 +5192,7 @@
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Crew - Quarteers 3"
+	c_tag = "Crew - Quarters 3"
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
@@ -8819,7 +8819,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Crew - Quarteers 3"
+	c_tag = "Crew - Crew Quarters 3"
 	},
 /turf/simulated/floor/tiled/light,
 /area/enviro_testing_facility/inside/crew/quarters)
@@ -9910,7 +9910,7 @@
 	name = "Quarters"
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Crew - Quarteers 2"
+	c_tag = "Crew - Crew Quarters 2"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -14241,7 +14241,7 @@
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 8;
-	c_tag = "Crew - Canteen"
+	c_tag = "Crew - Cafeteria"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/canteen)
@@ -15570,7 +15570,7 @@
 /area/template_noop)
 "qNm" = (
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Control - Offices - 1"
+	c_tag = "Control - Office - 1"
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)
@@ -17761,7 +17761,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/enviro_testing_facility{
-	c_tag = "Crew - Quarteers 1"
+	c_tag = "Crew - Crew Quarters 1"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -18533,7 +18533,7 @@
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/enviro_testing_facility{
 	dir = 1;
-	c_tag = "Control - Offices - 2"
+	c_tag = "Control - Office - 2"
 	},
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/control/offices)

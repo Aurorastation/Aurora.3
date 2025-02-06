@@ -143,18 +143,18 @@
 		if(poi.z in SSodyssey.scenario_zlevels)
 			possible_pois += poi
 	if(isemptylist(possible_pois))
-		tgui_alert(usr, "Can't find any teleport destinations.", "Teleport Error")
+		tgui_alert(user, "Can't find any teleport destinations.", "Teleport Error")
 
 	// actor check for id access
 	if(SSodyssey.scenario && SSodyssey.scenario.actor_accesses && !isemptylist(SSodyssey.scenario.actor_accesses))
 		// check if they have an id at all
 		var/obj/item/card/id/user_id = user.GetIdCard()
 		if(!user_id || !istype(user_id))
-			var/choice = tgui_alert(usr,
+			var/choice = tgui_alert(user,
 				"Current odyssey scenario has defined ID access, but you do not seem to have an ID on you. You can get one from the actor vendor.",
 				"Teleport Warning", list("Ok", "Cancel")
 			)
-			if(choice == "Cancel")
+			if(choice != "Ok")
 				return
 
 		// check if they have actor accesses set on the scenario definition
@@ -163,26 +163,26 @@
 			var/datum/access/access_datum = access
 			scenario_access_ids += access_datum::id
 		if(isemptylist(user_id.access & scenario_access_ids))
-			var/choice = tgui_alert(usr,
+			var/choice = tgui_alert(user,
 				"Current odyssey scenario has defined ID access, but you do not seem to have an ID with any such access. You can change access of your ID using the actor access terminal.",
 				"Teleport Warning", list("Ok", "Cancel")
 			)
-			if(choice == "Cancel")
+			if(choice != "Ok")
 				return
 
 	// actor check for radio headset
 	if(SSodyssey.scenario && SSodyssey.scenario.radio_frequency_name)
 		var/mob/living/living = user
 		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
-			var/choice = tgui_alert(usr,
+			var/choice = tgui_alert(user,
 				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel. You can get one from the actor vendor.",
 				"Teleport Warning", list("Ok", "Cancel")
 			)
-			if(choice == "Cancel")
+			if(choice != "Ok")
 				return
 
 	// ask the user
-	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(usr,
+	var/obj/effect/landmark/minimap_poi/poi = tgui_input_list(user,
 		"Choose teleport destination, to go to the odyssey scenario site. You cannot go back to this area after teleporting.", "Teleport Destination",
 		possible_pois
 	)
