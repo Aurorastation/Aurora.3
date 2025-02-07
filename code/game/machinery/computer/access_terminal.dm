@@ -50,8 +50,7 @@ ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 
 	var/list/available_access_datums = get_available_accesses()
 	var/list/available_accesses = list()
-	for(var/access in available_access_datums)
-		var/datum/access/access_datum = access
+	for(var/datum/access/access_datum as anything in available_access_datums)
 		available_accesses += list(list("desc"=access_datum::desc, "id"=access_datum::id))
 
 	data["is_card_in"] = TRUE

@@ -146,7 +146,7 @@
 		tgui_alert(user, "Can't find any teleport destinations.", "Teleport Error")
 
 	// actor check for id access
-	if(SSodyssey.scenario && SSodyssey.scenario.actor_accesses && length(SSodyssey.scenario.actor_accesses))
+	if(length(SSodyssey.scenario?.actor_accesses))
 		// check if they have an id at all
 		var/obj/item/card/id/user_id = user.GetIdCard()
 		if(!user_id || !istype(user_id))
@@ -159,8 +159,7 @@
 
 		// check if they have actor accesses set on the scenario definition
 		var/list/scenario_access_ids = list()
-		for(var/access in SSodyssey.scenario.actor_accesses)
-			var/datum/access/access_datum = access
+		for(var/datum/access/access_datum as anything in SSodyssey.scenario.actor_accesses)
 			scenario_access_ids += access_datum::id
 		if(isemptylist(user_id.access & scenario_access_ids))
 			var/choice = tgui_alert(user,
@@ -171,7 +170,7 @@
 				return
 
 	// actor check for radio headset
-	if(SSodyssey.scenario && SSodyssey.scenario.radio_frequency_name)
+	if(SSodyssey.scenario?.radio_frequency_name)
 		var/mob/living/living = user
 		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
 			var/choice = tgui_alert(user,
