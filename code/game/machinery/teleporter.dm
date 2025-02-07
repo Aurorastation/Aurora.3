@@ -171,7 +171,7 @@
 				return
 
 	// actor check for radio headset
-	if(SSodyssey.scenario && SSodyssey.scenario.radio_frequency_name)
+	if(SSodyssey.scenario?.radio_frequency_name)
 		var/mob/living/living = user
 		if(istype(living) && !living.check_contents_for(/obj/item/device/radio/headset/ship/odyssey))
 			var/choice = tgui_alert(user,
