@@ -2,8 +2,7 @@
 /// Simple access terminal.
 /// Can put an ID in it, and set or unset some accesses.
 /// Intended to be used in ooc/admin spaces, like antag/actor prep areas.
-/// This base type should not be used, but instead there should be subtypes that provide the available accesses.
-/obj/machinery/computer/access_terminal
+ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 	name = "self-service access terminal"
 	desc = "A simple access terminal. It allows changing one's ID accesses."
 	icon = 'icons/obj/computer.dmi'
@@ -22,7 +21,7 @@
 		held_card = null
 	return ..()
 
-/// Should return a list of datums.
+/// Should return a list of `/datum/access`.
 /obj/machinery/computer/access_terminal/proc/get_available_accesses()
 	. = list()
 
