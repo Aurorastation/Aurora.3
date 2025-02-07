@@ -159,8 +159,7 @@
 
 		// check if they have actor accesses set on the scenario definition
 		var/list/scenario_access_ids = list()
-		for(var/access in SSodyssey.scenario.actor_accesses)
-			var/datum/access/access_datum = access
+		for(var/datum/access/access_datum as anything in SSodyssey.scenario.actor_accesses)
 			scenario_access_ids += access_datum::id
 		if(isemptylist(user_id.access & scenario_access_ids))
 			var/choice = tgui_alert(user,
