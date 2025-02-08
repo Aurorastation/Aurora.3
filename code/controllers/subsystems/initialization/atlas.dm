@@ -235,7 +235,7 @@ SUBSYSTEM_DEF(atlas)
 
 	if(!length(paths))
 		stack_trace("No lobby icons found! Setup either the map or the sector ones!")
-		lobby_icons += icon('icons/misc/titlescreens/runtime/away.dmi')
+		lobby_icons += icon('icons/misc/titlescreens/runtime/test.dmi')
 		return
 
 	for(var/path in paths)

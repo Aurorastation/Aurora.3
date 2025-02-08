@@ -11,7 +11,7 @@
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
-	lobby_icon_image_paths = list('icons/misc/titlescreens/runtime/away.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/runtime/taj1.png', 'icons/misc/titlescreens/runtime/taj2.png', 'icons/misc/titlescreens/runtime/taj3.png', 'icons/misc/titlescreens/runtime/taj4.png', 'icons/misc/titlescreens/runtime/taj5.png')
 	lobby_transitions = 10 SECONDS
 	allowed_spawns = list()
 
