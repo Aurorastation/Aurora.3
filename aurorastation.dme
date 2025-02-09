@@ -482,7 +482,6 @@
 #include "code\datums\ert\outsider.dm"
 #include "code\datums\ert\responseteam.dm"
 #include "code\datums\ert\tcfl.dm"
-#include "code\datums\helper_datums\away_mission.dm"
 #include "code\datums\helper_datums\construction_datum.dm"
 #include "code\datums\helper_datums\getrev.dm"
 #include "code\datums\helper_datums\stack_end_detector.dm"
