@@ -53,6 +53,11 @@
 		return
 	to_chat(user, SPAN_WARNING("\The [src] has no use for you!"))
 
+
+/obj/item/ipc_overloader/afterattack(obj/target, mob/user, proximity)
+	if(!proximity)
+		return
+
 /obj/item/ipc_overloader/proc/handle_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose(target)
 
