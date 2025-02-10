@@ -2020,7 +2020,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
 
-// todo: must figure out how to make this not cause shoes to be taken off during initialisation.
 /obj/item/organ/external/leg/right/fluff/nines_autakh/Initialize(mapload)
 	. = ..()
 	LAZYADD(children, new /obj/item/organ/external/foot/right/fluff/nines_autakh(src))
