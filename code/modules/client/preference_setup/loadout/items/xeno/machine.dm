@@ -193,7 +193,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/accessory/goldendeep
+/datum/gear/uniform/goldendeepshirt
 	display_name = "golden deep shirt selection"
 	description = "A selection of shirts and other tops worn by members of the Golden Deep."
 	path = /obj/item/clothing/accessory/goldendeep
@@ -201,7 +201,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/accessory/goldendeep/New()
+/datum/gear/uniform/goldendeepshirt/New()
 	..()
 	var/list/goldendeepshirt = list()
 	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/under/dressshirt/goldendeep
@@ -212,15 +212,16 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 /datum/gear/accessory/goldendeepouter
 	display_name = "golden deep outer layer selection"
 	description = "A selection of tops suited for use as outer layers worn by members of the Golden Deep."
-	path = /obj/item/clothing/accessory/goldendeep/gambeson
+	path = /obj/item/clothing/accessory/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	slot = slot_tie
 
 /datum/gear/accessory/goldendeepouter/New()
 	..()
 	var/list/goldendeepouter = list()
-	goldendeepouter["golden deep quilted gambeson"] = /obj/item/clothing/accessory/goldendeep/gambeson
+	goldendeepouter["golden deep quilted gambeson"] = /obj/item/clothing/accessory/goldendeep
 	goldendeepouter["golden deep tabbard"] = /obj/item/clothing/accessory/goldendeep/tabbard
 	goldendeepouter["golden deep pullover"] = /obj/item/clothing/accessory/goldendeep/pullover
 	goldendeepouter["golden deep rain garb"] = /obj/item/clothing/accessory/goldendeep/raingarb
