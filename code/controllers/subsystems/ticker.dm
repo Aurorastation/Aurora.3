@@ -771,9 +771,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
+				equip_custom_items(player, null, null, TRUE) // Equips body-related custom items, like augments and prosthetics.
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
-				equip_custom_items(player)
+				equip_custom_items(player, null, null, FALSE) // Equips all other custom items.
 
 		CHECK_TICK
 

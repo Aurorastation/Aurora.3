@@ -216,7 +216,9 @@
 GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 
 /// Gets the relevant custom items for the given target_mob, character_id, and player_ckey, and equips the target_mob with those custom items
-/proc/equip_custom_items(var/mob/living/carbon/human/target_mob, var/character_id, var/player_ckey)
+/// If body_only is true, it will only equip augments and prosthetics. If body_only is false, it will equip everything else.
+/// You will need to call this twice, once true, once false. This distinction exists to avoid awkward behaviour with prosthetic custom items.
+/proc/equip_custom_items(var/mob/living/carbon/human/target_mob, var/character_id, var/player_ckey, var/body_only = FALSE)
 	if(!character_id)
 		character_id = target_mob.character_id
 
@@ -267,10 +269,10 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 			GLOB.character_id_to_custom_items_mapping[glob_character_id_key] = custom_items_list
 
 	for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
-		equip_custom_item_to_mob(ci, target_mob)
+		equip_custom_item_to_mob(ci, target_mob, body_only)
 
 
-/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/target_mob)
+/proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/target_mob, var/body_only = FALSE)
 	// Check for required job title.
 	if(length(citem.req_titles))
 		var/has_title
@@ -283,7 +285,8 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 			to_chat(target_mob, "A custom item could not be equipped as you have joined with the wrong role.")
 			return FALSE
 
-	if(ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
+	// Next two conditionals only proc if body_only is true, otherwise they do not. If body_only is true, only these proc.
+	if(body_only && ispath(citem.item_path, /obj/item/organ/internal/augment/fluff))
 		var/obj/item/organ/internal/augment/fluff/aug = citem.spawn_item(target_mob)
 		var/obj/item/organ/external/affected = target_mob.get_organ(aug.parent_organ)
 		aug.replaced(target_mob, affected)
@@ -292,7 +295,7 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		target_mob.UpdateDamageIcon()
 		return
 
-	if(ispath(citem.item_path, /obj/item/organ/external))
+	if(body_only && ispath(citem.item_path, /obj/item/organ/external))
 		var/obj/item/organ/external/dummy_limb = citem.item_path
 		var/obj/item/organ/external/parent_organ = target_mob.get_organ(initial(dummy_limb.parent_organ))
 		if(parent_organ)
@@ -307,6 +310,10 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 			target_mob.update_body()
 			target_mob.updatehealth()
 			target_mob.UpdateDamageIcon()
+		return
+
+	// Cuts the proc early if it should only be doing body-related items, i.e. augments and prosthetics.
+	if(body_only)
 		return
 
 	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
