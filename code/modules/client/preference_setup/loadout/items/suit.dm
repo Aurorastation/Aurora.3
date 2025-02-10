@@ -545,6 +545,11 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	path = /obj/item/clothing/accessory/apron
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+// Goblinstev's apron
+/datum/gear/suit/qeb_apron
+	display_name = "Quick-E-Burger Food Technician Apron"
+	path = /obj/item/clothing/accessory/apron/qeburgerapron
+
 // Overalls Selection
 /datum/gear/suit/overalls
 	display_name = "overalls selection (colourable)"

@@ -521,6 +521,18 @@
 	name = "legionnaire cap"
 	desc = "A hate made to protect your neck from sunlight, not affiliated with the TCAF."
 	icon_state = "legionnaire"
+
+// Goblinstev's Quick-E-Burger visor
+
+/obj/item/clothing/head/qeburgervisor
+	name = "Quick-E-Burger Food Technician Visor"
+	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
+	icon = 'icons/clothing/under/uniforms/Orion.dmi'
+	icon_state = "quickeburger_visorcap"
+	item_state = "quickeburger_visorcap"
+	contained_sprite = TRUE
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
+
 //sol stuff
 
 /obj/item/clothing/head/sol

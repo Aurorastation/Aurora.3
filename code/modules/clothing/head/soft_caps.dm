@@ -191,3 +191,13 @@
 	desc = "A peaked cap in a brown colour with a purple brim."
 	icon_state = "custodian_orion"
 	item_state = "custodian_orion"
+
+// Goblinstev's Orion softcap
+/obj/item/clothing/head/softcap/qeburgersoftcap
+	name = "Orion Softcap"
+	desc = "A company-issue Orion Express cap. For overworked employees that value corporate pride over protection."
+	icon = 'icons/clothing/under/uniforms/Orion.dmi'
+	icon_state = "orion_softcap"
+	item_state = "orion_softcap"
+	contained_sprite = TRUE
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT

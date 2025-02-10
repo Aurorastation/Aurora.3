@@ -64,6 +64,7 @@
 	softcaps["softcap, operations"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
+	softcaps["softcap, Orion Express"] = /obj/item/clothing/head/softcap/qeburgersoftcap
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
 
@@ -220,6 +221,7 @@
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
+	hats["Quick-E-Burger Foot Technician Visor"] = /obj/item/clothing/head/qeburgervisor
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hats_colourable

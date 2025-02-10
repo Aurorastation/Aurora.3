@@ -1216,6 +1216,25 @@
 		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/material/knife
 	)
+
+// Quick-E-Burger apron by goblinstev
+/obj/item/clothing/accessory/apron/qeburgerapron
+	name = "Quick-E-Burger Food Technician Apron"
+	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!."
+	icon = 'icons/clothing/under/uniforms/orion.dmi'
+	icon_state = "apron_quickeburger"
+	item_state = "apron_quickeburger"
+	slot_flags = SLOT_OCLOTHING | SLOT_TIE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/material/knife
+	)
+	contained_sprite = TRUE
+
 /********** Aprons End **********/
 
 /********** Overalls Start **********/
