@@ -5,9 +5,12 @@
 	icon_state = "classic"
 	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
+	/// Total number of times an overloader can be used.
 	var/uses = 2
-	var/effect_time = 90 SECONDS
-	var/effects = 4
+	/// Total length of time for a single effect.
+	var/effect_time = 30 SECONDS
+	/// Determines how many midway overloader effects are experienced.
+	var/effects = 12
 
 	var/static/list/step_up_effects = list(
 		TRAIT_OVERLOADER_OD_INITIAL = TRAIT_OVERLOADER_OD_MEDIUM,
@@ -39,12 +42,14 @@
 		else
 			. += SPAN_WARNING("It's totally spent.")
 
+// Jabbing yourself with an overloader.
 /obj/item/ipc_overloader/attack_self(mob/user)
 	if(!uses)
 		to_chat(user, SPAN_WARNING("\The [src] is totally spent."))
 		return
 	if(isipc(user))
 		user.visible_message("<b>[user]</b> jabs themselves with \the [src].", SPAN_NOTICE("You jab yourself with \the [src]."))
+		user.do_attack_animation(user)
 		handle_overloader_effect(user)
 		if(effect_time)
 			addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), user, effects), effect_time)
@@ -53,14 +58,35 @@
 		return
 	to_chat(user, SPAN_WARNING("\The [src] has no use for you!"))
 
+// Jabbing someone else with an overloader.
+/obj/item/ipc_overloader/attack(mob/living/carbon/human/target_mob, mob/user, target_zone)
+	if(isliving(target_mob))
+		user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_mob] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_mob] with \the [src]."))
 
-/obj/item/ipc_overloader/afterattack(obj/target, mob/user, proximity)
-	if(!proximity)
-		return
+		if(do_mob(user, target_mob, 2 SECONDS))
+			var/obj/item/organ/external/organ = target_mob.get_organ(target_zone)
+			user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_mob] with \the [src]!"), SPAN_NOTICE("You jab \the [target_mob] with \the [src]."))
 
+			// If synthetic, they receive the overloader effects.
+			// There are no overt indications to the user that the target mob is synthetic, so this can't be used to check for secret shells.
+			if(isipc(target_mob))
+				user.do_attack_animation(target_mob)
+				handle_overloader_effect(target_mob)
+				if(effect_time)
+					addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target_mob, effects), effect_time)
+				uses--
+				update_icon()
+
+			// If not synthetic, and the targeted organ can feel pain, and the target feels pain because they just got jabbed with a thumb drive.
+			else if (organ && ORGAN_CAN_FEEL_PAIN(organ))
+				to_chat(target_mob, SPAN_DANGER("You feel a sharp prick!"))
+				target_mob.apply_damage(2, DAMAGE_PAIN, target_zone)
+
+/// Procs immediately after using the overloader.
 /obj/item/ipc_overloader/proc/handle_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose(target)
 
+/// Procs as many times as the effect_amount variable, with a time between effects determined by effect_time.
 /obj/item/ipc_overloader/proc/midway_overloader_effect(var/mob/living/carbon/human/target, var/effect_amount)
 	if(effect_amount)
 		addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target, effect_amount - 1), effect_time)
@@ -69,6 +95,7 @@
 	finish_overloader_effect(target)
 	return FALSE
 
+// Procs once all effects are expended.
 /obj/item/ipc_overloader/proc/finish_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose_stepdown(target)
 
