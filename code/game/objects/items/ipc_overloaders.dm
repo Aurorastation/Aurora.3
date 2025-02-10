@@ -95,11 +95,11 @@
 	finish_overloader_effect(target)
 	return FALSE
 
-// Procs once all effects are expended.
+/// Procs once all effects are expended.
 /obj/item/ipc_overloader/proc/finish_overloader_effect(var/mob/living/carbon/human/target)
 	handle_overdose_stepdown(target)
 
-// use traits to step up and down from the overdose effects
+/// Uses traits to step up and down from the overdose effects.
 /obj/item/ipc_overloader/proc/handle_overdose(var/mob/living/carbon/human/target)
 	var/added_trait = FALSE
 	for(var/trait in step_up_effects)
