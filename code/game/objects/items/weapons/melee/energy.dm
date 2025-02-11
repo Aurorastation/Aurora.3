@@ -219,7 +219,6 @@
  * Energy Sword
  */
 /obj/item/melee/energy/sword
-	color
 	name = "energy sword"
 	desc = "An energy sword. Quite rare, very dangerous."
 	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
@@ -245,19 +244,24 @@
 	base_block_chance = 30
 	var/blade_color
 
-/obj/item/melee/energy/sword/New()
+/obj/item/melee/energy/sword/Initialize(mapload, ...)
+	. = ..()
 	blade_color = pick("red","blue","green","purple")
 
-/obj/item/melee/energy/sword/green/New()
+/obj/item/melee/energy/sword/green/Initialize(mapload, ...)
+	. = ..()
 	blade_color = "green"
 
-/obj/item/melee/energy/sword/red/New()
+/obj/item/melee/energy/sword/red/Initialize(mapload, ...)
+	. = ..()
 	blade_color = "red"
 
-/obj/item/melee/energy/sword/blue/New()
+/obj/item/melee/energy/sword/blue/Initialize(mapload, ...)
+	. = ..()
 	blade_color = "blue"
 
-/obj/item/melee/energy/sword/purple/New()
+/obj/item/melee/energy/sword/purple/Initialize(mapload, ...)
+	. = ..()
 	blade_color = "purple"
 
 /obj/item/melee/energy/sword/activate(mob/living/user)
