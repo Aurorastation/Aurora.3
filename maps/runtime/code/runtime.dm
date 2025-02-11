@@ -12,7 +12,7 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icon_image_paths = list('icons/misc/titlescreens/runtime/taj1.png', 'icons/misc/titlescreens/runtime/taj2.png', 'icons/misc/titlescreens/runtime/taj3.png', 'icons/misc/titlescreens/runtime/taj4.png', 'icons/misc/titlescreens/runtime/taj5.png')
+	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
 	lobby_transitions = 10 SECONDS
 
 	admin_levels = list(9)

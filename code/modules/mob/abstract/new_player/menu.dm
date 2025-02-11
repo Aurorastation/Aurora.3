@@ -48,6 +48,10 @@
 	using.name = "Current Lore Summary"
 	adding += using
 
+	using = new /atom/movable/screen/new_player/selection/server_logo(src)
+	using.name = "Aurora"
+	adding += using
+
 	mymob.client.screen = list()
 	mymob.client.screen += adding
 	src.adding += using
@@ -99,7 +103,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 		return
 
 	//No point fading if there's only one icon, but we keep the update running in case admins want to add icons on the fly
-	if(length(SSatlas.lobby_icons) <= 1)
+	if(length(SSatlas.lobby_icons) >= 2)
 		//Advance to the next icon
 		lobby_icons_index = max(++lobby_icons_index % length(SSatlas.lobby_icons), 1)
 
@@ -119,6 +123,8 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	icon_state = null
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/click_sound = 'sound/effects/menu_click.ogg'
+	var/does_matrix_scale = TRUE
+	var/uses_hud_arrow = TRUE
 
 /atom/movable/screen/new_player/selection/New(datum/hud/H)
 	color = null
@@ -161,21 +167,21 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	animate(alpha = 60, time = 3, easing = CUBIC_EASING, loop = 3, flags = ANIMATION_CONTINUE)
 
 /atom/movable/screen/new_player/selection/MouseEntered(location, control, params)
-	if(SSatlas.current_sector?.sector_hud_arrow)
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
 		AddOverlays(SSatlas.current_sector.sector_hud_arrow)
-	else
-		var/matrix/M = matrix()
+	var/matrix/M = matrix()
+	if(does_matrix_scale)
 		M.Scale(1.1, 1)
-		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
-		animate(src, alpha = 255, time = 3, easing = CUBIC_EASING)
+		M.Translate(40, 0)
+	animate(src, color = null, transform = M, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 255, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 /atom/movable/screen/new_player/selection/MouseExited(location, control, params)
-	if(SSatlas.current_sector?.sector_hud_arrow)
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
 		ClearOverlays()
-	else
-		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
-		animate(src, alpha = 60, time = 3, easing = CUBIC_EASING)
+	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 60, time = 3, easing = CUBIC_EASING)
 	return ..()
 
 
@@ -186,7 +192,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/join_game
 	name = "Join Game"
-	screen_loc = "LEFT+0.1,CENTER+10"
+	screen_loc = "LEFT+0.5,CENTER+17"
 
 /atom/movable/screen/new_player/selection/join_game/Click(location, control, params)
 	var/mob/abstract/new_player/player = hud.mymob
@@ -194,13 +200,16 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
 		return
 
-	sound_to(player, click_sound)
+
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
+			sound_to(player, 'sound/weapons/laser_safetyoff.ogg')
 			player.ready(FALSE)
 		else
+			sound_to(player, 'sound/weapons/laser_safetyon.ogg')
 			player.ready(TRUE)
 	else
+		sound_to(player, click_sound)
 		player.join_game()
 	update_icon()
 
@@ -248,7 +257,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/manifest
 	name = "Crew Manifest"
-	screen_loc = "LEFT+0.1,CENTER+7"
+	screen_loc = "LEFT+0.5,CENTER+13"
 
 /atom/movable/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
@@ -266,7 +275,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/observe
 	name = "Observe"
-	screen_loc = "LEFT+0.1,CENTER+4"
+	screen_loc = "LEFT+0.5,CENTER+9"
 
 /atom/movable/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
@@ -329,7 +338,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/settings
 	name = "Setup"
-	screen_loc = "LEFT+0.1,CENTER+1"
+	screen_loc = "LEFT+0.5,CENTER+5"
 
 /atom/movable/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
@@ -353,7 +362,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/changelog
 	name = "Changelog"
-	screen_loc = "LEFT+0.1,CENTER-2"
+	screen_loc = "LEFT+0.5,CENTER+1"
 
 
 /**
@@ -363,7 +372,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/polls
 	name = "Polls"
-	screen_loc = "LEFT+0.1,CENTER-5"
+	screen_loc = "LEFT+0.5,CENTER-3"
 	var/new_polls = FALSE
 
 /atom/movable/screen/new_player/selection/polls/Initialize()
@@ -396,7 +405,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
  */
 /atom/movable/screen/new_player/selection/lore_summary
 	name = "Current Lore Summary"
-	screen_loc = "LEFT+0.1,CENTER-8"
+	screen_loc = "LEFT+0.5,CENTER-7"
 
 /atom/movable/screen/new_player/selection/lore_summary/Click()
 	var/mob/abstract/new_player/player = usr
@@ -408,3 +417,25 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
 		output += "<i>[GLOB.config.lore_summary]</i><hr>"
 		to_chat(src, output)
+
+/**
+ * # Title
+ *
+ * Button to view the Aurora website
+ */
+/atom/movable/screen/new_player/selection/server_logo
+	name = "Aurora"
+	screen_loc = "LEFT+0.5,CENTER+42"
+	uses_hud_arrow = FALSE
+	does_matrix_scale = FALSE
+
+/atom/movable/screen/new_player/selection/server_logo/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	if (GLOB.config.websiteurl)
+		if(tgui_alert(player, "This will open the Aurora website in your browser. Are you sure?", "Aurora", list("Yes", "No")) == "No")
+			return
+		send_link(player, GLOB.config.websiteurl)
+	else
+		to_chat(player, SPAN_WARNING("The Aurora website URL is not set in the server configuration."))
+	return
