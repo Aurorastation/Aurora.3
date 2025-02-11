@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/forum_passphrase
 	var/rulesurl
 	var/githuburl
-	var/websiteurl
+	var/mainsiteurl
 
 	//Alert level description
 	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
@@ -650,8 +650,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("githuburl")
 					GLOB.config.githuburl = value
 
-				if ("websiteurl")
-					GLOB.config.websiteurl = value
+				if ("mainsiteurl")
+					GLOB.config.mainsiteurl = value
 
 				if ("ghosts_can_possess_animals")
 					GLOB.config.ghosts_can_possess_animals = value

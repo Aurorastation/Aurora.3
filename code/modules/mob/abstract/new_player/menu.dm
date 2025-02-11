@@ -432,10 +432,10 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 /atom/movable/screen/new_player/selection/server_logo/Click()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
-	if (GLOB.config.websiteurl)
+	if (GLOB.config.mainsiteurl)
 		if(tgui_alert(player, "This will open the Aurora website in your browser. Are you sure?", "Aurora", list("Yes", "No")) == "No")
 			return
-		send_link(player, GLOB.config.websiteurl)
+		send_link(player, GLOB.config.mainsiteurl)
 	else
 		to_chat(player, SPAN_WARNING("The Aurora website URL is not set in the server configuration."))
 	return

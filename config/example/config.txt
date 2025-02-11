@@ -233,7 +233,7 @@ GUEST_BAN
 # RULESURL https://aurorastation.org/rules.html
 
 ## Mainsite address
-# WEBSITEURL https://aurorastation.org/
+# MAINSITEURL https://aurorastation.org/
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
