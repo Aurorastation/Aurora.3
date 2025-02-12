@@ -1,3 +1,9 @@
+// Shuttle area.
+/area/shuttle/crumbling
+	name = "Independent Shuttle"
+	requires_power = TRUE
+
+// Parent area.
 /area/crumbling_station
 	name = "Commercial Waypoint"
 	requires_power = TRUE
