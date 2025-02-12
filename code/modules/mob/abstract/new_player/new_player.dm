@@ -299,10 +299,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
-	equip_custom_items(character, null, null, TRUE) // Equips body-related custom items, like augments and prosthetics.
+	equip_custom_items(character, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
-	equip_custom_items(character, null, null, FALSE) // Equips all other custom items.
+	equip_custom_items(character, body_only = FALSE) // Equips all other custom items.
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
