@@ -24,7 +24,7 @@
 				/obj/item/clothing/under/tajaran,
 				/obj/item/clothing/under/tajaran/nt,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(
@@ -71,7 +71,7 @@
 	uniform = list(
 				/obj/item/clothing/under/syndicate,
 				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/pants/tajaran
 	)
 
 	shoes = list(

@@ -72,9 +72,9 @@
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has robotized [M.key].")
-		spawn(10)
-			M:Robotize()
+		var/mob/living/carbon/human/H = M
+		log_admin("[key_name(src)] has robotized [H.key].")
+		H.Robotize()
 
 	else
 		alert("Invalid mob")
@@ -108,10 +108,10 @@
 		alert("Wait until the game starts")
 		return
 	if(ishuman(M))
-		log_and_message_admins("has slimeized [key_name(M)].", user = usr)
-		spawn(10)
-			M:slimeize()
-			feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+		var/mob/living/carbon/human/H = M
+		log_and_message_admins("has slimeized [key_name(H)].", user = usr)
+		H.slimeize()
+		feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
 		alert("Invalid mob")
 

@@ -11,7 +11,7 @@
 	<br>\
 	Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
 	Note that you cannot control the sleeper while inside of it."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper"
 	density = TRUE
 	anchored = TRUE
@@ -277,8 +277,8 @@
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
 	if(!istype(target))
 		return
 

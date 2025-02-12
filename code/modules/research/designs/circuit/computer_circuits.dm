@@ -23,6 +23,11 @@
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/rdconsole
 
+/datum/design/circuit/computer/robotics_console
+	name = "Robotics Core Console"
+	req_tech = list(TECH_DATA = 4)
+	build_path = /obj/item/circuitboard/robotics_console
+
 /datum/design/circuit/computer/comm_monitor
 	name = "Telecommunications Monitoring Console"
 	req_tech = list(TECH_DATA = 3)

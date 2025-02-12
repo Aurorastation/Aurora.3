@@ -1,6 +1,6 @@
 /obj/item/airlock_electronics
 	name = "airlock electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	w_class = WEIGHT_CLASS_TINY
 
@@ -76,7 +76,7 @@
 			var/obj/item/card/id/I = usr.GetIdCard()
 			if(istype(I) && src.check_access(I))
 				locked = FALSE
-				last_configurator = I:registered_name
+				last_configurator = I.registered_name
 
 	if(locked)
 		return

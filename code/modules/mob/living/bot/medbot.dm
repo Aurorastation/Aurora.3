@@ -127,7 +127,7 @@
 	if(!underlays.len)
 		underlays += image(firstaid_item.icon, firstaid_item.icon_state)
 		var/matrix/M = matrix()
-		var/image/ha_image = image('icons/obj/device.dmi', "health")
+		var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
 		M.Translate(5, 0)
 		ha_image.transform = M
 		underlays += ha_image
@@ -376,7 +376,7 @@
 					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
 					name = "first-aid/robot arm/health analyzer assembly"
 					var/matrix/M = matrix()
-					var/image/ha_image = image('icons/obj/device.dmi', "health")
+					var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
 					M.Translate(5, 0)
 					ha_image.transform = M
 					underlays += ha_image

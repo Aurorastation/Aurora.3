@@ -1,6 +1,6 @@
 /obj/machinery/ai_slipper
 	name = "\improper AI Liquid Dispenser"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/machinery/ai_slipper.dmi'
 	icon_state = "motion0"
 	anchored = 1.0
 	idle_power_usage = 10
@@ -68,9 +68,9 @@
 			return
 
 	user.set_machine(src)
-	var/loc = src.loc
+	var/turf/loc = src.loc
 	if (istype(loc, /turf))
-		loc = loc:loc
+		loc = loc.loc
 	if (!istype(loc, /area))
 		to_chat(user, "Turret badly positioned - loc.loc is [loc].")
 		return

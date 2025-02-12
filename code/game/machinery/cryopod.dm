@@ -166,7 +166,7 @@
 /obj/structure/cryofeed
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "cryo_rear"
 	anchored = TRUE
 	dir = WEST
@@ -174,14 +174,14 @@
 /obj/structure/cryofeed/pipes
 	name = "cryogenic feed pipes"
 	desc = "A bewildering tangle of pipes."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "body_scanner"
 	density = TRUE
 	anchored = TRUE
@@ -408,14 +408,14 @@
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/cryopod/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user, /mob/living))
 		return
 
-	if(!check_occupant_allowed(dropping))
+	if(!check_occupant_allowed(dropped))
 		return
 
-	var/mob/living/M = dropping
+	var/mob/living/M = dropped
 	if(istype(M))
 		go_in(user, M)
 

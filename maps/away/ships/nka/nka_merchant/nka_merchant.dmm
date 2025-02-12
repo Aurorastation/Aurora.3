@@ -988,8 +988,8 @@
 /obj/structure/closet/crate,
 /obj/item/deck/tarot/adhomai,
 /obj/item/deck/tarot/adhomai,
-/obj/item/pocketwatch/adhomai,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3779,7 +3779,8 @@
 /area/shuttle/nka_merchant_shuttle)
 "sQ" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -4696,7 +4697,8 @@
 /area/nka_merchant/mess)
 "DL" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -5036,7 +5038,7 @@
 	},
 /area/nka_merchant/merchant)
 "GE" = (
-/obj/item/modular_computer/console/preset/merchant/nka{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced{
@@ -5371,7 +5373,8 @@
 /area/nka_merchant/merchant)
 "Ki" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
@@ -5668,13 +5671,15 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(213)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "OT" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(213)
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4

@@ -2,10 +2,7 @@
 	name = "helmet"
 	desc = "Standard Security gear. Protects the head from impacts."
 	icon_state = "helmet"
-	item_state_slots = list(
-		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
-		)
+	item_state = "helmet"
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -55,10 +52,10 @@
 		return
 	return ..(user)
 
-/obj/item/clothing/head/helmet/MouseDrop(obj/over_object)
-	if(has_storage && !hold.handle_mousedrop(usr, over_object))
+/obj/item/clothing/head/helmet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(has_storage && !hold.handle_mousedrop(user, over))
 		return
-	return ..(over_object)
+	return ..()
 
 /obj/item/clothing/head/helmet/handle_middle_mouse_click(mob/user)
 	if(has_storage && Adjacent(user))
@@ -417,10 +414,7 @@
 	name = "emergency response team helmet"
 	desc = "An in-atmosphere helmet worn by members of the Emergency Response Team. Protects the head from impacts."
 	icon_state = "erthelmet_cmd"
-	item_state_slots = list(
-		slot_l_hand_str = "syndicate-helm-green",
-		slot_r_hand_str = "syndicate-helm-green"
-	)
+	item_state = "erthelmet_cmd"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,

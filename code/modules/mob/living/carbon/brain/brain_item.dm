@@ -13,8 +13,5 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "scroll"
 	item_state = "scroll"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
-		)
+	contained_sprite = TRUE
 	can_prepare = 0

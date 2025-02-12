@@ -63,6 +63,9 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// The typepath of the visitable our main map is, for example /obj/effect/overmap/visitable/ship/sccv_horizon
+	var/overmap_visitable_type
+
 	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
 	/// Ports of call are taken from the current map sector.
 	var/ports_of_call = FALSE
@@ -153,9 +156,6 @@
 	if(!LAZYLEN(planet_size))
 		planet_size = list(world.maxx, world.maxy)
 
-/datum/map/proc/generate_asteroid()
-	return
-
 // Override to set custom access requirements for camera networks.
 /datum/map/proc/get_network_access(var/network)
 	return 0
@@ -176,9 +176,6 @@
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
-
-// Called right after SSatlas finishes loading the map & multiz is setup.
-/datum/map/proc/finalize_load()
 	return
 
 /datum/map/proc/build_exoplanets()

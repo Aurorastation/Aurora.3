@@ -82,7 +82,7 @@
 	icon_state = "sadrone"
 	icon_living = "sadrone"
 	icon_dead = "sadrone_dead"
-	move_to_delay = 5
+	speed = 5
 	health = 60
 	maxHealth = 60
 	harm_intent_damage = 5
@@ -177,7 +177,7 @@
 			break
 
 	if(target_ore)
-		GLOB.move_manager.move_to(src, target_ore, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, target_ore, 1, speed)
 	else if(found_turfs.len)
 		for(var/turf/simulated/mineral/M in found_turfs)
 			if(!QDELETED(M) || !M.mineral)

@@ -20,10 +20,17 @@
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 
-/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
-	. = ..(mapload, ndir)
+/obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
+	. = ..(mapload)
 
-	update_icon()
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+		buildstage = 0
+		wiresexposed = 1
+
+		update_icon()
+		set_pixel_offsets()
 
 	if(isContactLevel(z))
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
@@ -35,6 +42,8 @@
 
 	if(!mapload)
 		set_pixel_offsets()
+
+	update_icon()
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
@@ -292,7 +301,7 @@ Just a object used in constructing fire alarms
 */
 /obj/item/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = WEIGHT_CLASS_SMALL

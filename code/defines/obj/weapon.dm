@@ -363,6 +363,8 @@
 	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
+	item_state = "radio"
+	contained_sprite = TRUE
 	var/temp = null
 	var/uses = 4.0
 	var/selfdestruct = 0.0
@@ -370,7 +372,6 @@
 	var/obj/item/device/radio/origradio = null
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	item_state = "radio"
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
@@ -460,10 +461,10 @@
 
 /obj/item/device/camera_bug
 	name = "camera bug"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
+	item_state = "flash"
 	w_class = WEIGHT_CLASS_TINY
-	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
 
@@ -521,6 +522,7 @@
 	icon_state = "RPED"
 	item_state = "RPED"
 	icon = 'icons/obj/storage/misc.dmi'
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50

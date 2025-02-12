@@ -17,6 +17,10 @@
 	desc = "A forcefield which seems to be projected by the station's emergency atmosphere containment field."
 	health = 100
 
+/obj/machinery/shield/malfai/New()
+	..()
+	desc = "A forcefield which seems to be projected by the [station_name(TRUE)]'s emergency atmosphere containment field."
+
 /obj/machinery/shield/malfai/process()
 	health -= 0.5 // Slowly lose integrity over time
 	check_failure()

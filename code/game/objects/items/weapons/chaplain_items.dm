@@ -139,12 +139,11 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		item_state = "azubarre_torch-on"
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 	else
 		icon_state = "azubarre_torch-empty"
-		icon_state = "azubarre_torch-empty"
 		set_light(0)
+	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
@@ -477,12 +476,12 @@
 	else
 		open(user)
 
-/obj/item/storage/altar/MouseDrop(mob/user as mob)
-	if(use_check_and_message(user))
+/obj/item/storage/altar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(over))
 		return
-	if(ishuman(user))
-		forceMove(get_turf(usr))
-		usr.put_in_hands(src)
+	if(ishuman(over))
+		forceMove(get_turf(user))
+		user.put_in_hands(src)
 
 /obj/item/storage/altar/kraszar
 	name = "\improper Kraszar altar"

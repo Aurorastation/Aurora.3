@@ -173,9 +173,11 @@
 /obj/machinery/artifact/attack_hand(mob/user)
 	if(use_check_and_message(user, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
-	if(ishuman(user) && user:gloves)
-		to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
-		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.gloves)
+			to_chat(user, "<b>You touch \the [src]</b> with your gloved hands, [pick("but nothing of note happens","but nothing happens","but nothing interesting happens","but you notice nothing different","but nothing seems to have happened")].")
+			return
 
 	src.add_fingerprint(user)
 

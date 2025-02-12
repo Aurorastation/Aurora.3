@@ -103,7 +103,7 @@
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
-	AddOverlays(overlays_to_add, ATOM_ICON_CACHE_PROTECTED)
+	AddOverlays(overlays_to_add)
 	UNSETEMPTY(reinforcement_images)
 	QUEUE_SMOOTH(src)
 	if(smoothing_flags & SMOOTH_UNDERLAYS)

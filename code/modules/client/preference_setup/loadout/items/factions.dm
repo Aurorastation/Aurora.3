@@ -239,9 +239,9 @@
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavodskoicape
-	display_name = "zavodskoi dominian great house cape selection"
-	description = "A selection of Zavodskoi-colored Dominian great house capes."
-	slot = slot_wear_suit
+	display_name = "zavodskoi dominian cape selection"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	flags = GEAR_HAS_DESC_SELECTION
 	faction = "Zavodskoi Interstellar"
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -256,6 +256,14 @@
 	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
+
+/datum/gear/faction/zavodskoicape_colorable
+	display_name = "zavodskoi dominian cape, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A Zavodskoi Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	faction = "Zavodskoi Interstellar"
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 // PMCG
 /datum/gear/faction/pmc_sunglasses
@@ -352,12 +360,66 @@
 	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
+// START: PMCG MODSUIT
 /datum/gear/faction/pmc_modsuit
 	display_name = "PMCG modsuit"
 	description = "A modular PMCG fatigue jumpsuit."
 	path = /obj/item/clothing/under/pmc_modsuit
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/pmc_modsuit/New()
+	..()
+	gear_tweaks += list(gear_tweak_modsuit_configuration)
+
+
+var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+
+/datum/gear_tweak/modsuit_configuration
+	/// the configuration of the modsuit, using just a list of the names
+	var/list/configuration_options = list()
+
+/datum/gear_tweak/modsuit_configuration/get_contents(var/metadata)
+	return "Modsuit Configuration: [metadata]"
+
+/datum/gear_tweak/modsuit_configuration/get_default()
+	var/obj/item/clothing/under/pmc_modsuit/modsuit_type = /obj/item/clothing/under/pmc_modsuit
+	return initial(modsuit_type.modsuit_mode)
+
+/// Instantiates the modsuit item so we can set up the configuration whenever it's needed, only called when the options haven't been configured yet
+/datum/gear_tweak/modsuit_configuration/proc/load_configuration_options()
+	// forgive me, for i have sinned. there is no way to initial() a list, so we need to instantiate the item and grab its data here
+	// and we can't do that in /New, cuz that fails CI. instead, we grab it on-demand here if the options aren't populated
+
+	var/obj/item/clothing/under/pmc_modsuit/initial_uniform = new()
+	for(var/option in initial_uniform.configuration_options)
+		configuration_options |= option
+	qdel(initial_uniform)
+
+/datum/gear_tweak/modsuit_configuration/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	if(!length(configuration_options))
+		load_configuration_options()
+
+	var/selected_configuration = tgui_input_list(user, "How do you want your modsuit to be set up?", title, configuration_options, metadata)
+	if(selected_configuration)
+		return selected_configuration
+
+/datum/gear_tweak/modsuit_configuration/tweak_item(var/obj/item/clothing/under/pmc_modsuit/modsuit, var/metadata, var/mob/living/carbon/human/H)
+	if(!metadata)
+		return
+
+	if(!length(configuration_options))
+		load_configuration_options()
+
+	// if this mode isn't in the options, don't continue, this'll protect us from old data if the mode names ever change
+	if(!(metadata in configuration_options))
+		return
+
+	modsuit.modsuit_mode = metadata
+	modsuit.selected_modsuit()
+
+// END: PMCG MODSUIT
+
 
 /datum/gear/faction/pmcg_sec_uniforms
 	display_name = "PMCG/EPMC security uniform selection"

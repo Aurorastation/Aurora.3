@@ -1373,7 +1373,7 @@
 	icon = 'icons/atmos/tank_scc.dmi'
 
 /obj/machinery/atmospherics/pipe/tank/air/scc_shuttle/airlock
-	start_pressure = 303.975
+	start_pressure = 607.95
 
 /obj/machinery/atmospherics/pipe/tank/oxygen
 	name = "Pressure Tank (Oxygen)"

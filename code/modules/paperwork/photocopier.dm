@@ -281,5 +281,6 @@
 /obj/item/device/toner
 	name = "toner cartridge"
 	desc = "A high-definition toner for colour photocopying and printer machines. Good thing it's a business expense."
+	icon = 'icons/obj/item/device/toner.dmi'
 	icon_state = "tonercartridge"
 	var/toner_amount = 30

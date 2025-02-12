@@ -636,12 +636,13 @@ var/global/list/default_interrogation_channels = list(
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
 	syndie = FALSE
 
-	var/mob/living/silicon/robot/D = loc
-	if(D.module)
-		for(var/ch_name in D.module.channels)
-			if(ch_name in channels)
-				continue
-			channels[ch_name] += D.module.channels[ch_name]
+	if(isrobot(loc))
+		var/mob/living/silicon/robot/D = loc
+		if(D.module)
+			for(var/ch_name in D.module.channels)
+				if(ch_name in channels)
+					continue
+				channels[ch_name] += D.module.channels[ch_name]
 	if(keyslot)
 		for(var/ch_name in keyslot.channels)
 			if(ch_name in channels)

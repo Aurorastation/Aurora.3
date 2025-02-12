@@ -141,7 +141,7 @@
 	log_attack("[s] ([H.ckey])")
 
 	if(O.take_damage(3, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "teeth marks"))
-		H:UpdateDamageIcon()
+		H.UpdateDamageIcon()
 
 	last_chew = world.time
 

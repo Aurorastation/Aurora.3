@@ -64,6 +64,7 @@
 	var/matrix/M = matrix()
 	M.Scale(scale)
 	transform = M
+	. = ..()
 
 	if (!prefix || overwrite)
 		update_prefix()
@@ -104,13 +105,6 @@
 	trash = /obj/item/trash/plate
 	w_class = WEIGHT_CLASS_SMALL
 	size = 8
-
-/obj/item/reagent_containers/food/snacks/variable/cakeslice/update_icon()
-	. = ..()
-	//Filling overlay
-	var/image/I = image(icon, "[icon_state]_filling")
-	I.color = filling_color
-	overlays += I
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
 	name = "hot pocket"

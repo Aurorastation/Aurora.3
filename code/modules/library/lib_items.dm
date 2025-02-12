@@ -190,10 +190,7 @@
 /obj/item/book
 	name = "book"
 	icon = 'icons/obj/library.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
-		)
+	contained_sprite = TRUE
 	icon_state = "book"
 	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1

@@ -21,7 +21,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
-	/mob/living/silicon/ai/proc/remote_control_shell,
+	/mob/living/silicon/ai/proc/remote_control,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
@@ -218,7 +218,7 @@ var/list/ai_verbs_default = list(
 	return ..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
-	to_chat(src, "<h3>You are playing the station's AI.</h3>")
+	to_chat(src, "<h3>You are playing the [station_name()]'s AI.</h3>")
 	to_chat(src, "<strong><a href='?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
 	if(malf && !(mind in malf.current_antagonists))
@@ -358,13 +358,13 @@ var/list/ai_verbs_default = list(
 	var/radio_keys = jointext(src.get_radio_keys(), "<br>")
 	var/dat = "\
 		<h1>AI Basics</h1>\
-		<p>You are playing the station's AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
+		<p>You are playing the [station_name()]'s AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</p>\
 		<p>Familiarize yourself with the GUI buttons in world view. They are shortcuts to running commands for camera tracking, displaying alerts, moving up and down and such.</p>\
 		<p>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc. \
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
 		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
-			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the [station_name(TRUE)].\
 			The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		<h2>OOC Notes</h2>\
@@ -424,7 +424,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement", multiline = TRUE)
+	var/input = tgui_input_text(usr, "Please write a message to announce to the [station_name(TRUE)] crew.", "A.I. Announcement", multiline = TRUE)
 	if(!input)
 		return
 
@@ -800,14 +800,33 @@ var/list/ai_verbs_default = list(
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
 
-/mob/living/silicon/ai/proc/remote_control_shell()
-	set name = "Remote Control Shell"
+/// Retrieves all mobs assigned to REMOTE_AI_ROBOT or REMOTE_AI_MECH and allows the user to select one to control using SSvirtualreality
+/mob/living/silicon/ai/proc/remote_control()
+	set name = "Remote Control"
 	set category = "AI Commands"
-	set desc = "Remotely control any active shells on your AI shell network."
+	set desc = "Remotely control any active shells or mechs on your AI network."
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
-	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
+
+	// Grab from relevant networks
+	var/list/remote_shell = SSvirtualreality.bound_choices(src, REMOTE_AI_ROBOT)
+	var/list/remote_mech = SSvirtualreality.mech_choices(src, REMOTE_AI_MECH)
+	var/list/remote = flatten_list(list(remote_shell, remote_mech))
+
+	if(!length(remote))
+		to_chat(usr, SPAN_WARNING("No active remote units are available."))
+		return
+	var/choice = tgui_input_list(usr, "Please select what to take over.", "Remote Control Selection", remote)
+	if(!choice)
+		return
+
+	// Transfer
+	if(choice in remote_mech)
+		var/mob/living/heavy_vehicle/chosen_mech = remote_mech[choice]
+		SSvirtualreality.mind_transfer(src, chosen_mech.pilots[1]) // the first pilot
+	else
+		SSvirtualreality.mind_transfer(src, choice)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"

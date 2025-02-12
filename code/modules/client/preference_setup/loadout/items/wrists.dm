@@ -33,7 +33,7 @@
 	watchtype["holo watch"] = /obj/item/clothing/wrists/watch/holo
 	watchtype["leather watch"] = /obj/item/clothing/wrists/watch/leather
 	watchtype["spy watch"] = /obj/item/clothing/wrists/watch/spy
-	watchtype["pocketwatch"] = /obj/item/pocketwatch
+	watchtype["pocketwatch"] = /obj/item/clothing/wrists/watch/pocketwatch
 	gear_tweaks += new /datum/gear_tweak/path(watchtype)
 
 /*
@@ -47,7 +47,7 @@
 GLOBAL_DATUM_INIT(gear_tweak_wrist_layer, /datum/gear_tweak/wrist_layer, new())
 
 /datum/gear_tweak/wrist_layer
-	var/list/options = list(WRISTS_UNDER = WRISTS_LAYER_UNDER, WRISTS_OVER_UNIFORM = WRISTS_LAYER_UNIFORM, WRISTS_OVER_SUIT = WRISTS_LAYER_OVER)
+	var/list/options = list(WRISTS_UNDER = UNDER_UNIFORM_LAYER_WR, WRISTS_OVER_UNIFORM = ABOVE_UNIFORM_LAYER_WR, WRISTS_OVER_SUIT = ABOVE_SUIT_LAYER_WR)
 
 /datum/gear_tweak/wrist_layer/get_contents(var/metadata)
 	return "Wrist Layer: [metadata]"

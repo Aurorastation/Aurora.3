@@ -2,6 +2,7 @@ SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
 	runlevels = RUNLEVELS_PLAYING
+	can_fire = FALSE //We process only if we are running an odyssey scenario, this is set to TRUE by `pick_odyssey()`
 
 	/// The selected scenario singleton.
 	var/singleton/scenario/scenario
@@ -74,9 +75,12 @@ SUBSYSTEM_DEF(odyssey)
 
 	scenario = pickweight(possible_scenarios)
 	setup_scenario_variables()
-	// Now that we actually have an odyssey, the subsystem can fire!
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
+
+	// Now that we actually have an odyssey, the subsystem can fire!
+	can_fire = TRUE
+
 	return TRUE
 
 /**
