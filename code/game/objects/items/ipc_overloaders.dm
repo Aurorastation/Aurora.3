@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	/// Total number of times an overloader can be used.
 	var/uses = 2
-	/// Total length of time for a single effect.
+	/// Total length of time between effects.
 	var/effect_time = 30 SECONDS
 	/// Determines how many midway overloader effects are experienced.
 	var/effects = 12
@@ -77,7 +77,7 @@
 				uses--
 				update_icon()
 
-			// If not synthetic, and the targeted organ can feel pain, and the target feels pain because they just got jabbed with a thumb drive.
+			// If not synthetic, and the targeted organ can feel pain, the target feels pain because they just got jabbed with a thumb drive.
 			else if (organ && ORGAN_CAN_FEEL_PAIN(organ))
 				to_chat(target_mob, SPAN_DANGER("You feel a sharp prick!"))
 				target_mob.apply_damage(2, DAMAGE_PAIN, target_zone)
