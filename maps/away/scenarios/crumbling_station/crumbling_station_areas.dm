@@ -78,6 +78,9 @@
 /area/crumbling_station/service/disposals
 	name = "Disposals"
 
+/area/crumbling_station/service/cryo
+	name = "Cryogenics"
+
 // Public areas and crew quarters.
 /area/crumbling_station/civilian
 	icon_state = "yellow"
