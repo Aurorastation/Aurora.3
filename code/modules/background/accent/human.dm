@@ -416,7 +416,7 @@
 
 /datum/accent/reade
 	name = ACCENT_READE
-	description = "Far from a wholly unified dialect, the manner of speaking identified as the accent of Reade is ubiquitous throughout the outer regions of Tau Ceti and its spacer populations, and can be identified by a more archaic cadence brought \
-	about by the remoteness of the communities that speak it. Isolated from the wider system and its culture, all manners of groups can be found around Reade and its adjacent space."
+	description = "Though it is ar from wholly unified, the manner of speaking native to Reade is ubiquitous throughout the outer regions of Tau Ceti and its spacefaring populations. Due to the isolation of these communities\
+	from the wider system, most describe the dialect as strongly archaic, similar to the voice of a Biesellite heard from an old recording."
 	tag_icon = "reade"
 	text_tag = "RDE"
