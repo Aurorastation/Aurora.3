@@ -775,7 +775,29 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	orion_headwear["beret, orion"] = /obj/item/clothing/head/beret/corporate/orion
 	orion_headwear["orion woolen hat"] = /obj/item/clothing/head/wool/orion
 	orion_headwear["orion woolen hat, alt"] = /obj/item/clothing/head/wool/orion/alt
+	orion_headwear["Orion Softcap"] = /obj/item/clothing/head/softcap/orion
 	gear_tweaks += new /datum/gear_tweak/path(orion_headwear)
+
+/datum/gear/faction/orion_qeburger_apron
+	display_name = "Quick-E-Burger apron"
+	description = "An apron for employees of Quick-E-Burger."
+	path = /obj/item/clothing/accessory/apron/qeburgerapron
+	cost = 1
+	faction = "Orion Express"
+
+/datum/gear/faction/orion_qeburger_suit
+	display_name = "Quick-E-Burger jumpsuit"
+	description = "A jumpsuit for employees of Quick-E-Burger."
+	path = /obj/item/clothing/under/qeburgerjumpsuit
+	cost = 1
+	faction = "Orion Express"
+
+/datum/gear/faction/orion_qeburger_visor
+	display_name = "Quick-E-Burger visor"
+	description = "A visored cap for employees of Quick-E-Burger."
+	path = /obj/item/clothing/head/qeburger_visor
+	cost = 1
+	faction = "Orion Express"
 
 //SCC
 /datum/gear/faction/scc_armband
