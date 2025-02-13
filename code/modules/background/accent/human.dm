@@ -413,3 +413,10 @@
 	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
 	tag_icon = "providence"
 	text_tag = "PDE"
+
+/datum/accent/reade
+	name = ACCENT_READE
+	description = "Far from a wholly unified dialect, the manner of speaking identified as the accent of Reade is ubiquitous throughout the outer regions of Tau Ceti and its spacer populations, and can be identified by a more archaic cadence brought \
+	about by the remoteness of the communities that speak it. Isolated from the wider system and its culture, all manners of groups can be found around Reade and its adjacent space."
+	tag_icon = "reade"
+	text_tag = "RDE"
