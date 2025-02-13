@@ -76,10 +76,7 @@
 	update_icon()
 
 /obj/item/implanter/ipc_tag/update_icon()
-	if(ipc_tag)
-		icon_state = "cimplanter1"
-	else
-		icon_state = "cimplanter0"
+	icon_state = "implanter-[ipc_tag ? "1" : "0"]"
 	return
 
 /obj/item/implanter/ipc_tag/attack(mob/living/target_mob, mob/living/user, target_zone)
