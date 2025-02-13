@@ -62,4 +62,5 @@ changes:
   - bugfix: "Fixes recolorable poncho accents."
   - bugfix: "Fixes mesmetron sprite."
   - bugfix: "Fixes not being able to pick up energy swords and their subtypes."
+  - bugfix: "Fixes IPC Implanter sprite."
 
