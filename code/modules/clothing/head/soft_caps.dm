@@ -196,6 +196,5 @@
 /obj/item/clothing/head/softcap/orion
 	name = "Orion Softcap"
 	desc = "A company-issue Orion Express cap. For overworked employees that value corporate pride over protection."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "orion"
 	item_state = "orion"
