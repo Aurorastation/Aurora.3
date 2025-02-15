@@ -250,6 +250,8 @@
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
 
+/// Checks if mech can be powered on/off, sends message to pilot if failed
+/// If remotely called, messages and other hud elements are called on the exosuit itself to prevent wierdness, and errors are handled in `handle_hear_say()`
 /mob/living/heavy_vehicle/proc/toggle_power(var/mob/user, var/remote)
 	// if remotely called, send these messages to the exosuit, not the person calling this proc
 	var/reciever = user
