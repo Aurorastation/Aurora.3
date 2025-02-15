@@ -122,7 +122,7 @@
 	if (!istype(O, /atom))
 		original_name = "[REF(O)] ([O])"
 	else
-		original_name = O:name
+		original_name = O.name
 
 	switch(class)
 		if("restore to default")

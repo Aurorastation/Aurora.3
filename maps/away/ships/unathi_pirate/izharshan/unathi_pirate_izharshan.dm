@@ -64,7 +64,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/threetowns = 10,
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 10)
 	req_access = list(210)
-	restock_items = 1
+	restock_items = TRUE
 
 //shuttle time :)
 

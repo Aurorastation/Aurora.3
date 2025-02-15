@@ -4,7 +4,6 @@
 	icon = 'icons/obj/personal_shield.dmi'
 	icon_state = "personal_shield"
 	item_state = "personal_shield"
-	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	action_button_name = "Toggle Shield"

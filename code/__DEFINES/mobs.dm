@@ -246,6 +246,7 @@
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
 #define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
 #define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
+#define INV_PANTS_DEF_ICON			'icons/mob/pants.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF	  "Self Owned"

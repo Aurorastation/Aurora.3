@@ -16,7 +16,7 @@
 		body.mouse_drop_receive(arglist(args))
 	else . = ..()
 
-/mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
+/mob/living/heavy_vehicle/ClickOn(atom/A, params, mob/user)
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
@@ -127,7 +127,7 @@
 					ruser = user
 				temp_system.afterattack(A,ruser,adj,params)
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
-				log_and_message_admins("used [temp_system] targetting [A]", user, src.loc)
+				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays
 			var/extra_delay = 0
 			if(ME != null)

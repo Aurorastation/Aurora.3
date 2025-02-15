@@ -67,10 +67,9 @@
 				priority = "Undetermined"
 
 /obj/machinery/telecomms/message_server
-	icon = 'icons/obj/machinery/research.dmi'
-	icon_state = "server"
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
+	icon_state = "message_server"
 	telecomms_type = /obj/machinery/telecomms/message_server
 	idle_power_usage = 10
 	active_power_usage = 100
@@ -164,14 +163,6 @@
 		to_chat(user, "You install additional memory and processors into message server. Its filtering capabilities been enhanced.")
 	else
 		..()
-
-/obj/machinery/telecomms/message_server/update_icon()
-	if(!operable(EMPED))
-		icon_state = "server-nopower"
-	else if (!use_power)
-		icon_state = "server-off"
-	else
-		icon_state = "server-on"
 
 /datum/signal/subspace/pda
 	frequency = PUB_FREQ

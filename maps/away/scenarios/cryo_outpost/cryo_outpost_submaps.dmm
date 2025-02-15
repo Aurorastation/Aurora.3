@@ -786,7 +786,7 @@
 "vC" = (
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
-/obj/item/pocketwatch,
+/obj/item/clothing/wrists/watch/pocketwatch,
 /obj/random/loot,
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)

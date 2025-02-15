@@ -46,6 +46,7 @@ var/global/photo_count = 0
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/New()
+	. = ..()
 	id = photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
@@ -210,9 +211,9 @@ var/global/photo_count = 0
 					holding = "They are holding \a [A.r_hand]"
 
 		if(!mob_detail)
-			mob_detail = "You can see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
+			mob_detail = "You can see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
 		else
-			mob_detail += "You can also see [A] in the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+			mob_detail += "You can also see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
 /obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
@@ -319,7 +320,6 @@ var/global/photo_count = 0
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
 	icon_state = "taj_camera_on"
 	item_state = "taj_camera"
-	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
 	black_white = TRUE
 	icon_on = "taj_camera_on"

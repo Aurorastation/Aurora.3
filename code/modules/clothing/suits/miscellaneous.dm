@@ -431,6 +431,22 @@
 		I.AddOverlays(emissive_overlay)
 	return I
 
+/obj/item/clothing/suit/storage/toggle/highvis_red
+	name = "high visibility jacket"
+	desc = "A red jacket with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis_red"
+	item_state = "jacket_highvis_red"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_red_open_su-emis" : "jacket_highvis_red_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."

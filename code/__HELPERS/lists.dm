@@ -881,3 +881,11 @@
 	else
 		used_key_list[input_key] = 1
 	return input_key
+
+// Gets the first instance that is of the given type (strictly)
+/proc/get_instance_of_strict_type(list/L, T)
+	RETURN_TYPE(/atom)
+	for(var/key in L)
+		var/atom/A = key
+		if(A.type == T)
+			return A

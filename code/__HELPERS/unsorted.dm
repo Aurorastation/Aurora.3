@@ -227,8 +227,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 1
 	return 0
 
+#if DM_VERSION < 516
 /proc/sign(x)
 	return x!=0?x/abs(x):0
+#endif
 
 /proc/getline(atom/M,atom/N)//Ultra-Fast Bresenham Line-Drawing Algorithm
 	var/px=M.x		//starting x
@@ -913,35 +915,37 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-/proc/is_hot(obj/item/W as obj)
-	switch(W.type)
-		if(/obj/item/weldingtool)
-			var/obj/item/weldingtool/WT = W
-			if(WT.isOn())
-				return 3800
-			else
-				return 0
-		if(/obj/item/flame/lighter)
-			if(W:lit)
-				return 1500
-			else
-				return 0
-		if(/obj/item/flame/match)
-			if(W:lit)
-				return 1000
-			else
-				return 0
-		if(/obj/item/clothing/mask/smokable/cigarette)
-			if(W:lit)
-				return 1000
-			else
-				return 0
-		if(/obj/item/gun/energy/plasmacutter)
+/proc/is_hot(obj/item/W)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	. = 0
+
+	if(istype(W, /obj/item/weldingtool))
+		var/obj/item/weldingtool/WT = W
+		if(WT.isOn())
 			return 3800
-		if(/obj/item/melee/energy)
-			return 3500
-		else
-			return 0
+
+	if(istype(W, /obj/item/flame/lighter))
+		var/obj/item/flame/lighter/lighter = W
+		if(lighter.lit)
+			return 1500
+
+	if(istype(W, /obj/item/flame/match))
+		var/obj/item/flame/match/match = W
+		if(match.lit)
+			return 1000
+
+	if(istype(W, /obj/item/clothing/mask/smokable/cigarette))
+		var/obj/item/clothing/mask/smokable/cigarette/cigarette = W
+		if(cigarette.lit)
+			return 1000
+
+	if(istype(W, /obj/item/gun/energy/plasmacutter))
+		return 3800
+
+	if(istype(W, /obj/item/melee/energy))
+		return 3500
 
 //Whether or not the given item counts as sharp in terms of dealing damage
 /proc/is_sharp(obj/O)

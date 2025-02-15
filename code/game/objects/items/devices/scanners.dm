@@ -10,8 +10,9 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	icon = 'icons/obj/item/device/healthanalyzer.dmi'
 	icon_state = "health"
-	item_state = "healthanalyzer"
+	item_state = "analyzer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -373,10 +374,9 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon = 'icons/obj/item/tools/air_analyzer.dmi'
+	icon = 'icons/obj/item/device/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -409,8 +409,9 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer
 	name = "mass spectrometer"
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
+	icon = 'icons/obj/item/device/mass_spectrometer.dmi'
 	icon_state = "spectrometer"
-	item_state = "analyzer"
+	item_state = "spectrometer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -471,6 +472,7 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
+	item_state = "adv_spectrometer"
 	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -483,6 +485,7 @@ BREATH ANALYZER
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
+	icon = 'icons/obj/item/device/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -518,12 +521,14 @@ BREATH ANALYZER
 /obj/item/device/reagent_scanner/adv
 	name = "advanced reagent scanner"
 	icon_state = "adv_reagent_scanner"
+	item_state = "analyzer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/slime_scanner
 	name = "slime scanner"
-	icon_state = "adv_spectrometer"
+	icon = 'icons/obj/item/device/slime_scanner.dmi'
+	icon_state = "slime_scanner"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
 	w_class = WEIGHT_CLASS_SMALL
@@ -568,8 +573,8 @@ BREATH ANALYZER
 /obj/item/device/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
+	icon = 'icons/obj/item/device/price_scanner.dmi'
 	icon_state = "price_scanner"
-	item_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -589,6 +594,7 @@ BREATH ANALYZER
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
+	icon = 'icons/obj/item/device/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -698,9 +704,10 @@ BREATH ANALYZER
 
 /obj/item/device/advanced_healthanalyzer
 	name = "advanced health analyzer"
-	desc = "An expensive and varied-use health analyzer of Zeng-Hu design that prints full-body scans after a short scanning delay."
-	icon_state = "adv-analyzer"
-	item_state = "adv-analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon = 'icons/obj/item/device/advanced_healthanalyzer.dmi'
+	icon_state = "health_adv"
+	item_state = "analyzer"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
@@ -725,6 +732,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	flick("[icon_state]-scan", src)
 	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
 		print_scan(target_mob, user)
 		add_fingerprint(user)

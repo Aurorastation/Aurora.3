@@ -6,6 +6,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	contained_sprite = TRUE
 	icon_state = "knife"
+	item_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	sharp = 1

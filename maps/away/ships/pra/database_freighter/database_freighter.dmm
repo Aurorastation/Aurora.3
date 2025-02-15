@@ -387,7 +387,8 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1037,7 +1038,8 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -2743,7 +2745,8 @@
 /area/database_freighter)
 "mF" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)

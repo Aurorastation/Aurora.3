@@ -341,6 +341,14 @@
 	item_state = "crdress"
 	worn_state = "crdress"
 
+/obj/item/clothing/under/dress/offworlder/skirt
+	name = "\improper CR dress skirt"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon_state = "crskirt"
+	item_state = "crskirt"
+	worn_state = "crskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 /obj/item/clothing/under/hosformalmale
 	name = "head of security's formal uniform"
 	desc = "A male head of security's formal-wear, for special occasions."

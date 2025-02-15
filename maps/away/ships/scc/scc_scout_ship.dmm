@@ -1200,8 +1200,8 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/item/clothing/accessory/dressshirt/alt,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/alt,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/kneepads,
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/accessory/tie/black,
@@ -7546,13 +7546,13 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
 /obj/item/clothing/under/color/grey,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/black,
+/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/color/lightred,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/accessory/poncho,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/under/sundress,
 /obj/machinery/alarm/north{
 	req_one_access = null
