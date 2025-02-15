@@ -628,6 +628,13 @@
 
 		// Checking whether we have a leader or not
 		if(!leader)
+			if(findtext(text, "toggle maintenance protocols")) // Allow for engaging maintenance protocols if no pilot
+				if(pilots)
+					say("Unlinked toggling of maintenance protocols requires no active pilots.")
+					return
+				if(toggle_maintenance_protocols())
+					say("Maintenance protocols toggled [maintenance_protocols ? "on" : "off"].")
+				return
 			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
 				say("Maintenance protocols must be enabled to link.")
 				return
