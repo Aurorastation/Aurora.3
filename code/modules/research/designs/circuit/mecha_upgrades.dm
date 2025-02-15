@@ -6,7 +6,7 @@
 
 /datum/design/circuit/exosuit_upgrade/remote
 	name = "Standard Remote Control"
-	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3, TECH_MATERIAL = 3)
+	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	build_path = /obj/item/remote_mecha
 
 /datum/design/circuit/exosuit_upgrade/remote/penal

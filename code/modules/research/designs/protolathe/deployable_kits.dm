@@ -4,7 +4,7 @@
 /datum/design/item/deployable_kit/mech_chair
 	name = "Remote Mech Centre"
 	desc = "A deployable kit of a remote mech chair, capable of listening in to standard remote mech networks."
-	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3, TECH_MATERIAL = 3)
+	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_SILVER = 750, MATERIAL_URANIUM = 250)
 	build_path = /obj/item/deployable_kit/remote_mech
 
