@@ -46,6 +46,11 @@
 	H.toggled()
 	return TRUE
 
+/mob/living/heavy_vehicle/proc/toggle_power_remote()
+	var/atom/movable/screen/mecha/toggle/power_control/P = locate() in hud_elements
+	P.toggled(TRUE)
+	return TRUE
+
 /mob/living/heavy_vehicle/proc/toggle_lock()
 	var/atom/movable/screen/mecha/toggle/hatch/L = locate() in hud_elements
 	L.toggled()

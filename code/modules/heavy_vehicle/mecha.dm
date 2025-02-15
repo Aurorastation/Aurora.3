@@ -250,9 +250,13 @@
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
 
-/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user)
+/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user, var/remote)
+	// if remotely called, send these messages to the exosuit, not the person calling this proc
+	var/reciever = user
+	if(remote)
+		reciever = src
 	if(power == MECH_POWER_TRANSITION)
-		to_chat(user, SPAN_NOTICE("Power transition in progress. Please wait."))
+		to_chat(reciever, SPAN_NOTICE("Power transition in progress. Please wait."))
 	else if(power == MECH_POWER_ON) //Turning it off is instant
 		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
@@ -260,15 +264,15 @@
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
-		if(do_after(user, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
+		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
 			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
 			power = MECH_POWER_ON
 		else
-			to_chat(user, SPAN_WARNING("You abort the powerup sequence."))
+			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
 		hud_power_control?.queue_icon_update()
 	else
-		to_chat(user, SPAN_WARNING("Error: No power cell was detected."))
+		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/device/radio/exosuit
 	name = "exosuit radio"

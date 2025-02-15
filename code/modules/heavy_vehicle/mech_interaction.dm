@@ -691,6 +691,18 @@
 					say("Hatch [hatch_closed ? "closed" : "opened"].")
 				return
 
+			// simply toggle on or off the power
+			if(findtext(text, "toggle power"))
+				if(power == MECH_POWER_TRANSITION)
+					say("Power transition in progress. Please wait.")
+					return
+				else if(power == MECH_POWER_OFF && !get_cell(TRUE))
+					say("Insufficent power to power systems.")
+					return
+				if(toggle_power_remote())
+					say("Systems [power == MECH_POWER_ON ? "online" : "offline"].")
+				return
+
 			// simply toggle the lock status
 			if(findtext(text, "toggle lock"))
 				if(!hatch_closed)
