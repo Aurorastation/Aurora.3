@@ -2,7 +2,7 @@
 	category = "custodial"
 	name = "space cleaner"
 	supplier = "blam"
-	description = "BLAM!-brand non-foaming space cleaner!"
+	description = "BLAM!-brand non-foaming space cleaner! Perfect for those pesky stains."
 	price = 50
 	items = list(
 		/obj/item/reagent_containers/spray/cleaner
@@ -12,14 +12,70 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/basic_soap
+	category = "custodial"
+	name = "basic soap"
+	supplier = "blam"
+	description = "A basic bar of soap. It cleans, and does absolutely nothing else."
+	price = 8
+	items = list(
+		/obj/item/soap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/premium_soap
+	category = "custodial"
+	name = "random premium soaps (x3)"
+	supplier = "blam"
+	description = "A selection of premium random soaps, as part of a variety pack."
+	price = 70
+	items = list(
+		/obj/random/soap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 3
+
 /singleton/cargo_item/trashbag
 	category = "custodial"
-	name = "trash bag"
+	name = "trash bag (x3)"
 	supplier = "blam"
-	description = "A heavy-duty polymer trash bag."
-	price = 10
+	description = "Heavy duty polymer trash bags."
+	price = 20
 	items = list(
 		/obj/item/storage/bag/trash
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 3
+
+/singleton/cargo_item/lightreplacer
+	category = "custodial"
+	name = "light replacer"
+	supplier = "blam"
+	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
+	price = 135
+	items = list(
+		/obj/item/device/lightreplacer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/replacementlights_box
+	category = "custodial"
+	name = "box of replacement lights"
+	supplier = "blam"
+	description = "This box is shaped on the inside so that only light tubes and bulbs fit."
+	price = 100
+	items = list(
+		/obj/item/storage/box/lights/mixed
 	)
 	access = 0
 	container_type = "crate"
@@ -49,7 +105,7 @@
 	items = list(
 		/obj/item/mop
 	)
-	access = ACCESS_JANITOR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +119,7 @@
 	items = list(
 		/obj/structure/mopbucket
 	)
-	access = ACCESS_JANITOR
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -78,34 +134,6 @@
 		/obj/item/grenade/chem_grenade/cleaner
 	)
 	access = ACCESS_JANITOR
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/lightreplacer
-	category = "custodial"
-	name = "light replacer"
-	supplier = "blam"
-	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
-	price = 135
-	items = list(
-		/obj/item/device/lightreplacer
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/replacementlights_box
-	category = "custodial"
-	name = "box of replacement lights"
-	supplier = "blam"
-	description = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	price = 100
-	items = list(
-		/obj/item/storage/box/lights/mixed
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
