@@ -21,9 +21,9 @@ Class Variables:
 	power_channel (num)
 		What channel to draw from when drawing power for power mode
 		Possible Values:
-			EQUIP:0 -- Equipment Channel
-			LIGHT:2 -- Lighting Channel
-			ENVIRON:3 -- Environment Channel
+			AREA_USAGE_EQUIP:0 -- Equipment Channel
+			AREA_USAGE_LIGHT:2 -- Lighting Channel
+			AREA_USAGE_ENVIRON:3 -- Environment Channel
 
 	component_parts (list)
 		A list of component parts of machine used by frame based machines.
@@ -51,11 +51,11 @@ Class Procs:
 
 	Destroy()                     'game/machinery/machine.dm'
 
-	powered(chan = EQUIP)         'modules/power/power_usage.dm'
+	powered(chan = AREA_USAGE_EQUIP)         'modules/power/power_usage.dm'
 		Checks to see if area that contains the object has power available for power
 		channel given in 'chan'.
 
-	use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
+	use_power_oneoff(amount, chan=AREA_USAGE_EQUIP, autocalled)   'modules/power/power_usage.dm'
 		Deducts 'amount' from the power channel 'chan' of the area that contains the object.
 		This is not a continuous draw, but rather will be cleared after one APC update.
 
@@ -95,7 +95,7 @@ Class Procs:
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
-	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
+	var/power_channel = AREA_USAGE_EQUIP //AREA_USAGE_EQUIP, AREA_USAGE_ENVIRON or AREA_USAGE_LIGHT
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:
 			type -> num_objects

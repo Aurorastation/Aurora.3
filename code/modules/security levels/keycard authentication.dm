@@ -19,7 +19,7 @@
 	anchored = 1.0
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 
 /obj/machinery/keycard_auth/Initialize(mapload, d, populate_components, is_internal)
 	..()

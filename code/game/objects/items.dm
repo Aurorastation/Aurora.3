@@ -291,6 +291,7 @@
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
 	contained_sprite = TRUE
+	item_state = "electronic"
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL

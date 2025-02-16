@@ -1835,8 +1835,8 @@
 /obj/machinery/vending/ramen
 	name = "ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
-	icon_state = "ramenvend"
-	icon_vend = "ramenvend"
+	icon_state = "ramen"
+	icon_vend = "ramen-vend"
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(

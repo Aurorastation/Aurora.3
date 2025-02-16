@@ -11,6 +11,7 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
+	slot_flags = SLOT_ICLOTHING | SLOT_TIE
 
 // Tubeneck Sweater
 /obj/item/clothing/accessory/sweater/tubeneck

@@ -300,7 +300,7 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 
 	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 

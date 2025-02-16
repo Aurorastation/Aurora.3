@@ -268,7 +268,7 @@
 	for(var/areatype in areas_without_light)
 		to_world("* [areatype]")
 
-	to_world("<b>AREAS WITHOUT A LIGHT SWITCH:</b>")
+	to_world("<b>AREAS WITHOUT A AREA_USAGE_LIGHT SWITCH:</b>")
 	for(var/areatype in areas_without_LS)
 		to_world("* [areatype]")
 
