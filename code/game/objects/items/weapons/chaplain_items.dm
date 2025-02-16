@@ -139,12 +139,11 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		item_state = "azubarre_torch-on"
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 	else
 		icon_state = "azubarre_torch-empty"
-		icon_state = "azubarre_torch-empty"
 		set_light(0)
+	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit

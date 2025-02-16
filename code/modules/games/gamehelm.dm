@@ -154,7 +154,7 @@
 	case_color = "yellow"
 
 /obj/item/gamehelm/turquoise
-	case_color = "turqoise"
+	case_color = "turquoise"
 
 /obj/item/gamehelm/weathered
 	case_color = "weathered"

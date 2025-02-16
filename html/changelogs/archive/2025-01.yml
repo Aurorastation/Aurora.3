@@ -173,3 +173,39 @@
   - bugfix: Fixes the GPS.
   - bugfix: Removes duplicate mimosa entry. Fixes invisible mimosa bug.
   - bugfix: Fixes some mapped shirts with wrong paths.
+2025-01-29:
+  ChangeMe:
+  - rscadd: You can now look down open spaces by shift clicking/examining them when
+      they're next to you.
+  - rscadd: You can now look up open spaces by clicking the HUD element at the top
+      right.
+  - bugfix: Fixed inconsistencies with the camera getting stuck while looking up or
+      down. It should now be much more fluid.
+  Furrycactus:
+  - rscadd: Added a guest pass terminal in Service by the Kitchen, Security, and one
+      to the Bridge.
+  - rscdel: Added a ringer and ringer terminal in the Security lobby.
+  MattAtlas:
+  - bugfix: Announcements now actually only show up for ghosts if they are on the
+      same z-level OR if it's a Horizon announcement.
+  SimpleMaroon:
+  - rscadd: Added a recolorable paper sheet to the loadout. You can write things on
+      it before you spawn, just like with business cards.
+  - qol: Added several Unathi loadout items to the Xenowear - Diona tab that were
+      not previously available to Moghesian Dionae.
+  - rscdel: Removed the Dionae sinta tunic from the Xenowear - Diona tab. The tunic
+      can now be selected for Dionae under the standard option in Xenowear - Unathi
+      instead.
+  - imageadd: Added an alternate recolorable boonie hat with an accent to the loadout.
+  - imageadd: Added black, white, and Zavodskoi-brown Dominian capes with colorable
+      stripes to the loadout. You can say that the cape is in the color of a Minor
+      House through the description if you desire.
+  - qol: The Zavodskoi Dominian cape selection in the loadout no longer explicitly
+      gives reference to Great Houses only.
+  - bugfix: The Zavodskoi Dominian cape selection in the loadout can now choose a
+      spawn slot like intended.
+  SingingSpock:
+  - spellcheck: Fixed some wording in the Republic Decurion ghostrole to reflect that
+      officers are commissioned, not enlisted.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes accessory custom item sprites.

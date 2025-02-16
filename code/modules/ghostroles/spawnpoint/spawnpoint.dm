@@ -150,7 +150,7 @@
 /obj/effect/ghostspawpoint/cryo
 	name = "cryogenic storage pod"
 	desc = "A pod used to store individual in suspended animation"
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper-closed"
 
 	identifier = null //identifier of this spawnpoint

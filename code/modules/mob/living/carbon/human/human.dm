@@ -2259,16 +2259,17 @@
 	set desc = "If you want to know what's above."
 	set category = "IC"
 
+	look_up_open_space(get_turf(src))
 
+/mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !is_physically_disabled())
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/T = get_turf(src)
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
-			z_eye = new /atom/movable/z_observer/z_up(src, src)
+			z_eye = new /atom/movable/z_observer/z_up(src, src, T)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
@@ -2281,21 +2282,23 @@
 	set desc = "If you want to know what's below."
 	set category = "IC"
 
+	look_down_open_space(get_turf(src))
+
+/mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !is_physically_disabled())
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/T = get_turf(src)
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
-			z_eye = new /atom/movable/z_observer/z_down(src, src)
+			z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
 			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
-				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
+				z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return

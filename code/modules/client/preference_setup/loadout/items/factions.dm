@@ -239,9 +239,9 @@
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavodskoicape
-	display_name = "zavodskoi dominian great house cape selection"
-	description = "A selection of Zavodskoi-colored Dominian great house capes."
-	slot = slot_wear_suit
+	display_name = "zavodskoi dominian cape selection"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	flags = GEAR_HAS_DESC_SELECTION
 	faction = "Zavodskoi Interstellar"
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -256,6 +256,14 @@
 	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
+
+/datum/gear/faction/zavodskoicape_colorable
+	display_name = "zavodskoi dominian cape, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A Zavodskoi Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	faction = "Zavodskoi Interstellar"
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 // PMCG
 /datum/gear/faction/pmc_sunglasses
