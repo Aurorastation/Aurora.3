@@ -895,7 +895,7 @@
 	var/can_be_broken = TRUE
 	var/separated = FALSE
 	var/tag_type = /obj/item/dogtag
-	var/tucked = TRUE
+	var/tucked = TRUE // If tucked is true, sprite is invisible on the mob; if false, it shows up as normal
 
 /obj/item/dogtag
 	name = "dogtag"
@@ -919,17 +919,11 @@
 				separated = TRUE
 				update_icon()
 		if(user.a_intent == I_HELP)
-			if(!tucked)
+			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
-				to_chat(user, SPAN_NOTICE("You tuck \the [src] under your [H.w_uniform.name]."))
+				to_chat(user, SPAN_NOTICE("You [tucked ? "untuck" : "tuck"] \the [src] [tucked ? "from" : "under"] your [H.w_uniform.name]."))
 				tucked = !tucked
 				update_icon()
-			else
-				var/mob/living/carbon/human/H = user
-				to_chat(user, SPAN_NOTICE("You untuck \the [src] from your [H.w_uniform.name]."))
-				tucked = !tucked
-				update_icon()
-
 
 /obj/item/clothing/accessory/dogtags/update_icon()
 	if(separated)
