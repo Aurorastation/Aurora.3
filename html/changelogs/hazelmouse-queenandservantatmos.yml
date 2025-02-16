@@ -55,5 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Resolved a number of broken and otherwise improper bits of mapping in several offsites, including broken icons."
-  - rscdel: "Deleted an empty .dm file for a previously removed offsite. "
+  - balance: "Greimorian queens and servants now die in vacuum."
