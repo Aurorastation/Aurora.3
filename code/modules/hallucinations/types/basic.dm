@@ -81,9 +81,9 @@
 	if(!length(people))
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
-	var/mob/living/carbon/human/caller = pick(people)
+	var/mob/living/carbon/human/requester = pick(people)
 
-	to_chat(holder, "[caller.get_accent_icon(null, holder)] <span class='radio'><b>[caller]</b> says, \"[radio_exclaim]\"</span>")
+	to_chat(holder, "[requester.get_accent_icon(null, holder)] <span class='radio'><b>[requester]</b> says, \"[radio_exclaim]\"</span>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.

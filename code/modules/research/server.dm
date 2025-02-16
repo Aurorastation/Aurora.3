@@ -1,8 +1,7 @@
 /obj/machinery/r_n_d/server
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
-	icon = 'icons/obj/machinery/research.dmi'
-	icon_state = "server"
+	icon_state = "RD-server"
 	var/datum/research/files
 	var/health = 100
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.

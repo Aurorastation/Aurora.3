@@ -378,7 +378,8 @@
 				B.title = title
 				B.author = author
 				B.dat = content
-				B.icon_state = "book[rand(1,7)]"
+				B.icon_state = "book[rand(1,16)]"
+				B.item_state = B.icon_state
 				src.visible_message("\The [src]\s printer hums as it produces a book.")
 				break
 	if(href_list["orderbyid"])

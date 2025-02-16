@@ -13,20 +13,45 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
 
+	req_one_access = list(ACCESS_HEADS, ACCESS_CHAPEL_OFFICE)
+
+	/// How much power is consumed per item loaded
 	var/item_power_usage = 15
 
+	/// The area our holodeck is linked to
 	var/area/linkedholodeck = null
+
+	/// The type of area our holodeck will be loaded into
 	var/linkedholodeck_area
-	var/active = 0
+
+	/// Whether there's a scene active or not
+	var/active = FALSE
+
+	/// The holographic objects our program has loaded
 	var/list/holographic_objs = list()
+
+	/// The list of holographic mobs our program has loaded
 	var/list/holographic_mobs = list()
-	var/damaged = 0
-	var/safety_disabled = 0
+
+	/// The list of landmarks within our holodeck program
+	var/list/holodeck_landmarks = list()
+
+	/// Whether the console was damaged or not
+	var/damaged = FALSE
+
+	/// Whether the safety has been disabled or not
+	var/safety_disabled = FALSE
+
+	/// The last mob to emag us
 	var/mob/last_to_emag = null
+
+	/// Indicates the last world.time the holodeck setting was changed
 	var/last_change = 0
+
+	/// Indicates the last world.time the gravity was changed
 	var/last_gravity_change = 0
 
-	req_one_access = list(ACCESS_HEADS, ACCESS_CHAPEL_OFFICE)
+	/// Whether the console has been locked or not
 	var/locked = FALSE
 
 /obj/machinery/computer/holodeck_control/Initialize()
@@ -189,36 +214,25 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	if (stat != oldstat && active && (stat & NOPOWER))
 		emergencyShutdown()
 
-/obj/machinery/computer/holodeck_control/process()
+/obj/machinery/computer/holodeck_control/process(seconds_per_tick)
 	for(var/item in holographic_objs) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))
 			derez(item, 0)
 
 	if (!safety_disabled)
-		for(var/mob/living/simple_animal/hostile/carp/holodeck/C in holographic_mobs)
-			if (get_area(C.loc) != linkedholodeck)
-				holographic_mobs -= C
-				C.derez()
-		for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
-			if (get_area(P.loc) != linkedholodeck)
-				holographic_mobs -= P
-				P.derez()
-		for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
-			if (get_area(S.loc) != linkedholodeck)
-				holographic_mobs -= S
-				S.derez()
-		for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
-			if (get_area(K.loc) != linkedholodeck)
-				holographic_mobs -= K
-				K.derez()
+		for(var/mob/living/simple_animal/holo_animal in holographic_mobs)
+			if(get_area(holo_animal.loc) != linkedholodeck)
+				holographic_mobs -= holo_animal
+				holo_animal.derez()
 
 	if(!operable())
 		return
+
 	if(active)
 		use_power_oneoff(item_power_usage * (holographic_objs.len + holographic_mobs.len))
 
 		if(!checkInteg(linkedholodeck))
-			damaged = 1
+			damaged = TRUE
 			loadProgram(SSatlas.current_map.holodeck_programs["turnoff"], 0)
 			active = 0
 			update_use_power(POWER_USE_IDLE)
@@ -231,6 +245,9 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 					spark(T, 2, GLOB.alldirs)
 				T.ex_act(3)
 				T.hotspot_expose(1000,500,1)
+		else
+			for(var/obj/effect/landmark/holodeck/holo_landmark in holodeck_landmarks)
+				holo_landmark.handle_process(seconds_per_tick)
 
 /obj/machinery/computer/holodeck_control/proc/derez(var/obj/obj , var/silent = 1)
 	holographic_objs.Remove(obj)
@@ -273,6 +290,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 /obj/machinery/computer/holodeck_control/proc/loadProgram(var/datum/holodeck_program/HP, var/check_delay = 1)
 	if(!HP)
 		return
+
 	var/area/A = locate(HP.target)
 	if(!A)
 		return
@@ -293,28 +311,14 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	for(var/item in holographic_objs)
 		derez(item)
 
-	for(var/mob/living/simple_animal/hostile/carp/holodeck/C in holographic_mobs)
-		holographic_mobs -= C
-		C.derez()
-
-	for(var/mob/living/simple_animal/penguin/holodeck/P in holographic_mobs)
-		holographic_mobs -= P
-		P.derez()
-
-	for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
-		holographic_mobs -= S
-		S.derez()
-
-	for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
-		holographic_mobs -= K
-		K.derez()
+	for(var/mob/living/simple_animal/holo_animal in holographic_mobs)
+		holographic_mobs -= holo_animal
+		holo_animal.derez()
 
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
 
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
-	for(var/obj/holo_obj in holographic_objs)
-		holo_obj.alpha *= 1 //no more transparency, otherwise new presets look like crap -kyres
 
 	if(HP.ambience)
 		linkedholodeck.music = HP.ambience
@@ -327,39 +331,13 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 	linkedholodeck.sound_environment = A.sound_environment
 
-	spawn(30)
-		for(var/obj/effect/landmark/L in linkedholodeck)
-			if(L.name=="Atmospheric Test Start")
-				spawn(20)
-					var/turf/T = get_turf(L)
-					spark(T, 2, GLOB.alldirs)
-					if(T)
-						T.temperature = 5000
-						T.hotspot_expose(50000,50000,1)
-			if(L.name=="Holocarp Spawn")
-				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
+	addtimer(CALLBACK(src, PROC_REF(load_landmarks)), 3 SECONDS)
 
-			if(L.name=="Penguin Spawn Random")
-				if (prob(50))
-					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck(L.loc)
-				else
-					holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/baby(L.loc)
-
-			if(L.name=="Penguin Spawn Emperor")
-				holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(L.loc)
-
-			if(L.name=="Animal Baby Spawn Random")
-				if (prob(50))
-					holographic_mobs += new /mob/living/simple_animal/corgi/puppy/holodeck(L.loc)
-				else
-					holographic_mobs += new /mob/living/simple_animal/cat/kitten/holodeck(L.loc)
-
-			if(L.name=="Holocarp Spawn Random")
-				if (prob(4)) //With 4 spawn points, carp should only appear 15% of the time.
-					holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
-
-		update_projections()
-
+/obj/machinery/computer/holodeck_control/proc/load_landmarks()
+	holodeck_landmarks = list()
+	for(var/obj/effect/landmark/holodeck/holo_landmark in linkedholodeck)
+		holo_landmark.initialize_holodeck_landmark(src)
+	update_projections()
 
 /obj/machinery/computer/holodeck_control/proc/toggleGravity(var/area/A)
 	if(world.time < (last_gravity_change + 25))

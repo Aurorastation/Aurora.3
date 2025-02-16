@@ -35,16 +35,18 @@
 	return TRUE
 
 /obj/machinery/ntnet_relay/update_icon()
-	icon_state = initial(icon_state)
 	ClearOverlays()
+	if(operable())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(dos_failure)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_failure"))
+		AddOverlays("[icon_state]_failure")
+	if(!enabled)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_failure"))
+		AddOverlays("[icon_state]_lights_failure")
 	if(panel_open)
-		icon_state += "_o"
-	if(!operable())
-		icon_state += "_off"
-	else if(dos_failure)
-		AddOverlays("relay_traitor")
-	else if(!enabled)
-		AddOverlays("relay_traitor_activate")
+		AddOverlays("[icon_state]_panel")
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
