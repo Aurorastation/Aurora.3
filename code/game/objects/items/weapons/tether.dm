@@ -4,8 +4,10 @@ var/list/global/all_tethers = list()
 	name = "tethering device"
 	desc = "A device used by explorers to keep track of partners by way of electro-tether."
 	desc_info = "Use in-hand to activate, must be on the same level and within fifteen tiles of another device to latch. Tethers are colour coded by distance."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	force = 1
@@ -18,6 +20,11 @@ var/list/global/all_tethers = list()
 	. = ..()
 	all_tethers += src
 
+/obj/item/tethering_device/update_icon()
+	ClearOverlays()
+	if(active)
+		AddOverlays("gps_on")
+
 /obj/item/tethering_device/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	deactivate()
@@ -26,12 +33,14 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/attack_self(mob/user)
 	active = !active
+	update_icon()
 	var/msg = "You [active ? "activate" : "deactivate"] \the [src]."
 	to_chat(user, SPAN_NOTICE(msg))
 	if(active)
 		activate()
 	else
 		deactivate()
+
 
 /obj/item/tethering_device/process()
 	var/turf/our_turf = get_turf(src)
@@ -54,7 +63,7 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/emp_act(severity)
 	. = ..()
-
+	AddOverlays("gps_emp")
 	deactivate()
 
 /obj/item/tethering_device/proc/activate()

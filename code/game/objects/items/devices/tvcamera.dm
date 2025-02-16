@@ -1,6 +1,7 @@
 /obj/item/device/tvcamera
 	name = "press camera drone"
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
+	icon = 'icons/obj/item/device/tvcamera.dmi'
 	icon_state = "camcorder"
 	item_state = "camcorder"
 	w_class = WEIGHT_CLASS_BULKY

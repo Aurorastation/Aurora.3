@@ -1,5 +1,6 @@
 /obj/item/organ/internal/kidneys
 	name = "kidneys"
+	desc = "Found right above the kidshins."
 	icon_state = "kidneys"
 	gender = PLURAL
 	organ_tag = BP_KIDNEYS

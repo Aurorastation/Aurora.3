@@ -86,7 +86,6 @@
 	desc = "A portable, beautiful and flashy stage light!"
 	light_color = COLOR_ORANGE
 	icon_state = "stage"
-	item_state = "stage"
 
 /obj/item/device/flashlight/lamp/holodeck
 	name = "holographic lighting orb"
@@ -97,7 +96,6 @@
 	light_color = "#ffcb9b"
 	icon = 'icons/effects/props/holodeck/holodeck_tools.dmi'
 	icon_state = "orb"
-	item_state = "orb"
 
 /obj/item/device/flashlight/lamp/holodeck/attack_hand(mob/user)
 	toggle()
@@ -109,4 +107,3 @@
 	light_color = "#ffcb9b"
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi'
 	icon_state = "boxlamp"
-	item_state = "boxlamp"

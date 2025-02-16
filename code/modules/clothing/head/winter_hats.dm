@@ -27,6 +27,7 @@
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
+	item_state = icon_state
 	update_icon()
 	update_clothing_icon()
 

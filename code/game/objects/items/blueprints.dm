@@ -1,7 +1,7 @@
 /obj/item/blueprints
 	name = "blueprints"
 	desc = "Blueprints of the station. There is a \"Classified\" stamp and several coffee stains on it."
-	icon = 'icons/obj/item/tools/blueprints.dmi'
+	icon = 'icons/obj/item/blueprints.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
 	w_class = WEIGHT_CLASS_SMALL

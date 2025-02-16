@@ -44,6 +44,7 @@
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
+	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -307,6 +308,20 @@
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
+/datum/gear/suit/dominia_cape_colorable
+	display_name = "dominian cape selection, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/suit/dominia_cape_colorable/New()
+	..()
+	var/list/dominiacape = list()
+	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	dominiacape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape
