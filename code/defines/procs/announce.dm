@@ -48,7 +48,7 @@
 			continue
 
 		// Due to spam, only print announcements if the ghost is in the matching z-level, OR if it's a Horizon message.
-		if(isghost(M) || (!isdeaf(M) && ((GET_Z(M) in zlevels) || zlevels == SSatlas.current_map.contact_levels)))
+		if((isghost(M) && ((zlevels == SSatlas.current_map.contact_levels) || (GET_Z(M) in zlevels))) || (!isdeaf(M) && (GET_Z(M) in zlevels)))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)

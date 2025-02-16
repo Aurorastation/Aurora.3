@@ -156,9 +156,6 @@
 	if(!LAZYLEN(planet_size))
 		planet_size = list(world.maxx, world.maxy)
 
-/datum/map/proc/generate_asteroid()
-	return
-
 // Override to set custom access requirements for camera networks.
 /datum/map/proc/get_network_access(var/network)
 	return 0
@@ -179,9 +176,6 @@
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
-
-// Called right after SSatlas finishes loading the map & multiz is setup.
-/datum/map/proc/finalize_load()
 	return
 
 /datum/map/proc/build_exoplanets()

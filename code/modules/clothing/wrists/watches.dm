@@ -52,10 +52,16 @@
 /obj/item/clothing/wrists/watch/pocketwatch/AltClick(mob/user)
 	if(!closed)
 		icon_state = "[initial(icon_state)]_closed"
+		item_state = "[initial(icon_state)]_closed"
+		update_held_icon()
+		update_worn_icon()
 		user.visible_message(SPAN_NOTICE("[user] clasps \the [name] shut."), SPAN_NOTICE("You clasp \the [name] shut."))
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	else
 		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(icon_state)]"
+		update_held_icon()
+		update_worn_icon()
 		user.visible_message(SPAN_NOTICE("[user] flips \the [name] open."), SPAN_NOTICE("You flip \the [name] open."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed

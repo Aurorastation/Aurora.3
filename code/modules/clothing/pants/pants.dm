@@ -112,6 +112,20 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 		I.AddOverlays(emissive_overlay)
 	return I
 
+/obj/item/clothing/pants/highvis_red
+	name = "high visibility pants"
+	desc = "A pair of red pants with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "pants_highvis_red"
+	item_state = "pants_highvis_red"
+
+/obj/item/clothing/pants/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_pants_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/pants/camo
 	name = "camouflage pants"
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
