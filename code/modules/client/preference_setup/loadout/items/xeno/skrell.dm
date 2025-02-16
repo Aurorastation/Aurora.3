@@ -374,7 +374,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 
 /datum/gear/accessory/skrell/tees
 	display_name = "skrellian wetshirts"
-	path = /obj/item/clothing/under/tshirt/skrell
+	path = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -382,20 +382,20 @@ ABSTRACT_TYPE(/datum/gear/accessory/skrell)
 /datum/gear/accessory/skrell/tees/New()
 	..()
 	var/list/tees = list()
-	tees["ocean wetshirt"] = /obj/item/clothing/under/tshirt/skrell/ocean
-	tees["maelstrom wetshirt"] = /obj/item/clothing/under/tshirt/skrell/maelstrom
-	tees["reef wetshirt"] = /obj/item/clothing/under/tshirt/skrell/reef
-	tees["pink eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula
-	tees["purple eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula/purple
-	tees["teal eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula/teal
-	tees["black eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula/black
-	tees["white eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula/white
-	tees["nralakk eriuyushi nebula shirt"] = /obj/item/clothing/under/tshirt/skrell/nebula/nralakk
+	tees["ocean wetshirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/ocean
+	tees["maelstrom wetshirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/maelstrom
+	tees["reef wetshirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/reef
+	tees["pink eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula
+	tees["purple eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/purple
+	tees["teal eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal
+	tees["black eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black
+	tees["white eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/white
+	tees["nralakk eriuyushi nebula shirt"] = /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/nralakk
 	gear_tweaks += new /datum/gear_tweak/path(tees)
 
 /datum/gear/accessory/skrell/dress
 	display_name = "skrellian formal wetshirts"
-	path = /obj/item/clothing/under/dressshirt/skrell
+	path = /obj/item/clothing/under/dressshirt/skrell/ocean
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION

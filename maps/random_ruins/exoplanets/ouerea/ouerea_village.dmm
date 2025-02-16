@@ -486,7 +486,7 @@
 /obj/item/clothing/pants/tan,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/tshirt,
-/obj/item/clothing/under/tshirt/skrell/ocean,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/ocean,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -562,7 +562,7 @@
 /obj/item/clothing/pants/tan,
 /obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/tshirt,
-/obj/item/clothing/under/tshirt/skrell/nebula/teal,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/exoplanet/wood/birch{
