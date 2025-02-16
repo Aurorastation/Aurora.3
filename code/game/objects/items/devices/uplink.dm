@@ -130,7 +130,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		return 1
 
 	if(action == "buy_item")
-		var/datum/uplink_item/UI = (locate(params["buy_item"]) in uplink.items)
+		var/datum/uplink_item/UI = (locate(params["buy_item"]) in GLOB.uplink.items)
 		UI.buy(src, usr)
 	else if(action == "lock")
 		toggle()
@@ -142,7 +142,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		if(params["id"])
 			exploit_id = params["id"]
 		if(params["category"])
-			category = locate(params["category"]) in uplink.categories
+			category = locate(params["category"]) in GLOB.uplink.categories
 	if(action == "contract_interact")
 		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
 		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
@@ -173,7 +173,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	if(tgui_menu == 0)
 		var/list/categories = list()
 		var/list/items = list()
-		for(var/datum/uplink_category/category in uplink.categories)
+		for(var/datum/uplink_category/category in GLOB.uplink.categories)
 			if(category.can_view(src))
 				categories[++categories.len] = list("name" = category.name, "ref" = "[REF(category)]")
 				for(var/datum/uplink_item/item in category.items)

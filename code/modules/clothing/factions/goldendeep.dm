@@ -102,11 +102,14 @@
 	item_state = "cloth_wrapped_uniform"
 
 // outerwear
-/obj/item/clothing/accessory/goldendeep/gambeson
+/obj/item/clothing/accessory/goldendeep
 	name = "quilted gambeson"
 	desc = " Intricately woven fibers resemble armor of old, but now are reinforced for the wear and tear caused by moving metal joints."
+	icon = 'icons/obj/item/clothing/accessory/goldendeep.dmi'
 	icon_state = "quilted_gambeson"
 	item_state = "quilted_gambeson"
+	contained_sprite = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/accessory/goldendeep/tabbard
 	name = "valiant tabbard"

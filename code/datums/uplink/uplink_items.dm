@@ -1,4 +1,4 @@
-var/datum/uplink/uplink
+GLOBAL_DATUM(uplink, /datum/uplink)
 
 /datum/uplink
 	var/list/items_assoc
