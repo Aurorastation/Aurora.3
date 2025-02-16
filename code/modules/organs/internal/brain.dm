@@ -138,7 +138,7 @@
 					if(!owner.paralysis && prob(15))
 						owner.Paralyse(rand(3, 5))
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
-					owner.notify_message(SPAN_DANGER("You feel feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
+					owner.notify_message(SPAN_DANGER("You feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
 					if(prob(damprob))

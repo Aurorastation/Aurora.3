@@ -3,6 +3,7 @@
 //
 /obj/item/device/robotanalyzer
 	name = "cyborg analyzer"
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
@@ -109,6 +110,7 @@
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	icon = 'icons/obj/item/device/robotanalyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	slot_flags = null

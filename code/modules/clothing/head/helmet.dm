@@ -2,10 +2,7 @@
 	name = "helmet"
 	desc = "Standard Security gear. Protects the head from impacts."
 	icon_state = "helmet"
-	item_state_slots = list(
-		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet"
-		)
+	item_state = "helmet"
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -417,10 +414,7 @@
 	name = "emergency response team helmet"
 	desc = "An in-atmosphere helmet worn by members of the Emergency Response Team. Protects the head from impacts."
 	icon_state = "erthelmet_cmd"
-	item_state_slots = list(
-		slot_l_hand_str = "syndicate-helm-green",
-		slot_r_hand_str = "syndicate-helm-green"
-	)
+	item_state = "erthelmet_cmd"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_RIFLE,

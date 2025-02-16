@@ -1214,24 +1214,24 @@
 /area/shuttle/yacht_civ_shuttle)
 "lP" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/dressshirt/alt/vneck,
+/obj/item/clothing/under/dressshirt/alt/vneck,
 /obj/item/clothing/accessory/sweater/argyle/crewneck{
 	color = "#44AA44"
 	},
 /obj/item/clothing/accessory/sweater/v_neck{
 	color = "#BB3333"
 	},
-/obj/item/clothing/accessory/dressshirt,
-/obj/item/clothing/accessory/dressshirt/alt{
+/obj/item/clothing/under/dressshirt,
+/obj/item/clothing/under/dressshirt/alt{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/asymmetric{
+/obj/item/clothing/under/dressshirt/asymmetric{
 	color = "#DEDEDE"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#3131B1"
 	},
-/obj/item/clothing/accessory/dressshirt/alt/rolled{
+/obj/item/clothing/under/dressshirt/alt/rolled{
 	color = "#DEDEDE"
 	},
 /obj/item/clothing/accessory/sweater/argyle{

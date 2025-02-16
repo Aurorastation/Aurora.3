@@ -4574,6 +4574,106 @@ Follow by example and make good judgement based on length which list to include 
 	name = "orion express IPC screen"
 	icon_state = "ipc_orion"
 
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_konyang
+	name = "konyang IPC screen"
+	icon_state = "ipc_konyang"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_mictlan
+	name = "mictlan IPC screen"
+	icon_state = "ipc_mictlan"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_himeo
+	name = "himean globe IPC screen"
+	icon_state = "ipc_himeo"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_himeo2
+	name = "himeo IPC screen"
+	icon_state = "ipc_himeo2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_xanu
+	name = "xanu IPC screen"
+	icon_state = "ipc_xanu"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_xanu2
+	name = "xanan banner IPC screen"
+	icon_state = "ipc_xanu2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_assunzione
+	name = "assunzione IPC screen"
+	icon_state = "ipc_assunzione"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_luceism
+	name = "luceist eye IPC screen"
+	icon_state = "ipc_luceism"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_caution
+	name = "caution sign IPC screen"
+	icon_state = "ipc_caution"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_caution2
+	name = "black caution sign IPC screen"
+	icon_state = "ipc_caution2"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_face
+	name = "face IPC screen"
+	icon_state = "ipc_face"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_phalanx
+	name = "Ve'katak Phalanx IPC screen"
+	icon_state = "ipc_phalanx"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_facecig
+	name = "cigarette IPC screen"
+	icon_state = "ipc_facecig"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_star
+	name = "star IPC screen"
+	icon_state = "ipc_star"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_starinverse
+	name = "inversed star IPC screen"
+	icon_state = "ipc_starinverse"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_tcaf
+	name = "tcaf IPC screen"
+	icon_state = "ipc_tcaf"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_crosshair
+	name = "crosshair IPC screen"
+	icon_state = "ipc_crosshair"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_coin
+	name = "coin IPC screen"
+	icon_state = "ipc_coin"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_vysoka
+	name = "vysoka IPC screen"
+	icon_state = "ipc_vysoka"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_ouroboros
+	name = "ouroboros IPC screen"
+	icon_state = "ipc_ouroboros"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_valkyrie
+	name = "valkyrie IPC screen"
+	icon_state = "ipc_valkyrie"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_gibson
+	name = "New Gibson IPC screen"
+	icon_state = "ipc_gibson"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_temple
+	name = "Templeism IPC screen"
+	icon_state = "ipc_temple"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orbit
+	name = "orbit IPC screen"
+	icon_state = "ipc_orbit"
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_orbit2
+	name = "orbit2 IPC screen"
+	icon_state = "ipc_orbit2"
+
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_question_mark
 	name = "question mark IPC screen"
 	icon_state = "ipc_question"

@@ -60,6 +60,10 @@ ABSTRACT_TYPE(/obj/item/rfd)
 
 /obj/item/rfd/Initialize()
 	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/rfd/LateInitialize()
+	. = ..()
 	update_icon()
 
 /obj/item/rfd/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -140,13 +144,13 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	return TRUE
 
 /obj/item/rfd/update_icon()	// For the fancy "ammo" counter.
-	overlays.Cut()
+	CutOverlays()
 
 	var/ratio = 0
 	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RFD
 	ratio = max(round(ratio, 0.10) * 100, 10)
 
-	overlays += "[icon_state]-[ratio]"
+	AddOverlays("[icon_state]-[ratio]")
 
 /**
  * # RFD Compressed Matter Cartridge

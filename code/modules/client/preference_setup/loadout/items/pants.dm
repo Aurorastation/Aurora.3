@@ -23,6 +23,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	pants["khaki pants"] = /obj/item/clothing/pants/khaki
 	pants["high visibility pants"] = /obj/item/clothing/pants/highvis
 	pants["high visibility pants, alt"] = /obj/item/clothing/pants/highvis_alt
+	pants["high visibility pants, red"] = /obj/item/clothing/pants/highvis_red
 	pants["track pants"] = /obj/item/clothing/pants/track
 	pants["blue track pants"] = /obj/item/clothing/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/pants/track/green
