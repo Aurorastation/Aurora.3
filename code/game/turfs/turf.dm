@@ -197,6 +197,44 @@
 		return TRUE
 	return TRUE
 
+/// Call to move a turf from its current area to a new one
+/turf/proc/change_area(area/old_area, area/new_area)
+	//don't waste our time
+	if(old_area == new_area)
+		return
+
+	//move the turf
+
+	new_area.contents += src
+
+	/* START AURORA SNOWFLAKE */
+	var/old_outside = is_outside()
+
+	var/is_old_area_valid = !QDELETED(old_area) && istype(old_area)
+	var/is_new_area_valid = !QDELETED(new_area) && istype(new_area)
+
+	for(var/atom/movable/AM in src)
+		if(is_old_area_valid)
+			old_area.Exited(AM)
+
+		if(is_new_area_valid)
+			new_area.Entered(AM)
+			if(istype(AM, /obj/machinery))
+				var/obj/machinery/M = AM
+				M.shuttle_move(src)
+
+	last_outside_check = OUTSIDE_UNCERTAIN
+	if(is_outside == OUTSIDE_AREA && (is_outside() != old_outside))
+		update_weather()
+	/* END AURORA SNOWFLAKE */
+
+	//changes to make after turf has moved
+	on_change_area(old_area, new_area)
+
+/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
+/turf/proc/on_change_area(area/old_area, area/new_area)
+	transfer_area_lighting(old_area, new_area)
+
 /turf/proc/handle_hand_interception(var/mob/user)
 	var/datum/component/turf_hand/THE
 	for (var/atom/A in src)

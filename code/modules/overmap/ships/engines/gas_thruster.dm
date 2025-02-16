@@ -63,7 +63,7 @@
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 	use_power = POWER_USE_OFF
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
 	component_types = list(
