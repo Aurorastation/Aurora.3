@@ -364,9 +364,9 @@
 	name = "glowing slime extract"
 	desc = "A glowing ball of what appears to be amber."
 	desc_info = null
-	icon = 'icons/obj/lighting.dmi'
-	icon_state = "floor1" //not a slime extract sprite but... something close enough!
-	item_state = "slime"
+	icon = 'icons/mob/npc/slimes.dmi'
+	icon_state = "yellow slime extract"
+	item_state = "flashlight"
 	w_class = WEIGHT_CLASS_TINY
 	brightness_on = 6
 	uv_intensity = 200

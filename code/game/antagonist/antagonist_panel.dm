@@ -18,5 +18,5 @@
 	return
 
 //Overridden elsewhere.
-/datum/antagonist/proc/get_additional_check_antag_output(var/datum/admins/caller)
+/datum/antagonist/proc/get_additional_check_antag_output(var/datum/admins/requester)
 	return ""
