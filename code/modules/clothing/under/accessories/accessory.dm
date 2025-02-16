@@ -895,7 +895,8 @@
 	var/can_be_broken = TRUE
 	var/separated = FALSE
 	var/tag_type = /obj/item/dogtag
-	var/tucked = TRUE // If tucked is true, sprite is invisible on the mob; if false, it shows up as normal
+	/// If tucked is true, sprite is invisible on the mob; if false, it shows up as normal
+	var/tucked = TRUE
 
 /obj/item/dogtag
 	name = "dogtag"
