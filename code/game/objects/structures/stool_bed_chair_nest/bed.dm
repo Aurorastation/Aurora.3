@@ -76,7 +76,8 @@
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
-	generate_strings()
+	if(!istype(src, /obj/structure/bed/stool/chair/office/wheelchair))
+		generate_strings()
 	// Prep icon.
 	icon_state = ""
 	ClearOverlays()

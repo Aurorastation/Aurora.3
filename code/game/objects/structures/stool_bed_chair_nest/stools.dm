@@ -35,13 +35,12 @@
 		S.add_fingerprint(user)
 		user.put_in_hands(S)
 		S.update_icon()
+		TransferComponents(S)
 		if(istype(S, /obj/item/material/stool/chair/wheelchair))
 			S.name = name
 			S.desc = desc
 			S.color = color
 			S.update_held_icon()
-		else
-			TransferComponents(S)
 		qdel(src)
 
 /obj/structure/bed/stool/wood/New(var/newloc)
@@ -245,12 +244,11 @@
 	if(blood_DNA)
 		S.blood_DNA |= blood_DNA // Transfer blood.
 	S.update_icon()
+	TransferComponents(S)
 	if(istype(S, /obj/structure/bed/stool/chair/office/wheelchair))
 		S.name = name
 		S.desc = desc
 		S.color = color
-	else
-		TransferComponents(S)
 	qdel(src)
 
 /obj/item/material/stool/update_icon()
