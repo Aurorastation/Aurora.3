@@ -684,7 +684,7 @@ var/list/localhost_addresses = list(
 
 	fullscreen = !fullscreen
 
-	winset(src, "mainwindow", "menu=;is-fullscreen=[fullscreen ? "true" : "false"]")
+	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
 	attempt_auto_fit_viewport()
 
 /client/proc/apply_fps(var/client_fps)
