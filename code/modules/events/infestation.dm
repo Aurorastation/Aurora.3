@@ -53,9 +53,8 @@
 /datum/event/infestation/start()
 	..()
 
-	if(chosen_mob == INFESTATION_HIVEBOTS) {
+	if(chosen_mob == INFESTATION_HIVEBOTS)
 		hivebot_message()
-	}
 
 	spawn_mobs()
 
