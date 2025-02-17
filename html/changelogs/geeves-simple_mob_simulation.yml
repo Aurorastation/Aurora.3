@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a combat training simulator to the holodeck, which spawns holocarp that deal pain damage."

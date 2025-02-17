@@ -1,0 +1,93 @@
+2025-02-16:
+  ASmallCuteCat:
+  - bugfix: Removed a duplicate word from some text you see when you're close to dying.
+  Acetrea:
+  - rscadd: Allows anyone to leave the Operating Theatres regardless of access.
+  Ben10083:
+  - code_imp: Adds ID check functionality to ship/shuttle consoles.
+  - rscadd: ID Checks added to SCCV Horizon ship/shuttle consoles. Bridge Crew given
+      access to all shuttles.
+  - balance: Emagging or using wirecutters on a ship console will allow it to be usable
+      by anyone.
+  - rscadd: Many offships and their shuttles given access checks.
+  - refactor: Refactored poster code to use singletons instead of a global list.
+  - refactor: Mappers can now use defined poster subtypes to place posters instead
+      of editing variables.
+  - code_imp: Mappers can now specify poster design in rolled up posters as well.
+  - bugfix: Fixed weirdness relating to mapped in posters changing their design when
+      removed from wall.
+  - rscadd: TCAF Corvette now has recruitment posters in their recruitment supplies
+      crate.
+  FabianK3:
+  - rscadd: Added a red version of the high visibility jacket and pants. They are
+      available in the loadout.
+  FlamingLily:
+  - rscadd: Fixes the Assistant Alt title custom outfits
+  - rscadd: 'Added four new assistant alt titles: Wait Staff, Technical Assistant,
+      Lab Assistant, and Medical Orderly. (These are still ASSISTANTS, and cannot
+      perform the relevant departmental skills. These are also different from learner
+      roles, such as the Interns.)'
+  - rscadd: Renamed the existing Lab Assistant (The learner role) to Research Intern
+      to better represent the intent for the role and to make space for the alt title.
+  FluffyGhost:
+  - server: Removed away_mission deprecated system, made initialization a little faster.
+  - server: Made global uplink datum a GLOB.
+  Furrycactus:
+  - rscadd: Replaces the generic grey shortwaves in the Paramedic's quarters with
+      ones in Medical colours.
+  - rscadd: Updates some grates on the IAC Rescue Ship to match the nearby tiles.
+  Geeves:
+  - rscadd: Added a combat training simulator to the holodeck, which spawns holocarp
+      that deal pain damage.
+  Kintsugi:
+  - rscadd: Added a number of Sol pins as accessories, indicating either patriotic
+      sentiment to Sol or political party allegiances.
+  SimpleMaroon:
+  - bugfix: Fixed Golden Deep shirts not showing up in character preview and Golden
+      Deep outerwear being invisible.
+  - bugfix: Firefighter helmets now have proper defense against high heat, meaning
+      that wearing a whole firesuit works again.
+  Wowzewow (Wezzy):
+  - imageadd: Resprites lathes and research machines.
+  - imageadd: Adds new emmisives and animations for lathes, research machines and
+      telecomms.
+  - bugfix: Fixes RFDs not initalizing with ammo overlay.
+  - bugfix: Fixes variable foodstuffs not spawning with filling overlay.
+  - bugfix: Fixes black pants color.
+  - bugfix: Fixes softsuit helmet inhands.
+  - bugfix: Fixes turquoise game helm.
+  - bugfix: Fixes flight helmets for Tajarans and Unathi.
+  - bugfix: Fixes large syringe fill states.
+  - bugfix: Fixes Azubarre torch not extinguishing inhand.
+  - bugfix: Fixes Visegradi Nyakas ear flaps not flapping while on-mob.
+  - bugfix: Fixes Unathi Lore accessories.
+  - bugfix: Fixes invisible glowing slime extracts.
+  - imageadd: Improved the sprites for the stasis bed and cryopods.
+  hazelmouse:
+  - bugfix: CCIA tape recorders no longer disappear when set to begin recording.
+  - bugfix: Removes an erroneously placed console in R&D, mapped underneath the destructive
+      analyzer.
+  - qol: Resolved a number of broken and otherwise improper bits of mapping in several
+      offsites, including broken icons.
+  - rscdel: 'Deleted an empty .dm file for a previously removed offsite. '
+2025-02-17:
+  ASmallCuteCat:
+  - rscadd: Added Quick-E-Burger themed gear and an Orion softcap to the loadout.
+  - imageadd: Added goblin.stev's sprites for an Orion Express softcap and Quick-E-Burger
+      visor, jumpsuit, and apron.
+  SimpleMaroon:
+  - bugfix: Vaurca Bulwarks (and other species with large sprites) no longer get an
+      offset sprite when unloading from a cargo tug.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Dominian flagpatches.
+  - bugfix: Fixes shirts for Bulwarks.
+  - bugfix: Fixes Skrellian wetshirt sprites.
+  - bugfix: Fixes Ramenvend sprites.
+  - bugfix: Fixes recolorable poncho accents.
+  - bugfix: Fixes mesmetron sprite.
+  - bugfix: Fixes not being able to pick up energy swords and their subtypes.
+  - bugfix: Fixes IPC Implanter sprite.
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  hazelmouse:
+  - balance: Greimorian queens and servants now die in vacuum.

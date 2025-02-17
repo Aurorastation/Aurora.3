@@ -318,7 +318,7 @@ var/list/ai_verbs_default = list(
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
 	use_power = POWER_USE_ACTIVE
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
 
