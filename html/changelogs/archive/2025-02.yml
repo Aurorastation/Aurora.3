@@ -70,3 +70,24 @@
   - qol: Resolved a number of broken and otherwise improper bits of mapping in several
       offsites, including broken icons.
   - rscdel: 'Deleted an empty .dm file for a previously removed offsite. '
+2025-02-17:
+  ASmallCuteCat:
+  - rscadd: Added Quick-E-Burger themed gear and an Orion softcap to the loadout.
+  - imageadd: Added goblin.stev's sprites for an Orion Express softcap and Quick-E-Burger
+      visor, jumpsuit, and apron.
+  SimpleMaroon:
+  - bugfix: Vaurca Bulwarks (and other species with large sprites) no longer get an
+      offset sprite when unloading from a cargo tug.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Dominian flagpatches.
+  - bugfix: Fixes shirts for Bulwarks.
+  - bugfix: Fixes Skrellian wetshirt sprites.
+  - bugfix: Fixes Ramenvend sprites.
+  - bugfix: Fixes recolorable poncho accents.
+  - bugfix: Fixes mesmetron sprite.
+  - bugfix: Fixes not being able to pick up energy swords and their subtypes.
+  - bugfix: Fixes IPC Implanter sprite.
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  hazelmouse:
+  - balance: Greimorian queens and servants now die in vacuum.
