@@ -864,79 +864,6 @@ menu "menu"
 		category = "&File"
 		saved-params = "is-checked"
 	elem
-		name = "&Icons"
-		command = ""
-		saved-params = "is-checked"
-	elem "stretch"
-		name = "&Stretch to fit"
-		command = ".winset \"mapwindow.map.icon-size=0\""
-		category = "&Icons"
-		is-checked = true
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon128"
-		name = "&128x128"
-		command = ".winset \"mapwindow.map.icon-size=128\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon96"
-		name = "&96x96"
-		command = ".winset \"mapwindow.map.icon-size=96\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon64"
-		name = "&64x64"
-		command = ".winset \"mapwindow.map.icon-size=64\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon48"
-		name = "&48x48"
-		command = ".winset \"mapwindow.map.icon-size=48\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "icon32"
-		name = "&32x32"
-		command = ".winset \"mapwindow.map.icon-size=32\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem
-		name = "Icon &Stretching"
-		command = ""
-		saved-params = "is-checked"
-	elem
-		name = "&Normal"
-		command = ".winset \"mapwindow.map.zoom-mode=normal\""
-		category = "Icon &Stretching"
-		is-checked = true
-		can-check = true
-		group = "stretching"
-		saved-params = "is-checked"
-	elem
-		name = "&Blur"
-		command = ".winset \"mapwindow.map.zoom-mode=blur\""
-		category = "Icon &Stretching"
-		can-check = true
-		group = "stretching"
-		saved-params = "is-checked"
-	elem
-		name = "&Distort"
-		command = ".winset \"mapwindow.map.zoom-mode=distort\""
-		category = "Icon &Stretching"
-		can-check = true
-		group = "stretching"
-		saved-params = "is-checked"
-	elem
 		name = "&Help"
 		command = ""
 		saved-params = "is-checked"
@@ -949,10 +876,6 @@ menu "menu"
 		name = "&Hotkeys"
 		command = "hotkeys-help"
 		category = "&Help"
-		saved-params = "is-checked"
-	elem
-		name = "&Resizing"
-		command = ""
 		saved-params = "is-checked"
 
 
@@ -980,7 +903,7 @@ window "mapwindow"
 		font-family = "Grand9K Pixel"
 		font-size = 7pt
 		is-default = true
-		saved-params = "icon-size"
+		saved-params = "letterbox"
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
 		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .command_headset { font-weight: bold; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .reallybig { font-size: 12pt; } .extremelybig { font-size: 12pt; } .greentext { color: #00FF00; font-size: 6pt; } .redtext { color: #FF0000; font-size: 6pt; } .clown { color: #FF69BF; font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
@@ -994,11 +917,21 @@ window "mainwindow"
 		anchor2 = -1,-1
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
 		title = "Space Station 13 - Aurora Station"
-		is-maximized = true
 		icon = 'icons\\ss13_64.png'
 		macro = "macro"
 		menu = "menu"
+	elem "mainvsplit"
+		type = CHILD
+		pos = 0,0
+		size = 634x416
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "splitter"
+		left = "mapwindow"
+		right = "rpane"
+		is-vert = true
 	elem "asset_cache_browser"
 		type = BROWSER
 		pos = 0,0
@@ -1018,15 +951,6 @@ window "mainwindow"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
 		is-flat = true
 		button-type = pushbox
-	elem "mainvsplit"
-		type = CHILD
-		pos = 0,0
-		size = 634x416
-		anchor1 = 0,0
-		anchor2 = 100,100
-		saved-params = "splitter"
-		right = "rpane"
-		is-vert = true
 	elem "input"
 		type = INPUT
 		pos = 0,420
@@ -1060,7 +984,7 @@ window "mainwindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 0,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
@@ -1233,7 +1157,7 @@ window "preferences_window"
 		size = 200x800
 		anchor1 = 80,0
 		anchor2 = 100,100
-		saved-params = "zoom;letterbox;zoom-mode"
+		saved-params = "letterbox"
 
 window "browserwindow"
 	elem "browserwindow"
