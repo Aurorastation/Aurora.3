@@ -175,6 +175,14 @@
 						/obj/item/reagent_containers/hypospray/autoinjector,
 						/obj/item/personal_inhaler)
 
+/obj/machinery/smartfridge/chemistry/attack_hand(href, href_list)
+	if(stat & (NOPOWER|BROKEN) || !anchored) return FALSE
+	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)))
+		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
+			to_chat(usr, SPAN_WARNING("Access denied."))
+			return FALSE
+	return ..()
+
 /obj/machinery/smartfridge/chemistry/virology
 	name = "\improper Smart Virus Storage"
 	desc = "A refrigerated storage unit for volatile sample storage."
@@ -483,7 +491,7 @@
 *   Secure SmartFridges
 *************************/
 
-/obj/machinery/smartfridge/secure/Topic(href, href_list)
+/obj/machinery/smartfridge/secure/attack_hand(href, href_list)
 	if(stat & (NOPOWER|BROKEN) || !anchored) return FALSE
 	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
