@@ -85,7 +85,7 @@
 
 /obj/outfit/admin/ouerea_human
 	name = "Ouerean Human"
-	uniform = list(/obj/item/clothing/under/dressshirt/silversun/random, /obj/item/clothing/under/dressshirt, /obj/item/clothing/under/tshirt, /obj/item/clothing/under/dressshirt/longsleeve)
+	uniform = list(/obj/item/clothing/under/dressshirt/silversun/random, /obj/item/clothing/under/dressshirt, /obj/item/clothing/under/dressshirt/tshirt, /obj/item/clothing/under/dressshirt/longsleeve)
 	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	suit = list(/obj/item/clothing/suit/storage/toggle/track, /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan, /obj/item/clothing/accessory/poncho/unathimantle, /obj/item/clothing/suit/storage/toggle/corp/heph)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
@@ -97,7 +97,7 @@
 
 /obj/outfit/admin/ouerea_skrell
 	name = "Ouerean Skrell"
-	uniform = list(/obj/item/clothing/under/tshirt/skrell/maelstrom, /obj/item/clothing/under/tshirt/skrell/nebula, /obj/item/clothing/under/tshirt/skrell/reef)
+	uniform = list(/obj/item/clothing/under/dressshirt/tshirt/skrell/maelstrom, /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula, /obj/item/clothing/under/dressshirt/tshirt/skrell/reef)
 	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
 	back = /obj/item/storage/backpack/satchel/leather

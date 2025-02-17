@@ -25,7 +25,7 @@
 	name = "airlock"
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	icon_state = "preview"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 
 	explosion_resistance = 10
 	autoclose = TRUE
