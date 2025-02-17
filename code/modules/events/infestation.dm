@@ -137,11 +137,9 @@
 
 /// Sends out a message to all IPCs on the ship warning them that hivebots are present.
 /datum/event/infestation/proc/hivebot_message()
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list) {
-		if(isipc(H) && (H.z in affecting_z)) {
-			to_chat(H, FONT_LARGE(SPAN_CULT("Suddenly, your internals are pierced by a terrible abnormality! Something antithetical to your existence has come terribly close, and it wishes for you to unite with it...")))
-		}
-	}
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(isipc(H) && (H.z in affecting_z))
+			to_chat(H, SPAN_CULT("Suddenly, an anomalous pinging makes itself known in your internals. It rises to a shrill high, setting your mind on edge, and it then disappears just as abruptly..."))
 
 /datum/event/infestation/announce()
 	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
