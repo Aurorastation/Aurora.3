@@ -349,8 +349,6 @@
 		return FALSE
 	return TRUE
 
-var/const/enterloopsanity = 100
-
 /turf/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled)
 		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
@@ -413,7 +411,7 @@ var/const/enterloopsanity = 100
 	var/objects = 0
 	if(arrived && (arrived.movable_flags & MOVABLE_FLAG_PROXMOVE) && arrived.simulated)
 		for(var/atom/movable/oAM in range(1, src))
-			if(objects > enterloopsanity)
+			if(objects > 100)
 				break
 			objects++
 
@@ -434,7 +432,7 @@ var/const/enterloopsanity = 100
 
 	//Items that are in phoron, but not on a mob, can still be contaminated.
 	var/obj/item/I = arrived
-	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
+	if(istype(I) && GLOB.vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
 		var/datum/gas_mixture/env = return_air(1)
 		if(!env)
 			return

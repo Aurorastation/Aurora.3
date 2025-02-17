@@ -123,7 +123,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/meson/Initialize()
 	. = ..()
-	overlay = global_hud.meson
+	overlay = GLOB.global_hud.meson
 
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
@@ -227,7 +227,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/night/Initialize()
 	. = ..()
-	overlay = global_hud.nvg
+	overlay = GLOB.global_hud.nvg
 
 /obj/item/clothing/glasses/night/aviator
 	name = "aviators"
@@ -343,14 +343,14 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/science/Initialize()
 	. = ..()
-	overlay = global_hud.science
+	overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/safety/goggles/science/handle_additional_changes()
 	. = ..()
 	if(up)
 		overlay = null
 	else
-		overlay = global_hud.science
+		overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
@@ -1074,7 +1074,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/thermal/Initialize()
 	. = ..()
-	overlay = global_hud.thermal
+	overlay = GLOB.global_hud.thermal
 
 /mob/living/carbon/human/proc/thermal_reset_blindness()
 	disabilities &= ~NEARSIGHTED
@@ -1237,7 +1237,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
 	. = ..()
-	overlay = global_hud.meson
+	overlay = GLOB.global_hud.meson
 
 /obj/item/clothing/glasses/eyepatch/hud/material
 	name = "MATpatch"
@@ -1252,7 +1252,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/science/Initialize()
 	. = ..()
-	overlay = global_hud.science
+	overlay = GLOB.global_hud.science
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal
 	name = "HEATpatch"
@@ -1263,7 +1263,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
 	. = ..()
-	overlay = global_hud.thermal
+	overlay = GLOB.global_hud.thermal
 
 /obj/item/clothing/glasses/eyepatch/hud/welder
 	name = "WELDpatch"
@@ -1281,7 +1281,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()
 	. = ..()
-	overlay = global_hud.nvg
+	overlay = GLOB.global_hud.nvg
 
 //from verkister
 /obj/item/clothing/glasses/spiffygogs

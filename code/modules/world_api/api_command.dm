@@ -71,8 +71,8 @@
 		LOG_DEBUG("API: Throttling bypassed - IP [addr] is whitelisted.")
 		return FALSE
 
-	var/last_time = world_api_rate_limit[addr]
-	world_api_rate_limit[addr] = REALTIMEOFDAY
+	var/last_time = GLOB.world_api_rate_limit[addr]
+	GLOB.world_api_rate_limit[addr] = REALTIMEOFDAY
 
 	if (last_time != null && abs(last_time - REALTIMEOFDAY) < GLOB.config.api_rate_limit)
 		return TRUE

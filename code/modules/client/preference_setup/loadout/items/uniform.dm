@@ -7,7 +7,7 @@
 
 /datum/gear/uniform/New()
 	..()
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
@@ -362,7 +362,7 @@
 #define UNIFORM_ROLLED_SLEEVES "Rolled Sleeves"
 #define UNIFORM_ROLLED_DOWN "Rolled Down"
 
-var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new()
+GLOBAL_DATUM_INIT(gear_tweak_uniform_rolled_state, /datum/gear_tweak/uniform_rolled_state, new())
 
 /datum/gear_tweak/uniform_rolled_state/get_contents(var/metadata)
 	return "Rolled State: [metadata]"

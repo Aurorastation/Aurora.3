@@ -664,7 +664,7 @@ SUBSYSTEM_DEF(jobs)
 				return FALSE
 
 	for(var/thing in prefs.gear)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 		if(G)
 			if(G.augment) //augments are handled somewhere else
 				continue
@@ -713,7 +713,7 @@ SUBSYSTEM_DEF(jobs)
 	. = list()
 	log_loadout("ECD/([H]): Entry.")
 	for (var/thing in items)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 
 		if (G.slot in used_slots)
 			. += thing
@@ -773,7 +773,7 @@ SUBSYSTEM_DEF(jobs)
 		if (B)
 			for (var/thing in items)
 				to_chat(H, SPAN_NOTICE("Placing \the [thing] in your [B.name]!"))
-				var/datum/gear/G = gear_datums[thing]
+				var/datum/gear/G = GLOB.gear_datums[thing]
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]
 				if(gear_test?.len)
@@ -830,7 +830,7 @@ SUBSYSTEM_DEF(jobs)
 			return FALSE
 
 	for(var/thing in prefs.gear)
-		var/datum/gear/G = gear_datums[thing]
+		var/datum/gear/G = GLOB.gear_datums[thing]
 		if(G)
 			if(!G.augment)
 				continue
@@ -895,7 +895,7 @@ SUBSYSTEM_DEF(jobs)
 	var/spawned_uniform = FALSE
 	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)
-		var/datum/gear/L = gear_datums[item]
+		var/datum/gear/L = GLOB.gear_datums[item]
 		if(L.slot == slot_w_uniform)
 			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
 				H.equip_or_collect(new U.uniform(H), H.back)

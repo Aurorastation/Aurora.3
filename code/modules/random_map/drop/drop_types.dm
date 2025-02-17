@@ -1,10 +1,10 @@
-var/global/list/datum/supply_drop_loot/supply_drop
+GLOBAL_LIST_INIT_TYPED(supply_drop, /datum/supply_drop_loot, null)
 
 /proc/supply_drop_random_loot_types()
-	if(!supply_drop)
-		supply_drop = init_subtypes(/datum/supply_drop_loot)
-		sortTim(supply_drop, GLOBAL_PROC_REF(cmp_supply_drop), FALSE)
-	return supply_drop
+	if(!GLOB.supply_drop)
+		GLOB.supply_drop = init_subtypes(/datum/supply_drop_loot)
+		sortTim(GLOB.supply_drop, GLOBAL_PROC_REF(cmp_supply_drop), FALSE)
+	return GLOB.supply_drop
 
 /datum/supply_drop_loot
 	var/name = ""

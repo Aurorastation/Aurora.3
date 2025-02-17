@@ -1,4 +1,4 @@
-var/datum/antagonist/rogue_ai/malf
+GLOBAL_DATUM(malf, /datum/antagonist/rogue_ai)
 
 /datum/antagonist/rogue_ai
 	id = MODE_MALFUNCTION
@@ -21,7 +21,7 @@ var/datum/antagonist/rogue_ai/malf
 /datum/antagonist/rogue_ai/New()
 	..()
 	victory_text = "The AI has taken control of all of the [station_name(TRUE)]'s systems."
-	malf = src
+	GLOB.malf = src
 
 
 /datum/antagonist/rogue_ai/build_candidate_list()

@@ -7,7 +7,7 @@
 // Music plays on channel 4.
 
 // ASFX Toggles List
-/var/global/sfx_toggles = list(
+GLOBAL_LIST_INIT(sfx_toggles, list(
 	/client/proc/toggle_footsteps,
 	/client/proc/toggle_asfx_vote,
 	/client/proc/toggle_messagesounds,
@@ -15,7 +15,7 @@
 	/client/proc/toggle_arcadesounds,
 	/client/proc/toggle_radiosounds,
 	/client/proc/toggle_instrumentsounds
-)
+))
 
 /client/var/has_sfx_verbs = FALSE
 // ASFX Tab Toggle
@@ -25,10 +25,10 @@
 	set desc = "Toggle the SFX preferences tab"
 
 	if(!has_sfx_verbs)
-		add_verb(src, sfx_toggles)
+		add_verb(src, GLOB.sfx_toggles)
 		has_sfx_verbs = TRUE
 	else
-		remove_verb(src, sfx_toggles)
+		remove_verb(src, GLOB.sfx_toggles)
 		has_sfx_verbs = FALSE
 
 // Ambience Toggle

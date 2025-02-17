@@ -1,4 +1,3 @@
-var/global/antag_add_failed // Used in antag type voting.
 GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode
@@ -288,8 +287,8 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		if(!(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN))
 			antag.finalize_spawn() //actually spawn antags
 
-	if(evacuation_controller && auto_recall_shuttle)
-		evacuation_controller.auto_recall(1)
+	if(GLOB.evacuation_controller && auto_recall_shuttle)
+		GLOB.evacuation_controller.auto_recall(1)
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
@@ -339,7 +338,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 
 /datum/game_mode/proc/check_finished()
-	return evacuation_controller.round_over() || station_was_nuked
+	return GLOB.evacuation_controller.round_over() || station_was_nuked
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -390,7 +389,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	var/text = ""
 	var/escape_text
-	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
 		escape_text = "transfered"
@@ -488,7 +487,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 				antag_templates |= antag
 
 	shuffle(antag_templates) //In the case of multiple antag types
-	newscaster_announcements = pick(newscaster_standard_feeds)
+	newscaster_announcements = pick(GLOB.newscaster_standard_feeds)
 
 /datum/game_mode/proc/check_victory()
 	return

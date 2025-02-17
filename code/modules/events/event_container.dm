@@ -9,7 +9,7 @@
 #define ASSIGNMENT_SECURITY "Security"
 #define ASSIGNMENT_SURGEON "Surgeon"
 
-var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major")
+GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
 
 /datum/event_container
 	var/severity = -1
@@ -46,7 +46,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new next_event.event_type(next_event)	// Events are added and removed from the processing queue in their New/kill procs
 
-		LOG_DEBUG("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
+		LOG_DEBUG("Starting event '[next_event.name]' of severity [GLOB.severity_to_string[severity]].")
 		next_event = null						// When set to null, a random event will be selected next time
 	else
 		// If not, wait for one minute, instead of one tick, before checking again.
@@ -111,7 +111,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		var/event_delay = rand(GLOB.config.event_delay_lower[severity], GLOB.config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
-	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
+	LOG_DEBUG("Next event of severity [GLOB.severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
 
 /datum/event_container/proc/SelectEvent()
 	var/datum/event_meta/EM = input("Select an event to queue up.", "Event Selection", null) as null|anything in available_events

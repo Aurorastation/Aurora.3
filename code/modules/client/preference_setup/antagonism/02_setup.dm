@@ -1,4 +1,4 @@
-var/global/list/uplink_locations = list("PDA", "Headset", "None")
+GLOBAL_LIST_INIT(uplink_locations, list("PDA", "Headset", "None"))
 
 /datum/category_item/player_setup_item/antagonism/basic
 	name = "Setup"
@@ -51,7 +51,7 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 	return list("records_exploit" = pref.exploit_record, "char_id" = pref.current_character, "uplink_location" = pref.uplinklocation, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
-	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))
+	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, GLOB.uplink_locations, initial(pref.uplinklocation))
 
 /datum/category_item/player_setup_item/antagonism/basic/content(var/mob/user)
 	var/list/dat = list(
@@ -68,7 +68,7 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 
 /datum/category_item/player_setup_item/antagonism/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if (href_list["antagtask"])
-		pref.uplinklocation = next_in_list(pref.uplinklocation, uplink_locations)
+		pref.uplinklocation = next_in_list(pref.uplinklocation, GLOB.uplink_locations)
 		return TOPIC_REFRESH
 
 	if(href_list["exploitable_record"])

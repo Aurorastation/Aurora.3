@@ -98,7 +98,7 @@
 		desc = "Some dusty old blueprints. The markings are old, and seem entirely irrelevant for your wherabouts."
 		return FALSE
 	desc = "Blueprints for the daring souls wanting to establish a planetary outpost. Has some sketchy looking stains and what appears to be bite holes."
-	var/area/overmap/map = global.map_overmap
+	var/area/overmap/map = GLOB.map_overmap
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in map)
 		valid_z_levels += E.map_z
 	if(length(SSodyssey.scenario_zlevels))
