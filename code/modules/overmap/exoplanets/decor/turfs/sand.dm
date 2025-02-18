@@ -11,6 +11,6 @@
 	icon_state = "desert[rand(1,4)]"
 
 // TODO: Need additional desert turf sprites to distinguish the rough subtype, currently goes no higher than desert4.
-// /turf/simulated/floor/exoplanet/desert/rough/Initialize()
-// 	. = ..()
-// 	icon_state = "desert[rand(5,7)]"
+/turf/simulated/floor/exoplanet/desert/rough/Initialize()
+	. = ..()
+	// icon_state = "desert[rand(5,7)]"
