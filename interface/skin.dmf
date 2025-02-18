@@ -904,47 +904,6 @@ menu "menu"
 		category = "&Help"
 		saved-params = "is-checked"
 
-
-window "mapwindow"
-	elem "mapwindow"
-		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		saved-params = "pos;size;is-minimized;is-maximized"
-		titlebar = false
-		statusbar = false
-		can-close = false
-		can-minimize = false
-		can-resize = false
-		is-pane = true
-		on-status = ".winset \"status_bar.text=[[*]]\" "
-	elem "map"
-		type = MAP
-		pos = 0,0
-		size = 640x480
-		anchor1 = 0,0
-		anchor2 = 100,100
-		font-family = "Grand9K Pixel"
-		font-size = 7pt
-		is-default = true
-		saved-params = "letterbox;zoom-mode"
-		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
-		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
-		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .command_headset { font-weight: bold; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .reallybig { font-size: 12pt; } .extremelybig { font-size: 12pt; } .greentext { color: #00FF00; font-size: 6pt; } .redtext { color: #FF0000; font-size: 6pt; } .clown { color: #FF69BF; font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
-	elem "status_bar"
-		type = LABEL
-		pos = 0,464
-		size = 280x16
-		anchor1 = 0,100
-		is-visible = true
-		text = ""
-		align = left
-		background-color = #222222
-		text-color = #ffffff
-		border = line
-
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
@@ -962,7 +921,7 @@ window "mainwindow"
 	elem "mainvsplit"
 		type = CHILD
 		pos = 0,0
-		size = 634x416
+		size = 640x440
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "splitter"
@@ -977,38 +936,6 @@ window "mainwindow"
 		anchor2 = -1,-1
 		is-visible = false
 		saved-params = ""
-	elem "hotkey_toggle"
-		type = BUTTON
-		pos = 560,420
-		size = 80x20
-		anchor1 = 100,100
-		anchor2 = -1,-1
-		saved-params = ""
-		text = "Hotkey Toggle"
-		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
-		is-flat = true
-		button-type = pushbox
-	elem "input"
-		type = INPUT
-		pos = 0,420
-		size = 517x20
-		anchor1 = 0,100
-		anchor2 = 100,100
-		font-family = "Calibri Light"
-		font-size = 12
-		is-default = true
-		saved-params = "command"
-	elem "saybutton"
-		type = BUTTON
-		pos = 520,420
-		size = 40x20
-		anchor1 = 100,100
-		anchor2 = -1,-1
-		saved-params = "is-checked"
-		text = "Chat"
-		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
-		is-flat = true
-		button-type = pushbox
 	elem "tooltip"
 		type = BROWSER
 		pos = 0,0
@@ -1018,6 +945,39 @@ window "mainwindow"
 		is-visible = false
 		saved-params = ""
 
+window "mapwindow"
+	elem "mapwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+		on-status = ".winset \"status_bar.text=[[*]]\" "
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Grand9K Pixel"
+		font-size = 7pt
+		is-default = true
+		saved-params = "letterbox;zoom-mode"
+		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .command_headset { font-weight: bold; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .reallybig { font-size: 12pt; } .extremelybig { font-size: 12pt; } .greentext { color: #00FF00; font-size: 6pt; } .redtext { color: #FF0000; font-size: 6pt; } .clown { color: #FF69BF; font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
+	elem "status_bar"
+		type = LABEL
+		pos = 0,464
+		size = 280x16
+		anchor1 = 0,100
+		is-visible = true
+		text = ""
+		align = left
+		background-color = #222222
+		text-color = #ffffff
+		border = line
+
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
@@ -1025,26 +985,69 @@ window "outputwindow"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
-		titlebar = false
-		statusbar = false
-		can-close = false
-		can-minimize = false
-		can-resize = false
 		is-pane = true
+		outer-size = 656x538
+		inner-size = 640x499
+	elem "input"
+		type = INPUT
+		pos = 2,460
+		size = 517x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		is-default = true
+		border = line
+		saved-params = "command"
+	elem "hotkey_toggle"
+		type = BUTTON
+		pos = 599,460
+		size = 80x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		saved-params = ""
+		text = "Hotkey Toggle"
+		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
+		is-flat = true
+		button-type = pushbox
+	elem "saybutton"
+		type = BUTTON
+		pos = 519,460
+		size = 40x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		background-color = none
+		border = line
+		saved-params = "is-checked"
+		text = "Say"
+		command = ".winset \"saybutton.is-checked=true ? input.command=\"!say \\\"\" : input.command=\"\"saybutton.is-checked=true ? mebutton.is-checked=false\"\"saybutton.is-checked=true ? oocbutton.is-checked=false\""
+		is-flat = true
+		button-type = pushbox
+	elem "mebutton"
+		type = BUTTON
+		pos = 559,460
+		size = 40x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		background-color = none
+		border = line
+		saved-params = "is-checked"
+		text = "Me"
+		command = ".winset \"mebutton.is-checked=true ? input.command=\"!me \\\"\" : input.command=\"\"mebutton.is-checked=true ? saybutton.is-checked=false\"\"mebutton.is-checked=true ? oocbutton.is-checked=false\""
+		is-flat = true
+		button-type = pushbox
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x480
+		size = 640x456
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #ffffff
-		is-visible = false
+		background-color = none
 		saved-params = ""
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
-		size = 640x480
+		size = 640x456
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
