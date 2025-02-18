@@ -91,3 +91,14 @@
       when worn as an accessory.
   hazelmouse:
   - balance: Greimorian queens and servants now die in vacuum.
+2025-02-18:
+  Ben10083:
+  - bugfix: Ammunition Storage turrets now properly linked to control panel, allowing
+      for settings to be changed.
+  FluffyGhost:
+  - refactor: Turned a ton of unmanaged globals into managed globals.
+  - refactor: Refactored some UT output.
+  - rscdel: Removed some unused things, including vars.
+  - server: Added a test to ensure people don't keep adding new unmanaged vars.
+  - server: Removed away_mission deprecated system, made initialization a little faster.
+  - server: Made global uplink datum a GLOB.
