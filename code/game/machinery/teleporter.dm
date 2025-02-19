@@ -154,7 +154,7 @@
 				"Current odyssey scenario has defined ID access, but you do not seem to have an ID on you. You can get one from the actor vendor.",
 				"Teleport Warning", list("Continue Teleport", "Cancel Teleport")
 			)
-			if(choice != "Ok")
+			if(choice != "Continue Teleport")
 				return
 
 		// check if they have actor accesses set on the scenario definition
@@ -166,7 +166,7 @@
 				"Current odyssey scenario has defined ID access, but you do not seem to have an ID with any such access. You can change access of your ID using the actor access terminal.",
 				"Teleport Warning", list("Continue Teleport", "Cancel Teleport")
 			)
-			if(choice != "Ok")
+			if(choice != "Continue Teleport")
 				return
 
 	// actor check for radio headset
@@ -177,7 +177,7 @@
 				"Current odyssey scenario has defined radio channel, but you do not seem to have a headset that can transmit that channel. You can get one from the actor vendor.",
 				"Teleport Warning", list("Continue Teleport", "Cancel Teleport")
 			)
-			if(choice != "Ok")
+			if(choice != "Continue Teleport")
 				return
 
 	// ask the user
