@@ -438,7 +438,10 @@ var/list/localhost_addresses = list(
 		fps = prefs.clientfps
 
 	if(prefs.toggles_secondary & FULLSCREEN_MODE)
-		toggle_fullscreen(TRUE)
+		addtimer(CALLBACK(src, VERB_REF(toggle_fullscreen), 1 SECONDS))
+
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		addtimer(CALLBACK(src, VERB_REF(toggle_menu), 1 SECONDS))
 
 /client/proc/InitClient()
 	SHOULD_NOT_SLEEP(TRUE)
@@ -666,7 +669,18 @@ var/list/localhost_addresses = list(
 
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
 	prefs.save_preferences()
-	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
+	if(prefs.toggles_secondary & FULLSCREEN_MODE)
+		toggle_fullscreen()
+
+/client/verb/toggle_hide_menu_preference()
+	set name = "Toggle Hide Menu Preference"
+	set category = "Preferences"
+	set desc = "Toggles whether the game window will have the top menu bar hidden or not."
+
+	prefs.toggles_secondary ^= CLIENT_PREFERENCE_HIDE_MENU
+	prefs.save_preferences()
+	if(prefs.toggles_secondary & CLIENT_PREFERENCE_HIDE_MENU)
+		toggle_menu()
 
 /client/verb/toggle_accent_tag_text()
 	set name = "Toggle Accent Tag Text"
@@ -685,6 +699,15 @@ var/list/localhost_addresses = list(
 	fullscreen = !fullscreen
 
 	winset(src, "mainwindow", "menu=[fullscreen ? "" : "menu"];is-fullscreen=[fullscreen ? "true" : "false"];titlebar=[fullscreen ? "false" : "true"]")
+	attempt_auto_fit_viewport()
+
+/client/verb/toggle_menu()
+	set name = "Toggle Menu"
+	set category = "OOC"
+
+	var/has_menu = winget(src, "mainwindow", "menu")
+
+	winset(src, "mainwindow", "menu=[has_menu ? "" : "menu"]")
 	attempt_auto_fit_viewport()
 
 /client/proc/apply_fps(var/client_fps)

@@ -926,7 +926,7 @@ window "mainwindow"
 		anchor2 = 100,100
 		saved-params = "splitter"
 		left = "mapwindow"
-		right = "rpane"
+		right = "infowindow"
 		is-vert = true
 	elem "asset_cache_browser"
 		type = BROWSER
@@ -977,6 +977,100 @@ window "mapwindow"
 		background-color = #222222
 		text-color = #ffffff
 		border = line
+
+window "infowindow"
+	elem "infowindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+		outer-size = 656x538
+		inner-size = 640x499
+	elem "info"
+		type = CHILD
+		pos = 0,30
+		size = 640x445
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "splitter"
+		left = "statwindow"
+		right = "outputwindow"
+		is-vert = false
+	elem "wikib"
+		type = BUTTON
+		pos = 0,0
+		size = 60x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Wiki"
+		command = "wiki"
+	elem "forumb"
+		type = BUTTON
+		pos = 64,0
+		size = 60x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Forum"
+		command = "forum"
+	elem "rulesb"
+		type = BUTTON
+		pos = 128,0
+		size = 60x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Rules"
+		command = "rules"
+	elem "changelog"
+		type = BUTTON
+		pos = 192,0
+		size = 67x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Changelog"
+		command = "Changelog"
+	elem "reportbugb"
+		type = BUTTON
+		pos = 264,0
+		size = 67x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Report Bug"
+		command = "reportbug"
+	elem "interfaceb"
+		type = BUTTON
+		pos = 336,0
+		size = 60x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "WI Link"
+		command = "open_webint"
+	elem "discordb"
+		type = BUTTON
+		pos = 400,0
+		size = 60x16
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "is-checked"
+		text = "Discord"
+		command = "open_discord"
 
 window "outputwindow"
 	elem "outputwindow"
@@ -1053,132 +1147,11 @@ window "outputwindow"
 		is-default = true
 		saved-params = ""
 
-window "rpane"
-	elem "rpane"
-		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "pos;size;is-minimized;is-maximized"
-		is-pane = true
-		outer-size = 656x538
-		inner-size = 640x499
-	elem "info"
-		type = CHILD
-		pos = 0,30
-		size = 640x445
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = none
-		saved-params = "splitter"
-		left = "statwindow"
-		right = "outputwindow"
-		is-vert = false
-	elem "rulesb"
-		type = BUTTON
-		pos = 128,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Rules"
-		command = "rules"
-		group = "rpanemode"
-	elem "changelog"
-		type = BUTTON
-		pos = 192,0
-		size = 67x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Changelog"
-		command = "Changelog"
-		group = "rpanemode"
-	elem "reportbugb"
-		type = BUTTON
-		pos = 264,0
-		size = 67x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Report Bug"
-		command = "reportbug"
-		group = "rpanemode"
-	elem "forumb"
-		type = BUTTON
-		pos = 64,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Forum"
-		command = "forum"
-		group = "rpanemode"
-	elem "wikib"
-		type = BUTTON
-		pos = 0,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Wiki"
-		command = "wiki"
-		group = "rpanemode"
-	elem "interfaceb"
-		type = BUTTON
-		pos = 336,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "WI Link"
-		command = "open_webint"
-	elem "discordb"
-		type = BUTTON
-		pos = 400,0
-		size = 60x16
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "is-checked"
-		text = "Discord"
-		command = "open_discord"
-
-window "statwindow"
-	elem "statwindow"
-		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = -1,-1
-		anchor2 = -1,-1
-		background-color = none
-		saved-params = "pos;size;is-minimized;is-maximized"
-		is-pane = true
-		outer-size = 656x538
-		inner-size = 640x499
-	elem "statbrowser"
-		type = BROWSER
-		pos = 0,0
-		size = 640x480
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = none
-		is-visible = false
-		saved-params = ""
-
 window "preferences_window"
 	elem "preferences_window"
 		type = MAIN
 		pos = 281,0
-		size = 1200x800
+		size = 1280x1000
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		is-visible = false
@@ -1187,33 +1160,36 @@ window "preferences_window"
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
-		size = 1000x800
+		size = 960x1000
 		anchor1 = 0,0
-		anchor2 = 80,100
+		anchor2 = 75,100
 		saved-params = ""
 	elem "character_preview_map"
 		type = MAP
-		pos = 1000,0
-		size = 200x800
-		anchor1 = 80,0
+		pos = 960,0
+		size = 320x1000
+		anchor1 = 75,0
 		anchor2 = 100,100
-		saved-params = "letterbox;zoom-mode"
+		right-click = true
+		saved-params = "zoom;letterbox;zoom-mode"
 
-window "browserwindow"
-	elem "browserwindow"
+window "statwindow"
+	elem "statwindow"
 		type = MAIN
 		pos = 281,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
-		title = "Browser"
-		titlebar = false
-		statusbar = false
-		can-close = false
-		can-minimize = false
-		can-resize = false
 		is-pane = true
+	elem "statbrowser"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-visible = false
+		saved-params = ""
 
 window "tgui_say"
 	elem "tgui_say"
