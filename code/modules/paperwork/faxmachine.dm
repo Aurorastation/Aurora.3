@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A href='byond://?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A href='byond://?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='byond://?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='byond://?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

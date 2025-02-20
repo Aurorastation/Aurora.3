@@ -101,7 +101,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -149,7 +149,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Feedback gathering runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet
@@ -187,7 +187,7 @@
 				output += "<b>Question: [pollquestion]</b><br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				var/voted = 0
@@ -287,7 +287,7 @@
 				output += "<b>Question: [pollquestion]</b><br>You can select up to [multiplechoiceoptions] options. If you select more, the first [multiplechoiceoptions] will be saved.<br>"
 				output += "<font size='2'>Poll runs from <b>[pollstarttime]</b> until <b>[pollendtime]</b></font>"
 				if(haslink)
-					output += "<br><font size='2'>Additional information <a href='?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
+					output += "<br><font size='2'>Additional information <a href='byond://?src=[REF(src)];showpolllink=[pollid]'>is available here</a></font>"
 				output += "<p>"
 
 				if(!voted)	//Only make this a form if we have not voted yet

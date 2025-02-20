@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 		if(prob(INFEST_PROB_MODERATE))
 			var/ctype = pickweight(infest_mobs_moderate)
 			new ctype(C)
-			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [C.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[C.x];Y=[C.y];Z=[C.z]'>JMP</a>)")
+			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [C.name] coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[C.x];Y=[C.y];Z=[C.z]'>JMP</a>)")
 
 	//This is checked only once per round. ~3% chance to spawn a scary monster infesting the warehouse
 	if (prob(INFEST_PROB_SEVERE))
@@ -222,7 +222,7 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 			var/ctype = pickweight(infest_mobs_severe)
 
 			new ctype(T)
-			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
+			msg_admin_attack("Rare cargo warehouse critter [ctype] spawned coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)")
 			return
 
 /datum/cargospawner/proc/shuffle_items()

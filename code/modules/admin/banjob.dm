@@ -322,7 +322,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Regular jobs
 	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=[REF(src)];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
@@ -331,10 +331,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 6) //So things dont get squiiiiished!
@@ -344,7 +344,7 @@ GLOBAL_PROTECT(jobban_keylist)
 
 	//Command Support
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=[REF(src)];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='byond://?src=[REF(src)];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_support_positions)
 		if (!jobPos)
 			continue
@@ -353,10 +353,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 6) //So things dont get squiiiiished!
@@ -367,7 +367,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='?src=[REF(src)];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='byond://?src=[REF(src)];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
@@ -376,10 +376,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -390,7 +390,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='?src=[REF(src)];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='byond://?src=[REF(src)];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
@@ -399,10 +399,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -413,7 +413,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='?src=[REF(src)];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='byond://?src=[REF(src)];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
@@ -422,10 +422,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -436,7 +436,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='?src=[REF(src)];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='byond://?src=[REF(src)];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
@@ -445,10 +445,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -459,7 +459,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='?src=[REF(src)];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='byond://?src=[REF(src)];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
@@ -468,10 +468,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5)
@@ -481,7 +481,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='?src=[REF(src)];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='byond://?src=[REF(src)];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in service_positions)
 		if (!jobPos)
 			continue
@@ -490,10 +490,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -504,7 +504,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Civilian
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='?src=[REF(src)];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='byond://?src=[REF(src)];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
@@ -513,10 +513,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -526,7 +526,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	//Non-Human (Green)
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='?src=[REF(src)];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='ccffcc'><th colspan='[length(nonhuman_positions)+1]'><a href='byond://?src=[REF(src)];jobban_job=nonhumandept;jobban_tgt=[ckey]'>Non-human Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in nonhuman_positions)
 		if (!jobPos)
 			continue
@@ -535,10 +535,10 @@ GLOBAL_PROTECT(jobban_keylist)
 			continue
 
 		if (jobban_isbanned(ckey, job.title))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
 			counter++
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
 			counter++
 
 		if (counter >= 5) //So things dont get squiiiiished!
@@ -549,28 +549,28 @@ GLOBAL_PROTECT(jobban_keylist)
 	//pAI isn't technically a job, but it goes in here.
 
 	if (jobban_isbanned(ckey, "pAI"))
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'><font color=red>pAI</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'><font color=red>pAI</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'>pAI</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=pAI;jobban_tgt=[ckey]'>pAI</a></td>"
 	if (jobban_isbanned(ckey, "AntagHUD"))
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'><font color=red>AntagHUD</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'><font color=red>AntagHUD</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'>AntagHUD</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=AntagHUD;jobban_tgt=[ckey]'>AntagHUD</a></td>"
 	jobs += "</tr></table>"
 
 	//Antagonist (Orange)
 	counter = 0
 	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=[REF(src)];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='byond://?src=[REF(src)];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
 	for (var/antag_type in GLOB.all_antag_types)
 		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
 			continue
 		if (isbanned_dept || jobban_isbanned(ckey, antag.bantype))
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'><font color=red>[replacetext("[antag.role_text]", " ", "&nbsp")]</font></a></td>"
 		else
-			jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
+			jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=[antag.bantype];jobban_tgt=[ckey]'>[replacetext("[antag.role_text]", " ", "&nbsp")]</a></td>"
 
 		counter++
 
@@ -584,9 +584,9 @@ GLOBAL_PROTECT(jobban_keylist)
 	jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
 
 	if (jobban_isbanned(ckey, "Dionaea"))
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'><font color=red>Dionaea</font></a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'><font color=red>Dionaea</font></a></td>"
 	else
-		jobs += "<td width='20%'><a href='?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'>Dionaea</a></td>"
+		jobs += "<td width='20%'><a href='byond://?src=[REF(src)];jobban_job=Dionaea;jobban_tgt=[ckey]'>Dionaea</a></td>"
 	jobs += "</tr></table>"
 	body = "<body>[jobs]</body>"
 	dat = "<tt>[header][body]</tt>"

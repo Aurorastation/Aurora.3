@@ -68,17 +68,17 @@
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
-		"<b>Play admin midis:</b> <a href='?src=[REF(src)];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>",
-		"<b>Play lobby music:</b> <a href='?src=[REF(src)];toggle=[SOUND_LOBBY]'><b>[(pref.toggles & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>",
-		"<b>Ghost ears:</b> <a href='?src=[REF(src)];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
-		"<b>Ghost sight:</b> <a href='?src=[REF(src)];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
-		"<b>Ghost radio:</b> <a href='?src=[REF(src)];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
-		"<b>Observer LOOC:</b> <a href='?src=[REF(src)];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
-		"<b>Item Outlines:</b> <a href='?src=[REF(src)];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
-		"<b>Hide Item Tooltips:</b> <a href='?src=[REF(src)];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
-		"<b>Progress Bars:</b> <a href='?src=[REF(src)];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
-		"<b>Floating Messages:</b> <a href='?src=[REF(src)];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
-		"<b>Hotkey Mode Default:</b> <a href='?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
+		"<b>Play admin midis:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>",
+		"<b>Play lobby music:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_LOBBY]'><b>[(pref.toggles & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>",
+		"<b>Ghost ears:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
+		"<b>Ghost sight:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
+		"<b>Ghost radio:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
+		"<b>Observer LOOC:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Item Outlines:</b> <a href='byond://?src=[REF(src)];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Hide Item Tooltips:</b> <a href='byond://?src=[REF(src)];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Progress Bars:</b> <a href='byond://?src=[REF(src)];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Floating Messages:</b> <a href='byond://?src=[REF(src)];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
+		"<b>Hotkey Mode Default:</b> <a href='byond://?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
 	)
 
 	. = dat.Join()

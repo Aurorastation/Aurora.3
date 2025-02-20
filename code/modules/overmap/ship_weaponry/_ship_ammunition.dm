@@ -196,7 +196,7 @@
 	P.speed = get_speed()
 	P.entry_target = entry_point
 	forceMove(P)
-	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
+	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
 
 //SNOWFLAKE CODE: ACTIVATE

@@ -16,7 +16,7 @@ GLOBAL_DATUM(traitors, /datum/antagonist/traitor)
 	GLOB.traitors = src
 
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
-	return "<a href='?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
+	return "<a href='byond://?src=[REF(player)];common=crystals'>\[set crystals\]</a><a href='byond://?src=[REF(src)];spawn_uplink=[REF(player.current)]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())
