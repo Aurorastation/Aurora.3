@@ -255,20 +255,20 @@
 	// Always update the UI, or buttons will spin indefinitely
 	SSnanoui.update_uis(src)
 
-/var/global/list/id_card_states
+GLOBAL_LIST_INIT_TYPED(id_card_states, /datum/card_state, null)
 /proc/id_card_states()
-	if(!id_card_states)
-		id_card_states = list()
+	if(!GLOB.id_card_states)
+		GLOB.id_card_states = list()
 		for(var/path in typesof(/obj/item/card/id))
 			var/obj/item/card/id/ID = path
 			var/datum/card_state/CS = new()
 			CS.icon_state = initial(ID.icon_state)
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
-			id_card_states += CS
-		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
+			GLOB.id_card_states += CS
+		sortTim(GLOB.id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
-	return id_card_states
+	return GLOB.id_card_states
 
 /datum/card_state
 	var/name

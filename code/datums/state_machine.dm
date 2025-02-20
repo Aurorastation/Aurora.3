@@ -1,18 +1,18 @@
-// List and procs for caching state machine instances.
-var/global/list/state_machines = list()
+/// List and procs for caching state machine instances.
+GLOBAL_LIST_INIT(state_machines, list())
 
 /proc/get_state_machine(var/datum/holder, var/base_type)
 	if(istype(holder) && base_type && holder.has_state_machine)
-		var/list/machines = global.state_machines["[REF(holder)]"]
+		var/list/machines = GLOB.state_machines["[REF(holder)]"]
 		return islist(machines) && machines[base_type]
 
 /proc/add_state_machine(var/datum/holder, var/base_type, var/fsm_type)
 	if(istype(holder) && base_type)
 		var/holder_ref = "[REF(holder)]"
-		var/list/machines = global.state_machines[holder_ref]
+		var/list/machines = GLOB.state_machines[holder_ref]
 		if(!islist(machines))
 			machines = list()
-			global.state_machines[holder_ref] = machines
+			GLOB.state_machines[holder_ref] = machines
 		if(!machines[base_type])
 			if(!fsm_type)
 				fsm_type = base_type
@@ -24,11 +24,11 @@ var/global/list/state_machines = list()
 /proc/remove_state_machine(var/datum/holder, var/base_type)
 	if(istype(holder) && base_type && holder.has_state_machine)
 		var/holder_ref = "[REF(holder)]"
-		var/list/machines = global.state_machines[holder_ref]
+		var/list/machines = GLOB.state_machines[holder_ref]
 		if(length(machines))
 			machines -= base_type
 			if(!length(machines))
-				global.state_machines -= holder_ref
+				GLOB.state_machines -= holder_ref
 				holder.has_state_machine = FALSE
 			return TRUE
 	return FALSE

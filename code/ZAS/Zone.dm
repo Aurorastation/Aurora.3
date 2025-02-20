@@ -108,7 +108,7 @@ Class Procs:
 		into.add(T)
 		T.update_graphic(graphic_remove = air.graphic)
 		#ifdef ZASDBG
-		T.dbg(merged)
+		T.dbg(GLOB.merged)
 		#endif
 
 	//rebuild the old zone's edges so that they will be possessed by the new zone
@@ -124,7 +124,7 @@ Class Procs:
 	SSair.remove_zone(src)
 	#ifdef ZASDBG
 	for(var/turf/simulated/T in contents)
-		T.dbg(invalid_zone)
+		T.dbg(GLOB.invalid_zone)
 	#endif
 
 /zone/proc/rebuild()
@@ -151,7 +151,7 @@ Class Procs:
 	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && air.check_combustability() && contents.len)
 		var/turf/T = pick(contents)
 		if(istype(T))
-			T.create_fire(vsc.fire_firelevel_multiplier)
+			T.create_fire(GLOB.vsc.fire_firelevel_multiplier)
 
 	var/world_time_counter = world.time
 	var/list/graphic_add = list()

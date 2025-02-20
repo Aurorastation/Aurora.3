@@ -1,8 +1,8 @@
-var/global/list/valid_bloodtypes = list(
+GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
 	"SBS"	// Synthetic Blood Substitute. Intended for heavily augmented characters.
 			// Sanitized below, removed if character is not augmented enough.
-)
+))
 
 /datum/preferences
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -361,7 +361,7 @@ var/global/list/valid_bloodtypes = list(
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["blood_type"])
-		var/new_b_type = tgui_input_list(user, "Choose your character's blood-type:", "Character Preference", valid_bloodtypes)
+		var/new_b_type = tgui_input_list(user, "Choose your character's blood-type:", "Character Preference", GLOB.valid_bloodtypes)
 		if(new_b_type && CanUseTopic(user))
 			pref.b_type = new_b_type
 			return TOPIC_REFRESH

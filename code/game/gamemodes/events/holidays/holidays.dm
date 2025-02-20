@@ -191,12 +191,3 @@ var/global/Holiday = null
 				Christmas_Game_Start()
 
 	return
-
-//Nested in the random events loop. Will be triggered every 2 minutes.
-/proc/Holiday_Random_Event()
-	switch(Holiday)			//special holidays
-
-		if("",null)			//no Holiday today! Back to work!
-			return
-		if("Christmas","Christmas Eve")
-			if(prob(eventchance))	ChristmasEvent()

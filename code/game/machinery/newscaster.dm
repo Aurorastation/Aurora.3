@@ -19,7 +19,7 @@ dir = EAST; \
 pixel_x = 8;
 
 ///Global list that contains reference to all newscasters in existence.
-var/list/obj/machinery/newscaster/allCasters = list()
+GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 /obj/machinery/newscaster
 	name = "newscaster"
@@ -120,9 +120,9 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster/Initialize(mapload)
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
-	allCasters += src
+	GLOB.allCasters += src
 	paper_remaining = 15            // Will probably change this to something better
-	unit_no = allCasters.len + 1
+	unit_no = GLOB.allCasters.len + 1
 	if(dir & NORTH)
 		alpha = 127
 	update_icon() //for any custom ones on the map...
@@ -131,7 +131,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		set_pixel_offsets()
 
 /obj/machinery/newscaster/Destroy()
-	allCasters -= src
+	GLOB.allCasters -= src
 	return ..()
 
 /obj/machinery/newscaster/set_pixel_offsets()
@@ -773,7 +773,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				SSnews.wanted_issue = null
-				for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+				for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 					NEWSCASTER.update_icon()
 				src.screen=17
 			src.updateUsrDialog()

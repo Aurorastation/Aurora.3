@@ -356,7 +356,7 @@ Deployable Kits
 
 /obj/item/deployable_kit/remote_mech/attack_self(mob/user)
 	var/area/A = get_area(user)
-	if(!A.powered(EQUIP))
+	if(!A.powered(AREA_USAGE_EQUIP))
 		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
 		return FALSE
 	..()

@@ -35,7 +35,7 @@
 
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
-	if(GLOB.config.starlight && use_starlight && lighting_overlays_initialized)
+	if(GLOB.config.starlight && use_starlight && GLOB.lighting_overlays_initialized)
 		update_starlight()
 
 	for(var/atom/movable/AM as mob|obj in src)

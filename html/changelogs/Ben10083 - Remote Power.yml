@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Wowzewow (Wezzy)
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Sweaters can be worn in the shirt slot now. Fixes sweaters not layering when worn as an accessory."
+  - rscadd: "New voice command for exosuits: toggle power."
+  - qol: "Exosuits with no pilot and no link can be given a command to toggle maintenance protocols, allowing the exosuit to be linked without needing to enter the exosuit."

@@ -121,6 +121,7 @@
 	display_name = "wheelchair"
 	path = /obj/item/material/stool/chair/wheelchair
 	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"

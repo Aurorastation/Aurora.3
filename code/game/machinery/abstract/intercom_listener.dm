@@ -1,7 +1,7 @@
 /obj/machinery/abstract/intercom_listener
 	name = "intercom power interface"
 	desc = DESC_PARENT
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 
 	var/obj/item/device/radio/intercom/master
 

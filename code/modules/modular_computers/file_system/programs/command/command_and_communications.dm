@@ -51,7 +51,7 @@
 	data["boss_short"] = SSatlas.current_map.boss_short
 	data["current_security_level"] = GLOB.security_level
 	data["current_security_level_title"] = num2seclevel(GLOB.security_level)
-	data["current_maint_all_access"] = maint_all_access
+	data["current_maint_all_access"] = GLOB.maint_all_access
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
 	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
@@ -60,11 +60,11 @@
 
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
-	data["message_deletion_allowed"] = l != global_message_listener
+	data["message_deletion_allowed"] = l != GLOB.global_message_listener
 
 	var/list/processed_evac_options = list()
-	if(!isnull(evacuation_controller))
-		for (var/datum/evacuation_option/EO in evacuation_controller.available_evac_options())
+	if(!isnull(GLOB.evacuation_controller))
+		for (var/datum/evacuation_option/EO in GLOB.evacuation_controller.available_evac_options())
 			if(EO.abandon_ship)
 				continue
 			var/list/option = list()
@@ -81,7 +81,7 @@
 	return can_run(user)
 
 /datum/computer_file/program/comm/proc/obtain_message_listener()
-	return global_message_listener
+	return GLOB.global_message_listener
 
 /datum/computer_file/program/comm/proc/can_call_shuttle()
 	return can_call_shuttle
@@ -102,7 +102,7 @@
 	switch(action)
 		if("emergencymaint")
 			if(is_authenticated(user) && (isAI(user) || !issilicon(user)))
-				if(maint_all_access)
+				if(GLOB.maint_all_access)
 					revoke_maint_all_access()
 					feedback_inc("alert_comms_maintRevoke",1)
 					log_and_message_admins("disabled emergency maintenance access")
@@ -165,7 +165,7 @@
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
 			if(is_authenticated(user))
-				var/datum/evacuation_option/selected_evac_option = evacuation_controller.evacuation_options[params["target"]]
+				var/datum/evacuation_option/selected_evac_option = GLOB.evacuation_controller.evacuation_options[params["target"]]
 				if (isnull(selected_evac_option) || !istype(selected_evac_option))
 					return
 				if (!selected_evac_option.silicon_allowed && issilicon(user))
@@ -174,7 +174,7 @@
 					return
 				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", filedesc, "No", "Yes")
 				if (confirm == "Yes" && !computer.use_check_and_message(usr))
-					evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
+					GLOB.evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
 			if(is_authenticated(user) && ntn_cont)
 				switch(params["target"])
@@ -211,7 +211,7 @@
 			else
 				to_chat(usr, SPAN_WARNING("You press the button, but a red light flashes and nothing happens.")) //This should never happen
 		if("delmessage")
-			if(is_authenticated(user) && ntn_comm && l != global_message_listener)
+			if(is_authenticated(user) && ntn_comm && l != GLOB.global_message_listener)
 				l.Remove(params["messageid"])
 		if("printmessage")
 			if(is_authenticated(user) && ntn_comm)
@@ -233,13 +233,13 @@
 /*
 General message handling stuff
 */
-var/list/comm_message_listeners = list() //We first have to initialize list then we can use it.
-var/datum/comm_message_listener/global_message_listener = new //May be used by admins
-var/last_message_id = 0
+GLOBAL_LIST_EMPTY_TYPED(comm_message_listeners, /datum/comm_message_listener)
+GLOBAL_DATUM_INIT(global_message_listener, /datum/comm_message_listener, new()) //May be used by admins
+GLOBAL_VAR_INIT(last_message_id, 0)
 
 /proc/get_comm_message_id()
-	last_message_id = last_message_id + 1
-	return last_message_id
+	GLOB.last_message_id = GLOB.last_message_id + 1
+	return GLOB.last_message_id
 
 /proc/post_comm_message(var/message_title, var/message_text)
 	var/list/message = list()
@@ -247,7 +247,7 @@ var/last_message_id = 0
 	message["title"] = message_title
 	message["contents"] = message_text
 
-	for (var/datum/comm_message_listener/l in comm_message_listeners)
+	for (var/datum/comm_message_listener/l in GLOB.comm_message_listeners)
 		l.Add(message)
 
 	for (var/obj/item/modular_computer/computer in get_listeners_by_type("modular_computers", /obj/item/modular_computer))
@@ -263,7 +263,11 @@ var/last_message_id = 0
 /datum/comm_message_listener/New()
 	..()
 	messages = list()
-	comm_message_listeners.Add(src)
+	GLOB.comm_message_listeners.Add(src)
+
+/datum/comm_message_listener/Destroy(force)
+	GLOB.comm_message_listeners.Remove(src)
+	. = ..()
 
 /datum/comm_message_listener/proc/Add(var/list/message)
 	messages[++messages.len] = message
@@ -296,7 +300,7 @@ Command action procs
 
 //Returns 1 if recalled 0 if not
 /proc/cancel_call_proc(var/mob/user)
-	if(!(ROUND_IS_STARTED) || !evacuation_controller)
+	if(!(ROUND_IS_STARTED) || !GLOB.evacuation_controller)
 		return FALSE
 
 	if(SSatlas.current_map.shuttle_call_restarts && SSatlas.current_map.shuttle_call_restart_timer)
@@ -310,7 +314,7 @@ Command action procs
 	if(SSticker.mode.name == "Meteor")
 		return FALSE
 
-	if(evacuation_controller.cancel_evacuation())
+	if(GLOB.evacuation_controller.cancel_evacuation())
 		log_and_message_admins("has cancelled the evacuation.", user)
 		return TRUE
 	return FALSE
@@ -324,14 +328,14 @@ Command action procs
 
 //Returns 1 if called 0 if not
 /proc/call_shuttle_proc(var/mob/user, var/_evac_type = TRANSFER_CREW)
-	if((!(ROUND_IS_STARTED) || !evacuation_controller))
+	if((!(ROUND_IS_STARTED) || !GLOB.evacuation_controller))
 		return FALSE
 
 	if(!GLOB.universe.OnShuttleCall(usr))
 		to_chat(user, SPAN_WARNING("A bluespace connection cannot be established! Please check the user manual for more information."))
 		return FALSE
 
-	if(evacuation_controller.deny)
+	if(GLOB.evacuation_controller.deny)
 		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please try again later."))
 		return FALSE
 
@@ -339,20 +343,20 @@ Command action procs
 		to_chat(user, SPAN_WARNING("An evacuation cannot be sent at this time. Please wait another [round((GLOB.config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
 		return FALSE
 
-	if(evacuation_controller.is_on_cooldown()) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		to_chat(user, evacuation_controller.get_cooldown_message())
+	if(GLOB.evacuation_controller.is_on_cooldown()) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
+		to_chat(user, GLOB.evacuation_controller.get_cooldown_message())
 
-	if(evacuation_controller.is_evacuating())
+	if(GLOB.evacuation_controller.is_evacuating())
 		to_chat(user, "An evacuation is already underway.")
 		return
 
-	if(evacuation_controller.call_evacuation(user, _evac_type))
+	if(GLOB.evacuation_controller.call_evacuation(user, _evac_type))
 		log_and_message_admins("[user? key_name(user) : "Autotransfer"] has called a shuttle.")
 
 	return TRUE
 
 /proc/init_shift_change(var/mob/user, var/force = FALSE)
-	if(!(ROUND_IS_STARTED) || !evacuation_controller)
+	if(!(ROUND_IS_STARTED) || !GLOB.evacuation_controller)
 		return
 
 	if(SSatlas.current_map.shuttle_call_restarts)
@@ -362,7 +366,7 @@ Command action procs
 		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))
 		return
 
-	. = evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)
+	. = GLOB.evacuation_controller.call_evacuation(null, _evac_type = TRANSFER_CREW, autotransfer = TRUE)
 
 	//delay events in case of an autotransfer
 	if(.)

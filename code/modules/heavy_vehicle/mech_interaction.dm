@@ -532,7 +532,7 @@
 			return h
 	return 0
 
-/var/global/datum/ui_state/default/mech_state = new()
+GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 
 /datum/ui_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
 	if(istype(src_object))
@@ -628,6 +628,13 @@
 
 		// Checking whether we have a leader or not
 		if(!leader)
+			if(findtext(text, "toggle maintenance protocols")) // Allow for engaging maintenance protocols if no pilot
+				if(pilots)
+					say("Unlinked toggling of maintenance protocols requires no active pilots.")
+					return
+				if(toggle_maintenance_protocols())
+					say("Maintenance protocols toggled [maintenance_protocols ? "on" : "off"].")
+				return
 			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
 				say("Maintenance protocols must be enabled to link.")
 				return
@@ -682,6 +689,18 @@
 					return
 				if(toggle_hatch())
 					say("Hatch [hatch_closed ? "closed" : "opened"].")
+				return
+
+			// simply toggle on or off the power
+			if(findtext(text, "toggle power"))
+				if(power == MECH_POWER_TRANSITION)
+					say("Power transition in progress. Please wait.")
+					return
+				else if(power == MECH_POWER_OFF && !get_cell(TRUE))
+					say("Insufficent power to power systems.")
+					return
+				if(toggle_power_remote())
+					say("Systems [power == MECH_POWER_ON ? "online" : "offline"].")
 				return
 
 			// simply toggle the lock status

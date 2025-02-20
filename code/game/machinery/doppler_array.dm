@@ -1,4 +1,4 @@
-var/list/doppler_arrays = list()
+GLOBAL_LIST_INIT_TYPED(doppler_arrays, /obj/machinery/doppler_array, list())
 
 /obj/machinery/doppler_array
 	name = "tachyon-doppler array"
@@ -12,11 +12,11 @@ var/list/doppler_arrays = list()
 
 /obj/machinery/doppler_array/Initialize()
 	. = ..()
-	doppler_arrays += src
+	GLOB.doppler_arrays += src
 	update_icon()
 
 /obj/machinery/doppler_array/Destroy()
-	doppler_arrays -= src
+	GLOB.doppler_arrays -= src
 	return ..()
 
 /obj/machinery/doppler_array/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

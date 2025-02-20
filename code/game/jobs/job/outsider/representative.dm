@@ -172,7 +172,7 @@
 	if(prob(25))
 		faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_HIGH)].</li>"
 
-	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if (F.department == fax_department)
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(F))
 			P.name = "[name] - Directives"
