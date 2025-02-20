@@ -1,0 +1,68 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#     - (fixes bugs)
+#   wip
+#     - (work in progress)
+#   qol
+#     - (quality of life)
+#   soundadd
+#     - (adds a sound)
+#   sounddel
+#     - (removes a sound)
+#   rscadd
+#     - (adds a feature)
+#   rscdel
+#     - (removes a feature)
+#   imageadd
+#     - (adds an image or sprite)
+#   imagedel
+#     - (removes an image or sprite)
+#   spellcheck
+#     - (fixes spelling or grammar)
+#   experiment
+#     - (experimental change)
+#   balance
+#     - (balance changes)
+#   code_imp
+#     - (misc internal code change)
+#   refactor
+#     - (refactors code)
+#   config
+#     - (makes a change to the config files)
+#   admin
+#     - (makes changes to administrator tools)
+#   server
+#     - (miscellaneous changes to server)
+#################################
+
+# Your name.
+author: CourierBravo
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Changed and added floor decals to the area in front of Consular Office B. Moved a couple decals in front of Consular Office A as well."
+  - rscadd: "Added an engineering floor decal to the warehouse. Also, moved around the floor outline decals in the warehouse. Now it goes top to bottom: Medical, Engineering, Science, Security, Service, and Operations."
+  - rscadd: "Removed girder and angled section layered on a hull wall next to R&D office. Just makes it look a little nicer."
+  - rscadd: "Altered the outline decals in xenobiology. Made some full decals half decals, and changed the decals around water dispensing objects to be blue instead of yellow."
+  - bugfix: "Fixed out of place air alarm in the Intrepid. Also moved around some objects to prevent odd overlapping."
+  - bugfix: "Fixed a corner wall in Bluespace Drive being a reinforced wall instead of a spaceship hull wall."
+  - bugfix: "Fixed an overlapping wall light and medical cabinet in the gym."
+  - bugfix: "Removed outlining decals on grass in the animal pen."
+  - bugfix: "Added missing floor spline in Research Director's office."
+  - bugfix: "Fixed an odd flood decal in the shields room."
+
