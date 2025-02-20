@@ -1,6 +1,5 @@
 
 var/global/BSACooldown = 0
-var/global/floorIsLava = 0
 var/global/enabled_spooking = 0
 
 ////////////////////////////////
@@ -109,7 +108,7 @@ var/global/enabled_spooking = 0
 		body += "<table width = '100%'>"
 		for(var/psi_rank in list(PSI_RANK_SENSITIVE, PSI_RANK_HARMONIOUS, PSI_RANK_APEX, PSI_RANK_LIMITLESS))
 			var/owner_rank = psyker.psi ? psyker.psi.get_rank() : 0
-			var/psi_title = psychic_ranks_to_strings[psi_rank]
+			var/psi_title = GLOB.psychic_ranks_to_strings[psi_rank]
 			if(psi_rank == owner_rank)
 				psi_title = "<b>[psi_title]</b>"
 			if(psi_rank != PSI_RANK_LIMITLESS)
@@ -612,9 +611,9 @@ var/global/enabled_spooking = 0
 	var/dat = "<B>Job Bans!</B><HR>"
 	dat += "<a href='byond://?src=[REF(src)];jobban_search=1'>Search via ckey</a><br>"
 	dat += "<table>"
-	for (var/ckey in jobban_keylist)
-		for (var/job in jobban_keylist[ckey])
-			var/list/ban = jobban_keylist[ckey][job]
+	for (var/ckey in GLOB.jobban_keylist)
+		for (var/job in GLOB.jobban_keylist[ckey])
+			var/list/ban = GLOB.jobban_keylist[ckey][job]
 			if (!jobban_isexpired(ban, null, job, ckey))
 				dat += "<tr><td>[ckey] - [ban[2]] - (<a href='byond://?src=[REF(src)];jobban_tgt=[ckey];jobban_job=[job];'>unban</a>)</td></tr>"
 
@@ -987,11 +986,11 @@ var/global/enabled_spooking = 0
 
 	if(!check_rights(R_SPAWN))	return
 
-	var/owner = input("Select a ckey.", "Spawn Custom Item") as null|anything in custom_items
-	if(!owner|| !custom_items[owner])
+	var/owner = input("Select a ckey.", "Spawn Custom Item") as null|anything in GLOB.custom_items
+	if(!owner|| !GLOB.custom_items[owner])
 		return
 
-	var/list/possible_items = custom_items[owner]
+	var/list/possible_items = GLOB.custom_items[owner]
 	var/datum/custom_item/item_to_spawn = input("Select an item to spawn.", "Spawn Custom Item") as null|anything in possible_items
 	if(!item_to_spawn)
 		return
@@ -1368,7 +1367,7 @@ var/global/enabled_spooking = 0
 	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
-	sounds += sounds_cache
+	sounds += GLOB.sounds_cache
 
 	var/melody = tgui_input_list(usr, "Select a sound from the server to play.", "Sound Selection", sounds)
 

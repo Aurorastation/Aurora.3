@@ -1,5 +1,5 @@
-var/list/loadout_categories = list()
-var/list/gear_datums = list()
+GLOBAL_LIST_INIT(loadout_categories, list())
+GLOBAL_LIST_INIT(gear_datums, list())
 
 /datum/loadout_category
 	var/category = ""
@@ -22,15 +22,15 @@ var/list/gear_datums = list()
 		var/use_name = initial(G.display_name)
 		var/use_category = initial(G.sort_category)
 
-		if(!loadout_categories[use_category])
-			loadout_categories[use_category] = new /datum/loadout_category(use_category)
-		var/datum/loadout_category/LC = loadout_categories[use_category]
-		gear_datums[use_name] = new geartype
-		LC.gear[use_name] = gear_datums[use_name]
+		if(!GLOB.loadout_categories[use_category])
+			GLOB.loadout_categories[use_category] = new /datum/loadout_category(use_category)
+		var/datum/loadout_category/LC = GLOB.loadout_categories[use_category]
+		GLOB.gear_datums[use_name] = new geartype
+		LC.gear[use_name] = GLOB.gear_datums[use_name]
 
-	sortTim(loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
-	for(var/loadout_category in loadout_categories)
-		var/datum/loadout_category/LC = loadout_categories[loadout_category]
+	sortTim(GLOB.loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+	for(var/loadout_category in GLOB.loadout_categories)
+		var/datum/loadout_category/LC = GLOB.loadout_categories[loadout_category]
 		sortTim(LC.gear, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
 	return TRUE
@@ -109,8 +109,8 @@ var/list/gear_datums = list()
 			if(is_alien_whitelisted(preference_mob, S))
 				whitelist_cache += S.name
 
-	for(var/gear_name in gear_datums)
-		var/datum/gear/G = gear_datums[gear_name]
+	for(var/gear_name in GLOB.gear_datums)
+		var/datum/gear/G = GLOB.gear_datums[gear_name]
 		if(max_cost && G.cost > max_cost)
 			continue
 		else if(G.whitelisted && whitelist_cache.len)
@@ -153,19 +153,19 @@ var/list/gear_datums = list()
 			pref.gear_slot = 1
 
 	for(var/gear_name in pref.gear)
-		if(!(gear_name in gear_datums))
+		if(!(gear_name in GLOB.gear_datums))
 			pref.gear -= gear_name
 	var/total_cost = 0
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in pref.gear)
-		if(!gear_datums[gear_name])
+		if(!GLOB.gear_datums[gear_name])
 			to_chat(preference_mob, SPAN_WARNING("You cannot have more than one of the \the [gear_name]"))
 			pref.gear -= gear_name
 		else if(!(gear_name in player_valid_gear_choices))
 			to_chat(preference_mob, SPAN_WARNING("You cannot take \the [gear_name] as you are not whitelisted for the species."))
 			pref.gear -= gear_name
 		else
-			var/datum/gear/G = gear_datums[gear_name]
+			var/datum/gear/G = GLOB.gear_datums[gear_name]
 			if(total_cost + G.cost > GLOB.config.loadout_cost)
 				pref.gear -= gear_name
 				to_chat(preference_mob, SPAN_WARNING("You cannot afford to take \the [gear_name]"))
@@ -176,7 +176,7 @@ var/list/gear_datums = list()
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)
 		for(var/i = 1; i <= pref.gear.len; i++)
-			var/datum/gear/G = gear_datums[pref.gear[i]]
+			var/datum/gear/G = GLOB.gear_datums[pref.gear[i]]
 			if(G)
 				total_cost += G.cost
 
@@ -191,7 +191,7 @@ var/list/gear_datums = list()
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
-	for(var/category in loadout_categories)
+	for(var/category in GLOB.loadout_categories)
 
 		if(firstcat)
 			firstcat = 0
@@ -200,7 +200,7 @@ var/list/gear_datums = list()
 		if(category == current_tab)
 			. += " [category] "
 		else
-			var/datum/loadout_category/LC = loadout_categories[category]
+			var/datum/loadout_category/LC = GLOB.loadout_categories[category]
 			var/style = ""
 			for(var/thing in LC.gear)
 				if(thing in pref.gear)
@@ -209,7 +209,7 @@ var/list/gear_datums = list()
 			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]>[category]</font></a> "
 	. += "</b></center></td></tr>"
 
-	var/datum/loadout_category/LC = loadout_categories[current_tab]
+	var/datum/loadout_category/LC = GLOB.loadout_categories[current_tab]
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
@@ -356,20 +356,20 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/OnTopic(href, href_list, user)
 	if(href_list["toggle_gear"])
 		pref.gear_modified = TRUE
-		var/datum/gear/TG = gear_datums[href_list["toggle_gear"]]
+		var/datum/gear/TG = GLOB.gear_datums[href_list["toggle_gear"]]
 		if(TG.display_name in pref.gear)
 			pref.gear -= TG.display_name
 		else
 			var/total_cost = 0
 			for(var/gear_name in pref.gear)
-				var/datum/gear/G = gear_datums[gear_name]
+				var/datum/gear/G = GLOB.gear_datums[gear_name]
 				if(istype(G)) total_cost += G.cost
 			if((total_cost+TG.cost) <= GLOB.config.loadout_cost)
 				pref.gear += TG.display_name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	if(href_list["gear"] && href_list["tweak"])
 		pref.gear_modified = TRUE
-		var/datum/gear/gear = gear_datums[href_list["gear"]]
+		var/datum/gear/gear = GLOB.gear_datums[href_list["gear"]]
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
 			return TOPIC_NOACTION
@@ -506,19 +506,19 @@ var/list/gear_datums = list()
 		var/obj/O = path
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
-		gear_tweaks += list(gear_tweak_free_color_choice)
+		gear_tweaks += list(GLOB.gear_tweak_free_color_choice)
 	if(flags & GEAR_HAS_ALPHA_SELECTION)
-		gear_tweaks += list(gear_tweak_alpha_choice)
+		gear_tweaks += list(GLOB.gear_tweak_alpha_choice)
 	if(flags & GEAR_HAS_ACCENT_COLOR_SELECTION)
-		gear_tweaks += list(gear_tweak_accent_color)
+		gear_tweaks += list(GLOB.gear_tweak_accent_color)
 	if(flags & GEAR_HAS_NAME_SELECTION)
-		gear_tweaks += list(gear_tweak_free_name)
+		gear_tweaks += list(GLOB.gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)
-		gear_tweaks += list(gear_tweak_free_desc)
+		gear_tweaks += list(GLOB.gear_tweak_free_desc)
 	if(flags & GEAR_HAS_COLOR_ROTATION_SELECTION)
-		gear_tweaks += list(gear_tweak_color_rotation)
+		gear_tweaks += list(GLOB.gear_tweak_color_rotation)
 	if(ispath(path, /obj/item/clothing/accessory))
-		gear_tweaks += list(gear_tweak_accessory_slot)
+		gear_tweaks += list(GLOB.gear_tweak_accessory_slot)
 
 /datum/gear_data
 	var/path

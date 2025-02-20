@@ -1,4 +1,4 @@
-var/global/list/datum/stack_recipe/rod_recipes = list(
+GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	new /datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
@@ -13,7 +13,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("bolt", /obj/item/arrow, 1, time = 6),
 	new /datum/stack_recipe("small animal trap", /obj/item/trap/animal, 6, time = 10),
 	new /datum/stack_recipe("medium animal trap", /obj/item/trap/animal/medium, 12, time = 20)
-)
+))
 
 /obj/item/stack/rods
 	name = "metal rod"
@@ -58,7 +58,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/New(var/loc, var/amount=null)
 	..()
-	recipes = rod_recipes
+	recipes = GLOB.rod_recipes
 
 /obj/item/stack/rods/attackby(obj/item/attacking_item, mob/user)
 	..()

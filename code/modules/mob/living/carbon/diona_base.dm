@@ -13,7 +13,7 @@
 #define LIMB_REGROW_REQUIREMENT 2500
 
 #define LANGUAGE_POINTS_TO_LEARN	1 //The number of samples of a language required to learn it
-var/list/diona_banned_languages = list(
+GLOBAL_LIST_INIT(diona_banned_languages, list(
 	/datum/language/cult,
 	/datum/language/cultcommon,
 	/datum/language/corticalborer,
@@ -22,7 +22,8 @@ var/list/diona_banned_languages = list(
 	/datum/language/bug,
 	/datum/language/ling,
 	/datum/language/revenant,
-	/datum/language/machine)
+	/datum/language/machine,
+	))
 
 #define DIONA_LIGHT_COEFICIENT 0.25
 /mob/living/carbon/proc/diona_handle_light(var/datum/dionastats/DS) //Carbon is the highest common denominator between gestalts and nymphs. They will share light code
@@ -667,7 +668,7 @@ var/list/diona_banned_languages = list(
 			//Now we sample their languages!
 			for(var/datum/language/L in H.languages)
 				learned = max(learned, 1)
-				if (!(L in user.languages) && !(L in diona_banned_languages))
+				if (!(L in user.languages) && !(L in GLOB.diona_banned_languages))
 					//We don't know this language, and we can learn it!
 					var/current_progress = language_progress[L.name]
 					current_progress += 1

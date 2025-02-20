@@ -112,7 +112,7 @@
 	if(!istype(pref.all_underwear))
 		pref.all_underwear = list()
 
-		for(var/datum/category_group/underwear/WRC in global_underwear.categories)
+		for(var/datum/category_group/underwear/WRC in GLOB.global_underwear.categories)
 			for(var/datum/category_item/underwear/WRI in WRC.items)
 				if(WRI.is_default(pref.gender ? pref.gender : MALE))
 					pref.all_underwear[WRC.name] = WRI.name
@@ -122,7 +122,7 @@
 		pref.all_underwear_metadata = list()
 
 	for(var/underwear_category in pref.all_underwear)
-		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[underwear_category]
+		var/datum/category_group/underwear/UWC = GLOB.global_underwear.categories_by_name[underwear_category]
 		if(!UWC)
 			pref.all_underwear -= underwear_category
 		else
@@ -147,7 +147,7 @@
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
 	. += "<b>Equipment:</b><br>"
-	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
+	for(var/datum/category_group/underwear/UWC in GLOB.global_underwear.categories)
 		var/item_name = pref.all_underwear[UWC.name] ? pref.all_underwear[UWC.name] : "None"
 		. += "[UWC.name]: <a href='byond://?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
@@ -236,7 +236,7 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_underwear"])
-		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
+		var/datum/category_group/underwear/UWC = GLOB.global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return TOPIC_NOACTION
 		var/datum/category_item/underwear/selected_underwear = tgui_input_list(user, "Choose underwear:", "Character Preference", UWC.items, pref.all_underwear[UWC.name])

@@ -1,4 +1,4 @@
-var/list/global/all_tethers = list()
+GLOBAL_LIST_INIT_TYPED(all_tethers, /obj/item/tethering_device, list())
 
 /obj/item/tethering_device
 	name = "tethering device"
@@ -18,7 +18,7 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/Initialize(mapload, ...)
 	. = ..()
-	all_tethers += src
+	GLOB.all_tethers += src
 
 /obj/item/tethering_device/update_icon()
 	ClearOverlays()
@@ -28,7 +28,7 @@ var/list/global/all_tethers = list()
 /obj/item/tethering_device/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	deactivate()
-	all_tethers -= src
+	GLOB.all_tethers -= src
 	return ..()
 
 /obj/item/tethering_device/attack_self(mob/user)
@@ -44,7 +44,7 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/process()
 	var/turf/our_turf = get_turf(src)
-	for(var/tether in all_tethers - src)
+	for(var/tether in GLOB.all_tethers - src)
 		var/obj/item/tethering_device/TD = tether
 		if(!TD.active)
 			continue
@@ -74,7 +74,7 @@ var/list/global/all_tethers = list()
 	for(var/beam in active_beams)
 		var/datum/beam/exploration/B = active_beams[beam]
 		B.End()
-	for(var/tether in all_tethers)
+	for(var/tether in GLOB.all_tethers)
 		var/obj/item/tethering_device/TD = tether
 		TD.untether(src)
 

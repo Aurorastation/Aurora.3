@@ -86,7 +86,7 @@
 	. = ..()
 
 	hide_underwear.Cut()
-	for(var/category in global_underwear.categories_by_name)
+	for(var/category in GLOB.global_underwear.categories_by_name)
 		hide_underwear[category] = FALSE
 
 	if(dna)
@@ -1266,7 +1266,7 @@
 	if (client)
 		prefs = client.prefs
 	else if (ckey)	// Mob might be logged out.
-		prefs = preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
+		prefs = GLOB.preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
 
 	if (prefs && real_name == prefs.real_name)
 		// Re-apply the mob's markings and prosthetics if their pref is their current char.
@@ -1913,7 +1913,7 @@
 
 	if(stat)
 		return
-	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", global_underwear.categories)
+	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", GLOB.global_underwear.categories)
 	if(!UWC)
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]

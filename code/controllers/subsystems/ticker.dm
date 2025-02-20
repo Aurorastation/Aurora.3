@@ -185,7 +185,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		game_finished = TRUE
 		mode_finished = TRUE
 	else
-		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
+		game_finished = (GLOB.evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
@@ -197,7 +197,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		spawn(50)
 			callHook("roundend")
 
-			if (universe_has_ended)
+			if (GLOB.universe_has_ended)
 				if(mode.station_was_nuked)
 					feedback_set_details("end_proper","nuke")
 				else
@@ -253,7 +253,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
-				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+				if(GLOB.evacuation_controller.round_over() && GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
@@ -425,7 +425,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
-	var/data = revdata.testmerge_overview()
+	var/data = GLOB.revdata.testmerge_overview()
 
 	if (data)
 		to_world(data)

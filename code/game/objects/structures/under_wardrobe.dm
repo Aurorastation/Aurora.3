@@ -19,7 +19,7 @@
 /obj/structure/undies_wardrobe/interact(var/mob/living/carbon/human/H)
 	var/dat = list()
 	dat += "<b>Underwear:</b><br>"
-	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
+	for(var/datum/category_group/underwear/UWC in GLOB.global_underwear.categories)
 		var/datum/category_item/underwear/UWI = H.all_underwear[UWC.name]
 		var/item_name = UWI?.name || "None"
 		dat += "[UWC.name]: <a href='byond://?src=[REF(src)];change_underwear=[UWC.name]'>[item_name]</a>"
@@ -68,7 +68,7 @@
 			H.all_underwear -= href_list["remove_underwear"]
 			. = TRUE
 	else if(href_list["change_underwear"])
-		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
+		var/datum/category_group/underwear/UWC = GLOB.global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return
 		var/datum/category_item/underwear/selected_underwear = tgui_input_list(H, "Choose your underwear.", "Choose Underwear", UWC.items, H.all_underwear[UWC.name])

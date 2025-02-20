@@ -10,7 +10,7 @@
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
-	for(var/found_inhibitor in bluespace_inhibitors)
+	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 		var/obj/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue

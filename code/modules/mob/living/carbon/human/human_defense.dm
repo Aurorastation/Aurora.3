@@ -73,11 +73,11 @@ emp_act
 /mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
 	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
-		for(var/zone in organ_rel_size)
-			tally += organ_rel_size[zone]
-		for(var/zone in organ_rel_size)
+		for(var/zone in GLOB.organ_rel_size)
+			tally += GLOB.organ_rel_size[zone]
+		for(var/zone in GLOB.organ_rel_size)
 			def_zone = zone
-			. += .() * organ_rel_size/tally
+			. += .() * GLOB.organ_rel_size/tally
 		return
 	return ..()
 
@@ -251,7 +251,7 @@ emp_act
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
-					apply_effect(20, PARALYZE, blocked)
+					apply_effect(20, PARALYZE, GLOB.blocked)
 
 		//Apply blood
 		if(!(I.atom_flags & ATOM_FLAG_NO_BLOOD))

@@ -244,7 +244,7 @@
 			return
 
 		// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
-		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = sound_channels.weather_channel))
+		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
-			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = sound_channels.weather_channel))
+			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
 

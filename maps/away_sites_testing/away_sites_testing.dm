@@ -62,7 +62,7 @@
 
 
 		// fin
-		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		testing("LOADING AWAY SITE: Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
 
@@ -81,5 +81,5 @@
 					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
 
 		// fin
-		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		testing("LOADING AWAY SITE: Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 #endif

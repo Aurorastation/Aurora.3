@@ -1,11 +1,11 @@
-var/global/datum/getrev/revdata = new()
+GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
 
 /hook/startup/proc/initialize_test_merges()
-	if (!revdata)
+	if (!GLOB.revdata)
 		LOG_DEBUG("GETREV: No rev found.")
 		return TRUE
 
-	revdata.testmerge_initialize()
+	GLOB.revdata.testmerge_initialize()
 
 	return TRUE
 
@@ -45,12 +45,12 @@ var/global/datum/getrev/revdata = new()
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
 
-	if(revdata.revision)
-		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
+	if(GLOB.revdata.revision)
+		to_chat(src, "<b>Server revision:</b> [GLOB.revdata.branch] - [GLOB.revdata.date]")
 		if(GLOB.config.githuburl)
-			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>")
 		else
-			to_chat(src, revdata.revision)
+			to_chat(src, GLOB.revdata.revision)
 	else
 		to_chat(src, "Revision unknown")
 

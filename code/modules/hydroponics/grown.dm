@@ -365,7 +365,7 @@
 	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
 	var/datum/seed/seed
 
-var/list/fruit_icon_cache = list()
+GLOBAL_LIST_EMPTY(fruit_icon_cache)
 
 /obj/item/reagent_containers/food/snacks/fruit_slice/Initialize(mapload, datum/seed/S)
 	. = ..()
@@ -381,16 +381,16 @@ var/list/fruit_icon_cache = list()
 	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
-	if(!fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
-		fruit_icon_cache["rind-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
-	if(!fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["rind-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
-		fruit_icon_cache["slice-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["slice-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["slice-[rind_colour]"])
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	name = "sencha leaves"

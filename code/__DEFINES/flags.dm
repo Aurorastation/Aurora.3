@@ -18,15 +18,13 @@
 #define ZM_MIMIC_DEFAULTS (ZM_MIMIC_BELOW)
 
 // For debug purposes, should contain the above defines in ascending order.
-var/list/mimic_defines = list(
-	"ZM_MIMIC_BELOW",
+GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 	"ZM_MIMIC_OVERWRITE",
 //	"ZM_ALLOW_LIGHTING", //Exists on Nebula, but not Aurora?
 	"ZM_ALLOW_ATMOS",
 	"ZM_MIMIC_NO_AO",
 	"ZM_NO_OCCLUDE",
-	"ZM_MIMIC_BASETURF"
-)
+	"ZM_MIMIC_BASETURF"))
 
 //EMP protection
 #define EMP_PROTECT_SELF (1<<0)

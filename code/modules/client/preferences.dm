@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 
-var/list/preferences_datums = list()
+GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences
 	//doohickeys for savefiles
@@ -400,9 +400,9 @@ var/list/preferences_datums = list()
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(last_names)]"
+			real_name += " [pick(GLOB.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(last_names)]"
+			real_name += "[pick(GLOB.last_names)]"
 
 	character.real_name = real_name
 	character.name = character.real_name
@@ -482,7 +482,7 @@ var/list/preferences_datums = list()
 	character.all_underwear.Cut()
 	character.all_underwear_metadata.Cut()
 	for(var/underwear_category_name in all_underwear)
-		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		var/datum/category_group/underwear/underwear_category = GLOB.global_underwear.categories_by_name[underwear_category_name]
 		if(underwear_category)
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
@@ -525,8 +525,8 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
 
-	for(var/ckey in preferences_datums)
-		var/datum/preferences/D = preferences_datums[ckey]
+	for(var/ckey in GLOB.preferences_datums)
+		var/datum/preferences/D = GLOB.preferences_datums[ckey]
 		if(D == src)
 			if(!establish_db_connection(GLOB.dbcon))
 				return open_load_dialog_file(user)

@@ -1,4 +1,4 @@
-var/list/active_buddy_tags = list()
+GLOBAL_LIST_INIT_TYPED(active_buddy_tags, /obj/item/clothing/accessory/buddytag, list())
 
 /obj/item/clothing/accessory/buddytag
 	name = "buddy tag"
@@ -17,6 +17,10 @@ var/list/active_buddy_tags = list()
 /obj/item/clothing/accessory/buddytag/Initialize()
 	. = ..()
 	id = round(rand(1, 1000))
+
+/obj/item/clothing/accessory/buddytag/Destroy()
+	GLOB.active_buddy_tags -= src
+	. = ..()
 
 /obj/item/clothing/accessory/buddytag/update_icon()
 	icon_state = "buddytag[on]"
@@ -42,10 +46,10 @@ var/list/active_buddy_tags = list()
 		on = !on
 		if(on)
 			next_search = world.time
-			active_buddy_tags += src
+			GLOB.active_buddy_tags += src
 			START_PROCESSING(SSprocessing, src)
 		else
-			active_buddy_tags -= src
+			GLOB.active_buddy_tags -= src
 		update_icon()
 	if(href_list["setcode"])
 		var/newcode = tgui_input_number(usr, "Set new buddy ID number.", "Buddy Tag ID", id)
@@ -72,7 +76,7 @@ var/list/active_buddy_tags = list()
 		return
 	next_search = world.time + search_interval
 	var/has_friend
-	for(var/obj/item/clothing/accessory/buddytag/buddy as anything in active_buddy_tags - src)
+	for(var/obj/item/clothing/accessory/buddytag/buddy as anything in GLOB.active_buddy_tags - src)
 		if(buddy.id != id)
 			continue
 		if(GET_Z(buddy) != GET_Z(src))

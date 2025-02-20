@@ -66,7 +66,7 @@
 
 	set_pixel_offsets()
 
-	var/list/open_networks = difflist(network, restricted_camera_networks)
+	var/list/open_networks = difflist(network, GLOB.restricted_camera_networks)
 	on_open_network = open_networks.len
 	if(on_open_network)
 		GLOB.cameranet.add_source(src)
@@ -359,14 +359,14 @@
 
 /obj/machinery/camera/proc/triggerCameraAlarm(var/duration = 0)
 	alarm_on = 1
-	camera_alarm.triggerAlarm(loc, src, duration)
+	GLOB.camera_alarm.triggerAlarm(loc, src, duration)
 
 /obj/machinery/camera/proc/cancelCameraAlarm(var/force = FALSE)
 	if(wires.is_cut(WIRE_ALARM) && !force)
 		return
 
 	alarm_on = 0
-	camera_alarm.clearAlarm(loc, src)
+	GLOB.camera_alarm.clearAlarm(loc, src)
 
 //if false, then the camera is listed as DEACTIVATED and cannot be used
 /obj/machinery/camera/proc/can_use()
