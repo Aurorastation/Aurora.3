@@ -22,7 +22,6 @@
 			return
 		user.visible_message(SPAN_NOTICE("[user] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material?.name, painted_colour) // Handles all the material code so you don't have to.
-		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
 		if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -36,6 +35,12 @@
 		S.add_fingerprint(user)
 		user.put_in_hands(S)
 		S.update_icon()
+		TransferComponents(S)
+		if(istype(S, /obj/item/material/stool/chair/wheelchair))
+			S.name = name
+			S.desc = desc
+			S.color = color
+			S.update_held_icon()
 		qdel(src)
 
 /obj/structure/bed/stool/wood/New(var/newloc)
@@ -235,11 +240,15 @@
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
 	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.name, padding_material?.name, painted_colour) // Fuck me.
-	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
 		S.blood_DNA |= blood_DNA // Transfer blood.
 	S.update_icon()
+	TransferComponents(S)
+	if(istype(S, /obj/structure/bed/stool/chair/office/wheelchair))
+		S.name = name
+		S.desc = desc
+		S.color = color
 	qdel(src)
 
 /obj/item/material/stool/update_icon()
