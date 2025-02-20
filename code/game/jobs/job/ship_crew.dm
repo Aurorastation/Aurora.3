@@ -38,7 +38,7 @@
 		if("Technical Assistant")
 			out_list += list(ACCESS_ENGINE)
 		if("Medical Orderly")
-			out_list += list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE)
+			out_list += list(ACCESS_MEDICAL, ACCESS_MORGUE)
 	return out_list
 
 /obj/outfit/job/assistant
