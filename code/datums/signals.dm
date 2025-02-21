@@ -111,6 +111,9 @@
  * Use the [SEND_SIGNAL] define instead
  */
 /datum/proc/_SendSignal(sigtype, list/arguments)
+
+	var/_DEBUG_STARTTIME = world.time
+
 	var/target = _listen_lookup[sigtype]
 	if(!length(target))
 		var/datum/listening_datum = target
@@ -126,3 +129,5 @@
 		queued_calls.Add(listening_datum, listening_datum._signal_procs[src][sigtype])
 	for(var/i in 1 to length(queued_calls) step 2)
 		. |= call(queued_calls[i], queued_calls[i + 1])(arglist(arguments))
+
+	LOG_DEBUG("SIG,[world.time - _DEBUG_STARTTIME],[src],[src?.type],[sigtype],[length(target)]")
