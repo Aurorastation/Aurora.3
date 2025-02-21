@@ -22,7 +22,7 @@ var/all_tooltip_styles = list(
 
 /client/verb/change_ui()
 	set name = "Change UI"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Configure your user interface"
 
 	if(!ishuman(usr))

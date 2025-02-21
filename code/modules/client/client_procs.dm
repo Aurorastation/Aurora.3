@@ -658,13 +658,13 @@ var/list/localhost_addresses = list(
 
 /client/verb/character_setup()
 	set name = "Character Setup"
-	set category = "Preferences"
+	set category = "Preferences.Character"
 	if(prefs)
 		prefs.ShowChoices(usr)
 
 /client/verb/toggle_fullscreen_preference()
 	set name = "Toggle Fullscreen Preference"
-	set category = "Preferences"
+	set category = "Preferences.Menu"
 	set desc = "Toggles whether the game window will be true fullscreen or normal."
 
 	prefs.toggles_secondary ^= FULLSCREEN_MODE
@@ -674,7 +674,7 @@ var/list/localhost_addresses = list(
 
 /client/verb/toggle_hide_menu_preference()
 	set name = "Toggle Hide Menu Preference"
-	set category = "Preferences"
+	set category = "Preferences.Menu"
 	set desc = "Toggles whether the game window will have the top menu bar hidden or not."
 
 	prefs.toggles_secondary ^= CLIENT_PREFERENCE_HIDE_MENU
@@ -684,7 +684,7 @@ var/list/localhost_addresses = list(
 
 /client/verb/toggle_accent_tag_text()
 	set name = "Toggle Accent Tag Text"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles whether accents will be shown as text or images.."
 
 	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
@@ -694,7 +694,7 @@ var/list/localhost_addresses = list(
 
 /client/verb/toggle_fullscreen()
 	set name = "Toggle Fullscreen"
-	set category = "OOC"
+	set category = "Preferences.Menu"
 
 	fullscreen = !fullscreen
 
@@ -703,7 +703,7 @@ var/list/localhost_addresses = list(
 
 /client/verb/toggle_menu()
 	set name = "Toggle Menu"
-	set category = "OOC"
+	set category = "Preferences.Menu"
 
 	var/has_menu = winget(src, "mainwindow", "menu")
 

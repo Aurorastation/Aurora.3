@@ -1021,7 +1021,7 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/toggleattacklogs()
 	set name = "Toggle Attack Log Messages"
-	set category = "Preferences"
+	set category = "Preferences.Admin"
 
 	prefs.toggles ^= CHAT_ATTACKLOGS
 	if (prefs.toggles & CHAT_ATTACKLOGS)
@@ -1061,7 +1061,7 @@ var/list/admin_verbs_cciaa = list(
 
 /client/proc/toggledebuglogs()
 	set name = "Toggle Debug Log Messages"
-	set category = "Preferences"
+	set category = "Preferences.Admin"
 
 	prefs.toggles ^= CHAT_DEBUGLOGS
 	if (prefs.toggles & CHAT_DEBUGLOGS)

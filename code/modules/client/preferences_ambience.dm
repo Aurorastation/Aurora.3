@@ -21,7 +21,7 @@
 // ASFX Tab Toggle
 /client/verb/toggle_asfx_tab()
 	set name = "Toggle SFX Preferences Tab"
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set desc = "Toggle the SFX preferences tab"
 
 	if(!has_sfx_verbs)
@@ -34,7 +34,7 @@
 // Ambience Toggle
 /client/verb/toggle_asfx()
 	set name = "Toggle Ambience SFX"
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set desc = "Toggles hearing ambient sound effects"
 
 	prefs.sfx_toggles ^= ASFX_AMBIENCE
@@ -48,7 +48,7 @@
 // Ambient Hum Toggle
 /client/verb/toggle_asfx_hum()
 	set name = "Toggle Ambient Hum SFX"
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set desc = "Toggles hearing the ambient hum sound effect"
 
 	prefs.sfx_toggles ^= ASFX_HUM
@@ -62,7 +62,7 @@
 
 /client/verb/toggle_sfx_music()
 	set name = "Toggle Music SFX"
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set desc = "Toggles hearing music"
 
 	prefs.sfx_toggles ^= ASFX_MUSIC
@@ -72,7 +72,7 @@
 
 /client/verb/toggle_asfx_console()
 	set name = "Toggle Console Ambience SFX"
-	set category = "Preferences"
+	set category = "Preferences.Sound"
 	set desc = "Toggles hearing ambient sound effects from consoles"
 
 	prefs.sfx_toggles ^= ASFX_CONSOLE_AMBIENCE
