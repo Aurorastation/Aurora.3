@@ -13383,7 +13383,7 @@
 /area/ship/idris_cruiser/breakroom)
 "Wu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/freezer/kois,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
 "Wv" = (
