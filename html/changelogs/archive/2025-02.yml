@@ -102,3 +102,38 @@
   - server: Added a test to ensure people don't keep adding new unmanaged vars.
   - server: Removed away_mission deprecated system, made initialization a little faster.
   - server: Made global uplink datum a GLOB.
+2025-02-21:
+  Ben10083:
+  - rscadd: 'New voice command for exosuits: toggle power.'
+  - qol: Exosuits with no pilot and no link can be given a command to toggle maintenance
+      protocols, allowing the exosuit to be linked without needing to enter the exosuit.
+  CourierBravo:
+  - rscadd: Changed and added floor decals to the area in front of Consular Office
+      B. Moved a couple decals in front of Consular Office A as well.
+  - rscadd: 'Added an engineering floor decal to the warehouse. Also, moved around
+      the floor outline decals in the warehouse. Now it goes top to bottom: Medical,
+      Engineering, Science, Security, Service, and Operations.'
+  - rscadd: Removed girder and angled section layered on a hull wall next to R&D office.
+      Just makes it look a little nicer.
+  - rscadd: Altered the outline decals in xenobiology. Made some full decals half
+      decals, and changed the decals around water dispensing objects to be blue instead
+      of yellow.
+  - bugfix: Fixed out of place air alarm in the Intrepid. Also moved around some objects
+      to prevent odd overlapping.
+  - bugfix: Fixed a corner wall in Bluespace Drive being a reinforced wall instead
+      of a spaceship hull wall.
+  - bugfix: Fixed an overlapping wall light and medical cabinet in the gym.
+  - bugfix: Removed outlining decals on grass in the animal pen.
+  - bugfix: Added missing floor spline in Research Director's office.
+  - bugfix: Fixed an odd flood decal in the shields room.
+  FluffyGhost:
+  - bugfix: Fixed comet expulsion event not triggering (hopefully).
+  - refactor: Slight refactor of the event container events list.
+  SimpleMaroon:
+  - qol: Wheelchairs in the loadout can now be customized by name, description, and
+      colorability.
+  hazelmouse:
+  - rscadd: Synthetics on the SCCV Horizon now receive a visceral forewarning to hivebot
+      invasions before they are announced to the wider crew. You perceive something
+      is terribly wrong...
+  - bugfix: Rough desert turfs no longer appear with an invalid sprite.
