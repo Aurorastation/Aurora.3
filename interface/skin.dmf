@@ -918,7 +918,7 @@ window "mainwindow"
 		icon = 'icons\\ss13_64.png'
 		macro = "macro"
 		menu = "menu"
-	elem "mainvsplit"
+	elem "split"
 		type = CHILD
 		pos = 0,0
 		size = 640x440
