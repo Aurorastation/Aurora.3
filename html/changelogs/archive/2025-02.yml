@@ -137,3 +137,13 @@
       invasions before they are announced to the wider crew. You perceive something
       is terribly wrong...
   - bugfix: Rough desert turfs no longer appear with an invalid sprite.
+2025-02-22:
+  CourierBravo:
+  - bugfix: 'Replaced empty kois freezers with full ones on the following maps: Kataphract
+      ship, Hephaestus Security ship, Idris Cruise ship.'
+  Flpfs:
+  - balance: Orderly, Technical and Wait Staff now have respective radios for their
+      departments. Orderly now has mourge access.
+  SimpleMaroon:
+  - qol: Made the wheelchair in the loadout cost 2 points, down from 4 points.
+  - code_imp: Changed the loadout wheelchair's datum path name to make more sense.
