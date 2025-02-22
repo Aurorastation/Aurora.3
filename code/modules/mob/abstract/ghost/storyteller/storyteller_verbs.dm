@@ -13,9 +13,9 @@
 		"}
 	dat += {"
 		<BR>
-		<A href='?src=[REF(src)];create_object=1'>Create Object</A><br>
-		<A href='?src=[REF(src)];create_turf=1'>Create Turf</A><br>
-		<A href='?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
+		<A href='byond://?src=[REF(src)];create_object=1'>Create Object</A><br>
+		<A href='byond://?src=[REF(src)];create_turf=1'>Create Turf</A><br>
+		<A href='byond://?src=[REF(src)]];create_mob=1'>Create Mob</A><br>
 		"}
 
 	usr << browse(dat, "window=storytellerpanel;size=210x280")
@@ -175,7 +175,7 @@
 
 	var/datum/click_handler/handler = GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
-		usr.PopClickHandler()
+		usr.RemoveClickHandler(/datum/click_handler/build_mode)
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 

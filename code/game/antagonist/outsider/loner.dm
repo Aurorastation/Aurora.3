@@ -1,4 +1,4 @@
-var/datum/antagonist/loner/loners
+GLOBAL_DATUM(loners, /datum/antagonist/loner)
 
 /datum/antagonist/loner
 	id = MODE_LONER
@@ -24,7 +24,7 @@ var/datum/antagonist/loner/loners
 	..()
 	welcome_text = "You are a Loner, someone underequipped to deal with the [station_name()]. You will probably not survive for the whole round, so don't sweat it if you die!<br> \
 	You have a special psionic power that allows you to absorb a psionic energy from a being's Zona Bovinae, granting you an extra point to be used in the Point Shop."
-	loners = src
+	GLOB.loners = src
 
 /datum/antagonist/loner/equip(var/mob/living/carbon/human/player)
 	if(!..())

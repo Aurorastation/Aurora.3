@@ -134,7 +134,7 @@
 			final_destination = loc_landmark.loc
 
 
-	var/mob/living/silicon/ai/O = new (final_destination, base_law_type,,1)//No MMI but safety is in effect.
+	var/mob/living/silicon/ai/O = new (final_destination, GLOB.base_law_type,,1)//No MMI but safety is in effect.
 	O.set_invisibility(0)
 	O.ai_restore_power_routine = 0
 

@@ -1,8 +1,13 @@
-var/list/obj/machinery/photocopier/faxmachine/allfaxes = list()
-var/list/arrived_faxes = list()	//cache for faxes that have been sent to the admins
-var/list/sent_faxes = list()	//cache for faxes that have been sent by the admins
-var/list/alldepartments = list()
-var/list/admin_departments
+GLOBAL_LIST_EMPTY_TYPED(allfaxes, /obj/machinery/photocopier/faxmachine)
+
+///cache for faxes that have been sent to the admins
+GLOBAL_LIST_EMPTY_TYPED(arrived_faxes, /obj/item)
+
+///cache for faxes that have been sent by the admins
+GLOBAL_LIST_EMPTY_TYPED(sent_faxes, /obj/item)
+
+GLOBAL_LIST_EMPTY(alldepartments)
+GLOBAL_LIST_EMPTY(admin_departments)
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
@@ -35,13 +40,13 @@ var/list/admin_departments
 
 /obj/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
-	allfaxes += src
-	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
-		alldepartments |= department
+	GLOB.allfaxes += src
+	if( !(("[department]" in GLOB.alldepartments) || ("[department]" in GLOB.admin_departments)) )
+		GLOB.alldepartments |= department
 	destination = SSatlas.current_map.boss_name
 
 /obj/machinery/photocopier/faxmachine/Destroy()
-	allfaxes -= src
+	GLOB.allfaxes -= src
 	QDEL_NULL(identification)
 
 	. = ..()
@@ -65,7 +70,7 @@ var/list/admin_departments
 		for (var/obj/item/modular_computer/pda in alert_pdas)
 			data["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "[REF(pda)]"))
 	data["departments"] = list()
-	for (var/dept in (alldepartments + admin_departments + broadcast_departments))
+	for (var/dept in (GLOB.alldepartments + GLOB.admin_departments + broadcast_departments))
 		data["departments"] += "[dept]"
 
 	return data
@@ -93,7 +98,7 @@ var/list/admin_departments
 				return
 
 			if(copy_item && is_authenticated())
-				if (destination in admin_departments)
+				if (destination in GLOB.admin_departments)
 					send_admin_fax(usr, destination)
 				else if (destination == broadcast_departments)
 					send_broadcast_fax()
@@ -207,7 +212,7 @@ var/list/admin_departments
 	use_power_oneoff(200)
 
 	var/success = 0
-	for(var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if( F.department == destination )
 			success = F.receivefax(copy_item)
 
@@ -249,7 +254,7 @@ var/list/admin_departments
 
 /obj/machinery/photocopier/faxmachine/proc/send_broadcast_fax()
 	var success = 1
-	for (var/dest in (alldepartments - department))
+	for (var/dest in (GLOB.alldepartments - department))
 		// Send to everyone except this department
 		sleep(1)
 		success &= sendfax(dest, 0)	// 0: don't display success/error messages
@@ -281,7 +286,7 @@ var/list/admin_departments
 		return
 
 	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
-	arrived_faxes += rcvdcopy
+	GLOB.arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
 	if (destination == SSatlas.current_map.boss_name)
@@ -295,7 +300,7 @@ var/list/admin_departments
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A href='byond://?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A href='byond://?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='byond://?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='byond://?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

@@ -299,8 +299,8 @@
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
 	for (var/i = 1, i <= min(fields, 35), i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=[i]'>write</A></font>", 1)
-	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=end'>write</A></font>"
+		addtofield(i, "<font face=\"[deffont]\"><A href='byond://?src=[REF(src)];write=[i]'>write</A></font>", 1)
+	info_links = info_links + "<font face=\"[deffont]\"><A href='byond://?src=[REF(src)];write=end'>write</A></font>"
 
 
 /obj/item/paper/proc/clearpaper()

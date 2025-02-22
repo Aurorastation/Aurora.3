@@ -16,12 +16,6 @@
 	)
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
-		)
-
 	var/visor_toggled = FALSE
 	var/obj/machinery/computer/shuttle_control/linked_console
 	var/obj/machinery/computer/ship/helm/linked_helm

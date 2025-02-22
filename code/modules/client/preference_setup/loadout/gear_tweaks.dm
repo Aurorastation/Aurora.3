@@ -101,7 +101,7 @@ Alpha adjustment
 	Accent colour
 */
 
-var/datum/gear_tweak/color/accent/gear_tweak_accent_color = new()
+GLOBAL_DATUM_INIT(gear_tweak_accent_color, /datum/gear_tweak/color/accent, new())
 
 /datum/gear_tweak/color/accent/get_contents(var/metadata)
 	return "Accent Color: <font color='[metadata]'>&#9899;</font>"
@@ -115,7 +115,8 @@ var/datum/gear_tweak/color/accent/gear_tweak_accent_color = new()
 /*
 Color Rotation adjustment
 */
-var/datum/gear_tweak/color_rotation/gear_tweak_color_rotation = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_color_rotation, /datum/gear_tweak/color_rotation, new())
 
 /datum/gear_tweak/color_rotation/get_contents(var/metadata)
 	return "Color Rotation: [metadata]"
@@ -250,7 +251,7 @@ Reagents adjustment
 Custom Name
 */
 
-var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
+GLOBAL_DATUM_INIT(gear_tweak_free_name, /datum/gear_tweak/custom_name, new())
 
 /datum/gear_tweak/custom_name
 	var/list/valid_custom_names
@@ -287,7 +288,8 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 /*
 Custom Description
 */
-var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_free_desc, /datum/gear_tweak/custom_desc, new())
 
 /datum/gear_tweak/custom_desc
 	var/list/valid_custom_desc
@@ -378,7 +380,8 @@ Paper Data
 
 
 // Accessory Slot Settings
-var/datum/gear_tweak/accessory_slot/gear_tweak_accessory_slot = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_accessory_slot, /datum/gear_tweak/accessory_slot, new())
 
 /datum/gear_tweak/accessory_slot
 	var/static/list/accessory_slots = list(GEAR_TWEAK_ACCESSORY_SLOT_UNDER, GEAR_TWEAK_ACCESSORY_SLOT_SUIT, GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)

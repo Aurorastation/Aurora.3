@@ -1,4 +1,4 @@
-var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
+#define OVERMAP_SPEED_CONSTANT (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
 #define SANITIZE_SPEED(speed) SIGN(speed) * clamp(abs(speed), 0, max_speed)
@@ -290,7 +290,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		S.attempt_hook_up(src)
 	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		C.attempt_hook_up(src)
-	for(var/datum/ship_engine/E in ship_engines)
+	for(var/datum/ship_engine/E in GLOB.ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E
 
@@ -387,6 +387,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
 	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
+#undef OVERMAP_SPEED_CONSTANT
 #undef MOVING
 #undef SANITIZE_SPEED
 #undef CHANGE_SPEED_BY

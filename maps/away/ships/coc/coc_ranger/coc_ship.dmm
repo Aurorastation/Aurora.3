@@ -277,7 +277,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -2815,7 +2816,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lvN" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "lxT" = (
@@ -2923,7 +2926,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/helm{
-	dir = 4
+	dir = 4;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4064,7 +4068,8 @@
 /area/ship/ranger_corvette/bridge)
 "qhi" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -5053,10 +5058,10 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/gloves/black_leather/unathi,
@@ -5151,7 +5156,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "twl" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
@@ -6058,7 +6065,8 @@
 "wmN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)

@@ -19,7 +19,7 @@
 	anchored = 1.0
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 
 /obj/machinery/keycard_auth/Initialize(mapload, d, populate_components, is_internal)
 	..()
@@ -76,15 +76,15 @@
 
 	if(screen == 1)
 		dat += "Select an event to trigger:<ul>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
+		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
-			dat += "<li><A href='?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
+			dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=[REF(src)];reset=1'>Back</A>"
+		dat += "<p><A href='byond://?src=[REF(src)];reset=1'>Back</A>"
 
 
 	user << browse(dat, "window=keycard_auth;size=500x350")
@@ -202,14 +202,14 @@
 	else
 		return 0
 
-var/global/maint_all_access = 0
+GLOBAL_VAR_INIT(maint_all_access, FALSE)
 
 /proc/make_maint_all_access()
-	maint_all_access = 1
+	GLOB.maint_all_access = TRUE
 	security_announcement.Announce("The maintenance access requirement has been revoked on all airlocks.","Attention!")
 
 /proc/revoke_maint_all_access()
-	maint_all_access = 0
+	GLOB.maint_all_access = FALSE
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)
@@ -221,7 +221,7 @@ var/global/maint_all_access = 0
 		return ..(M)
 	var/list/A = I.GetAccess()
 	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
-	var/exceptional_circumstances = maint_all_access || maint_sec_access
+	var/exceptional_circumstances = GLOB.maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
 		return 1
 	if(access_by_level || req_one_access_by_level)

@@ -2,8 +2,8 @@
 	The global hud:
 	Uses the same visual objects for all players.
 */
-var/datum/global_hud/global_hud	// Initialized in SSatoms.
-var/list/global_huds
+GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new)
+GLOBAL_LIST(global_huds)
 
 /datum/hud/var/atom/movable/screen/grab_intent
 /datum/hud/var/atom/movable/screen/hurt_intent
@@ -206,13 +206,16 @@ var/list/global_huds
 							H.w_uniform.screen_loc = hud_data["loc"]
 					if(slot_wear_suit)
 						if(H.wear_suit)
-							H.wear_suit.screen_loc =hud_data["loc"]
+							H.wear_suit.screen_loc = hud_data["loc"]
 					if(slot_wear_mask)
 						if(H.wear_mask)
-							H.wear_mask.screen_loc =hud_data["loc"]
+							H.wear_mask.screen_loc = hud_data["loc"]
 					if(slot_wrists)
 						if(H.wrists)
-							H.wrists.screen_loc =	hud_data["loc"]
+							H.wrists.screen_loc = hud_data["loc"]
+					if(slot_pants)
+						if(H.pants)
+							H.pants.screen_loc = hud_data["loc"]
 			else
 				switch(hud_data["slot"])
 					if(slot_head)
@@ -235,16 +238,20 @@ var/list/global_huds
 							H.glasses.screen_loc = null
 					if(slot_w_uniform)
 						if(H.w_uniform)
-							H.w_uniform.screen_loc =null
+							H.w_uniform.screen_loc = null
 					if(slot_wear_suit)
 						if(H.wear_suit)
 							H.wear_suit.screen_loc = null
 					if(slot_wear_mask)
 						if(H.wear_mask)
-							H.wear_mask.screen_loc =null
+							H.wear_mask.screen_loc = null
 					if(slot_wrists)
 						if(H.wrists)
-							H.wrists.screen_loc =	null
+							H.wrists.screen_loc = null
+					if(slot_pants)
+						if(H.pants)
+							H.pants.screen_loc = null
+
 
 /datum/hud/proc/persistant_inventory_update()
 	if(!mymob)
@@ -425,7 +432,7 @@ var/list/global_huds
 	update_action_buttons()
 
 /mob/proc/add_click_catcher()
-	client.screen |= click_catchers
+	client.screen |= GLOB.click_catchers
 
 /mob/abstract/new_player/add_click_catcher()
 	return

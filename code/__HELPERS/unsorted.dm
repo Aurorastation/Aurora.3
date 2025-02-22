@@ -227,9 +227,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 1
 	return 0
 
-/proc/sign(x)
-	return x!=0?x/abs(x):0
-
 /proc/getline(atom/M,atom/N)//Ultra-Fast Bresenham Line-Drawing Algorithm
 	var/px=M.x		//starting x
 	var/py=M.y
@@ -238,8 +235,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/dy=N.y-py
 	var/dxabs=abs(dx)//Absolute value of x distance
 	var/dyabs=abs(dy)
-	var/sdx=sign(dx)	//Sign of x distance (+ or -)
-	var/sdy=sign(dy)
+	var/sdx=SIGN(dx)	//Sign of x distance (+ or -)
+	var/sdy=SIGN(dy)
 	var/x=dxabs>>1	//Counters for steps taken, setting to distance/2
 	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
 	var/j			//Generic integer for counting
@@ -895,21 +892,21 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return get_turf(location)
 
 
-//Quick type checks for some tools
-var/global/list/common_tools = list(
-/obj/item/stack/cable_coil,
-/obj/item/wrench,
-/obj/item/pipewrench,
-/obj/item/weldingtool,
-/obj/item/screwdriver,
-/obj/item/wirecutters,
-/obj/item/powerdrill,
-/obj/item/combitool,
-/obj/item/device/multitool,
-/obj/item/crowbar)
+//Quick type checks for some tools ~ BRAH wtf is this shit that's not how one should do this
+GLOBAL_LIST_INIT(common_tools, list(
+	/obj/item/stack/cable_coil,
+	/obj/item/wrench,
+	/obj/item/pipewrench,
+	/obj/item/weldingtool,
+	/obj/item/screwdriver,
+	/obj/item/wirecutters,
+	/obj/item/powerdrill,
+	/obj/item/combitool,
+	/obj/item/device/multitool,
+	/obj/item/crowbar))
 
 /proc/istool(O)
-	if(O && is_type_in_list(O, common_tools))
+	if(O && is_type_in_list(O, GLOB.common_tools))
 		return 1
 	return 0
 
@@ -995,7 +992,7 @@ var/global/list/common_tools = list(
 /*
 Checks if that loc and dir has a item on the wall
 */
-var/list/wall_items = typecacheof(list(
+GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 	/obj/machinery/power/apc,
 	/obj/machinery/alarm,
 	/obj/item/device/radio/intercom,
@@ -1017,11 +1014,11 @@ var/list/wall_items = typecacheof(list(
 	/obj/structure/fireaxecabinet,
 	/obj/machinery/computer/security/telescreen/entertainment,
 	/obj/structure/sign
-))
+)))
 
 /proc/gotwallitem(loc, dir)
 	for(var/obj/O in loc)
-		if (is_type_in_typecache(O, global.wall_items))
+		if (is_type_in_typecache(O, GLOB.wall_items))
 			//Direction works sometimes
 			if(O.dir == dir)
 				return 1
@@ -1043,14 +1040,13 @@ var/list/wall_items = typecacheof(list(
 
 	//Some stuff is placed directly on the wallturf (signs)
 	for(var/obj/O in get_step(loc, dir))
-		if (is_type_in_typecache(O, global.wall_items) && O.pixel_x == 0 && O.pixel_y == 0)
+		if (is_type_in_typecache(O, GLOB.wall_items) && O.pixel_x == 0 && O.pixel_y == 0)
 			return 1
 	return 0
 
 // Returns a variable type as string, optionally with some details:
 // Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
 // Also attempts some detection of otherwise undetectable types using ref IDs
-var/global/known_proc = /proc/get_type_ref_bytes
 /proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE, var/show_useless_subtypes = TRUE)
 	// scalars / basic types
 	if(isnull(V))
@@ -1119,6 +1115,8 @@ var/global/known_proc = /proc/get_type_ref_bytes
 	var/refType = get_type_ref_bytes(V)
 	if(refType == "")
 		return "unknown"
+
+	var/known_proc = /proc/get_type_ref_bytes
 	if(refType == get_type_ref_bytes(known_proc)) // it's a proc of some kind
 		if(istext(V?:name) && V:name != "") // procs with names are generally verbs
 			return "verb"
@@ -1138,7 +1136,7 @@ var/global/known_proc = /proc/get_type_ref_bytes
 /proc/topic_link(var/datum/D, var/arglist, var/content)
 	if(istype(arglist,/list))
 		arglist = list2params(arglist)
-	return "<a href='?src=[REF(D)];[arglist]'>[content]</a>"
+	return "<a href='byond://?src=[REF(D)];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(var/simple, var/lower, var/upper)
 	var/colour

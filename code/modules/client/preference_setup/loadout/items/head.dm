@@ -6,7 +6,7 @@
 
 /datum/gear/head/New()
 	..()
-	gear_tweaks += list(gear_tweak_hair_block)
+	gear_tweaks += list(GLOB.gear_tweak_hair_block)
 
 /datum/gear/head/boonie_blue
 	display_name = "blue boonie hat"
@@ -248,6 +248,7 @@
 	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/newsboy
 	hats_colourable["hat, legionnaire"] = /obj/item/clothing/head/legionnaire
 	hats_colourable["hat, boonie"] = /obj/item/clothing/head/bucket/boonie
+	hats_colourable["hat, camo boonie"] = /obj/item/clothing/head/bucket/boonie/camo
 
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
@@ -506,10 +507,33 @@
 	display_name = "artist beret"
 	path = /obj/item/clothing/head/beret/artist/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/peakedcap
+	display_name = "corporate peaked cap selection"
+	description = "A selection of corporate-colored peaked caps. Note that the cap should align with your character's chosen faction."
+	path = /obj/item/clothing/head/peaked_cap
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Head of Security", "Security Officer", "Warden", "Investigator", "Security Personnel",
+	"Captain", "Executive Officer")
+
+/datum/gear/head/peakedcap/New()
+	..()
+	var/list/caps = list()
+	caps["peaked cap, Zavodskoi Interstellar"] = /obj/item/clothing/head/peaked_cap/zavodskoi
+	caps["peaked cap, Zavodskoi Interstellar, no logo"] = /obj/item/clothing/head/peaked_cap/zavodskoi/no_logo
+	caps["peaked cap, Zavodskoi Interstellar, alt"] = /obj/item/clothing/head/peaked_cap/zavodskoi/alt
+	caps["peaked cap, Zavodskoi Interstellar, alt, no logo"] = /obj/item/clothing/head/peaked_cap/zavodskoi/alt/no_logo
+	caps["peaked cap, Idris Incorporated"] = /obj/item/clothing/head/peaked_cap/idris
+	caps["peaked cap, Idris Incorporated, no logo"] = /obj/item/clothing/head/peaked_cap/idris/no_logo
+	caps["peaked cap, Private Military Contracting Group"] = /obj/item/clothing/head/peaked_cap/pmcg
+	caps["peaked cap, Private Military Contracting Group, no logo"] = /obj/item/clothing/head/peaked_cap/pmcg/no_logo
+	gear_tweaks += new /datum/gear_tweak/path(caps)
+
 /*
 	Block Hair Adjustment
 */
-var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
+
+GLOBAL_DATUM_INIT(gear_tweak_hair_block, /datum/gear_tweak/hair_block, new())
 
 /datum/gear_tweak/hair_block/get_contents(var/metadata)
 	return "Blocks Hair: [metadata]"

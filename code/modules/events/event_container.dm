@@ -8,8 +8,10 @@
 #define ASSIGNMENT_SCIENTIST "Scientist"
 #define ASSIGNMENT_SECURITY "Security"
 #define ASSIGNMENT_SURGEON "Surgeon"
+#define ASSIGNMENT_COMMAND_SUPPORT "Command Support"
+#define ASSIGNMENT_BRIDGE_CREW "Bridge Crew"
 
-var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major")
+GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
 
 /datum/event_container
 	var/severity = -1
@@ -46,7 +48,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new next_event.event_type(next_event)	// Events are added and removed from the processing queue in their New/kill procs
 
-		LOG_DEBUG("Starting event '[next_event.name]' of severity [severity_to_string[severity]].")
+		LOG_DEBUG("Starting event '[next_event.name]' of severity [GLOB.severity_to_string[severity]].")
 		next_event = null						// When set to null, a random event will be selected next time
 	else
 		// If not, wait for one minute, instead of one tick, before checking again.
@@ -111,7 +113,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		var/event_delay = rand(GLOB.config.event_delay_lower[severity], GLOB.config.event_delay_upper[severity]) * playercount_modifier
 		next_event_time = world.time + event_delay
 
-	LOG_DEBUG("Next event of severity [severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
+	LOG_DEBUG("Next event of severity [GLOB.severity_to_string[severity]] in [(next_event_time - world.time)/600] minutes.")
 
 /datum/event_container/proc/SelectEvent()
 	var/datum/event_meta/EM = input("Select an event to queue up.", "Event Selection", null) as null|anything in available_events
@@ -123,61 +125,70 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	next_event = EM
 	return EM
 
-// Returns how many characters are currently active (not logged out, not AFK for more than 10 minutes) with a specific role.
-// Note that this isn't sorted by department, because e.g. having a roboticist shouldn't make meteors spawn.
+//WHAT THE FUCK IS THIS, WHY
+/// Returns how many characters are currently active (not logged out, not AFK for more than 10 minutes) with a specific role.
+/// Note that this isn't sorted by department, because e.g. having a roboticist shouldn't make meteors spawn.
 /proc/number_active_with_role()
 	var/list/active_with_role = list()
-	active_with_role["Engineer"] = 0
-	active_with_role["Medical"] = 0
-	active_with_role["Surgeon"] = 0
-	active_with_role["Security"] = 0
-	active_with_role["Scientist"] = 0
-	active_with_role["AI"] = 0
-	active_with_role["Cyborg"] = 0
-	active_with_role["Janitor"] = 0
-	active_with_role["Gardener"] = 0
+	active_with_role[ASSIGNMENT_ANY] = 0
+	active_with_role[ASSIGNMENT_ENGINEER] = 0
+	active_with_role[ASSIGNMENT_MEDICAL] = 0
+	active_with_role[ASSIGNMENT_SURGEON] = 0
+	active_with_role[ASSIGNMENT_SECURITY] = 0
+	active_with_role[ASSIGNMENT_SCIENTIST] = 0
+	active_with_role[ASSIGNMENT_AI] = 0
+	active_with_role[ASSIGNMENT_CYBORG] = 0
+	active_with_role[ASSIGNMENT_JANITOR] = 0
+	active_with_role[ASSIGNMENT_GARDENER] = 0
+	active_with_role[ASSIGNMENT_COMMAND_SUPPORT] = 0
+	active_with_role[ASSIGNMENT_BRIDGE_CREW] = 0
 
 	for(var/mob/M in GLOB.player_list)
 		if(!M.mind || !M.client || M.client.is_afk(10 MINUTES)) // longer than 10 minutes AFK counts them as inactive
 			continue
 
-		active_with_role["Any"]++
+		active_with_role[ASSIGNMENT_ANY]++
 
 		if(istype(M, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = M
 			if(R.module)
 				if(istype(R.module, /obj/item/robot_module/engineering))
-					active_with_role["Engineer"]++
+					active_with_role[ASSIGNMENT_ENGINEER]++
 				else if(istype(R.module, /obj/item/robot_module/medical))
-					active_with_role["Medical"]++
+					active_with_role[ASSIGNMENT_MEDICAL]++
 				else if(istype(R.module, /obj/item/robot_module/research))
-					active_with_role["Scientist"]++
+					active_with_role[ASSIGNMENT_SCIENTIST]++
 
 		if(M.mind.assigned_role in engineering_positions)
-			active_with_role["Engineer"]++
+			active_with_role[ASSIGNMENT_ENGINEER]++
 
 		if(M.mind.assigned_role in medical_positions)
-			active_with_role["Medical"]++
-			if(M.mind.assigned_role == "Surgeon")
-				active_with_role["Surgeon"]++
+			active_with_role[ASSIGNMENT_MEDICAL]++
+			if(M.mind.assigned_role == ASSIGNMENT_SURGEON)
+				active_with_role[ASSIGNMENT_SURGEON]++
 
 		if(M.mind.assigned_role in security_positions)
-			active_with_role["Security"]++
+			active_with_role[ASSIGNMENT_SECURITY]++
 
 		if(M.mind.assigned_role in science_positions)
-			active_with_role["Scientist"]++
+			active_with_role[ASSIGNMENT_SCIENTIST]++
 
-		if(M.mind.assigned_role == "AI")
-			active_with_role["AI"]++
+		if(M.mind.assigned_role in command_support_positions)
+			active_with_role[ASSIGNMENT_COMMAND_SUPPORT]++
+			if(M.mind.assigned_role == ASSIGNMENT_BRIDGE_CREW)
+				active_with_role[ASSIGNMENT_BRIDGE_CREW]++
 
-		if(M.mind.assigned_role == "Cyborg")
-			active_with_role["Cyborg"]++
+		if(M.mind.assigned_role == ASSIGNMENT_AI)
+			active_with_role[ASSIGNMENT_AI]++
 
-		if(M.mind.assigned_role == "Janitor")
-			active_with_role["Janitor"]++
+		if(M.mind.assigned_role == ASSIGNMENT_CYBORG)
+			active_with_role[ASSIGNMENT_CYBORG]++
 
-		if(M.mind.assigned_role == "Gardener")
-			active_with_role["Gardener"]++
+		if(M.mind.assigned_role == ASSIGNMENT_JANITOR)
+			active_with_role[ASSIGNMENT_JANITOR]++
+
+		if(M.mind.assigned_role == ASSIGNMENT_GARDENER)
+			active_with_role[ASSIGNMENT_GARDENER]++
 
 	return active_with_role
 
@@ -185,65 +196,181 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 // Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/mundane
 	severity = EVENT_LEVEL_MUNDANE
+
+	/*#######################################################################################################
+		FORMAT OF THE LIST:
+
+		new /datum/event_meta(event_severity, event_name, datum/event/type,
+			event_weight, list/job_weights,	is_one_shot, min_event_weight, max_event_weight,
+			list/excluded_roundtypes, add_to_queue, list/minimum_job_requirement_list, pop_needed = 0
+
+		YES THE NEWLINES ARE RELEVANT FOR READABILITY, TRY TO STICK WITH THIS FORMAT
+	#######################################################################################################*/
+
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",						/datum/event/nothing,				120),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",					/datum/event/apc_damage,			10, 	list(ASSIGNMENT_ENGINEER = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",			/datum/event/brand_intelligence,	0, 		list(ASSIGNMENT_ENGINEER = 5), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",					/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News",					/datum/event/economic_event,		300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration",			/datum/event/carp_migration/cozmo,	60),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker",					/datum/event/money_hacker, 			10),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto",					/datum/event/money_lotto, 			0, 		list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", 					/datum/event/mundane_news, 			300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot",						/datum/event/wallrot, 				75,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",					/datum/event/vent_clog, 			55),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",					/datum/event/false_alarm, 			100),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",					/datum/event/supply_drop, 			80),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice",			/datum/event/ccia_general_notice, 	300),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation",	/datum/event/infestation, 			60,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Drone Malfunction",				/datum/event/rogue_maint_drones,	10,		list(ASSIGNMENT_ENGINEER = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", 						/datum/event/visitor,				50, is_one_shot = TRUE)
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,
+			120),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage", /datum/event/apc_damage,
+			10, list(ASSIGNMENT_ENGINEER = 15)),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence", /datum/event/brand_intelligence,
+			0, list(ASSIGNMENT_ENGINEER = 5), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage", /datum/event/camera_damage,
+			20, list(ASSIGNMENT_ENGINEER = 10)),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News", /datum/event/economic_event,
+			300),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Cozmozoan Migration", /datum/event/carp_migration/cozmo,
+			60),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Hacker", /datum/event/money_hacker,
+			10),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto", /datum/event/money_lotto,
+			0, list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", /datum/event/mundane_news,
+			300),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot", /datum/event/wallrot,
+			75, list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents", /datum/event/vent_clog,
+			55),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm", /datum/event/false_alarm,
+			100),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop", /datum/event/supply_drop,
+			80),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice", /datum/event/ccia_general_notice,
+			300),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation", /datum/event/infestation,
+			60, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15)),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Drone Malfunction", /datum/event/rogue_maint_drones,
+			10, list(ASSIGNMENT_ENGINEER = 30)),
+
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", /datum/event/visitor,
+			50, is_one_shot = TRUE)
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
 // Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/moderate
 	severity = EVENT_LEVEL_MODERATE
+
+	/*#######################################################################################################
+		FORMAT OF THE LIST:
+
+		new /datum/event_meta(event_severity, event_name, datum/event/type,
+			event_weight, list/job_weights,	is_one_shot, min_event_weight, max_event_weight,
+			list/excluded_roundtypes, add_to_queue, list/minimum_job_requirement_list, pop_needed = 0
+
+		YES THE NEWLINES ARE RELEVANT FOR READABILITY, TRY TO STICK WITH THIS FORMAT
+	#######################################################################################################*/
+
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_SURGEON = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",			/datum/event/communications_blackout,		100),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing", /datum/event/nothing,
+			200),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", /datum/event/spontaneous_appendicitis,
+			0, list(ASSIGNMENT_SURGEON = 25)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout", /datum/event/communications_blackout,
+			100),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm", /datum/event/electrical_storm,
+			50, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+
 		// see comment at code/modules/events/gravity.dm
 		// tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
 		// this needs to be fixed before we can uncomment this
 		// new /datum/event_meta(EVENT_LEVEL_MODERATE, "Gravity Failure",					/datum/event/gravity,	 					100),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",						/datum/event/ionstorm, 						0,		list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge",		/datum/event/prison_break/bridge,			0,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Radiation Storm",					/datum/event/radiation_storm, 				100,	list(ASSIGNMENT_MEDICAL = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1), FALSE, 10, 125, list("Extended")),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",						/datum/event/rogue_drone, 					15,		list(ASSIGNMENT_SECURITY = 15)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage",						/datum/event/apc_damage,					20, 	list(ASSIGNMENT_ENGINEER = 15)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm", /datum/event/ionstorm,
+			0, list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break", /datum/event/prison_break,
+			0, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology", /datum/event/prison_break/xenobiology,
+			0, list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge", /datum/event/prison_break/bridge,
+			0, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Radiation Storm", /datum/event/radiation_storm,
+			100, list(ASSIGNMENT_MEDICAL = 20)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist", /datum/event/random_antag,
+			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1), FALSE, 10, 125,
+			list("Extended")),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones", /datum/event/rogue_drone,
+			15, list(ASSIGNMENT_SECURITY = 15)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation", /datum/event/spider_infestation/moderate,
+			50, list(ASSIGNMENT_SECURITY = 10)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation", /datum/event/infestation/moderate,
+			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising", /datum/event/rogue_maint_drones,
+			25, list(ASSIGNMENT_ENGINEER = 30)),
+
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage", /datum/event/apc_damage,
+			20, list(ASSIGNMENT_ENGINEER = 15)),
+
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
 // Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
+
+	/*#######################################################################################################
+		FORMAT OF THE LIST:
+
+		new /datum/event_meta(event_severity, event_name, datum/event/type,
+			event_weight, list/job_weights,	is_one_shot, min_event_weight, max_event_weight,
+			list/excluded_roundtypes, add_to_queue, list/minimum_job_requirement_list, pop_needed = 0
+
+		YES THE NEWLINES ARE RELEVANT FOR READABILITY, TRY TO STICK WITH THIS FORMAT
+	#######################################################################################################*/
+
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Nothing",					/datum/event/nothing,					135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Blob",						/datum/event/blob, 						0,		list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 2), pop_needed = 10),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Space Vines",				/datum/event/spacevine, 				0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Spider Infestation",		/datum/event/spider_infestation,		25,	 	list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Major Vermin Infestation",	/datum/event/infestation/major, 		15,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Drone Revolution",			/datum/event/rogue_maint_drones,		0,		list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5)),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"Comet Expulsion",			/datum/event/comet_expulsion,		0,		is_one_shot = TRUE, pop_needed = 8),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR,	"APC Damage",				/datum/event/apc_damage,				20, 	list(ASSIGNMENT_ENGINEER = 15)),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing", /datum/event/nothing,
+			135),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob", /datum/event/blob,
+			0, list(ASSIGNMENT_ENGINEER = 10), TRUE, minimum_job_requirement_list = list(ASSIGNMENT_ENGINEER = 2),
+			pop_needed = 10),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines", /datum/event/spacevine,
+			0, list(ASSIGNMENT_ANY = 1, ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation", /datum/event/spider_infestation,
+			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation", /datum/event/infestation/major,
+			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution", /datum/event/rogue_maint_drones,
+			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5)),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Comet Expulsion", /datum/event/comet_expulsion,
+			1, list(ASSIGNMENT_BRIDGE_CREW = 5, ASSIGNMENT_ENGINEER = 2), is_one_shot = TRUE,
+			pop_needed = 8),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "APC Damage", /datum/event/apc_damage,
+			20, list(ASSIGNMENT_ENGINEER = 15)),
+
 	)
 
 #undef ASSIGNMENT_ANY
@@ -256,3 +383,5 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 #undef ASSIGNMENT_SCIENTIST
 #undef ASSIGNMENT_SECURITY
 #undef ASSIGNMENT_SURGEON
+#undef ASSIGNMENT_COMMAND_SUPPORT
+#undef ASSIGNMENT_BRIDGE_CREW

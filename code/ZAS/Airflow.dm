@@ -6,7 +6,7 @@ Contains helper procs for airflow, handled in /connection_group.
 /mob/proc/airflow_stun()
 	if(stat == 2)
 		return 0
-	if(last_airflow_stun > world.time - vsc.airflow_stun_cooldown)	return 0
+	if(last_airflow_stun > world.time - GLOB.vsc.airflow_stun_cooldown)	return 0
 
 	if(!(status_flags & CANSTUN) && !(status_flags & CANWEAKEN))
 		to_chat(src, SPAN_NOTICE("You stay upright as the air rushes past you."))
@@ -34,12 +34,12 @@ Contains helper procs for airflow, handled in /connection_group.
 
 	if(anchored && !ismob(src)) return 0
 
-	if(!istype(src,/obj/item) && n < vsc.airflow_dense_pressure) return 0
+	if(!istype(src,/obj/item) && n < GLOB.vsc.airflow_dense_pressure) return 0
 
 	return 1
 
 /mob/check_airflow_movable(n)
-	if(n < vsc.airflow_heavy_pressure)
+	if(n < GLOB.vsc.airflow_heavy_pressure)
 		return 0
 	return 1
 
@@ -54,11 +54,11 @@ Contains helper procs for airflow, handled in /connection_group.
 	. = ..()
 	switch(w_class)
 		if(2)
-			if(n < vsc.airflow_lightest_pressure) return 0
+			if(n < GLOB.vsc.airflow_lightest_pressure) return 0
 		if(3)
-			if(n < vsc.airflow_light_pressure) return 0
+			if(n < GLOB.vsc.airflow_light_pressure) return 0
 		if(4,5)
-			if(n < vsc.airflow_medium_pressure) return 0
+			if(n < GLOB.vsc.airflow_medium_pressure) return 0
 
 /atom/movable/var/tmp/turf/airflow_dest
 /atom/movable/var/tmp/airflow_speed = 0
@@ -124,17 +124,17 @@ Contains helper procs for airflow, handled in /connection_group.
 	if (prob(33))
 		loc:add_blood(src)
 		bloody_body(src)
-	var/b_loss = airflow_speed * vsc.airflow_damage
+	var/b_loss = airflow_speed * GLOB.vsc.airflow_damage
 
 	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_HEAD, used_weapon = "Airflow")
 	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_CHEST, used_weapon = "Airflow")
 	apply_damage(b_loss/3, DAMAGE_BRUTE, BP_GROIN, used_weapon = "Airflow")
 
 	if(airflow_speed > 10)
-		Paralyse(round(airflow_speed * vsc.airflow_stun))
+		Paralyse(round(airflow_speed * GLOB.vsc.airflow_stun))
 		Stun(paralysis + 3)
 	else
-		Stun(round(airflow_speed * vsc.airflow_stun/2))
+		Stun(round(airflow_speed * GLOB.vsc.airflow_stun/2))
 	. = ..()
 
 /zone/proc/movables(list/origins)

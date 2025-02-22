@@ -6,7 +6,7 @@
 	overlay = over
 	ckey = key
 
-var/list/ai_status_emotions = list(
+GLOBAL_LIST_INIT(ai_status_emotions, list(
 	"Very Happy" 				= new /datum/ai_emotion("ai_veryhappy"),
 	"Happy" 					= new /datum/ai_emotion("ai_happy"),
 	"Neutral" 					= new /datum/ai_emotion("ai_neutral"),
@@ -26,12 +26,12 @@ var/list/ai_status_emotions = list(
 	"Diagnostics"				= new /datum/ai_emotion("ai_diagnostics"),
 	"Tribunal" 					= new /datum/ai_emotion("ai_tribunal", "serithi"),
 	"Tribunal Malfunctioning"	= new /datum/ai_emotion("ai_tribunal_malf", "serithi")
-	)
+	))
 
 /proc/get_ai_emotions(var/ckey)
 	var/list/emotions = new
-	for(var/emotion_name in ai_status_emotions)
-		var/datum/ai_emotion/emotion = ai_status_emotions[emotion_name]
+	for(var/emotion_name in GLOB.ai_status_emotions)
+		var/datum/ai_emotion/emotion = GLOB.ai_status_emotions[emotion_name]
 		if(!emotion.ckey || emotion.ckey == ckey)
 			emotions += emotion_name
 
@@ -92,7 +92,7 @@ var/list/ai_status_emotions = list(
 			ClearOverlays()
 
 		if (1)	// AI emoticon
-			var/datum/ai_emotion/ai_emotion = ai_status_emotions[emotion]
+			var/datum/ai_emotion/ai_emotion = GLOB.ai_status_emotions[emotion]
 			set_picture(ai_emotion.overlay)
 
 		if (2)	// BSOD

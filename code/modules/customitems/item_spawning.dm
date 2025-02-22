@@ -26,7 +26,7 @@
 //  The key in the item_data list is the name of the variable, and the value is the value of the variable.
 //  i.e. `item_data = list("name"="asdf")` would set the name of the item to asdf when its spawned in
 
-/var/list/custom_items = list()
+GLOBAL_LIST_INIT(custom_items, list())
 
 //Loads the custom items from the json file if the db backend is disabled
 /hook/pregame_start/proc/load_custom_items()
@@ -84,8 +84,8 @@
 					ci.item_data["desc"] = item["item_desc"]
 				ci.additional_data = item["additional_data"]
 				ci.req_titles = item["req_titles"]
-				custom_items.Add(ci)
-			log_module_customitems("Loaded [length(custom_items)] custom items")
+				GLOB.custom_items.Add(ci)
+			log_module_customitems("Loaded [length(GLOB.custom_items)] custom items")
 		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
 			log_module_customitems("Loading from txt")
 			log_and_message_admins("The deprecated custom_items.txt file is used. Migrate to SQL or JSON.")
@@ -98,7 +98,7 @@
 
 				if(findtext(line, "{", 1, 2) || findtext(line, "}", 1, 2)) // New block!
 					if(current_data && current_data.usr_ckey && current_data.usr_charname)
-						custom_items.Add(current_data)
+						GLOB.custom_items.Add(current_data)
 					current_data = null
 
 				var/split = findtext(line,":")
@@ -139,11 +139,11 @@
 						continue
 					if("additional_data")
 						current_data.additional_data = field_data
-	if(load_from_file == 2 && length(custom_items)) //insert the item into the db
+	if(load_from_file == 2 && length(GLOB.custom_items)) //insert the item into the db
 		log_module_customitems("Migrating custom_items to database")
 		var/success_count = 0
 		var/error_count = 0
-		for(var/item in custom_items)
+		for(var/item in GLOB.custom_items)
 			var/datum/custom_item/ci = item
 			log_module_customitems("Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
 
@@ -255,7 +255,7 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		if(!GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
 			var/list/custom_items_list = list()
 
-			for(var/item in custom_items)
+			for(var/item in GLOB.custom_items)
 				CHECK_TICK
 				var/datum/custom_item/ci = item
 				if(lowertext(ci.usr_ckey) != lowertext(player_ckey))

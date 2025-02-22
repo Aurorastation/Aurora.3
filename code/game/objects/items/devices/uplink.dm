@@ -74,14 +74,19 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	var/pda_code = ""
 
 
-// The hidden uplink MUST be inside an obj/item's contents.
 /obj/item/device/uplink/hidden/New()
-	spawn(2)
-		if(!istype(loc, /obj/item))
-			qdel(src)
 	..()
 	tgui_data = list()
 	update_tgui_data()
+
+/obj/item/device/uplink/hidden/Initialize(mapload, datum/mind/owner, new_telecrystals, new_bluecrystals)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/device/uplink/hidden/LateInitialize()
+	// The hidden uplink MUST be inside an obj/item's contents.
+	if(!istype(loc, /obj/item))
+		qdel(src)
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -130,7 +135,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		return 1
 
 	if(action == "buy_item")
-		var/datum/uplink_item/UI = (locate(params["buy_item"]) in uplink.items)
+		var/datum/uplink_item/UI = (locate(params["buy_item"]) in GLOB.uplink.items)
 		UI.buy(src, usr)
 	else if(action == "lock")
 		toggle()
@@ -142,7 +147,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		if(params["id"])
 			exploit_id = params["id"]
 		if(params["category"])
-			category = locate(params["category"]) in uplink.categories
+			category = locate(params["category"]) in GLOB.uplink.categories
 	if(action == "contract_interact")
 		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
 		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
@@ -173,7 +178,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	if(tgui_menu == 0)
 		var/list/categories = list()
 		var/list/items = list()
-		for(var/datum/uplink_category/category in uplink.categories)
+		for(var/datum/uplink_category/category in GLOB.uplink.categories)
 			if(category.can_view(src))
 				categories[++categories.len] = list("name" = category.name, "ref" = "[REF(category)]")
 				for(var/datum/uplink_item/item in category.items)
@@ -391,8 +396,9 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 //for revs to create their own central command reports
 /obj/item/device/announcer
 	name = "relay positioning device"
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
 	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = WEIGHT_CLASS_SMALL
 

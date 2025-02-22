@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-var/global/photo_count = 0
+GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo
 	name = "photo"
@@ -46,7 +46,8 @@ var/global/photo_count = 0
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/New()
-	id = photo_count++
+	. = ..()
+	id = GLOB.photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
 	examinate(user, src)
@@ -319,7 +320,6 @@ var/global/photo_count = 0
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
 	icon_state = "taj_camera_on"
 	item_state = "taj_camera"
-	contained_sprite = TRUE
 	slot_flags = SLOT_MASK
 	black_white = TRUE
 	icon_on = "taj_camera_on"

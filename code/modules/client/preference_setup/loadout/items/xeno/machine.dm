@@ -193,7 +193,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/accessory/goldendeep
+/datum/gear/uniform/goldendeepshirt
 	display_name = "golden deep shirt selection"
 	description = "A selection of shirts and other tops worn by members of the Golden Deep."
 	path = /obj/item/clothing/accessory/goldendeep
@@ -201,26 +201,27 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/accessory/goldendeep/New()
+/datum/gear/uniform/goldendeepshirt/New()
 	..()
 	var/list/goldendeepshirt = list()
-	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/accessory/goldendeep
-	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/accessory/goldendeep/pompous
-	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/accessory/goldendeep/clothwrappeduniform
+	goldendeepshirt["golden deep fine shirt"] = /obj/item/clothing/under/dressshirt/goldendeep
+	goldendeepshirt["golden deep pompous shirt"] = /obj/item/clothing/under/dressshirt/goldendeep/pompous
+	goldendeepshirt["golden deep cloth wrapped uniform"] = /obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform
 	gear_tweaks += new /datum/gear_tweak/path(goldendeepshirt)
 
 /datum/gear/accessory/goldendeepouter
 	display_name = "golden deep outer layer selection"
 	description = "A selection of tops suited for use as outer layers worn by members of the Golden Deep."
-	path = /obj/item/clothing/accessory/goldendeep/gambeson
+	path = /obj/item/clothing/accessory/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	slot = slot_tie
 
 /datum/gear/accessory/goldendeepouter/New()
 	..()
 	var/list/goldendeepouter = list()
-	goldendeepouter["golden deep quilted gambeson"] = /obj/item/clothing/accessory/goldendeep/gambeson
+	goldendeepouter["golden deep quilted gambeson"] = /obj/item/clothing/accessory/goldendeep
 	goldendeepouter["golden deep tabbard"] = /obj/item/clothing/accessory/goldendeep/tabbard
 	goldendeepouter["golden deep pullover"] = /obj/item/clothing/accessory/goldendeep/pullover
 	goldendeepouter["golden deep rain garb"] = /obj/item/clothing/accessory/goldendeep/raingarb
@@ -335,7 +336,7 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 /datum/gear/utility/ipc_assunzione_kit
 	display_name = "synthetic assunzionii voidsuit kit"
 	path = /obj/item/voidsuit_modkit/assunzione/ipc
-	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"

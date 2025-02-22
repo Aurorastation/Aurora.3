@@ -1529,7 +1529,7 @@
 		/obj/item/material/knife/butterfly/switchblade = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
 		/obj/item/clothing/under/tajaran/summer = 2,
-		/obj/item/clothing/under/pants/tajaran = 2,
+		/obj/item/clothing/pants/tajaran = 2,
 		/obj/item/clothing/under/dress/tajaran =2,
 		/obj/item/clothing/under/dress/tajaran/blue = 2,
 		/obj/item/clothing/under/dress/tajaran/green = 2,
@@ -1835,8 +1835,8 @@
 /obj/machinery/vending/ramen
 	name = "ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
-	icon_state = "ramenvend"
-	icon_vend = "ramenvend"
+	icon_state = "ramen"
+	icon_vend = "ramen-vend"
 	product_slogans = "Irasshaimase!"
 	vend_id = "ramen"
 	products = list(

@@ -63,6 +63,7 @@
 	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
+	heat_protection = HEAD
 
 /obj/item/clothing/head/hardhat/paramedic
 	name = "medical helmet"
@@ -91,6 +92,8 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	flash_protection = FLASH_PROTECTION_MODERATE
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/firefighter/chief
 	name = "chief firefighter helmet"

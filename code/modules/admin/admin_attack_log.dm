@@ -5,7 +5,7 @@
 /proc/log_and_message_admins(var/message as text, var/mob/user = usr, var/turf/location)
 	var/turf/T = location ? location : (user ? get_turf(user) : null)
 	if(T)
-		message = message + " (<a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)"
+		message = message + " (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>)"
 
 	log_admin(user ? "[key_name(user)] [message]" : "EVENT [message]")
 	message_admins(user ? "[key_name_admin(user)] [message]" : "EVENT [message]")
@@ -25,10 +25,10 @@
 	var/jmp_link = ""
 	if(victim)
 		victim.attack_log +="\[[time_stamp()]\] <font color='orange'>[key_name(attacker)] - [victim_message]</font>"
-		jmp_link = " (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[victim.x];Y=[victim.y];Z=[victim.z]'>JMP</a>)"
+		jmp_link = " (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[victim.x];Y=[victim.y];Z=[victim.z]'>JMP</a>)"
 	if(attacker)
 		attacker.attack_log += "\[[time_stamp()]\] <span class='warning'>[key_name(victim)] - [attacker_message]</span>"
-		jmp_link = " (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[attacker.x];Y=[attacker.y];Z=[attacker.z]'>JMP</a>)"
+		jmp_link = " (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[attacker.x];Y=[attacker.y];Z=[attacker.z]'>JMP</a>)"
 
 	msg_admin_attack("[attacker ? key_name_admin(attacker) : ""] [admin_message] [victim ? key_name_admin(victim) : ""] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])[jmp_link]",ckey=key_name(attacker),ckey_target=key_name(victim))
 

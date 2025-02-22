@@ -28,7 +28,9 @@ Click [here](https://github.com/Aurorastation/Aurora.3/archive/master.zip) to ge
 If you wish to develop for or using this codebase, please read the "Development" section.
 
 ### DEVELOPMENT
-To develop for or using this codebase, the following tools are recommended:
+Note: If you wish to develop for our codebase, please take a look at the guides under .github/guides and the github wiki, as they outlines the guidelines for contributing to our codebase, which outline both the process for, and the guidelines you must follow to, have your PRs merged.
+
+To develop for or using this codebase, the following tools are part of our toolchail:
 
 - An updated and supported Windows Operating System version. (It might be possible to successfully follow the same general steps in other OSes, but they are untested)
 - [BYOND](https://www.byond.com/download/), with an active account ([Register](https://secure.byond.com/Join) if you do not have one already)
@@ -47,7 +49,7 @@ Prepare the development environment:
 1. Open VSC and select "Open Folder", select the newly created folder
 1. Accept the prompts, install the extensions that are suggested, login to those who asks you to, reboot VSC as requested/needed
 
-You are now ready to develop for or using the Aurorastation codebase.
+You are now ready to develop for or using the Aurorastation codebase. Please note that while you might be able to develop using different tools, we neither recommend nor support them.
 
 If you intend to submit changes to us, please **create a new branch, do not edit the master branch**, you can do so in VSC by bringing up the command palette with CTRL+SHIFT+P and run the command "Git: Create Branch From", select the master branch, give a name for the new one and then hit enter.
 

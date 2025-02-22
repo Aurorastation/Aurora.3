@@ -21,7 +21,7 @@
 /area/adhomai_raskariim_hideout)
 "ch" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "cq" = (

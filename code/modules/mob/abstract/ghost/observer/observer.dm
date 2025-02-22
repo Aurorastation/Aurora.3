@@ -12,6 +12,7 @@
 	universal_speak = 1
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
+	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
 
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
@@ -68,9 +69,9 @@
 				name = body.real_name
 			else
 				if(gender == MALE)
-					name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 				else
-					name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
@@ -84,7 +85,7 @@
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
-		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
 /mob/abstract/ghost/observer/Destroy()
@@ -202,7 +203,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 		resting = 1
 		var/turf/location = get_turf(src)
-		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		message_admins("[key_name_admin(usr)] has ghosted. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/abstract/ghost/observer/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
@@ -309,7 +310,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(check_rights(R_ADMIN|R_FUN, 0, src))
 		return 0
 
-	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in cult.current_antagonists))
+	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in GLOB.cult.current_antagonists))
 
 /mob/abstract/ghost/observer/verb/jumptomob(input in getmobs()) //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"
@@ -430,11 +431,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.add_hiddenprint(src)
 		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
 
-/mob/abstract/ghost/observer/pointed(atom/A as mob|obj|turf in view())
-	if(!..())
-		return 0
-	src.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
-	return 1
+/mob/abstract/ghost/observer/pointed(atom/pointing_at)
+	. = ..()
+	if(!.)
+		return
+
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [pointing_at]</span>")
 
 /mob/abstract/ghost/observer/proc/manifest(mob/user)
 	is_manifest = 0

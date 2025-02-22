@@ -49,7 +49,7 @@
 	apparition.universal_speak = TRUE
 	apparition.all_underwear.Cut()
 	apparition.key = ghost.key
-	cult.add_antagonist(apparition.mind)
+	GLOB.cult.add_antagonist(apparition.mind)
 	playsound(get_turf(A), 'sound/magic/exit_blood.ogg', 100, 1)
 
 	if(!chose_name)

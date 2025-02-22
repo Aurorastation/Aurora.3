@@ -114,13 +114,14 @@
 /datum/gear/utility/assunzione_kit
 	display_name = "assunzionii voidsuit kit"
 	path = /obj/item/voidsuit_modkit/assunzione
-	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Lab Assistant", "Science Personnel")
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
-/datum/gear/utility/wheelchair/color
+/datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/material/stool/chair/wheelchair
-	cost = 4
+	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
@@ -155,6 +156,15 @@
 	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
 	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
 	gear_tweaks += new /datum/gear_tweak/path(cards)
+	gear_tweaks += new /datum/gear_tweak/paper_data()
+
+/datum/gear/utility/paper
+	display_name = "colorable paper"
+	path = /obj/item/paper
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/paper/New()
+	..()
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/pills

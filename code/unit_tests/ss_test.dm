@@ -166,14 +166,14 @@ SUBSYSTEM_DEF(unit_tests)
 		TEST_GROUP_OPEN("[test.name]")
 
 		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
-			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.", __FILE__, __LINE__)
+			test.pass(TEST_OUTPUT_GREEN("Check Disabled: This test is not allowed to run on this map."), __FILE__, __LINE__)
 			TEST_GROUP_CLOSE("[test.name]")
 			if (MC_TICK_CHECK)
 				return
 			continue
 
 		if (test.disabled)
-			test.pass("[ascii_red]Check Disabled: [test.why_disabled]", __FILE__, __LINE__)
+			test.pass(TEST_OUTPUT_RED("Check Disabled: [test.why_disabled]"), __FILE__, __LINE__)
 			TEST_GROUP_CLOSE("[test.name]")
 			if (MC_TICK_CHECK)
 				return
@@ -192,9 +192,9 @@ SUBSYSTEM_DEF(unit_tests)
 		if (test.async)
 			async_tests += test
 
-		total_unit_tests++
+		GLOB.total_unit_tests++
 
-		if(unit_tests_failures && SSunit_tests_config.fail_fast)
+		if(GLOB.unit_tests_failures && SSunit_tests_config.fail_fast)
 			SSunit_tests_config.UT.fail("**** Fail fast is enabled and an unit test failed! Aborting... ****", __FILE__, __LINE__)
 			handle_tests_ending(TRUE)
 			break
@@ -242,11 +242,11 @@ SUBSYSTEM_DEF(unit_tests)
 			handle_async(resumed)
 
 		if (4)	// Finalization.
-			if(all_unit_tests_passed)
-				SSunit_tests_config.UT.pass("**** All Unit Tests Passed \[[total_unit_tests]\] ****", __FILE__, __LINE__)
+			if(GLOB.all_unit_tests_passed)
+				SSunit_tests_config.UT.pass("**** All Unit Tests Passed \[[GLOB.total_unit_tests]\] ****", __FILE__, __LINE__)
 				handle_tests_ending(FALSE)
 			else
-				SSunit_tests_config.UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
+				SSunit_tests_config.UT.fail("**** \[[GLOB.unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
 				handle_tests_ending(TRUE)
 
 /datum/controller/subsystem/unit_tests/proc/handle_tests_ending(is_failure = FALSE)

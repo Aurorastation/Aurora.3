@@ -82,7 +82,7 @@
 
 /obj/machinery/computer/sentencing/proc/main_menu()
 	. = "<center><h2>Welcome! Please select an option!</h2><br>"
-	. += "<a href='?src=[REF(src)];button=import_incident'>Import Incident</a>   <a href='?src=[REF(src)];button=new_incident'>New Report</a></center>"
+	. += "<a href='byond://?src=[REF(src)];button=import_incident'>Import Incident</a>   <a href='byond://?src=[REF(src)];button=new_incident'>New Report</a></center>"
 
 	return .
 
@@ -91,21 +91,21 @@
 	. += "Insert an existing Securty Incident Report paper."
 
 	. += "<br><hr>"
-	. += "<a href='?src=[REF(src)];button=change_menu;choice=main_menu'>Cancel</a></center>"
+	. += "<a href='byond://?src=[REF(src)];button=change_menu;choice=main_menu'>Cancel</a></center>"
 
 	return .
 
 /obj/machinery/computer/sentencing/proc/incident_report()
 	. = ""
 	if( !istype( incident ))
-		. += "There was an error loading the incident, please <a href='?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
+		. += "There was an error loading the incident, please <a href='byond://?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
 
 	// Criminal and sentence
 	. += "<table class='border'>"
 	. += "<tr>"
 	. += "<th>Convict:</th>"
-	. += "<td><a href='?src=[REF(src)];button=change_criminal;'>"
+	. += "<td><a href='byond://?src=[REF(src)];button=change_criminal;'>"
 	if( istype(incident.card) )
 		var/obj/item/card/id/card = incident.card.resolve()
 		. += "[card]"
@@ -116,7 +116,7 @@
 
 	. += "<tr>"
 	. += "<th>Brig Sentence:</th>"
-	. += "<td><a href='?src=[REF(src)];button=change_brig;'>"
+	. += "<td><a href='byond://?src=[REF(src)];button=change_brig;'>"
 	if( incident.brig_sentence )
 		if( incident.brig_sentence < PERMABRIG_SENTENCE )
 			. += "[incident.brig_sentence] MINUTES"
@@ -133,7 +133,7 @@
 	. += "</tr>"
 	. += "<tr>"
 	. += "<th>Fine:</th>"
-	. += "<td><a href='?src=[REF(src)];button=change_fine;'>"
+	. += "<td><a href='byond://?src=[REF(src)];button=change_fine;'>"
 	if( incident.fine )
 		. += "[incident.fine] Credits"
 		// . += "</a></td>"
@@ -162,8 +162,8 @@
 
 	. += "<br><hr>"
 	. += "<center>"
-	. += "<a href='?src=[REF(src)];button=render_guilty'>Render Guilty</a>"
-	. += "<a href='?src=[REF(src)];button=render_guilty_fine'>Render Guilty - Fine</a>"
+	. += "<a href='byond://?src=[REF(src)];button=render_guilty'>Render Guilty</a>"
+	. += "<a href='byond://?src=[REF(src)];button=render_guilty_fine'>Render Guilty - Fine</a>"
 	. += "</center>"
 
 	return .
@@ -172,7 +172,7 @@
 	. += "<table class='border'>"
 	. += "<tr>"
 	if( buttons )
-		. += "<th colspan='3'>Charges <a href='?src=[REF(src)];button=change_menu;choice=low_severity'>Add</a></th>"
+		. += "<th colspan='3'>Charges <a href='byond://?src=[REF(src)];button=change_menu;choice=low_severity'>Add</a></th>"
 	else
 		. += "<th colspan='2'>Charges</th>"
 	. += "</tr>"
@@ -181,7 +181,7 @@
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		if( buttons )
-			. += "<td><a href='?src=[REF(src)];button=remove_charge;law=[REF(L)]'>Remove</a></td>"
+			. += "<td><a href='byond://?src=[REF(src)];button=remove_charge;law=[REF(L)]'>Remove</a></td>"
 		. += "</tr>"
 	. += "</table>"
 
@@ -226,7 +226,7 @@
 
 	. += "<table class='border'>"
 	. += "<tr>"
-	. += "<th>Witnesses <a href='?src=[REF(src)];button=add_arbiter;title=Witness'>Add</a></th>"
+	. += "<th>Witnesses <a href='byond://?src=[REF(src)];button=add_arbiter;title=Witness'>Add</a></th>"
 	. += "</tr>"
 
 	for( var/witness in witnesses )
@@ -242,8 +242,8 @@
 			. += "[witness]"
 
 		. += "</td><td>"
-		. += "<a href='?src=[REF(src)];button=add_witness_notes;choice=[REF(witness)]'>Notes</a><br>"
-		. += "<a href='?src=[REF(src)];button=remove_witness;choice=[REF(witness)]'>Remove</a>"
+		. += "<a href='byond://?src=[REF(src)];button=add_witness_notes;choice=[REF(witness)]'>Notes</a><br>"
+		. += "<a href='byond://?src=[REF(src)];button=remove_witness;choice=[REF(witness)]'>Remove</a>"
 		. += "</td></tr>"
 
 	. += "</table>"
@@ -257,7 +257,7 @@
 
 	. += "<table class='border'>"
 	. += "<tr>"
-	. += "<th>Evidence<a href='?src=[REF(src)];button=add_evidence'>Add</a></th>"
+	. += "<th>Evidence<a href='byond://?src=[REF(src)];button=add_evidence'>Add</a></th>"
 	. += "</tr>"
 
 	for( var/item in evidence )
@@ -273,8 +273,8 @@
 			. += "[item]"
 
 		. += "</td><td>"
-		. += "<a href='?src=[REF(src)];button=add_evidence_notes;choice=[REF(item)]'>Notes</a><br>"
-		. += "<a href='?src=[REF(src)];button=remove_evidence;choice=[REF(item)]'>Remove</a>"
+		. += "<a href='byond://?src=[REF(src)];button=add_evidence_notes;choice=[REF(item)]'>Notes</a><br>"
+		. += "<a href='byond://?src=[REF(src)];button=remove_evidence;choice=[REF(item)]'>Remove</a>"
 		. += "</td></tr>"
 
 	. += "</table>"
@@ -287,7 +287,7 @@
 	// Incident notes table
 	. += "<table class='border'>"
 	. += "<tr>"
-	. += "<th>Incident Summary <a href='?src=[REF(src)];button=add_notes'>Change</a></th>"
+	. += "<th>Incident Summary <a href='byond://?src=[REF(src)];button=add_notes'>Change</a></th>"
 	. += "</tr>"
 	if( incident.notes )
 		. += "<tr>"
@@ -301,11 +301,11 @@
 	. = ""
 
 	if( !istype( incident ))
-		. += "There was an error loading the incident, please <a href='?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
+		. += "There was an error loading the incident, please <a href='byond://?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
 
 	if( !istype( SSlaw ))
-		. += "There was an error loading corporate regulations, please <a href='?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
+		. += "There was an error loading corporate regulations, please <a href='byond://?src=[REF(src)];button=change_menu;choice=main_menu'>Try Again</a>"
 		return .
 
 	. += charges_header()
@@ -319,7 +319,7 @@
 			. += get_law_table(SSlaw.high_severity, header="Capital Offences")
 
 	. += "<br><hr>"
-	. += "<center><a href='?src=[REF(src)];button=change_menu;choice=incident_report'>Return</a></center>"
+	. += "<center><a href='byond://?src=[REF(src)];button=change_menu;choice=incident_report'>Return</a></center>"
 
 /obj/machinery/computer/sentencing/proc/charges_header()
 	. = "<center>"
@@ -327,23 +327,23 @@
 	if( menu_screen == "low_severity" )
 		. += "Low Severity"
 	else
-		. += "<a href='?src=[REF(src)];button=change_menu;choice=low_severity'>Low Severity</a>"
+		. += "<a href='byond://?src=[REF(src)];button=change_menu;choice=low_severity'>Low Severity</a>"
 
 	. += " - "
 
 	if( menu_screen == "med_severity" )
 		. += "Medium Severity"
 	else
-		. += "<a href='?src=[REF(src)];button=change_menu;choice=med_severity'>Medium Severity</a>"
+		. += "<a href='byond://?src=[REF(src)];button=change_menu;choice=med_severity'>Medium Severity</a>"
 
 	. += " - "
 
 	if( menu_screen == "high_severity" )
 		. += "High Severity"
 	else
-		. += "<a href='?src=[REF(src)];button=change_menu;choice=high_severity'>High Severity</a>"
+		. += "<a href='byond://?src=[REF(src)];button=change_menu;choice=high_severity'>High Severity</a>"
 
-	. += " - <a href='?src=[REF(src)];button=change_menu;choice=incident_report'>Return</a>"
+	. += " - <a href='byond://?src=[REF(src)];button=change_menu;choice=incident_report'>Return</a>"
 	. += "</center>"
 
 	return .
@@ -370,7 +370,7 @@
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.get_brig_time_string()]</td>"
 		. += "<td>[L.get_fine_string()]</td>"
-		. += "<td><a href='?src=[REF(src)];button=add_charge;law=[REF(L)]'>Charge</a></td>"
+		. += "<td><a href='byond://?src=[REF(src)];button=add_charge;law=[REF(L)]'>Charge</a></td>"
 		. += "</tr>"
 
 	. += "</table>"

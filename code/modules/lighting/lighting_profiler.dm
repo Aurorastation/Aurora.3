@@ -2,7 +2,7 @@
 // FOR DEBUGGING ONLY!
 
 /proc/lprof_write(var/atom/movable/obj, var/type = "UNKNOWN")
-	if (!lighting_profiling || !obj || !establish_db_connection(GLOB.dbcon))
+	if (!GLOB.lighting_profiling || !obj || !establish_db_connection(GLOB.dbcon))
 		return
 
 	var/x = null
@@ -38,4 +38,4 @@
 	if (err)
 		LOG_DEBUG("lprof_write: SQL Error: [err]")
 		message_admins(SPAN_DANGER("SQL Error during lighting profiling; disabling!"))
-		lighting_profiling = FALSE
+		GLOB.lighting_profiling = FALSE

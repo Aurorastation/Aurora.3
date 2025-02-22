@@ -1,7 +1,7 @@
-var/list/all_technomancer_spells = typesof(/datum/technomancer/spell) - /datum/technomancer/spell
-var/list/all_technomancer_equipment = typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment
-var/list/all_technomancer_consumables = typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable
-var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) - /datum/technomancer/assistance
+GLOBAL_LIST_INIT(all_technomancer_spells, (typesof(/datum/technomancer/spell) - /datum/technomancer/spell))
+GLOBAL_LIST_INIT(all_technomancer_equipment, (typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment))
+GLOBAL_LIST_INIT(all_technomancer_consumables, (typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable))
+GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assistance) - /datum/technomancer/assistance))
 
 /datum/technomancer
 	var/name = "technomancer thing"
@@ -69,7 +69,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Parameters: 1 (new_owner - mob that the book is trying to bind to)
 // Description: Links the catalog to hopefully the technomancer, so that only they can access it.
 /obj/item/technomancer_catalog/proc/bind_to_owner(var/mob/living/carbon/human/new_owner)
-	if(!owner && technomancers.is_technomancer(new_owner.mind))
+	if(!owner && GLOB.technomancers.is_technomancer(new_owner.mind))
 		owner = new_owner
 
 // Proc: New()
@@ -84,17 +84,17 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 // Description: Instantiates all the catalog datums for everything that can be bought.
 /obj/item/technomancer_catalog/proc/set_up()
 	if(!spell_instances.len)
-		for(var/S in all_technomancer_spells)
+		for(var/S in GLOB.all_technomancer_spells)
 			spell_instances += new S()
 	if(!equipment_instances.len)
-		for(var/E in all_technomancer_equipment)
+		for(var/E in GLOB.all_technomancer_equipment)
 			equipment_instances += new E()
 	if(!consumable_instances.len)
-		for(var/C in all_technomancer_consumables)
+		for(var/C in GLOB.all_technomancer_consumables)
 			consumable_instances += new C()
 	if(has_assistance_items)
 		if(!assistance_instances.len)
-			for(var/A in all_technomancer_assistance)
+			for(var/A in GLOB.all_technomancer_assistance)
 				assistance_instances += new A()
 
 // Proc: show_categories()
@@ -342,7 +342,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 					budget -= desired_object.cost
 					to_chat(H, SPAN_NOTICE("You have just bought \a [desired_object.name]."))
 					var/obj/O = new desired_object.obj_path(get_turf(H))
-					technomancer_belongings.Add(O) // Used for the Track spell.
+					GLOB.technomancer_belongings.Add(O) // Used for the Track spell.
 
 				else //Can't afford.
 					to_chat(H, SPAN_DANGER("You can't afford that!"))

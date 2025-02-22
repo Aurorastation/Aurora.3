@@ -1,4 +1,4 @@
-var/list/list/connected_z_cache = list()
+GLOBAL_LIST_EMPTY(connected_z_cache)
 
 // If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New(turf/loc, _height)
@@ -26,20 +26,20 @@ var/list/list/connected_z_cache = list()
 	if(zA == 0 || zB == 0)
 		return FALSE
 
-	if (connected_z_cache.len >= zA && connected_z_cache[zA])
-		return (connected_z_cache[zA].len >= zB && connected_z_cache[zA][zB])
+	if (length(GLOB.connected_z_cache) >= zA && GLOB.connected_z_cache[zA])
+		return (length(GLOB.connected_z_cache[zA]) >= zB && GLOB.connected_z_cache[zA][zB])
 
 	var/list/levels = GetConnectedZlevels(zA)
 	var/list/new_entry = new(max(levels))
 	for (var/entry in levels)
 		new_entry[entry] = TRUE
 
-	if (connected_z_cache.len < zA)
-		connected_z_cache.len = zA
+	if (GLOB.connected_z_cache.len < zA)
+		GLOB.connected_z_cache.len = zA
 
-	connected_z_cache[zA] = new_entry
+	GLOB.connected_z_cache[zA] = new_entry
 
-	return (connected_z_cache[zA].len >= zB && connected_z_cache[zA][zB])
+	return (length(GLOB.connected_z_cache[zA]) >= zB && GLOB.connected_z_cache[zA][zB])
 
 /proc/get_zstep(atom/ref, dir)
 	if (!isloc(ref))

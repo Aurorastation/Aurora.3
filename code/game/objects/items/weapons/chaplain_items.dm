@@ -139,12 +139,11 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		item_state = "azubarre_torch-on"
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 	else
 		icon_state = "azubarre_torch-empty"
-		icon_state = "azubarre_torch-empty"
 		set_light(0)
+	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
@@ -292,13 +291,13 @@
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						thralls.remove_antagonist(K.mind)
+						GLOB.thralls.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else if (vampire.status & VAMP_FRENZIED)
 				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
 				K.adjust_fire_stacks(10)
 				K.IgniteMob()
-		else if(cult && (K.mind in cult.current_antagonists) && prob(75))
+		else if(GLOB.cult && (K.mind in GLOB.cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
@@ -311,7 +310,7 @@
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						cult.remove_antagonist(K.mind)
+						GLOB.cult.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))

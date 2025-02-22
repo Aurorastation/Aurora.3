@@ -504,7 +504,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 		if(0.2)
 			dat += "SYSTEM LOCKED<BR><BR>"
-			dat += "<A href='?src=[REF(src)];lock=1.6'>Unlock</A>"
+			dat += "<A href='byond://?src=[REF(src)];lock=1.6'>Unlock</A>"
 
 		if(0.3)
 			dat += "Constructing Prototype. Please Wait..."
@@ -520,70 +520,70 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Loaded disk: "
 			dat += (t_disk || d_disk) ? (t_disk ? "technology storage disk" : "design storage disk") : "None"
 			dat += "<HR><UL>"
-			dat += "<LI><A href='?src=[REF(src)];menu=1.1'>Current Research Levels</A>"
-			dat += "<LI><A href='?src=[REF(src)];menu=5.0'>View Researched Technologies</A>"
+			dat += "<LI><A href='byond://?src=[REF(src)];menu=1.1'>Current Research Levels</A>"
+			dat += "<LI><A href='byond://?src=[REF(src)];menu=5.0'>View Researched Technologies</A>"
 			if(t_disk)
-				dat += "<LI><A href='?src=[REF(src)];menu=1.2'>Disk Operations</A>"
+				dat += "<LI><A href='byond://?src=[REF(src)];menu=1.2'>Disk Operations</A>"
 			else if(d_disk)
-				dat += "<LI><A href='?src=[REF(src)];menu=1.4'>Disk Operations</A>"
+				dat += "<LI><A href='byond://?src=[REF(src)];menu=1.4'>Disk Operations</A>"
 			else
 				dat += "<LI><div class='no-build'>Disk Operations</div>"
 			if(linked_destroy)
-				dat += "<LI><A href='?src=[REF(src)];menu=2.2'>Destructive Analyzer Menu</A>"
+				dat += "<LI><A href='byond://?src=[REF(src)];menu=2.2'>Destructive Analyzer Menu</A>"
 			if(linked_lathe)
-				dat += "<LI><A href='?src=[REF(src)];menu=3.1'>Protolathe Construction Menu</A>"
+				dat += "<LI><A href='byond://?src=[REF(src)];menu=3.1'>Protolathe Construction Menu</A>"
 			if(linked_imprinter)
-				dat += "<LI><A href='?src=[REF(src)];menu=4.1'>Circuit Construction Menu</A>"
-			dat += "<LI><A href='?src=[REF(src)];menu=1.6'>Settings</A>"
+				dat += "<LI><A href='byond://?src=[REF(src)];menu=4.1'>Circuit Construction Menu</A>"
+			dat += "<LI><A href='byond://?src=[REF(src)];menu=1.6'>Settings</A>"
 			dat += "</UL>"
 			dat += "</div>"
 
 		if(1.1) //Research viewer
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];print=1'>Print This Page</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];print=1'>Print This Page</A><HR>"
 			dat += "<b><u>Current Research Levels:</u></b><HR>"
 			dat += GetResearchLevelsInfo()
 			dat += "</UL>"
 
 		if(1.2) //Technology Disk Menu
 
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "Disk Contents: (Technology Data Disk)<BR><BR>"
 			dat += "<div class='menu'>"
 			if(t_disk.stored == null)
 				dat += "The disk has no data stored on it.<HR>"
 				dat += "Operations: "
-				dat += "<A href='?src=[REF(src)];menu=1.3'>Load Tech to Disk</A> || "
+				dat += "<A href='byond://?src=[REF(src)];menu=1.3'>Load Tech to Disk</A> || "
 			else
 				dat += "Name: [t_disk.stored.name]<BR>"
 				dat += "Level: [t_disk.stored.level]<BR>"
 				dat += "Description: [t_disk.stored.desc]<HR>"
 				dat += "Operations: "
-				dat += "<A href='?src=[REF(src)];updt_tech=1'>Upload to Database</A> || "
-				dat += "<A href='?src=[REF(src)];clear_tech=1'>Clear Disk</A> || "
-			dat += "<A href='?src=[REF(src)];eject_tech=1'>Eject Disk</A>"
+				dat += "<A href='byond://?src=[REF(src)];updt_tech=1'>Upload to Database</A> || "
+				dat += "<A href='byond://?src=[REF(src)];clear_tech=1'>Clear Disk</A> || "
+			dat += "<A href='byond://?src=[REF(src)];eject_tech=1'>Eject Disk</A>"
 			dat += "</div>"
 
 		if(1.3) //Technology Disk submenu
-			dat += "<BR><A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=1.2'>Return to Disk Operations</A><HR>"
+			dat += "<BR><A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=1.2'>Return to Disk Operations</A><HR>"
 			dat += "<div class='menu'>"
 			dat += "Load Technology to Disk:<BR><BR>"
 			dat += "<UL>"
 			for(var/tech_id in files.known_tech)
 				var/datum/tech/T = files.known_tech[tech_id]
 				dat += "<LI>[T.name] "
-				dat += "\[<A href='?src=[REF(src)];copy_tech=1;copy_tech_sent=[T.id]'>copy to disk</A>\]"
+				dat += "\[<A href='byond://?src=[REF(src)];copy_tech=1;copy_tech_sent=[T.id]'>copy to disk</A>\]"
 			dat += "</UL>"
 			dat += "</div>"
 
 		if(1.4) //Design Disk menu.
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "<div class='menu'>"
 			if(d_disk.blueprint == null)
 				dat += "The disk has no data stored on it.<HR>"
 				dat += "Operations: "
-				dat += "<A href='?src=[REF(src)];menu=1.5'>Load Design to Disk</A> || "
+				dat += "<A href='byond://?src=[REF(src)];menu=1.5'>Load Design to Disk</A> || "
 			else
 				dat += "Name: [d_disk.blueprint.name]<BR>"
 				switch(d_disk.blueprint.build_type)
@@ -594,14 +594,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(copytext(M, 1, 2) == "$") dat += "* [copytext(M, 2)] x [d_disk.blueprint.materials[M]]<BR>"
 					else dat += "* [M] x [d_disk.blueprint.materials[M]]<BR>"
 				dat += "<HR>Operations: "
-				dat += "<A href='?src=[REF(src)];updt_design=1'>Upload to Database</A> || "
-				dat += "<A href='?src=[REF(src)];clear_design=1'>Clear Disk</A> || "
-			dat += "<A href='?src=[REF(src)];eject_design=1'>Eject Disk</A>"
+				dat += "<A href='byond://?src=[REF(src)];updt_design=1'>Upload to Database</A> || "
+				dat += "<A href='byond://?src=[REF(src)];clear_design=1'>Clear Disk</A> || "
+			dat += "<A href='byond://?src=[REF(src)];eject_design=1'>Eject Disk</A>"
 			dat += "</div>"
 
 		if(1.5) //Technology disk submenu
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=1.4'>Return to Disk Operations</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=1.4'>Return to Disk Operations</A><HR>"
 			dat += "<div class='menu'>"
 			dat += "Load Design to Disk:<BR><BR>"
 			dat += "<UL>"
@@ -609,50 +609,50 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				var/datum/design/D = files.known_designs[path]
 				if(D.build_path)
 					dat += "<LI>[D.name] "
-					dat += "<A href='?src=[REF(src)];copy_design=1;copy_design_sent=[D.type]'>\[copy to disk\]</A>"
+					dat += "<A href='byond://?src=[REF(src)];copy_design=1;copy_design_sent=[D.type]'>\[copy to disk\]</A>"
 			dat += "</UL>"
 			dat += "</div>"
 
 		if(1.6) //R&D console settings
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "<b><u>R&D Console Setting:</u></b><HR>"
 			dat += "<div class='menu'>"
 			dat += "<UL>"
 			if(sync)
-				dat += "<LI><A href='?src=[REF(src)];sync=1'>Sync Database with Network</A><BR>"
-				dat += "<LI><A href='?src=[REF(src)];togglesync=1'>Disconnect from Research Network</A><BR>"
+				dat += "<LI><A href='byond://?src=[REF(src)];sync=1'>Sync Database with Network</A><BR>"
+				dat += "<LI><A href='byond://?src=[REF(src)];togglesync=1'>Disconnect from Research Network</A><BR>"
 			else
-				dat += "<LI><A href='?src=[REF(src)];togglesync=1'>Connect to Research Network</A><BR>"
-			dat += "<LI><A href='?src=[REF(src)];menu=1.7'>Device Linkage Menu</A><BR>"
-			dat += "<LI><A href='?src=[REF(src)];lock=0.2'>Lock Console</A><BR>"
-			dat += "<LI><A href='?src=[REF(src)];reset=1'>Reset R&D Database</A><BR>"
+				dat += "<LI><A href='byond://?src=[REF(src)];togglesync=1'>Connect to Research Network</A><BR>"
+			dat += "<LI><A href='byond://?src=[REF(src)];menu=1.7'>Device Linkage Menu</A><BR>"
+			dat += "<LI><A href='byond://?src=[REF(src)];lock=0.2'>Lock Console</A><BR>"
+			dat += "<LI><A href='byond://?src=[REF(src)];reset=1'>Reset R&D Database</A><BR>"
 			dat += "<UL>"
 			dat += "</div>"
 
 		if(1.7) //R&D device linkage
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=1.6'>Settings Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=1.6'>Settings Menu</A><HR>"
 			dat += "<b><u>R&D Console Device Linkage Menu:</u></b><HR>"
 			dat += "<div class='menu'>"
-			dat += "<A href='?src=[REF(src)];find_device=1'>Re-sync with Nearby Devices</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];find_device=1'>Re-sync with Nearby Devices</A><HR>"
 			dat += "Linked Devices:"
 			dat += "<UL>"
 
 			if(allow_analyzer)
 				if(linked_destroy)
-					dat += "<LI>Destructive Analyzer <A href='?src=[REF(src)];disconnect=destroy'>Disconnect</A>"
+					dat += "<LI>Destructive Analyzer <A href='byond://?src=[REF(src)];disconnect=destroy'>Disconnect</A>"
 				else
 					dat += "<LI>(No Destructive Analyzer Linked)"
 
 			if(allow_lathe)
 				if(linked_lathe)
-					dat += "<LI>Protolathe <A href='?src=[REF(src)];disconnect=lathe'>Disconnect</A>"
+					dat += "<LI>Protolathe <A href='byond://?src=[REF(src)];disconnect=lathe'>Disconnect</A>"
 				else
 					dat += "<LI>(No Protolathe Linked)"
 
 			if(allow_imprinter)
 				if(linked_imprinter)
-					dat += "<LI>Circuit Imprinter <A href='?src=[REF(src)];disconnect=imprinter'>Disconnect</A>"
+					dat += "<LI>Circuit Imprinter <A href='byond://?src=[REF(src)];disconnect=imprinter'>Disconnect</A>"
 				else
 					dat += "<LI>(No Circuit Imprinter Linked)"
 				dat += "</UL>"
@@ -660,15 +660,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 		////////////////////DESTRUCTIVE ANALYZER SCREENS////////////////////////////
 		if(2.0)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "NO DESTRUCTIVE ANALYZER LINKED TO CONSOLE<BR><BR>"
 
 		if(2.1)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "No Item Loaded. Standing-by...<BR><HR>"
 
 		if(2.2)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "<b><u>Deconstruction Menu</u></b><HR>"
 			dat += "Name: [linked_destroy.loaded_item.name]<BR>"
 			dat += "Origin Tech:"
@@ -679,25 +679,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				dat += " (Current Level: [T.level] || Current Progress: [T.next_level_progress]/[T.next_level_threshold])"
 			dat += "</UL>"
 			if(!istype(linked_destroy.loaded_item, /obj/item/stack))
-				dat += "<HR><A href='?src=[REF(src)];deconstruct=1'>Deconstruct Item</A> || "
+				dat += "<HR><A href='byond://?src=[REF(src)];deconstruct=1'>Deconstruct Item</A> || "
 			else
-				dat += "<HR><A href='?src=[REF(src)];deconstruct=1'>Deconstruct One In Stack</A> || "
-			dat += "<A href='?src=[REF(src)];eject_item=1'>Eject Item</A>"
+				dat += "<HR><A href='byond://?src=[REF(src)];deconstruct=1'>Deconstruct One In Stack</A> || "
+			dat += "<A href='byond://?src=[REF(src)];eject_item=1'>Eject Item</A>"
 
 		/////////////////////PROTOLATHE SCREENS/////////////////////////
 		if(3.0)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "NO PROTOLATHE LINKED TO CONSOLE<BR><BR>"
 
 		if(3.1)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.4'>View Queue</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.2'>Material Storage</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.3'>Chemical Storage</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.4'>View Queue</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.2'>Material Storage</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.3'>Chemical Storage</A><HR>"
 			dat += "<b><u>Protolathe Menu:</u></b><HR>"
 			dat += "<B>Material Amount:</B> [linked_lathe.TotalMaterials()] cm<sup>3</sup> (MAX: [linked_lathe.max_material_storage])<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] (MAX: [linked_lathe.reagents.maximum_volume])<HR>"
-			dat += "<font size='3'; color='#5c87a8'><b>Category:</b></font> <a href='?src=[REF(src)];protolathe_category=1'>[protolathe_category]</a><hr>"
+			dat += "<font size='3'; color='#5c87a8'><b>Category:</b></font> <a href='byond://?src=[REF(src)];protolathe_category=1'>[protolathe_category]</a><hr>"
 			dat += "<div class='rdconsole-build'>"
 			dat += "<ul>"
 			var/last_category = ""
@@ -718,7 +718,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat, 3)]\]"
 				if(linked_lathe.canBuild(D))
-					dat += "<li class='highlight'><b><a href='?src=[REF(src)];build=[D.type]'>[capitalize_first_letters(D.name)]</a></b>"
+					dat += "<li class='highlight'><b><a href='byond://?src=[REF(src)];build=[D.type]'>[capitalize_first_letters(D.name)]</a></b>"
 				else
 					dat += "<li class='highlight'><b><div class='no-build'>[capitalize_first_letters(D.name)]</div></b>"
 				dat += "[temp_dat]<br><i>[D.desc]</i>"
@@ -726,8 +726,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "</div>"
 
 		if(3.2) //Protolathe Material Storage Sub-menu
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
 			for(var/M in linked_lathe.materials)
@@ -738,25 +738,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))
 						if(amount < C * SHEET_MATERIAL_AMOUNT)
 							break
-						dat += "[C > 1 ? ", " : ""]<A href='?src=[REF(src)];lathe_ejectsheet=[M];amount=[C]'>[C]</A> "
+						dat += "[C > 1 ? ", " : ""]<A href='byond://?src=[REF(src)];lathe_ejectsheet=[M];amount=[C]'>[C]</A> "
 
-					dat += " or <A href='?src=[REF(src)];lathe_ejectsheet=[M];amount=50'>max</A> sheets"
+					dat += " or <A href='byond://?src=[REF(src)];lathe_ejectsheet=[M];amount=50'>max</A> sheets"
 				dat += ""
 			dat += "</UL>"
 
 		if(3.3) //Protolathe Chemical Storage Submenu
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_lathe.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
 				dat += "Name: [R.name] | Units: [linked_lathe.reagents.reagent_volumes[_R]] "
-				dat += "<A href='?src=[REF(src)];disposeP=[_R]'>(Purge)</A><BR>"
-				dat += "<A href='?src=[REF(src)];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];disposeP=[_R]'>(Purge)</A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(3.4) // Protolathe queue
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Queue</u></b><BR><HR>"
 			if(!linked_lathe.queue.len)
 				dat += "Empty"
@@ -767,25 +767,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						if(linked_lathe.busy)
 							dat += "<B>1: [D.name]</B><BR>"
 						else
-							dat += "<B>1: [D.name]</B> (Awaiting materials) <A href='?src=[REF(src)];removeP=[tmp]'>Remove</A><BR>"
+							dat += "<B>1: [D.name]</B> (Awaiting materials) <A href='byond://?src=[REF(src)];removeP=[tmp]'>Remove</A><BR>"
 					else
-						dat += "[tmp]: [D.name] <A href='?src=[REF(src)];removeP=[tmp]'>Remove</A><BR>"
+						dat += "[tmp]: [D.name] <A href='byond://?src=[REF(src)];removeP=[tmp]'>Remove</A><BR>"
 					++tmp
 
 		///////////////////CIRCUIT IMPRINTER SCREENS////////////////////
 		if(4.0)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A><HR>"
 			dat += "NO CIRCUIT IMPRINTER LINKED TO CONSOLE<BR><BR>"
 
 		if(4.1)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.4'>View Queue</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.3'>Material Storage</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.2'>Chemical Storage</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.4'>View Queue</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.3'>Material Storage</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.2'>Chemical Storage</A><HR>"
 			dat += "<b><u>Circuit Imprinter Menu:</u></b><BR><HR>"
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()] cm<sup>3</sup><BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
-			dat += "<font size='3'; color='#5c87a8'><b>Category:</b></font> <a href='?src=[REF(src)];imprinter_category=1'>[imprinter_category]</a><hr>"
+			dat += "<font size='3'; color='#5c87a8'><b>Category:</b></font> <a href='byond://?src=[REF(src)];imprinter_category=1'>[imprinter_category]</a><hr>"
 			dat += "<div class='rdconsole-build'>"
 			dat += "<ul>"
 			var/last_category = ""
@@ -806,7 +806,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat,3)]\]"
 				if(linked_imprinter.canBuild(D))
-					dat += "<li class='highlight'><b><a href='?src=[REF(src)];imprint=[D.type]'>[D.name]</a></b>"
+					dat += "<li class='highlight'><b><a href='byond://?src=[REF(src)];imprint=[D.type]'>[D.name]</a></b>"
 				else
 					dat += "<li class='highlight'><b><div class='no-build'>[D.name]</div></b>"
 				dat += "[temp_dat]<br><i>[D.desc]</i>"
@@ -814,18 +814,18 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "</div>"
 
 		if(4.2)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.1'>Imprinter Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.1'>Imprinter Menu</A><HR>"
 			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/_R in linked_imprinter.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
 				dat += "Name: [R.name] | Units: [linked_imprinter.reagents.reagent_volumes[_R]] "
-				dat += "<A href='?src=[REF(src)];disposeI=[_R]'>(Purge)</A><BR>"
-				dat += "<A href='?src=[REF(src)];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];disposeI=[_R]'>(Purge)</A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(4.3)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.1'>Circuit Imprinter Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.1'>Circuit Imprinter Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
 			for(var/M in linked_imprinter.materials)
@@ -836,15 +836,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))
 						if(amount < C * SHEET_MATERIAL_AMOUNT)
 							break
-						dat += "[C > 1 ? ", " : ""]<A href='?src=[REF(src)];imprinter_ejectsheet=[M];amount=[C]'>[C]</A> "
+						dat += "[C > 1 ? ", " : ""]<A href='byond://?src=[REF(src)];imprinter_ejectsheet=[M];amount=[C]'>[C]</A> "
 
-					dat += " or <A href='?src=[REF(src)];imprinter_ejectsheet=[M];amount=50'>max</A> sheets"
+					dat += " or <A href='byond://?src=[REF(src)];imprinter_ejectsheet=[M];amount=50'>max</A> sheets"
 				dat += ""
 			dat += "</UL>"
 
 		if(4.4)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];menu=4.1'>Circuit Imprinter Menu</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];menu=4.1'>Circuit Imprinter Menu</A><HR>"
 			dat += "<b><u>Queue</u></b><BR><HR>"
 			if(linked_imprinter.queue.len == 0)
 				dat += "Empty"
@@ -854,13 +854,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(tmp == 1)
 						dat += "<B>1: [D.name]</B><BR>"
 					else
-						dat += "[tmp]: [D.name] <A href='?src=[REF(src)];removeI=[tmp]'>Remove</A><BR>"
+						dat += "[tmp]: [D.name] <A href='byond://?src=[REF(src)];removeI=[tmp]'>Remove</A><BR>"
 					++tmp
 
 		///////////////////Research Information Browser////////////////////
 		if(5.0)
-			dat += "<A href='?src=[REF(src)];menu=1.0'>Main Menu</A> || "
-			dat += "<A href='?src=[REF(src)];print=2'>Print This Page</A><HR>"
+			dat += "<A href='byond://?src=[REF(src)];menu=1.0'>Main Menu</A> || "
+			dat += "<A href='byond://?src=[REF(src)];print=2'>Print This Page</A><HR>"
 			dat += "<b><u>List of Researched Technologies and Designs:</u></b><HR>"
 			dat += GetResearchListInfo()
 
@@ -874,6 +874,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	id = 1
 	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
+	circuit = /obj/item/circuitboard/robotics_console
 
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"

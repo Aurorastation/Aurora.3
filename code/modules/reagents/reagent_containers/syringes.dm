@@ -328,7 +328,7 @@
 
 			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with \the [src] (INTENT: HARM).</span>"
 			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: HARM).</font>"
-			msg_admin_attack("[key_name_admin(user)] attacked [key_name_admin(target)] with [src.name] (INTENT: HARM) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
+			msg_admin_attack("[key_name_admin(user)] attacked [key_name_admin(target)] with [src.name] (INTENT: HARM) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 
 			return
 
@@ -398,6 +398,8 @@
 	desc = "A syringe for our synthetic friends."
 	gets_dirty = FALSE
 
+
+// Pre-Loaded Medications
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
@@ -428,16 +430,6 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/drugs
-	name = "Syringe (drugs)"
-	desc = "Contains aggressive drugs meant for torture. Markered lines denote points at which to stop injecting."
-	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 4, /singleton/reagent/drugs/mindbreaker = 10)
-
-/obj/item/reagent_containers/syringe/drugs/Initialize()
-	. = ..()
-	mode = SYRINGE_INJECT
-	update_icon()
-
 /obj/item/reagent_containers/syringe/fluvectionem
 	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
@@ -462,6 +454,38 @@
 	reagents_to_add = list(/singleton/reagent/antiparasitic = 10)
 
 /obj/item/reagent_containers/syringe/antiparasitic/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+// Contraband
+
+/obj/item/reagent_containers/syringe/drugs
+	name = "Syringe (drugs)"
+	desc = "Contains aggressive drugs meant for torture. Markered lines denote points at which to stop injecting."
+	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 4, /singleton/reagent/drugs/mindbreaker = 10)
+
+/obj/item/reagent_containers/syringe/drugs/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+/obj/item/reagent_containers/syringe/heroin
+	name = "Syringe (heroin)"
+	desc = "For those unbearable pains. Markered lines indicate that this syringe contains three doses."
+	reagents_to_add = list(/singleton/reagent/drugs/heroin = 15)
+
+/obj/item/reagent_containers/syringe/heroin/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+/obj/item/reagent_containers/syringe/raskara_dust
+	name = "Syringe (raskara dust)"
+	desc = "A syringe of raskara dust, a narcotic that provokes a trance-like state in the user. More potent when injected."
+	reagents_to_add = list(/singleton/reagent/drugs/raskara_dust = 15)
+
+/obj/item/reagent_containers/syringe/raskara_dust/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

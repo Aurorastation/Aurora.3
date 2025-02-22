@@ -701,7 +701,7 @@
 /obj/item/clothing/mask/offworlder{
 	color = "#7d3e6a"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#604343"
 	},
 /obj/item/clothing/under/offworlder{
@@ -756,10 +756,10 @@
 	color = "#7B5143"
 	},
 /obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black,
 /obj/item/clothing/ears/skrell/scrunchy,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/gloves/offworlder{
 	color = "#604343"
 	},
@@ -771,10 +771,10 @@
 	color = "#494949"
 	},
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	color = "#bbbbbb"
 	},
-/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/pants/jeansblack,
 /obj/item/clothing/head/helmet/pilot,
 /obj/item/clothing/head/sidecap{
 	color = "#2E2E2E";
@@ -1749,7 +1749,8 @@
 /area/shuttle/lone_spacer/starboard_nacelle)
 "zJ" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer{
-	dir = 4
+	dir = 4;
+	req_access = list(243)
 	},
 /obj/item/device/radio/intercom/expedition/hailing/north{
 	pixel_y = 19
@@ -2147,7 +2148,8 @@
 /area/shuttle/lone_spacer/bridge)
 "Ha" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(243)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techfloor,
@@ -2181,7 +2183,8 @@
 /area/space)
 "HF" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(243)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard{

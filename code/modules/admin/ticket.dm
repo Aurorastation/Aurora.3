@@ -245,7 +245,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 				var/ref_mob = ""
 				if(owner_client)
 					ref_mob = "[REF(owner_client.mob)]"
-				ticket_dat += " - <A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='?_src_=holder;subtlemessage=[ref_mob]'>SM</A>[owner_client ? "- [admin_jump_link(owner_client.mob, src)]" : ""]"
+				ticket_dat += " - <A href='byond://?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A href='byond://?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A href='byond://?_src_=vars;Vars=[ref_mob]'>VV</A> - <A href='byond://?_src_=holder;subtlemessage=[ref_mob]'>SM</A>[owner_client ? "- [admin_jump_link(owner_client.mob, src)]" : ""]"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "</i>"
 			ticket_dat += "</li>"

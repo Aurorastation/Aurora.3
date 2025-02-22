@@ -1,3 +1,7 @@
+GLOBAL_LIST_INIT_TYPED(wax_recipes, /datum/stack_recipe, list(
+	new /datum/stack_recipe("candle", /obj/item/flame/candle)
+))
+
 /obj/item/stack/wax
 	name = "wax"
 	singular_name = "wax piece"
@@ -8,8 +12,4 @@
 
 /obj/item/stack/wax/New()
 	..()
-	recipes = wax_recipes
-
-var/global/list/datum/stack_recipe/wax_recipes = list(
-	new /datum/stack_recipe("candle", /obj/item/flame/candle)
-)
+	recipes = GLOB.wax_recipes

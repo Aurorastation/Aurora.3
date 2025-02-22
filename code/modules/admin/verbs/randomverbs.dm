@@ -282,7 +282,7 @@ Ccomp's first proc.
 	if (G.client)
 		P = G.client.prefs
 	else if (G.ckey)
-		P = preferences_datums[G.ckey]
+		P = GLOB.preferences_datums[G.ckey]
 	else
 		to_chat(src, "Something went wrong, couldn't find the target's preferences datum")
 		return 0
@@ -433,9 +433,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!new_character.real_name)
 		if(new_character.gender == MALE)
-			new_character.real_name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			new_character.real_name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			new_character.real_name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			new_character.real_name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 	new_character.name = new_character.real_name
 
 	if(G_found.mind && !G_found.mind.active)
@@ -882,7 +882,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Call Evacuation"
 
-	if ((!( ROUND_IS_STARTED ) || !evacuation_controller))
+	if ((!( ROUND_IS_STARTED ) || !GLOB.evacuation_controller))
 		return
 
 	if(!check_rights(R_ADMIN))
@@ -907,7 +907,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			return
 
 	var/choice = input("Is this an emergency evacuation, bluespace jump, or a crew transfer?") in list(TRANSFER_EMERGENCY, TRANSFER_CREW, TRANSFER_JUMP)
-	evacuation_controller.call_evacuation(usr, choice)
+	GLOB.evacuation_controller.call_evacuation(usr, choice)
 
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -923,7 +923,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ROUND_IS_STARTED || !evacuation_controller)
+	if(!ROUND_IS_STARTED || !GLOB.evacuation_controller)
 		return
 
 	if(SSatlas.current_map.shuttle_call_restarts)
@@ -939,7 +939,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 
-	evacuation_controller.cancel_evacuation()
+	GLOB.evacuation_controller.cancel_evacuation()
 	feedback_add_details("admin_verb","CCSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-cancelled the evacuation.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] admin-cancelled the evacuation."), 1)
@@ -956,10 +956,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	evacuation_controller.deny = !evacuation_controller.deny
+	GLOB.evacuation_controller.deny = !GLOB.evacuation_controller.deny
 
-	log_admin("[key_name(src)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
-	message_admins("[key_name_admin(usr)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
+	log_admin("[key_name(src)] has [GLOB.evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
+	message_admins("[key_name_admin(usr)] has [GLOB.evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
 
 /client/proc/cmd_admin_attack_log(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"

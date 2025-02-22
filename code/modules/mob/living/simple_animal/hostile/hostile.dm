@@ -496,7 +496,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/check_horde()
-	if(evacuation_controller.is_prepared())
+	if(GLOB.evacuation_controller.is_prepared())
 		if(!enroute && !last_found_target)	//The shuttle docked, all monsters rush for the escape hallway
 			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
 				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target

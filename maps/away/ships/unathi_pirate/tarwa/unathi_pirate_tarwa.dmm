@@ -1141,7 +1141,8 @@
 /area/tarwa_ship/oldhangar)
 "jS" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
@@ -1237,7 +1238,8 @@
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
@@ -1386,7 +1388,8 @@
 /area/tarwa_ship/bridge)
 "my" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle{
-	dir = 8
+	dir = 8;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
@@ -3342,7 +3345,8 @@
 /area/tarwa_ship/oldhangar)
 "Fq" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
@@ -4366,7 +4370,8 @@
 /area/tarwa_ship/engineering1)
 "NT" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
@@ -4822,7 +4827,8 @@
 "RA" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(210)
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)

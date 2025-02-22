@@ -1,9 +1,9 @@
-var/list/active_buddy_tags = list()
+GLOBAL_LIST_INIT_TYPED(active_buddy_tags, /obj/item/clothing/accessory/buddytag, list())
 
 /obj/item/clothing/accessory/buddytag
 	name = "buddy tag"
 	desc = "A tiny device, paired up with a counterpart set to same code. When the paired devices are too far apart, they start beeping."
-	icon = 'icons/clothing/accessories/buddy_tag.dmi'
+	icon = 'icons/obj/item/clothing/accessory/buddy_tag.dmi'
 	icon_state = "buddytag0"
 	item_state = "buddytag"
 	contained_sprite = TRUE
@@ -18,6 +18,10 @@ var/list/active_buddy_tags = list()
 	. = ..()
 	id = round(rand(1, 1000))
 
+/obj/item/clothing/accessory/buddytag/Destroy()
+	GLOB.active_buddy_tags -= src
+	. = ..()
+
 /obj/item/clothing/accessory/buddytag/update_icon()
 	icon_state = "buddytag[on]"
 
@@ -25,10 +29,10 @@ var/list/active_buddy_tags = list()
 	if(use_check_and_message(user))
 		return
 
-	var/list/dat = "<A href='?src=[REF(src)];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
-	dat += "<br>ID: <A href='?src=[REF(src)];setcode=1;'>[id]</a>"
-	dat += "<br>Search Interval: <A href='?src=[REF(src)];set_interval=1;'>[search_interval/10] seconds</a>"
-	dat += "<br>Search Distance: <A href='?src=[REF(src)];set_distance=1;'>[distance]</a>"
+	var/list/dat = "<A href='byond://?src=[REF(src)];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
+	dat += "<br>ID: <A href='byond://?src=[REF(src)];setcode=1;'>[id]</a>"
+	dat += "<br>Search Interval: <A href='byond://?src=[REF(src)];set_interval=1;'>[search_interval/10] seconds</a>"
+	dat += "<br>Search Distance: <A href='byond://?src=[REF(src)];set_distance=1;'>[distance]</a>"
 
 	var/datum/browser/popup = new(user, "buddytag", "Buddy Tag", 290, 200)
 	popup.set_content(JOINTEXT(dat))
@@ -42,10 +46,10 @@ var/list/active_buddy_tags = list()
 		on = !on
 		if(on)
 			next_search = world.time
-			active_buddy_tags += src
+			GLOB.active_buddy_tags += src
 			START_PROCESSING(SSprocessing, src)
 		else
-			active_buddy_tags -= src
+			GLOB.active_buddy_tags -= src
 		update_icon()
 	if(href_list["setcode"])
 		var/newcode = tgui_input_number(usr, "Set new buddy ID number.", "Buddy Tag ID", id)
@@ -72,7 +76,7 @@ var/list/active_buddy_tags = list()
 		return
 	next_search = world.time + search_interval
 	var/has_friend
-	for(var/obj/item/clothing/accessory/buddytag/buddy as anything in active_buddy_tags - src)
+	for(var/obj/item/clothing/accessory/buddytag/buddy as anything in GLOB.active_buddy_tags - src)
 		if(buddy.id != id)
 			continue
 		if(GET_Z(buddy) != GET_Z(src))

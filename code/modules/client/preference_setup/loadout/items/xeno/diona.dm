@@ -269,7 +269,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 
 /datum/gear/accessory/diona/skrell_passport/New()
 	. = ..()
-	gear_tweaks += list(social_credit_tweak)
+	gear_tweaks += list(GLOB.compat_index_tweak)
 
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -439,14 +439,6 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	sort_category = "Xenowear - Diona"
 	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
-/datum/gear/uniform/unathi/diona
-	display_name = "dionae sinta tunic"
-	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	sort_category = "Xenowear - Diona"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)
-
 /datum/gear/head/sinta_ronin/diona
 	display_name = "dionae straw hat"
 	path = /obj/item/clothing/head/unathi
@@ -476,3 +468,63 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/uniform/diona/rockstone
+	display_name = "dionae rockstone cape"
+	path = /obj/item/clothing/accessory/poncho/rockstone
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/diona/noble_vest
+	display_name = "dionae jokfar vest"
+	path = /obj/item/clothing/suit/unathi/jokfar
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/diona/maxtlatl
+	display_name = "diona Thakhist headgear"
+	path = /obj/item/clothing/head/unathi/maxtlatl
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	allowed_roles = list("Chaplain")
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/diona/mogazali
+	display_name = "diona mogazali attire"
+	path = /obj/item/clothing/under/unathi/mogazali
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/diona/mogazali/New()
+	..()
+	var/list/mogazali = list()
+	mogazali["mogazali attire, red"] = /obj/item/clothing/under/unathi/mogazali
+	mogazali["mogazali attire, blue"] = /obj/item/clothing/under/unathi/mogazali/blue
+	mogazali["mogazali attire, green"] = /obj/item/clothing/under/unathi/mogazali/green
+	mogazali["mogazali attire, orange"] = /obj/item/clothing/under/unathi/mogazali/orange
+	gear_tweaks += new /datum/gear_tweak/path(mogazali)
+
+/datum/gear/uniform/diona/jizixi
+	display_name = "dionae jizixi dress"
+	path = /obj/item/clothing/under/unathi/jizixi
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+
+/datum/gear/uniform/diona/jizixi/New()
+	..()
+	var/list/jizixi = list()
+	jizixi["jizixi dress, red"] = /obj/item/clothing/under/unathi/jizixi
+	jizixi["jizixi dress, green"] = /obj/item/clothing/under/unathi/jizixi/green
+	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
+	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
+	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	gear_tweaks += new /datum/gear_tweak/path(jizixi)
