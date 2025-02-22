@@ -112,6 +112,7 @@
  */
 /datum/proc/_SendSignal(sigtype, list/arguments)
 
+	rustg_time_reset("SIGNALDEBUG")
 	var/_DEBUG_STARTTIME = rustg_time_milliseconds("SIGNALDEBUG")
 
 	var/target = _listen_lookup[sigtype]
@@ -133,4 +134,3 @@
 
 	dump_log:
 	LOG_DEBUG("SIG,[rustg_time_milliseconds("SIGNALDEBUG") - _DEBUG_STARTTIME],[src],[src?.type],[sigtype],[length(target)]")
-	rustg_time_reset("SIGNALDEBUG")
