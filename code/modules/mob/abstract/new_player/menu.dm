@@ -48,247 +48,188 @@
 	using.name = "Current Lore Summary"
 	adding += using
 
+	using = new /atom/movable/screen/new_player/selection/server_logo(src)
+	using.name = "Aurora"
+	adding += using
+
 	mymob.client.screen = list()
 	mymob.client.screen += adding
 	src.adding += using
 
-/atom/movable/screen/new_player
-	icon = 'icons/misc/hudmenu/hudmenu.dmi'
+ABSTRACT_TYPE(/atom/movable/screen/new_player)
+	icon = null
+	icon_state = null
 	layer = HUD_BASE_LAYER
 
-/atom/movable/screen/new_player/Initialize()
-	set_sector_things()
-	. = ..()
 
-/atom/movable/screen/new_player/proc/set_sector_things()
-	if(SSatlas.current_sector.sector_hud_menu)
-		icon = SSatlas.current_sector.sector_hud_menu
-
+/**
+ * # Title screen
+ *
+ * Basically the background of the lobby
+ *
+ */
 /atom/movable/screen/new_player/title
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
-	var/lobby_index = 1
-	var/refresh_timer_id = null
+	layer = UNDER_HUD_LAYER
 
-/atom/movable/screen/new_player/title/Destroy(force)
-	if(refresh_timer_id)
-		deltimer(refresh_timer_id)
-		refresh_timer_id = null
-	. = ..()
+	///An index used to rotate along the lobby icons
+	var/lobby_icons_index = 1
 
 
 /atom/movable/screen/new_player/title/Initialize()
-	if(SSatlas.current_sector.sector_lobby_art)
-		SSatlas.current_map.lobby_icon = pick(SSatlas.current_sector.sector_lobby_art)
-	else if(!SSatlas.current_map.lobby_icon)
-		SSatlas.current_map.lobby_icon = pick(SSatlas.current_map.lobby_icons)
-
-	if(!length(SSatlas.current_map.lobby_screens))
-		var/list/known_icon_states = icon_states(SSatlas.current_map.lobby_icon)
-		for(var/screen in known_icon_states)
-			if(!(screen in SSatlas.current_map.lobby_screens))
-				SSatlas.current_map.lobby_screens += screen
-	icon = SSatlas.current_map.lobby_icon
-
-	if(length(SSatlas.current_map.lobby_screens))
-		if(SSatlas.current_map.lobby_transitions && isnum(SSatlas.current_map.lobby_transitions))
-			icon_state = SSatlas.current_map.lobby_screens[lobby_index]
-			if(!MC_RUNNING())
-				spawn(SSatlas.current_map.lobby_transitions)
-					Update()
-			else
-				refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
-		else
-			icon_state = pick(SSatlas.current_map.lobby_screens)
-	else //This should basically never happen.
-		crash_with("No lobby screens found!")
-
 	. = ..()
 
-/atom/movable/screen/new_player/title/set_sector_things()
-	return
+	setup_icon() //THIS CAN SLEEP AND MUST NOT BE WAITED FOR
 
-/atom/movable/screen/new_player/title/proc/Update()
-	SHOULD_NOT_SLEEP(TRUE)
+/**
+ * Sets up the icon for the title screen, wait until SSAtlas made them for us then setup the update cycle after picking one
+ */
+/atom/movable/screen/new_player/title/proc/setup_icon()
+	set waitfor = FALSE
+	UNTIL((SSatlas.lobby_icons))
+
+	icon = pick(SSatlas.lobby_icons)
+
+	addtimer(CALLBACK(src, PROC_REF(update_icon)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/atom/movable/screen/new_player/title/update_icon()
+	..()
 
 	if(QDELETED(src))
 		return
 
-	if(!SSatlas.current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
-		return
 	if(!istype(hud) || !isnewplayer(hud.mymob))
 		return
-	lobby_index += 1
-	if (lobby_index > length(SSatlas.current_map.lobby_screens))
-		lobby_index = 1
-	animate(src, alpha = 0, time = 1 SECOND)
-	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
-	refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
-/atom/movable/screen/new_player/selection
+	//No point fading if there's only one icon, but we keep the update running in case admins want to add icons on the fly
+	if(length(SSatlas.lobby_icons) >= 2)
+		//Advance to the next icon
+		lobby_icons_index = max(++lobby_icons_index % length(SSatlas.lobby_icons), 1)
+
+		animate(src, alpha = 0, time = 1 SECOND)
+
+		animate(alpha = 255, icon = SSatlas.lobby_icons[lobby_icons_index], time = 1 SECOND)
+
+	addtimer(CALLBACK(src, PROC_REF(update_icon)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+
+/**
+ * # Selection screen
+ *
+ * Lobby clickable buttons
+ */
+ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
+	icon_state = null
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/click_sound = 'sound/effects/menu_click.ogg'
-	var/hud_arrow
+	var/does_matrix_scale = TRUE
+	var/uses_hud_arrow = TRUE
 
 /atom/movable/screen/new_player/selection/New(datum/hud/H)
 	color = null
 	hud = H
 	..()
 
-/atom/movable/screen/new_player/selection/Initialize()
-	. = ..()
-	set_sector_things()
-
 /atom/movable/screen/new_player/selection/Destroy(force)
 	hud = null
 	. = ..()
 
-/atom/movable/screen/new_player/selection/set_sector_things()
+/atom/movable/screen/new_player/selection/update_icon()
 	. = ..()
-	if(SSatlas.current_sector.sector_hud_menu_sound)
-		click_sound = SSatlas.current_sector.sector_hud_menu_sound
-	if(SSatlas.current_sector.sector_hud_arrow)
-		hud_arrow = SSatlas.current_sector.sector_hud_arrow
-		// We'll reset the animation just so it doesn't get stuck
-		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	var/icon_path = "[SSatlas.current_sector.sector_hud_menu][get_button_icon_filename()].png"
+	icon = icon(icon_path)
+
+/**
+ * Returns the filename of the icon to use for the button, at every refresh
+ */
+/atom/movable/screen/new_player/selection/proc/get_button_icon_filename()
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/regex/regex_screen_name = new(@'.*\/(.*)$')
+	if(!regex_screen_name.Find("[type]"))
+		CRASH("Something went terribly wrong with extracting the button icon filename with the regex!")
+
+	return regex_screen_name.group[1]
+
+
+/atom/movable/screen/new_player/selection/Initialize()
+	. = ..()
+	update_icon()
+	if(SSatlas.current_sector)
+		if(SSatlas.current_sector.sector_hud_menu_sound)
+			click_sound = SSatlas.current_sector.sector_hud_menu_sound
+		if(SSatlas.current_sector.sector_hud_arrow)
+			// We'll reset the animation just so it doesn't get stuck
+			animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+
+	animate(src, alpha = 255, time = 3, easing = CUBIC_EASING, loop = 3)
+	animate(alpha = 60, time = 3, easing = CUBIC_EASING, loop = 3, flags = ANIMATION_CONTINUE)
 
 /atom/movable/screen/new_player/selection/MouseEntered(location, control, params)
-	if(hud_arrow)
-		AddOverlays(hud_arrow)
-	else
-		var/matrix/M = matrix()
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
+		AddOverlays(SSatlas.current_sector.sector_hud_arrow)
+	var/matrix/M = matrix()
+	if(does_matrix_scale)
 		M.Scale(1.1, 1)
-		animate(src, color = color_rotation(30), transform = M, time = 3, easing = CUBIC_EASING)
+		M.Translate(40, 0)
+	animate(src, color = null, transform = M, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 255, time = 3, easing = CUBIC_EASING)
 	return ..()
 
-/atom/movable/screen/new_player/selection/MouseExited(location,control,params)
-	if(hud_arrow)
+/atom/movable/screen/new_player/selection/MouseExited(location, control, params)
+	if(SSatlas.current_sector?.sector_hud_arrow && uses_hud_arrow)
 		ClearOverlays()
-	else
-		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
+	animate(src, alpha = 60, time = 3, easing = CUBIC_EASING)
 	return ..()
 
+
+/**
+ * # Join Game
+ *
+ * Button to join the game
+ */
 /atom/movable/screen/new_player/selection/join_game
 	name = "Join Game"
-	icon_state = "unready"
-	screen_loc = "LEFT+0.1,CENTER-1"
+	screen_loc = "LEFT+0.5,CENTER+17"
 
-/atom/movable/screen/new_player/selection/settings
-	name = "Setup"
-	icon_state = "setup"
-	screen_loc = "LEFT+0.1,CENTER-2"
-
-/atom/movable/screen/new_player/selection/manifest
-	name = "Crew Manifest"
-	icon_state = "manifest"
-	screen_loc = "LEFT+0.1,CENTER-3"
-
-/atom/movable/screen/new_player/selection/observe
-	name = "Observe"
-	icon_state = "observe"
-	screen_loc = "LEFT+0.1,CENTER-4"
-
-/atom/movable/screen/new_player/selection/changelog
-	name = "Changelog"
-	icon_state = "changelog"
-	screen_loc = "LEFT+0.1,CENTER-5"
-
-/atom/movable/screen/new_player/selection/polls
-	name = "Polls"
-	icon_state = "polls"
-	screen_loc = "LEFT+0.1,CENTER-6"
-
-/atom/movable/screen/new_player/selection/lore_summary
-	name = "Current Lore Summary"
-	icon_state = "lore_summary"
-	screen_loc = "LEFT+0.1,CENTER-7"
-
-/atom/movable/screen/new_player/selection/join_game/Initialize()
-	. = ..()
+/atom/movable/screen/new_player/selection/join_game/Click(location, control, params)
 	var/mob/abstract/new_player/player = hud.mymob
-	update_icon(player)
-
-/atom/movable/screen/new_player/selection/join_game/Click()
-	var/mob/abstract/new_player/player = usr
 	if(SSticker.prevent_unready && player.ready)
 		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
 		return
 
-	sound_to(player, click_sound)
+
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
+			sound_to(player, 'sound/weapons/laser_safetyoff.ogg')
 			player.ready(FALSE)
 		else
+			sound_to(player, 'sound/weapons/laser_safetyon.ogg')
 			player.ready(TRUE)
 	else
+		sound_to(player, click_sound)
 		player.join_game()
-	update_icon(player)
+	update_icon()
 
-/atom/movable/screen/new_player/selection/join_game/update_icon(var/mob/abstract/new_player/player)
+/atom/movable/screen/new_player/selection/join_game/get_button_icon_filename()
+	. = ..()
+	var/mob/abstract/new_player/player = hud.mymob
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			icon_state = "ready"
+			. += "_ready"
 		else
-			icon_state = "unready"
-	else
-		icon_state = "joingame"
+			. += "_unready"
 
-/atom/movable/screen/new_player/selection/manifest/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	if(SSticker.current_state < GAME_STATE_PLAYING)
-		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
-		return
-	player.ViewManifest()
-
-/atom/movable/screen/new_player/selection/observe/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	player.new_player_observe()
-
-/atom/movable/screen/new_player/selection/settings/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	player.setupcharacter()
-
-/atom/movable/screen/new_player/selection/changelog/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	player.client.changes()
-
-/atom/movable/screen/new_player/selection/polls/Initialize()
-	. = ..()
-	if(establish_db_connection(GLOB.dbcon))
-		var/mob/M = hud.mymob
-		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
-		query.Execute()
-		var/newpoll = query.NextRow()
-
-		if(newpoll)
-			icon_state = "polls_new"
-
-/atom/movable/screen/new_player/selection/polls/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	player.handle_player_polling()
-
-/atom/movable/screen/new_player/selection/lore_summary/Click()
-	var/mob/abstract/new_player/player = usr
-	sound_to(player, click_sound)
-	player.show_lore_summary()
-
-/mob/abstract/new_player/proc/setupcharacter()
-	client.prefs.ShowChoices(src)
-	return TRUE
-
-/mob/abstract/new_player/proc/ready(var/readying = TRUE)
+/mob/abstract/new_player/proc/ready(readying = TRUE)
 	if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 		// Cannot join without a saved character, if we're on SQL saves.
 		if (GLOB.config.sql_saves && !client.prefs.current_character)
-			alert(src, "You have not saved your character yet. Please do so before readying up.")
+			tgui_alert(src, "You have not saved your character yet. Please do so before readying up.", "Character not saved", list("Ok"))
 			return
 		if(client.unacked_warning_count > 0)
-			alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
+			tgui_alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.", "Warnings not acknowledged", list("Ok"))
 			return
 
 		if(SSticker.prevent_unready && !readying)
@@ -307,6 +248,39 @@
 		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return
 	LateChoices() //show the latejoin job selection menu
+
+
+/**
+ * # Manifest
+ *
+ * Button to view the crew manifest
+ */
+/atom/movable/screen/new_player/selection/manifest
+	name = "Crew Manifest"
+	screen_loc = "LEFT+0.5,CENTER+13"
+
+/atom/movable/screen/new_player/selection/manifest/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	if(SSticker.current_state < GAME_STATE_PLAYING)
+		to_chat(player, SPAN_WARNING("The game hasn't started yet!"))
+		return
+	player.ViewManifest()
+
+
+/**
+ * # Observe
+ *
+ * Button to join as observer
+ */
+/atom/movable/screen/new_player/selection/observe
+	name = "Observe"
+	screen_loc = "LEFT+0.5,CENTER+9"
+
+/atom/movable/screen/new_player/selection/observe/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	player.new_player_observe()
 
 /mob/abstract/new_player/proc/new_player_observe()
 	if(!SSATOMS_IS_PROBABLY_DONE)
@@ -356,8 +330,112 @@
 	observer.client.init_verbs()
 	qdel(src)
 
+
+/**
+ * # Settings
+ *
+ * Button to change character settings
+ */
+/atom/movable/screen/new_player/selection/settings
+	name = "Setup"
+	screen_loc = "LEFT+0.5,CENTER+5"
+
+/atom/movable/screen/new_player/selection/settings/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	player.setupcharacter()
+
+/atom/movable/screen/new_player/selection/changelog/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	player.client.changes()
+
+/mob/abstract/new_player/proc/setupcharacter()
+	client.prefs.ShowChoices(src)
+	return TRUE
+
+
+/**
+ * # Changelog
+ *
+ * Button to view the changelog
+ */
+/atom/movable/screen/new_player/selection/changelog
+	name = "Changelog"
+	screen_loc = "LEFT+0.5,CENTER+1"
+
+
+/**
+ * # Polls
+ *
+ * Button to view the polls
+ */
+/atom/movable/screen/new_player/selection/polls
+	name = "Polls"
+	screen_loc = "LEFT+0.5,CENTER-3"
+	var/new_polls = FALSE
+
+/atom/movable/screen/new_player/selection/polls/Initialize()
+	. = ..()
+	if(establish_db_connection(GLOB.dbcon))
+		var/mob/M = hud.mymob
+		var/isadmin = M && M.client && M.client.holder
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		query.Execute()
+		var/newpoll = query.NextRow()
+
+		if(newpoll)
+			new_polls = TRUE
+
+/atom/movable/screen/new_player/selection/polls/get_button_icon_filename()
+	. = ..()
+	if(new_polls)
+		. += "_new"
+
+/atom/movable/screen/new_player/selection/polls/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	player.handle_player_polling()
+
+
+/**
+ * # Lore Summary
+ *
+ * Button to view the current lore summary
+ */
+/atom/movable/screen/new_player/selection/lore_summary
+	name = "Current Lore Summary"
+	screen_loc = "LEFT+0.5,CENTER-7"
+
+/atom/movable/screen/new_player/selection/lore_summary/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	player.show_lore_summary()
+
 /mob/abstract/new_player/proc/show_lore_summary()
 	if(GLOB.config.lore_summary)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
 		output += "<i>[GLOB.config.lore_summary]</i><hr>"
 		to_chat(src, output)
+
+/**
+ * # Title
+ *
+ * Button to view the Aurora website
+ */
+/atom/movable/screen/new_player/selection/server_logo
+	name = "Aurora"
+	screen_loc = "LEFT+0.5,CENTER+42"
+	uses_hud_arrow = FALSE
+	does_matrix_scale = FALSE
+
+/atom/movable/screen/new_player/selection/server_logo/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, click_sound)
+	if (GLOB.config.mainsiteurl)
+		if(tgui_alert(player, "This will open the Aurora website in your browser. Are you sure?", "Aurora", list("Yes", "No")) == "No")
+			return
+		send_link(player, GLOB.config.mainsiteurl)
+	else
+		to_chat(player, SPAN_WARNING("The Aurora website URL is not set in the server configuration."))
+	return
