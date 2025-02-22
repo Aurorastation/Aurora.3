@@ -1,13 +1,13 @@
 #define PROFILER_PATH(file) "./data/logs/[GLOB.round_id]/profiler/[##file]"
 
-#define PROFILER_FILENAME "profiler.json"
-#define SENDMAPS_FILENAME "sendmaps.json"
+#define PROFILER_FILENAME "profiler-[round(world.time * 0.1, 10)].json"
+#define SENDMAPS_FILENAME "sendmaps-[round(world.time * 0.1, 10)].json"
 
 SUBSYSTEM_DEF(profiler)
 	name = "Profiler"
 	init_order = INIT_ORDER_PROFILER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	wait = 3000
+	wait = 300 SECONDS
 	var/fetch_cost = 0
 	var/write_cost = 0
 
