@@ -118,7 +118,6 @@ SUBSYSTEM_DEF(holomap)
 			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 
 	var/icon/map_base = icon(minimaps[zlevel])
-	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)
 
 	// Generate the full sized map by blending the base and areas onto the backdrop
 	var/icon/big_map = icon('icons/255x255.dmi', "blank")
