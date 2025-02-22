@@ -156,9 +156,7 @@
 	name = "gadpathurian dogtag"
 	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type. \
 	They can be easily ripped in half in the event of the wearer's death."
-	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "gadpathur_tag"
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/mask/breath/gadpathur
 	name = "gadpathurian rebreather"

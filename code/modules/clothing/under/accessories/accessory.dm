@@ -891,9 +891,19 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	var/can_be_broken = FALSE
+	desc_extended = "Use the dogtags on help intent to tuck or untuck them, or on harm intent to separate them."
+	var/can_be_broken = TRUE
 	var/separated = FALSE
 	var/tag_type = /obj/item/dogtag
+	/// If tucked is true, sprite is invisible on the mob; if false, it shows up as normal
+	var/tucked = TRUE
+
+/obj/item/dogtag
+	name = "dogtag"
+	desc = "An engraved metal identification tag."
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
+	icon_state = "tag"
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -906,16 +916,23 @@
 				separated = TRUE
 				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
 				user.put_in_hands(tag)
+				tag.desc = desc
 				separated = TRUE
+				update_icon()
+		if(user.a_intent == I_HELP)
+			if(ishuman(user))
+				var/mob/living/carbon/human/H = user
+				to_chat(user, SPAN_NOTICE("You [tucked ? "untuck" : "tuck"] \the [src] [tucked ? "from" : "under"] your [H.w_uniform.name]."))
+				tucked = !tucked
 				update_icon()
 
 /obj/item/clothing/accessory/dogtags/update_icon()
 	if(separated)
-		icon_state = "[icon_state]_single"
-		item_state = "[item_state]_single"
+		icon_state = "[initial(icon_state)]_single[tucked ? "_tucked" : ""]"
+		item_state = "[initial(item_state)]_single[tucked ? "_tucked" : ""]"
 	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
+		icon_state = "[initial(icon_state)][tucked ? "_tucked" : ""]"
+		item_state = "[initial(item_state)][tucked ? "_tucked" : ""]"
 
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
