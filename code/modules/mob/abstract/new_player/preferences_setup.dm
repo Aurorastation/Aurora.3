@@ -218,7 +218,8 @@
 		var/list/used_slots = list()
 
 		if(equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS)
-			equip_custom_items(mannequin, current_character, client.ckey)
+			equip_custom_items(mannequin, current_character, client.ckey, TRUE) // Equips body-related custom items, like augments and prosthetics.
+			equip_custom_items(mannequin, current_character, client.ckey, FALSE) // Equips all other custom items.
 
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT)
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
