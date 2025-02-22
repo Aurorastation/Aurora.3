@@ -1,0 +1,10 @@
+// The synthetic's electronics. Represents both the hardware and software component.
+// The integrity of electronics only goes from 0% to 100%. It does not vary, unlike other components.
+
+/datum/synthetic_internal/electronics
+	name = "internal electronics"
+	desc = "The electronics and the code responsible for many internal functions."
+	/// The maximum integrity percentage of the internals. Represents code coherence and physical damage.
+	var/max_integrity = 100
+	/// The integrity of the internals in percentage. Represents code coherence and physical damage.
+	var/integrity = 100
