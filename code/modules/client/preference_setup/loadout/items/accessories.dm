@@ -257,6 +257,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
 	path = /obj/item/clothing/accessory/dogtags
+	description = "A pair of engraved metal identification tags. The description you assign to the dogtags will carry over to both tags when separated."
 
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
