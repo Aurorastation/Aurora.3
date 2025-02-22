@@ -76,8 +76,14 @@
 	var/last_asset_job = 0
 	var/last_completed_asset_job = 0
 
+	///Hide top bars
+	var/fullscreen = FALSE
+
 	/// our current tab
 	var/stat_tab
+
+	/// If this client has been fully initialized or not
+	var/fully_created = FALSE
 
 	/// list of all tabs
 	var/list/panel_tabs = list()

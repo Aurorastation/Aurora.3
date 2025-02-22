@@ -104,6 +104,9 @@
 	update_client_color()
 	add_click_catcher()
 
+	if(client) //Should work based on "change_view" but we lack the infrastructure behind to make it useful, for now
+		client.attempt_auto_fit_viewport()
+
 	if(machine)
 		machine.on_user_login(src)
 
