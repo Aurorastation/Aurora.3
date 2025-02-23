@@ -411,8 +411,6 @@ Unless absolutely unavoidable, use the compile-time operator `.` to access vars 
 ### Text variables
 Line breaks should be consistent.
 
-Any newline should be preceded by the space in a phrase, and phrases should only be broken in a newline after complete words
-
 ```dm
 // Good
 /obj/item/mything
