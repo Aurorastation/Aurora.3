@@ -18756,6 +18756,7 @@
 /area/crumbling_station/maints/reactor)
 "oSM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/crumbling_station/maints/reactor)
 "oXZ" = (
@@ -19714,7 +19715,10 @@
 /turf/simulated/floor/airless,
 /area/crumbling_station/asteroid/exterior)
 "wKZ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/crumbling_station/maints/medical)
 "wVJ" = (
@@ -47203,7 +47207,7 @@ aHL
 aiM
 akP
 aiP
-oSM
+aBr
 alN
 eiQ
 aGo
@@ -49247,7 +49251,7 @@ akJ
 akJ
 lOh
 akJ
-aec
+wKZ
 aec
 aec
 aec
@@ -49505,8 +49509,8 @@ akJ
 rhx
 akJ
 ykv
-wKZ
-wKZ
+nop
+nop
 nop
 ykv
 akJ
