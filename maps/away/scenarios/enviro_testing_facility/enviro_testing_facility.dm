@@ -93,13 +93,11 @@
 
 // --------------------------------------------------- misc
 
-#define NETWORK_ENVIRO_TESTING_FACILITY "Env-Test Facility Zoya"
+/obj/machinery/computer/security/terminal/enviro_testing_facility
+	network = list("Env-Test Facility Zoya")
 
 /obj/machinery/camera/network/enviro_testing_facility
-	network = list(NETWORK_ENVIRO_TESTING_FACILITY)
-
-/obj/machinery/computer/security/terminal/enviro_testing_facility
-	network = list(NETWORK_ENVIRO_TESTING_FACILITY)
+	network = list("Env-Test Facility Zoya")
 
 /obj/item/research_slip/enviro_testing_facility
 	icon_state = "slip_generic"

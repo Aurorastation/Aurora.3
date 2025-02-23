@@ -13,6 +13,7 @@ ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 	density = FALSE
 	appearance_flags = TILE_BOUND
 
+	/// The ID card inserted into the terminal.
 	var/obj/item/card/id/held_card
 
 /obj/machinery/computer/access_terminal/Destroy()
@@ -28,7 +29,7 @@ ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 /obj/machinery/computer/access_terminal/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/idcard = attacking_item
 	if(!held_card && istype(idcard))
-		usr.drop_from_inventory(idcard, src)
+		usr.drop_from_inventory(idcard, user)
 		held_card = idcard
 		update_icon()
 
@@ -74,15 +75,15 @@ ABSTRACT_TYPE(/obj/machinery/computer/access_terminal)
 				held_card.access ^= list(text2num(params["toggle_access"]))
 		if("insert_id")
 			if(!held_card)
-				var/obj/item/I = usr.get_active_hand()
+				var/obj/item/I = ui.user.get_active_hand()
 				if (istype(I, /obj/item/card/id))
-					usr.drop_from_inventory(I,src)
+					ui.user.drop_from_inventory(I,src)
 					held_card = I
 		if("eject_id")
 			if(held_card)
 				held_card.forceMove(src.loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(held_card)
+				if(!ui.user.get_active_hand())
+					ui.user.put_in_hands(held_card)
 				held_card = null
 
 // ------------------------- subtypes
