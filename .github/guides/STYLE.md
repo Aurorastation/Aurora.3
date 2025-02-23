@@ -409,9 +409,7 @@ could not use `::` as the provided types are not static.
 Unless absolutely unavoidable, use the compile-time operator `.` to access vars instead of the runtime operator `:`.
 
 ### Text variables
-Do not leave empty lines just to isolate the text, the text should start right after the `"` and end right before the `"`.
-
-Any newline should be preceded by the space in a phrase, and phrases should only be broken in a newline after complete words
+Line breaks should be consistent.
 
 ```dm
 // Good
@@ -419,12 +417,14 @@ Any newline should be preceded by the space in a phrase, and phrases should only
 	var/text_var = "This is a test variable \
 					that spans multiple lines"
 
-// Bad, wasted lines
+// Good
 /obj/item/mything
 	var/text_var = "\
-					This is a test variable \
-					that spans multiple lines\
-					"
+		This is a very long test variable \
+		that spans multiple lines. \
+		It could be a very long description \
+		or some other kind of long message.\
+		"
 
 // Bad, breaks incorrectly
 /obj/item/mything
