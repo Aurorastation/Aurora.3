@@ -417,14 +417,14 @@ Line breaks should be consistent.
 	var/text_var = "This is a test variable \
 					that spans multiple lines"
 
-// Good
+// Also good
 /obj/item/mything
 	var/text_var = "\
 		This is a very long test variable \
 		that spans multiple lines. \
 		It could be a very long description \
 		or some other kind of long message.\
-		"
+	"
 
 // Bad, breaks incorrectly
 /obj/item/mything
