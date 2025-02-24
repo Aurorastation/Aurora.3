@@ -1335,6 +1335,7 @@
 	glass_name = "glass of earthen-root juice"
 	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
 
+// Leaving off here
 /singleton/reagent/drink/garlicjuice
 	name = "Garlic Juice"
 	description = "Who would even drink this?"
