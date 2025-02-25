@@ -141,7 +141,7 @@
 
 	else if(href_list["simplemake"])
 
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["mob"])
@@ -195,7 +195,7 @@
 
 	/////////////////////////////////////new ban stuff
 	else if(href_list["unbanf"])
-		if(!check_rights(R_BAN))
+		if(!check_rights(R_FULL_MODERATOR))
 			return
 
 		var/banfolder = href_list["unbanf"]
@@ -212,7 +212,7 @@
 		usr.client.warn(href_list["warn"])
 
 	else if(href_list["unbane"])
-		if(!check_rights(R_BAN))
+		if(!check_rights(R_FULL_MODERATOR))
 			return
 
 		UpdateTime()
@@ -306,7 +306,7 @@
 			del(M.client)
 
 	else if(href_list["newban"])
-		if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
+		if(!check_rights(R_MOD,0) && !check_rights(R_FULL_MODERATOR, 0))
 			to_chat(usr, SPAN_WARNING("You do not have the appropriate permissions to add bans!"))
 			return
 
@@ -326,7 +326,7 @@
 				var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
 				if(!mins)
 					return
-				if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_tempban_max)
+				if(check_rights(R_MOD, 0) && !check_rights(R_FULL_MODERATOR, 0) && mins > GLOB.config.mod_tempban_max)
 					to_chat(usr, SPAN_WARNING("Moderators can only job tempban up to [GLOB.config.mod_tempban_max] minutes!"))
 					return
 				if(mins >= 525600) mins = 525599
@@ -354,7 +354,7 @@
 				del(M.client)
 				//qdel(M)	// See no reason why to delete mob. Important stuff can be lost. And ban can be lifted before round ends.
 			if("No")
-				if(!check_rights(R_BAN))
+				if(!check_rights(R_FULL_MODERATOR))
 					return
 				var/reason = sanitize(input(usr,"Reason?","reason","Griefer") as text|null)
 				if(!reason)
@@ -474,7 +474,7 @@
 		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
@@ -487,7 +487,7 @@
 		H.monkeyize()
 
 	else if(href_list["corgione"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["corgione"])
@@ -661,7 +661,7 @@
 			to_chat(usr, "Admin Rejuvinates have been disabled")
 
 	else if(href_list["makeai"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeai"])
@@ -674,7 +674,7 @@
 		H.AIize()
 
 	else if(href_list["makeslime"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
@@ -685,7 +685,7 @@
 		usr.client.cmd_admin_slimeize(H)
 
 	else if(href_list["makerobot"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
@@ -696,7 +696,7 @@
 		usr.client.cmd_admin_robotize(H)
 
 	else if(href_list["makeanimal"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["makeanimal"])
@@ -707,7 +707,7 @@
 		usr.client.cmd_admin_animalize(M)
 
 	else if(href_list["togmutate"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["togmutate"])
@@ -1014,14 +1014,14 @@
 		return
 
 	else if(href_list["jumpto"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_FULL_MODERATOR))
 			return
 
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_FULL_MODERATOR))
 			return
 
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
@@ -1030,7 +1030,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_FULL_MODERATOR))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])

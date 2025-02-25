@@ -522,7 +522,7 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 		add_verb(src, GLOB.admin_verbs_default)
 		if(holder.rights & R_BUILDMODE)		add_verb(src, /client/proc/togglebuildmodeself)
 		if(holder.rights & R_ADMIN)			add_verb(src, GLOB.admin_verbs_admin)
-		if(holder.rights & R_BAN)			add_verb(src, GLOB.admin_verbs_ban)
+		if(holder.rights & R_FULL_MODERATOR)			add_verb(src, GLOB.admin_verbs_ban)
 		if(holder.rights & R_FUN)			add_verb(src, GLOB.admin_verbs_fun)
 		if(holder.rights & R_SERVER)		add_verb(src, GLOB.admin_verbs_server)
 		if(holder.rights & R_DEBUG)

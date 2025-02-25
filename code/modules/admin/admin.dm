@@ -604,7 +604,7 @@ var/global/enabled_spooking = 0
 
 
 /datum/admins/proc/Jobbans()
-	if(!check_rights(R_BAN))
+	if(!check_rights(R_FULL_MODERATOR))
 		return
 
 	// RIP whoever uses this panel. It's going to be amazingly painful!

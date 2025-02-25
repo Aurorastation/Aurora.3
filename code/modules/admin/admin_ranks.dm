@@ -21,7 +21,7 @@ var/list/forum_groupids_to_ranks = list()
 			if ("r_admin")
 				. |= R_ADMIN
 			if ("r_ban")
-				. |= R_BAN
+				. |= R_FULL_MODERATOR
 			if ("r_fun")
 				. |= R_FUN
 			if ("r_server")
@@ -49,7 +49,7 @@ var/list/forum_groupids_to_ranks = list()
 			if ("r_cciaa")
 				. |= R_CCIAA
 			if ("r_everything","r_host","r_all")
-				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVINATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
+				. |= (R_BUILDMODE | R_ADMIN | R_FULL_MODERATOR | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVINATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
 			else
 				crash_with("Unknown rank in file: [auth]")
 
