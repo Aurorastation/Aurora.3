@@ -271,7 +271,10 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 	for(var/datum/custom_item/ci as anything in GLOB.character_id_to_custom_items_mapping[glob_character_id_key])
 		equip_custom_item_to_mob(ci, target_mob, body_only)
 
-
+/// This equips custom items to mobs. The body_only parameter determines if it will equip non-body related augments (i.e. prosthetics or augments).
+/// If set to true, it only equips prosthetics and augments. If set to false, it only equips other custom items, such as clothes or accessories.
+/// It should be called twice, true then false - augments and prosthetics should be added before any clothing items, loadout or custom.
+/// This is so you don't get shoes falling off because someone's custom prosthetic foot was loaded in after their footwear, for instance.
 /proc/equip_custom_item_to_mob(var/datum/custom_item/citem, var/mob/living/carbon/human/target_mob, var/body_only = FALSE)
 	// Check for required job title.
 	if(length(citem.req_titles))
@@ -295,21 +298,22 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		target_mob.UpdateDamageIcon()
 		return
 
-	if(body_only && ispath(citem.item_path, /obj/item/organ/external))
-		var/obj/item/organ/external/dummy_limb = citem.item_path
-		var/obj/item/organ/external/parent_organ = target_mob.get_organ(initial(dummy_limb.parent_organ))
-		if(parent_organ)
-			var/obj/item/organ/external/existing_limb = target_mob.get_organ(initial(dummy_limb.limb_name))
-			if(existing_limb)
-				existing_limb.droplimb(TRUE)
-				qdel(existing_limb)
+	if(body_only)
+		if(ispath(citem.item_path, /obj/item/organ/external))
+			var/obj/item/organ/external/dummy_limb = citem.item_path
+			var/obj/item/organ/external/parent_organ = target_mob.get_organ(initial(dummy_limb.parent_organ))
+			if(parent_organ)
+				var/obj/item/organ/external/existing_limb = target_mob.get_organ(initial(dummy_limb.limb_name))
+				if(existing_limb)
+					existing_limb.droplimb(TRUE)
+					qdel(existing_limb)
 
-			var/obj/item/organ/external/custom_limb = citem.spawn_item(target_mob)
-			custom_limb.replaced(target_mob, parent_organ)
+				var/obj/item/organ/external/custom_limb = citem.spawn_item(target_mob)
+				custom_limb.replaced(target_mob, parent_organ)
 
-			target_mob.update_body()
-			target_mob.updatehealth()
-			target_mob.UpdateDamageIcon()
+				target_mob.update_body()
+				target_mob.updatehealth()
+				target_mob.UpdateDamageIcon()
 		return
 
 	// Cuts the proc early if it should only be doing body-related items, i.e. augments and prosthetics.
