@@ -25,7 +25,7 @@
 // Admin permissions.
 #define R_BUILDMODE      0x1
 #define R_ADMIN          0x2
-#define R_FULL_MODERATOR 0x4
+#define R_BAN            0x4
 #define R_FUN            0x8
 #define R_SERVER         0x10
 #define R_DEBUG          0x20

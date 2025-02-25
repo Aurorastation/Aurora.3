@@ -195,7 +195,7 @@
 
 	/////////////////////////////////////new ban stuff
 	else if(href_list["unbanf"])
-		if(!check_rights(R_FULL_MODERATOR))
+		if(!check_rights(R_BAN))
 			return
 
 		var/banfolder = href_list["unbanf"]
@@ -212,7 +212,7 @@
 		usr.client.warn(href_list["warn"])
 
 	else if(href_list["unbane"])
-		if(!check_rights(R_FULL_MODERATOR))
+		if(!check_rights(R_BAN))
 			return
 
 		UpdateTime()
@@ -306,7 +306,7 @@
 			del(M.client)
 
 	else if(href_list["newban"])
-		if(!check_rights(R_MOD,0) && !check_rights(R_FULL_MODERATOR, 0))
+		if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
 			to_chat(usr, SPAN_WARNING("You do not have the appropriate permissions to add bans!"))
 			return
 
@@ -326,7 +326,7 @@
 				var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
 				if(!mins)
 					return
-				if(check_rights(R_MOD, 0) && !check_rights(R_FULL_MODERATOR, 0) && mins > GLOB.config.mod_tempban_max)
+				if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_tempban_max)
 					to_chat(usr, SPAN_WARNING("Moderators can only job tempban up to [GLOB.config.mod_tempban_max] minutes!"))
 					return
 				if(mins >= 525600) mins = 525599
@@ -354,7 +354,7 @@
 				del(M.client)
 				//qdel(M)	// See no reason why to delete mob. Important stuff can be lost. And ban can be lifted before round ends.
 			if("No")
-				if(!check_rights(R_FULL_MODERATOR))
+				if(!check_rights(R_BAN))
 					return
 				var/reason = sanitize(input(usr,"Reason?","reason","Griefer") as text|null)
 				if(!reason)
@@ -1014,14 +1014,14 @@
 		return
 
 	else if(href_list["jumpto"])
-		if(!check_rights(R_FULL_MODERATOR))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
-		if(!check_rights(R_FULL_MODERATOR))
+		if(!check_rights(R_BAN))
 			return
 
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
@@ -1030,7 +1030,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_FULL_MODERATOR))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])

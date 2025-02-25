@@ -298,7 +298,7 @@ GLOBAL_PROTECT(jobban_keylist)
 		return
 
 	// Check against usr's perms.
-	if (!check_rights(R_ADMIN|R_MOD|R_FULL_MODERATOR))
+	if (!check_rights(R_ADMIN|R_MOD|R_BAN))
 		return
 
 	var/ckey = null
@@ -623,7 +623,7 @@ GLOBAL_PROTECT(jobban_keylist)
 	if (admin_datums[ckey])
 		if (ckey != usr.ckey)										//we can jobban ourselves
 			var/datum/admins/other_holder = admin_datums[ckey]
-			if(other_holder && (other_holder.rights & R_FULL_MODERATOR))		//they can ban too. So we can't ban them
+			if(other_holder && (other_holder.rights & R_BAN))		//they can ban too. So we can't ban them
 				alert("You cannot perform this action. You must be of a higher administrative rank!")
 				return 0
 
@@ -724,13 +724,13 @@ GLOBAL_PROTECT(jobban_keylist)
 	if (notbannedlist.len) //at least 1 unbanned job exists in joblist so we have stuff to ban.
 		switch (alert("Temporary Ban?",,"Yes","No", "Cancel"))
 			if ("Yes")
-				if (!check_rights(R_MOD,0) && !check_rights(R_FULL_MODERATOR, 0))
+				if (!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
 					to_chat(usr, SPAN_WARNING("You Cannot issue temporary job-bans!"))
 					return 0
 				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
 				if (!mins)
 					return 0
-				if (check_rights(R_MOD, 0) && !check_rights(R_FULL_MODERATOR, 0) && mins > GLOB.config.mod_job_tempban_max)
+				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_job_tempban_max)
 					to_chat(usr, SPAN_WARNING("Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!"))
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
@@ -762,7 +762,7 @@ GLOBAL_PROTECT(jobban_keylist)
 				jobban_panel(ckey)
 				return 1
 			if ("No")
-				if (!check_rights(R_FULL_MODERATOR))
+				if (!check_rights(R_BAN))
 					return
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (reason)
