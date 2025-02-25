@@ -12,7 +12,7 @@
 /// Usually represents objects that require two hands to operate, (e.g. shotgun, two-handed melee weapons)
 #define WEIGHT_CLASS_HUGE 5
 /// Essentially means it cannot be picked up or placed in an inventory, (e.g. mech parts, safe)
-#define WEIGHT_CLASS_GARGANTUAN 6
+#define WEIGHT_CLASS_GIGANTIC 6
 // Use this to forbid item from being placed in a container.
 #define WEIGHT_CLASS_NO_CONTAINER INFINITY
 

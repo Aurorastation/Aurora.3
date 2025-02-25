@@ -310,7 +310,7 @@
 	desc = "It's a really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
-	w_class = WEIGHT_CLASS_GARGANTUAN //You're not fitting this thing in a backpack
+	w_class = WEIGHT_CLASS_GIGANTIC //You're not fitting this thing in a backpack
 
 /obj/item/holder/drone/mining
 	name = "mining drone"

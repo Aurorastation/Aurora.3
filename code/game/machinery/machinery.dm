@@ -83,7 +83,7 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = WEIGHT_CLASS_GARGANTUAN
+	w_class = WEIGHT_CLASS_GIGANTIC
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
