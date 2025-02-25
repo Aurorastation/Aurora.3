@@ -286,6 +286,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility{
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "cl" = (
@@ -4937,11 +4942,11 @@
 /area/tarwa_ship/oldhangar)
 "SG" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/vending/cigarette,
 /obj/structure/sign/flag/tarwa{
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "SI" = (
