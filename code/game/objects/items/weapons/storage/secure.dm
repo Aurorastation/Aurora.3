@@ -182,8 +182,8 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 18
-	w_class = WEIGHT_CLASS_GIGANTIC
-	max_w_class = WEIGHT_CLASS_GIGANTIC
+	w_class = WEIGHT_CLASS_GARGANTUAN
+	max_w_class = WEIGHT_CLASS_GARGANTUAN
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/storage/secure/briefcase)

@@ -26,7 +26,7 @@
 		return
 	var/atom/movable/AM = hit_atom
 	var/mob/living/carbon/human/H = user
-	if(isobj(hit_atom) && w_class < WEIGHT_CLASS_GIGANTIC)
+	if(isobj(hit_atom) && w_class < WEIGHT_CLASS_GARGANTUAN)
 		var/obj/object = hit_atom
 		if(object.anchored)
 			to_chat(user, SPAN_WARNING("That object is bolted down!"))

@@ -142,7 +142,7 @@
 
 /obj/item/tent/Initialize()
 	. = ..()
-	w_class = min(ceil(width * length / 1.5), WEIGHT_CLASS_GIGANTIC) // 2x2 = WEIGHT_CLASS_NORMAL
+	w_class = min(ceil(width * length / 1.5), WEIGHT_CLASS_GARGANTUAN) // 2x2 = WEIGHT_CLASS_NORMAL
 	desc += "\nThis one is [width] x [length] in size."
 
 /obj/item/tent/Destroy()

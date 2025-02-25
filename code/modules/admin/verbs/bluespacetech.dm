@@ -350,7 +350,7 @@
 /obj/item/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
-	max_w_class = WEIGHT_CLASS_GIGANTIC
+	max_w_class = WEIGHT_CLASS_GARGANTUAN
 
 //Headset
 /obj/item/device/radio/headset/ert/bst

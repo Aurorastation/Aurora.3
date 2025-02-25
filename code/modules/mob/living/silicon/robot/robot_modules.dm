@@ -14,7 +14,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	name = "robot module"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = WEIGHT_CLASS_GIGANTIC
+	w_class = WEIGHT_CLASS_GARGANTUAN
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	var/channels = list()
