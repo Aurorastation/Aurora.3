@@ -121,4 +121,4 @@
 	important_information = "All Orepitters abroad in the Open Doors memorandum would not work in jobs not requiring an education, and cannot work for Hephaestus Industries because of its practice of not hiring Trinarists, nor directly for the Stellar Corporate Conglomerate due to its distrust of the Church; Orepitters who travel abroad independently, either because they are not Trinarists or not participants in the memorandum, are not held to this. Human Orepitters born in the Twenty Parishes should select the Native Orepitter accent, while humans born in Providence or the Marches should select the Providence accent."
 	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
 	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
-	possible_religions =  list(RELIGIONS_COALITION)
+	possible_religions =  RELIGIONS_COALITION
