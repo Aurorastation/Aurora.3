@@ -74,14 +74,15 @@
 		return
 
 	var/injection_modifier = target_human.get_bp_coverage(target_zone)
-	if(injection_modifier == INJECTION_FAIL)
-		to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
-		return
+	switch(injection_modifier)
+		if(INJECTION_FAIL)
+			to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
+			return
 
-	if(injection_modifier == SUIT_INJECTION_MOD)
-		user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."))
-	else
-		user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."))
+		if(SUIT_INJECTION_MOD)
+			user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."))
+		else
+			user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."))
 
 	if(do_mob(user, target_human, 2 SECONDS * injection_modifier))
 		// Checking this again if the target put on armour after the injection began.
