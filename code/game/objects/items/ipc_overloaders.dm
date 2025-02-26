@@ -59,28 +59,53 @@
 	to_chat(user, SPAN_WARNING("\The [src] has no use for you!"))
 
 // Jabbing someone else with an overloader.
-/obj/item/ipc_overloader/attack(mob/living/carbon/human/target_mob, mob/user, target_zone)
-	if(isliving(target_mob))
-		user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_mob] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_mob] with \the [src]."))
+// TODO: Clean up the common ground with attack_self, there's a lot of clunkily repeated code right now.
+/obj/item/ipc_overloader/attack(mob/living/carbon/human/target_human, mob/user, target_zone)
+	if(!ishuman(target_human))
+		return
 
-		if(do_mob(user, target_mob, 2 SECONDS))
-			var/obj/item/organ/external/organ = target_mob.get_organ(target_zone)
-			user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_mob] with \the [src]!"), SPAN_NOTICE("You jab \the [target_mob] with \the [src]."))
+	var/obj/item/organ/external/organ = target_human.get_organ(target_zone)
+	if (!organ)
+		to_chat(target_human, SPAN_NOTICE("\The [target_human] is missing that limb."))
+		return
 
-			// If synthetic, they receive the overloader effects.
-			// There are no overt indications to the user that the target mob is synthetic, so this can't be used to check for secret shells.
-			if(isipc(target_mob))
-				user.do_attack_animation(target_mob)
-				handle_overloader_effect(target_mob)
-				if(effect_time)
-					addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target_mob, effects), effect_time)
-				uses--
-				update_icon()
+	if(!uses)
+		to_chat(user, SPAN_WARNING("\The [src] is totally spent."))
+		return
 
-			// If not synthetic, and the targeted organ can feel pain, the target feels pain because they just got jabbed with a thumb drive.
-			else if (organ && ORGAN_CAN_FEEL_PAIN(organ))
-				to_chat(target_mob, SPAN_DANGER("You feel a sharp prick!"))
-				target_mob.apply_damage(2, DAMAGE_PAIN, target_zone)
+	var/injection_modifier = target_human.get_bp_coverage(target_zone)
+	if(injection_modifier == INJECTION_FAIL)
+		to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
+		return
+
+	if(injection_modifier == SUIT_INJECTION_MOD)
+		user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."))
+	else
+		user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."))
+
+	if(do_mob(user, target_human, 2 SECONDS * injection_modifier))
+		// Checking this again if the target put on armour after the injection began.
+		injection_modifier = target_human.get_bp_coverage(target_zone)
+		if(injection_modifier == INJECTION_FAIL)
+			to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
+			return
+
+		user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_human] with \the [src]!"), SPAN_NOTICE("You jab \the [target_human] with \the [src]."))
+		user.do_attack_animation(target_human)
+
+		// If synthetic, they receive the overloader effects.
+		// There are no overt indications to the user that the target mob is synthetic, so this can't be used to check for secret shells.
+		if(isipc(target_human))
+			handle_overloader_effect(target_human)
+			if(effect_time)
+				addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target_human, effects), effect_time)
+			uses--
+			update_icon()
+
+		// If not synthetic, and the targeted organ can feel pain, the target feels pain because they just got jabbed with a thumb drive.
+		else if (organ && ORGAN_CAN_FEEL_PAIN(organ))
+			to_chat(target_human, SPAN_DANGER("You are sharply jabbed by \the [src]!"))
+			target_human.apply_damage(2, DAMAGE_PAIN, target_zone)
 
 /// Procs immediately after using the overloader.
 /obj/item/ipc_overloader/proc/handle_overloader_effect(var/mob/living/carbon/human/target)
@@ -91,7 +116,6 @@
 	if(effect_amount)
 		addtimer(CALLBACK(src, PROC_REF(midway_overloader_effect), target, effect_amount - 1), effect_time)
 		return TRUE
-	addtimer(CALLBACK(src, PROC_REF(finish_overloader_effect), target), effect_time)
 	finish_overloader_effect(target)
 	return FALSE
 
