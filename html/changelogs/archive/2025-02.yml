@@ -147,3 +147,22 @@
   SimpleMaroon:
   - qol: Made the wheelchair in the loadout cost 2 points, down from 4 points.
   - code_imp: Changed the loadout wheelchair's datum path name to make more sense.
+2025-02-26:
+  CourierBravo:
+  - rscadd: Added power outlets to some tables in the deck 3 cafe area, deck 3 observation
+      lounge, and operations.
+  FlamingLily:
+  - rscadd: Added more patient lockers to the medbay, and more medical gowns to the
+      patient lockers.
+  SimpleMaroon:
+  - rscadd: Dogtags accessory items can now be tucked or untucked on help intent,
+      meaning the sprite will not show up when worn as an accessory when tucked.
+  - rscadd: All three existing variants of dogtags (regular, Gadpathurian, Adhomian)
+      can now be separated, instead of just the Gadpathurian and Adhomian tags.
+  - rscadd: The description assigned to your dogtags will now be assigned to both
+      individual tags on separation.
+  Wowzewow (Wezzy):
+  - bugfix: Sweaters can be worn in the shirt slot now. Fixes sweaters not layering
+      when worn as an accessory.
+  Wowzewow (Wezzy), Fluffyghost:
+  - imageadd: Updated the lobby art to use .pngs. Resprites lobby UI.
