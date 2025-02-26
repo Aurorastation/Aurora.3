@@ -58,3 +58,4 @@ changes:
   - rscadd: "You can now jab other people with overloaders, after a short delay."
   - rscadd: "Overloaders now provide more messages to the user than before."
   - code_imp: "Expanded documentation in overloader code."
+  - bugfix: "Overloaders should no longer play multiple messages while ending."
