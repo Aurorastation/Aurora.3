@@ -1401,7 +1401,7 @@
 /area/shuttle/tarwa)
 "mC" = (
 /obj/machinery/vending/engineering{
-	req_access = list(113)
+	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
