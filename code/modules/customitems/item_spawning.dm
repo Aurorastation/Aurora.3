@@ -314,10 +314,7 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 				target_mob.update_body()
 				target_mob.updatehealth()
 				target_mob.UpdateDamageIcon()
-		return
-
-	// Cuts the proc early if it should only be doing body-related items, i.e. augments and prosthetics.
-	if(body_only)
+		// This return cuts the proc early if it should only be doing body-related items, i.e. augments and prosthetics.
 		return
 
 	// ID cards and MCs are applied directly to the existing object rather than spawned fresh.
