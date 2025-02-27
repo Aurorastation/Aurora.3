@@ -152,7 +152,7 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "redbox"
 	illustration = "survival"
-	max_storage_space = 14
+	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
@@ -200,7 +200,7 @@
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
 	illustration = "latex"
-	max_storage_space = 14
+	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
 						/obj/item/clothing/gloves/latex/nitrile = 2,
 						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
@@ -800,7 +800,7 @@
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 21
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
 
