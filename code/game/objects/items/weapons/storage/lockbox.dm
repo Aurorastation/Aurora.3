@@ -9,7 +9,7 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
+	max_storage_space = DEFAULT_BOX_STORAGE //The sum of the w_classes of all the items in this storage item.
 	req_access = list(ACCESS_ARMORY)
 	var/locked = 1
 	var/broken = 0

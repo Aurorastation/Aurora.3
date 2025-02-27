@@ -13,7 +13,7 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 14 //enough to hold all starting contents
+	max_storage_space = DEFAULT_BOX_STORAGE //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
