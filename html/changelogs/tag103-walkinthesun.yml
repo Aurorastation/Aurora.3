@@ -3,5 +3,5 @@ author: Tag103
 delete-after: True
 
 changes:
-  - rscadd: "Added item sprites for both variants of the Solarian army field cap."
-  - bugfix: "Fixed the worn sprites for both variants of the Solarian army field cap being used as the item sprites. "
+  - rscadd: "Added item sprites for both variants of the Sol Army field cap."
+  - bugfix: "Fixed the worn sprites for both variants of the Sol Army field cap being used as the item sprites. "
