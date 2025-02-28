@@ -259,12 +259,12 @@
 
 /obj/item/clothing/head/beret/sol
 	name = "sol marine beret"
-	desc = "A green beret with an attached badge bearing the insignia of a Solarian Marine Corps regiment."
+	desc = "A green beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
 	icon_state = "sol"
 	item_state = "sol"
 
 /obj/item/clothing/head/beret/sol/grey
 	name = "sol marine beret"
-	desc = "A grey beret with an attached badge bearing the insignia of a Solarian Marine Corps regiment."
+	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
 	icon_state = "solgrey"
 	item_state = "solgrey"
