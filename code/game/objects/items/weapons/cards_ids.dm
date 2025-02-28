@@ -30,6 +30,18 @@
 	. = ..()
 	update_icon()
 
+/obj/item/card/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/card/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/card/attack_hand()
+	..()
+	update_icon()
+
 /obj/item/card/update_icon()
 	var/matrix/tf = matrix()
 	if(istype(loc, /obj/item/storage))
