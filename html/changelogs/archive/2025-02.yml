@@ -166,3 +166,22 @@
       when worn as an accessory.
   Wowzewow (Wezzy), Fluffyghost:
   - imageadd: Updated the lobby art to use .pngs. Resprites lobby UI.
+2025-02-28:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes inventory sprite z-fighting.
+  - refactor: Adds some storage defines.
+  goblin.stev & hazelmouse:
+  - bugfix: All Quick-E-Burger loadout options should now correctly display in the
+      loadout.
+  - bugfix: The Quick-E-Burger apron should now appear ingame when worn as a suit,
+      and both the apron and jumpsuit shouldn't spawn inside the players' bag at roundstart.
+  hazelmouse:
+  - qol: Custom item prosthetics will no longer cause objects to be unequipped when
+      joining.
+  - bugfix: The solar arrays of the Sadar Scout Ship should now work as intended.
+  - rscadd: You can now jab other people with overloaders, after a short delay.
+  - rscadd: Overloaders now provide more messages to the user than before.
+  - code_imp: Expanded documentation in overloader code.
+  - bugfix: Overloaders should no longer play multiple messages while ending.
+  - rscadd: Added an accent tag for Reade, accessible via the Reade origin and to
+      IPCs with access to all human accents.
