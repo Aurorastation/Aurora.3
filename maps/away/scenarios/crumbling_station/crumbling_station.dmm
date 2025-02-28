@@ -749,6 +749,7 @@
 	must_start_working = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "abW" = (
@@ -4630,6 +4631,9 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/engi)
 "anm" = (
@@ -6874,6 +6878,9 @@
 	dir = 8;
 	must_start_working = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "aua" = (
@@ -9070,6 +9077,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/reactor)
 "aAk" = (
@@ -10959,9 +10967,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/gunmetal,
 /area/crumbling_station/engi/hallway)
 "aGB" = (
@@ -11320,8 +11326,12 @@
 /turf/simulated/floor/wood,
 /area/crumbling_station/command/administrator)
 "aHD" = (
-/turf/simulated/wall/r_wall,
-/area/space)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "aHE" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
@@ -12042,6 +12052,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/engi/hallway)
 "aJL" = (
@@ -14157,6 +14168,9 @@
 "aQw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
 "aQx" = (
@@ -14301,6 +14315,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/radiation{
 	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/crumbling_station/maints/engi)
@@ -17405,6 +17422,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/docking/docking_approach)
+"caP" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "cdL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -17677,6 +17701,13 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/medical/hallway)
+"fax" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "faS" = (
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
@@ -18069,6 +18100,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/maints/engi)
 "hYX" = (
@@ -18816,6 +18848,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crumbling_station/service/dining)
+"pGd" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/gunmetal,
+/area/crumbling_station/engi/hallway)
 "pLv" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -18980,6 +19019,13 @@
 	name = "white tiles"
 	},
 /area/crumbling_station/service/cryo)
+"qYb" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "rbO" = (
 /obj/structure/platform/ledge{
 	dir = 8
@@ -19306,6 +19352,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crumbling_station/security/brig)
+"tiH" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "tiT" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19355,8 +19408,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/crumbling)
 "tzn" = (
-/turf/simulated/mineral/lava,
-/area/space)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/crumbling_station/maints/engi)
 "tEH" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light/small{
@@ -34353,7 +34408,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+qYb
 aAi
 aDG
 aSd
@@ -34610,7 +34665,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+tiH
 aLs
 aUe
 avG
@@ -35124,7 +35179,7 @@ aPx
 aPx
 aOc
 alb
-aVk
+aHD
 aou
 aBu
 aLs
@@ -35381,7 +35436,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 aou
 aBu
 aLs
@@ -35638,7 +35693,7 @@ aPx
 aPx
 aOc
 aza
-aVk
+aHD
 aLs
 aLs
 aLs
@@ -35895,7 +35950,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 aLs
 aNA
 axz
@@ -36152,7 +36207,7 @@ aPx
 aPx
 aOc
 alb
-aVk
+aHD
 aLs
 aNA
 axz
@@ -36409,7 +36464,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 aLs
 aJi
 aWH
@@ -36666,7 +36721,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 aLs
 aLs
 aEW
@@ -36923,10 +36978,10 @@ aPx
 aPx
 aOc
 aDs
-aVk
+caP
 hRw
 abV
-aVk
+fax
 azt
 aLs
 adQ
@@ -37183,7 +37238,7 @@ aKP
 auk
 aOc
 aKH
-aVk
+aHD
 aou
 aLs
 aiT
@@ -37440,7 +37495,7 @@ aOc
 aOc
 aOc
 aDs
-aVk
+aHD
 aou
 aLs
 aAq
@@ -37697,7 +37752,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 aJD
 aLs
 aLs
@@ -37954,8 +38009,8 @@ aPx
 aPx
 aOc
 aDs
-aVk
-aVk
+caP
+tzn
 atX
 aou
 apX
@@ -38213,7 +38268,7 @@ aOc
 aKP
 aAl
 aKH
-aVk
+aHD
 aou
 apX
 aUx
@@ -38470,7 +38525,7 @@ aOc
 aOc
 aOc
 aDs
-aVk
+aHD
 aJD
 apX
 aTN
@@ -38727,7 +38782,7 @@ aPx
 aPx
 aOc
 aza
-aVk
+aHD
 aVk
 apX
 aWa
@@ -38984,7 +39039,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 apX
 apX
 apX
@@ -39498,7 +39553,7 @@ aPx
 aPx
 aOc
 aDs
-aVk
+aHD
 apX
 aBU
 aKx
@@ -40012,7 +40067,7 @@ aOc
 aOc
 aOc
 aDs
-aVk
+aHD
 aJD
 ath
 aKx
@@ -40269,10 +40324,10 @@ aHY
 aHY
 aHY
 aRm
-aVk
-aVk
+caP
+tzn
 aJK
-aKx
+pGd
 aGA
 aps
 ate
@@ -47676,7 +47731,7 @@ alG
 alG
 aPx
 aPx
-tzn
+aPx
 aqh
 anE
 amx
@@ -47767,8 +47822,8 @@ ayn
 ayn
 ayn
 ayn
-aHD
-aHD
+aFr
+aFr
 aFr
 aYZ
 aoq
