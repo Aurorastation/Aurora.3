@@ -6,10 +6,16 @@
 	scenario_announcements = /singleton/scenario_announcements/crumbling_station
 
 	min_player_amount = 0
-	min_actor_amount = 0 //should be 4 todomatt
+	min_actor_amount = 0
 
 	roles = list(
-		/singleton/role/crumbling_station
+		/singleton/role/crumbling_station,
+		/singleton/role/crumbling_station/engineer,
+		/singleton/role/crumbling_station/medic,
+		/singleton/role/crumbling_station/security,
+		/singleton/role/crumbling_station/administrator,
+		/singleton/role/crumbling_station/legal_visitor,
+		/singleton/role/crumbling_station/illegal_visitor,
 	)
 	default_outfit = /obj/outfit/admin/generic/crumbling_station_crew
 

@@ -28,10 +28,10 @@
 // Probably got onto the station via the shuttle docked in the northwest of the map.
 /singleton/role/crumbling_station/legal_visitor
 	name = "Crumbling Station Civilian Visitor"
-	desc = ""
+	desc = "You are a visitor to an ancient, struggling commercial station, having boarded on your own ship independently. You keep to the correct side of the law, generally speaking, and you mind your own business - who knows what kind of person passes through places like this?"
 	outfit = /obj/outfit/admin/generic/crumbling_station_crew/legal_visitor
 
 /singleton/role/crumbling_station/illegal_visitor
 	name = "Crumbling Station Criminal Visitor"
-	desc = ""
+	desc = "You are a visitor to an ancient, struggling commerical station, having found your way onto it by any means imaginable. You identify as an independent soul; you like to find your own way in life, and you'll do anything to keep yourself free. You have contraband on your person - don't be searched, and if anyone threatens you, make them regret the provocation."
 	outfit = /obj/outfit/admin/generic/crumbling_station_crew/illegal_visitor
