@@ -63,4 +63,3 @@ changes:
   - bugfix: "Fixed APC rotation in the corporate representative office"
   - bugfix: "Added shutters to the library desk, so the button actually serves a purpose."
   - bugfix: "Placed medical floor outlines under first aid lockers with a solid floor under them."
-  - bugfix: "Fixes some weird area stuff around the horizon's sensors outside of command."
