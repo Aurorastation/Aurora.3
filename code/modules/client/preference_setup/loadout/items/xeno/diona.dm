@@ -269,7 +269,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 
 /datum/gear/accessory/diona/skrell_passport/New()
 	. = ..()
-	gear_tweaks += list(compat_index_tweak)
+	gear_tweaks += list(GLOB.compat_index_tweak)
 
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)

@@ -427,9 +427,9 @@
 /datum/species/proc/get_random_name(var/gender)
 	if(!name_language)
 		if(gender == FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
@@ -642,7 +642,7 @@
 	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
-		H.client.screen += global_hud.druggy
+		H.client.screen += GLOB.global_hud.druggy
 	if(H.druggy > 5)
 		H.add_client_color(/datum/client_color/oversaturated)
 	else

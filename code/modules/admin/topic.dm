@@ -116,15 +116,15 @@
 
 		switch(href_list["call_shuttle"])
 			if("1")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
 
 			if("2")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
-				else if (evacuation_controller.cancel_evacuation())
+				else if (GLOB.evacuation_controller.cancel_evacuation())
 					log_admin("[key_name(usr)] cancelled an evacuation.")
 					message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
 
@@ -1007,7 +1007,7 @@
 			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
-			department = input("Choose the target department.", "Target Department", null) in alldepartments
+			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
 
 		create_admin_fax(department)
 
@@ -1304,7 +1304,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1320,7 +1320,7 @@
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()
@@ -1458,11 +1458,11 @@
 	else if(href_list["vsc"])
 		if(check_rights(R_ADMIN|R_SERVER))
 			if(href_list["vsc"] == "airflow")
-				vsc.ChangeSettingsDialog(usr,vsc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.settings)
 			if(href_list["vsc"] == GAS_PHORON)
-				vsc.ChangeSettingsDialog(usr,vsc.plc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.plc.settings)
 			if(href_list["vsc"] == "default")
-				vsc.SetDefault(usr)
+				GLOB.vsc.SetDefault(usr)
 
 	else if(href_list["toglang"])
 		if(check_rights(R_SPAWN))

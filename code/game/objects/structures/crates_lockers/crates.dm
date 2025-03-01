@@ -656,11 +656,11 @@
 	var/stocktype = pickweight(spawntypes)
 	switch (stocktype)
 		if ("1")
-			return pickweight(random_stock_rare)
+			return pickweight(GLOB.random_stock_rare)
 		if ("2")
-			return pickweight(random_stock_uncommon)
+			return pickweight(GLOB.random_stock_uncommon)
 		if ("3")
-			return pickweight(random_stock_common)
+			return pickweight(GLOB.random_stock_common)
 
 /obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"

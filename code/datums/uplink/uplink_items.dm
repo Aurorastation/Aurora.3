@@ -207,7 +207,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 /proc/get_random_uplink_items(var/obj/item/device/uplink/U, var/remaining_TC, var/loc)
 	var/list/bought_items = list()
 	while(remaining_TC)
-		var/datum/uplink_item/I = default_uplink_selection.get_random_item(remaining_TC, U, bought_items)
+		var/datum/uplink_item/I = GLOB.default_uplink_selection.get_random_item(remaining_TC, U, bought_items)
 		if(!I)
 			break
 		bought_items += I

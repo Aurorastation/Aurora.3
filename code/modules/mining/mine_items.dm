@@ -884,7 +884,7 @@
 
 /**********************"Fultons"**********************/
 
-var/list/total_extraction_beacons = list()
+GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point, list())
 
 /obj/item/extraction_pack
 	name = "warp extraction pack"
@@ -904,7 +904,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()
-	for(var/B in total_extraction_beacons)
+	for(var/B in GLOB.total_extraction_beacons)
 		var/obj/structure/extraction_point/EP = B
 		if(EP.beacon_network in beacon_networks)
 			possible_beacons += EP
@@ -936,7 +936,7 @@ var/list/total_extraction_beacons = list()
 		if(A.anchored)
 			return
 		var/turf/T = get_turf(A)
-		for(var/found_inhibitor in bluespace_inhibitors)
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
@@ -989,10 +989,10 @@ var/list/total_extraction_beacons = list()
 	. = ..()
 	var/area/area_name = get_area(src)
 	name += " ([rand(100,999)]) ([area_name.name])"
-	total_extraction_beacons += src
+	GLOB.total_extraction_beacons += src
 
 /obj/structure/extraction_point/Destroy()
-	total_extraction_beacons -= src
+	GLOB.total_extraction_beacons -= src
 	return ..()
 
 /**********************Resonator**********************/

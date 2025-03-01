@@ -1,4 +1,4 @@
-var/datum/antagonist/loyalists/loyalists
+GLOBAL_DATUM(loyalists, /datum/antagonist/loyalists)
 
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
@@ -33,7 +33,7 @@ var/datum/antagonist/loyalists/loyalists
 
 /datum/antagonist/loyalists/New()
 	..()
-	loyalists = src
+	GLOB.loyalists = src
 
 /datum/antagonist/loyalists/create_global_objectives()
 	if(!..())

@@ -1,8 +1,9 @@
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with a captivating gold etching and an enchanting face. . ."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	icon_state = "pocketwatch"
+	item_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)

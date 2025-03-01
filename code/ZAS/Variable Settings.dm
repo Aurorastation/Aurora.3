@@ -1,4 +1,4 @@
-var/global/vs_control/vsc = new
+GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 
 /vs_control
 	var/fire_consuption_rate = 0.25

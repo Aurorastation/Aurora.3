@@ -15,7 +15,7 @@
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
-#define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
+#define sequential_id(key) GLOB.uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

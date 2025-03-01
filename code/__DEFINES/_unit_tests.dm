@@ -71,3 +71,25 @@
 		return fail("Expected [isnull(lhs) ? "null" : lhs] to not be equal to [isnull(rhs) ? "null" : rhs].[message ? " [message]" : ""]", __FILE__, __LINE__); \
 	} \
 } while (FALSE)
+
+//Temporarily just defined here
+#define ANSICOLORS
+
+/// Change color to red on ANSI terminal output, if enabled with -DANSICOLORS.
+#ifdef ANSICOLORS
+#define TEST_OUTPUT_RED(text) "\x1B\x5B1;31m[text]\x1B\x5B0m"
+#else
+#define TEST_OUTPUT_RED(text) (text)
+#endif
+/// Change color to green on ANSI terminal output, if enabled with -DANSICOLORS.
+#ifdef ANSICOLORS
+#define TEST_OUTPUT_GREEN(text) "\x1B\x5B1;32m[text]\x1B\x5B0m"
+#else
+#define TEST_OUTPUT_GREEN(text) (text)
+#endif
+/// Change color to yellow on ANSI terminal output, if enabled with -DANSICOLORS.
+#ifdef ANSICOLORS
+#define TEST_OUTPUT_YELLOW(text) "\x1B\x5B1;33m[text]\x1B\x5B0m"
+#else
+#define TEST_OUTPUT_YELLOW(text) (text)
+#endif

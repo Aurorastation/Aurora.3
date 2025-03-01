@@ -1,4 +1,4 @@
-var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
+GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = 1))
 
 /datum/job/captain
 	title = "Captain"
@@ -73,7 +73,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain/announce(mob/living/carbon/human/H)
 	. = ..()
-	captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
+	GLOB.captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
 	callHook("captain_spawned", list(H))
 
 /datum/job/xo

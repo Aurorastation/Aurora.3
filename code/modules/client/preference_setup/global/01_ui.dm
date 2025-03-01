@@ -86,7 +86,7 @@
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
-	pref.UI_style = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
+	pref.UI_style = sanitize_inlist(pref.UI_style, GLOB.all_ui_styles, initial(pref.UI_style))
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
@@ -122,7 +122,7 @@
 
 /datum/category_item/player_setup_item/player_global/ui/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["select_style"])
-		var/UI_style_new = input(user, "Choose UI style.", "Character Preference", pref.UI_style) as null|anything in all_ui_styles
+		var/UI_style_new = input(user, "Choose UI style.", "Character Preference", pref.UI_style) as null|anything in GLOB.all_ui_styles
 		if(!UI_style_new || !CanUseTopic(user)) return TOPIC_NOACTION
 		pref.UI_style = UI_style_new
 		return TOPIC_REFRESH
@@ -181,7 +181,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["select_tooltip_style"])
-		var/tooltip_style_new = input(user, "Choose a new tooltip style.", "Global Preference", pref.tooltip_style) as null|anything in all_tooltip_styles
+		var/tooltip_style_new = input(user, "Choose a new tooltip style.", "Global Preference", pref.tooltip_style) as null|anything in GLOB.all_tooltip_styles
 		if(!tooltip_style_new || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		pref.tooltip_style = tooltip_style_new

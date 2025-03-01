@@ -2,8 +2,8 @@
 	The global hud:
 	Uses the same visual objects for all players.
 */
-var/datum/global_hud/global_hud	// Initialized in SSatoms.
-var/list/global_huds
+GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new)
+GLOBAL_LIST(global_huds)
 
 /datum/hud/var/atom/movable/screen/grab_intent
 /datum/hud/var/atom/movable/screen/hurt_intent
@@ -432,7 +432,7 @@ var/list/global_huds
 	update_action_buttons()
 
 /mob/proc/add_click_catcher()
-	client.screen |= click_catchers
+	client.screen |= GLOB.click_catchers
 
 /mob/abstract/new_player/add_click_catcher()
 	return

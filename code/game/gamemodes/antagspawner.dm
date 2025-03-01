@@ -84,7 +84,7 @@
 
 	G.preEquipOutfit(outfit_type, FALSE)
 	G.equipOutfit(outfit_type, FALSE)
-	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
+	GLOB.technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
 
 	G.client.init_verbs()
 

@@ -14,8 +14,8 @@ SUBSYSTEM_DEF(economy)
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
-		weighted_randomevent_locations[D] = D.viable_random_events.len
-		weighted_mundaneevent_locations[D] = D.viable_mundane_events.len
+		GLOB.weighted_randomevent_locations[D] = D.viable_random_events.len
+		GLOB.weighted_mundaneevent_locations[D] = D.viable_mundane_events.len
 
 	create_station_account()
 

@@ -500,3 +500,5 @@ example:
 
 // arbitrary low pressure bound for wind weather effects
 #define MIN_WIND_PRESSURE 10
+
+#define NO_EMAG_ACT -50

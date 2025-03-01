@@ -230,7 +230,7 @@
 
 	// make into a cultist
 	if(human.mind)
-		cult.add_antagonist(human.mind, do_not_equip=TRUE)
+		GLOB.cult.add_antagonist(human.mind, do_not_equip=TRUE)
 
 	// add blood
 	if(prob(75))

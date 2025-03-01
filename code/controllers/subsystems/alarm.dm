@@ -1,8 +1,8 @@
-/var/global/datum/alarm_handler/atmosphere/atmosphere_alarm	= new()
-/var/global/datum/alarm_handler/camera/camera_alarm			= new()
-/var/global/datum/alarm_handler/fire/fire_alarm				= new()
-/var/global/datum/alarm_handler/motion/motion_alarm			= new()
-/var/global/datum/alarm_handler/power/power_alarm			= new()
+GLOBAL_DATUM_INIT(atmosphere_alarm, /datum/alarm_handler/atmosphere, new())
+GLOBAL_DATUM_INIT(camera_alarm, /datum/alarm_handler/camera, new())
+GLOBAL_DATUM_INIT(fire_alarm, /datum/alarm_handler/fire, new())
+GLOBAL_DATUM_INIT(motion_alarm, /datum/alarm_handler/motion, new())
+GLOBAL_DATUM_INIT(power_alarm, /datum/alarm_handler/power, new())
 
 SUBSYSTEM_DEF(alarm)
 	name = "Alarms"
@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(alarm)
 	var/tmp/list/active_alarm_cache = list()
 
 /datum/controller/subsystem/alarm/Initialize(timeofday)
-	all_handlers = list(atmosphere_alarm, camera_alarm, fire_alarm, motion_alarm, power_alarm)
+	all_handlers = list(GLOB.atmosphere_alarm, GLOB.camera_alarm, GLOB.fire_alarm, GLOB.motion_alarm, GLOB.power_alarm)
 
 	return SS_INIT_SUCCESS
 

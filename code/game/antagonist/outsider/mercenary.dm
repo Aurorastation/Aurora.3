@@ -1,4 +1,4 @@
-var/datum/antagonist/mercenary/mercs
+GLOBAL_DATUM(mercs, /datum/antagonist/mercenary)
 
 /datum/antagonist/mercenary
 	id = MODE_MERCENARY
@@ -26,7 +26,7 @@ var/datum/antagonist/mercenary/mercs
 
 /datum/antagonist/mercenary/New()
 	..()
-	mercs = src
+	GLOB.mercs = src
 
 /datum/antagonist/mercenary/create_global_objectives()
 	if(!..())

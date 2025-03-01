@@ -236,7 +236,8 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !is_station_level(T.z)
 
-var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+///A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
+GLOBAL_LIST_EMPTY_TYPED(wireless_firing_pins, /obj/item/device/firing_pin/wireless)
 
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
@@ -259,11 +260,12 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	to_chat(user, SPAN_NOTICE("The wireless-control firing pin <b>[wireless_description]</b>."))
 
 /obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
-	wireless_firing_pins += src
-	return ..()
+	. = ..()
+
+	GLOB.wireless_firing_pins += src
 
 /obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
-	wireless_firing_pins -= src
+	GLOB.wireless_firing_pins -= src
 	return ..()
 
 /*

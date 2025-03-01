@@ -342,7 +342,7 @@ SUBSYSTEM_DEF(discord)
 /datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
 	SHOULD_NOT_SLEEP(TRUE)
 	var/escape_text
-	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
 		escape_text = "transfered"

@@ -155,9 +155,9 @@
 
 		if(target)
 			if(base_area)
-				ChangeArea(target, get_area(source))
+				target.change_area(target.loc, get_area(source))
 				. += transport_turf_contents(source, target, ignore_background)
-				ChangeArea(source, base_area)
+				source.change_area(source.loc, base_area)
 			else
 				. += transport_turf_contents(source, target, ignore_background)
 	//change the old turfs

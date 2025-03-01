@@ -48,7 +48,7 @@
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
 		var/turf/T = get_turf(adestination)
-		for(var/found_inhibitor in bluespace_inhibitors)
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue

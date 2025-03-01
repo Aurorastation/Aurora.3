@@ -1,12 +1,12 @@
 //Global list for housing active radiojammers:
-var/list/active_radio_jammers = list()
+GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list())
 
 // tests if an object is near a radio jammer
 // if need_all_blocked is false, the jammer only needs to be on JAMMER_SYNTHETIC to work
 /proc/within_jamming_range(var/atom/test, var/need_all_blocked = TRUE)
-	if(length(active_radio_jammers))
+	if(length(GLOB.active_radio_jammers))
 		var/turf/our_turf = get_turf(test)
-		for(var/obj/item/device/radiojammer/J in active_radio_jammers)
+		for(var/obj/item/device/radiojammer/J in GLOB.active_radio_jammers)
 			var/turf/jammer_turf = get_turf(J)
 			if(our_turf.z != jammer_turf.z)
 				continue
@@ -37,7 +37,7 @@ var/list/active_radio_jammers = list()
 	update_icon()
 
 /obj/item/device/radiojammer/Destroy()
-	active_radio_jammers -= src
+	GLOB.active_radio_jammers -= src
 	return ..()
 
 /obj/item/device/radiojammer/attack_self(mob/user)
@@ -83,10 +83,10 @@ var/list/active_radio_jammers = list()
 
 /obj/item/device/radiojammer/update_icon()
 	if(active > 0)
-		active_radio_jammers += src
+		GLOB.active_radio_jammers += src
 		icon_state = icon_state_active
 	else
-		active_radio_jammers -= src
+		GLOB.active_radio_jammers -= src
 		icon_state = icon_state_inactive
 
 
@@ -156,11 +156,11 @@ var/list/active_radio_jammers = list()
 
 /obj/item/device/radiojammer/improvised/update_icon()
 	if(active > 0)
-		active_radio_jammers += src
+		GLOB.active_radio_jammers += src
 		icon_state = icon_state_active
 		START_PROCESSING(SSprocessing, src)
 		last_updated = world.time
 	else
-		active_radio_jammers -= src
+		GLOB.active_radio_jammers -= src
 		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSprocessing, src)
