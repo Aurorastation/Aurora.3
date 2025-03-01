@@ -54,7 +54,7 @@ Frequency:
 <A href='byond://?src=[REF(src)];freq=2'>+</A>
 <A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
-<A href='?src=[REF(src)];refresh=1'>Refresh</A>"}
+<A href='byond://?src=[REF(src)];refresh=1'>Refresh</A>"}
 	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return

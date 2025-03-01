@@ -76,15 +76,15 @@
 
 	if(screen == 1)
 		dat += "Select an event to trigger:<ul>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
+		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Red alert'>Red alert</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
-			dat += "<li><A href='?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
-		dat += "<li><A href='?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
+			dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='byond://?src=[REF(src)];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=[REF(src)];reset=1'>Back</A>"
+		dat += "<p><A href='byond://?src=[REF(src)];reset=1'>Back</A>"
 
 
 	user << browse(dat, "window=keycard_auth;size=500x350")

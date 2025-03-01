@@ -29,10 +29,10 @@ GLOBAL_LIST_INIT_TYPED(active_buddy_tags, /obj/item/clothing/accessory/buddytag,
 	if(use_check_and_message(user))
 		return
 
-	var/list/dat = "<A href='?src=[REF(src)];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
-	dat += "<br>ID: <A href='?src=[REF(src)];setcode=1;'>[id]</a>"
-	dat += "<br>Search Interval: <A href='?src=[REF(src)];set_interval=1;'>[search_interval/10] seconds</a>"
-	dat += "<br>Search Distance: <A href='?src=[REF(src)];set_distance=1;'>[distance]</a>"
+	var/list/dat = "<A href='byond://?src=[REF(src)];toggle=1;'>[on ? "Disable" : "Enable"]</a>"
+	dat += "<br>ID: <A href='byond://?src=[REF(src)];setcode=1;'>[id]</a>"
+	dat += "<br>Search Interval: <A href='byond://?src=[REF(src)];set_interval=1;'>[search_interval/10] seconds</a>"
+	dat += "<br>Search Distance: <A href='byond://?src=[REF(src)];set_distance=1;'>[distance]</a>"
 
 	var/datum/browser/popup = new(user, "buddytag", "Buddy Tag", 290, 200)
 	popup.set_content(JOINTEXT(dat))

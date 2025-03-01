@@ -395,20 +395,21 @@
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
-	var/baseline_max_storage_space = 16 //should be equal to default backpack capacity
+	// Don't touch these numbers. This works on literal pixel measurements. Unless you want to fix this shit.
+	var/baseline_max_storage_space = DEFAULT_BACKPACK_STORAGE //should be equal to default backpack capacity
 	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
-	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
+	var/storage_width = min(round(DEFAULT_BACKPACK_STORAGE*8*max_storage_space/baseline_max_storage_space ,1) , DEFAULT_BACKPACK_STORAGE*10) //length of sprite for the box representing total storage space
 
 	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
-	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
+	M.Scale((storage_width-storage_cap_width*2+11)/32,1)
 	storage_continue.transform = M
 
 	storage_start.screen_loc = "4:16,2:16"
-	storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
-	storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
+	storage_continue.screen_loc = "4:[round(storage_cap_width+(storage_width-storage_cap_width*2)/2+6)],2:16"
+	storage_end.screen_loc = "4:[27+storage_width-storage_cap_width],2:16"
 
 	var/startpoint = 0
 	var/endpoint = 1
@@ -419,34 +420,35 @@
 
 	for(var/obj/item/O in contents)
 		startpoint = endpoint + 1
-		endpoint += storage_width * O.get_storage_cost()/max_storage_space
+		endpoint = startpoint + storage_width * O.get_storage_cost()/max_storage_space
 
 		var/atom/movable/screen/storage/background/stored_start = new /atom/movable/screen/storage/background(null, O, "stored_start")
-		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
-		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
-
 		var/matrix/M_start = matrix()
+		M_start.Translate(startpoint, 0)
+		stored_start.transform = M_start
+
+		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
 		var/matrix/M_continue = matrix()
-		var/matrix/M_end = matrix()
-		M_start.Translate(startpoint,0)
 		M_continue.Scale((endpoint-startpoint-stored_cap_width*2)/32,1)
 		M_continue.Translate(startpoint+stored_cap_width+(endpoint-startpoint-stored_cap_width*2)/2 - 16,0)
-		M_end.Translate(endpoint-stored_cap_width,0)
-		stored_start.transform = M_start
 		stored_continue.transform = M_continue
+
+		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
+		var/matrix/M_end = matrix()
+		M_end.Translate(endpoint-stored_cap_width, 0)
 		stored_end.transform = M_end
 
 		storage_screens += list(stored_start, stored_continue, stored_end)
 		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
-		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
+		O.screen_loc = "4:[round((startpoint+endpoint)/2)],2:16"
 		O.maptext = ""
 		O.hud_layerise()
 
 	if (!defer_overlays)
 		storage_start.UpdateOverlays()
 
-	closer.screen_loc = "4:[storage_width+19],2:16"
+	closer.screen_loc = "4:[storage_width+27],2:16"
 	return
 
 /datum/numbered_display
@@ -964,22 +966,7 @@
 	return depth
 
 /obj/item/proc/get_storage_cost()
-	if (storage_cost)
-		return storage_cost
-	else
-		if(w_class == WEIGHT_CLASS_TINY)
-			return 1
-		if(w_class == WEIGHT_CLASS_SMALL)
-			return 2
-		if(w_class == WEIGHT_CLASS_NORMAL)
-			return 4
-		if(w_class == WEIGHT_CLASS_BULKY)
-			return 8
-		if(w_class == WEIGHT_CLASS_HUGE)
-			return 16
-		else
-			return 1000
-
-		//return 2**(w_class-1) //1,2,4,8,16,...
+	//If you want to prevent stuff above a certain w_class from being stored, use max_w_class
+	return BASE_STORAGE_COST(w_class)
 
 #undef STORAGE_SPACE_CAP

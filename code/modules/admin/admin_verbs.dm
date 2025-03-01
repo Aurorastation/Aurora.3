@@ -1368,7 +1368,7 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 			prefix = "(R)"
 			admin_stuff += "/([source.key])"
 			if(target != source.client)
-				admin_stuff += "(<A HREF='?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
+				admin_stuff += "(<A href='byond://?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 		if(target.mob in messagemobs)
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)

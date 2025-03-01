@@ -140,7 +140,7 @@
 				return
 
 /datum/species/skrell/get_strip_info(var/reference)
-	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
+	return "<BR><A href='byond://?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

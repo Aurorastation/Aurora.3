@@ -78,7 +78,7 @@
 			. += FONT_SMALL(SPAN_ALERT("- [desc_antag]"))
 	else
 		if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=[REF(src)];examine_fluff=1>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
+			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href='byond://?src=[REF(src)];examine_fluff=1>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
 			if(desc_extended) // If the item has a extended description, show that it is available.
 				. +=  FONT_SMALL("- This object has an extended description.")
 			if(desc_info) // If the item has a description regarding game mechanics, show that it is available.

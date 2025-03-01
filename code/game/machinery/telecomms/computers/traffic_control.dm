@@ -78,31 +78,31 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
 				dat += "<br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='byond://?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='byond://?src=[REF(src)];operation=refresh'>\[Refresh\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]<br><br>"
-			dat += "<br><a href='?src=[REF(src)];operation=editcode'>\[Edit Code\]</a>"
+			dat += "<br><a href='byond://?src=[REF(src)];operation=editcode'>\[Edit Code\]</a>"
 			dat += "<br>Signal Execution: "
 			if(SelectedServer.autoruncode)
-				dat += "<a href='?src=[REF(src)];operation=togglerun'>ALWAYS</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=togglerun'>ALWAYS</a>"
 			else
-				dat += "<a href='?src=[REF(src)];operation=togglerun'>NEVER</a>"
+				dat += "<a href='byond://?src=[REF(src)];operation=togglerun'>NEVER</a>"
 
 
 	user << browse(dat, "window=traffic_control;size=575x400")

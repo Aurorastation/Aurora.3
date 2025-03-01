@@ -84,7 +84,7 @@
 
 			H.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>"
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to wrap [H.name] ([H.ckey])</span>"
-			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
 			to_chat(user, SPAN_WARNING("You need more paper."))

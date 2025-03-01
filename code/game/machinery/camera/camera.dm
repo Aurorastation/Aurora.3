@@ -232,9 +232,9 @@
 			var/entry = O.addCameraRecord(itemname,info)
 			if(!O.client) continue
 			if(U.name == "Unknown")
-				to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='?src=[REF(O)];readcapturedpaper=[REF(entry)]'>view message</a>")
+				to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...<a href='byond://?src=[REF(O)];readcapturedpaper=[REF(entry)]'>view message</a>")
 			else
-				to_chat(O, "<b><a href='byond://?src=[REF(O)];track2=[REF(O)];track=[REF(U)];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='?src=[REF(O)];readcapturedpaper=[entry]'>view message</a>")
+				to_chat(O, "<b><a href='byond://?src=[REF(O)];track2=[REF(O)];track=[REF(U)];trackname=[html_encode(U.name)]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...<a href='byond://?src=[REF(O)];readcapturedpaper=[entry]'>view message</a>")
 
 		for(var/mob/O in GLOB.player_list)
 			if (istype(O.machine, /obj/machinery/computer/security))

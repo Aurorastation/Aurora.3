@@ -70,7 +70,7 @@
 									SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"))
 			is_leaking = !is_leaking
 			if (is_leaking)
-				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents.")
 				START_PROCESSING(SSprocessing,src)
 
@@ -169,7 +169,7 @@
 
 			var/obj/item/device/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
-				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
 
 			rig = attacking_item

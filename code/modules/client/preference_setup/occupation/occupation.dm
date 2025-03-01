@@ -163,7 +163,7 @@
 		"<style>span.none{color: black} span.low{color: #DDD} span.med{color: yellow} span.high{color: lime} a:hover span{color: #40628a !important}</style>",
 		"<center><b>Character Faction</b><br>",
 		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
-		"<b><a href='?src=[REF(src)];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
+		"<b><a href='byond://?src=[REF(src)];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
 	)
 
 	dat += list(
@@ -202,7 +202,7 @@
 			dat += "<del>[dispRank]</del></td><td><b> \[FACTION RESTRICTED]</b></td></tr>"
 			continue
 		else if (ban_reason)
-			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=[REF(user.client)];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
+			dat += "<del>[dispRank]</del></td><td><b> \[<a href='byond://?src=[REF(user.client)];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if(job.blacklisted_species) // check for restricted species
 			var/datum/species/S = GLOB.all_species[pref.species]
@@ -218,7 +218,7 @@
 				dat += "<del>[dispRank]</del></td><td><b> \[BACKGROUND RESTRICTED]</b></td></tr>"
 				continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dispRank = "<span width='60%' align='center'>&nbsp<a href='?src=[REF(src)];select_alt_title=[REF(job)]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
+			dispRank = "<span width='60%' align='center'>&nbsp<a href='byond://?src=[REF(src)];select_alt_title=[REF(job)]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<span class='none'>[dispRank]</span></td><td></td></tr>"
 			continue
@@ -229,7 +229,7 @@
 
 		dat += "</td><td width='40%'>"
 
-		dat += "<a href='?src=[REF(src)];set_job=[rank]'>"
+		dat += "<a href='byond://?src=[REF(src)];set_job=[rank]'>"
 
 		if(rank == "Assistant")//Assistant is special
 			if(pref.job_civilian_low & ASSISTANT)
@@ -255,11 +255,11 @@
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='?src=[REF(src)];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
+			dat += "<center><br><u><a href='byond://?src=[REF(src)];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
 		if(RETURN_TO_LOBBY)
-			dat += "<center><br><u><a href='?src=[REF(src)];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
+			dat += "<center><br><u><a href='byond://?src=[REF(src)];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
 
-	dat += "<center><a href='?src=[REF(src)];reset_jobs=1'>\[Reset\]</a></center>"
+	dat += "<center><a href='byond://?src=[REF(src)];reset_jobs=1'>\[Reset\]</a></center>"
 	dat += "</tt>"
 
 	. = dat.Join()
@@ -461,7 +461,7 @@
 		if (faction.name == selected_faction)
 			factions += "[faction.name]"
 		else
-			factions += "<a href='?src=[REF(src)];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
+			factions += "<a href='byond://?src=[REF(src)];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
 
 	dat += factions.Join(" ")
 
@@ -485,12 +485,12 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "You can learn more about this faction on <a href='?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
+	dat += "You can learn more about this faction on <a href='byond://?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction selected\]"
 	else if (faction.can_select(pref,user))
-		dat += "<br>\[<a href='?src=[REF(src)];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+		dat += "<br>\[<a href='byond://?src=[REF(src)];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 	dat += "</center>"
