@@ -36,7 +36,7 @@
 		Greetings, SCCV Horizon. We have observed some unusual extranet traffic \
 		from a environmental testing facility in your current sector. \
 		You are to investigate and report back of your findings.\
-		"
+	"
 	offship_announcement_message = "\
 		An unidentified outpost has been located nearby. The coordinates have been registered on the flight deck.\
-		"
+	"

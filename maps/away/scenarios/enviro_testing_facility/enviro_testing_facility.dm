@@ -35,7 +35,7 @@
 		Barren planet, covered in loose rocks, mountains, craters, with a expansive cave system deep underground. \
 		The planet, however, holds a standard breathable atmosphere, and there are some traces of carbon-based life. \
 		Landing site is in a valley, near some facility carved into the mountain.\
-		"
+	"
 	icon_state = "globe2"
 	color = "#e6a66a"
 	comms_support = TRUE
