@@ -7,6 +7,7 @@
 
 /datum/modular_computer_app_presets/command/teleporter/ninja/New()
 	. = ..()
+	program_list -= /datum/computer_file/program/teleporter //Remove the default one since ninjas have a special one
 	program_list += /datum/computer_file/program/teleporter/ninja
 
 
