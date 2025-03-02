@@ -431,7 +431,7 @@
 		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
 		var/matrix/M_continue = matrix()
 		M_continue.Scale(stored_width / 32, 1)
-		M_continue.Translate(startpoint - 16 + ((stored_width + stored_cap_width*2) / 2),0) // -16 to center the sprite, since we're 32x32
+		M_continue.Translate(startpoint - 16 + ((stored_width + stored_cap_width*2) / 2), 0) // -16 to center the sprite, since we're 32x32
 		stored_continue.transform = M_continue
 
 		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
