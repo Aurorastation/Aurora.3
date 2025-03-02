@@ -1,113 +1,5 @@
-/*
-	A item orderable via cargo
-*/
-/datum/cargo_item
-	var/id = 0 //ID of the item
-	var/name = "Cargo Item" //Name of the item
-	var/supplier = "rand" //ID of the supplier
-	var/datum/cargo_supplier/supplier_datum = null //Datum of the supplier
-	var/description = "You should not see this" //Description of the item
-	var/list/categories = list() //List of categories this item appears in
-	var/price = 0 //The price of the item
-	var/list/items = list()
-	var/amount = 1 //Total Amount of items in the crate (including multiplier)
-	var/item_mul = 1 //Multiplier of the items
-	var/access = null //What access requirement should be added to the container
-	var/container_type = "crate" //crate or box
-	var/groupable = 1 //If the item can be thrown into the same container as other items
+//NOTE: Cargo orders, categories and suppliers have been moved to singletons (10/11/2024).
 
-//Gets a list of the cargo item - To be json encoded
-/datum/cargo_item/proc/get_list()
-	var/list/data = list()
-	data["id"] = id
-	data["name"] = name
-	data["description"] = description
-	data["categories"] = categories
-	data["price"] = price
-	data["amount"] = amount
-	data["items"] = items
-	data["supplier"] = supplier
-	data["supplier_data"] = supplier_datum.get_list()
-
-	//Adjust the price based on the supplier adjustment and the categories
-	data["price_adjusted"] = get_adjusted_price()
-	return data
-
-/datum/cargo_item/proc/get_adjusted_price()
-	. = price
-	. *= supplier_datum.get_total_price_coefficient()
-	for(var/category in categories)
-		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
-		if(cc)
-			. *= cc.price_modifier
-
-
-/*
-	A supplier of items
-*/
-/datum/cargo_supplier
-	var/short_name = "" //Short name of the cargo supplier
-	var/name = "" //Long name of the cargo supplier
-	var/description = "" //Description of the supplier
-	var/tag_line = "" //Tag line of the supplier
-	var/shuttle_time = 0 //Time the shuttle takes to get to the supplier
-	var/shuttle_price = 0 //Price to call the shuttle
-	var/available = 1 //If the supplier is available
-	var/price_modifier = 1 //Price modifier for the supplier
-	var/list/items = list() //List of items of tha supplier
-
-//Gets a list of supplier - to be json encoded
-/datum/cargo_supplier/proc/get_list()
-	var/list/data = list()
-	data["short_name"] = short_name
-	data["name"] = name
-	data["description"] = description
-	data["tag_line"] = tag_line
-	data["shuttle_time"] = shuttle_time
-	data["shuttle_price"] = shuttle_price
-	data["available"] = available
-	data["price_modifier"] = price_modifier
-	return data
-
-/datum/cargo_supplier/proc/get_total_price_coefficient()
-	var/final_coef = price_modifier
-	if(SSatlas.current_sector)
-		if(short_name in SSatlas.current_sector.cargo_price_coef)
-			final_coef = SSatlas.current_sector.cargo_price_coef[short_name] * price_modifier
-
-	return final_coef
-/*
-	A category displayed in the cargo order app
-*/
-/datum/cargo_category
-	var/name = "cargo_category" //Name of the category
-	var/display_name = "Cargo Category"
-	var/description = "You should not see this" //Description of the Category
-	var/icon = "gear" //NanoUI Icon for the category
-	var/price_modifier = 1 //Price Modifier for the category
-	var/list/items = list() //List of items in the category
-
-// Gets a list of the cargo category - to be json encoded
-/datum/cargo_category/proc/get_list()
-	var/list/data = list()
-	data["name"] = name
-	data["display_name"] = display_name
-	data["description"] = description
-	data["icon"] = icon
-	data["price_modifier"] = price_modifier
-	return data
-
-// Gets a list of the items in the cargo category - to be json encoded
-/datum/cargo_category/proc/get_item_list()
-	var/list/item_list = list()
-	for(var/datum/cargo_item/ci in items)
-		item_list.Add(list(ci.get_list()))
-	return item_list
-
-/*
-	A order placed in the cargo order app.
-	Contains multiple order items
-*/
 /datum/cargo_order
 	var/list/items = list() //List of cargo_items in the order
 	var/order_id = 0 //ID of the order
@@ -151,8 +43,8 @@
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
 	for (var/datum/cargo_order_item/coi in items)
-		for(var/object in coi.ci.items)
-			object_list.Add(object)
+		for(var/atom/object in coi.ci.items)
+			object_list.Add(object.name)
 	return object_list
 
 // Gets a list of the order data - Formatted as list to be json_encoded
@@ -306,7 +198,7 @@
 	var/list/supplier_list = get_supplier_list()
 	var/cost = 0
 	for(var/supplier in supplier_list)
-		var/datum/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
+		var/singleton/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
 		if(cs)
 			cost += cs.shuttle_price
 	return cost
@@ -467,26 +359,22 @@
 	paid_by_id = user_id
 	return "The order has been paid for"
 
-/*
-	A cargo order item. Part of a category.
-	specifies the item, the supplier and the price of the item
-*/
+///	A cargo order item. Part of a category. Specifies the item, the supplier and the price of the item
 /datum/cargo_order_item
-	var/datum/cargo_item/ci //Item that has been ordered
+	var/singleton/cargo_item/ci //Item that has been ordered
 	var/price //Price of the item with the given supplier
 	var/item_id //Item id in the order
 	//TODO-CARGO: Maybe add the option to set a fake item for traitors here -> So that cargo cant see what they are really ordering
 
 //Calculate Price
 /datum/cargo_order_item/proc/calculate_price()
-	price = ci.get_adjusted_price()
-	return price
+	price = ci.adjusted_price
 
 // Gets a list of the cargo order item - to be json encoded
 /datum/cargo_order_item/proc/get_list()
 	var/list/data = list()
 	data["name"] = ci.name
-	data["supplier_name"] = ci.supplier_datum.name
+	data["supplier_data"] = ci.supplier_data
 	data["amount"] = ci.amount
 	data["price"] = price
 	data["item_id"] = item_id
