@@ -111,10 +111,15 @@
  * Use the [SEND_SIGNAL] define instead
  */
 /datum/proc/_SendSignal(sigtype, list/arguments)
+
+	rustg_time_reset("SIGNALDEBUG")
+	var/_DEBUG_STARTTIME = rustg_time_milliseconds("SIGNALDEBUG")
+
 	var/target = _listen_lookup[sigtype]
 	if(!length(target))
 		var/datum/listening_datum = target
-		return NONE | call(listening_datum, listening_datum._signal_procs[src][sigtype])(arglist(arguments))
+		. = NONE | call(listening_datum, listening_datum._signal_procs[src][sigtype])(arglist(arguments))
+		goto dump_log
 	. = NONE
 	// This exists so that even if one of the signal receivers unregisters the signal,
 	// all the objects that are receiving the signal get the signal this final time.
@@ -126,3 +131,6 @@
 		queued_calls.Add(listening_datum, listening_datum._signal_procs[src][sigtype])
 	for(var/i in 1 to length(queued_calls) step 2)
 		. |= call(queued_calls[i], queued_calls[i + 1])(arglist(arguments))
+
+	dump_log:
+	LOG_DEBUG("SIG,[rustg_time_milliseconds("SIGNALDEBUG") - _DEBUG_STARTTIME],[src],[src?.type],[sigtype],[length(target)]")
