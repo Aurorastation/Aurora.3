@@ -28,7 +28,7 @@
         "role_id": 6,
         "name": "Moderator",
         "auths": [
-            "R_MODERATOR", "R_BAN"
+            "R_MODERATOR", "R_BAN", "R_SPAWN", "R_REJUVINATE"
         ]
     },
     {
