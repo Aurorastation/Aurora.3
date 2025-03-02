@@ -1877,7 +1877,7 @@
 
 /obj/machinery/vending/actor
 	name = "Actor Vendor"
-	desc = ""
+	desc = "Has all your odyssey actor items, to let you effectively do your odysseying and actoring."
 	vend_id = "actor"
 	icon_state = "generic"
 	icon_vend = "generic-vend"
@@ -1888,5 +1888,4 @@
 		/obj/item/card/id/syndicate = 12,
 	)
 	light_color = COLOR_GUNMETAL
-
-
+	random_itemcount = FALSE
