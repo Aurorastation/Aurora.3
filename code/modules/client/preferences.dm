@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 
-var/list/preferences_datums = list()
+GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences
 	//doohickeys for savefiles
@@ -254,11 +254,11 @@ var/list/preferences_datums = list()
 	var/dat = "<center>"
 
 	if(path)
-		dat += "<a href='?src=[REF(src)];load=1'>Load slot</a> - "
-		dat += "<a href='?src=[REF(src)];save=1'>Save slot</a> - "
-		dat += "<a href='?src=[REF(src)];reload=1'>Reload slot</a>"
+		dat += "<a href='byond://?src=[REF(src)];load=1'>Load slot</a> - "
+		dat += "<a href='byond://?src=[REF(src)];save=1'>Save slot</a> - "
+		dat += "<a href='byond://?src=[REF(src)];reload=1'>Reload slot</a>"
 		if (GLOB.config.sql_saves)
-			dat += " - <a href='?src=[REF(src)];delete=1'>Permanently delete slot</a>"
+			dat += " - <a href='byond://?src=[REF(src)];delete=1'>Permanently delete slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -400,9 +400,9 @@ var/list/preferences_datums = list()
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
-			real_name += " [pick(last_names)]"
+			real_name += " [pick(GLOB.last_names)]"
 		else if(firstspace == name_length)
-			real_name += "[pick(last_names)]"
+			real_name += "[pick(GLOB.last_names)]"
 
 	character.real_name = real_name
 	character.name = character.real_name
@@ -482,7 +482,7 @@ var/list/preferences_datums = list()
 	character.all_underwear.Cut()
 	character.all_underwear_metadata.Cut()
 	for(var/underwear_category_name in all_underwear)
-		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		var/datum/category_group/underwear/underwear_category = GLOB.global_underwear.categories_by_name[underwear_category_name]
 		if(underwear_category)
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
@@ -525,8 +525,8 @@ var/list/preferences_datums = list()
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
 
-	for(var/ckey in preferences_datums)
-		var/datum/preferences/D = preferences_datums[ckey]
+	for(var/ckey in GLOB.preferences_datums)
+		var/datum/preferences/D = GLOB.preferences_datums[ckey]
 		if(D == src)
 			if(!establish_db_connection(GLOB.dbcon))
 				return open_load_dialog_file(user)
@@ -542,19 +542,19 @@ var/list/preferences_datums = list()
 				id = text2num(query.item[1])
 				name = query.item[2]
 				if (id == current_character)
-					dat += "<b><a href='?src=[REF(src)];changeslot=[id];'>[name]</a></b><br>"
+					dat += "<b><a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a></b><br>"
 				else
-					dat += "<a href='?src=[REF(src)];changeslot=[id];'>[name]</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
 			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
 			if (query.RowCount() < GLOB.config.character_slots)
-				dat += "<a href='?src=[REF(src)];new_character_sql=1'>New Character</a>"
+				dat += "<a href='byond://?src=[REF(src)];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
 
 	dat += "<hr>"
-	dat += "<a href='?src=[REF(src)];close_load_dialog=1'>Close</a><br>"
+	dat += "<a href='byond://?src=[REF(src)];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
 
 	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
@@ -576,7 +576,7 @@ var/list/preferences_datums = list()
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
 				name = "<b>[name]</b>"
-			dat += "<a href='?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
 
 	dat += "<hr>"
 	dat += "</center></tt>"

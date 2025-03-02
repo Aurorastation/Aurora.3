@@ -1,4 +1,4 @@
-var/global/universe_has_ended = 0
+GLOBAL_VAR_INIT(universe_has_ended, 0)
 
 
 /datum/universal_state/supermatter_cascade
@@ -45,7 +45,7 @@ var/global/universe_has_ended = 0
 	for(var/mob/M in GLOB.player_list)
 		M.flash_act()
 
-	if(evacuation_controller.cancel_evacuation())
+	if(GLOB.evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
 
 	SSskybox.change_skybox("cascade", new_use_stars = FALSE, new_use_overmap_details = FALSE)
@@ -56,7 +56,7 @@ var/global/universe_has_ended = 0
 	OverlayAndAmbientSet()
 
 	// Disable Nar-Sie.
-	cult.allow_narsie = 0
+	GLOB.cult.allow_narsie = 0
 
 	PlayerSet()
 
@@ -87,7 +87,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/proc/end_universe()
 	SSticker.station_explosion_cinematic(0, null, SSatlas.current_map.player_levels) // TODO: Custom cinematic
-	universe_has_ended = 1
+	GLOB.universe_has_ended = 1
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
 	for(var/area/A in get_sorted_areas())

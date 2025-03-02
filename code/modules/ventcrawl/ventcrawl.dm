@@ -1,10 +1,10 @@
-var/list/ventcrawl_machinery = list(
+GLOBAL_LIST_INIT(ventcrawl_machinery, list(
 	/obj/machinery/atmospherics/unary/vent_pump,
 	/obj/machinery/atmospherics/unary/vent_scrubber
-	)
+	))
 
-// Vent crawling whitelisted items, whoo
-var/global/list/can_enter_vent_with = list(
+/// Vent crawling whitelisted items, whoo
+GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	/obj/item/device/mmi,
 	/obj/item/implant,
 	/obj/item/device/radio/borg,
@@ -13,7 +13,7 @@ var/global/list/can_enter_vent_with = list(
 	/mob/living/simple_animal/borer,
 	/mob/living/simple_animal/rat,
 	/mob/living/carbon/human
-	)
+	))
 
 /mob/living/var/list/icon/pipes_shown = list()
 /mob/living/var/last_played_vent
@@ -30,7 +30,7 @@ var/global/list/can_enter_vent_with = list(
 	return TRUE
 
 /mob/living/proc/is_allowed_vent_crawl_item(var/obj/item/carried_item)
-	if(is_type_in_list(carried_item, can_enter_vent_with))
+	if(is_type_in_list(carried_item, GLOB.can_enter_vent_with))
 		return !get_inventory_slot(carried_item)
 
 /mob/living/carbon/is_allowed_vent_crawl_item(var/obj/item/carried_item)
@@ -59,7 +59,7 @@ var/global/list/can_enter_vent_with = list(
 	return TRUE
 
 /obj/machinery/atmospherics/AltClick(mob/living/user)
-	if(is_type_in_list(src, ventcrawl_machinery) && user.can_ventcrawl())
+	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && user.can_ventcrawl())
 		user.handle_ventcrawl(src)
 		return 1
 	return ..()
@@ -71,7 +71,7 @@ var/global/list/can_enter_vent_with = list(
 	var/atom/pipe
 	var/list/pipes = list()
 	for(var/obj/machinery/atmospherics/unary/U in range(1))
-		if(is_type_in_list(U,ventcrawl_machinery) && Adjacent(U))
+		if(is_type_in_list(U,GLOB.ventcrawl_machinery) && Adjacent(U))
 			pipes |= U
 	if(!pipes || !pipes.len)
 		to_chat(usr, SPAN_NOTICE("There are no pipes that you can ventcrawl into within range!"))
@@ -134,7 +134,7 @@ var/global/list/can_enter_vent_with = list(
 			if(clicked_on)
 				if (Adjacent(clicked_on))
 					vent_found = clicked_on
-					if(!is_type_in_list(vent_found, ventcrawl_machinery) || !vent_found.can_crawl_through())
+					if(!is_type_in_list(vent_found, GLOB.ventcrawl_machinery) || !vent_found.can_crawl_through())
 						vent_found = null
 				else
 					to_chat(src, SPAN_WARNING("Stand next to the selected vent!"))
@@ -142,7 +142,7 @@ var/global/list/can_enter_vent_with = list(
 
 			if(!vent_found && isnull(clicked_on))
 				for(var/obj/machinery/atmospherics/machine in range(1,src))
-					if(is_type_in_list(machine, ventcrawl_machinery))
+					if(is_type_in_list(machine, GLOB.ventcrawl_machinery))
 						vent_found = machine
 
 					if(!vent_found || !vent_found.can_crawl_through())

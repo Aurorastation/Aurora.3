@@ -421,7 +421,7 @@
 	if(direction != dir)
 		facedir(direction, force_face)
 
-var/global/list/click_catchers
+GLOBAL_LIST(click_catchers)
 
 /atom/movable/screen/click_catcher
 	icon = 'icons/mob/screen_gen.dmi'

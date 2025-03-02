@@ -1,4 +1,4 @@
-var/datum/antagonist/revolutionary/revs
+GLOBAL_DATUM(revs, /datum/antagonist/revolutionary)
 
 /datum/antagonist/revolutionary
 	id = MODE_REVOLUTIONARY
@@ -27,12 +27,12 @@ var/datum/antagonist/revolutionary/revs
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg", "Merchant")
-	protected_jobs = list("Lab Assistant", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
+	protected_jobs = list("Research Intern", "Medical Intern", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
 	required_age = 31
 
 /datum/antagonist/revolutionary/New()
 	..()
-	revs = src
+	GLOB.revs = src
 
 /datum/antagonist/revolutionary/create_antagonist()
 	faction_welcome = "You joined a subversive organization in the crew of the [SSatlas.current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."

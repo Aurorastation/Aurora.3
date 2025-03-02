@@ -39,10 +39,10 @@
 	switch(screenstate)
 		if(0)
 			dat += {"<h2>Search Settings</h2><br>
-			<a href='?src=[REF(src)];settitle=1'>Filter by Title: [title]</a><br>
-			<a href='?src=[REF(src)];setcategory=1'>Filter by Category: [category]</a><br>
-			<a href='?src=[REF(src)];setauthor=1'>Filter by Author: [author]</a><br>
-			<a href='?src=[REF(src)];search=1'>\[Start Search\]</a><br>"}
+			<a href='byond://?src=[REF(src)];settitle=1'>Filter by Title: [title]</a><br>
+			<a href='byond://?src=[REF(src)];setcategory=1'>Filter by Category: [category]</a><br>
+			<a href='byond://?src=[REF(src)];setauthor=1'>Filter by Author: [author]</a><br>
+			<a href='byond://?src=[REF(src)];search=1'>\[Start Search\]</a><br>"}
 		if(1)
 			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><br>"
@@ -62,7 +62,7 @@
 					var/id = query.item[4]
 					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td>[id]</td></tr>"
 				dat += "</table><br>"
-			dat += "<a href='?src=[REF(src)];back=1'>\[Go Back\]</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];back=1'>\[Go Back\]</a><br>"
 	user << browse(dat, "window=publiclibrary")
 	onclose(user, "publiclibrary")
 
@@ -142,15 +142,15 @@
 	switch(screenstate)
 		if(0)
 			// Main Menu
-			dat += "<a href='?src=[REF(src)];switchscreen=1'>View Stock</a><br>"
-			dat += "<a href='?src=[REF(src)];switchscreen=2'>View Checked Out Books</a><br>"
-			dat += "<a href='?src=[REF(src)];switchscreen=3'>Check out a Book</a><br>"
-			dat += "<a href='?src=[REF(src)];switchscreen=4'>Order From Library Database</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=1'>View Stock</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=2'>View Checked Out Books</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=3'>Check out a Book</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=4'>Order From Library Database</a><br>"
 			if(!is_public)
-				dat += "<a href='?src=[REF(src)];switchscreen=5'>Upload New Title to Library Database</a><br>"
-			dat += "<a href='?src=[REF(src)];switchscreen=6'>Print a Bible</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];switchscreen=5'>Upload New Title to Library Database</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=6'>Print a Bible</a><br>"
 			if(emagged)
-				dat += "<a href='?src=[REF(src)];switchscreen=7'>7. Access the Forbidden Lore Vault</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];switchscreen=7'>7. Access the Forbidden Lore Vault</a><br>"
 			if(arcanecheckout)
 				new /obj/item/book/tome(get_turf(src))
 				to_chat(user, SPAN_WARNING("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it."))
@@ -160,8 +160,8 @@
 			// Inventory
 			dat += "<H3>Inventory</H3><br>"
 			for(var/obj/item/book/b in inventory)
-				dat += "[b.name] <a href='?src=[REF(src)];delbook=[REF(b)]'>(Delete)</a><br>"
-			dat += "<a href='?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
+				dat += "[b.name] <a href='byond://?src=[REF(src)];delbook=[REF(b)]'>(Delete)</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(2)
 			// Checked Out
 			dat += "<h3>Checked Out Books</h3><br>"
@@ -178,28 +178,28 @@
 				else
 					timedue = round(timedue)
 				dat += {"\"[b.bookname]\", Checked out to: [b.mobname]<br>--- Taken: [timetaken] minutes ago, Due: in [timedue] minutes<br>
-				<a href='?src=[REF(src)];checkin=[REF(b)]'>(Check In)</a><br><br>"}
-			dat += "<a href='?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
+				<a href='byond://?src=[REF(src)];checkin=[REF(b)]'>(Check In)</a><br><br>"}
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(3)
 			// Check Out a Book
 			dat += {"<h3>Check Out a Book</h3><br>
 			Book: [src.buffer_book]
-			<a href='?src=[REF(src)];editbook=1'>\[Edit\]</a><br>
+			<a href='byond://?src=[REF(src)];editbook=1'>\[Edit\]</a><br>
 			Recipient: [src.buffer_mob]
-			<a href='?src=[REF(src)];editmob=1'>\[Edit\]</a><br>
+			<a href='byond://?src=[REF(src)];editmob=1'>\[Edit\]</a><br>
 			Checkout Date: [world.time / 600]<br>
 			Due Date: [(world.time + checkoutperiod) / 600]<br>
-			(Checkout Period: [checkoutperiod] minutes) (<a href='?src=[REF(src)];increasetime=1'>+</a>/<a href='?src=[REF(src)];decreasetime=1'>-</a>)<br>
-			<a href='?src=[REF(src)];checkout=1'>(Commit Entry)</a><br>
-			<a href='?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
+			(Checkout Period: [checkoutperiod] minutes) (<a href='byond://?src=[REF(src)];increasetime=1'>+</a>/<a href='byond://?src=[REF(src)];decreasetime=1'>-</a>)<br>
+			<a href='byond://?src=[REF(src)];checkout=1'>(Commit Entry)</a><br>
+			<a href='byond://?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
 		if(4)
 			dat += "<h3>External Archive</h3>"
 			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
 			else
-				dat += {"<a href='?src=[REF(src)];orderbyid=1'>(Order Book by ISBN)</a><br><br>
+				dat += {"<a href='byond://?src=[REF(src)];orderbyid=1'>(Order Book by ISBN)</a><br><br>
 				<table>
-				<tr><td><a href='?src=[REF(src)];sort=author>AUTHOR</a></td><td><a href='?src=[REF(src)];sort=title>TITLE</a></td><td><a href='?src=[REF(src)];sort=category>CATEGORY</a></td><td></td></tr>"}
+				<tr><td><a href='byond://?src=[REF(src)];sort=author>AUTHOR</a></td><td><a href='byond://?src=[REF(src)];sort=title>TITLE</a></td><td><a href='byond://?src=[REF(src)];sort=category>CATEGORY</a></td><td></td></tr>"}
 				var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
 				query.Execute()
 
@@ -208,9 +208,9 @@
 					var/author = query.item[2]
 					var/title = query.item[3]
 					var/category = query.item[4]
-					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td><a href='?src=[REF(src)];targetid=[id]'>\[Order\]</a></td></tr>"
+					dat += "<tr><td>[author]</td><td>[title]</td><td>[category]</td><td><a href='byond://?src=[REF(src)];targetid=[id]'>\[Order\]</a></td></tr>"
 				dat += "</table>"
-			dat += "<br><a href='?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
+			dat += "<br><a href='byond://?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(5)
 			dat += "<H3>Upload a New Title</H3>"
 			if(!scanner)
@@ -227,17 +227,17 @@
 				<TT>Title: </TT>[scanner.cache.name]<br>"}
 				if(!scanner.cache.author)
 					scanner.cache.author = "Anonymous"
-				dat += {"<TT>Author: </TT><a href='?src=[REF(src)];setauthor=1'>[scanner.cache.author]</a><br>
-				<TT>Category: </TT><a href='?src=[REF(src)];setcategory=1'>[upload_category]</a><br>
-				<a href='?src=[REF(src)];upload=1'>\[Upload\]</a><br>"}
-			dat += "<a href='?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
+				dat += {"<TT>Author: </TT><a href='byond://?src=[REF(src)];setauthor=1'>[scanner.cache.author]</a><br>
+				<TT>Category: </TT><a href='byond://?src=[REF(src)];setcategory=1'>[upload_category]</a><br>
+				<a href='byond://?src=[REF(src)];upload=1'>\[Upload\]</a><br>"}
+			dat += "<a href='byond://?src=[REF(src)];switchscreen=0'>(<-- Return to Main Menu)</a><br>"
 		if(7)
 			dat += {"<h3>Accessing Forbidden Lore Vault v 1.3</h3>
 			Are you absolutely sure you want to proceed? EldritchTomes Inc. takes no responsibilities for loss of sanity resulting from this action.<p>
-			<a href='?src=[REF(src)];arccheckout=1'>Yes.</a><br>
-			<a href='?src=[REF(src)];switchscreen=0'>No.</a><br>"}
+			<a href='byond://?src=[REF(src)];arccheckout=1'>Yes.</a><br>
+			<a href='byond://?src=[REF(src)];switchscreen=0'>No.</a><br>"}
 
-	//dat += "<a HREF='?src=[REF(user)];mach_close=library'>Close</a><br><br>"
+	//dat += "<a href='byond://?src=[REF(user)];mach_close=library'>Close</a><br><br>"
 	user << browse(dat, "window=library")
 	onclose(user, "library")
 
@@ -378,7 +378,8 @@
 				B.title = title
 				B.author = author
 				B.dat = content
-				B.icon_state = "book[rand(1,7)]"
+				B.icon_state = "book[rand(1,16)]"
+				B.item_state = B.icon_state
 				src.visible_message("\The [src]\s printer hums as it produces a book.")
 				break
 	if(href_list["orderbyid"])
@@ -436,9 +437,9 @@
 		dat += "<FONT color=#005500>Data stored in memory.</FONT><br>"
 	else
 		dat += "No data stored in memory.<br>"
-	dat += "<a href='?src=[REF(src)];scan=1'>\[Scan\]</a>"
+	dat += "<a href='byond://?src=[REF(src)];scan=1'>\[Scan\]</a>"
 	if(cache)
-		dat += "       <a href='?src=[REF(src)];clear=1'>\[Clear Memory\]</a><br><br><a href='?src=[REF(src)];eject=1'>\[Remove Book\]</a>"
+		dat += "       <a href='byond://?src=[REF(src)];clear=1'>\[Clear Memory\]</a><br><br><a href='byond://?src=[REF(src)];eject=1'>\[Remove Book\]</a>"
 	else
 		dat += "<br>"
 	user << browse(dat, "window=scanner")

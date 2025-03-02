@@ -239,9 +239,9 @@
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavodskoicape
-	display_name = "zavodskoi dominian great house cape selection"
-	description = "A selection of Zavodskoi-colored Dominian great house capes."
-	slot = slot_wear_suit
+	display_name = "zavodskoi dominian cape selection"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	flags = GEAR_HAS_DESC_SELECTION
 	faction = "Zavodskoi Interstellar"
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -256,6 +256,14 @@
 	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
+
+/datum/gear/faction/zavodskoicape_colorable
+	display_name = "zavodskoi dominian cape, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/zavod/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A Zavodskoi Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	faction = "Zavodskoi Interstellar"
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 // PMCG
 /datum/gear/faction/pmc_sunglasses
@@ -362,10 +370,10 @@
 
 /datum/gear/faction/pmc_modsuit/New()
 	..()
-	gear_tweaks += list(gear_tweak_modsuit_configuration)
+	gear_tweaks += list(GLOB.gear_tweak_modsuit_configuration)
 
 
-var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = new()
+GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_configuration, new())
 
 /datum/gear_tweak/modsuit_configuration
 	/// the configuration of the modsuit, using just a list of the names
@@ -435,7 +443,7 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	pmcg_sec_uniforms["Nexus Corporate uniform"] = /obj/item/clothing/under/rank/security/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -767,7 +775,23 @@ var/datum/gear_tweak/modsuit_configuration/gear_tweak_modsuit_configuration = ne
 	orion_headwear["beret, orion"] = /obj/item/clothing/head/beret/corporate/orion
 	orion_headwear["orion woolen hat"] = /obj/item/clothing/head/wool/orion
 	orion_headwear["orion woolen hat, alt"] = /obj/item/clothing/head/wool/orion/alt
+	orion_headwear["orion softcap"] = /obj/item/clothing/head/softcap/orion
+	orion_headwear["Quick-E-Burger visor"] = /obj/item/clothing/head/qeburger_visor
 	gear_tweaks += new /datum/gear_tweak/path(orion_headwear)
+
+/datum/gear/faction/orion_qeburger_apron
+	display_name = "Quick-E-Burger apron"
+	description = "An apron for employees of Quick-E-Burger, a subsidiary of Orion Express."
+	path = /obj/item/clothing/accessory/apron/qeburgerapron
+	slot = slot_wear_suit
+	faction = "Orion Express"
+
+/datum/gear/faction/orion_qeburger_suit
+	display_name = "Quick-E-Burger jumpsuit"
+	description = "A jumpsuit for employees of Quick-E-Burger, a subsidiary of Orion Express."
+	path = /obj/item/clothing/under/qeburgerjumpsuit
+	slot = slot_w_uniform
+	faction = "Orion Express"
 
 //SCC
 /datum/gear/faction/scc_armband

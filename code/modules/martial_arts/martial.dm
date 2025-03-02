@@ -90,7 +90,7 @@
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>"
-	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
+	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	if(miss_type)
 		return 0
@@ -205,10 +205,7 @@
 	name = "SolCom manual"
 	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
 	icon = 'icons/obj/library.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
-		)
+	contained_sprite = TRUE
 	icon_state ="cqcmanual"
 	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat

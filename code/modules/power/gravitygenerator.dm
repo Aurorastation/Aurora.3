@@ -110,7 +110,7 @@
 	icon_state = "on_8"
 	idle_power_usage = 0
 	active_power_usage = 3000
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	sprite_number = 8
 	interact_offline = 1
 	var/on = 1
@@ -254,12 +254,12 @@
 	var/dat = "Gravity Generator Breaker: "
 	if(!eventon)
 		if(breaker)
-			dat += "<span class='linkOn'>ON</span> <A href='?src=[REF(src)];gentoggle=1'>OFF</A>"
+			dat += "<span class='linkOn'>ON</span> <A href='byond://?src=[REF(src)];gentoggle=1'>OFF</A>"
 		else
-			dat += "<A href='?src=[REF(src)];gentoggle=1'>ON</A> <span class='linkOn'>OFF</span> "
+			dat += "<A href='byond://?src=[REF(src)];gentoggle=1'>ON</A> <span class='linkOn'>OFF</span> "
 		if(backpanelopen)
 			dat += "<br>Emergency shutoff:<br>"
-			dat += "<A href='?src=[REF(src)];eshutoff=1'>Red Button</A>"
+			dat += "<A href='byond://?src=[REF(src)];eshutoff=1'>Red Button</A>"
 
 		dat += "<br>Generator Status:<br><div class='statusDisplay'>"
 		if(charging_state != POWER_IDLE)
@@ -353,14 +353,14 @@
 			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
+			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
 			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
+			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 
 	update_icon()
 	update_list(gravity_changed)

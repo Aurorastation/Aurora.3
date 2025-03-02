@@ -1,4 +1,4 @@
-var/global/list/fusion_reactions
+GLOBAL_LIST_EMPTY(fusion_reactions)
 
 /singleton/fusion_reaction
 	var/p_react = "" // Primary reactant.
@@ -16,21 +16,21 @@ var/global/list/fusion_reactions
 	return 0
 
 /proc/get_fusion_reaction(p_react, s_react, m_energy)
-	if(!fusion_reactions)
-		fusion_reactions = list()
+	if(!GLOB.fusion_reactions)
+		GLOB.fusion_reactions = list()
 		for(var/rtype in typesof(/singleton/fusion_reaction) - /singleton/fusion_reaction)
 			var/singleton/fusion_reaction/cur_reaction = new rtype()
-			if(!fusion_reactions[cur_reaction.p_react])
-				fusion_reactions[cur_reaction.p_react] = list()
-			fusion_reactions[cur_reaction.p_react][cur_reaction.s_react] = cur_reaction
-			if(!fusion_reactions[cur_reaction.s_react])
-				fusion_reactions[cur_reaction.s_react] = list()
-			fusion_reactions[cur_reaction.s_react][cur_reaction.p_react] = cur_reaction
+			if(!GLOB.fusion_reactions[cur_reaction.p_react])
+				GLOB.fusion_reactions[cur_reaction.p_react] = list()
+			GLOB.fusion_reactions[cur_reaction.p_react][cur_reaction.s_react] = cur_reaction
+			if(!GLOB.fusion_reactions[cur_reaction.s_react])
+				GLOB.fusion_reactions[cur_reaction.s_react] = list()
+			GLOB.fusion_reactions[cur_reaction.s_react][cur_reaction.p_react] = cur_reaction
 
-	if(fusion_reactions.Find(p_react))
-		var/list/secondary_reactions = fusion_reactions[p_react]
+	if(GLOB.fusion_reactions.Find(p_react))
+		var/list/secondary_reactions = GLOB.fusion_reactions[p_react]
 		if(secondary_reactions.Find(s_react))
-			return fusion_reactions[p_react][s_react]
+			return GLOB.fusion_reactions[p_react][s_react]
 
 // Material fuels
 //  deuterium

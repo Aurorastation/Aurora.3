@@ -1,4 +1,4 @@
-var/list/tape_roll_applications = list()
+GLOBAL_LIST_INIT(tape_roll_applications, list())
 
 //Define all tape types in policetape.dm
 /obj/item/taperoll
@@ -189,17 +189,17 @@ var/list/tape_roll_applications = list()
 		var/turf/F = A
 		var/direction = user.loc == F ? user.dir : turn(user.dir, 180)
 		var/icon/hazard_overlay = hazard_overlays["[direction]"]
-		if(tape_roll_applications[F] == null)
-			tape_roll_applications[F] = 0
+		if(GLOB.tape_roll_applications[F] == null)
+			GLOB.tape_roll_applications[F] = 0
 
-		if(tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
+		if(GLOB.tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
 			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
 			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
-			tape_roll_applications[F] &= ~direction
+			GLOB.tape_roll_applications[F] &= ~direction
 		else
 			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
 			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
-			tape_roll_applications[F] |= direction
+			GLOB.tape_roll_applications[F] |= direction
 		return
 
 /obj/item/tape/proc/crumple(var/mob/user)

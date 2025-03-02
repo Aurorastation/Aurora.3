@@ -1,7 +1,7 @@
-var/list/localhost_addresses = list(
+GLOBAL_LIST_INIT(localhost_addresses, list(
 	"127.0.0.1" = TRUE,
 	"::1" = TRUE
-)
+))
 
 	////////////
 	//SECURITY//
@@ -424,10 +424,10 @@ var/list/localhost_addresses = list(
 	SHOULD_NOT_SLEEP(TRUE)
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
+	prefs = GLOB.preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
+		GLOB.preferences_datums[ckey] = prefs
 
 		prefs.gather_notifications(src)
 	prefs.client = src					// Safety reasons here.
@@ -444,7 +444,7 @@ var/list/localhost_addresses = list(
 
 	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
-	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
+	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || GLOB.localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
 	// Concept stolen from /tg/ with deepest gratitude.
 	// And ported from Nebula with love.
@@ -747,7 +747,7 @@ var/list/localhost_addresses = list(
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
-			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!"
 
 	return null
 
@@ -977,4 +977,4 @@ var/list/localhost_addresses = list(
 /client/proc/check_panel_loaded()
 	if(stat_panel.is_ready())
 		return
-	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='byond://?src=[REF(src)];reload_statbrowser=1'>here</a> to reload the panel "))

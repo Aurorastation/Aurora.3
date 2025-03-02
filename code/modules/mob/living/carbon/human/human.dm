@@ -86,7 +86,7 @@
 	. = ..()
 
 	hide_underwear.Cut()
-	for(var/category in global_underwear.categories_by_name)
+	for(var/category in GLOB.global_underwear.categories_by_name)
 		hide_underwear[category] = FALSE
 
 	if(dna)
@@ -350,13 +350,13 @@
 		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
 			continue
 		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
-		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
+		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='byond://?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
 
 	dat += "<BR><HR>"
 
 	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
+		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -373,29 +373,29 @@
 		has_tank = TRUE
 
 	if((has_mask == 2|| has_helmet) && has_tank)
-		dat += "<BR><A href='?src=[REF(src)];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
 
 	// Other incidentals.
 	if(istype(suit) && suit.has_sensor == 1)
-		dat += "<BR><A href='?src=[REF(src)];item=sensors'>Set sensors</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=sensors'>Set sensors</A>"
 	if(handcuffed)
-		dat += "<BR><A href='?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
 	if(legcuffed)
-		dat += "<BR><A href='?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
 
 	if(has_mask)
 		var/obj/item/clothing/mask/M = wear_mask
 		if(M.adjustable)
-			dat += "<BR><A href='?src=[REF(src)];item=mask'>Adjust mask</A>"
+			dat += "<BR><A href='byond://?src=[REF(src)];item=mask'>Adjust mask</A>"
 	if(has_tank && internal)
-		dat += "<BR><A href='?src=[REF(src)];item=tank'>Check air tank</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=tank'>Check air tank</A>"
 	if(suit && LAZYLEN(suit.accessories))
-		dat += "<BR><A href='?src=[REF(src)];item=tie'>Remove accessory</A>"
-	dat += "<BR><A href='?src=[REF(src)];item=splints'>Remove splints</A>"
-	dat += "<BR><A href='?src=[REF(src)];item=pockets'>Empty pockets</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=tie'>Remove accessory</A>"
+	dat += "<BR><A href='byond://?src=[REF(src)];item=splints'>Remove splints</A>"
+	dat += "<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty pockets</A>"
 	dat += species.get_strip_info("[REF(src)]")
-	dat += "<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>"
-	dat += "<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>"
+	dat += "<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>"
+	dat += "<BR><A href='byond://?src=[REF(user)];mach_close=mob[name]'>Close</A>"
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
 	mob_win.set_content(dat)
@@ -625,7 +625,7 @@
 						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
 						+ "<b>Crimes:</b> [R.security.crimes]\n" \
 						+ "<b>Notes:</b> [R.security.notes]\n" \
-						+ "<a href='?src=[REF(src)];secrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='byond://?src=[REF(src)];secrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 					read = 1
 
@@ -652,7 +652,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=[REF(src)];secrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='byond://?src=[REF(src)];secrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
@@ -726,7 +726,7 @@
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
 						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
 						+ "<b>Notes:</b> [R.medical.notes]\n" \
-						+ "<a href='?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
+						+ "<a href='byond://?src=[REF(src)];medrecordComment=`'>\[View Comment Log\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 					read = 1
 
@@ -753,7 +753,7 @@
 							message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
-					message += "<a href='?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>"
+					message += "<a href='byond://?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>"
 					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)
@@ -1266,7 +1266,7 @@
 	if (client)
 		prefs = client.prefs
 	else if (ckey)	// Mob might be logged out.
-		prefs = preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
+		prefs = GLOB.preferences_datums[ckey(ckey)]	// run the ckey through ckey() here so that aghosted mobs can be rejuv'd too. (Their ckeys are prefixed with @)
 
 	if (prefs && real_name == prefs.real_name)
 		// Re-apply the mob's markings and prosthetics if their pref is their current char.
@@ -1653,10 +1653,6 @@
 		W.message = message
 		W.add_fingerprint(src)
 
-#define INJECTION_FAIL     0
-#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
-#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
-
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
@@ -1716,10 +1712,6 @@
 			. = injection_modifier
 		if(. == INJECTION_FAIL)
 			return
-
-#undef INJECTION_FAIL
-#undef BASE_INJECTION_MOD
-#undef SUIT_INJECTION_MOD
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
@@ -1913,7 +1905,7 @@
 
 	if(stat)
 		return
-	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", global_underwear.categories)
+	var/datum/category_group/underwear/UWC = tgui_input_list(usr, "Choose underwear.", "Show/Hide Underwear", GLOB.global_underwear.categories)
 	if(!UWC)
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
@@ -2259,16 +2251,17 @@
 	set desc = "If you want to know what's above."
 	set category = "IC"
 
+	look_up_open_space(get_turf(src))
 
+/mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !is_physically_disabled())
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/T = get_turf(src)
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
-			z_eye = new /atom/movable/z_observer/z_up(src, src)
+			z_eye = new /atom/movable/z_observer/z_up(src, src, T)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
@@ -2281,21 +2274,23 @@
 	set desc = "If you want to know what's below."
 	set category = "IC"
 
+	look_down_open_space(get_turf(src))
+
+/mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !is_physically_disabled())
 		if(z_eye)
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/T = get_turf(src)
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
-			z_eye = new /atom/movable/z_observer/z_down(src, src)
+			z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
 			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
-				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
+				z_eye = new /atom/movable/z_observer/z_down(T, src, T)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return

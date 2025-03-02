@@ -523,7 +523,7 @@ SUBSYSTEM_DEF(cargo)
 	Shuttle Operations - Calling, Forcing, Canceling, Buying / Selling
 */
 //Calls the shuttle. Returns a status message
-/datum/controller/subsystem/cargo/proc/shuttle_call(var/caller_name)
+/datum/controller/subsystem/cargo/proc/shuttle_call(var/requester_name)
 	if(shuttle.at_station())
 		if (shuttle.forbidden_atoms_check())
 			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
@@ -531,7 +531,7 @@ SUBSYSTEM_DEF(cargo)
 			movetime = min_movetime //It always takes two minutes to get to centcom
 			shuttle.launch(src)
 			. = "Initiating launch sequence"
-			current_shipment.shuttle_recalled_by = caller_name
+			current_shipment.shuttle_recalled_by = requester_name
 	else
 		//Check if there is enough money in the cargo account for the current shipment
 		var/shipment_cost = get_pending_shipment_cost()
@@ -558,7 +558,7 @@ SUBSYSTEM_DEF(cargo)
 			//Launch it
 			shuttle.launch(src)
 			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,2)] minutes."
-			current_shipment.shuttle_called_by = caller_name
+			current_shipment.shuttle_called_by = requester_name
 
 //Cancels the shuttle. Can return a status message
 /datum/controller/subsystem/cargo/proc/shuttle_cancel()

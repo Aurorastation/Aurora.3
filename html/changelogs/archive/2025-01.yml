@@ -113,3 +113,99 @@
 2025-01-17:
   ClemTheDuck:
   - bugfix: Should fix some modular armour accessories not appearing on armour.
+2025-01-20:
+  Flaminglily:
+  - rscadd: Added a significantly more diverse amount of contraband drugs to be found
+      in the maintenance tunnels.
+  Furrycactus:
+  - rscadd: Changes the colour of the modulator gas line on the Bluespace Drive to
+      cyan, so it's not the same colour as the Phoron line.
+  SimpleMaroon:
+  - imageadd: Added a variety of different sprites to the pocketwatch, depending on
+      if you wear it on your wrist, your belt, or your suit storage.
+  - code_imp: Changed the pocketwatch to be a subtype of other watches instead of
+      its own thing.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Poncho/Cape accessory sprites.
+  - bugfix: Fixes foam sword sprite.
+  - bugfix: Fixes NTnet relay sprite.
+  - bugfix: Fixes message server using the wrong sprite.
+  hazelmouse:
+  - qol: The armory now contains six total 5.56mm carbine magazines, instead of four
+      magazines and two singular 5.56mm bullet casings.
+  - bugfix: The shuttle airlock of the SPLF ghostrole now functions properly.
+2025-01-25:
+  ASmallCuteCat:
+  - qol: More organs now have description text. Enjoy my stupid sense of humor, or
+      lack thereof. The taste of said organs has not been affected.
+  ChangeMe:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  Furrycactus:
+  - rscadd: Added a chemistry equipment locker to the Research chemistry lab, to allow
+      for easier storage, transport, and testing of any produced substances.
+  - rscadd: Added two large beakers to the Research chemistry lab.
+  - rscadd: Added a pipe connection from the connectors in Atmospherics to a connector
+      in storage behind the Bluespace Drive, to cut out the hardest and most tedious
+      portion of piping a gas mix to the drive.
+  MattAtlas:
+  - rscadd: Visible emotes now have runetext as well.
+  SimpleMaroon:
+  - rscadd: Added a corporate peaked cap selection to the loadout for Security, the
+      Captain, and the XO. They look like the Warden's hat, but also come in options
+      with no logo for more customization.
+  - imageadd: Added an HPS Narrows flag and banner to the loadout.
+  - qol: Pocket watches now have held sprites for both open and closed states, as
+      well as flipped sprites for when worn on the wrists.
+  Tag103:
+  - bugfix: Default gargoyle voidsuits and SFA gargoyle voidsuits no longer have their
+      sprites swapped with each other.
+  Wowzewow (Wezzy):
+  - imageadd: Resprites devices, fixes inhands, puts them in contained sprites.
+  - imageadd: Adds new mounted flash sprites.
+  - imagedel: Removes superfluous GPS item.
+  pocheto:
+  - imageadd: Added 25 new screens for Baseline IPCs.
+2025-01-26:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes books and flashlight bad icons.
+  - bugfix: Fixes the GPS.
+  - bugfix: Removes duplicate mimosa entry. Fixes invisible mimosa bug.
+  - bugfix: Fixes some mapped shirts with wrong paths.
+2025-01-29:
+  ChangeMe:
+  - rscadd: You can now look down open spaces by shift clicking/examining them when
+      they're next to you.
+  - rscadd: You can now look up open spaces by clicking the HUD element at the top
+      right.
+  - bugfix: Fixed inconsistencies with the camera getting stuck while looking up or
+      down. It should now be much more fluid.
+  Furrycactus:
+  - rscadd: Added a guest pass terminal in Service by the Kitchen, Security, and one
+      to the Bridge.
+  - rscdel: Added a ringer and ringer terminal in the Security lobby.
+  MattAtlas:
+  - bugfix: Announcements now actually only show up for ghosts if they are on the
+      same z-level OR if it's a Horizon announcement.
+  SimpleMaroon:
+  - rscadd: Added a recolorable paper sheet to the loadout. You can write things on
+      it before you spawn, just like with business cards.
+  - qol: Added several Unathi loadout items to the Xenowear - Diona tab that were
+      not previously available to Moghesian Dionae.
+  - rscdel: Removed the Dionae sinta tunic from the Xenowear - Diona tab. The tunic
+      can now be selected for Dionae under the standard option in Xenowear - Unathi
+      instead.
+  - imageadd: Added an alternate recolorable boonie hat with an accent to the loadout.
+  - imageadd: Added black, white, and Zavodskoi-brown Dominian capes with colorable
+      stripes to the loadout. You can say that the cape is in the color of a Minor
+      House through the description if you desire.
+  - qol: The Zavodskoi Dominian cape selection in the loadout no longer explicitly
+      gives reference to Great Houses only.
+  - bugfix: The Zavodskoi Dominian cape selection in the loadout can now choose a
+      spawn slot like intended.
+  SingingSpock:
+  - spellcheck: Fixed some wording in the Republic Decurion ghostrole to reflect that
+      officers are commissioned, not enlisted.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes accessory custom item sprites.

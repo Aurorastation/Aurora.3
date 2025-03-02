@@ -89,7 +89,7 @@
 	if(user)
 		H.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>"
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to handcuff [H.name] ([H.ckey])</span>"
-		msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+		msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 	feedback_add_details("handcuffs","H")
 
 	if(user)
@@ -136,7 +136,7 @@
 
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")
 	H.visible_message(s, SPAN_WARNING("You chew on your [O.name]!"))
-	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
+	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += "\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>"
 	log_attack("[s] ([H.ckey])")
 

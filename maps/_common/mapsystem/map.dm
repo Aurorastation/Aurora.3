@@ -86,9 +86,9 @@
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
 
-	var/list/lobby_icons = list() // The icons which contains the lobby images. A dmi is picked at random.
-	var/lobby_icon                // This is what the game uses to store the chosen dmi.
-	var/list/lobby_screens = list() // The list of lobby screen to pick() from. Leave this unset to fill from the lobby icon DMI.
+	/// A list of paths to rotate for the lobby image, png/bmp/jpg/gif only
+	var/list/lobby_icon_image_paths = list()
+
 	var/lobby_transitions = FALSE          // If a number, transition between the lobby screens with this delay instead of picking just one.
 
 	var/use_overmap = FALSE		//If overmap should be used (including overmap space travel override)
@@ -156,9 +156,6 @@
 	if(!LAZYLEN(planet_size))
 		planet_size = list(world.maxx, world.maxy)
 
-/datum/map/proc/generate_asteroid()
-	return
-
 // Override to set custom access requirements for camera networks.
 /datum/map/proc/get_network_access(var/network)
 	return 0
@@ -179,9 +176,6 @@
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
-
-// Called right after SSatlas finishes loading the map & multiz is setup.
-/datum/map/proc/finalize_load()
 	return
 
 /datum/map/proc/build_exoplanets()

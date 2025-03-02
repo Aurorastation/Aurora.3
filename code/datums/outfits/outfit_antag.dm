@@ -683,7 +683,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)
@@ -728,7 +728,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)

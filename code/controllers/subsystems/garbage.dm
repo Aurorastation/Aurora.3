@@ -234,7 +234,7 @@ SUBSYSTEM_DEF(garbage)
 					if(!check_rights(R_ADMIN, user = admin?.mob))
 						continue
 					// Used to be to_chat(admin, "## TESTING: GC: -- [ADMIN_VV(D)] | [type] was unable to be GC'd --") but we do not have that macro
-					to_chat(admin, "## TESTING: GC: -- <a href='?_src_=vars;Vars=[REF(D)]'>VV</a> | [type] was unable to be GC'd --")
+					to_chat(admin, "## TESTING: GC: -- <a href='byond://?_src_=vars;Vars=[REF(D)]'>VV</a> | [type] was unable to be GC'd --")
 				#endif
 				I.failures++
 

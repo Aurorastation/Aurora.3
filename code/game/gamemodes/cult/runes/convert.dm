@@ -74,7 +74,7 @@
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE
 
-			if(!cult.can_become_antag(target.mind) || player_is_antag(target.mind))
+			if(!GLOB.cult.can_become_antag(target.mind) || player_is_antag(target.mind))
 				if(jobban_isbanned(target.mind, "cultist"))
 					shard_player(target, A)
 				else
@@ -87,7 +87,7 @@
 				waiting_for_input[target] = FALSE
 				switch(choice)
 					if("Submit")
-						cult.add_antagonist(target.mind, do_not_equip)
+						GLOB.cult.add_antagonist(target.mind, do_not_equip)
 						converting -= target
 						target.hallucination = 0 //sudden clarity
 						target.setBrainLoss(0) // nar'sie heals you

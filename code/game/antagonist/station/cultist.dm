@@ -1,4 +1,4 @@
-var/datum/antagonist/cultist/cult
+GLOBAL_DATUM(cult, /datum/antagonist/cultist)
 
 /proc/iscultist(var/mob/player)
 	if(player.faction == "cult")
@@ -6,7 +6,7 @@ var/datum/antagonist/cultist/cult
 	if(player.mind)
 		if(player.mind.antag_datums[MODE_CULTIST])
 			return TRUE
-		if(cult && (player.mind in cult.current_antagonists))
+		if(GLOB.cult && (player.mind in GLOB.cult.current_antagonists))
 			return TRUE
 	return FALSE
 
@@ -42,7 +42,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/New()
 	..()
 	welcome_text = "You have a talisman in your possession; one that will help you start the cult on the [station_name(TRUE)]. Use it well and remember - there are others."
-	cult = src
+	GLOB.cult = src
 
 /datum/antagonist/cultist/create_global_objectives()
 
@@ -119,7 +119,7 @@ var/datum/antagonist/cultist/cult
 	if(!istype(target))
 		return
 
-	if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))
+	if(!GLOB.cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))
 		to_chat(usr, SPAN_CULT("You get the sense that [target] would be an unworthy offering."))
 	else
 		to_chat(usr, SPAN_CULT("You get the sense that your master would be pleased to welcome [target] into the cult."))

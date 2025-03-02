@@ -1,4 +1,4 @@
-var/global/vs_control/vsc = new
+GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 
 /vs_control
 	var/fire_consuption_rate = 0.25
@@ -111,7 +111,7 @@ var/global/vs_control/vsc = new
 			vw = vars[ch]
 			if("[ch]_DESC" in vars) vw_desc = vars["[ch]_DESC"]
 			if("[ch]_NAME" in vars) vw_name = vars["[ch]_NAME"]
-		dat += "<b>[vw_name] = [vw]</b> <A href='?src=[REF(src)];changevar=[ch]'>\[Change\]</A><br>"
+		dat += "<b>[vw_name] = [vw]</b> <A href='byond://?src=[REF(src)];changevar=[ch]'>\[Change\]</A><br>"
 		dat += "<i>[vw_desc]</i><br><br>"
 	user << browse(dat,"window=settings")
 

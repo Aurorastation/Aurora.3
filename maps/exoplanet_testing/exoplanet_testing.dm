@@ -13,7 +13,7 @@
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
-	lobby_icons = list('icons/misc/titlescreens/runtime/away.dmi')
+	lobby_icon_image_paths = list('icons/misc/titlescreens/runtime/test.png')
 	lobby_transitions = 10 SECONDS
 	allowed_spawns = list()
 
@@ -70,8 +70,8 @@
 			for(var/datum/map_template/ruin/exoplanet/ruin as anything in all_ruins)
 				types_fail_list += ruin.type
 
-			SSunit_tests_config.UT.fail("**** [ascii_red]FAILED SPAWNING RUINS:[ascii_reset] [sanity_count > 5 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] \
-										for ruins [english_list(types_fail_list)] ****", __FILE__, __LINE__)
+			SSunit_tests_config.UT.fail(TEST_OUTPUT_RED("**** FAILED SPAWNING RUINS: [sanity_count > 5 ? "EXCEEDED SANITY COUNT" : "NO VALID PLANETS"] \
+										for ruins [english_list(types_fail_list)] ****"), __FILE__, __LINE__)
 			break
 
 /datum/map/exoplanet_testing/proc/build_exoplanets_for_testing(list/ruins_to_test = list(), list/exoplanet_types = subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
@@ -108,7 +108,7 @@
 			if(new_planet.ruin_planet_type & R.planet_types)
 				ruins_to_spawn |= R
 
-		testing("[ascii_green]LOADING EXOPLANET:[ascii_reset] Spawning [new_planet.name] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		testing(TEST_OUTPUT_GREEN("LOADING EXOPLANET: Spawning [new_planet.name] on Z [english_list(GetConnectedZlevels(world.maxz))]"))
 		testing("With ruins: [english_list(ruins_to_spawn)]")
 
 		new_planet.build_level_for_testing(ruins_to_spawn)

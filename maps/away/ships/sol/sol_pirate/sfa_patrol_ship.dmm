@@ -697,7 +697,8 @@
 /area/ship/sfa_patrol_ship)
 "bFk" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -5863,7 +5864,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "rDx" = (

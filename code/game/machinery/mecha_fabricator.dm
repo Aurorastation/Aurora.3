@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
 	name = "mechatronic fabricator"
 	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	icon = 'icons/obj/machinery/robotics.dmi'
-	icon_state = "fab-base"
+	icon = 'icons/obj/machinery/robotics_fabricator.dmi'
+	icon_state = "fab"
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 20
@@ -53,11 +53,15 @@
 
 /obj/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
-	icon_state = "fab-base"
-	if(build_callback_timer)
-		AddOverlays("fab-active")
 	if(panel_open)
-		AddOverlays("fab-panel")
+		AddOverlays("[icon_state]_panel")
+	if(!(stat & (NOPOWER|BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(build_callback_timer)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
@@ -184,10 +188,13 @@
 	if(materials[M.material.name] + M.perunit <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
-			var/icon/load = icon(icon, "load")
-			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
-			AddOverlays(load)
-			CUT_OVERLAY_IN(load, 6)
+			var/mutable_appearance/MA = mutable_appearance(icon, "material_insertion")
+			MA.color = M.material.icon_colour
+			//first play the insertion animation
+			flick_overlay_view(MA, 1 SECONDS)
+
+			//now play the progress bar animation
+			flick_overlay_view(mutable_appearance(icon, "fab_progress"), 1 SECONDS)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
@@ -233,7 +240,7 @@
 			do_hair_pull(target)
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>"
 			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
 		if(!do_after(user, 3.5 SECONDS, target, DO_UNIQUE))

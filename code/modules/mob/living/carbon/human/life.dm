@@ -654,11 +654,11 @@
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
 					else if(I == l_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
+						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
-						adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
+						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)
 
 	if (intoxication)
 		handle_intoxication()
@@ -1418,7 +1418,7 @@
 
 /mob/living/carbon/human/handle_vision()
 	if(client)
-		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+		client.screen.Remove(GLOB.global_hud.blurry, GLOB.global_hud.druggy, GLOB.global_hud.vimpaired, GLOB.global_hud.darkMask, GLOB.global_hud.nvg, GLOB.global_hud.thermal, GLOB.global_hud.meson, GLOB.global_hud.science)
 	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)

@@ -763,3 +763,64 @@
 	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
 	icon_state = "amapola_ute_hat"
 	item_state = "amapola_ute_hat"
+
+/obj/item/clothing/head/peaked_cap
+	name = "corporate peaked cap"
+	desc = "A military-style corporate peaked cap. This one bears the emblem of NanoTrasen Incorporated."
+	icon_state = "nt_warden_hat"
+	item_state = "nt_warden_hat"
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/peaked_cap/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of NanoTrasen Incorporated."
+	icon_state = "nt_warden_hat_nologo"
+	item_state = "nt_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat"
+	item_state = "zav_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat_nologo"
+	item_state = "zav_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/alt
+	icon_state = "zav_warden_hat_alt"
+	item_state = "zav_warden_hat_alt"
+
+/obj/item/clothing/head/peaked_cap/zavodskoi/alt/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Zavodskoi Interstellar."
+	icon_state = "zav_warden_hat_alt_nologo"
+	item_state = "zav_warden_hat_alt_nologo"
+
+/obj/item/clothing/head/peaked_cap/idris
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Idris Incorporated."
+	icon_state = "idris_warden_hat"
+	item_state = "idris_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/idris/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of Idris Incorporated."
+	icon_state = "idris_warden_hat_nologo"
+	item_state = "idris_warden_hat_nologo"
+
+/obj/item/clothing/head/peaked_cap/pmcg
+	desc = "A military-style corporate peaked cap. This one bears the emblem of the Private Military Contracting Group."
+	icon_state = "pmc_warden_hat"
+	item_state = "pmc_warden_hat"
+
+/obj/item/clothing/head/peaked_cap/pmcg/no_logo
+	desc = "A military-style corporate peaked cap. This one bears the colors of the Private Military Contracting Group."
+	icon_state = "pmc_warden_hat_nologo"
+	item_state = "pmc_warden_hat_nologo"
+
+//goblin.stev's stuff
+/obj/item/clothing/head/qeburger_visor
+	name = "Quick-E-Burger Food Technician Visor"
+	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
+	icon = 'icons/obj/clothing/hats/orion.dmi'
+	icon_state = "quickeburger_visorcap"
+	item_state = "quickeburger_visorcap"
+	contained_sprite = TRUE

@@ -151,7 +151,7 @@ SUBSYSTEM_DEF(news)
 
 /datum/controller/subsystem/news/proc/alert_readers(var/annoncement)
 	SHOULD_NOT_SLEEP(TRUE)
-	for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+	for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()
 

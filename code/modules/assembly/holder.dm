@@ -1,5 +1,5 @@
 /obj/item/device/assembly_holder
-	name = "Assembly"
+	name = "assembly"
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"

@@ -1,4 +1,4 @@
-var/list/sounds_cache = list()
+GLOBAL_LIST_INIT_TYPED(sounds_cache, /sound, list())
 
 /client/proc/play_sound(S as sound)
 	set category = "Fun"
@@ -8,7 +8,7 @@ var/list/sounds_cache = list()
 	var/sound/uploaded_sound = sound(S, repeat = 0, wait = 1, channel = 777)
 	uploaded_sound.priority = 250
 
-	sounds_cache += S
+	GLOB.sounds_cache += S
 
 	if(alert("Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request" ,"Play", "Cancel") == "Cancel")
 		return
@@ -39,7 +39,7 @@ var/list/sounds_cache = list()
 
 	var/list/sounds = file2list('sound/serversound_list.txt');
 	sounds += "--CANCEL--"
-	sounds += sounds_cache
+	sounds += GLOB.sounds_cache
 
 	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
 

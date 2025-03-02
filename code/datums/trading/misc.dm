@@ -286,7 +286,7 @@
 		/obj/item/clothing/head/beret/tajaran/nka/officer	= TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
 		/obj/item/device/versebook/nka			= TRADER_THIS_TYPE,
-		/obj/item/pocketwatch/adhomai			= TRADER_THIS_TYPE,
+		/obj/item/clothing/wrists/watch/pocketwatch/adhomai			= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/amohda			= TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/amohda			= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/kettle			= TRADER_THIS_TYPE,

@@ -1,8 +1,9 @@
 #define AI_CHECK_WIRELESS 1
 #define AI_CHECK_RADIO 2
 
-var/list/ai_list = list()
-var/list/ai_verbs_default = list(
+GLOBAL_LIST_INIT_TYPED(ai_list, /mob/living/silicon/ai, list())
+
+GLOBAL_LIST_INIT(ai_verbs_default, list(
 	/mob/living/silicon/ai/proc/ai_announcement,
 	/mob/living/silicon/ai/proc/ai_call_shuttle,
 	/mob/living/silicon/ai/proc/ai_emergency_message,
@@ -28,13 +29,13 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/ai_examine,
 	/mob/living/silicon/ai/proc/multitool_mode,
 	/mob/living/silicon/ai/proc/toggle_hologram_movement
-)
+))
 
 //Not sure why this is necessary...
 /proc/AutoUpdateAI(obj/subject)
 	var/is_in_use = 0
 	if (subject!=null)
-		for(var/A in ai_list)
+		for(var/A in GLOB.ai_list)
 			var/mob/living/silicon/ai/M = A
 			if ((M.client && M.machine == subject))
 				is_in_use = 1
@@ -107,11 +108,11 @@ var/list/ai_verbs_default = list(
 	var/custom_sprite = FALSE 				// Whether the selected icon is custom
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
-	add_verb(src, ai_verbs_default)
+	add_verb(src, GLOB.ai_verbs_default)
 	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/proc/remove_ai_verbs()
-	remove_verb(src, ai_verbs_default)
+	remove_verb(src, GLOB.ai_verbs_default)
 	remove_verb(src, silicon_subsystems)
 
 /mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
@@ -121,11 +122,11 @@ var/list/ai_verbs_default = list(
 	announcement.announcement_type = "A.I. Announcement"
 	announcement.newscast = TRUE
 
-	var/list/possibleNames = ai_names
+	var/list/possibleNames = GLOB.ai_names
 
 	var/pickedName
 	while(!pickedName)
-		pickedName = pick(ai_names)
+		pickedName = pick(GLOB.ai_names)
 		for(var/mob/living/silicon/ai/A in GLOB.mob_list)
 			if(A.real_name == pickedName && length(possibleNames) > 1) //fixing the theoretically possible infinite loop
 				possibleNames -= pickedName
@@ -141,7 +142,7 @@ var/list/ai_verbs_default = list(
 	if(L && istype(L, /datum/ai_laws))
 		laws = L
 	else
-		laws = new base_law_type
+		laws = new GLOB.base_law_type
 
 	ai_multi = new(src)
 	ai_radio = new(src)
@@ -197,7 +198,7 @@ var/list/ai_verbs_default = list(
 	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
 
-	ai_list += src
+	GLOB.ai_list += src
 
 	GLOB.cameranet.add_source(src)
 
@@ -213,15 +214,15 @@ var/list/ai_verbs_default = list(
 	QDEL_NULL(psupply)
 	QDEL_NULL(ai_camera)
 	QDEL_NULL(holo_icon)
-	ai_list -= src
+	GLOB.ai_list -= src
 	destroy_eyeobj()
 	return ..()
 
 /mob/living/silicon/ai/proc/on_mob_init()
 	to_chat(src, "<h3>You are playing the [station_name()]'s AI.</h3>")
-	to_chat(src, "<strong><a href='?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
+	to_chat(src, "<strong><a href='byond://?src=[REF(src)];view_ai_help=1'>\[View help\]</a></strong> (or use OOC command <code>AI-Help</code> at any time)<br>")
 
-	if(malf && !(mind in malf.current_antagonists))
+	if(GLOB.malf && !(mind in GLOB.malf.current_antagonists))
 		show_laws()
 		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
 
@@ -284,7 +285,7 @@ var/list/ai_verbs_default = list(
 		icon = CUSTOM_ITEM_SYNTH
 		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
 	else
-		selected_sprite = default_ai_icon
+		selected_sprite = GLOB.default_ai_icon
 	update_icon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
@@ -318,7 +319,7 @@ var/list/ai_verbs_default = list(
 	name = "power supply"
 	active_power_usage = 50000 // Station AIs use significant amounts of power. This, when combined with charged SMES should mean AI lasts for 1hr without external power.
 	use_power = POWER_USE_ACTIVE
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	var/mob/living/silicon/ai/powered_ai
 	invisibility = 100
 
@@ -391,7 +392,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if (!custom_sprite)
-		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", ai_icons, selected_sprite)
+		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", GLOB.ai_icons, selected_sprite)
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 
@@ -604,7 +605,7 @@ var/list/ai_verbs_default = list(
 	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if(!C.can_use())
 			continue
-		var/list/tempnetwork = difflist(C.network,restricted_camera_networks,1)
+		var/list/tempnetwork = difflist(C.network, GLOB.restricted_camera_networks, 1)
 		for(var/i in tempnetwork)
 			cameralist[i] = i
 
@@ -865,7 +866,7 @@ var/list/ai_verbs_default = list(
 	to_chat(src, SPAN_NOTICE("Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged"))
 
 /mob/living/silicon/ai/update_icon()
-	if(!selected_sprite) selected_sprite = default_ai_icon
+	if(!selected_sprite) selected_sprite = GLOB.default_ai_icon
 
 	if(stat == DEAD)
 		icon_state = selected_sprite.dead_icon

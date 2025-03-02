@@ -1,4 +1,4 @@
-var/datum/antagonist/renegade/renegades
+GLOBAL_DATUM(renegades, /datum/antagonist/renegade)
 
 /datum/antagonist/renegade
 	role_text = "Renegade"
@@ -15,7 +15,7 @@ var/datum/antagonist/renegade/renegades
 
 /datum/antagonist/renegade/New()
 	..()
-	renegades = src
+	GLOB.renegades = src
 
 /datum/antagonist/renegade/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(..())
@@ -45,4 +45,4 @@ var/datum/antagonist/renegade/renegades
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
-		renegades.add_antagonist(H.mind)
+		GLOB.renegades.add_antagonist(H.mind)

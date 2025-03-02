@@ -116,15 +116,15 @@
 
 		switch(href_list["call_shuttle"])
 			if("1")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
 
 			if("2")
-				if (evacuation_controller.call_evacuation(usr, TRUE))
+				if (GLOB.evacuation_controller.call_evacuation(usr, TRUE))
 					log_admin("[key_name(usr)] called an evacuation.")
 					message_admins("[key_name_admin(usr)] called an evacuation.", 1)
-				else if (evacuation_controller.cancel_evacuation())
+				else if (GLOB.evacuation_controller.cancel_evacuation())
 					log_admin("[key_name(usr)] cancelled an evacuation.")
 					message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
 
@@ -412,9 +412,9 @@
 			return alert(usr, "The game has already started.", null, null, null, null)
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in GLOB.config.modes)
-			dat += {"<A href='?src=[REF(src)];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
-		dat += {"<A href='?src=[REF(src)];c_mode2=secret'>Secret</A><br>"}
-		dat += {"<A href='?src=[REF(src)];c_mode2=random'>Random</A><br>"}
+			dat += {"<A href='byond://?src=[REF(src)];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];c_mode2=secret'>Secret</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];c_mode2=random'>Random</A><br>"}
 		dat += {"Now: [GLOB.master_mode]"}
 		usr << browse(dat, "window=c_mode")
 
@@ -428,8 +428,8 @@
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in GLOB.config.modes)
-			dat += {"<A href='?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
-		dat += {"<A href='?src=[REF(src)];f_secret2=secret'>Random (default)</A><br>"}
+			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
+		dat += {"<A href='byond://?src=[REF(src)];f_secret2=secret'>Random (default)</A><br>"}
 		dat += {"Now: [GLOB.secret_force_mode]"}
 		usr << browse(dat, "window=f_secret")
 
@@ -831,7 +831,7 @@
 		dat += "Location: [location_description]<br>"
 		if(special_role_description)
 			dat += "Special Role Desc: [special_role_description]<br>"
-		dat += "(<a href='?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A HREF='?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A HREF='?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A HREF='?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
+		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
 		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info (M.name)", 450, 500)
 		extrainfo_win.set_content(dat)
@@ -979,7 +979,7 @@
 
 			for (var/page = 1, page <= B.pages.len, page++)
 				var/obj/pageobj = B.pages[page]
-				data += "<A href='?src=[REF(src)];AdminFaxViewPage=[page];paper_bundle=[REF(B)]'>Page [page] - [pageobj.name]</A><BR>"
+				data += "<A href='byond://?src=[REF(src)];AdminFaxViewPage=[page];paper_bundle=[REF(B)]'>Page [page] - [pageobj.name]</A><BR>"
 
 			usr << browse(data, "window=[B.name]")
 		else
@@ -1007,7 +1007,7 @@
 			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
-			department = input("Choose the target department.", "Target Department", null) in alldepartments
+			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
 
 		create_admin_fax(department)
 
@@ -1304,7 +1304,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1320,7 +1320,7 @@
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()
@@ -1458,11 +1458,11 @@
 	else if(href_list["vsc"])
 		if(check_rights(R_ADMIN|R_SERVER))
 			if(href_list["vsc"] == "airflow")
-				vsc.ChangeSettingsDialog(usr,vsc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.settings)
 			if(href_list["vsc"] == GAS_PHORON)
-				vsc.ChangeSettingsDialog(usr,vsc.plc.settings)
+				GLOB.vsc.ChangeSettingsDialog(usr, GLOB.vsc.plc.settings)
 			if(href_list["vsc"] == "default")
-				vsc.SetDefault(usr)
+				GLOB.vsc.SetDefault(usr)
 
 	else if(href_list["toglang"])
 		if(check_rights(R_SPAWN))
@@ -1589,11 +1589,11 @@
 
 /mob/extra_admin_link(var/source)
 	if(client && eyeobj)
-		return "|<A HREF='?[source];adminplayerobservejump=[REF(eyeobj)]'>EYE</A>"
+		return "|<A href='byond://?[source];adminplayerobservejump=[REF(eyeobj)]'>EYE</A>"
 
 /mob/abstract/ghost/observer/extra_admin_link(var/source)
 	if(mind && mind.current)
-		return "|<A HREF='?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
+		return "|<A href='byond://?[source];adminplayerobservejump=[REF(mind.current)]'>BDY</A>"
 
 /proc/admin_jump_link(var/atom/target, var/source)
 	if(!target) return
@@ -1603,7 +1603,7 @@
 	else
 		source = "_src_=holder"
 
-	. = "<A HREF='?[source];adminplayerobservejump=[REF(target)]'>JMP</A>"
+	. = "<A href='byond://?[source];adminplayerobservejump=[REF(target)]'>JMP</A>"
 	. += target.extra_admin_link(source)
 
 /proc/spawn_humanoid_species_admin(var/mob/user, var/mob/M, var/delmob)

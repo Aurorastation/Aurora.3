@@ -1,6 +1,6 @@
 /obj/item/airlock_electronics
 	name = "airlock electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	w_class = WEIGHT_CLASS_TINY
 
@@ -26,25 +26,25 @@
 		t1 += "Operator: [last_configurator]<br>"
 
 	if(locked)
-		t1 += "<a href='?src=[REF(src)];login=1'>Swipe ID</a><hr>"
+		t1 += "<a href='byond://?src=[REF(src)];login=1'>Swipe ID</a><hr>"
 	else
-		t1 += "<a href='?src=[REF(src)];logout=1'>Block</a><hr>"
+		t1 += "<a href='byond://?src=[REF(src)];logout=1'>Block</a><hr>"
 
 		t1 += "<B>Unrestricted Access Settings</B><br>"
 
 
 		for(var/direction in GLOB.cardinals)
 			if(direction & unres_dir)
-				t1 += "<a style='color:#00dd12' href='?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+				t1 += "<a style='color:#00dd12' href='byond://?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 			else
-				t1 += "<a href='?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
+				t1 += "<a href='byond://?src=[REF(src)];unres_dir=[direction]'>[capitalize(dir2text(direction))]</a><br>"
 
 		t1 += "<hr>"
 
 		t1 += "Access requirement is set to "
-		t1 += one_access ? "<a style='color:#00dd12' href='?src=[REF(src)];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='?src=[REF(src)];one_access=1'>ALL</a><hr>"
+		t1 += one_access ? "<a style='color:#00dd12' href='byond://?src=[REF(src)];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='byond://?src=[REF(src)];one_access=1'>ALL</a><hr>"
 
-		t1 += conf_access == null ? "<font color=#f7066a>All</font><br>" : "<a href='?src=[REF(src)];access=all'>All</a><br>"
+		t1 += conf_access == null ? "<font color=#f7066a>All</font><br>" : "<a href='byond://?src=[REF(src)];access=all'>All</a><br>"
 
 		t1 += "<br>"
 
@@ -53,11 +53,11 @@
 			var/aname = get_access_desc(acc)
 
 			if(!conf_access?.len || !(acc in conf_access))
-				t1 += "<a href='?src=[REF(src)];access=[acc]'>[aname]</a><br>"
+				t1 += "<a href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 			else if(one_access)
-				t1 += "<a style='color:#00dd12' href='?src=[REF(src)];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#00dd12' href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 			else
-				t1 += "<a style='color:#f7066a' href='?src=[REF(src)];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#f7066a' href='byond://?src=[REF(src)];access=[acc]'>[aname]</a><br>"
 
 	var/datum/browser/electronics_win = new(user, "electronics", capitalize_first_letters(name))
 	electronics_win.set_content(t1)

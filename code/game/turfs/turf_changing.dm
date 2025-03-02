@@ -88,7 +88,7 @@
 		regenerate_ao()
 #endif
 
-	if(lighting_overlays_initialized)
+	if(GLOB.lighting_overlays_initialized)
 		recalc_atom_opacity()
 		lighting_overlay = old_lighting_overlay
 		if (lighting_overlay && lighting_overlay.loc != src)

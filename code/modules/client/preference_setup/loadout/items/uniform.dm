@@ -7,7 +7,7 @@
 
 /datum/gear/uniform/New()
 	..()
-	gear_tweaks += list(gear_tweak_uniform_rolled_state)
+	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
@@ -75,7 +75,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	allowed_roles = list("Scientist", "Lab Assistant", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Research Intern", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -93,7 +93,7 @@
 	display_name = "colorable scrubs"
 	description = "It's made of a special fiber that provides minor protection against biohazards."
 	path = /obj/item/clothing/under/rank/medical/generic
-	allowed_roles = list("Scientist", "Lab Assistant", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Research Intern", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/dress
@@ -362,7 +362,7 @@
 #define UNIFORM_ROLLED_SLEEVES "Rolled Sleeves"
 #define UNIFORM_ROLLED_DOWN "Rolled Down"
 
-var/datum/gear_tweak/uniform_rolled_state/gear_tweak_uniform_rolled_state = new()
+GLOBAL_DATUM_INIT(gear_tweak_uniform_rolled_state, /datum/gear_tweak/uniform_rolled_state, new())
 
 /datum/gear_tweak/uniform_rolled_state/get_contents(var/metadata)
 	return "Rolled State: [metadata]"

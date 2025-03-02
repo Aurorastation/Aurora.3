@@ -206,8 +206,14 @@
 		var/obj/O = o
 		O.see_emote(src, message)
 
+	var/list/hear_clients = list()
+	for(var/mob/M in messagemobs)
+		if(M.client)
+			hear_clients += M.client
+
+
 	if(intent_message)
-		intent_message(intent_message, intent_range, messagemobs)
+		intent_message(intent_message, intent_range, messagemobs + src)
 
 	//Multiz, have shadow do same
 	if(bound_overlay)
@@ -363,14 +369,14 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
-	<BR>[(internal ? "<A href='?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
-	<BR><A href='?src=[REF(src)];item=pockets'>Empty Pockets</A>
-	<BR><A href='?src=[REF(user)];refresh=1'>Refresh</A>
-	<BR><A href='?src=[REF(user)];mach_close=mob[name]'>Close</A>
+	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='byond://?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='byond://?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
+	<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty Pockets</A>
+	<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>
+	<BR><A href='byond://?src=[REF(user)];mach_close=mob[name]'>Close</A>
 	<BR>"}
 
 	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name))
