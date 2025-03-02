@@ -52,6 +52,16 @@ GLOBAL_LIST_INIT_TYPED(cached_space, /obj/effect/overmap/visitable/sector/tempor
 	return isnull(client)
 
 /mob/living/carbon/human/lost_in_space()
+	if(!(species && species.flags & IS_MECHANICAL))
+		return isnull(client) && stat == DEAD // Delete any corpses with no clients, if they're not IPC
+	if(!(mind && mind.key))
+		return isnull(client) && stat == DEAD // Delete IPC who have no mind or associated player
+
+	for(var/client/clt in GLOB.clients)
+		if(mind.key == clt.key)
+			return FALSE // If we find a key (from an online client) that once belonged to this dead IPC, don't delete them, as that player can still be revived.
+
+	// If, somehow, we get past all these checks and still haven't returned, just delete the dead ones.
 	return isnull(client) && stat == DEAD
 
 /proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
