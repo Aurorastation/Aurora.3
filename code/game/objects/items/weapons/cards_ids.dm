@@ -46,7 +46,7 @@
 	var/matrix/tf = matrix()
 	if(istype(loc, /obj/item/storage))
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/card/data
