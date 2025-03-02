@@ -1,0 +1,7 @@
+author: Tag103
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the two variants of the Sol Army field cap having no worn sprite due to the sprite intended for it being used as the item sprite instead."
+  - rscadd: "Added proper item sprites for the two variants of the Sol Army field cap."
