@@ -36,7 +36,7 @@
 
 /obj/machinery/appliance/cooker/grill/Initialize()
 	. = ..()
-	grill_loop = new(src, FALSE)
+	grill_loop = new(src)
 
 /obj/machinery/appliance/cooker/grill/Destroy()
 	QDEL_NULL(grill_loop)
@@ -64,16 +64,22 @@
 				return CI
 	return FALSE
 
+/obj/machinery/appliance/cooker/grill/proc/update_grilling_audio()
+	if(!grill_loop)
+		return
+	if(use_power)
+		grill_loop.start()
+	else
+		grill_loop.stop()
+
 /obj/machinery/appliance/cooker/grill/update_icon()
-	. = ..()
 	ClearOverlays()
+	update_grilling_audio()
 	if(!stat)
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-		grill_loop?.stop()
 	if(length(cooking_objs))
-		grill_loop.start()
 		var/datum/cooking_item/CI = cooking_objs[1]
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
@@ -103,3 +109,5 @@
 					food.transform = M
 					AddOverlays(food)
 				counter++
+	..()
+
