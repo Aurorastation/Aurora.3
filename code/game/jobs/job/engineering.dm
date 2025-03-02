@@ -40,7 +40,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
-	id = /obj/item/card/id/scc/silver
+	id = /obj/item/card/id/silver
 	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
