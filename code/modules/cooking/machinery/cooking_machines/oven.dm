@@ -129,7 +129,7 @@
 
 /obj/machinery/appliance/cooker/oven/adhomai
 	name = "adhomian oven"
-	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma"
+	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma."
 	icon_state = "adhomai_oven_open"
 
 /obj/machinery/appliance/cooker/oven/adhomai/update_icon()

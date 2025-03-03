@@ -113,5 +113,12 @@
 
 /obj/machinery/appliance/cooker/grill/stand
 	name = "grill stand"
-	desc = "A more commercialized version of your traditional griddle. What happened to the good old days where people griddled with passion?"
+	icon_state = "grill_cart_off"
+	on_icon = "grill_cart_on"
+	off_icon = "grill_cart_off"
+	desc = "A more commercialized version of your traditional grill. What happened to the good old days where people grilled with passion?"
 	use_power = POWER_USE_OFF
+
+/obj/machinery/appliance/cooker/grill/stand/update_icon()
+	..()
+	AddOverlays(image('icons/obj/machinery/cooking_machines.dmi', "front_bar"))

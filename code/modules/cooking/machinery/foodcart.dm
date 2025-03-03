@@ -71,10 +71,9 @@
 		return
 	visible_message(SPAN_NOTICE("[src] expands into a full stand."))
 	anchored = TRUE
-	if(!(cart_griddle?.stat & BROKEN)) // Unpacked, draw power
+	if(!(cart_griddle?.stat & BROKEN))
 		cart_griddle?.stat = POWEROFF
-		cart_griddle?.use_power = POWER_USE_IDLE
-	if(!(cart_smartfridge?.stat & BROKEN))
+	if(!(cart_smartfridge?.stat & BROKEN)) // Unpacked, draw power
 		cart_smartfridge.use_power = POWER_USE_IDLE
 	var/iteration = 1
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
