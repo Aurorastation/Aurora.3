@@ -848,3 +848,9 @@
 /datum/access/nuclear_missile_silo_access_high
 	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
 	desc = "Nuclear Missile Silo Access High Security"
+
+//Being used for the Benevolent Guild hideout.
+#define ACCESS_KONYANG_BENEVOLENT 249
+/datum/access/konyang_benevolent
+	id = ACCESS_KONYANG_BENEVOLENT
+	access_type = ACCESS_TYPE_CENTCOM
