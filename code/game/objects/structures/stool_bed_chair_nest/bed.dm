@@ -519,7 +519,7 @@
 	collapse()
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
