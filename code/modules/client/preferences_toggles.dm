@@ -181,4 +181,4 @@
 
 	prefs.toggles_secondary ^= HIDE_ITEM_TOOLTIPS
 	prefs.save_preferences()
-	to_chat(src, SPAN_NOTICE("Item tooltips are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))

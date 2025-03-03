@@ -771,7 +771,7 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EIS/([H]): [items.len] items.")
 		var/obj/item/storage/B = locate() in H
 		if (B)
-			for(var/thing in items)
+			for (var/thing in items)
 				to_chat(H, SPAN_NOTICE("Placing \the [thing] in your [B.name]!"))
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata
@@ -782,8 +782,7 @@ SUBSYSTEM_DEF(jobs)
 					metadata = list()
 				G.spawn_item(B, metadata, H)
 				log_loadout("EIS/([H]): placed [thing] in [B].")
-			for(var/obj/item/I in B.contents)
-				I.in_storage = TRUE
+
 		else
 			to_chat(H, SPAN_DANGER("Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."))
 			log_loadout("EIS/([H]): unable to equip; no storage.")

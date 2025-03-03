@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Updates the Head of Staff offices, Representative Offices, and Bridge Area."
-  - rscadd: "Adds a Captain's safe, which contains their spare ID, nuclear authentication disk, and pinpointer."
+  - qol: "The Bridge area has received minor mapping changes."
+  - qol: "Command offices have been remapped."
+  - rscadd: "A Captain's safe has been added, storing the spare ID, nuclear authentication disk, and disk pinpointer."

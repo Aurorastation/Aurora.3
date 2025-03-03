@@ -357,11 +357,11 @@
 /obj/item/storage/proc/slot_orient_objs(var/rows, var/cols, var/list/obj/item/display_contents)
 	var/cx = 4
 	var/cy = 2+rows
-	src.boxes.screen_loc = "4:12,2:16 to [4+cols]:16,[2+rows]:16"
+	src.boxes.screen_loc = "4:16,2:16 to [4+cols]:16,[2+rows]:16"
 
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
-			ND.sample_object.screen_loc = "[cx]:12,[cy]:16"
+			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
@@ -377,14 +377,14 @@
 				cy--
 	else
 		for(var/obj/O in contents)
-			O.screen_loc = "[cx]:12,[cy]:16"
+			O.screen_loc = "[cx]:16,[cy]:16"
 			O.maptext = ""
 			O.hud_layerise()
 			cx++
 			if (cx > (4+cols))
 				cx = 4
 				cy--
-	closer.screen_loc = "[4+cols+1]:12,2:16"
+	closer.screen_loc = "[4+cols+1]:16,2:16"
 
 /obj/item/storage/proc/handle_name_initials(var/sample_name)
 	var/name_initials = ""
@@ -395,33 +395,31 @@
 
 /obj/item/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
 
-	// Don't touch these numbers. This works on literal pixel measurements. Unless you want to fix this shit or change the sprites.
+	var/baseline_max_storage_space = 16 //should be equal to default backpack capacity
 	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
-	var/storage_width = (1+stored_cap_width*2)*max_storage_space - 1 //length of sprite for the box representing total storage space, -1px. because no spacing on left for first item.
+	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
 	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
-	M.Scale(storage_width / 32,1)
+	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
 	storage_continue.transform = M
 
-	storage_start.screen_loc = "4:12,2:16"
-	storage_continue.screen_loc = "4:[12 - 16 + round((storage_width + storage_cap_width*2) / 2, 1)],2:16" // -16 to center the sprite, since we're 32x32
-	storage_end.screen_loc = "4:[12 + storage_cap_width + storage_width],2:16"
+	storage_start.screen_loc = "4:16,2:16"
+	storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
+	storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
 
 	var/startpoint = 0
-	var/stored_width = 0
-	var/endpoint = 0 - storage_cap_width - 1
+	var/endpoint = 1
 
 	storage_start.vis_contents = list()
 	QDEL_LIST(storage_screens)
 	storage_screens = list()
 
 	for(var/obj/item/O in contents)
-		startpoint = endpoint + stored_cap_width + 1
-		stored_width = (9*O.get_storage_cost()-9)
-		endpoint = startpoint + stored_width + stored_cap_width
+		startpoint = endpoint + 1
+		endpoint += storage_width * O.get_storage_cost()/max_storage_space
 
 		var/atom/movable/screen/storage/background/stored_start = new /atom/movable/screen/storage/background(null, O, "stored_start")
 		var/atom/movable/screen/storage/background/stored_continue = new /atom/movable/screen/storage/background(null, O, "stored_continue")
@@ -429,26 +427,26 @@
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
-		M_continue.Scale(stored_width / 32, 1)
-		M_continue.Translate(startpoint - 16 + ((stored_width + stored_cap_width*2) / 2), 0) // -16 to center the sprite, since we're 32x32
-		stored_continue.transform = M_continue
-
-		var/atom/movable/screen/storage/background/stored_end = new /atom/movable/screen/storage/background(null, O, "stored_end")
 		var/matrix/M_end = matrix()
-		M_end.Translate(endpoint, 0)
+		M_start.Translate(startpoint,0)
+		M_continue.Scale((endpoint-startpoint-stored_cap_width*2)/32,1)
+		M_continue.Translate(startpoint+stored_cap_width+(endpoint-startpoint-stored_cap_width*2)/2 - 16,0)
+		M_end.Translate(endpoint-stored_cap_width,0)
+		stored_start.transform = M_start
+		stored_continue.transform = M_continue
 		stored_end.transform = M_end
 
 		storage_screens += list(stored_start, stored_continue, stored_end)
 		storage_start.add_vis_contents(list(stored_start, stored_continue, stored_end))
 
-		O.screen_loc = "4:[startpoint + round(stored_width/2)],2:16"
+		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
 		O.hud_layerise()
 
 	if (!defer_overlays)
 		storage_start.UpdateOverlays()
 
-	closer.screen_loc = "4:[12+storage_width+storage_cap_width*2],2:16"
+	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
 
 /datum/numbered_display
@@ -828,9 +826,6 @@
 		max_storage_space = STORAGE_SPACE_CAP
 
 	fill()
-
-	for(var/obj/item/I in contents)
-		I.in_storage = TRUE
 
 	if(!allow_quick_empty)
 		verbs -= /obj/item/storage/verb/quick_empty
