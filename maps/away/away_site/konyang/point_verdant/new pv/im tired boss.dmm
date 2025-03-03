@@ -90,6 +90,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/space)
+"aL" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/space)
 "aM" = (
 /obj/structure/rod_railing{
 	dir = 9
@@ -207,6 +211,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"bR" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "bS" = (
 /obj/effect/decal/curb{
@@ -459,7 +469,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "dD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor,
 /area/space)
 "dF" = (
@@ -649,6 +659,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
+/area/space)
+"eD" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "eE" = (
 /obj/effect/decal/road_marking{
@@ -866,11 +882,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/space)
 "gI" = (
-/obj/structure/ledge/quarter{
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/structure/flora/pottedplant/fortune_flower,
-/turf/simulated/floor/exoplanet/konyang,
+/turf/simulated/floor/wood,
 /area/space)
 "gJ" = (
 /obj/effect/decal/road_marking{
@@ -1759,6 +1774,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/space)
+"mh" = (
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
 "mj" = (
 /obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/sidewalk/flat,
@@ -1867,6 +1886,13 @@
 "nm" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete/square,
+/area/space)
+"nr" = (
+/obj/structure/ledge/quarter,
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "ns" = (
 /obj/effect/decal/road_marking/thin,
@@ -2523,6 +2549,12 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/space)
+"rT" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
 "rV" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -2595,6 +2627,13 @@
 "sm" = (
 /obj/structure/table/reinforced/wood,
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"sp" = (
+/obj/effect/decal/exterior_stairs/half,
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "ss" = (
 /obj/structure/rod_railing{
@@ -2783,6 +2822,19 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk,
+/area/space)
+"tr" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
 /area/space)
 "tv" = (
 /obj/structure/bed/stool/chair/padded/blue{
@@ -3291,6 +3343,19 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/space)
+"wC" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
+/area/space)
 "wG" = (
 /obj/effect/floor_decal/industrial/outline_segment/operations{
 	dir = 8
@@ -3781,6 +3846,16 @@
 	},
 /obj/structure/urban_grate,
 /turf/simulated/floor/asphalt,
+/area/space)
+"zr" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/marble,
 /area/space)
 "zw" = (
 /obj/machinery/vending/overloaders,
@@ -4371,6 +4446,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/space)
+"Cr" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/marble,
+/area/space)
 "Ct" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/food/drinks/dry_ramen{
@@ -4869,6 +4954,10 @@
 	dir = 6
 	},
 /turf/simulated/floor/asphalt,
+/area/space)
+"FK" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "FM" = (
 /obj/effect/decal/exterior_stairs/half,
@@ -5589,6 +5678,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/space)
+"JK" = (
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant/fern,
+/turf/simulated/floor/concrete,
+/area/space)
 "JM" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/food/snacks/riceball{
@@ -5642,6 +5738,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
+/area/space)
+"JV" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
 /area/space)
 "JW" = (
 /obj/item/hullbeacon/red,
@@ -6143,6 +6245,10 @@
 "Ns" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"Nv" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/slate,
+/area/space)
 "Nw" = (
 /obj/structure/platform{
 	dir = 8
@@ -6286,6 +6392,9 @@
 /area/space)
 "Oc" = (
 /obj/machinery/optable,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Oh" = (
@@ -6531,6 +6640,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/space)
+"Pv" = (
+/obj/structure/table/wood,
+/obj/item/device/versebook/trinary,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/space)
 "Py" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -6720,6 +6837,19 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/concrete,
 /area/space)
+"QD" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/refrigerator,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QH" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "QL" = (
 /turf/simulated/wall/r_wall,
 /area/space)
@@ -6832,6 +6962,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/space)
+"RD" = (
+/obj/effect/decal/exterior_stairs/half,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
 "RE" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6906,6 +7040,13 @@
 "RY" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/concrete/square,
+/area/space)
+"RZ" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/reagent_containers/food/snacks/seaweed{
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "Sc" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -7173,6 +7314,12 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"TH" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "TK" = (
 /obj/structure/ledge/corner{
 	dir = 4
@@ -7295,6 +7442,22 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/space)
+"Uv" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -6
+	},
+/obj/item/pen/silver{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/obj/item/paper_scanner{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/slate,
+/area/space)
 "UA" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/rod_railing,
@@ -7345,6 +7508,12 @@
 /obj/structure/ledge,
 /turf/simulated/floor/asphalt,
 /area/space)
+"US" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "UT" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -7379,11 +7548,7 @@
 /turf/simulated/floor/sidewalk,
 /area/space)
 "Vh" = (
-/obj/structure/table/wood/ebony,
-/obj/item/glass_jar{
-	pixel_y = 6;
-	name = "donations jar"
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/marble,
 /area/space)
 "Vj" = (
@@ -7758,6 +7923,12 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
 /area/space)
+"Xj" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
 "Xk" = (
 /obj/structure/rope_railing{
 	dir = 8
@@ -7860,6 +8031,10 @@
 /area/space)
 "XR" = (
 /turf/simulated/floor/sidewalk/flat,
+/area/space)
+"XU" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/turf/simulated/floor/wood,
 /area/space)
 "XY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -90055,8 +90230,8 @@ pW
 pW
 pW
 pW
-pW
-pW
+BQ
+ez
 pW
 pW
 pW
@@ -90310,17 +90485,17 @@ lX
 lX
 lX
 lX
+JK
+jR
+Xj
+mh
 lX
 lX
+dD
 lX
+dD
 lX
-lX
-lX
-lX
-lX
-lX
-lX
-lX
+dD
 lX
 lX
 SE
@@ -90564,21 +90739,21 @@ LU
 eW
 iS
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+yz
+yz
+XU
+Es
+Es
+RD
+mh
+lX
+yz
+yz
+yz
+yz
+yz
+yz
+yz
 lX
 Kc
 Ep
@@ -90821,21 +90996,21 @@ LU
 eW
 iS
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+gI
+yz
+TH
+Es
+rT
+sp
+nr
+lX
+gI
+yz
+yz
+yz
+yz
+yz
+aL
 lX
 Kc
 Ep
@@ -91078,21 +91253,21 @@ QY
 Ub
 iS
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+yz
+yz
+lX
+lX
+lX
+lX
+lX
+lX
+yz
+yz
+yz
+yz
+yz
+yz
+yz
 lX
 IZ
 lI
@@ -91335,21 +91510,21 @@ QY
 Ub
 iS
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
+yz
 lX
 IZ
 lI
@@ -91592,21 +91767,21 @@ AJ
 rl
 iS
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+OM
+OM
+yz
+lX
+QD
+eD
+eD
+lX
+yz
+yz
+bR
+yz
+yz
+yz
+yz
 lX
 SE
 sY
@@ -91849,21 +92024,21 @@ ez
 pW
 qm
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+yz
+yz
+yz
+lX
+FK
+fT
+fT
+lX
+gI
+yz
+RZ
+yz
+yz
+yz
+aL
 lX
 Yr
 pW
@@ -92106,21 +92281,21 @@ mW
 AD
 lX
 lX
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
-sy
+yz
+QH
+yz
+lX
+FK
+US
+fT
+lX
+yz
+yz
+yz
+yz
+yz
+yz
+yz
 lX
 lX
 Jq
@@ -92620,16 +92795,16 @@ Uq
 Uq
 lX
 ZJ
-ZJ
-ZJ
+Pv
+Uv
 lX
 rH
 DW
-Sg
+tr
 wG
 sP
 sP
-dq
+Cr
 By
 kb
 lX
@@ -92877,7 +93052,7 @@ Uq
 Uq
 cw
 kQ
-kQ
+JV
 kQ
 cw
 DW
@@ -93649,7 +93824,7 @@ Uq
 lX
 yy
 kQ
-kQ
+Nv
 lX
 gW
 SG
@@ -94938,11 +95113,11 @@ MO
 lX
 rH
 DW
-Sg
+wC
 tL
 tL
 tL
-dq
+zr
 In
 dr
 lX
@@ -96223,7 +96398,7 @@ Fj
 Fj
 Fj
 Fj
-gI
+Fj
 Fj
 Fj
 Fj
