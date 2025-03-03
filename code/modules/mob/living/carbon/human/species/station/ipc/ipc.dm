@@ -94,6 +94,7 @@
 		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
@@ -139,7 +140,7 @@
 		/singleton/origin_item/culture/scrapper
 	)
 
-	alterable_internal_organs = list()
+	alterable_internal_organs = list(BP_COOLING_UNIT)
 	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.

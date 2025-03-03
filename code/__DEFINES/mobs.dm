@@ -144,6 +144,7 @@
 #define BP_VOICE_SYNTHESIZER "voice synthesizer"
 #define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
 #define BP_HYDRAULICS		 "hydraulics system"
+#define BP_COOLING_UNIT		"cooling unit"
 #define BP_ACTUATORS_LEFT	"left arm actuators"
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
 

@@ -3010,6 +3010,7 @@
 #include "code\modules\organs\internal\species\vaurca.dm"
 #include "code\modules\organs\internal\species\machine\_generic.dm"
 #include "code\modules\organs\internal\species\machine\actuators.dm"
+#include "code\modules\organs\internal\species\machine\cooling_unit.dm"
 #include "code\modules\organs\internal\species\machine\hydraulics.dm"
 #include "code\modules\organs\internal\species\machine\internal_diagnostics.dm"
 #include "code\modules\organs\internal\species\machine\posibrain.dm"
