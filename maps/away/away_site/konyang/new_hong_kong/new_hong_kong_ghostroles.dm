@@ -6,7 +6,7 @@
 /datum/ghostspawner/human/konyang_benevolent
 	short_name = "konyang_benevolent"
 	name = "Benevolent Guild Muscle"
-	desc = "Guard the hideout. Say goon phrases like 'sure thing, Boss.' Be big and scary so people listen to your boss."
+	desc = "Guard the hideout. Say goon phrases like 'sure thing, Boss.' Be big and scary so people listen to your boss. Remember that you're not an antagonist."
 	tags = list("External")
 	spawnpoints = list("konyang_goon")
 	max_count = 1
@@ -26,10 +26,11 @@
 	r_pocket = /obj/item/material/knife/butterfly/switchblade
 	back = /obj/item/storage/backpack/satchel
 
-/datum/ghostspawner/human/konyang_goon/boss
-	name = "5-Cheung Boss"
-	short_name = "konyang_goon_boss"
-	desc = "Manage the local operations of 5-Cheung. Establish an understanding with the Superintendent. Make yourself a force in the community."
+/datum/ghostspawner/human/konyang_benevolent/boss
+	name = "Benevolent Guild Lieutenant"
+	short_name = "konyang_benevolent_boss"
+	desc = "Manage the local operations of Benevolent Guild. Keep your goons in line and away from police scrutiny. Collect money from\
+	guild owned enterprises. Lament that you cant abduct IPC's anymore because there's a Trinary church next door now."
 	max_count = 1
 	spawnpoints = list("konyang_goon_boss")
 	outfit = /obj/outfit/admin/konyang/mob_boss
