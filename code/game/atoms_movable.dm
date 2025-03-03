@@ -156,7 +156,7 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, NONE, TRUE, null)
+	RESOLVE_ACTIVE_MOVEMENT
 
 // Make sure you know what you're doing if you call this
 // You probably want CanPass()
