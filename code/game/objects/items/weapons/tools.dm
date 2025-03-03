@@ -156,6 +156,7 @@
 	if(build_from_parts)
 		color = pick(color_options)
 		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+	update_icon()
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
