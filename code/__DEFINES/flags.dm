@@ -26,10 +26,15 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 	"ZM_NO_OCCLUDE",
 	"ZM_MIMIC_BASETURF"))
 
-//EMP protection
+///EMP will protect itself.
 #define EMP_PROTECT_SELF (1<<0)
+///EMP will protect the contents from also being EMPed.
 #define EMP_PROTECT_CONTENTS (1<<1)
+///EMP will protect the wires.
 #define EMP_PROTECT_WIRES (1<<2)
+
+///Protects against all EMP types.
+#define EMP_PROTECT_ALL (EMP_PROTECT_SELF | EMP_PROTECT_CONTENTS | EMP_PROTECT_WIRES)
 
 // Flags bitmask
 
