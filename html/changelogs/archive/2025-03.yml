@@ -1,0 +1,23 @@
+2025-03-03:
+  FluffyGhost:
+  - bugfix: Fixed ninja teleporter requiring access to run.
+  - qol: Renamed the program to 'ninja teleporter' and removed the standard teleporter
+      from the program list for the preset.
+  SimpleMaroon:
+  - qol: In keeping with recent lore developments, the clause for Orepit humans and
+      Orepit IPCs no longer requires them to be Trinarists or in the Open Doors agreement.
+      This also means that they can select more religions as well as have standard
+      Coalition citizenship, and Orepit IPCs can select more accents.
+  Snowy1237:
+  - bugfix: Fixes the CE hardsuit magboots turning invisible when magboot mode is
+      turned on.
+  Tag103:
+  - bugfix: Fixes the two variants of the Sol Army field cap having no worn sprite
+      due to the sprite intended for it being used as the item sprite instead.
+  - rscadd: Added proper item sprites for the two variants of the Sol Army field cap.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes storage box alignment and storage space UI to use better maths.
+  - qol: Tweaks IDs, IDs and firing pins now rotate 90 degrees when in storage for
+      easier clickability.
+  - bugfix: Fixes Item Tooltip toggle message.
+  - bugfix: Fixes roundstart items in storage not showing item outlines.
