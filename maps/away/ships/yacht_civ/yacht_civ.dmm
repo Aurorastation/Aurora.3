@@ -5139,7 +5139,7 @@
 /area/ship/yacht_civ/lounge)
 "Tl" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "Tw" = (
