@@ -58,3 +58,4 @@ changes:
   - rscadd: "Made some minor tweaks in layout to the SCCV Intrepid, introduced new tables to cargo areas, made location of bluespace beacon visible through grate."
   - rscadd: "Added a bluespace beacon to the SCCV Quark."
   - rscadd: "The bluespace beacon's exact location is now visible on the SCCV Quark, Spark, Canary, and Intrepid."
+  - bugfix: "All Intrepid cameras should now be fully accessible from camera consoles."
