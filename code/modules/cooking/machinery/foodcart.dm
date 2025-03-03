@@ -39,7 +39,7 @@
 	packed_things.Cut()
 	return ..()
 
-/obj/machinery/food_cart/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+/obj/machinery/food_cart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!(stat & BROKEN))
 		if(cart_griddle.stat & BROKEN)
@@ -91,10 +91,12 @@
 	if(!check_access(id_card))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, TRUE)
 		return
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 	to_chat(user, SPAN_NOTICE("You attempt to [unpacked ? "pack up" :"unpack"] [src]..."))
 	if(!do_after(user, 5 SECONDS, src))
-		to_chat(user, SPAN_WARNING("Your [unpacked ? "" :"un"]packing of [src] was interrupted!"))
+		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)
 		return
+	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	if(unpacked)
 		pack_up()
 	else
@@ -105,11 +107,11 @@
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
 	for(var/angle in list(0, -45, 45))
 		var/turf/T = get_step(grabbed_turf, turn(SOUTH, angle))
-		if(T && !T.density)
-			new /obj/effect/temp_visual/cart_space(T)
-		else
+		if(T.density || T.contains_dense_objects())
 			has_space = FALSE
 			new /obj/effect/temp_visual/cart_space/bad(T)
+		else
+			new /obj/effect/temp_visual/cart_space(T)
 	return has_space
 
 /obj/machinery/food_cart/proc/lost_part(atom/movable/source, force)
@@ -120,9 +122,9 @@
 	UnregisterSignal(cart_smartfridge, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_table, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
 	UnregisterSignal(cart_tent, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
-	Destroy()
+	atom_break()
 
-/obj/machinery/food_cart/Destroy()
+/obj/machinery/food_cart/atom_break()
 	. = ..()
 	pack_up()
 	if(!QDELETED(cart_griddle))
