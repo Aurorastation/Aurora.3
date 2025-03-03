@@ -918,6 +918,8 @@
 	SET_ACTIVE_MOVEMENT(oldloc, direction, FALSE, list()) //This is different from TG because we don't have multitile movement (yet)
 	loc = newloc
 
+	. = TRUE
+
 	oldloc.Exited(src, direction)
 	if(oldarea != newarea)
 		oldarea.Exited(src, direction)
