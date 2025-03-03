@@ -45,7 +45,7 @@
 	if(var_to_edit in VVlocked)
 		if(!check_rights(R_DEBUG))	return
 	if(var_to_edit in VVckey_edit)
-		if(!check_rights(R_SPAWN|R_DEBUG)) return
+		if(!check_rights(R_DEBUG)) return
 	if(var_to_edit in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG)) return
 	if(!(var_to_edit in A.vars))
