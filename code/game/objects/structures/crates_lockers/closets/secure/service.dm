@@ -33,6 +33,9 @@
 	new /obj/item/storage/box/mousetraps(src)
 	new /obj/item/storage/box/cleaner_tablets(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 // Away Ship/Site Custodial Locker
 /obj/structure/closet/secure_closet/custodial/offship
 	req_access = null
@@ -58,6 +61,9 @@
 	new /obj/item/storage/box/lights/mixed(src)
 	new /obj/item/storage/box/mousetraps(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
+
 // Journalist's Locker
 /obj/structure/closet/secure_closet/journalist
 	name = "journalist's closet"
@@ -74,3 +80,6 @@
 	new /obj/item/clipboard(src)
 	new /obj/item/folder/red(src)
 	new /obj/item/device/tvcamera(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch(src)
