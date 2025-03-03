@@ -111,3 +111,7 @@
 				counter++
 	..()
 
+/obj/machinery/appliance/cooker/grill/stand
+	name = "grill stand"
+	desc = "A more commercialized version of your traditional griddle. What happened to the good old days where people griddled with passion?"
+	use_power = POWER_USE_OFF

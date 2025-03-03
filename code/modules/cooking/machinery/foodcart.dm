@@ -9,8 +9,9 @@
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_KITCHEN)
 	var/unpacked = FALSE
-	var/obj/machinery/appliance/cooker/grill/cart_griddle
-	var/obj/machinery/smartfridge/foodheater/cart_smartfridge
+	// Stuff that's gonna make up the food stand when unpacked. Self-explanatory.
+	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle
+	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge
 	var/obj/structure/table/reinforced/cart_table
 	var/obj/effect/food_cart_stand/cart_tent
 	var/list/packed_things
@@ -28,41 +29,41 @@
 	RegisterSignal(cart_tent, COMSIG_QDELETING, PROC_REF(lost_part))
 
 /obj/machinery/food_cart/Destroy()
-	if(cart_griddle)
-		QDEL_NULL(cart_griddle)
-	if(cart_smartfridge)
-		QDEL_NULL(cart_smartfridge)
-	if(cart_table)
-		QDEL_NULL(cart_table)
-	if(cart_tent)
-		QDEL_NULL(cart_tent)
+	QDEL_NULL(cart_griddle)
+	QDEL_NULL(cart_smartfridge)
+	QDEL_NULL(cart_table)
+	QDEL_NULL(cart_tent)
 	packed_things.Cut()
 	return ..()
 
 /obj/machinery/food_cart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(!(stat & BROKEN))
-		if(cart_griddle.stat & BROKEN)
-			. += SPAN_WARNING("The stand's <b>griddle</b> is completely broken!")
-		else
-			. += SPAN_NOTICE("The stand's <b>griddle</b> is intact.")
-		. += SPAN_NOTICE("The stand's <b>fridge</b> seems fine.") //weirdly enough, these fridges don't break
-		. += SPAN_NOTICE("The stand's <b>table</b> seems fine.")
+	if(stat & BROKEN)
+		return
+	if(cart_griddle.stat & BROKEN)
+		. += SPAN_WARNING("The stand's [SPAN_BOLD("grill")] is completely broken!")
+	else
+		. += SPAN_NOTICE("The stand's [SPAN_BOLD("grill")] is intact.")
+	. += SPAN_NOTICE("The stand's [SPAN_BOLD("fridge")] seems fine.") //weirdly enough, these fridges don't break
+	. += SPAN_NOTICE("The stand's [SPAN_BOLD("table")] seems fine.")
 
-/obj/machinery/food_cart/proc/pack_up()
+/obj/machinery/food_cart/proc/pack_up() // Retract the structures into the food cart
 	if(!unpacked)
 		return
 	visible_message(SPAN_NOTICE("[src] retracts all of it's unpacked components."))
-	for(var/o in packed_things)
-		var/obj/object = o
+	for(var/obj/object as anything in packed_things)
 		UnregisterSignal(object, COMSIG_MOVABLE_MOVED)
 		object.forceMove(src)
-	if(!(cart_griddle.stat & BROKEN))
-		cart_griddle.stat = POWEROFF
+	if(!(cart_griddle?.stat & BROKEN)) // Don't draw power if it's packed inside
+		cart_griddle?.stat = POWEROFF
+		cart_griddle?.use_power = POWER_USE_OFF
+		cart_griddle?.update_icon()
+	if(!(cart_smartfridge?.stat & BROKEN))
+		cart_smartfridge.use_power = POWER_USE_OFF
 	anchored = FALSE
 	unpacked = FALSE
 
-/obj/machinery/food_cart/proc/unpack(mob/user)
+/obj/machinery/food_cart/proc/unpack(mob/user) // Deploy the structures inside the food cart
 	if(unpacked)
 		return
 	if(!check_setup_place())
@@ -70,8 +71,11 @@
 		return
 	visible_message(SPAN_NOTICE("[src] expands into a full stand."))
 	anchored = TRUE
-	if(!(cart_griddle.stat & BROKEN))
-		cart_griddle.stat = POWEROFF
+	if(!(cart_griddle?.stat & BROKEN)) // Unpacked, draw power
+		cart_griddle?.stat = POWEROFF
+		cart_griddle?.use_power = POWER_USE_IDLE
+	if(!(cart_smartfridge?.stat & BROKEN))
+		cart_smartfridge.use_power = POWER_USE_IDLE
 	var/iteration = 1
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
 	for(var/angle in list(0, -45, -45, 45))
@@ -102,7 +106,7 @@
 	else
 		unpack(user)
 
-/obj/machinery/food_cart/proc/check_setup_place()
+/obj/machinery/food_cart/proc/check_setup_place() // Step and check whether cart structures have non-dense space to placed onto
 	var/has_space = TRUE
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
 	for(var/angle in list(0, -45, 45))
@@ -114,7 +118,7 @@
 			new /obj/effect/temp_visual/cart_space(T)
 	return has_space
 
-/obj/machinery/food_cart/proc/lost_part(atom/movable/source, force)
+/obj/machinery/food_cart/proc/lost_part(atom/movable/source, force) // Some part of the food cart went missing
 	SIGNAL_HANDLER
 
 	//okay, so it's deleting the fridge or griddle which are more important. We're gonna break the machine then
