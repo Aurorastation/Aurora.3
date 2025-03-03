@@ -350,7 +350,7 @@ default behaviour is:
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
 /mob/proc/get_contents()
-
+	return list()
 
 //Recursive function to find everything a mob is holding.
 /mob/living/get_contents(var/obj/item/storage/Storage = null)
