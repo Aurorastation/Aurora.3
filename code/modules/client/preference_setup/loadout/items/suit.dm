@@ -125,6 +125,7 @@
 	path = /obj/item/clothing/suit/storage/surgical_gown
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/surgicalgown/New()
 	..()
