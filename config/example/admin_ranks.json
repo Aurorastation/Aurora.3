@@ -11,7 +11,7 @@
         "name": "Primary Administrator",
         "auths": [
             "R_BUILDMODE", "R_ADMIN", "R_BAN", "R_FUN", "R_STEALTH", "R_SERVER",
-            "R_REJUVINATE", "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_PERMISSIONS",
+            "R_REJUVENATE", "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_PERMISSIONS",
             "R_MODERATOR", "R_DEVELOPER", "R_CCIAA", "R_DEBUG"
         ]
     },
@@ -20,7 +20,7 @@
         "name": "Secondary Administrator",
         "auths": [
             "R_BUILDMODE", "R_ADMIN", "R_BAN", "R_FUN", "R_STEALTH", "R_SERVER",
-            "R_REJUVINATE", "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_MODERATOR",
+            "R_REJUVENATE", "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_MODERATOR",
             "R_DEVELOPER", "R_CCIAA"
         ]
     },
@@ -28,7 +28,7 @@
         "role_id": 6,
         "name": "Moderator",
         "auths": [
-            "R_MODERATOR", "R_BAN"
+            "R_MODERATOR", "R_BAN", "R_SPAWN", "R_REJUVENATE"
         ]
     },
     {
