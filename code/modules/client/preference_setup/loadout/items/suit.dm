@@ -119,11 +119,28 @@
 	cmo_labcoats["chief medical officer labcoat, alt 2"] = /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2
 	gear_tweaks += new /datum/gear_tweak/path(cmo_labcoats)
 
-/datum/gear/suit/surgeryapron
-	display_name = "surgical apron"
-	path = /obj/item/clothing/accessory/apron/surgery
+/datum/gear/suit/surgicalgown
+	display_name = "surgical gown selection"
+	description = "A selection of corporate surgical gowns."
+	path = /obj/item/clothing/suit/storage/surgical_gown
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+
+/datum/gear/suit/surgicalgown/New()
+	..()
+	var/list/surgical_gowns = list()
+	surgical_gowns["surgical gown, nanotrasen"] = /obj/item/clothing/suit/storage/surgical_gown
+	surgical_gowns["surgical gown, zeng-hu"] = /obj/item/clothing/suit/storage/surgical_gown/zeng
+	surgical_gowns["surgical gown, pmcg"] = /obj/item/clothing/suit/storage/surgical_gown/pmc
+	surgical_gowns["surgical gown, zavodskoi"] = /obj/item/clothing/suit/storage/surgical_gown/zavod
+	surgical_gowns["surgical gown, idris"] = /obj/item/clothing/suit/storage/surgical_gown/idris
+	gear_tweaks += new /datum/gear_tweak/path(surgical_gowns)
+
+/datum/gear/suit/surgicalgown_colorable
+	display_name = "surgical gown, colorable"
+	description = "A customizable surgical gown."
+	path = /obj/item/clothing/suit/storage/surgical_gown/generic
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
