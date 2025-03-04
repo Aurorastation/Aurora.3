@@ -71,7 +71,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/datum/admins/proc/show_player_info,
 	/client/proc/free_slot,			//frees slot for chosen job,
 	/client/proc/cmd_admin_change_custom_event,
-	/client/proc/cmd_admin_rejuvenate,
 	/client/proc/toggleattacklogs,
 	/client/proc/toggledebuglogs,
 	/client/proc/toggleghostwriters,
@@ -152,6 +151,7 @@ GLOBAL_LIST_INIT(admin_verbs_spawn, list(
 	/datum/admins/proc/spawn_custom_item,
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
+	/client/proc/cmd_admin_delete,		// delete an instance/object/mob/etc,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge
 	))
@@ -166,7 +166,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/immreboot,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
-	/client/proc/cmd_admin_delete,		// delete an instance/object/mob/etc,
 	/client/proc/cmd_debug_del_all,
 	/datum/admins/proc/adrev,
 	/datum/admins/proc/adspawn,
@@ -263,7 +262,8 @@ GLOBAL_LIST_INIT(admin_verbs_permissions, list(
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_rejuv, list(
-	/client/proc/respawn_character
+	/client/proc/respawn_character,
+	/client/proc/cmd_admin_rejuvenate
 	))
 
 
@@ -532,7 +532,7 @@ GLOBAL_LIST_INIT(admin_verbs_cciaa, list(
 		if(holder.rights & R_POSSESS)		add_verb(src, GLOB.admin_verbs_possess)
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, GLOB.admin_verbs_permissions)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
-		if(holder.rights & R_REJUVINATE)	add_verb(src, GLOB.admin_verbs_rejuv)
+		if(holder.rights & R_REJUVENATE)	add_verb(src, GLOB.admin_verbs_rejuv)
 		if(holder.rights & R_SPAWN)			add_verb(src, GLOB.admin_verbs_spawn)
 		if(holder.rights & R_SOUNDS)		add_verb(src, GLOB.admin_verbs_sounds)
 		if(holder.rights & R_MOD)			add_verb(src, GLOB.admin_verbs_mod)
