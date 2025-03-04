@@ -21,3 +21,10 @@
       easier clickability.
   - bugfix: Fixes Item Tooltip toggle message.
   - bugfix: Fixes roundstart items in storage not showing item outlines.
+2025-03-04:
+  FluffyGhost:
+  - server: Removed the use of deprecated parameter icon-size.
+  - server: Uniformed all clients to use fit to screen.
+  - server: Fit to viewport is automatically attempted at login.
+  - server: Statusbar is now hidden by default, giving more screen space.
+  - server: Toggle fullscreen now works as expected, for even more screen space.
