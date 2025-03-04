@@ -55,9 +55,9 @@
 		UnregisterSignal(object, COMSIG_MOVABLE_MOVED)
 		object.forceMove(src)
 	if(!(cart_griddle?.stat & BROKEN)) // Don't draw power if it's packed inside
-		cart_griddle?.stat = POWEROFF
-		cart_griddle?.use_power = POWER_USE_OFF
-		cart_griddle?.update_icon()
+		cart_griddle.stat = POWEROFF
+		cart_griddle.use_power = POWER_USE_OFF
+		cart_griddle.update_icon()
 	if(!(cart_smartfridge?.stat & BROKEN))
 		cart_smartfridge.use_power = POWER_USE_OFF
 	anchored = FALSE
