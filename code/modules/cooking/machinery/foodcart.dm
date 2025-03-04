@@ -72,7 +72,7 @@
 	visible_message(SPAN_NOTICE("[src] expands into a full stand."))
 	anchored = TRUE
 	if(!(cart_griddle?.stat & BROKEN))
-		cart_griddle?.stat = POWEROFF
+		cart_griddle.stat = POWEROFF
 	if(!(cart_smartfridge?.stat & BROKEN)) // Unpacked, draw power
 		cart_smartfridge.use_power = POWER_USE_IDLE
 	var/iteration = 1
