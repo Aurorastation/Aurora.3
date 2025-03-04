@@ -924,7 +924,7 @@
 	if(oldarea != newarea)
 		oldarea.Exited(src, direction)
 
-	newloc.Entered(src, oldloc, list()) //This is different from TG because we don't have multitile movement (yet)
+	newloc.Entered(src, oldloc) //This is different from TG because we don't have multitile movement (yet)
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
