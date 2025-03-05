@@ -280,8 +280,8 @@
 	desc = "A sterile overgarment used for surgical settings, like operating theaters, where cleanliness is crucial. Expect these to be routinely splashed by blood."
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	contained_sprite = TRUE
-	icon_state = "nt_surgown"
-	item_state = "nt_surgown"
+	icon_state = "generic_surgown"
+	item_state = "generic_surgown"
 	blood_overlay_type = "suit"
 	allowed = list(
 		/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/dnainjector,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,
@@ -289,6 +289,14 @@
 		/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = ARMOR_BIO_STRONG
+
+/obj/item/clothing/suit/storage/surgical_gown/accent
+	has_accents = TRUE
+
+/obj/item/clothing/suit/storage/surgical_gown/nt
+	icon_state = "nt_surgown"
+	item_state = "nt_surgown"
 
 /obj/item/clothing/suit/storage/surgical_gown/zeng
 	icon_state = "zeng_surgown"
@@ -298,6 +306,10 @@
 	icon_state = "pmc_surgown"
 	item_state = "pmc_surgown"
 
+/obj/item/clothing/suit/storage/surgical_gown/pmc/alt
+	icon_state = "pmc_surgown_alt"
+	item_state = "pmc_surgown_alt"
+
 /obj/item/clothing/suit/storage/surgical_gown/zavod
 	icon_state = "zavod_surgown"
 	item_state = "zavod_surgown"
@@ -305,12 +317,6 @@
 /obj/item/clothing/suit/storage/surgical_gown/idris
 	icon_state = "idris_surgown"
 	item_state = "idris_surgown"
-
-/obj/item/clothing/suit/storage/surgical_gown/generic
-	icon = 'icons/clothing/under/uniforms/generic_scrubs.dmi'
-	icon_state = "generic_surgown"
-	item_state = "generic_surgown"
-	has_accents = TRUE
 
 //Mime
 /obj/item/clothing/suit/suspenders
