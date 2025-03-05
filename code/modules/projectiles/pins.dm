@@ -29,10 +29,29 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	.=..()
 	if(istype(loc, /obj/item/gun))
 		gun = loc
+	update_icon()
+
+/obj/item/device/firing_pin/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/device/firing_pin/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/firing_pin/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
 
 /obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
 		return
-
 
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)

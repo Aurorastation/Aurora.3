@@ -1,0 +1,58 @@
+2025-03-03:
+  FluffyGhost:
+  - bugfix: Fixed ninja teleporter requiring access to run.
+  - qol: Renamed the program to 'ninja teleporter' and removed the standard teleporter
+      from the program list for the preset.
+  SimpleMaroon:
+  - qol: In keeping with recent lore developments, the clause for Orepit humans and
+      Orepit IPCs no longer requires them to be Trinarists or in the Open Doors agreement.
+      This also means that they can select more religions as well as have standard
+      Coalition citizenship, and Orepit IPCs can select more accents.
+  Snowy1237:
+  - bugfix: Fixes the CE hardsuit magboots turning invisible when magboot mode is
+      turned on.
+  Tag103:
+  - bugfix: Fixes the two variants of the Sol Army field cap having no worn sprite
+      due to the sprite intended for it being used as the item sprite instead.
+  - rscadd: Added proper item sprites for the two variants of the Sol Army field cap.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes storage box alignment and storage space UI to use better maths.
+  - qol: Tweaks IDs, IDs and firing pins now rotate 90 degrees when in storage for
+      easier clickability.
+  - bugfix: Fixes Item Tooltip toggle message.
+  - bugfix: Fixes roundstart items in storage not showing item outlines.
+2025-03-04:
+  FluffyGhost:
+  - server: Removed the use of deprecated parameter icon-size.
+  - server: Uniformed all clients to use fit to screen.
+  - server: Fit to viewport is automatically attempted at login.
+  - server: Statusbar is now hidden by default, giving more screen space.
+  - server: Toggle fullscreen now works as expected, for even more screen space.
+2025-03-05:
+  ASmallCuteCat:
+  - qol: Removes a redundant camera from the Kitchen, it was nearly adjacent to another
+      camera and covered roughly the same area.
+  - qol: In place of the redundant camera, added another light fixture that should
+      lessen the darkness issues by the freezer doors.
+  MattAtlas:
+  - admin: Full moderators can now use rejuvenate.
+  - admin: Full moderators can now spawn atoms.
+  - admin: Full moderators can now remove/add languages.
+  - admin: Full moderators can now teleport mobs.
+  - admin: Repurposed R_BAN into a generic permission that full moderators and above
+      have, and locks teleport behind it.
+  Tag103:
+  - rscadd: Added Solarian Marine berets. They have green coloured and grey coloured
+      variants, and can be found in Sol Marine uniform closets.
+  nauticall:
+  - refactor: Moves the data containing cargo items (i.e. the ones you order from
+      ops and get in the cargo shuttle) from the online database to the codebase.
+  - refactor: Refactors cargo items to use singletons instead of datums for cargo_supplier,
+      cargo_category, and cargo_item. Multiple-instnace things like cargo_orders,
+      etc. still use datums.
+  - bugfix: Fixed a bunch of strange discrepancies in categories, suppliers, and pricing
+      for various cargo items.
+  - bugfix: Clicking the 'Details' button on the Cargo Order app now actually gives
+      you details instead of bluescreening.
+  - qol: Added some UI elements to the Cargo Order app to make it prettier and show
+      tooltips on suppliers. Also now has search functionality.

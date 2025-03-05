@@ -361,7 +361,11 @@
 	updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
-	if(rotation == null || angle == null || target_zlevel == null)
+	//If the offset was never changed, use the current zlevel
+	if(isnull(target_zlevel))
+		target_zlevel = GET_Z(src)
+
+	if(rotation == null || angle == null)
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
 	if(power <= 0)

@@ -11,7 +11,7 @@
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
-	lobby_icons = list('icons/misc/titlescreens/runtime/away.dmi')
+	lobby_icon_image_paths = list(list('icons/misc/titlescreens/runtime/test.png'))
 	lobby_transitions = 10 SECONDS
 	allowed_spawns = list()
 

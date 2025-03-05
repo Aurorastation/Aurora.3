@@ -125,7 +125,7 @@
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
-	set category = "Preferences"
+	set category = "Preferences.Game"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
 	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()

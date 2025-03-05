@@ -207,3 +207,8 @@
 #define SUIT_NO_SENSORS EMPTY_BITFIELD
 #define SUIT_HAS_SENSORS FLAG(0)
 #define SUIT_LOCKED_SENSORS FLAG(1)
+
+// Modifiers for injections, used for syringes, hyposprays, and overloaders.
+#define INJECTION_FAIL     0
+#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
+#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
