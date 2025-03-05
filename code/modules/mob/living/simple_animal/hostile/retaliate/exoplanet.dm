@@ -23,7 +23,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	natural_armor = list(
-		melee = ARMOR_MELEE_RESISTANT
+		MELEE = ARMOR_MELEE_RESISTANT
 		)
 
 	emote_see = list("skitters","oozes liquid from its mouth", "scratches at the ground", "clicks its claws")
@@ -46,7 +46,7 @@
 	melee_damage_upper = 10
 	blood_color = COLOR_RED
 	natural_armor = list(
-		laser = ARMOR_LASER_PISTOL
+		LASER = ARMOR_LASER_PISTOL
 	)
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby/on_attack_mob(var/mob/hit_mob)
