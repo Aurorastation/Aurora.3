@@ -227,6 +227,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
+	/client/proc/allow_browser_inspect,
 	/client/proc/cmd_ss_panic,
 	/client/proc/reset_openturf,
 	/datum/admins/proc/capture_map,
@@ -408,6 +409,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/set_odyssey,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
+	/client/proc/allow_browser_inspect,
 	/client/proc/getruntimelog,
 	/client/proc/toggledebuglogs,
 	/client/proc/getserverlog,
@@ -497,6 +499,7 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
+	/client/proc/allow_browser_inspect,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
 ))
