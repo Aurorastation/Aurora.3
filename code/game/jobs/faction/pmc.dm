@@ -133,7 +133,7 @@
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	suit = /obj/item/clothing/suit/storage/surgical_gown/pmc/alt
 	id = /obj/item/card/id/pmc
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 
