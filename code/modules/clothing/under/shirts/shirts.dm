@@ -93,8 +93,8 @@
 /obj/item/clothing/under/dressshirt/crop/rolled
 	name = "cropped dress shirt"
 	desc = "A casual cropped dress shirt. This one has its sleeves rolled up"
-	icon_state = "dressshirt_crop"
-	item_state = "dressshirt_crop"
+	icon_state = "dressshirt_crop_r"
+	item_state = "dressshirt_crop_r"
 
 
 /obj/item/clothing/under/dressshirt/asymmetric
