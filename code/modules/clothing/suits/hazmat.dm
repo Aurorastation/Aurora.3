@@ -14,8 +14,8 @@
 	gas_transfer_coefficient = 0
 	siemens_coefficient = 0.75
 	armor = list(
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SMALL
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
 	)
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	flags_inv = HIDEWRISTS | HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL

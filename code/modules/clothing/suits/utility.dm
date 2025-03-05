@@ -70,11 +70,11 @@
 	w_class = WEIGHT_CLASS_HUGE//Too large to fit in a backpack
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_SHIELDED
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_SHIELDED
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	siemens_coefficient = 0
@@ -98,11 +98,11 @@
 	permeability_coefficient = 0.01
 	slowdown = 8
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_RESISTANT,
-		bomb = ARMOR_BOMB_SHIELDED
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_SHIELDED
 	)
 	siemens_coefficient = 0
 	item_flags = ITEM_FLAG_THICK_MATERIAL
@@ -208,8 +208,8 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_SHIELDED
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
 
@@ -231,8 +231,8 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
 	slowdown = 1.5
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_SHIELDED
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEJUMPSUIT|HIDETAIL

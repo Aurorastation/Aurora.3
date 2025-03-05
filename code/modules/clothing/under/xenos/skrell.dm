@@ -336,7 +336,7 @@
 	item_state = "cthur_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		laser = ARMOR_LASER_SMALL
+		LASER = ARMOR_LASER_SMALL
 	)
 	species_restricted = list(BODYTYPE_VAURCA)
 
@@ -348,8 +348,8 @@
 	item_state = "qukala_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/nlomkala
@@ -360,8 +360,8 @@
 	item_state = "nlom_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/ruupkala
@@ -372,8 +372,8 @@
 	item_state = "ruup_uniform"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR
 	)
 
 /obj/item/clothing/under/skrell/sromkala
@@ -391,8 +391,8 @@
 	icon_state = "tup_uniform"
 	item_state = "tup_uniform"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 	)
 	contained_sprite = TRUE

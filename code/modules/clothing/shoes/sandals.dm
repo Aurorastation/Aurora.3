@@ -44,7 +44,7 @@
 	item_state = "caligae"
 	force = 11
 	armor = list(
-			melee = ARMOR_MELEE_KNIVES
+			MELEE = ARMOR_MELEE_KNIVES
 			)
 	siemens_coefficient = 0.75
 	body_parts_covered = FEET|LEGS

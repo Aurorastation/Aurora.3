@@ -71,7 +71,7 @@
 	icon_state = "omnilaser"
 	damage = 20
 	damage_type = DAMAGE_BURN
-	check_armor = "laser"
+	check_armor = LASER
 	range = 5
 	pass_flags = PASSTABLE|PASSRAILING
 

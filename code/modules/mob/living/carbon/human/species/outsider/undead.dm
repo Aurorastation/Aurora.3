@@ -348,9 +348,9 @@
 
 	natural_armor = list(
 		ballistic = ARMOR_BALLISTIC_MEDIUM,
-		melee = ARMOR_MELEE_MAJOR,
+		MELEE = ARMOR_MELEE_MAJOR,
 		bomb = null,
-		energy = ARMOR_ENERGY_RESISTANT
+		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
 
 	mob_size = 20
@@ -428,10 +428,10 @@
 
 	natural_armor = list(
 		ballistic = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		melee = ARMOR_MELEE_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		energy = ARMOR_ENERGY_SMALL
+		LASER = ARMOR_LASER_MINOR,
+		MELEE = ARMOR_MELEE_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		ENERGY = ARMOR_ENERGY_SMALL
 	)
 
 	inherent_verbs = list(

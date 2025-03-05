@@ -16,7 +16,7 @@
 	icon_state = "nt_officer"
 	item_state = "nt_officer"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		MELEE = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
 	contained_sprite = TRUE
@@ -80,7 +80,7 @@
 	icon_state = "nt_cadet"
 	item_state = "nt_cadet"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		MELEE = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
 	contained_sprite = TRUE
@@ -128,7 +128,7 @@
 	icon_state = "nt_warden"
 	item_state = "nt_warden"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		MELEE = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
 	contained_sprite = TRUE
@@ -168,7 +168,7 @@
 	icon_state = "nt_invest"
 	item_state = "nt_invest"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		MELEE = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75
 	contained_sprite = TRUE
@@ -215,6 +215,6 @@
 	item_state = "head_of_security"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL
+		MELEE = ARMOR_MELEE_SMALL
 		)
 	siemens_coefficient = 0.75

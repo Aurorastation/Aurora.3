@@ -8,11 +8,11 @@
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_RIFLE,
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_RIFLE,
 		energy = ARMOR_MELEE_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
 	slowdown = -1
@@ -109,13 +109,13 @@
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	emp_protection = 40
 	slowdown = 0
@@ -184,13 +184,13 @@
 	icon_state = "stealth_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SMALL,
-		rad = ARMOR_RAD_SMALL
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SMALL,
+		RAD = ARMOR_RAD_SMALL
 	)
 
 	req_access = list(ACCESS_SYNDICATE)
@@ -211,8 +211,8 @@
 	icon_supported_species_tags = null
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(
-		bio = ARMOR_BIO_MINOR,
-		rad = ARMOR_RAD_MINOR
+		BIO = ARMOR_BIO_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
 	airtight = 0
@@ -248,13 +248,13 @@
 	icon_state = "frontier_rig"
 	suit_type = "advanced mobility hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SHIELDED
 	)
 	slowdown = -1
 	offline_slowdown = 0

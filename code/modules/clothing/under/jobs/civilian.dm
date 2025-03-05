@@ -109,7 +109,7 @@
 	icon_state = "nt_janitor"
 	item_state = "nt_janitor"
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 
 /obj/item/clothing/under/rank/janitor/alt

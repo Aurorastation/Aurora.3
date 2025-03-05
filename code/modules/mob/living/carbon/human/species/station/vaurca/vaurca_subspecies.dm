@@ -356,7 +356,7 @@
 	)
 
 	natural_armor = list(
-		melee = ARMOR_MELEE_MEDIUM
+		MELEE = ARMOR_MELEE_MEDIUM
 	)
 
 	brute_mod = 0.4

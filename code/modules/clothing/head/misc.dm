@@ -531,7 +531,7 @@
 	item_state = "navy_utility"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 
 /obj/item/clothing/head/sol/dress
@@ -587,11 +587,11 @@
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 
@@ -710,11 +710,11 @@
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	contained_sprite = TRUE
 

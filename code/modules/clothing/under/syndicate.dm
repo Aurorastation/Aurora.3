@@ -6,7 +6,7 @@
 	worn_state = "syndicate"
 	has_sensor = SUIT_NO_SENSORS
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 	siemens_coefficient = 0.75
 
