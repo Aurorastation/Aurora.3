@@ -754,6 +754,18 @@
 	if(.)
 		M.add_chemical_effect(CE_ANTIPARASITE, 10)
 
+/singleton/reagent/nutriment/sweet_chili
+	name = "Sweet Chili Sauce"
+	description = "Spicy AND sweet!"
+	reagent_state = LIQUID
+	color = "#dd4103"
+	taste_description = "sweet chili"
+	taste_mult = 1.5
+	value = 0.2
+	condiment_name = "sweet chili"
+	condiment_desc = "Sweet chili sauce, for those who want spicy food but are afraid to commit."
+	condiment_icon_state = "sweet_chili"
+
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
 	description = "Mayonnaise, a staple classic for sandwiches."

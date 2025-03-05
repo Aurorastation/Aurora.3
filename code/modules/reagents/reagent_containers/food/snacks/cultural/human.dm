@@ -409,6 +409,17 @@
 		if(91 to INFINITY)
 			icon_state = "riceball"
 
+/obj/item/reagent_containers/food/snacks/sweet_chili_chicken
+	name = "sweet chili chicken"
+	desc = "Konyanger style chicken busting with flavor served over a bed of rice, covered in sesame and green onions with a healthy helping of sweet chili sauce. A little bit spicy, a little bit sweet, a little bit connected to it's roots in Asia, and a little bit modern. In other words - Very Konyang."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "sweetchilichicken"
+	filling_color = "#C97F02"
+	trash = /obj/item/trash/bowl_small
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/rice = 3, /singleton/reagent/capsaicin = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 4), /singleton/reagent/nutriment/protein = list("sweet and spicy chicken" = 5))
+	bitesize = 2
+
 // Mictlani
 
 /obj/item/reagent_containers/food/snacks/soup/pozole
@@ -624,6 +635,35 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	icon_state = "fufuone"
 	bitesize = 2
 	filling_color = "#eee0b1"
+
+/obj/item/reagent_containers/food/snacks/dodo_ikire
+	name = "dodo ikire"
+	desc = "Originally a Nigerian dish, dodo ikire is traditionally made of over-ripe plantains fried in palm oil with crushed chili, sometimes with onion or ginger for additional flavoring. an Eridanian favorite!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "dodo"
+	filling_color = "#331d13"
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 5, /singleton/reagent/capsaicin = 2)
+	bitesize = 2
+	trash = /obj/item/trash/plate
+	reagent_data = list(/singleton/reagent/nutriment = list("plantains" = 5, "chili" = 3, "zest" = 2))
+
+/obj/item/reagent_containers/food/snacks/dodo_ikire/update_icon()
+	var/percent_dodo = round((reagents.total_volume / 8) * 100)
+	switch(percent_dodo)
+		if(0 to 49)
+			icon_state = "dodo_half"
+		if(50 to INFINITY)
+			icon_state = "dodo"
+
+/obj/item/reagent_containers/food/snacks/crimson_lime
+	name = "crimson lime"
+	desc = "Possibly named after the presidential crimson house of Suwong, the Konyanger city this dessert originates from, or possibly named after the hint of chili that's mixed into this dessert. Crimson fruit are typically various jungle or citrus fruits coated in dark chili chocolate. It typically favors fruit that is less aggressively sweet so the opposite flavors can play off of each other without overpowering one another."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "crimson_lime"
+	filling_color = "#2d460d"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment/ = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("lime" = 5, "chocolate" = 5, "chili" = 2))
 
 /obj/item/reagent_containers/food/snacks/bowl/alfajores
 	name = "alfajores"

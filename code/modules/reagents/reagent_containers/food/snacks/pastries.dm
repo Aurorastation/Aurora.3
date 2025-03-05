@@ -152,6 +152,12 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("waffle" = 8))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/waffles/update_icon()
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]_filling_overlay")
+		filling.color = reagents.get_color()
+		AddOverlays(filling)
+
 /obj/item/reagent_containers/food/snacks/soywafers
 	name = "Soy Wafers"
 	desc = "Simple pressed soy wafers."

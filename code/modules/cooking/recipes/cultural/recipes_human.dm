@@ -232,6 +232,17 @@
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/miyeokguk
 
+/singleton/recipe/sweet_chili_chicken
+	appliance = SAUCEPAN | POT
+	fruit = list("lime" = 1)
+	reagents = list(/singleton/reagent/nutriment/soysauce = 5,  /singleton/reagent/nutriment/sweet_chili= 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	result = /obj/item/reagent_containers/food/snacks/sweet_chili_chicken
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
 // Mictlani
 
 /singleton/recipe/pozole
@@ -340,6 +351,20 @@
 	fruit = list("banana" = 2)
 	reagents = list(/singleton/reagent/water = 5)
 	result = /obj/item/reagent_containers/food/snacks/bowl/fufus
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/dodo_ikire
+	appliance = SKILLET | SAUCEPAN
+	fruit = list("banana" = 2, "chili" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	result = /obj/item/reagent_containers/food/snacks/dodo_ikire
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/crimson_lime
+	appliance = SAUCEPAN
+	fruit = list("lime" = 1, "chili" = 1)
+	reagents = list(/singleton/reagent/nutriment/coco = 5, /singleton/reagent/drink/milk = 5)
+	result = /obj/item/reagent_containers/food/snacks/crimson_lime
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 //Silversun
