@@ -3995,8 +3995,8 @@
 	name = "RMT"
 	id = "rmt"
 	result = /singleton/reagent/rmt
-	result_amount = 2
-	required_reagents = list(/singleton/reagent/potassium = 1, /singleton/reagent/inaprovaline = 1)
+	result_amount = 3
+	required_reagents = list(/singleton/reagent/mental/neurostabin = 1, /singleton/reagent/inaprovaline = 2)
 
 /datum/chemical_reaction/gunpowder
 	name = "Gunpowder"
