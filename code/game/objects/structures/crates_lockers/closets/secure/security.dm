@@ -5,14 +5,13 @@
 
 /obj/structure/closet/secure_closet/captains/fill()
 	// Backpack
-	if(prob(50))
-		new /obj/item/storage/backpack/captain(src)
-	else
-		new /obj/item/storage/backpack/satchel/cap(src)
+	new /obj/item/storage/backpack/satchel/cap(src)
 	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
+	new /obj/item/clothing/glasses/sunglasses
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
@@ -22,6 +21,7 @@
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/taperecorder(src)
+	new /obj/item/flame/lighter/zippo(src)
 	// uniform briefcases
 	new /obj/item/storage/briefcase/nt/captain(src)
 	new /obj/item/storage/briefcase/nt/captain_white(src)
@@ -63,6 +63,7 @@
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
@@ -72,10 +73,11 @@
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/device/taperecorder(src)
 	new /obj/item/device/eftpos(src)
-	new /obj/item/book/manual/wiki/security_space_law(src)
 	new /obj/item/device/radio/off(src)
 
 /obj/structure/closet/secure_closet/xo2
