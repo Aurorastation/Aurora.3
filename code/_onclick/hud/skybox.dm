@@ -24,7 +24,7 @@
 		if(skybox)
 			skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
 
-/mob/Move()
+/mob/Move(atom/newloc, direct, glide_size_override, update_dir)
 	var/old_z = GET_Z(src)
 	. = ..()
 	if(. && client)

@@ -220,8 +220,8 @@
 /mob/living/simple_animal/ice_catcher/Move()
 	if(burrowed)
 		return
-	else
-		..()
+
+	. = ..()
 
 /mob/living/simple_animal/ice_catcher/proc/unburrow()
 	burrowed = FALSE
