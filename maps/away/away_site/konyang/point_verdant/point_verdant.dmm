@@ -35118,7 +35118,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
 "usD" = (
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
 	},

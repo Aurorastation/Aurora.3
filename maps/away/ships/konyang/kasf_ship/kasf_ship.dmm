@@ -8717,7 +8717,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
 "XU" = (
