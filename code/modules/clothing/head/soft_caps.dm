@@ -37,6 +37,9 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
+/obj/item/clothing/head/softcap/colorable/accent
+	has_accents = TRUE
+
 /obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
 	desc = "It's a peaked cap in a bright rainbow of colors."

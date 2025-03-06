@@ -137,8 +137,8 @@
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
 	zavodskoi_headwear["zavodskoi woolen hat"] = /obj/item/clothing/head/wool/zavod
 	zavodskoi_headwear["zavodskoi woolen hat, alt"] = /obj/item/clothing/head/wool/zavod/alt
-	zavodskoi_headwear["zavodskoi pilotka cap"] = /obj/item/clothing/head/sidecap/zavod
-	zavodskoi_headwear["zavodskoi pilotka cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
+	zavodskoi_headwear["zavodskoi sidecap"] = /obj/item/clothing/head/sidecap/zavod
+	zavodskoi_headwear["zavodskoi sidecap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
@@ -356,7 +356,7 @@
 	pmcg_headwear["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
-	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
+	pmcg_headwear["PMCG side cap"] = /obj/item/clothing/head/sidecap/pmcg
 	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
