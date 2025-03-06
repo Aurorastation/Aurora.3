@@ -126,6 +126,11 @@
 #define ACCENT_EMPYREAN "Empyrean"
 #define ACCENT_SVAROG "Svarogite"
 #define ACCENT_READE "Reade"
+#define ACCENT_ENCELADUS "Enceladian"
+#define ACCENT_IAPETUS "Cassinian"
+#define ACCENT_TITAN "Titanii"
+#define ACCENT_MERCURY "Mercurian"
+#define ACCENT_ERIS "Erisian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
