@@ -420,3 +420,9 @@
 	from the wider system, most describe the dialect as both strongly archaic and very colloquial, similar to the voice of a Biesellite heard from an old recording."
 	tag_icon = "reade"
 	text_tag = "RDE"
+
+/datum/accent/enceladus
+	name = ACCENT_ENCELADUS
+	description = "Enceladian Common is descended from the accents of North and South America, and the residents of Saturn’s moon take pride in ensuring their accent calls back to their ancestral homes on Earth. "
+	tag_icon = "enceladus"
+	text_tag = "ENC"
