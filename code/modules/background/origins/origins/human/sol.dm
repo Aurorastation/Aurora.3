@@ -29,7 +29,7 @@
 	name = "Sol System"
 	desc = "The cradle of humanity itself, the Sol System stands above most other systems in terms of its quality of life, wealth, influence, and population. \
 			Undisputedly controlled by the Solarian Alliance, the Sol System will likely remain the unofficial capital for centuries to come."
-	possible_accents = list(ACCENT_SOL, ACCENT_MERCURY, ACCENT_ERIS)
+	possible_accents = list(ACCENT_SOL, ACCENT_MERCURY, ACCENT_ERIS, ACCENT_TITANIA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
@@ -80,7 +80,7 @@
 /singleton/origin_item/origin/saturn
 	name = "Saturn"
 	desc = "The moons of Saturn, while not as populated as the Jovian moons of Jupiter, are an important part of the Alliance and major population centers in the Sol System. Many tourists visit Saturn to see its massive rings, the largest and most complex in the Solar System."
-	possible_accents = list(ACCENT_ENCELADUS, ACCENT_IAPETUS, ACCENT_TITAN)
+	possible_accents = list(ACCENT_ENCELADUS, ACCENT_IAPETUS)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 

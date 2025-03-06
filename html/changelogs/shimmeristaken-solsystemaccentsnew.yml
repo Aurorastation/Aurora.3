@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added six new Solarian accent tags. Earther origin receives the Unity Station option. Sol System receives Mercury and Eris options. Saturn becomes a new origin, receives Iapetus, Enceladus, and Titan as options."
+  - rscadd: "Added six new Solarian accent tags. Earther origin receives the Unity Station option. Sol System receives Mercury, Eris and Titania as options. Saturn becomes a new origin, receives Iapetus, Enceladus as options."
