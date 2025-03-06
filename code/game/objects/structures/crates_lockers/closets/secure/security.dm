@@ -63,7 +63,6 @@
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
