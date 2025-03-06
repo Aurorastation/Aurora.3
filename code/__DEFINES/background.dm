@@ -131,6 +131,7 @@
 #define ACCENT_TITAN "Titanii"
 #define ACCENT_MERCURY "Mercurian"
 #define ACCENT_ERIS "Erisian"
+#define ACCENT_STATIONER "Stationer"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

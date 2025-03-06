@@ -23,22 +23,20 @@
 		/singleton/origin_item/origin/antillia,
 		/singleton/origin_item/origin/sancolette,
 		/singleton/origin_item/origin/ouerea_human,
-		/singleton/origin_item/origin/mercury,
-		/singleton/origin_item/origin/eris,
 	)
 
 /singleton/origin_item/origin/sol_system
 	name = "Sol System"
 	desc = "The cradle of humanity itself, the Sol System stands above most other systems in terms of its quality of life, wealth, influence, and population. \
 			Undisputedly controlled by the Solarian Alliance, the Sol System will likely remain the unofficial capital for centuries to come."
-	possible_accents = list(ACCENT_SOL)
+	possible_accents = list(ACCENT_SOL, ACCENT_MERCURY, ACCENT_ERIS)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
 /singleton/origin_item/origin/earth
 	name = "Earth"
 	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of humanity's industrialization can still be seen across its surface."
-	possible_accents = list(ACCENT_EARTH)
+	possible_accents = list(ACCENT_EARTH, ACCENT_STATIONER)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
@@ -81,7 +79,7 @@
 
 /singleton/origin_item/origin/saturn
 	name = "Saturn"
-	desc = "Placeholder"
+	desc = "The moons of Saturn, while not as populated as the Jovian moons of Jupiter, are an important part of the Alliance and major population centers in the Sol System. Many tourists visit Saturn to see its massive rings, the largest and most complex in the Solar System."
 	possible_accents = list(ACCENT_ENCELADUS, ACCENT_IAPETUS, ACCENT_TITAN)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
@@ -211,16 +209,3 @@
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the heat")
 
-/singleton/origin_item/origin/mercury
-	name = "Mercury"
-	desc = "Placeholder"
-	possible_accents = list(ACCENT_MERCURY)
-	possible_citizenships = CITIZENSHIPS_SOLARIAN
-	possible_religions = RELIGIONS_SOLARIAN
-
-/singleton/origin_item/origin/eris
-	name = "Eris"
-	desc = "Placeholder"
-	possible_accents = list(ACCENT_ERIS)
-	possible_citizenships = CITIZENSHIPS_SOLARIAN
-	possible_religions = RELIGIONS_SOLARIAN

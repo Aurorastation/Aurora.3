@@ -435,7 +435,7 @@
 
 /datum/accent/titan
 	name = ACCENT_TITAN
-	description = "The largest offworlder population in the Sol System, Titanii Common involves plentiful hand gestures and other visual signals. Linguists have long theorized the prominence of hand gestures in this accent comes from the use of "
+	description = "The largest offworlder population in the Sol System, Titanii Common involves plentiful hand gestures and other visual signals. Linguists have long theorized the prominence of hand gestures in this accent comes from the moon’s EVA-centric industries."
 	tag_icon = "titan"
 	text_tag = "TIA"
 
@@ -450,3 +450,9 @@
 	description = "Erisian Common bears some resemblance to Lunarian Common due to the planetoid’s long association with the Solarian Navy. Like its counterpart, it is very hard to effectively replicate for an outsider."
 	tag_icon = "eris"
 	text_tag = "ERS"
+
+/datum/accent/stationer
+	name = ACCENT_STATIONER
+	description = "Similar to the conventional Earther accent, the Unity Station accent instead has its roots in North American English, reflecting the Alliance’s history in the region."
+	tag_icon = "stationer"
+	text_tag = "STA"
