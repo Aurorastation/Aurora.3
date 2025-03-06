@@ -436,7 +436,7 @@
 /datum/accent/titania
 	name = ACCENT_TITANIA
 	description = "The largest offworlder population in the Sol System, Titanii Common involves plentiful hand gestures and other visual signals. Linguists have long theorized the prominence of hand gestures in this accent comes from the moon’s EVA-centric industries."
-	tag_icon = "titan"
+	tag_icon = "titania"
 	text_tag = "TIA"
 
 /datum/accent/mercury
