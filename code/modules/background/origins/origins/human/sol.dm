@@ -80,7 +80,7 @@
 /singleton/origin_item/origin/saturn
 	name = "Saturn"
 	desc = "Placeholder"
-	possible_accents = list(ACCENT_ENCELADUS)
+	possible_accents = list(ACCENT_ENCELADUS, ACCENT_IAPETUS, ACCENT_TITAN)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
@@ -208,3 +208,17 @@
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the heat")
+
+/singleton/origin_item/origin/mercury
+	name = "Mercury"
+	desc = "Placeholder"
+	possible_accents = list(ACCENT_MERCURY)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/eris
+	name = "Eris"
+	desc = "Placeholder"
+	possible_accents = list(ACCENT_ERIS)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
