@@ -9,6 +9,7 @@
 		/singleton/origin_item/origin/venus_j,
 		/singleton/origin_item/origin/mars,
 		/singleton/origin_item/origin/jupiter,
+		/singleton/origin_item/origin/saturn,
 		/singleton/origin_item/origin/pluto,
 		/singleton/origin_item/origin/eridani,
 		/singleton/origin_item/origin/eridani_dreg,
@@ -73,6 +74,13 @@
 	name = "Jupiter"
 	desc = "The three major inhabited moons of Jupiter - Callisto, Ganymede, and Europa - are key Solarian worlds. Callisto serves as a major port for the Alliance, Ganymede produces much of the food the Alliance consumes, and Europa is a major research hub. The Jovian Moons are home to a remarkable diversity of humanity, and humans from almost anywhere in the Orion Spur can be found in their ports."
 	possible_accents = list(ACCENT_JUPITER, ACCENT_EUROPA, ACCENT_CALLISTO)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/saturn
+	name = "Saturn"
+	desc = "Placeholder"
+	possible_accents = list(ACCENT_ENCELADUS)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
