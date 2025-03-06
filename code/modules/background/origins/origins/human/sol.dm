@@ -22,9 +22,9 @@
 		/singleton/origin_item/origin/mictlan,
 		/singleton/origin_item/origin/antillia,
 		/singleton/origin_item/origin/sancolette,
-		/singleton/origin_item/origin/ouerea_human
-		/singleton/origin_item/origin/mercury
-		/singleton/origin_item/origin/eris
+		/singleton/origin_item/origin/ouerea_human,
+		/singleton/origin_item/origin/mercury,
+		/singleton/origin_item/origin/eris,
 	)
 
 /singleton/origin_item/origin/sol_system
