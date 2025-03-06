@@ -10,14 +10,14 @@
 	flags_inv = HIDEEARS
 	var/earsup = 0
 
-/obj/item/clothing/head/ushanka/nyakas
-	name = "visegradi nyakas"
+/obj/item/clothing/head/ushanka/cap
+	name = "ear-flap cap"
 	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
 	contained_sprite = TRUE
 	build_from_parts = FALSE
-	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
-	icon_state = "nyakas"
-	item_state = "nyakas"
+	icon = 'icons/obj/item/clothing/head/earflap_cap.dmi'
+	icon_state = "earflap"
+	item_state = "earflap"
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup

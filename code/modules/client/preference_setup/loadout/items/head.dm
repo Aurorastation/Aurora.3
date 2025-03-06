@@ -299,7 +299,6 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats["hat, bear pelt"] = /obj/item/clothing/head/bearpelt
 	hats["hat, conical"] = /obj/item/clothing/head/nonla
 	hats["hat, gat"] = /obj/item/clothing/head/konyang
-	hats["hat, hachimaki"] = /obj/item/clothing/head/hachimaki
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hats_colourable
@@ -326,7 +325,7 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats_colourable["hat, bandana"] = /obj/item/clothing/head/bandana/colorable
 	hats_colourable["hat, softcap"] = /obj/item/clothing/head/softcap/colorable
 	hats_colourable["hat, softcap with accent"] = /obj/item/clothing/head/softcap/colorable/accent
-	hats_colourable["hat, ear-flap cap"] = /obj/item/clothing/head/ushanka/nyakas
+	hats_colourable["hat, ear-flap cap"] = /obj/item/clothing/head/ushanka/cap
 	hats_colourable["hat, beret"] = /obj/item/clothing/head/beret/colorable
 	hats_colourable["hat, side cap"] = /obj/item/clothing/head/sidecap
 	hats_colourable["hat, hijab"] = /obj/item/clothing/head/hijab
