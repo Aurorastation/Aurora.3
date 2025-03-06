@@ -1653,10 +1653,6 @@
 		W.message = message
 		W.add_fingerprint(src)
 
-#define INJECTION_FAIL     0
-#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
-#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
-
 /mob/living/carbon/human/can_inject(var/mob/user, var/error_msg, var/target_zone, var/handle_coverage = TRUE)
 	. = BASE_INJECTION_MOD
 
@@ -1716,10 +1712,6 @@
 			. = injection_modifier
 		if(. == INJECTION_FAIL)
 			return
-
-#undef INJECTION_FAIL
-#undef BASE_INJECTION_MOD
-#undef SUIT_INJECTION_MOD
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)

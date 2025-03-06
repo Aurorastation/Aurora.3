@@ -9,7 +9,6 @@
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_coalition.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/weeping_stars
@@ -17,12 +16,27 @@
 	description = "The region most devastated by the Interstellar War, the majority of the Weeping Stars has yet to recover from the damage it suffered during the War and much of it remains underdeveloped and sparsely inhabited. During the hegemonic era of the Solarian Alliance, when the Alliance stretched from Sol to the edge of known space, this region was known as the Inner Solarian Frontier and was intended to serve as a highly-developed region for humanity to thrive in. Massive amounts of funds were used to build an infrastructure which was still incomplete when war broke out in 2277, and the shattered ruins of long-lost Solarian hegemonic era structures and projects are present throughout the region."
 	skybox_icon = "weeping_stars"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
-	cargo_price_coef = list("nt" = 1.2, "hpi" = 0.8, "zhu" = 0.8, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.8, "vfc" = 1.2, "bis" = 0.8, "xmg" = 0.8, "npi" = 0.8)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.2,
+		"orion" = 0.8,
+		"hephaestus" = 0.8,
+		"zeng_hu" = 0.8,
+		"eckharts" = 1.2,
+		"getmore" = 1.2,
+		"arizi" = 1.2,
+		"blam" = 1.2,
+		"iac" = 1.2,
+		"zharkov" = 0.8,
+		"virgo" = 1.2,
+		"bishop" = 0.8,
+		"xion" = 0.8,
+		"zavodskoi" = 0.8,
+		)
+
 	starlight_color = "#615bff"
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/arusha
@@ -48,12 +62,27 @@
 	description = "The system of Burzsia serves as a resource hub solely for the corporate interests of Hephaestus Industries, with vast mining infrastructure and sprawling supply ports dotted all over the system. Hephaestus ships, enormous freighters and personnel transportation vessels dominate the area, with corporate security being extremely tight. Private vessels are allowed transit and rest if needed, though always under the close surveillance of Hephaestus security and local executives. A population of local off-worlders has also been present before corporate domination, but mostly leave any external relations to the company that has, at this point, taken upon it to represent virtually all interests of the natives."
 	skybox_icon = "weeping_stars"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia, /obj/effect/overmap/visitable/sector/exoplanet/burzsia)
-	cargo_price_coef = list("nt" = 1.2, "hpi" = 0.4, "zhu" = 0.8, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.8, "vfc" = 1.2, "bis" = 0.8, "xmg" = 0.8, "npi" = 0.8)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.2,
+		"orion" = 1,
+		"hephaestus" = 0.4,
+		"zeng_hu" = 0.8,
+		"eckharts" = 1.2,
+		"getmore" = 1.2,
+		"arizi" = 1.2,
+		"blam" = 1.2,
+		"iac" = 1.2,
+		"zharkov" = 1.2,
+		"virgo" = 1.2,
+		"bishop" = 0.8,
+		"xion" = 0.8,
+		"zavodskoi" = 0.8,
+		)
+
 	starlight_color = "#615bff"
 	starlight_power = 2
 	starlight_range = 4
 	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 /datum/space_sector/haneunim
@@ -62,17 +91,32 @@
 	skybox_icon = "haneunim"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/qixi, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim, /obj/effect/overmap/visitable/sector/exoplanet/barren/hwanung, /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu)
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
-	cargo_price_coef = list("nt" = 1.1, "hpi" = 0.7, "zhu" = 0.4, "een" = 1.0, "get" = 1.1, "arz" = 1.8, "blm" = 0.9, "iac" = 1.2, "zsc" = 1.8, "vfc" = 0.9, "bis" = 0.4, "xmg" = 0.7, "npi" = 0.8)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.1,
+		"orion" = 0.7,
+		"hephaestus" = 0.7,
+		"zeng_hu" = 0.6,
+		"eckharts" = 1,
+		"blam" = 0.9,
+		"zharkov" = 1.2,
+		"virgo" = 0.9,
+		"bishop" = 0.5,
+		"xion" = 0.8,
+		"zavodskoi" = 0.8,
+		)
 
 	ports_of_call = list("the corporate district of Aoyama")
 	scheduled_port_visits = list("Saturday", "Sunday")
 	starlight_color = "#e2719b"
 	starlight_power = 2//placeholder
 	starlight_range = 4//placeholder
-	sector_lobby_art = list('icons/misc/titlescreens/lore/silicon_nightmares.dmi')
-	sector_lobby_transitions = 0
+	lobby_icon_image_paths = list(
+								list('icons/misc/titlescreens/tajara/taj1.png', 'icons/misc/titlescreens/tajara/taj2.png', 'icons/misc/titlescreens/tajara/taj3.png', 'icons/misc/titlescreens/tajara/taj4.png', 'icons/misc/titlescreens/tajara/Ghostsofwar.png', 'icons/misc/titlescreens/tajara/crack.png', 'icons/misc/titlescreens/tajara/blind_eye.png', 'icons/misc/titlescreens/tajara/RoyalGrenadier.png', 'icons/misc/titlescreens/tajara/For_the_King.png'),
+								list('icons/misc/titlescreens/synths/baseline.png', 'icons/misc/titlescreens/synths/bishop.png', 'icons/misc/titlescreens/synths/g2.png', 'icons/misc/titlescreens/synths/shell.png', 'icons/misc/titlescreens/synths/zenghu.png'),
+								list('icons/misc/titlescreens/vaurca/cthur.png', 'icons/misc/titlescreens/vaurca/klax.png', 'icons/misc/titlescreens/vaurca/liidra.png', 'icons/misc/titlescreens/vaurca/zora.png'),
+								list('icons/misc/titlescreens/space/odin.png', 'icons/misc/titlescreens/space/starmap.png', 'icons/misc/titlescreens/space/undocking.png', 'icons/misc/titlescreens/space/voyage.png')
+								)
 	sector_welcome_message = 'sound/AI/welcome_konyang.ogg'
-	sector_hud_menu = 'icons/misc/hudmenu/konyang_hud.dmi'
 	sector_hud_arrow = "menu_arrow"
 
 	lobby_tracks = list(
