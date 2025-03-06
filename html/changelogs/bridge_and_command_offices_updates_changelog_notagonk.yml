@@ -59,3 +59,4 @@ changes:
   - qol: "Minor changes to the offices of the Head of Security, Chief Engineer, Consular Officers, Corporate Representatives, and the Bridge area."
   - qol: "Changes the contents of the lockers for the Captain, Executive Officer, Chief Engineer, and Operations Manager to better suit their needs."
   - qol: "Makes all Command offices radiation protected."
+  - bugfix: "Fixes the Bridge Bolts button."
