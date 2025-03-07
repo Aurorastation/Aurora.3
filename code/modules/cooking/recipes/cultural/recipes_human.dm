@@ -280,7 +280,7 @@
 	fruit = list("cabbage" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/water = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cutlet
+		/obj/item/reagent_containers/food/snacks/cutlet,
 	)
 	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
