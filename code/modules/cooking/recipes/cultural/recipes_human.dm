@@ -299,7 +299,7 @@
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 2)
 	fruit = list("corn" = 2, "lime" = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/elotes
