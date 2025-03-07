@@ -246,7 +246,7 @@
 	reagents = list(/singleton/reagent/nutriment/soysauce = 5,  /singleton/reagent/nutriment/sweet_chili= 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken,
-		/obj/item/reagent_containers/food/snacks/boiledrice
+		/obj/item/reagent_containers/food/snacks/boiledrice,
 	)
 	result = /obj/item/reagent_containers/food/snacks/sweet_chili_chicken
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -270,7 +270,7 @@
 	fruit = list("cabbage" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 5,  /singleton/reagent/nutriment/protein/egg = 3)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cutlet
+		/obj/item/reagent_containers/food/snacks/cutlet,
 	)
 	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -280,7 +280,7 @@
 	fruit = list("cabbage" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/water = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cutlet
+		/obj/item/reagent_containers/food/snacks/cutlet,
 	)
 	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -299,7 +299,7 @@
 	reagents = list(/singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 2)
 	fruit = list("corn" = 2, "lime" = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/elotes
