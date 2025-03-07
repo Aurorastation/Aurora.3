@@ -66,5 +66,5 @@
 
 	job_species_blacklist = list(
 		"Consular Officer" = ALL_SPECIES,
-		"Diplomatic Aide" = ALL_SPECIES
+		"Diplomatic Aide" = ALL_SPECIES,
 	)
