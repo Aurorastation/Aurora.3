@@ -8,13 +8,12 @@
 	stat = POWEROFF
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_KITCHEN)
-	var/unpacked = FALSE
-	// Stuff that's gonna make up the food stand when unpacked. Self-explanatory.
-	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle
-	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge
-	var/obj/structure/table/reinforced/cart_table
-	var/obj/effect/food_cart_stand/cart_tent
-	var/list/packed_things
+	var/unpacked = FALSE											// When it's anchored and has all it's things outside
+	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle		// Griddle inside of the foodcart
+	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge // Smartfridge inside of foodcart
+	var/obj/structure/table/reinforced/wood/cart_table				// Table inside of foodcart
+	var/obj/effect/food_cart_stand/cart_tent						// Overlay that spawns once foodcart is setup
+	var/list/packed_things // Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
 /obj/machinery/food_cart/Initialize(mapload)
 	. = ..()
@@ -63,7 +62,17 @@
 	anchored = FALSE
 	unpacked = FALSE
 
-/obj/machinery/food_cart/proc/unpack(mob/user) // Deploy the structures inside the food cart
+/**
+ * Deploy the structures inside the food cart
+
+ *
+ * * iteration - counter for how many items have been unpacked, increment for each item unpacked
+ * * cart_space - temporary overlay showing non-dense and dense tiles checked
+ *
+ * Returns `has_space`
+ */
+
+/obj/machinery/food_cart/proc/unpack(mob/user)
 	if(unpacked)
 		return
 	if(!check_setup_place())
@@ -105,7 +114,17 @@
 	else
 		unpack(user)
 
-/obj/machinery/food_cart/proc/check_setup_place() // Step and check whether cart structures have non-dense space to placed onto
+/**
+ * Step and check whether cart structures have non-dense space to placed onto
+ *
+ * * has_space - sets to FALSE if any turf in build area has density = TRUE
+ * * grabbed_turf - starts one tile SOUTH of cart, then sequentially checks one tile EAST
+ * * cart_space - temporary overlay showing non-dense and dense tiles checked
+ *
+ * Returns `has_space`
+ */
+
+/obj/machinery/food_cart/proc/check_setup_place()
 	var/has_space = TRUE
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
 	for(var/angle in list(0, -45, 45))
@@ -117,7 +136,11 @@
 			new /obj/effect/temp_visual/cart_space(T)
 	return has_space
 
-/obj/machinery/food_cart/proc/lost_part(atom/movable/source, force) // Some part of the food cart went missing
+/**
+ * Some part of the food cart went missing
+ */
+
+/obj/machinery/food_cart/proc/lost_part(atom/movable/source, force)
 	SIGNAL_HANDLER
 
 	//okay, so it's deleting the fridge or griddle which are more important. We're gonna break the machine then
