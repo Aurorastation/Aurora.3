@@ -1,5 +1,6 @@
 /turf/simulated/floor/exoplanet/sidewalk
 	name = "weathered tiling"
+	gender = PLURAL
 	desc = "Great for speeding on."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "sidewalk-tile"
