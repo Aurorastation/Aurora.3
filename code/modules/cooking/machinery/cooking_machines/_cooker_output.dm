@@ -183,3 +183,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/kitchen_tag = "animal"
 
+/obj/item/reagent_containers/food/snacks/variable/macaron
+	name = "macaron"
+	desc = "Fluffy, brittle, sweet macaron."
+	icon_state = "macaroncustom"
+	size = 15
+	w_class = WEIGHT_CLASS_TINY
+	bitesize = 6

@@ -10,6 +10,44 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("fresh fries" = 4))
 	bitesize = 2//This is mainly for the benefit of adminspawning
 
+///makes fries gain the visual look of whatever sauce you add to them
+/obj/item/reagent_containers/food/snacks/fries/on_reagent_change()
+
+	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/flour, /singleton/reagent/spacecleaner, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //For when the scrubbers inevitably attack the kitchen.
+		name = "ruined fries"
+		desc = "A tragic, innocent casualty in the war against scrubbers."
+		icon_state = "fries_ruined"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/ketchup))
+		name = "fries with ketchup"
+		desc = "A classic."
+		icon_state = "fries_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/mayonnaise))
+		name = "fries with mayonnaise"
+		desc = "A European classic."
+		icon_state = "fries_whitesauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/garlicsauce))
+		name = "fries with garlic sauce"
+		desc = "Delicious! Just... Don't breathe in anyone's direction for a while after eating them."
+		icon_state = "fries_garlicsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+		name = "fries with chocolate sauce"
+		desc = "Someone has a case of the munchies."
+		icon_state = "fries_brownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/barbecue))
+		name = "fries with barbecue sauce"
+		desc = "As you stare deep into this plate of fries, somewhere in the distance you think you hear a faint 'yee haw'."
+		icon_state = "fries_brownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/sweet_chili))
+		name = "fries with sweet chili sauce"
+		desc = "A plate of fries giving off those mid-tier mall food court vibes."
+		icon_state = "fries_redsauce"
+
 /obj/item/reagent_containers/food/snacks/microchips
 	name = "micro chips"
 	desc = "Soft and rubbery. should have fried them"

@@ -504,6 +504,7 @@
 		/obj/item/reagent_containers/food/condiment/ntella = 1,
 		/obj/item/reagent_containers/food/condiment/peanut_butter = 1,
 		/obj/item/reagent_containers/food/condiment/cherry_jelly = 1,
+		/obj/item/reagent_containers/food/condiment/sweet_chili = 0.8,
 		/obj/item/reagent_containers/food/condiment/grape_jelly = 0.5
 	)
 

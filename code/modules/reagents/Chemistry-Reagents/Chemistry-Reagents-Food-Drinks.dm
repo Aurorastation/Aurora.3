@@ -159,14 +159,6 @@
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 	M.intoxication -= min(M.intoxication,nut_fact*removed*0.05) //Nutrients can absorb alcohol.
 
-/singleton/reagent/nutriment/coating/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if (!holder.reagent_data[type]["cooked"])
-		//Raw coatings will sometimes cause vomiting
-		if (ishuman(M) && prob(1))
-			var/mob/living/carbon/human/H = M
-			H.delayed_vomit()
-	. = ..()
-
 /singleton/reagent/nutriment/coating/initialize_data(var/list/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	var/list/data = ..()
 	LAZYSET(data, "cooked", istype(holder?.my_atom,/obj/item/reagent_containers/food/snacks))
@@ -753,6 +745,18 @@
 	. = ..()
 	if(.)
 		M.add_chemical_effect(CE_ANTIPARASITE, 10)
+
+/singleton/reagent/nutriment/sweet_chili
+	name = "Sweet Chili Sauce"
+	description = "Spicy AND sweet!"
+	reagent_state = LIQUID
+	color = "#dd4103"
+	taste_description = "sweet chili"
+	taste_mult = 1.5
+	value = 0.2
+	condiment_name = "sweet chili"
+	condiment_desc = "Sweet chili sauce, for those who want spicy food but are afraid to commit."
+	condiment_icon_state = "sweet_chili"
 
 /singleton/reagent/nutriment/mayonnaise
 	name = "Mayonnaise"
