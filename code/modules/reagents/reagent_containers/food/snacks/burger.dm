@@ -26,7 +26,7 @@
 		return
 	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown)) // Burger + Moss = A "less authentic" mossburger
 		var/obj/item/reagent_containers/food/snacks/grown/S = attacking_item
-		if(S.seed?.name == "moss")
+		if(istype(S.seed, /datum/seed/grass/moss))
 			new /obj/item/reagent_containers/food/snacks/burger/moss/sad(src)
 			to_chat(user, "You sprinkle some moss on top of the burger.")
 			qdel(attacking_item)
