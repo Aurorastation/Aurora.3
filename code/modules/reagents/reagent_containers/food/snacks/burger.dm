@@ -24,12 +24,14 @@
 		qdel(attacking_item)
 		qdel(src)
 		return
-//	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown/moss)) // Burger + Moss = A "less authentic" mossburger
-//		new /obj/item/reagent_containers/food/snacks/burger/moss/sad(src)
-//		to_chat(user, "You sprinkle some moss on top of the burger.")
-//		qdel(attacking_item)
-//		qdel(src)
-//		return
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown)) // Burger + Moss = A "less authentic" mossburger
+		var/obj/item/reagent_containers/food/snacks/grown/S = attacking_item
+		if(S.seed?.name == "moss")
+			new /obj/item/reagent_containers/food/snacks/burger/moss/sad(src)
+			to_chat(user, "You sprinkle some moss on top of the burger.")
+			qdel(attacking_item)
+			qdel(src)
+		return
 	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
 		B.attackby(attacking_item, user)

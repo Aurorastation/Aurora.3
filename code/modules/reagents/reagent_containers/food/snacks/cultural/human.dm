@@ -268,18 +268,32 @@
 		if(50 to INFINITY)
 			icon_state = "gravybiscuits"
 
-/obj/item/reagent_containers/food/snacks/elotes
-	name = "elotes"
-	gender = PLURAL
-	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream, and seasonings."
+/obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
+	name = "mozzarella sticks"
+	desc = "Fried sticks of molten mozzarrella cheese hidden in a deep fried breaded coating. "
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
-	icon_state = "elotes"
+	icon_state = "mozzarella_sticks"
+	unitname = "mozzarella stick"
+	filling_color = "#fabe17"
 	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/mozzarella_stick
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 4, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/cheese = list("molten cheese" = 5), /singleton/reagent/nutriment = list("crunchy coating" = 5))
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("corn" = 5, "zesty seasoning" = 3, "lime" = 3), /singleton/reagent/nutriment/protein = list("cheese" = 5))
-	bitesize = 2
-	filling_color = "#d8ab18"
+/obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "mozzarella_sticks_half"
+		if(4 to INFINITY)
+			icon_state = "mozzarella_sticks"
+
+/obj/item/reagent_containers/food/snacks/mozzarella_stick
+	name = "mozzarella stick"
+	desc = "A cheese stick by any other name would taste as savory."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "mozzarella_stick"
+	filling_color = "#fabe17"
 
 // Konyang
 
@@ -411,7 +425,7 @@
 
 /obj/item/reagent_containers/food/snacks/sweet_chili_chicken
 	name = "sweet chili chicken"
-	desc = "Konyanger style chicken busting with flavor served over a bed of rice, covered in sesame and green onions with a healthy helping of sweet chili sauce. A little bit spicy, a little bit sweet, a little bit connected to it's roots in Asia, and a little bit modern. In other words - Very Konyang."
+	desc = "Konyanger style chicken bursting with flavor served over a bed of rice, covered in sesame and green onions with a healthy helping of sweet chili sauce. A little bit spicy, a little bit sweet, a little bit connected to it's roots in Asia, and a little bit modern. In other words - Very Konyang."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "sweetchilichicken"
 	filling_color = "#C97F02"
@@ -419,6 +433,60 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/rice = 3, /singleton/reagent/capsaicin = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 4), /singleton/reagent/nutriment/protein = list("sweet and spicy chicken" = 5))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable
+	name = "vegetable eggrolls"
+	desc = "Fried, crispy eggrolls full of carrots, cabbage and ginger. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "eggrolls_veg_full"
+	unitname = "eggroll"
+	filling_color = "#b19445"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/eggroll_vegetable
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("vegetables" = 5, "crunchy coating" = 5, "ginger" = 3))
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 2)
+			icon_state = "eggrolls_veg_one"
+		if(3 to INFINITY)
+			icon_state = "eggrolls_veg_full"
+
+/obj/item/reagent_containers/food/snacks/eggroll_vegetable
+	name = "vegetable eggroll"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	desc = "A crunchy eggroll full of crispy veggies."
+	icon_state = "eggroll_veg"
+	filling_color = "#b19445"
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
+	name = "meat eggrolls"
+	desc = "Fried, crispy eggrolls full of meat, traditionally either pork or chicken, although other kinds exist around the spur. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "eggrolls_meat_full"
+	unitname = "eggroll"
+	filling_color = "#613e16"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/eggroll_meat
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("crunchy coating" = 5, "ginger" = 3))
+
+/obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 2)
+			icon_state = "eggrolls_meat_one"
+		if(3 to INFINITY)
+			icon_state = "eggrolls_meat_full"
+
+/obj/item/reagent_containers/food/snacks/eggroll_meat
+	name = "meat eggroll"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	desc = "A crunchy eggroll full of meat and ginger."
+	icon_state = "eggroll_meat"
+	filling_color = "#613e16"
 
 // Mictlani
 
@@ -429,6 +497,19 @@
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+
+/obj/item/reagent_containers/food/snacks/elotes
+	name = "elotes"
+	gender = PLURAL
+	desc = "Grilled mexican sweet corn with chili powder, mayonnaise, cheese, sour cream, and seasonings."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "elotes"
+	trash = /obj/item/trash/plate
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("corn" = 5, "zesty seasoning" = 3, "lime" = 3), /singleton/reagent/nutriment/protein = list("cheese" = 5))
+	bitesize = 2
+	filling_color = "#d8ab18"
 
 // Dominia
 /obj/item/reagent_containers/food/snacks/moroz_flatbread
@@ -648,7 +729,7 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 	reagent_data = list(/singleton/reagent/nutriment = list("plantains" = 5, "chili" = 3, "zest" = 2))
 
 /obj/item/reagent_containers/food/snacks/dodo_ikire/update_icon()
-	var/percent_dodo = round((reagents.total_volume / 8) * 100)
+	var/percent_dodo = round((reagents.total_volume / 7) * 100)
 	switch(percent_dodo)
 		if(0 to 49)
 			icon_state = "dodo_half"
