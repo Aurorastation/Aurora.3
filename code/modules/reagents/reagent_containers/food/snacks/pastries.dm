@@ -230,7 +230,7 @@
 
 	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/flour, /singleton/reagent/spacecleaner, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //For when the scrubbers inevitably attack the kitchen.
 		name = "ruined waffles"
-		desc = "Oh boy! Look at all that powdered suga- wait, wait, no, that's... no that's not sugar. Oh, these poor waffles."
+		desc = "Oh boy! Look at all that powdered suga- wait, wait, no, that's... no, that's not sugar. Oh, these poor waffles."
 		icon_state = "waffles_ruined"
 
 

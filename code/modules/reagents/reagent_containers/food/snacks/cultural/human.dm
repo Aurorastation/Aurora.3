@@ -270,6 +270,7 @@
 
 /obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
 	name = "mozzarella sticks"
+	gender = PLURAL
 	desc = "Fried sticks of molten mozzarrella cheese hidden in a deep fried breaded coating. "
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "mozzarella_sticks"
@@ -436,6 +437,7 @@
 
 /obj/item/reagent_containers/food/snacks/bowl/eggrolls_vegetable
 	name = "vegetable eggrolls"
+	gender = PLURAL
 	desc = "Fried, crispy eggrolls full of carrots, cabbage and ginger. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "eggrolls_veg_full"
@@ -463,6 +465,7 @@
 
 /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
 	name = "meat eggrolls"
+	gender = PLURAL
 	desc = "Fried, crispy eggrolls full of meat, traditionally either pork or chicken, although other kinds exist around the spur. Contrary to popular belief, eggrolls are frequently made without any eggs, using rice paper or wheat based wraps instead."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "eggrolls_meat_full"
