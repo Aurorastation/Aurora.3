@@ -155,7 +155,7 @@
 	fruit = list("moss" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/cutlet
+		/obj/item/reagent_containers/food/snacks/cutlet,
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/moss
 
