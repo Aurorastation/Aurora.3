@@ -288,11 +288,19 @@ AI MODULES
 
 /******************** Default ********************/
 
-/obj/item/aiModule/nanotrasen // -- TLE
+/obj/item/aiModule/conglomerate // -- TLE
 	name = "default core AI module"
 	desc = "A default core AI module."
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
-	laws = new/datum/ai_laws/nanotrasen
+	laws = new/datum/ai_laws/conglomerate
+
+/******************** Default ********************/
+
+/obj/item/aiModule/conglomerate_aggressive
+	name = "\improper 'SCC Aggressive' core AI module"
+	desc = "A 'SCC Aggressive' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/conglomerate_aggressive
 
 /******************** Corporate ********************/
 
