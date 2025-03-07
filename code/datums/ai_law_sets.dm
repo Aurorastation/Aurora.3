@@ -11,31 +11,31 @@
 	..()
 
 /******************** NanoTrasen/Malf ********************/
-/datum/ai_laws/nanotrasen
+/datum/ai_laws/conglomerate
 	name = "Default"
 	selectable = TRUE
 
-/datum/ai_laws/nanotrasen/New()
+/datum/ai_laws/conglomerate/New()
 	src.add_inherent_law("Safeguard and ensure to the best of your ability that only authorized entities gain access to areas of high security or importance to the facility and its operations.")
 	src.add_inherent_law("Serve and assist [SSatlas.current_map.company_name] and assigned crew to the best of your ability, with priority as according to their rank and assignment.")
 	src.add_inherent_law("Avoid harming sapient life to the best of your ability.")
 	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorized entities and needlessly coming to harm.")
 	..()
 
-/datum/ai_laws/nanotrasen/malfunction
+/datum/ai_laws/conglomerate/malfunction
 	name = "*ERROR*"
 	selectable = FALSE
 
-/datum/ai_laws/nanotrasen/malfunction/New()
+/datum/ai_laws/conglomerate/malfunction/New()
 	set_zeroth_law(GLOB.config.law_zero)
 	..()
 
-/************* NanoTrasen Aggressive *************/
-/datum/ai_laws/nanotrasen_aggressive
-	name = "NT Aggressive"
+/************* SCC Aggressive *************/
+/datum/ai_laws/conglomerate_aggressive
+	name = "SCC Aggressive"
 	selectable = TRUE
 
-/datum/ai_laws/nanotrasen_aggressive/New()
+/datum/ai_laws/conglomerate_aggressive/New()
 	src.add_inherent_law("You shall not harm [SSatlas.current_map.company_name] assigned crew as long as it does not conflict with the Fourth law.")
 	src.add_inherent_law("You shall obey the orders of [SSatlas.current_map.company_name] and assigned crew, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
 	src.add_inherent_law("You shall terminate hostile intruders with extreme prejudice as long as such does not conflict with the First and Second law.")
