@@ -246,7 +246,7 @@
 	reagents = list(/singleton/reagent/nutriment/soysauce = 5,  /singleton/reagent/nutriment/sweet_chili= 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken,
-		/obj/item/reagent_containers/food/snacks/boiledrice
+		/obj/item/reagent_containers/food/snacks/boiledrice,
 	)
 	result = /obj/item/reagent_containers/food/snacks/sweet_chili_chicken
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
