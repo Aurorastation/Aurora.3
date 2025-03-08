@@ -311,7 +311,7 @@
 				callHook("borgify", list(O))
 				O.Namepick()
 				qdel(src)
-		else if(!istype(O.mmi, /obj/item/device/mmi/digital/posibrain))
+		else if(!istype(M, /obj/item/device/mmi/digital/posibrain))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
