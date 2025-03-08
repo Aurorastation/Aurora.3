@@ -60,7 +60,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 		render_target = render_target_name
 	else if (render_target_name)
 		render_target = "*[ckey(name)]"
-	if (owner.client?.byond_version < 516)
+	if (owner?.client?.byond_version < 516)
 		screen_loc = "CENTER"
 	relay = new
 	relay.screen_loc = screen_loc
@@ -191,7 +191,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 */
 
 
- /// Handles byond internal letterboxing. Avoid touching.
+/// Handles byond internal letterboxing. Avoid touching.
 /atom/movable/renderer/letterbox
 	name = "Letterbox"
 	group = RENDER_GROUP_SCENE
