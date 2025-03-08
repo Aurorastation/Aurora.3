@@ -32,6 +32,7 @@
 	molar_mass = 0.405	// kg/mol
 
 	tile_overlay = "phoron"
+	tile_color = "#ff9940"
 	overlay_limit = 0.7
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
 
@@ -108,6 +109,7 @@
 /singleton/xgm_gas/chlorine
 	id = GAS_CHLORINE
 	name = "Chlorine"
+	tile_color = "#c5f72d"
 	tile_overlay = "chlorine"
 	overlay_limit = 0.5
 	specific_heat = 5	// J/(mol*K)
