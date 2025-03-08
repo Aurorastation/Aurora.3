@@ -12,11 +12,11 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	max_w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 25 //20 for clothes + a bit of additional space for non-clothing items that were worn on body
+	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	storage_slots = 14
-	use_to_pickup = 1
-	allow_quick_empty = 1
-	allow_quick_gather = 1
+	use_to_pickup = TRUE
+	allow_quick_empty = TRUE
+	allow_quick_gather = TRUE
 	collection_mode = 1
 	var/linked
 

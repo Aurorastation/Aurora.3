@@ -188,10 +188,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
-
-/obj/item/storage/firstaid/surgery/fill()
-	. = ..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"
