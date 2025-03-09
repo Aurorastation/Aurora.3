@@ -64,7 +64,6 @@
 
 /**
  * Deploy the structures inside the food cart
-
  *
  * * iteration - counter for how many items have been unpacked, increment for each item unpacked
  * * cart_space - temporary overlay showing non-dense and dense tiles checked
