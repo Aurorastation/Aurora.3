@@ -119,7 +119,7 @@
  * * grabbed_turf - starts one tile SOUTH of cart, then sequentially checks one tile EAST
  * * cart_space - temporary overlay showing non-dense and dense tiles checked
  *
- * Returns `has_space`
+ * Returns a boolean
  */
 /obj/machinery/food_cart/proc/check_setup_place()
 	var/has_space = TRUE
