@@ -23,9 +23,9 @@
 	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL
 	)
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
