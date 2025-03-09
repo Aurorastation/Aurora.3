@@ -95,6 +95,7 @@
 	center_of_mass = list("x" = 16,"y" = 9)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
+	max_storage_space = DEFAULT_BOX_STORAGE
 	storage_slots = 6
 	icon_overlays = FALSE
 	foldable = /obj/item/stack/material/cardboard
@@ -110,7 +111,6 @@
 
 /obj/item/storage/box/fancy/donut/empty
 	starts_with = null
-	max_storage_space = DEFAULT_BOX_STORAGE
 
 /*
  * Egg Box
