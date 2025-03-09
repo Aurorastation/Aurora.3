@@ -136,7 +136,6 @@
 /**
  * Some part of the food cart went missing
  */
-
 /obj/machinery/food_cart/proc/lost_part(atom/movable/source, force)
 	SIGNAL_HANDLER
 
