@@ -69,7 +69,6 @@
  * * cart_space - temporary overlay showing non-dense and dense tiles checked
  *
  */
-
 /obj/machinery/food_cart/proc/unpack(mob/user)
 	if(unpacked)
 		return
