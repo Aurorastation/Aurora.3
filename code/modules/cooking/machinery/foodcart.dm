@@ -123,7 +123,6 @@
  *
  * Returns `has_space`
  */
-
 /obj/machinery/food_cart/proc/check_setup_place()
 	var/has_space = TRUE
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
