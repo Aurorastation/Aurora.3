@@ -51,15 +51,20 @@
 	. = ..()
 
 /obj/machinery/appliance/cooker/oven/update_icon()
-	if (!open)
+	ClearOverlays()
+	update_baking_audio()
+	if(!open)
 		icon_state = "ovenclosed"
+		if(!stat)
+			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenclosed_on")
+			ovenclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(ovenclosed_on)
 	else
 		icon_state = "ovenopen"
-	ClearOverlays()
-	if (!stat)
-		var/image/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on")
-		glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		AddOverlays(glow)
+		if(!stat)
+			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', "ovenopen_on")
+			ovenopen_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(ovenopen_on)
 	..()
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)
@@ -84,13 +89,12 @@
 	else
 		playsound(src, 'sound/machines/oven/oven_open.ogg', 75, TRUE)
 	update_icon()
-	update_baking_audio()
+
 
 /obj/machinery/appliance/cooker/oven/proc/update_baking_audio()
 	if(!oven_loop)
 		return
-	var/obj/item/reagent_containers/cooking_container/C
-	if(!open && C?.contents.len)
+	if(use_power)
 		oven_loop.start()
 	else
 		oven_loop.stop()
@@ -126,7 +130,7 @@
 
 /obj/machinery/appliance/cooker/oven/adhomai
 	name = "adhomian oven"
-	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma"
+	desc = "A heavy and rustic adhomian oven. Perfect for a Tajaran grandma."
 	icon_state = "adhomai_oven_open"
 
 /obj/machinery/appliance/cooker/oven/adhomai/update_icon()
