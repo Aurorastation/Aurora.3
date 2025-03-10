@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Adds the Conglomerate Aggressive lawboard, and places one in AI Secure Storage."
   - spellcheck: "Renames default and NT Aggressive lawboard to Conglomerate and Conglomerate Aggressive respectively."
+  - code_imp: "DMdocs for AI lawsets and modules."
