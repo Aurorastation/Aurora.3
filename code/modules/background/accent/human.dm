@@ -420,3 +420,39 @@
 	from the wider system, most describe the dialect as both strongly archaic and very colloquial, similar to the voice of a Biesellite heard from an old recording."
 	tag_icon = "reade"
 	text_tag = "RDE"
+
+/datum/accent/enceladus
+	name = ACCENT_ENCELADUS
+	description = "Enceladian Common is descended from the accents of North and South America, and the residents of Saturn’s moon take pride in ensuring their accent calls back to their ancestral homes on Earth. "
+	tag_icon = "enceladus"
+	text_tag = "ENC"
+
+/datum/accent/iapetus
+	name = ACCENT_IAPETUS
+	description = "Cassinian Common, the accent of Iapetus, is typically associated with the Solarian Interstellar Intelligence Bureau, and characters affiliated with it in Solarian movies will often talk like a Cassinian: soft-spoken and generally polite, but reserved and often distant."
+	tag_icon = "iapetus"
+	text_tag = "CAS"
+
+/datum/accent/titania
+	name = ACCENT_TITANIA
+	description = "The largest offworlder population in the Sol System, Titanii Common involves plentiful hand gestures and other visual signals. Linguists have long theorized the prominence of hand gestures in this accent comes from the moon’s EVA-centric industries."
+	tag_icon = "titania"
+	text_tag = "TIA"
+
+/datum/accent/mercury
+	name = ACCENT_MERCURY
+	description = "Mercurian Common is often heard in the boardrooms of Einstein Engines, which employs much of the planet’s population. Those who speak with this accent are often – to no fault of their own – regarded with suspicion by the SCC due to this association."
+	tag_icon = "mercury"
+	text_tag = "MCY"
+
+/datum/accent/eris
+	name = ACCENT_ERIS
+	description = "Erisian Common bears some resemblance to Lunarian Common due to the planetoid’s long association with the Solarian Navy. Like its counterpart, it is very hard to effectively replicate for an outsider."
+	tag_icon = "eris"
+	text_tag = "ERS"
+
+/datum/accent/stationer
+	name = ACCENT_STATIONER
+	description = "Similar to the conventional Earther accent, the Unity Station accent instead has its roots in North American English, reflecting the Alliance’s history in the region."
+	tag_icon = "stationer"
+	text_tag = "STA"
