@@ -289,7 +289,9 @@
 		/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper, /obj/item/device/breath_analyzer
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = ARMOR_BIO_STRONG
+	armor = list(
+			bio = ARMOR_BIO_STRONG,
+		)
 
 /obj/item/clothing/suit/storage/surgical_gown/accent
 	has_accents = TRUE
