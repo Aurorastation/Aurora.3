@@ -1277,12 +1277,12 @@
 	else
 		return ..(ndir)
 
-/mob/forceMove(atom/dest)
+/mob/forceMove(atom/destination)
 	var/old_z = GET_Z(src)
 
 	var/atom/movable/AM
-	if (dest != loc && istype(dest, /atom/movable))
-		AM = dest
+	if (destination != loc && istype(destination, /atom/movable))
+		AM = destination
 		LAZYADD(AM.contained_mobs, src)
 		if(ismob(pulledby))
 			var/mob/M = pulledby

@@ -122,10 +122,10 @@
 		painted_colour = new_colour
 		return painted_colour != last_colour
 
-/obj/structure/bed/forceMove(atom/dest)
+/obj/structure/bed/forceMove(atom/destination)
 	. = ..()
 	if(buckled)
-		buckled.forceMove(dest)
+		buckled.forceMove(destination)
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -519,7 +519,7 @@
 	collapse()
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)

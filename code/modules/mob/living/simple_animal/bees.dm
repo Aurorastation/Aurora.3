@@ -147,7 +147,7 @@
 	if (feral && isturf(loc))
 		//smoke, water and steam calms us down
 		var/static/list/calmers = typecacheof(list(
-			/obj/effect/effect/smoke,
+			/obj/effect/smoke,
 			/obj/effect/effect/water,
 			/obj/effect/effect/foam,
 			/obj/effect/effect/steam,

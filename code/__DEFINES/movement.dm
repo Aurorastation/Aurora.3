@@ -31,6 +31,12 @@
 #define MOVEMENT_BUCKET_TIME 1
 #define MOVEMENT_BUCKET_LIST 2
 
+//Diagonal movement is split into two cardinal moves
+/// The first step of the diagnonal movement
+#define FIRST_DIAG_STEP 1
+/// The second step of the diagnonal movement
+#define SECOND_DIAG_STEP 2
+
 ///Return values for moveloop Move()
 #define MOVELOOP_FAILURE 0
 #define MOVELOOP_SUCCESS 1

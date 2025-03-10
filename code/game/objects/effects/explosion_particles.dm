@@ -12,7 +12,7 @@
 	return
 
 /obj/effect/expl_particles/Move()
-	..()
+	. = ..()
 	return
 
 /obj/effect/expl_particles/Destroy()
