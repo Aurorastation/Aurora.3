@@ -49,8 +49,6 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "jy" = (
-/obj/item/material/shard,
-/obj/item/material/shard,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
@@ -63,16 +61,6 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"md" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "mu" = (
 /obj/effect/floor_decal/konyang_flowers,
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
@@ -159,7 +147,12 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "rP" = (
-/obj/effect/landmark/corpse/ipc_zombie,
+/obj/structure/table/rack/folding_table,
+/obj/item/stack/material/glass,
+/obj/item/stack/material/glass,
+/obj/item/stack/material/glass,
+/obj/item/stack/material/glass,
+/obj/item/stack/material/glass,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "te" = (
@@ -223,20 +216,8 @@
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"xB" = (
-/obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"yv" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/stack/medical/splint/full,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "yZ" = (
 /obj/structure/window_frame/wood,
-/obj/item/material/shard,
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "zu" = (
@@ -257,15 +238,6 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/exoplanet/grass/konyang)
-"Cc" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/stack/medical/bruise_pack/full{
-	pixel_y = -2
-	},
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "DB" = (
 /obj/machinery/door/urban{
 	dir = 1
@@ -275,22 +247,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"DO" = (
-/obj/item/material/shard,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "Er" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/exoplanet/grass/konyang)
-"Gg" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/material/shard,
-/obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "GS" = (
 /turf/simulated/wall/wood,
 /area/konyang/rural_clinic)
@@ -364,20 +324,10 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
 "Oz" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/material/shard,
-/obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
-"Sg" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/reagent_containers/hypospray,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
 "SG" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/medical/ointment/full{
@@ -420,23 +370,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang/rural_clinic)
-"Xb" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "Xe" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"XG" = (
-/obj/effect/floor_decal/corner/green/diagonal{
-	dir = 4
-	},
-/obj/item/material/shard,
-/turf/simulated/floor/tiled/white,
-/area/konyang/rural_clinic)
 "XO" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -804,11 +740,11 @@ Xe
 Xe
 Xe
 Xe
+Xe
 rP
-rP
-rP
-rP
-rP
+Oz
+Xe
+Xe
 Xe
 Xe
 Xe
@@ -902,7 +838,7 @@ cd
 zu
 DB
 cd
-Oz
+zu
 zu
 xw
 Vq
@@ -934,7 +870,7 @@ zu
 qH
 GS
 pl
-DO
+Vq
 Vq
 iW
 Vq
@@ -998,11 +934,11 @@ et
 pV
 GS
 pl
-xB
+Vq
 Vq
 zu
 Vq
-XG
+zu
 Vq
 GS
 Xe
@@ -1032,10 +968,10 @@ DB
 cd
 zu
 zu
-md
-Gg
 cd
-Xb
+GT
+cd
+zu
 yZ
 Xe
 Xe
@@ -1161,7 +1097,7 @@ qz
 NZ
 wJ
 SG
-Cc
+zu
 GS
 Xe
 Xe
@@ -1190,9 +1126,9 @@ Xe
 GS
 gs
 zu
-Sg
 zu
-Cc
+zu
+zu
 te
 GS
 Xe
@@ -1220,7 +1156,7 @@ Xe
 Xe
 Xe
 GS
-yv
+zu
 JK
 wc
 pq
