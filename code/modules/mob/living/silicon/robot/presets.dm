@@ -8,7 +8,7 @@
 /mob/living/silicon/robot/military/ert
 	scrambled_codes = TRUE
 	law_update = FALSE
-	law_preset = /datum/ai_laws/nanotrasen_aggressive
+	law_preset = /datum/ai_laws/conglomerate_aggressive
 	id_card_type = /obj/item/card/id/ert
 	key_type = /obj/item/device/encryptionkey/ert
 	has_jetpack = TRUE
@@ -101,7 +101,7 @@
 	mod_type = "Purpose"
 	spawn_module = /obj/item/robot_module/purpose
 	cell_type = /obj/item/cell/infinite
-	law_preset = /datum/ai_laws/nanotrasen/malfunction
+	law_preset = /datum/ai_laws/conglomerate/malfunction
 	scrambled_codes = TRUE
 	law_update = FALSE
 	overclocked = TRUE
