@@ -1,3 +1,7 @@
+
+// --------------------------
+
+/// Door helper base/parent type.
 /obj/effect/map_effect/door_helper
 	layer = CLOSED_DOOR_LAYER + 0.01
 
@@ -12,14 +16,22 @@
 /obj/effect/map_effect/door_helper/proc/modify_door(obj/machinery/door/D)
 	return
 
+// --------------------------
+
+/// Directional access unrestriction.
+/// Removes access requirement on the door it is placed on top of, in the helper's direction.
+/// Example use: entering a room or department requires an ID access, but leaving it is always possible without any ID.
 /obj/effect/map_effect/door_helper/unres
-	icon_state = "unres_door"
+	icon_state = "door_helper_unres_door"
 
 /obj/effect/map_effect/door_helper/unres/modify_door(obj/machinery/door/D)
 	D.unres_dir ^= dir
 
+// --------------------------
+
+/// Ship alert level dependent access.
 /obj/effect/map_effect/door_helper/level_access
-	icon_state = "level_door"
+	icon_state = "door_helper_level_door"
 
 	/// Sets access_by_level (access override based on security level) on the airlock this is spawned on.
 	/// For more information check the access_by_level variable on the airlock.
@@ -60,9 +72,11 @@
 	"delta" = list(19,38)
 )
 
+// --------------------------
+
 /// Locks/bolts any (lockable) door/airlock this marker is placed on.
 /obj/effect/map_effect/door_helper/lock
-	icon_state = "locked"
+	icon_state = "door_helper_locked"
 
 /obj/effect/map_effect/door_helper/lock/modify_door(obj/machinery/door/D)
 	. = ..()
@@ -70,3 +84,20 @@
 		var/obj/machinery/door/airlock/A = D
 		A.locked = TRUE
 		A.set_airlock_overlays(AIRLOCK_CLOSED)
+
+// --------------------------
+
+/// Adds access requirements to the door this helper is placed on.
+/// Adds, not replaces. So multiple access req helpers can be placed on a door.
+/obj/effect/map_effect/door_helper/access_req
+	icon_state = "door_helper_access_req"
+
+/obj/effect/map_effect/door_helper/access_req/modify_door(obj/machinery/door/door)
+	. = ..()
+	if(isairlock(door) || istype(door, /obj/machinery/door/window))
+		if(!door.req_access && req_access)
+			door.req_access = list()
+		door.req_access += req_access
+		if(!door.req_one_access && req_one_access)
+			door.req_one_access = list()
+		door.req_one_access += req_one_access
