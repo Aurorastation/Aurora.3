@@ -28,11 +28,11 @@ Single Use Emergency Pouches
 	icon_overlays = FALSE
 	closable = FALSE
 	var/injury_type = "generic"
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/med_pouch/Initialize()
 	. = ..()
 	name = "emergency [injury_type] pouch"
-	make_exact_fit()
 	for(var/obj/item/reagent_containers/pill/P in contents)
 		P.color = color
 

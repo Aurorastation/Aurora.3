@@ -9,6 +9,7 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
+	storage_slot_sort_by_name = TRUE
 	var/plantname
 	var/datum/seed/seed
 	var/potency = -1

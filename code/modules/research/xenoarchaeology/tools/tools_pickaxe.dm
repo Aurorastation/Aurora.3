@@ -172,9 +172,9 @@
 	/obj/item/pickaxe/four_pick,\
 	/obj/item/pickaxe/five_pick,\
 	/obj/item/pickaxe/six_pick)
-	max_storage_space = 18
+	make_exact_fit = TRUE
 	max_w_class = WEIGHT_CLASS_NORMAL
-	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = TRUE // for picking up broken bulbs, not that most people will try
 
 /obj/item/storage/box/excavation/fill()
 	..()

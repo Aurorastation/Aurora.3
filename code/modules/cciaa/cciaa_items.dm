@@ -359,7 +359,7 @@
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8
-	max_storage_space = 16
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 
 /obj/item/storage/lockbox/cciaa/bssb
 	name = "BSSB agent briefcase"
