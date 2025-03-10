@@ -56,3 +56,25 @@
       you details instead of bluescreening.
   - qol: Added some UI elements to the Cargo Order app to make it prettier and show
       tooltips on suppliers. Also now has search functionality.
+2025-03-10:
+  CourierBravo:
+  - rscdel: Changed the potted oriental tree's name and description to now be a potted
+      Kwanzan cherry tree.
+  Myphicbowser:
+  - rscadd: Added a single psionic firing pin to the RDs firing pin box.
+  - rscdel: Removed a single hilarious firing pin from the RDs firing pin box.
+  SimpleMaroon:
+  - rscadd: All origins under the Biesellite culture can now opt to have Sol Alliance
+      citizenship.
+  - qol: The faces on face IPC screen and cigarette IPC screen have been moved a pixel
+      lower to better fit with facial attire.
+  - bugfix: Characters with Orepit citizenship can no longer join as Diplomatic Aides.
+  hazelmouse:
+  - rscadd: Made some minor tweaks in layout to the SCCV Intrepid, introduced new
+      tables to cargo areas, streamlined outer hull.
+  - rscadd: Added a bluespace beacon to the SCCV Quark.
+  - rscadd: The bluespace beacon's exact location is now visible on the SCCV Quark,
+      Spark, Canary, and Intrepid.
+  - bugfix: All Intrepid cameras should now be fully accessible from camera consoles.
+  kermit:
+  - bugfix: Fixed the rolled up cropped dress shirt not having rolled up sleeves.

@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the rolled up cropped dress shirt not having rolled up sleeves."
