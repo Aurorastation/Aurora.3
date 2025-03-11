@@ -78,3 +78,37 @@
   - bugfix: All Intrepid cameras should now be fully accessible from camera consoles.
   kermit:
   - bugfix: Fixed the rolled up cropped dress shirt not having rolled up sleeves.
+2025-03-11:
+  Greenjoe12345:
+  - rscadd: Makes it so the generic exoplanet dirt ground doesn't leave footprints.
+  - rscadd: Gives exoplanet turfs descriptions so they don't just say they are the
+      bare hull. Adjusts some names as well.
+  Myphicbowser:
+  - rscadd: Added toolbelts and a table to the engineering bay of the Tarwa ship.
+  - rscadd: Made the RobCo ToolVendor require no access on the Tarwa ship.
+  - rscadd: Hacked the Cigarette machine on the Tarwa.
+  - rscadd: Added metallic walls to the Tarwa burn chamber, other metallic walls were
+      turned to Dionae ones to keep the flesh-steel ratio the same.
+  Tag103:
+  - rscadd: Added Reunification Day, celebrated on July 17, to the holiday system.
+  Tomixcomics:
+  - rscadd: Added 8 new food dishes (including 6 new Konyanger dishes) and 1 new sauce
+      (sweet chili).
+  - rscadd: Added macarons to the custom foods you can make with the oven.
+  - rscadd: Waffles and fries now visually change based on some specific syrups or
+      condiments you might pour onto them.
+  - rscdel: Removed the feature of batter (and by extention, a lot of fried foods)
+      making people throw up.
+  - code_imp: Moved a few foods around in the code to be in the correct food categories
+      (such as Elotes being listed with other Mictlani food now).
+  - qol: Made produce boxes sometimes spawn garlic as random produce, and made onions
+      a bit more likely to spawn as well, now that more recipes require them.
+  goblin.stev:
+  - bugfix: Fixed Clan Hood accessory sprite not showing (hopefully.
+  - bugfix: Properly separated Zazali Top's layers.
+  - bugfix: Properly separated Huytai Outfit's layers, tweaked for side-sprite consistency,
+      and replaced outdated 'fisherwomen' gender reference in description for 'fisher'
+  nauticall:
+  - rscadd: Added surgical gowns. Includes faction-specific variants as well as a
+      colorable generic variant. Available in the loadout, on Surgeons by default
+      and in medical lockers.
