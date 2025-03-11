@@ -7,3 +7,6 @@
 	var/max_wires = 15
 	/// The wires left on this organ. Wires represent physical connections between components. They are less plentiful than plating, but they are worse to lose.
 	var/wires = 15
+
+/datum/synthetic_internal/wiring/get_status()
+	return (wires / max_wires) * 100

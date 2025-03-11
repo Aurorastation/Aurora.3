@@ -805,7 +805,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transfered to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
-				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/HC
 				if(C)
 					HC = C.cell

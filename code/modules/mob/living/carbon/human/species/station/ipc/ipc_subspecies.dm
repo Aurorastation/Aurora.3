@@ -73,7 +73,6 @@
 	move_charge_factor = 0.85
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
@@ -105,7 +104,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
@@ -115,10 +114,6 @@
 		/datum/unarmed_attack/kick/ipc,
 		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
-
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
-		)
 
 /datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	return
@@ -184,7 +179,6 @@
 	move_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 
@@ -253,13 +247,12 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/state_laws
 	)
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/machine/posibrain/terminator,
-		BP_CELL = /obj/item/organ/internal/cell/terminator,
+		BP_CELL = /obj/item/organ/internal/machine/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
 		"surge" = /obj/item/organ/internal/surge/advanced
@@ -329,7 +322,6 @@
 	heat_discomfort_level = 900
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 	)
 
@@ -419,7 +411,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain/circuit,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
@@ -470,7 +462,6 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
@@ -521,7 +512,6 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 
@@ -561,7 +551,6 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
 
@@ -574,7 +563,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain/circuit,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)

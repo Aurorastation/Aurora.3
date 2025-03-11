@@ -57,7 +57,7 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
-/obj/item/organ/internal/cell
+/obj/item/organ/internal/machine/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
@@ -73,29 +73,29 @@
 	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
 	var/servo_cost = 0.8
 
-/obj/item/organ/internal/cell/Initialize()
+/obj/item/organ/internal/machine/cell/Initialize()
 	robotize()
 	replace_cell(new cell(src))
 	. = ..()
 
-/obj/item/organ/internal/cell/proc/percent()
+/obj/item/organ/internal/machine/cell/proc/percent()
 	if(!cell)
 		return 0
 	return get_charge()/cell.maxcharge * 100
 
-/obj/item/organ/internal/cell/proc/get_charge()
+/obj/item/organ/internal/machine/cell/proc/get_charge()
 	if(!cell)
 		return 0
 	if(status & ORGAN_DEAD)
 		return 0
 	return round(cell.charge*(1 - damage/max_damage))
 
-/obj/item/organ/internal/cell/use(var/amount)
+/obj/item/organ/internal/machine/cell/use(var/amount)
 	if(!is_usable() || !cell)
 		return
 	return cell.use(amount)
 
-/obj/item/organ/internal/cell/process()
+/obj/item/organ/internal/machine/cell/process()
 	..()
 	if(!owner)
 		return
@@ -107,16 +107,16 @@
 	cost *= move_charge_factor
 	use(cost)
 
-/obj/item/organ/internal/cell/proc/get_power_drain()
+/obj/item/organ/internal/machine/cell/proc/get_power_drain()
 	return servo_cost
 
-/obj/item/organ/internal/cell/emp_act(severity)
+/obj/item/organ/internal/machine/cell/emp_act(severity)
 	. = ..()
 
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/item/organ/internal/cell/attackby(obj/item/attacking_item, mob/user)
+/obj/item/organ/internal/machine/cell/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(open)
 			open = FALSE
@@ -146,15 +146,15 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
-/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+/obj/item/organ/internal/machine/cell/proc/replace_cell(var/obj/item/cell/C)
 	if(istype(cell))
 		qdel(cell)
 	if(C.loc != src)
 		C.forceMove(src)
 	cell = C
-	name = "[initial(name)] ([C.name])"
+	desc = initial(desc) + "This appears embedded with a [C.name]."
 
-/obj/item/organ/internal/cell/listen()
+/obj/item/organ/internal/machine/cell/listen()
 	if(get_charge())
 		return "faint hum of the power bank"
 
@@ -345,7 +345,7 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/cell/terminator
+/obj/item/organ/internal/machine/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
 	icon = 'icons/obj/power.dmi'

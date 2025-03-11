@@ -7,3 +7,6 @@
 	var/max_health = 50
 	/// The health of the organ's plating. Represents... you know, the plating.
 	var/health = 50
+
+/datum/synthetic_internal/plating/get_status()
+	return (health / max_health) * 100

@@ -73,7 +73,6 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/change_monitor,
 		/mob/living/carbon/human/proc/check_tag
 	)
@@ -95,7 +94,7 @@
 		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
 		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
-		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_CELL    = /obj/item/organ/internal/machine/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
@@ -163,14 +162,14 @@
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.move_charge_factor = move_charge_factor
 
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
 	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/cell/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(cost * sprint_cost_factor)
 	return TRUE
@@ -393,13 +392,13 @@
 	check_tag(H, H.client)
 
 /datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/cell/C = human.internal_organs_by_name[BP_CELL]
 	if(!C.cell)
 		return FALSE
 	return C.cell.charge > (C.cell.maxcharge / 10)
 
 /datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
-	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/cell/C = human.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)
 

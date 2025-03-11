@@ -35,3 +35,8 @@
 /// Internal organ. Removed, used for appendixes.
 #define ORGAN_PREF_REMOVED "removed"
 /// Note that a "normal" limb or organ has no pref, so there's no define for it.
+
+/// Liquid cooling. For IPC cooling units. Default is air cooling.
+#define ORGAN_PREF_LIQUIDCOOLED "liquid_cooled"
+/// Passive cooling. For IPC cooling units. Default is air cooling.
+#define ORGAN_PREF_PASSIVECOOLED "passive_cooled"

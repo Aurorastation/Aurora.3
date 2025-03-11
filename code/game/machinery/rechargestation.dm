@@ -113,7 +113,7 @@
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		var/obj/item/organ/internal/cell/IC = H.internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/cell/IC = H.internal_organs_by_name[BP_CELL]
 		if(IC)
 			target = IC.cell
 		if((!target || target.percent() > 95) && istype(H.back, /obj/item/rig))

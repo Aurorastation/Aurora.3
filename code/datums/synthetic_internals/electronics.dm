@@ -8,3 +8,6 @@
 	var/max_integrity = 100
 	/// The integrity of the internals in percentage. Represents code coherence and physical damage.
 	var/integrity = 100
+
+/datum/synthetic_internal/electronics/get_status()
+	return (integrity / max_integrity) * 100

@@ -24,6 +24,15 @@
 	else
 		LOG_DEBUG("Synthetic internal [type] generated on invalid organ [attached_organ]. Aborting.")
 		qdel(src)
+
+/**
+ * This proc returns the status of this synthetic internal as a percentage.
+ * It will return 100 if the component is 100% healthy, a value between 0 and 100 if not, and 0 if broken.
+ * This logic can be overridden for custom behaviour.
+ */
+/datum/synthetic_internal/proc/get_status()
+	return
+
 /**
  * This proc returns the status of this internal component, but imprecisely.
  * Basically what could be obvious at an eye-glance.

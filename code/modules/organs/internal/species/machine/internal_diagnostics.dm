@@ -10,12 +10,14 @@
 	if(owner.last_special > world.time)
 		return
 
-	if(owner.incapacitated())
+	if(user.stat == DEAD)
 		return
 
-	if(is_broken())
+	if(user.incapacitated(INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED))
 		return
 
-	to_chat(owner, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
-	//open the tgui here
+	to_chat(user, SPAN_NOTICE("You query your internal diagnostics system and gather some information."))
+
+	var/datum/tgui_module/ipc_diagnostic/diagnostic = new /datum/tgui_module/ipc_diagnostic(user)
+	diagnostic.ui_interact(usr)
 

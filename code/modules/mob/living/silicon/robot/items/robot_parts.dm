@@ -255,7 +255,7 @@
 
 				var/mob/living/carbon/human/new_shell = new(get_turf(src), chest.linked_frame)
 				// replace the IPC's microbattery cell with the one that was in the robot chest
-				var/obj/item/organ/internal/cell/C = new_shell.internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/cell/C = new_shell.internal_organs_by_name[BP_CELL]
 				C.replace_cell(chest.cell)
 				//so people won't mess around with the chassis until it is deleted
 				forceMove(new_shell)
