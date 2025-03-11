@@ -53,6 +53,10 @@
 	projectile_type = /obj/projectile/bullet/pistol
 	max_stack = 15
 
+/obj/item/ammo_casing/c9mm/subsonic
+	desc = "A 9mm subsonic bullet casing."
+	max_stack = 15
+
 /obj/item/ammo_casing/c9mm/flash
 	desc = "A 9mm flash shell casing."
 	projectile_type = /obj/projectile/energy/flash
@@ -77,6 +81,9 @@
 	caliber = "10mm"
 	projectile_type = /obj/projectile/bullet/pistol
 	max_stack = 10
+
+/obj/item/ammo_casing/c10mm/subsonic
+	desc = "A 10mm subsonic bullet casing."
 
 /obj/item/ammo_casing/c10mm/rubber
 	desc = "A 10mm rubber bullet casing."

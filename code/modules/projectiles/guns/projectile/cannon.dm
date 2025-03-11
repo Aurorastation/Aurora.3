@@ -151,3 +151,42 @@
 
 /obj/item/gun/projectile/peac/unloaded
 	ammo_type = null
+
+/obj/item/gun/projectile/recoilless_rifle/sol
+	name = "M78 Disposable Anti-Tank Launcher"
+	desc = "A shoulder-fired, disposable, fire and forget anti-tank rocket launcher used by the Solarian Armed Forces. Used to disable lightly armoured vehicles and exosuits, it's been nicknamed the 'Groundhog' by army troops."
+	icon = 'icons/obj/guns/recoilless_sol.dmi'
+	icon_state = "recoilless_sol"
+	item_state = "recoilless_sol"
+
+	var/extended = 0
+
+/obj/item/gun/projectile/recoilless_rifle/sol/special_check(mob/user)
+	if(!extended)
+		to_chat(user, SPAN_WARNING("You can't fire without extending \the [src]!"))
+		return 0
+	if(!wielded)
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
+		return 0
+	return ..()
+
+/obj/item/gun/projectile/recoilless_rifle/sol/update_icon()
+	..()
+	if(extended)
+		icon_state = "recoilless_sol_extended"
+	else
+		icon_state = "recoilless_sol"
+
+/obj/item/gun/projectile/recoilless_rifle/sol/unique_action(mob/user)
+	extended = !extended
+	if(extended)
+		to_chat(user, SPAN_NOTICE("You shorten the anti-tank launcher!"))
+		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
+		extended = 0
+	else
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		to_chat(user, SPAN_NOTICE("You extend out the anti-tank launcher!"))
+		extended = 1
+	add_fingerprint(user)
+	update_icon()
+

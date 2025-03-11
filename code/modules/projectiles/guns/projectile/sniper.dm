@@ -279,3 +279,55 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
+
+
+/obj/item/gun/projectile/automatic/rifle/m470
+	name = "M470MC designated marksman rifle"
+	desc = "The M470 is a designated marksman rifle based off the M469, designed with a longer barrel and an intregrated optic.\
+	It is the primary sniper rifle used by the Solarian Armed Forces, though its bipod has been removed and uses lighter parts to\
+	better adapt to the Marine's tactics, at the cost to reliability."
+	icon = 'icons/obj/guns/sol_rifle.dmi'
+	icon_state = "battlerifle_marksman"
+	item_state = "battlerifle"
+	w_class = WEIGHT_CLASS_BULKY
+	force = 15
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
+	caliber = "a556"
+	recoil = 7
+	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
+	max_shells = 20
+	ammo_type = "c762"
+	magazine_type = /obj/item/ammo_magazine/c762/sol
+	allowed_magazines = list(/obj/item/ammo_magazine/c762/sol)
+	accuracy = -4
+	scoped_accuracy = 4
+	recoil_wielded = 2
+	accuracy_wielded = 1
+	multi_aim = 0
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
+		list(mode_name="3-round burst",   can_autofire=0, burst=3, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(10, 15, 20, 25, 30))
+		)
+
+/obj/item/gun/projectile/automatic/rifle/m470/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "battlerifle_marksman"
+	else
+		icon_state = "battlerifle_marksman-empty"
+
+/obj/item/gun/projectile/automatic/rifle/m470/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set src in usr
+
+	if(wielded)
+		toggle_scope(3.0, usr)
+	else
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

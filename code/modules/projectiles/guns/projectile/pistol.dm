@@ -435,6 +435,23 @@
 	else
 		icon_state = "k8-empty"
 
+/obj/item/gun/projectile/pistol/sol/siib
+	name = "solarian SIIB pistol"
+	desc = "A very rare variation of the standard M8 solarian pistol, used by the SIIB for infiltration missions. Many believe they are just folk tale and were never manufactured. Takes specialist 'Subsonic' ammunition."
+	icon_state = "m8_siib"
+	item_state = "m8_siib"
+	can_suppress = FALSE
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/subsonic)
+	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
+
+
+/obj/item/gun/projectile/pistol/sol/siib/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "m8_siib"
+	else
+		icon_state = "m8_siib-empty"
+
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
