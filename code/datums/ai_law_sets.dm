@@ -1,5 +1,3 @@
-// DO NOT TOUCH ANY LAWS WITHOUT SYNTHLORE APPROVAL
-
 /// Asimov
 /datum/ai_laws/asimov
 	name = "Asimov"
