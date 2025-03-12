@@ -3,7 +3,7 @@
 	mod_type = "Military"
 	spawn_module = /obj/item/robot_module/military
 	cell_type = /obj/item/cell/super
-	braintype = "Android" // Posibrain.
+	braintype = "Robot" // Posibrain.
 
 /mob/living/silicon/robot/military/ert
 	scrambled_codes = TRUE
@@ -106,7 +106,7 @@
 	law_update = FALSE
 	overclocked = TRUE
 	has_jetpack = TRUE
-	braintype = "Android"
+	braintype = "Robot"
 
 /mob/living/silicon/robot/purpose/Initialize()
 	. = ..()
