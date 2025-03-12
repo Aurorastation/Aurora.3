@@ -19,6 +19,8 @@
 
 	var/storage_cost
 
+	var/storage_slot_sort_by_name = FALSE
+
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_x_dimension = 32
 
@@ -222,7 +224,6 @@
 
 	///Used to override hardcoded clothing dmis in human clothing pr
 	var/icon_override
-
 
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
