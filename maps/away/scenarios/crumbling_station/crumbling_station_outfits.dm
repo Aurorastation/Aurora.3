@@ -183,8 +183,8 @@ ABSTRACT_TYPE(/obj/outfit/admin/generic/crumbling_station_crew/highsec)
 	)
 	suit = list(
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/designer
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
 	)
 
 // Criminal visitor role - lightly armed, may possess contraband. Not a member of the station's crew.

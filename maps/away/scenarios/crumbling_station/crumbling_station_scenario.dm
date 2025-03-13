@@ -17,6 +17,7 @@
 		/singleton/role/crumbling_station/legal_visitor,
 		/singleton/role/crumbling_station/illegal_visitor,
 	)
+
 	default_outfit = /obj/outfit/admin/generic/crumbling_station_crew
 
 	base_area = /area/crumbling_station
