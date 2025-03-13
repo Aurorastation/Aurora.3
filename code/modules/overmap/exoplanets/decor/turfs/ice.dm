@@ -1,5 +1,7 @@
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
+	gender = PLURAL
+	desc = "Water, frozen solid. Careful not to slip."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "ice"
 	footprint_color = FALSE

@@ -95,6 +95,7 @@
 	center_of_mass = list("x" = 16,"y" = 9)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
+	max_storage_space = DEFAULT_BOX_STORAGE
 	storage_slots = 6
 	icon_overlays = FALSE
 	foldable = /obj/item/stack/material/cardboard
@@ -110,7 +111,6 @@
 
 /obj/item/storage/box/fancy/donut/empty
 	starts_with = null
-	max_storage_space = 12
 
 /*
  * Egg Box
@@ -455,7 +455,7 @@
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
-	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
+	make_exact_fit = TRUE
 	storage_slots = 6
 	req_access = list(ACCESS_VIROLOGY)
 
@@ -756,7 +756,7 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	storage_type = "glass"
 	storage_slots = 20
-	max_storage_space = 20
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/cakepopselection
 	)
@@ -827,7 +827,7 @@
 	icon_type = "chocolate praline"
 	contained_sprite = TRUE
 	storage_slots = 10
-	max_storage_space = 10
+	make_exact_fit = TRUE
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	can_hold = list(

@@ -141,7 +141,7 @@
 
 	else if(href_list["simplemake"])
 
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["mob"])
@@ -474,7 +474,7 @@
 		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
@@ -487,7 +487,7 @@
 		H.monkeyize()
 
 	else if(href_list["corgione"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["corgione"])
@@ -645,7 +645,7 @@
 		message_admins("[key_name_admin(usr)] has sent [key_name_admin(M)] to the thunderdome. (Observer.)", 1)
 
 	else if(href_list["revive"])
-		if(!check_rights(R_REJUVINATE))
+		if(!check_rights(R_REJUVENATE))
 			return
 
 		var/mob/living/L = locate(href_list["revive"])
@@ -661,7 +661,7 @@
 			to_chat(usr, "Admin Rejuvinates have been disabled")
 
 	else if(href_list["makeai"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeai"])
@@ -674,7 +674,7 @@
 		H.AIize()
 
 	else if(href_list["makeslime"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makeslime"])
@@ -685,7 +685,7 @@
 		usr.client.cmd_admin_slimeize(H)
 
 	else if(href_list["makerobot"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["makerobot"])
@@ -696,7 +696,7 @@
 		usr.client.cmd_admin_robotize(H)
 
 	else if(href_list["makeanimal"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/M = locate(href_list["makeanimal"])
@@ -707,7 +707,7 @@
 		usr.client.cmd_admin_animalize(M)
 
 	else if(href_list["togmutate"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_FUN))
 			return
 
 		var/mob/living/carbon/human/H = locate(href_list["togmutate"])
@@ -1014,14 +1014,14 @@
 		return
 
 	else if(href_list["jumpto"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["jumpto"])
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
@@ -1030,7 +1030,7 @@
 		usr.client.Getmob(M)
 
 	else if(href_list["sendmob"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_BAN))
 			return
 
 		var/mob/M = locate(href_list["sendmob"])

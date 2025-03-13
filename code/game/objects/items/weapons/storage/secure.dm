@@ -25,7 +25,7 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	var/open = 0
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 16
+	max_storage_space = DEFAULT_BOX_STORAGE
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/storage/secure/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

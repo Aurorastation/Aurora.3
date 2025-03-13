@@ -7,12 +7,12 @@
 	modern rations are issued to all branches of the Republic's military. Native field meals are composed of salt-cured Fatshouters's meat, bread and Victory Gin, while imported ones \
 	are commonly found in the form of LiquidFood rations, a less than popular alternative manufactured by NanoTrasen."
 	var/preset_ration	//if the package comes with one in particular, not a random
+	make_exact_fit = TRUE
 
 /obj/item/storage/field_ration/fill()
 	..()
 	new /obj/item/material/kitchen/utensil/spoon(src)
 	create_ration()
-	make_exact_fit()
 
 /obj/item/storage/field_ration/proc/create_ration()
 	var/selected_ration = preset_ration

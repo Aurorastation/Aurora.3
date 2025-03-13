@@ -383,7 +383,7 @@
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))
 		return
 
-	P.computer = src
+	P.set_computer(src)
 
 	if(!P.is_supported_by_hardware(hardware_flag, TRUE, user))
 		return
@@ -501,7 +501,7 @@
 	if(QDELETED(S))
 		return
 
-	S.computer = src
+	S.set_computer(src)
 
 	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
 		return
