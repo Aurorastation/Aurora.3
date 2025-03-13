@@ -112,3 +112,35 @@
   - rscadd: Added surgical gowns. Includes faction-specific variants as well as a
       colorable generic variant. Available in the loadout, on Surgeons by default
       and in medical lockers.
+2025-03-13:
+  ASmallCuteCat:
+  - qol: Added some more lights to the Armory. Now you can see what you're taking
+      out of the shelves!
+  Ben10083:
+  - rscadd: Adds the Conglomerate Aggressive lawboard, and places one in AI Secure
+      Storage.
+  - spellcheck: Renames default and NT Aggressive lawboard to Conglomerate and Conglomerate
+      Aggressive respectively.
+  - code_imp: DMdocs for AI lawsets and modules.
+  FluffyGhost:
+  - code_imp: Hopefully helps fixes some hard references being left when deleting
+      modular computers, in their programs.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes plant bags - now uses storage_slot system, along with other bag
+      subtypes.
+  - bugfix: Borgs can interact with tables again.
+  - refactor: Refactors make_exact_fit to be a binary variable.
+  - refactor: Refactors storage items to use make_exact_fit instead of arbitrary max_storage_space
+      values.
+  - refactor: Refactors storage items to use defines for storage space.
+  - bugfix: Fixes monkey cube boxes having superfluous overlay.
+  - rscadd: Updates the progress bar toggle message.
+  - qol: Objects that rotated 90 degrees in storage no longer rotate in storage slots.
+  hazelmouse:
+  - rscdel: You can no longer play as an android, or otherwise install a positronic
+      brain into a shipbound chassis. You can still play as a cyborg or robot, which
+      are mechanically identical except for lacking a positronic brain.
+  - rscdel: Removes the two positronic brains from the workshop.
+  - rscadd: 'Adds Hazel #S-H9.09''s Aut''akh Leg custom item.'
+  - bugfix: The SCCV Intrepid now correctly receives power from the SCCV Horizon's
+      power grid.
