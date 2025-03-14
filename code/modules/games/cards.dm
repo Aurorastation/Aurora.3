@@ -6,7 +6,7 @@
 
 ABSTRACT_TYPE(/obj/item/deck)
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	var/list/cards = list()
 
 /obj/item/deck/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -240,7 +240,7 @@ ABSTRACT_TYPE(/obj/item/deck)
 /obj/item/pack
 	name = "card pack"
 	desc = "For those with disposible income."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "card_pack"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
@@ -261,7 +261,7 @@ ABSTRACT_TYPE(/obj/item/deck)
 /obj/item/hand
 	name = "hand of cards"
 	desc = "Some playing cards."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
