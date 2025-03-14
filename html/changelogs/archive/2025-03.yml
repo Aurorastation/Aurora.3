@@ -144,3 +144,6 @@
   - rscadd: 'Adds Hazel #S-H9.09''s Aut''akh Leg custom item.'
   - bugfix: The SCCV Intrepid now correctly receives power from the SCCV Horizon's
       power grid.
+2025-03-14:
+  Ben10083:
+  - config: Odyssey gamemode now put beside Secret and Extended in gamemode vote list.
