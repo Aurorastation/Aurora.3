@@ -63,3 +63,29 @@
 
 /obj/structure/unathi_statue/mador/warrior/right
 	icon_state = "mador_statue_warrior_right"
+
+//Kowloon's statue
+/obj/structure/kowloon_statue
+	name = "Lady of Stone Sculpture"
+	desc = "A sculpture and fish pond depicting the Lady of Stone, a personification of Konyang itself."
+	desc_extended = "The Lady of Stone as character in Konyang culture first appeared two decades after initial colonization, in 2328.\
+	The first depictions of her were limestone sculptures in the Renaissance style. The character is often depicted as a woman,\
+	iterating on mother nature or gaia. Depictions quickly evolved as other artists adopted the subject. Today, depictions of the Lady\
+	are split between traditional and casual classification. Traditional depictions are statues in that original style done in limestone,\
+	marble, or any other white stone. Casual depictions contain all other depictions, including paintings, written word, plays, and music.\
+	The Lady of Stone's popularity skyrocketed after the planet seceded from the Solarian Alliance."
+	icon = 'icons/obj/kowloon_statue.dmi'
+	icon_state = "kowloon_statue"
+	density = TRUE
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/collision_object
+	name = "filler"
+	desc = "It stops people from walking into things. Its an invisible wall."
+	icon = 'icons/obj/structure/urban/cars.dmi'
+	icon_state = "blank"
+	anchored = TRUE
+	density = TRUE
+	can_be_unanchored = FALSE

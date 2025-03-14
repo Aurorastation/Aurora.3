@@ -130,6 +130,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/gang/gang_topfloor)
+"av" = (
+/obj/effect/decal/curb/corner,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "aw" = (
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -561,6 +566,13 @@
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/kowloon_junction/outdoors)
+"bx" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk,
+/area/kowloon_junction/outdoors)
 "by" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
@@ -634,6 +646,16 @@
 	},
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/restaurant_bottom)
+"bI" = (
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/kowloon_junction/outdoors)
 "bJ" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -779,6 +801,21 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/kowloon_junction/interior/restaurant_bottom)
+"bY" = (
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/kowloon_junction/outdoors)
 "bZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -1176,6 +1213,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kowloon_junction/interior/police)
+"de" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "df" = (
 /obj/structure/road_barrier,
 /turf/simulated/floor/sidewalk,
@@ -1887,6 +1931,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/kowloon_junction/interior/police)
+"fd" = (
+/obj/effect/decal/curb,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "fe" = (
 /turf/simulated/floor/reinforced/airmix,
 /area/kowloon_junction/outdoors)
@@ -2775,6 +2824,14 @@
 	icon_state = "co2-9"
 	},
 /turf/simulated/floor/airless,
+/area/kowloon_junction/outdoors)
+"hC" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/outdoors)
 "hD" = (
 /turf/simulated/floor/exoplanet/wood/bamboo,
@@ -5300,6 +5357,14 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/kowloon_junction/interior/shallow)
+"nT" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "nU" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 8
@@ -6355,6 +6420,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
+/area/kowloon_junction/outdoors)
+"qP" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/outdoors)
 "qQ" = (
 /turf/simulated/open,
@@ -8035,6 +8107,10 @@
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
+"vv" = (
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "vw" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -8084,6 +8160,18 @@
 /obj/structure/utility_pole/street/classic/on,
 /turf/simulated/floor/concrete,
 /area/kowloon_junction/interior/shallow)
+"vC" = (
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/kowloon_junction/outdoors)
 "vD" = (
 /turf/simulated/floor/tiled/full,
 /area/kowloon_junction/interior/gang/divebar)
@@ -8423,6 +8511,12 @@
 /obj/random/lavalamp,
 /turf/simulated/floor/carpet/aquablue,
 /area/kowloon_junction/interior/self_serve_hotel)
+"wv" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "ww" = (
 /obj/item/reagent_containers/cooking_container/board{
 	pixel_x = 8
@@ -9914,7 +10008,10 @@
 /turf/simulated/floor/lino,
 /area/kowloon_junction/interior/gang/divebar)
 "Aq" = (
-/obj/random/dirt_75,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/outdoors)
 "Ar" = (
@@ -10428,6 +10525,10 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/kowloon_junction/interior/restaurant_bottom)
+"BA" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk,
+/area/kowloon_junction/outdoors)
 "BB" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -10562,6 +10663,12 @@
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/kowloon_junction/outdoors)
+"BU" = (
+/obj/structure/flora/rock/konyang/moss,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/konyang/pink,
 /area/kowloon_junction/outdoors)
 "BV" = (
 /obj/structure/table/standard,
@@ -10823,6 +10930,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/interior/shallow)
+"CC" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "CD" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -11679,6 +11790,15 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/kowloon_junction/interior/shallow)
+"EY" = (
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/kowloon_junction/outdoors)
 "Fa" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -12309,6 +12429,13 @@
 /obj/structure/stairs/west,
 /turf/simulated/floor/concrete,
 /area/kowloon_junction/interior/restaurant_bottom)
+"GL" = (
+/obj/structure/kowloon_statue{
+	pixel_x = -16;
+	pixel_y = 8
+	},
+/turf/simulated/floor/concrete,
+/area/kowloon_junction/outdoors)
 "GN" = (
 /obj/structure/closet/crate/bin/urban/compact{
 	pixel_y = 24
@@ -13201,6 +13328,10 @@
 	},
 /turf/simulated/open,
 /area/kowloon_junction/interior/corporate_office_top)
+"IU" = (
+/obj/structure/collision_object,
+/turf/simulated/floor/concrete,
+/area/kowloon_junction/outdoors)
 "IV" = (
 /obj/machinery/door/airlock/service{
 	dir = 4;
@@ -13836,6 +13967,10 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
 /area/kowloon_junction/outdoors)
+"KE" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "KF" = (
 /obj/structure/ledge/corner{
 	dir = 8
@@ -13940,6 +14075,12 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/kowloon_junction/interior/shallow)
+"KU" = (
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/obj/structure/flora/tree/konyang/fall,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/kowloon_junction/outdoors)
 "KV" = (
 /obj/structure/ledge/quarter/corner,
 /turf/simulated/floor/sidewalk/flat,
@@ -16956,6 +17097,12 @@
 "SE" = (
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/kowloon_junction/coast)
+"SF" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "SG" = (
 /obj/structure/table/fancy/red,
 /obj/item/device/versebook/trinary,
@@ -17039,6 +17186,13 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/kowloon_junction/interior/self_serve_hotel)
+"SO" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "SP" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -17438,6 +17592,12 @@
 	icon_state = "botcorner_west"
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
+/area/kowloon_junction/outdoors)
+"TN" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/paved,
 /area/kowloon_junction/outdoors)
 "TO" = (
 /turf/simulated/wall,
@@ -18035,6 +18195,12 @@
 	},
 /turf/simulated/floor/concrete/square,
 /area/kowloon_junction/interior/minimart)
+"Vt" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "Vu" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
@@ -19456,6 +19622,12 @@
 /obj/structure/flora/tree/konyang/blossom,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/kowloon_junction/coast)
+"YZ" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/paved,
+/area/kowloon_junction/outdoors)
 "Zc" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -110646,7 +110818,7 @@ HJ
 ZV
 iC
 iC
-iC
+bx
 iC
 iC
 iC
@@ -110905,7 +111077,7 @@ mN
 mN
 mN
 mN
-Aq
+mN
 mN
 xd
 zl
@@ -111158,12 +111330,12 @@ Af
 Ed
 HJ
 ZV
-mN
-Aq
-mN
-mN
-mN
-mN
+nT
+TN
+TN
+TN
+TN
+av
 xd
 zl
 tN
@@ -111415,12 +111587,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-Aq
+hC
+bY
+Fy
+Fy
+VP
+KE
 xd
 zl
 an
@@ -111669,15 +111841,15 @@ Jh
 wH
 Hh
 Af
-HJ
+BA
 HJ
 ZV
-mN
-mN
-mN
-Aq
-mN
-mN
+YZ
+OA
+Jv
+EV
+rz
+fd
 xd
 zl
 an
@@ -111929,12 +112101,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+YZ
+zu
+AV
+Jv
+ij
+KE
 xd
 zl
 tN
@@ -112186,12 +112358,12 @@ Af
 IC
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+YZ
+OA
+EV
+Cz
+BU
+KE
 xd
 zl
 tN
@@ -112443,12 +112615,12 @@ Af
 HJ
 HJ
 ZV
-mN
-Aq
-mN
-mN
-mN
-mN
+YZ
+JE
+LR
+bI
+jZ
+KE
 qU
 HN
 tN
@@ -112700,12 +112872,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+SO
+SF
+SF
+SF
+SF
+de
 qU
 HN
 tN
@@ -112958,10 +113130,10 @@ ZZ
 HJ
 ZV
 mN
-mN
-mN
-mN
-mN
+qP
+TN
+TN
+vv
 mN
 xd
 zl
@@ -113215,11 +113387,11 @@ HJ
 HJ
 ZV
 mN
-mN
-mN
-mN
-Aq
-mN
+YZ
+IU
+Vp
+KE
+CC
 xd
 tK
 Xm
@@ -113469,13 +113641,13 @@ AO
 Hh
 Af
 HJ
-HJ
+BA
 ZV
-Aq
-Aq
-mN
-mN
-mN
+CC
+YZ
+IU
+GL
+KE
 mN
 xd
 tK
@@ -113728,11 +113900,11 @@ Af
 WR
 HJ
 ZV
-Aq
-Aq
 mN
-mN
-mN
+YZ
+IU
+Vp
+KE
 mN
 xd
 tK
@@ -113985,11 +114157,11 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
+CC
+Vt
+SF
+Aq
+wv
 mN
 xd
 zl
@@ -114242,12 +114414,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+nT
+TN
+TN
+TN
+TN
+av
 xd
 zl
 tN
@@ -114499,12 +114671,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+hC
+bY
+Fy
+Fy
+VP
+KE
 xd
 zl
 tN
@@ -114756,12 +114928,12 @@ Af
 HJ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+YZ
+OA
+EV
+AV
+rz
+fd
 xd
 zl
 tN
@@ -115013,12 +115185,12 @@ Af
 ZZ
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+YZ
+zu
+AV
+Cz
+ij
+KE
 xd
 zl
 tN
@@ -115267,15 +115439,15 @@ Jh
 ST
 Jh
 Af
-HJ
+BA
 HJ
 ZV
-mN
-mN
-mN
-mN
-mN
-mN
+YZ
+OA
+Cz
+AV
+KU
+KE
 xd
 zl
 tN
@@ -115527,12 +115699,12 @@ Af
 HJ
 HJ
 ZV
-mN
-Aq
-Aq
-mN
-mN
-mN
+YZ
+JE
+EY
+bI
+vC
+KE
 xd
 HN
 an
@@ -115784,12 +115956,12 @@ Af
 HJ
 HJ
 ZV
-mN
+SO
 Aq
-Aq
-mN
-mN
-mN
+SF
+SF
+SF
+de
 xd
 HN
 an
@@ -116043,7 +116215,7 @@ HJ
 ZV
 mN
 mN
-mN
+CC
 mN
 mN
 mN
