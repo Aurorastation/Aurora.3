@@ -841,9 +841,11 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_beret/New()
 	..()
 	var/list/scc_headwear = list()
-	scc_headwear["beret, SCC"] = /obj/item/clothing/head/beret/scc
+	scc_headwear["SCC beret"] = /obj/item/clothing/head/beret/scc
 	scc_headwear["SCC woolen hat"] = /obj/item/clothing/head/wool/scc
 	scc_headwear["SCC woolen hat, alt"] = /obj/item/clothing/head/wool/scc/alt
+	scc_headwear["SCC bridge crew hat"] = /obj/item/clothing/head/caphat/bridge_crew
+	scc_headwear["SCC bridge crew hat, alt"] = /obj/item/clothing/head/caphat/bridge_crew/alt
 	gear_tweaks += new /datum/gear_tweak/path(scc_headwear)
 
 /datum/gear/faction/scc_notepad
