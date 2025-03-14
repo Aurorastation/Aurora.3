@@ -15,8 +15,6 @@
 		P.back_icon = "card_back_tarot"
 		cards += P
 	for(var/suit in list("wands","pentacles","cups","swords"))
-
-
 		for(var/number in list("ace","two","three","four","five","six","seven","eight","nine","ten","page","knight","queen","king"))
 			P = new()
 			P.name = "[number] of [suit]"
@@ -24,7 +22,7 @@
 			P.back_icon = "card_back_tarot"
 			cards += P
 
-/obj/item/deck/tarot/attack_self(var/mob/user as mob)
+/obj/item/deck/tarot/AltClick(var/mob/user as mob)
 	var/list/newcards = list()
 	while(cards.len)
 		var/datum/playingcard/P = pick(cards)
@@ -34,8 +32,8 @@
 		newcards += P
 		cards -= P
 	cards = newcards
-	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
-	user.visible_message("\The [user] shuffles [src].")
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
+	user.visible_message("\The [user] shuffles \the [src].")
 
 
 /obj/item/deck/tarot/adhomai
