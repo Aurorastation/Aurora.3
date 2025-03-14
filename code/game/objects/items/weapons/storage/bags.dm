@@ -323,6 +323,7 @@
 	icon_state = "chembag"
 	item_state = "chembag"
 	desc = "A bag for storing pills and bottles of medicine."
+	storage_slots = 100
 	max_storage_space = 200
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 1
