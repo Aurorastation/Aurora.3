@@ -50,6 +50,11 @@
 	name = "Synthetic Meat"
 	object = /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 
+/singleton/biorecipe/food/slimymeat
+	name = "Slimy Meat"
+	object = /obj/item/reagent_containers/food/snacks/fish/mollusc
+	cost = 75
+
 /singleton/biorecipe/food/soywafers
 	name = "Soy Wafers"
 	object = /obj/item/reagent_containers/food/snacks/soywafers
@@ -395,8 +400,8 @@ SPECIAL
 			if("menu")
 				if (beaker)
 					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
-					dat += "<tr><td colspan='2'><A href='?src=[REF(src)];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td colspan='2'><A href='?src=[REF(src)];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=detach'>Detach Container</A><BR></td></tr>"
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
@@ -416,7 +421,7 @@ SPECIAL
 								if(num*round(current_recipe.cost/build_eff) > points)
 									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
-									dat += "<A href='?src=[REF(src)];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
+									dat += "<A href='byond://?src=[REF(src)];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
 							dat += "</td>"
 							dat += "</tr>"
 
@@ -426,13 +431,13 @@ SPECIAL
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
 				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
-				dat += "<A href='?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
-				dat += "<A href='?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
 			if("void")
 				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
-				dat += "<A href='?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
 	dat += "</body></html>"
 
 	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)

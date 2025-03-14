@@ -30,7 +30,7 @@
 		\[redacted\] - \[/redacted\] : Covers the text in an unbreachable black box.
 		\[sign\] : Inserts a signature of your name in a foolproof way.
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
-		\[date\] : Inserts today's station date.
+		\[date\] : Inserts today's date.
 		\[time\] : Inserts the current station time.
 		<br>
 		Pen Exclusive Commands
@@ -189,7 +189,7 @@
 				to_chat(target_mob, SPAN_WARNING("You feel a small <b>pinch</b>!")) // To the stabbed.
 				target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name] by [user.name] ([user.ckey])</font>"
 				user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] to stab [target_mob.name] ([target_mob.ckey])</span>"
-				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+				msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [target_mob.name] ([target_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 				admin_inject_log(user, target_mob, src, contained_reagents, reagents.get_temperature(), trans) // Admin log.
 
 /*

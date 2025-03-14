@@ -140,7 +140,7 @@
 		small_countdown()
 		return
 
-	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
+	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
 	log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
 	if(!elevel)
 		elevel = "Localized Limb"

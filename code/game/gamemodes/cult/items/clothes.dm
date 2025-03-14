@@ -6,11 +6,11 @@
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_RIFLE,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_CARBINE,
+		LASER = ARMOR_LASER_RIFLE,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SMALL
 		)
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -33,11 +33,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_RIFLE,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_CARBINE,
+		LASER = ARMOR_LASER_RIFLE,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SMALL
 		)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0
@@ -62,11 +62,11 @@
 	silent = 1
 	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MEDIUM,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SMALL
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MEDIUM,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SMALL
 		)
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE

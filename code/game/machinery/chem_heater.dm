@@ -59,24 +59,24 @@
 	user.set_machine(src)
 	var/dat = "<html>"
 
-	dat += "Power: <a href='?src=[REF(src)];action=togglepower'>[use_power ? "On" : "Off"]</a>"
-	dat += "<p>Slow Heating Mode: <a href='?src=[REF(src)];action=slowmode'>[slow_mode ? "On" : "Off"]</a>"
+	dat += "Power: <a href='byond://?src=[REF(src)];action=togglepower'>[use_power ? "On" : "Off"]</a>"
+	dat += "<p>Slow Heating Mode: <a href='byond://?src=[REF(src)];action=slowmode'>[slow_mode ? "On" : "Off"]</a>"
 
 	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br>"
 
 	dat += "| "
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-100'>----</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-25'>---</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-5'>--</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-1'>-</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=1'>+</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=5'>++</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=25'>+++</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=100'>++++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-100'>----</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-25'>---</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-5'>--</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-1'>-</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=1'>+</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=5'>++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=25'>+++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=100'>++++</a>"
 	dat += "| </p>"
 
 	if(container)
-		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C <a href='?src=[REF(src)];action=removebeaker'>Remove</a></p>"
+		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C <a href='byond://?src=[REF(src)];action=removebeaker'>Remove</a></p>"
 	else
 		dat += "<p>No container loaded!</p>"
 

@@ -129,7 +129,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
 	name = "Large Air Vent"
-	power_channel = EQUIP
+	power_channel = AREA_USAGE_EQUIP
 	power_rating = 45000	//45 kW ~ 60 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/Initialize()
@@ -143,7 +143,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
 	name = "Reactor Core Vent"
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	power_rating = 30000	//30 kW ~ 40 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/engine/Initialize()

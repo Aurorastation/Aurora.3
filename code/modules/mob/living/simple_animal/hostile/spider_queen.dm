@@ -33,12 +33,6 @@
 	faction = "spiders"
 	fed = 3
 
-	minbodytemp = 0
-	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
-
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
@@ -46,8 +40,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
-	move_to_delay = 6
-	speed = -1
+	speed = 6
 	mob_size = 15
 	environment_smash = 2
 

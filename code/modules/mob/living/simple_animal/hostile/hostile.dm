@@ -20,7 +20,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
-	var/move_to_delay = 4 //delay for the automated movement.
 	var/attack_delay = DEFAULT_ATTACK_COOLDOWN
 	var/list/friends = list()
 	var/break_stuff_probability = 10
@@ -191,10 +190,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				GLOB.move_manager.stop_looping(src)
 				OpenFire(last_found_target)
 			else
-				GLOB.move_manager.move_to(src, last_found_target, 6, move_to_delay)
+				GLOB.move_manager.move_to(src, last_found_target, 6, speed)
 		else
 			change_stance(HOSTILE_STANCE_ATTACKING)
-			GLOB.move_manager.move_to(src, last_found_target, 1, move_to_delay)
+			GLOB.move_manager.move_to(src, last_found_target, 1, speed)
 
 /**
  * Attack the mob set in `target_mob`
@@ -497,7 +496,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	return ..()
 
 /mob/living/simple_animal/hostile/proc/check_horde()
-	if(evacuation_controller.is_prepared())
+	if(GLOB.evacuation_controller.is_prepared())
 		if(!enroute && !last_found_target)	//The shuttle docked, all monsters rush for the escape hallway
 			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
 				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target

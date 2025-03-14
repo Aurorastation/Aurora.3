@@ -1,8 +1,7 @@
 /obj/machinery/r_n_d/server
 	name = "\improper R&D server"
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
-	icon = 'icons/obj/machinery/research.dmi'
-	icon_state = "server"
+	icon_state = "RD-server"
 	var/datum/research/files
 	var/health = 100
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.
@@ -304,9 +303,9 @@
 				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
-				dat += "<A href='?src=[REF(src)];access=[S.server_id]'> Access Rights</A> | "
-				dat += "<A href='?src=[REF(src)];data=[S.server_id]'>Data Management</A>"
-				if(badmin) dat += " | <A href='?src=[REF(src)];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
+				dat += "<A href='byond://?src=[REF(src)];access=[S.server_id]'> Access Rights</A> | "
+				dat += "<A href='byond://?src=[REF(src)];data=[S.server_id]'>Data Management</A>"
+				if(badmin) dat += " | <A href='byond://?src=[REF(src)];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
 				dat += "<BR>"
 
 		if(1) //Access rights menu
@@ -314,7 +313,7 @@
 			dat += "Consoles with Upload Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=[REF(src)];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
+				dat += "* <A href='byond://?src=[REF(src)];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
 				if(C.id in temp_server.id_with_upload)
 					dat += " (Remove)</A><BR>"
 				else
@@ -322,12 +321,12 @@
 			dat += "Consoles with Download Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=[REF(src)];download_toggle=[C.id]'>[console_turf.loc]"
+				dat += "* <A href='byond://?src=[REF(src)];download_toggle=[C.id]'>[console_turf.loc]"
 				if(C.id in temp_server.id_with_download)
 					dat += " (Remove)</A><BR>"
 				else
 					dat += " (Add)</A><BR>"
-			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
@@ -335,20 +334,20 @@
 			for(var/path in temp_server.files.known_tech)
 				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
-				dat += "<A href='?src=[REF(src)];reset_tech=[T.id]'>(Reset)</A><BR>"
+				dat += "<A href='byond://?src=[REF(src)];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
 			for(var/path in temp_server.files.known_designs)
 				var/datum/design/D = temp_server.files.known_designs[path]
 				dat += "* [D.name] "
-				dat += "<A href='?src=[REF(src)];reset_design=[path]'>(Delete)</A><BR>"
-			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
+				dat += "<A href='byond://?src=[REF(src)];reset_design=[path]'>(Delete)</A><BR>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
 			for(var/obj/machinery/r_n_d/server/S in servers)
-				dat += "[S.name] <A href='?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
-			dat += "<HR><A href='?src=[REF(src)];main=1'>Main Menu</A>"
+				dat += "[S.name] <A href='byond://?src=[REF(src)];send_to=[S.server_id]'> (Transfer)</A><BR>"
+			dat += "<HR><A href='byond://?src=[REF(src)];main=1'>Main Menu</A>"
 	user << browse("<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return

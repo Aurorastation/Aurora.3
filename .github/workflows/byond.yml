@@ -15,7 +15,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 183
+  TO_WORLD_COUNT: 179
 
   #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
@@ -46,7 +46,7 @@ jobs:
 ###########################################
   validate-structure:
     name: Validate Structure
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
 
     concurrency:
@@ -77,7 +77,7 @@ jobs:
 ###########################################
   megalinter:
     name: Validate EditorConfig Compliance
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
 
     concurrency:
@@ -103,7 +103,7 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter/flavors/python@v8.1.0
+        uses: oxsecurity/megalinter/flavors/python@v8.4.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
           PRINT_ALPACA: false
@@ -130,7 +130,7 @@ jobs:
 ###########################################
   lint-spacemandmm:
     name: Lint SpacemanDMM
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
 
@@ -177,7 +177,7 @@ jobs:
 ###########################################
   lint-opendream:
     name: Lint OpenDream
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
 
@@ -195,20 +195,30 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      - name: Download OpenDream Compiler
-        run: |
-          bash tools/ci/install_od.sh
+      #Setup the .NET dependency to what is needed by OpenDream
+      - name: Setup DotNet Dependency
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.100
 
+      #Prepare the precompiled OpenDream compiler
+      - name: Prepare OpenDream Compiler
+        run: |
+          cd $HOME
+          wget -v https://github.com/OpenDreamProject/OpenDream/releases/download/latest/DMCompiler_linux-x64.tar.gz
+          tar -xf DMCompiler_linux-x64.tar.gz
+
+      #Run OpenDream on the DME
       - name: Run OpenDream
         run: |
-          tools/ci/run_od.sh
+          dotnet $HOME/DMCompiler_linux-x64/DMCompiler.dll --suppress-unimplemented aurorastation.dme
 
 ###########################################
 ############### TGUI LINTING ##############
 ###########################################
   lint-tgui:
     name: Lint TGUI
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
 
@@ -226,23 +236,13 @@ jobs:
       - name: Set ENV variables
         run: bash dependencies.sh
 
-      #Restore YARN (Node packages) cache
-      - name: Restore Yarn cache
-        uses: actions/cache@v4
-        with:
-          path: tgui/.yarn/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       #Setup NodeJS using YARN as cache
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          cache-dependency-path: tgui/yarn.lock
           node-version: ${{ env.NODE_VERSION_LTS }}
           cache: 'yarn'
+          cache-dependency-path: tgui/yarn.lock
 
       #Lint TGUI
       - name: Check Tgui
@@ -255,7 +255,7 @@ jobs:
 ###########################################
   lint-misc:
     name: Lint Misc
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     needs: validate-structure
 
@@ -312,7 +312,7 @@ jobs:
 ###########################################
   generic-tests:
     name: Generic Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
@@ -435,7 +435,7 @@ jobs:
 ###########################################
   create-and-destroy:
     name: Create and Destroy Test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
@@ -560,7 +560,7 @@ jobs:
 ###########################################
   map-tests:
     name: Run Map Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
@@ -685,7 +685,7 @@ jobs:
 ###########################################
   exoplanet_testing:
     name: Run Exoplanet Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
@@ -809,7 +809,7 @@ jobs:
 ###########################################
   away-sites-tests:
     name: Run Map Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]
@@ -932,7 +932,7 @@ jobs:
 ###########################################
   ruins-tests:
     name: Run Ruins Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) && !(contains(github.event.head_commit.message, '[ut skip]'))}}
     needs: [validate-structure, lint-spacemandmm, lint-opendream, lint-tgui, lint-misc]

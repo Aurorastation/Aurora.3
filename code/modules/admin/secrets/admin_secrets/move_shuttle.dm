@@ -30,4 +30,4 @@
 	if(!destination) return
 
 	S.attempt_move(destination)
-	log_and_message_admins("moved the [shuttle_tag] shuttle to [destination] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[destination.x];Y=[destination.y];Z=[destination.z]'>JMP</a>)", user)
+	log_and_message_admins("moved the [shuttle_tag] shuttle to [destination] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[destination.x];Y=[destination.y];Z=[destination.z]'>JMP</a>)", user)

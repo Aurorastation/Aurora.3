@@ -1,0 +1,149 @@
+2025-03-03:
+  FluffyGhost:
+  - bugfix: Fixed ninja teleporter requiring access to run.
+  - qol: Renamed the program to 'ninja teleporter' and removed the standard teleporter
+      from the program list for the preset.
+  SimpleMaroon:
+  - qol: In keeping with recent lore developments, the clause for Orepit humans and
+      Orepit IPCs no longer requires them to be Trinarists or in the Open Doors agreement.
+      This also means that they can select more religions as well as have standard
+      Coalition citizenship, and Orepit IPCs can select more accents.
+  Snowy1237:
+  - bugfix: Fixes the CE hardsuit magboots turning invisible when magboot mode is
+      turned on.
+  Tag103:
+  - bugfix: Fixes the two variants of the Sol Army field cap having no worn sprite
+      due to the sprite intended for it being used as the item sprite instead.
+  - rscadd: Added proper item sprites for the two variants of the Sol Army field cap.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes storage box alignment and storage space UI to use better maths.
+  - qol: Tweaks IDs, IDs and firing pins now rotate 90 degrees when in storage for
+      easier clickability.
+  - bugfix: Fixes Item Tooltip toggle message.
+  - bugfix: Fixes roundstart items in storage not showing item outlines.
+2025-03-04:
+  FluffyGhost:
+  - server: Removed the use of deprecated parameter icon-size.
+  - server: Uniformed all clients to use fit to screen.
+  - server: Fit to viewport is automatically attempted at login.
+  - server: Statusbar is now hidden by default, giving more screen space.
+  - server: Toggle fullscreen now works as expected, for even more screen space.
+2025-03-05:
+  ASmallCuteCat:
+  - qol: Removes a redundant camera from the Kitchen, it was nearly adjacent to another
+      camera and covered roughly the same area.
+  - qol: In place of the redundant camera, added another light fixture that should
+      lessen the darkness issues by the freezer doors.
+  MattAtlas:
+  - admin: Full moderators can now use rejuvenate.
+  - admin: Full moderators can now spawn atoms.
+  - admin: Full moderators can now remove/add languages.
+  - admin: Full moderators can now teleport mobs.
+  - admin: Repurposed R_BAN into a generic permission that full moderators and above
+      have, and locks teleport behind it.
+  Tag103:
+  - rscadd: Added Solarian Marine berets. They have green coloured and grey coloured
+      variants, and can be found in Sol Marine uniform closets.
+  nauticall:
+  - refactor: Moves the data containing cargo items (i.e. the ones you order from
+      ops and get in the cargo shuttle) from the online database to the codebase.
+  - refactor: Refactors cargo items to use singletons instead of datums for cargo_supplier,
+      cargo_category, and cargo_item. Multiple-instnace things like cargo_orders,
+      etc. still use datums.
+  - bugfix: Fixed a bunch of strange discrepancies in categories, suppliers, and pricing
+      for various cargo items.
+  - bugfix: Clicking the 'Details' button on the Cargo Order app now actually gives
+      you details instead of bluescreening.
+  - qol: Added some UI elements to the Cargo Order app to make it prettier and show
+      tooltips on suppliers. Also now has search functionality.
+2025-03-10:
+  CourierBravo:
+  - rscdel: Changed the potted oriental tree's name and description to now be a potted
+      Kwanzan cherry tree.
+  Myphicbowser:
+  - rscadd: Added a single psionic firing pin to the RDs firing pin box.
+  - rscdel: Removed a single hilarious firing pin from the RDs firing pin box.
+  SimpleMaroon:
+  - rscadd: All origins under the Biesellite culture can now opt to have Sol Alliance
+      citizenship.
+  - qol: The faces on face IPC screen and cigarette IPC screen have been moved a pixel
+      lower to better fit with facial attire.
+  - bugfix: Characters with Orepit citizenship can no longer join as Diplomatic Aides.
+  hazelmouse:
+  - rscadd: Made some minor tweaks in layout to the SCCV Intrepid, introduced new
+      tables to cargo areas, streamlined outer hull.
+  - rscadd: Added a bluespace beacon to the SCCV Quark.
+  - rscadd: The bluespace beacon's exact location is now visible on the SCCV Quark,
+      Spark, Canary, and Intrepid.
+  - bugfix: All Intrepid cameras should now be fully accessible from camera consoles.
+  kermit:
+  - bugfix: Fixed the rolled up cropped dress shirt not having rolled up sleeves.
+2025-03-11:
+  Greenjoe12345:
+  - rscadd: Makes it so the generic exoplanet dirt ground doesn't leave footprints.
+  - rscadd: Gives exoplanet turfs descriptions so they don't just say they are the
+      bare hull. Adjusts some names as well.
+  Myphicbowser:
+  - rscadd: Added toolbelts and a table to the engineering bay of the Tarwa ship.
+  - rscadd: Made the RobCo ToolVendor require no access on the Tarwa ship.
+  - rscadd: Hacked the Cigarette machine on the Tarwa.
+  - rscadd: Added metallic walls to the Tarwa burn chamber, other metallic walls were
+      turned to Dionae ones to keep the flesh-steel ratio the same.
+  Tag103:
+  - rscadd: Added Reunification Day, celebrated on July 17, to the holiday system.
+  Tomixcomics:
+  - rscadd: Added 8 new food dishes (including 6 new Konyanger dishes) and 1 new sauce
+      (sweet chili).
+  - rscadd: Added macarons to the custom foods you can make with the oven.
+  - rscadd: Waffles and fries now visually change based on some specific syrups or
+      condiments you might pour onto them.
+  - rscdel: Removed the feature of batter (and by extention, a lot of fried foods)
+      making people throw up.
+  - code_imp: Moved a few foods around in the code to be in the correct food categories
+      (such as Elotes being listed with other Mictlani food now).
+  - qol: Made produce boxes sometimes spawn garlic as random produce, and made onions
+      a bit more likely to spawn as well, now that more recipes require them.
+  goblin.stev:
+  - bugfix: Fixed Clan Hood accessory sprite not showing (hopefully.
+  - bugfix: Properly separated Zazali Top's layers.
+  - bugfix: Properly separated Huytai Outfit's layers, tweaked for side-sprite consistency,
+      and replaced outdated 'fisherwomen' gender reference in description for 'fisher'
+  nauticall:
+  - rscadd: Added surgical gowns. Includes faction-specific variants as well as a
+      colorable generic variant. Available in the loadout, on Surgeons by default
+      and in medical lockers.
+2025-03-13:
+  ASmallCuteCat:
+  - qol: Added some more lights to the Armory. Now you can see what you're taking
+      out of the shelves!
+  Ben10083:
+  - rscadd: Adds the Conglomerate Aggressive lawboard, and places one in AI Secure
+      Storage.
+  - spellcheck: Renames default and NT Aggressive lawboard to Conglomerate and Conglomerate
+      Aggressive respectively.
+  - code_imp: DMdocs for AI lawsets and modules.
+  FluffyGhost:
+  - code_imp: Hopefully helps fixes some hard references being left when deleting
+      modular computers, in their programs.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes plant bags - now uses storage_slot system, along with other bag
+      subtypes.
+  - bugfix: Borgs can interact with tables again.
+  - refactor: Refactors make_exact_fit to be a binary variable.
+  - refactor: Refactors storage items to use make_exact_fit instead of arbitrary max_storage_space
+      values.
+  - refactor: Refactors storage items to use defines for storage space.
+  - bugfix: Fixes monkey cube boxes having superfluous overlay.
+  - rscadd: Updates the progress bar toggle message.
+  - qol: Objects that rotated 90 degrees in storage no longer rotate in storage slots.
+  hazelmouse:
+  - rscdel: You can no longer play as an android, or otherwise install a positronic
+      brain into a shipbound chassis. You can still play as a cyborg or robot, which
+      are mechanically identical except for lacking a positronic brain.
+  - rscdel: Removes the two positronic brains from the workshop.
+  - rscadd: 'Adds Hazel #S-H9.09''s Aut''akh Leg custom item.'
+  - bugfix: The SCCV Intrepid now correctly receives power from the SCCV Horizon's
+      power grid.
+2025-03-14:
+  Ben10083:
+  - config: Odyssey gamemode now put beside Secret and Extended in gamemode vote list.

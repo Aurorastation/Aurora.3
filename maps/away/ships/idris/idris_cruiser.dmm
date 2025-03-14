@@ -1190,10 +1190,10 @@
 /obj/item/clothing/under/swimsuit/green,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/red,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms/room_2)
 "fc" = (
@@ -4467,7 +4467,8 @@
 /area/ship/idris_cruiser/cargo_bay)
 "qB" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(220)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -5569,10 +5570,10 @@
 /obj/item/clothing/under/swimsuit/green,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/red,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms/room_2)
 "tO" = (
@@ -8823,10 +8824,10 @@
 /obj/item/clothing/under/swimsuit/green,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/red,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms/room_1)
 "FQ" = (
@@ -9423,10 +9424,10 @@
 /obj/item/clothing/under/swimsuit/green,
 /obj/item/clothing/under/swimsuit/purple,
 /obj/item/clothing/under/swimsuit/red,
-/obj/item/clothing/under/shorts/athletic/black,
-/obj/item/clothing/under/shorts/athletic/blue,
-/obj/item/clothing/under/shorts/athletic/green,
-/obj/item/clothing/under/shorts/athletic/red,
+/obj/item/clothing/pants/shorts/athletic/black,
+/obj/item/clothing/pants/shorts/athletic/blue,
+/obj/item/clothing/pants/shorts/athletic/green,
+/obj/item/clothing/pants/shorts/athletic/red,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/locker_rooms/room_1)
 "Iu" = (
@@ -11345,7 +11346,8 @@
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "OI" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle{
-	dir = 8
+	dir = 8;
+	req_access = list(220)
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -13381,7 +13383,7 @@
 /area/ship/idris_cruiser/breakroom)
 "Wu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/freezer/kois,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
 "Wv" = (
@@ -14079,7 +14081,9 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/spa)
 "YP" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(220)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "YQ" = (

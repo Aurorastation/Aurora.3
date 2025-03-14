@@ -1,11 +1,12 @@
 /obj/item/pinpointer
 	name = "pinpointer"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/pinpointer.dmi'
 	icon_state = "pinoff"
+	item_state = "electronic"
+	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
@@ -16,12 +17,11 @@
 	if(!active)
 		active = 1
 		START_PROCESSING(SSfast_process, src)
-		to_chat(usr, SPAN_NOTICE("You activate the pinpointer"))
+		to_chat(usr, SPAN_NOTICE("You activate the pinpointer."))
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
-		icon_state = "pinoff"
-		to_chat(usr, "<span>You deactivate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You deactivate the pinpointer."))
 
 /obj/item/pinpointer/process()
 	if (active)
@@ -30,22 +30,23 @@
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/pinpointer/proc/workdisk()
+	ClearOverlays()
 	if(!active) return
 	if(!the_disk)
 		the_disk = locate()
 		if(!the_disk)
-			icon_state = "pinonnull"
+			AddOverlays("pinonnull")
 			return
 	set_dir(get_dir(src,the_disk))
 	switch(get_dist(src,the_disk))
 		if(0)
-			icon_state = "pinondirect"
+			AddOverlays("pinondirect")
 		if(1 to 8)
-			icon_state = "pinonclose"
+			AddOverlays("pinonclose")
 		if(9 to 16)
-			icon_state = "pinonmedium"
+			AddOverlays("pinonmedium")
 		if(16 to INFINITY)
-			icon_state = "pinonfar"
+			AddOverlays("pinonfar")
 	return TRUE
 
 /obj/item/pinpointer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -60,8 +61,7 @@
 	return ..()
 
 /obj/item/pinpointer/advpinpointer
-	name = "Advanced Pinpointer"
-	icon = 'icons/obj/device.dmi'
+	name = "advanced pinpointer"
 	desc = "A larger version of the normal pinpointer, this unit features a helpful quantum entanglement detection system to locate various objects that do not broadcast a locator signal."
 	var/mode = 0  // Mode 0 locates disk, mode 1 locates coordinates.
 	var/turf/location = null
@@ -94,26 +94,26 @@
 			workobj()
 
 /obj/item/pinpointer/advpinpointer/proc/worklocation()
+	ClearOverlays()
 	if(!active)
 		STOP_PROCESSING(SSfast_process, src)
 		return
 	if(!location)
-		icon_state = "pinonnull"
+		AddOverlays("pinonnull")
 		return
 	set_dir(get_dir(src,location))
 	set_z_overlays(location)
 	switch(get_dist(src,location))
 		if(0)
-			icon_state = "pinondirect"
+			AddOverlays("pinondirect")
 		if(1 to 8)
-			icon_state = "pinonclose"
+			AddOverlays("pinonclose")
 		if(9 to 16)
-			icon_state = "pinonmedium"
+			AddOverlays("pinonmedium")
 		if(16 to INFINITY)
-			icon_state = "pinonfar"
+			AddOverlays("pinonfar")
 
 /obj/item/pinpointer/advpinpointer/proc/set_z_overlays(var/atom/target)
-	ClearOverlays()
 	if(AreConnectedZLevels(src.loc.z, target.z))
 		if(src.loc.z > target.z)
 			AddOverlays("pinzdown")
@@ -130,23 +130,24 @@
 		set_z_overlays(the_disk)
 
 /obj/item/pinpointer/advpinpointer/proc/workobj()
+	ClearOverlays()
 	if(!active)
 		STOP_PROCESSING(SSfast_process, src)
 		return
 	if(!target)
-		icon_state = "pinonnull"
+		AddOverlays("pinonnull")
 		return
 	set_dir(get_dir(src,target))
 	set_z_overlays(target)
 	switch(get_dist(src,target))
 		if(0)
-			icon_state = "pinondirect"
+			AddOverlays("pinondirect")
 		if(1 to 8)
-			icon_state = "pinonclose"
+			AddOverlays("pinonclose")
 		if(9 to 16)
-			icon_state = "pinonmedium"
+			AddOverlays("pinonmedium")
 		if(16 to INFINITY)
-			icon_state = "pinonfar"
+			AddOverlays("pinonfar")
 
 /obj/item/pinpointer/advpinpointer/verb/toggle_mode()
 	set category = "Object"
@@ -154,7 +155,6 @@
 	set src in view(1)
 
 	active = 0
-	icon_state = "pinoff"
 	target = null
 	location = null
 
@@ -232,7 +232,6 @@
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
-		icon_state = "pinoff"
 		to_chat(user, SPAN_NOTICE("You deactivate the pinpointer."))
 
 /obj/item/pinpointer/nukeop/process()
@@ -242,11 +241,12 @@
 		worklocation()
 
 /obj/item/pinpointer/nukeop/workdisk()
+	ClearOverlays()
 	if(!active) return
 	if(mode)		//Check in case the mode changes while operating
 		worklocation()
 		return
-	if(bomb_set)	//If the bomb is set, lead to the shuttle
+	if(GLOB.bomb_set)	//If the bomb is set, lead to the shuttle
 		mode = 1	//Ensures worklocation() continues to work
 		worklocation()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)	//Plays a beep
@@ -255,7 +255,7 @@
 	if(!the_disk)
 		the_disk = locate()
 		if(!the_disk)
-			icon_state = "pinonnull"
+			AddOverlays("pinonnull")
 			return
 //	if(loc.z != the_disk.z)	//If you are on a different z-level from the disk
 //		icon_state = "pinonnull"
@@ -263,20 +263,20 @@
 	set_dir(get_dir(src, the_disk))
 	switch(get_dist(src, the_disk))
 		if(0)
-			icon_state = "pinondirect"
+			AddOverlays("pinondirect")
 		if(1 to 8)
-			icon_state = "pinonclose"
+			AddOverlays("pinonclose")
 		if(9 to 16)
-			icon_state = "pinonmedium"
+			AddOverlays("pinonmedium")
 		if(16 to INFINITY)
-			icon_state = "pinonfar"
+			AddOverlays("pinonfar")
 
 /obj/item/pinpointer/nukeop/proc/worklocation()
 	if(!active)	return
 	if(!mode)
 		workdisk()
 		return
-	if(!bomb_set)
+	if(!GLOB.bomb_set)
 		mode = 0
 		workdisk()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
@@ -285,18 +285,18 @@
 	if(!home)
 		home = locate()
 		if(!home)
-			icon_state = "pinonnull"
+			AddOverlays("pinonnull")
 			return
 	if(loc.z != home.z)	//If you are on a different z-level from the shuttle
-		icon_state = "pinonnull"
+		AddOverlays("pinonnull")
 	else
 		set_dir(get_dir(src, home))
 		switch(get_dist(src, home))
 			if(0)
-				icon_state = "pinondirect"
+				AddOverlays("pinondirect")
 			if(1 to 8)
-				icon_state = "pinonclose"
+				AddOverlays("pinonclose")
 			if(9 to 16)
-				icon_state = "pinonmedium"
+				AddOverlays("pinonmedium")
 			if(16 to INFINITY)
-				icon_state = "pinonfar"
+				AddOverlays("pinonfar")

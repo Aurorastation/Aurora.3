@@ -21,10 +21,10 @@
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/storage/pill_bottle/antidexafen = 1,
-		/obj/item/storage/pill_bottle/perconol = 1,
 		/obj/item/stack/medical/splint = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/storage/pill_bottle/inaprovaline = 1,
+		/obj/item/storage/pill_bottle/perconol = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/emergency = 1
 	)
 
 /obj/item/storage/firstaid/large
@@ -188,10 +188,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
-
-/obj/item/storage/firstaid/surgery/fill()
-	. = ..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"

@@ -764,7 +764,8 @@
 /area/ship/ssmd_corvette/storage)
 "bYg" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/tiled/dark,
@@ -879,8 +880,8 @@
 "cCh" = (
 /obj/effect/decal/fake_object{
 	desc = "A general purpose fabricator that can be used to fabricate robotic equipment. This one is in need of some maintenance.";
-	icon = 'icons/obj/robotics.dmi';
-	icon_state = "fab-o";
+	icon = 'icons/obj/robotics_fabricator.dmi';
+	icon_state = "fab";
 	name = "mechatronic fabricator";
 	pixel_y = 16
 	},
@@ -2032,7 +2033,8 @@
 /area/shuttle/ssmd_shuttle)
 "foE" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3466,7 +3468,8 @@
 /area/ship/ssmd_corvette/hangar)
 "jAa" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,

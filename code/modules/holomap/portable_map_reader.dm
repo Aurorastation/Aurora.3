@@ -2,9 +2,10 @@
 /obj/item/portable_map_reader
 	name = "portable map reader"
 	desc = "Displays a map of the local space, as well as any marked points of interest."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "depthscanner"
-
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
+	contained_sprite = TRUE
 	/// The map reader only shows that z-level (and any z-levels that z-level is connected to).
 	/// It will not show other z-levels, like if the user were to transport it elsewhere on a shuttle.
 	var/list/connected_z_levels = null

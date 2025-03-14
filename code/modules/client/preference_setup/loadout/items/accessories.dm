@@ -20,7 +20,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	..()
 	var/list/waistcoats = list()
 	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
-	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
+	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/wcoat_rec/det_vest
 	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
 
 /datum/gear/accessory/chaps
@@ -188,45 +188,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	allowed_roles = list("Shaft Miner", "Xenoarchaeologist", "Operations Personnel", "Science Personnel")
 	cost = 2
 
-/datum/gear/accessory/polo
-	display_name = "polo shirts selection"
-	description = "A selection of polo shirts."
-	path = /obj/item/clothing/accessory/polo
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/polo/New()
-	..()
-	var/list/polo = list()
-
-	polo["blue polo shirt"] = /obj/item/clothing/accessory/polo/polo_blue
-	polo["blue polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_blue_fem
-	polo["red polo shirt"] = /obj/item/clothing/accessory/polo/polo_red
-	polo["red polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_red_fem
-	polo["tan polo shirt"] = /obj/item/clothing/accessory/polo/polo_grayyellow
-	polo["tan polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_grayyellow_fem
-	polo["polo shirt, green strip"] = /obj/item/clothing/accessory/polo/polo_greenstrip
-	polo["polo shirt, green strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_greenstrip_fem
-	polo["polo shirt, blue strip"] = /obj/item/clothing/accessory/polo/polo_bluestrip
-	polo["polo shirt, blue strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_bluestrip_fem
-	polo["polo shirt, red strip"] = /obj/item/clothing/accessory/polo/polo_redstrip
-	polo["polo shirt, red strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_redstrip_fem
-
-	gear_tweaks += new /datum/gear_tweak/path(polo)
-
-/datum/gear/accessory/polo_colorable
-	display_name = "polo shirts selection (colorable)"
-	description = "A selection of colorable polo shirts."
-	path = /obj/item/clothing/accessory/polo
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/polo_colorable/New()
-	..()
-	var/list/polo_colorable = list()
-
-	polo_colorable["polo shirt"] = /obj/item/clothing/accessory/polo
-	polo_colorable["polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_fem
-
-	gear_tweaks += new /datum/gear_tweak/path(polo_colorable)
 
 /datum/gear/accessory/sweater
 	display_name = "sweater selection"
@@ -258,53 +220,6 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
-
-/datum/gear/accessory/shirt
-	display_name = "shirt selection"
-	path = /obj/item/clothing/accessory/dressshirt
-	description = "A selection of shirts."
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/shirt/New()
-	..()
-	var/list/shirt = list()
-	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
-	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/rolled
-	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt/crop
-	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt/crop/rolled
-	shirt["dress shirt, alt"] = /obj/item/clothing/accessory/dressshirt/alt
-	shirt["dress shirt, alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/rolled
-	shirt["dress shirt, v-neck alt"] = /obj/item/clothing/accessory/dressshirt/alt/vneck
-	shirt["dress shirt, v-neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
-	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/accessory/dressshirt/deepv
-	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/accessory/dressshirt/deepv/rolled
-	shirt["dress shirt, asymmetric"] = /obj/item/clothing/accessory/dressshirt/asymmetric
-	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
-	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
-	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
-	shirt["blouse"] = /obj/item/clothing/accessory/blouse
-	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
-	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
-	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
-	shirt["tank top"] = /obj/item/clothing/accessory/tanktop
-	shirt["tank top, feminine"] = /obj/item/clothing/accessory/tanktop/feminine
-	gear_tweaks += new /datum/gear_tweak/path(shirt)
-
-/datum/gear/accessory/silversun
-	display_name = "silversun floral shirt selection"
-	path = /obj/item/clothing/accessory/silversun
-	description = "A selection of Silversun floral shirts."
-	flags = GEAR_HAS_DESC_SELECTION
-
-/datum/gear/accessory/silversun/New()
-	..()
-	var/list/shirts = list()
-	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
-	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
-	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
-	gear_tweaks += new /datum/gear_tweak/path(shirts)
 
 /datum/gear/accessory/university
 	display_name = "university sweatshirt selection"
@@ -342,6 +257,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
 	path = /obj/item/clothing/accessory/dogtags
+	description = "A pair of engraved metal identification tags. The description you assign to the dogtags will carry over to both tags when separated."
 
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
@@ -709,3 +625,19 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sol_party_pin
+	display_name = "sol pin selection"
+	path = /obj/item/clothing/accessory/sol_pin
+	cost = 1
+
+/datum/gear/accessory/sol_party_pin/New()
+	..()
+	var/list/sol_party_pin = list()
+	sol_party_pin["sol pin"] = /obj/item/clothing/accessory/sol_pin
+	sol_party_pin["sol first party pin"] = /obj/item/clothing/accessory/sol_pin/sfp
+	sol_party_pin["sol socialist unity party pin"] = /obj/item/clothing/accessory/sol_pin/ssup
+	sol_party_pin["sol people's party pin"] = /obj/item/clothing/accessory/sol_pin/spp
+	sol_party_pin["sol popular democratic party pin"] = /obj/item/clothing/accessory/sol_pin/spdp
+	sol_party_pin["sol communist party pin"] = /obj/item/clothing/accessory/sol_pin/commie
+	gear_tweaks += new /datum/gear_tweak/path(sol_party_pin)

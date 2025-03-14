@@ -470,14 +470,14 @@
 /obj/structure/closet/cabinet{
 	name = "wardrobe"
 	},
-/obj/item/clothing/accessory/tshirt/skrell/nebula,
-/obj/item/clothing/accessory/tshirt/skrell/maelstrom,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/purple,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/white,
-/obj/item/clothing/accessory/tshirt/skrell/ocean,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/maelstrom,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/purple,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/white,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/ocean,
 /obj/item/clothing/accessory/poncho/skrell,
 /obj/item/clothing/accessory/poncho/skrell/brown,
 /obj/item/clothing/accessory/poncho/skrell/gray,
@@ -3179,7 +3179,8 @@
 "ud" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(208)
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/tirakqi_smuggler_shuttle)
@@ -7857,7 +7858,8 @@
 "Wr" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005
+	accellimit = 0.005;
+	req_access = list(208)
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/bridge)

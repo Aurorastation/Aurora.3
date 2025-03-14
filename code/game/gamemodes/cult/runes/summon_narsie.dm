@@ -4,12 +4,12 @@
 	rune_flags = NO_TALISMAN
 
 /datum/rune/summon_narsie/do_rune_action(mob/living/user, atom/movable/A)
-	if(!cult.allow_narsie)
+	if(!GLOB.cult.allow_narsie)
 		return fizzle(user, A)
 
 	var/turf/T = get_turf(A)
 	if(!is_station_level(T.z))
-		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie can not be summoned here."))
+		to_chat(user, SPAN_WARNING("You are too far from the [station_name(TRUE)], Nar'sie can not be summoned here."))
 		return fizzle(user, A)
 
 	var/list/cultists = list()
@@ -25,7 +25,7 @@
 		new /obj/singularity/narsie/large(get_turf(A))
 
 		// Can't summon a singular entity twice.
-		cult.allow_narsie = FALSE
+		GLOB.cult.allow_narsie = FALSE
 		return
 	else
 		for(var/mob/M in cultists)

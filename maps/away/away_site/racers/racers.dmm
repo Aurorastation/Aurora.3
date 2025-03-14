@@ -136,7 +136,6 @@
 "aou" = (
 /obj/structure/table/stone/marble,
 /obj/effect/spider/stickyweb,
-/obj/item/tape/medical,
 /obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
@@ -817,20 +816,13 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
-"dsR" = (
-/obj/structure/railing/mapped,
-/obj/structure/bed/stool/chair/office,
-/turf/simulated/floor/plating,
-/area/racers)
 "dtl" = (
 /obj/structure/railing/mapped,
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/plating,
 /area/racers)
 "dtY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/racers)
 "dvQ" = (
 /obj/structure/table/stone/marble,
@@ -963,7 +955,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_red)
 "eBa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1129,12 +1121,6 @@
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/diamond,
 /area/racers)
-"fpS" = (
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
-/turf/template_noop,
-/area/space)
 "frf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/refrigerator/standard,
@@ -1480,9 +1466,7 @@
 /area/racers)
 "hkp" = (
 /obj/item/material/sword/amohdan_sword,
-/obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet,
 /area/racers)
 "hkT" = (
 /obj/structure/table/reinforced/wood,
@@ -1507,8 +1491,12 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "hnS" = (
-/obj/structure/shuttle/window,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#ffffff";
+	color = "#ffffff"
+	},
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "hoF" = (
@@ -1838,7 +1826,6 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/item/tape/medical,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /obj/structure/blocker,
 /obj/structure/curtain/black,
@@ -2235,7 +2222,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "kHl" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_blue)
 "kHp" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -2246,7 +2233,6 @@
 "kJp" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/tape/medical,
 /obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
@@ -2319,13 +2305,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/racers)
-"liU" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/turf/template_noop,
-/area/space)
 "ljo" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2453,7 +2432,7 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
 "lMF" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_red)
 "lNR" = (
 /obj/item/spacecash/c1{
@@ -2640,11 +2619,11 @@
 /area/racers)
 "mHN" = (
 /obj/structure/sign/flag/nanotrasen,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/racers)
 "mKU" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/racers)
 "mMz" = (
 /obj/machinery/recharge_station,
@@ -2780,9 +2759,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/rust,
 /area/racers)
-"nup" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/racers)
 "nuH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle,
 /obj/effect/landmark/entry_point/aft{
@@ -2849,7 +2825,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_red)
 "nOM" = (
 /obj/effect/spider/stickyweb,
@@ -2864,12 +2840,6 @@
 	pixel_y = 27
 	},
 /turf/simulated/floor/carpet,
-/area/racers)
-"nRF" = (
-/obj/item/melee/ceremonial_sword,
-/obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/plating,
 /area/racers)
 "nUG" = (
 /obj/structure/closet/secure_closet/miner,
@@ -3011,7 +2981,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "port"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_red)
 "oqx" = (
 /obj/item/trash/liquidfood,
@@ -3130,11 +3100,6 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/rust/airless,
-/area/racers)
-"phk" = (
-/obj/structure/lattice,
-/obj/machinery/shipsensors,
-/turf/simulated/floor/airless,
 /area/racers)
 "piw" = (
 /obj/structure/table/stone/marble,
@@ -3563,9 +3528,8 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "qZQ" = (
-/obj/machinery/shipsensors,
-/obj/structure/lattice,
-/turf/simulated/floor/airless,
+/obj/item/melee/ceremonial_sword,
+/turf/simulated/floor/plating,
 /area/racers)
 "raW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3686,13 +3650,6 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/plating,
 /area/racers)
-"rDo" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
-	},
-/turf/template_noop,
-/area/space)
 "rIG" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/plating,
@@ -3761,16 +3718,16 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "rZF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/item/clothing/head/unathi/maxtlatl{
+	pixel_y = -4
+	},
+/turf/simulated/floor/plating,
 /area/racers)
 "sae" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/office,
 /turf/simulated/floor/plating,
 /area/racers)
 "sci" = (
@@ -3925,14 +3882,6 @@
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
-"sOd" = (
-/obj/item/clothing/head/unathi/maxtlatl{
-	pixel_y = -4
-	},
-/obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/plating,
-/area/racers)
 "sOQ" = (
 /obj/effect/shuttle_landmark/blue_racer_transit,
 /turf/space/transit,
@@ -4014,7 +3963,7 @@
 /area/racers)
 "tlw" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/racers)
 "tmd" = (
 /obj/machinery/disposal/small/west,
@@ -4411,7 +4360,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "starboard"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_red)
 "vgN" = (
 /obj/item/material/hatchet/unathiknife,
@@ -4435,7 +4384,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "starboard"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_blue)
 "vps" = (
 /turf/simulated/floor/tiled/white/airless,
@@ -4670,7 +4619,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "wkV" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/space)
 "wlu" = (
 /obj/structure/table/wood/gamblingtable,
@@ -5146,7 +5095,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "port"
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle,
 /area/shuttle/racers_blue)
 "yle" = (
 /obj/item/clothing/mask/gas/old,
@@ -24287,10 +24236,10 @@ arm
 arm
 arm
 arm
-nup
-nup
-nup
-arm
+dtY
+dtY
+dtY
+dtY
 arm
 arm
 arm
@@ -24522,12 +24471,12 @@ ctn
 ctn
 pJZ
 huE
-aOU
+xRX
 nfm
 xjB
 xjB
 nfm
-ixi
+xRX
 huE
 qHQ
 jko
@@ -24541,10 +24490,10 @@ nxI
 arm
 thx
 thx
-rZF
-nup
-nup
-nup
+dtY
+dtY
+dtY
+dtY
 dDf
 kHp
 ink
@@ -25049,15 +24998,15 @@ arm
 arm
 arm
 thx
-arm
-tlw
+dtY
+dtY
 bGI
-nup
-tlw
-tlw
-tlw
-nup
-vps
+dtY
+dtY
+dtY
+dtY
+dtY
+dtY
 vps
 pOk
 xYv
@@ -25306,19 +25255,19 @@ thx
 thx
 arm
 odX
-tlw
+dtY
 vtq
 eTw
 vps
 shZ
-nup
+dtY
 uAm
 vps
 vps
 vps
 jYS
 tlw
-thx
+dtY
 arm
 arm
 arm
@@ -25574,10 +25523,10 @@ nYM
 vps
 cJV
 mCN
-nup
-nup
-nup
-nup
+dtY
+dtY
+dtY
+dtY
 arm
 arm
 arm
@@ -26340,14 +26289,14 @@ mrH
 vps
 vps
 cXz
-nup
+dtY
 ves
 vps
 vps
 npM
-nup
-nup
-nup
+dtY
+dtY
+dtY
 tlw
 thx
 arm
@@ -26591,19 +26540,19 @@ thx
 thx
 arm
 thx
-tlw
+dtY
 nhS
 uMQ
 bdV
 qvR
-tlw
+dtY
 bcn
 qsS
 vps
 vps
 qgM
-nup
-arm
+dtY
+dtY
 arm
 arm
 arm
@@ -26848,16 +26797,16 @@ thx
 thx
 arm
 thx
-arm
-mKU
 dtY
 mKU
-tlw
-tlw
-tlw
-tlw
+dtY
+dtY
+dtY
+dtY
+dtY
+dtY
+dtY
 hPg
-vps
 sHm
 xdP
 ink
@@ -27368,10 +27317,10 @@ uoh
 pdE
 arm
 arm
-nup
-nup
-nup
-nup
+dtY
+dtY
+dtY
+dtY
 jBY
 sHm
 ink
@@ -27606,12 +27555,12 @@ ctn
 ctn
 jIJ
 huE
-aOU
+xRX
 nfm
 xjB
 hoF
 nfm
-ixi
+xRX
 huE
 pPd
 abB
@@ -27628,10 +27577,10 @@ arm
 arm
 arm
 arm
-nup
-nup
-nup
-arm
+dtY
+dtY
+dtY
+dtY
 arm
 thx
 arm
@@ -29148,12 +29097,12 @@ ctn
 ctn
 pJZ
 huE
-aOU
+xRX
 nfm
 qJq
 qJq
 nfm
-ixi
+xRX
 huE
 pbt
 jko
@@ -30690,12 +30639,12 @@ ctn
 ctn
 pJZ
 huE
-aOU
+xRX
 nfm
 qJq
 qJq
 nfm
-ixi
+xRX
 huE
 ctn
 cLC
@@ -32232,12 +32181,12 @@ ctn
 ctn
 odf
 huE
-aOU
+xRX
 nfm
 xjB
 prw
 nfm
-ixi
+xRX
 huE
 ctn
 cLC
@@ -34802,12 +34751,12 @@ lvc
 ctn
 mBP
 huE
-aOU
+xRX
 nfm
 xjB
 xjB
 nfm
-ixi
+xRX
 huE
 jaL
 cLC
@@ -37629,12 +37578,12 @@ huE
 huE
 huE
 huE
-aOU
+xRX
 pPZ
 fZJ
 fZJ
 pPZ
-ixi
+xRX
 huE
 huE
 huE
@@ -37892,7 +37841,7 @@ xjB
 vBl
 nfm
 xRX
-vWJ
+xRX
 xRX
 xRX
 xRX
@@ -38149,7 +38098,7 @@ xjB
 xjB
 nfm
 xRX
-vWJ
+xRX
 xRX
 xRX
 xRX
@@ -38406,7 +38355,7 @@ fZJ
 fZJ
 nfm
 pPZ
-vWJ
+xRX
 xRX
 xRX
 xRX
@@ -38920,12 +38869,12 @@ nbK
 jIR
 dis
 ujY
-ble
-ble
-ble
-ble
-ble
-phk
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -39423,8 +39372,8 @@ xRX
 xRX
 bSn
 xRX
-nup
-nup
+dtY
+dtY
 xRX
 ble
 ndF
@@ -39681,7 +39630,7 @@ jIp
 xRX
 xRX
 eNp
-nup
+dtY
 fjZ
 xRX
 oav
@@ -44319,7 +44268,7 @@ bhm
 lwM
 vLM
 lsG
-dsR
+lKN
 xjB
 rnH
 xjB
@@ -44576,7 +44525,7 @@ xjB
 xvb
 xvb
 xjB
-dsR
+lKN
 rzs
 uuC
 xjB
@@ -44833,7 +44782,7 @@ rfa
 acU
 nZC
 xjB
-dsR
+lKN
 kcN
 naE
 vvu
@@ -46611,7 +46560,7 @@ xRX
 xRX
 xRX
 xRX
-oYR
+nfm
 nfm
 nfm
 nfm
@@ -47153,7 +47102,7 @@ xjB
 xjB
 xjB
 xjB
-xjB
+rZF
 huE
 xRX
 xRX
@@ -47377,11 +47326,11 @@ xRX
 xRX
 xRX
 xRX
-qZQ
-ble
-ble
-ble
-ble
+xRX
+xRX
+xRX
+xRX
+xRX
 nfm
 wNk
 rgE
@@ -47409,14 +47358,14 @@ vAO
 eYu
 pPW
 sBs
-xjB
+qZQ
 nxJ
 huE
-ble
-ble
-ble
-ble
-phk
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 ruQ
 xRX
@@ -47664,12 +47613,12 @@ upu
 iwl
 huE
 pPZ
-hkp
-sOd
-nRF
+pPZ
+pPZ
+pPZ
 huE
 huE
-nfm
+huE
 xRX
 xRX
 xRX
@@ -47896,7 +47845,7 @@ xRX
 xRX
 xRX
 xRX
-oYR
+nfm
 nfm
 nfm
 nfm
@@ -48158,10 +48107,10 @@ xRX
 xRX
 xRX
 xRX
-oYR
 xRX
 xRX
-ble
+xRX
+xRX
 xRX
 nfm
 qsu
@@ -48181,7 +48130,7 @@ xEy
 hkT
 wMv
 xIf
-piW
+hkp
 fzS
 nfm
 xRX
@@ -48418,7 +48367,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 nfm
 jrF
@@ -48428,7 +48377,7 @@ nfm
 xLR
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 nfm
@@ -48440,7 +48389,7 @@ lIg
 piW
 piW
 nfm
-xRX
+nfm
 xRX
 xRX
 xRX
@@ -48675,17 +48624,17 @@ xRX
 xRX
 xRX
 xRX
-qZQ
-xRX
-nfm
-nfm
-nfm
-nfm
-nfm
 xRX
 xRX
+nfm
+nfm
+nfm
+nfm
+nfm
 xRX
-qZQ
+xRX
+xRX
+xRX
 xRX
 xRX
 nfm
@@ -48944,8 +48893,8 @@ xLR
 xRX
 xLR
 xRX
-fpS
-huE
+xRX
+nfm
 cUG
 upu
 upu
@@ -48953,8 +48902,8 @@ upu
 upu
 upu
 nfm
-huE
-rDo
+nfm
+xRX
 xRX
 xRX
 xRX
@@ -49202,15 +49151,15 @@ xRX
 xRX
 xRX
 xRX
-liU
+nfm
 qUf
 oXH
 vIW
 upu
 twh
 vcf
-xRX
-liU
+nfm
+oYR
 xRX
 xRX
 xRX
@@ -49460,12 +49409,12 @@ xLR
 xRX
 xRX
 xRX
-xRX
+nfm
 qUf
 qUf
 qUf
 qUf
-xRX
+nfm
 xRX
 xRX
 xRX
@@ -49719,7 +49668,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 xRX
@@ -49976,7 +49925,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 xRX
@@ -50233,7 +50182,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 xRX
@@ -50490,7 +50439,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 xRX
@@ -50747,7 +50696,7 @@ xRX
 xRX
 xRX
 xRX
-ble
+xRX
 xRX
 xRX
 xRX

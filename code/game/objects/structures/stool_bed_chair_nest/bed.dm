@@ -299,7 +299,7 @@
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -492,27 +492,27 @@
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/roller/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
-	if(over_object == buckled && beaker)
+	if(over == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled, usr)
+			detach_iv(buckled, user)
 		else
-			attach_iv(buckled, usr)
+			attach_iv(buckled, user)
 		return
-	if(usr != over_object && ishuman(over_object))
-		if(user_buckle(over_object, usr))
-			attach_iv(buckled, usr)
+	if(user != over && ishuman(over))
+		if(user_buckle(over, user))
+			attach_iv(buckled, user)
 			return
 	if(beaker)
-		remove_beaker(usr)
+		remove_beaker(user)
 		return
 	if(vitals)
-		remove_vitals(usr)
+		remove_vitals(user)
 		return
 	if(buckled)
 		return

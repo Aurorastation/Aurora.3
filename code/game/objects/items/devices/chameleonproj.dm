@@ -2,10 +2,11 @@
 	name = "chameleon projector"
 	desc = "A strange device."
 	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
+	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
+	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	item_state = "electronic"
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 5

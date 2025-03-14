@@ -11,7 +11,7 @@
 #define CUT       "cut"
 #define BRUISE    "bruise"
 #define PIERCE    "pierce"
-#define LASER     "laser"
+//#define LASER     "laser"
 
 #define DAMAGE_FLAG_EDGE      1
 #define DAMAGE_FLAG_SHARP     2
@@ -92,3 +92,9 @@
 // (e.g. 0.6 == 60% lost if 200 burn damage is taken).
 #define FLUIDLOSS_WIDE_BURN 0.3 //for burns from heat applied over a wider area, like from fire
 #define FLUIDLOSS_CONC_BURN 0.2 //for concentrated burns, like from lasers
+
+// The bandage levels a limb can have, basically how badly bandaged up their are
+#define BANDAGE_LEVEL_NONE 0
+#define BANDAGE_LEVEL_LIGHT 1
+#define BANDAGE_LEVEL_MEDIUM 2
+#define BANDAGE_LEVEL_HEAVY 3

@@ -10,7 +10,7 @@
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
-	for(var/found_inhibitor in bluespace_inhibitors)
+	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 		var/obj/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
@@ -26,8 +26,8 @@
 /obj/item/locator
 	name = "locator"
 	desc = "A device that can be used to track those with locator implants."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/pinpointer.dmi'
+	icon_state = "pinoff"
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
@@ -54,7 +54,7 @@ Frequency:
 <A href='byond://?src=[REF(src)];freq=2'>+</A>
 <A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
-<A href='?src=[REF(src)];refresh=1'>Refresh</A>"}
+<A href='byond://?src=[REF(src)];refresh=1'>Refresh</A>"}
 	user << browse(dat, "window=radio")
 	onclose(user, "radio")
 	return
@@ -142,7 +142,7 @@ Frequency:
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
 	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
@@ -259,6 +259,9 @@ Frequency:
 	LAZYREMOVE(active_teleporters, P)
 	if(LAZYLEN(active_teleporters) < max_portals)
 		check_maptext(SMALL_FONTS(7, "Ready"))
+		icon_state = "hand_tele"
+	else
+		icon_state = "hand_tele_recharging"
 
 /obj/item/closet_teleporter
 	name = "closet teleporter"

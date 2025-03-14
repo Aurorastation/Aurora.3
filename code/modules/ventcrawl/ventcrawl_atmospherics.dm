@@ -32,15 +32,17 @@
 
 /obj/machinery/atmospherics/proc/ventcrawl_to(var/mob/living/user, var/obj/machinery/atmospherics/target_move, var/direction)
 	if(target_move)
-		if(is_type_in_list(target_move, ventcrawl_machinery) && target_move.can_crawl_through())
-			if(target_move:is_welded())
+		if(is_type_in_list(target_move, GLOB.ventcrawl_machinery) && target_move.can_crawl_through())
+			var/obj/machinery/atmospherics/unary/UA = target_move
+			if(UA.is_welded())
 				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), SPAN_NOTICE("You can't escape from a welded vent."))
 			else
 				user.remove_ventcrawl()
-				user.forceMove(target_move.loc) //handles entering and so on
+				user.forceMove(UA.loc) //handles entering and so on
 				user.sight &= ~(SEE_TURFS|BLIND)
 				user.visible_message(SPAN_WARNING("You hear something squeezing through the ducts."), "You climb out the ventilation system.")
-				user.vent_trap_check("arriving", target_move)
+				user.vent_trap_check("arriving", UA)
+
 		else if(target_move.can_crawl_through())
 			if(target_move.return_network(target_move) != return_network(src))
 				user.remove_ventcrawl()
@@ -53,7 +55,7 @@
 				user.next_play_vent = world.time+30
 				playsound(src, 'sound/machines/ventcrawl.ogg', 50, 1, -3)
 	else
-		if((direction & initialize_directions) || is_type_in_list(src, ventcrawl_machinery) && src.can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
+		if((direction & initialize_directions) || is_type_in_list(src, GLOB.ventcrawl_machinery) && src.can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
 			user.remove_ventcrawl()
 			user.forceMove(check_neighbor_density(get_turf(src.loc), direction) ? src.loc : get_step(src, direction))
 			user.sight &= ~(SEE_TURFS|BLIND)

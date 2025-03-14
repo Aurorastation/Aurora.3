@@ -44,6 +44,7 @@
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
+	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -123,6 +124,38 @@
 	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+
+/datum/gear/suit/surgicalgown
+	display_name = "surgical gown selection"
+	description = "A selection of corporate surgical gowns."
+	path = /obj/item/clothing/suit/storage/surgical_gown/nt
+	cost = 1
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/surgicalgown/New()
+	..()
+	var/list/surgical_gowns = list()
+	surgical_gowns["surgical gown, nanotrasen"] = /obj/item/clothing/suit/storage/surgical_gown/nt
+	surgical_gowns["surgical gown, zeng-hu"] = /obj/item/clothing/suit/storage/surgical_gown/zeng
+	surgical_gowns["surgical gown, pmcg"] = /obj/item/clothing/suit/storage/surgical_gown/pmc
+	surgical_gowns["surgical gown, pmcg, alternate"] = /obj/item/clothing/suit/storage/surgical_gown/pmc/alt
+	surgical_gowns["surgical gown, zavodskoi"] = /obj/item/clothing/suit/storage/surgical_gown/zavod
+	surgical_gowns["surgical gown, idris"] = /obj/item/clothing/suit/storage/surgical_gown/idris
+	gear_tweaks += new /datum/gear_tweak/path(surgical_gowns)
+
+/datum/gear/suit/surgicalgown_colorable
+	display_name = "surgical gown, colorable"
+	description = "A customizable surgical gown."
+	path = /obj/item/clothing/suit/storage/surgical_gown
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/surgicalgown_colorable/New()
+	..()
+	var/list/surgical_gowns_colorable = list()
+	surgical_gowns_colorable["surgical gown, colorable"] = /obj/item/clothing/suit/storage/surgical_gown
+	surgical_gowns_colorable["surgical gown, accented"] = /obj/item/clothing/suit/storage/surgical_gown/accent
+	gear_tweaks += new /datum/gear_tweak/path(surgical_gowns_colorable)
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
@@ -307,6 +340,20 @@
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
+	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
+/datum/gear/suit/dominia_cape_colorable
+	display_name = "dominian cape selection, colorable"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/suit/dominia_cape_colorable/New()
+	..()
+	var/list/dominiacape = list()
+	dominiacape["dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	dominiacape["white dominian cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/white/colorable
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape

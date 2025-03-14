@@ -14,8 +14,15 @@ avoid code duplication. This includes items that may sometimes act as a standard
 */
 
 // Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
-/obj/item/proc/attack_self(mob/user)
+/obj/item/proc/attack_self(mob/user, modifiers)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SELF, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
 	return
+
+/// Called when the item is in the active hand, and right-clicked. Intended for alternate or opposite functions, such as lowering reagent transfer amount. At the moment, there is no verb or hotkey.
+/obj/item/proc/attack_self_secondary(mob/user, modifiers)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SELF_SECONDARY, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
 
 // Called at the start of resolve_attackby(), before the actual attack.
 /obj/item/proc/pre_attack(atom/a, mob/user)
@@ -154,7 +161,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!no_attack_log)
 		user.attack_log += "\[[time_stamp()]\]<span class='warning'> [hit_zone ? "Attacked" : "Missed"] [target_mob.name] ([target_mob.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
 		target_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> [hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
+		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(target_mob, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob) )
 	/////////////////////////
 
 	return 1

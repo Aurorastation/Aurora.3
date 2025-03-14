@@ -15,17 +15,17 @@
 
 /obj/item/wirecutters/clippers/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/item/tools/plant_analyzer.dmi'
+	icon = 'icons/obj/item/device/plant_analyzer.dmi'
 	icon_state = "hydro"
 	item_state = "hydro"
-	contained_sprite = TRUE
 	var/form_title
 	var/last_data
 	matter = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)
@@ -225,7 +225,7 @@
 
 	if(dat)
 		last_data = dat
-		dat += "<br><br>\[<a href='?src=[REF(src)];print=1'>print report</a>\]"
+		dat += "<br><br>\[<a href='byond://?src=[REF(src)];print=1'>print report</a>\]"
 		user << browse(dat,"window=plant_analyzer")
 
 	return

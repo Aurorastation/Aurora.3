@@ -112,7 +112,7 @@
 	name = "cadre brassard"
 	desc = "Gadpathurian cadres use these brassards, worn on their uniforms or their coats, to distinguish themselves."
 	desc_extended = "Stop reading the fluff description of an accessory friend, we must fight the Solarian imperialists!"
-	icon = 'icons/clothing/accessories/gadpathur_brassard.dmi'
+	icon = 'icons/obj/item/clothing/accessory/gadpathur_brassard.dmi'
 	icon_state = "gadpathur_brassard"
 	item_state = "gadpathur_brassard"
 	contained_sprite = TRUE
@@ -156,9 +156,7 @@
 	name = "gadpathurian dogtag"
 	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type. \
 	They can be easily ripped in half in the event of the wearer's death."
-	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "gadpathur_tag"
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/mask/breath/gadpathur
 	name = "gadpathurian rebreather"

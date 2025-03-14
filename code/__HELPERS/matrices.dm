@@ -307,7 +307,7 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 	LUMA_B + cos * -LUMA_B + sin * (1-LUMA_B), LUMA_B + cos * -LUMA_B + sin * constC, LUMA_B + cos * (1-LUMA_B) + sin * LUMA_B
 	)
 
-var/global/list/delta_index = list(
+GLOBAL_LIST_INIT(delta_index, list(
 	0,    0.01, 0.02, 0.04, 0.05, 0.06, 0.07, 0.08, 0.1,  0.11,
 	0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.20, 0.21, 0.22, 0.24,
 	0.25, 0.27, 0.28, 0.30, 0.32, 0.34, 0.36, 0.38, 0.40, 0.42,
@@ -318,7 +318,7 @@ var/global/list/delta_index = list(
 	2.37, 2.50, 2.62, 2.75, 2.87, 3.0,  3.2,  3.4,  3.6,  3.8,
 	4.0,  4.3,  4.7,  4.9,  5.0,  5.5,  6.0,  6.5,  6.8,  7.0,
 	7.3,  7.5,  7.8,  8.0,  8.4,  8.7,  9.0,  9.4,  9.6,  9.8,
-	10.0)
+	10.0))
 
 ///Exxagerates or removes brightness
 /proc/color_contrast(value)
@@ -333,9 +333,9 @@ var/global/list/delta_index = list(
 	else
 		x = value % 1
 		if(x == 0)
-			x = delta_index[value]
+			x = GLOB.delta_index[value]
 		else
-			x = delta_index[value] * (1-x) + delta_index[value+1] * x//use linear interpolation for more granularity.
+			x = GLOB.delta_index[value] * (1-x) + GLOB.delta_index[value+1] * x//use linear interpolation for more granularity.
 		x = x * 127 + 127
 
 	var/mult = x / 127

@@ -6,7 +6,9 @@
 /obj/item/device/modkit
 	name = "voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
 	var/parts = MODKIT_FULL
 	var/target_species = BODYTYPE_HUMAN
 	var/is_multi_species = FALSE //can this modkit change things for multiple species?
@@ -105,8 +107,10 @@
 
 /obj/item/voidsuit_modkit
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
@@ -235,8 +239,10 @@
 
 /obj/item/voidsuit_modkit_multi //for converting between a large range of options instead of having 5000 subtypes
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box designed to modify a voidsuit to a selection of alternate options."
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
@@ -305,7 +311,8 @@
 		"Southern Fleet Administration" = /obj/item/clothing/suit/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/suit/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/suit/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/suit/space/void/sol/splf
 	)
 	helmet_options = list(
 		"Solarian Armed Forces" = /obj/item/clothing/head/helmet/space/void/sol,
@@ -315,7 +322,8 @@
 		"Southern Fleet Administration" = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/head/helmet/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/head/helmet/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/head/helmet/space/void/sol/splf
 	)
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate
@@ -374,7 +382,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/suit/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/suit/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/suit/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/sci/assunzione
 	)
 	helmet_options = list(
 		"Coalition Vulture" = /obj/item/clothing/head/helmet/space/void/coalition,
@@ -382,7 +390,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/head/helmet/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/head/helmet/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/sci/assunzione
 	)
 
 /obj/item/storage/box/unathi_pirate
@@ -404,6 +412,22 @@
 	name = "coalition of colonies modkit box"
 	desc = "Contains modkits to convert Coalition voidsuits into member-state variants."
 	starts_with = list(/obj/item/voidsuit_modkit_multi/coalition = 4)
+
+/obj/item/voidsuit_modkit/assunzione
+	name = "assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione,
+	)
+
+/obj/item/voidsuit_modkit/assunzione/ipc
+	name = "synthetic assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit fitted for an IPC."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione/ipc,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc,
+	)
 
 #undef MODKIT_HELMET
 #undef MODKIT_SUIT

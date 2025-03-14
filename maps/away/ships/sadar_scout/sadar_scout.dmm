@@ -305,6 +305,9 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
 "cd" = (
@@ -618,11 +621,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/bridge)
 "eB" = (
-/obj/machinery/power/solar_control/autostart{
-	dir = 8;
-	id = "portsadarsolar";
-	name = "Port Solar Control"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -632,6 +630,10 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/solars)
 "eC" = (
@@ -771,6 +773,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/solars)
 "fO" = (
@@ -1405,6 +1410,9 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
 	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
 "kl" = (
@@ -1559,6 +1567,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/terminal{
 	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
@@ -3156,6 +3167,9 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
 "wX" = (
@@ -3668,10 +3682,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
 /obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/designer,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/designer,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/brown,
@@ -4220,6 +4234,12 @@
 	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
@@ -5422,6 +5442,10 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/forehall)
+"ON" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/ship/sadar_scout/solars)
 "OQ" = (
 /obj/machinery/vending/engineering{
 	req_access = null
@@ -5619,6 +5643,9 @@
 	},
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/solars)
@@ -38952,7 +38979,7 @@ uW
 Wi
 mk
 GS
-sg
+ON
 mq
 SX
 Xw
@@ -40751,7 +40778,7 @@ SH
 ok
 Gq
 Xm
-sg
+ON
 Dq
 SX
 VH

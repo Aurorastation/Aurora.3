@@ -1,5 +1,3 @@
-var/list/holder_mob_icon_cache = list()
-
 //Helper object for picking dionaea (and other creatures) up.
 /obj/item/holder
 	name = "holder"

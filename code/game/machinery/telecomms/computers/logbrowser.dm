@@ -37,23 +37,23 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=[REF(src)];network=1'>[network]</a><br>"
 			if(servers.len)
 				dat += "<br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=[REF(src)];viewserver=[T.id]'>[REF(T)] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=[REF(src)];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='byond://?src=[REF(src)];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=[REF(src)];operation=refresh'>\[Refresh\]</a> <a href='?src=[REF(src)];operation=printlog'>\[Print Logs\]</a></center>"
+			dat += "<center><a href='byond://?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a>     <a href='byond://?src=[REF(src)];operation=refresh'>\[Refresh\]</a> <a href='byond://?src=[REF(src)];operation=printlog'>\[Print Logs\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]"
 
@@ -200,7 +200,7 @@
 		// If the log is a speech file
 		if(C.input_type == "Speech File")
 
-			. += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
+			. += "<li><font color = #008F00>[C.name]</font>  <font color = #FF0000><a href='byond://?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
 
 			var/datum/language/language = C.parameters["language"]
 			var/message_out = ""
@@ -226,7 +226,7 @@
 
 		else if(C.input_type == "Execution Error")
 
-			. += "<li><font color = #990000>[C.name]</font>  <font color = #FF0000><a href='?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
+			. += "<li><font color = #990000>[C.name]</font>  <font color = #FF0000><a href='byond://?src=[REF(src)];delete=[i]'>\[X\]</a></font><br>"
 			. += "<u><font color = #787700>Output</font></u>: \"[C.parameters["message"]]\"<br>"
 			. += "</li><br>"
 	. += "</ol>"

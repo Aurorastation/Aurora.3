@@ -19,8 +19,8 @@
 //- Identify how hard it is to break into the area and where the weak points are
 //- Check if the area has too much empty space. If so, make it smaller and replace the rest with maintenance tunnels.
 
-var/camera_range_display_status = 0
-var/intercom_range_display_status = 0
+GLOBAL_VAR_INIT(camera_range_display_status, 0)
+GLOBAL_VAR_INIT(intercom_range_display_status, 0)
 
 /obj/effect/debugging/camera_range
 	icon = 'icons/480x480.dmi'
@@ -45,17 +45,17 @@ var/intercom_range_display_status = 0
 	set category = "Mapping"
 	set name = "Camera Range Display"
 
-	if(camera_range_display_status)
-		camera_range_display_status = 0
+	if(GLOB.camera_range_display_status)
+		GLOB.camera_range_display_status = 0
 	else
-		camera_range_display_status = 1
+		GLOB.camera_range_display_status = 1
 
 
 
 	for(var/obj/effect/debugging/camera_range/C in world)
 		qdel(C)
 
-	if(camera_range_display_status)
+	if(GLOB.camera_range_display_status)
 		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			new/obj/effect/debugging/camera_range(C.loc)
 	feedback_add_details("admin_verb","mCRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -108,15 +108,15 @@ var/intercom_range_display_status = 0
 	set category = "Mapping"
 	set name = "Intercom Range Display"
 
-	if(intercom_range_display_status)
-		intercom_range_display_status = 0
+	if(GLOB.intercom_range_display_status)
+		GLOB.intercom_range_display_status = 0
 	else
-		intercom_range_display_status = 1
+		GLOB.intercom_range_display_status = 1
 
 	for(var/obj/effect/debugging/marker/M in world)
 		qdel(M)
 
-	if(intercom_range_display_status)
+	if(GLOB.intercom_range_display_status)
 		for(var/obj/item/device/radio/intercom/I in world)
 			for(var/turf/T in orange(7,I))
 				var/obj/effect/debugging/marker/F = new/obj/effect/debugging/marker(T)
@@ -124,7 +124,7 @@ var/intercom_range_display_status = 0
 					qdel(F)
 	feedback_add_details("admin_verb","mIRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-var/list/debug_verbs = list (
+GLOBAL_LIST_INIT(debug_verbs, list(
 	/client/proc/do_not_use_these
 	,/client/proc/camera_view
 	,/client/proc/sec_camera_report
@@ -165,7 +165,7 @@ var/list/debug_verbs = list (
 	,/client/proc/get_bad_fdoors
 	,/client/proc/get_bad_doors
 	,/client/proc/analyze_openturf
-	)
+	))
 
 
 /client/proc/enable_debug_verbs()
@@ -174,7 +174,7 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	add_verb(src, debug_verbs)
+	add_verb(src, GLOB.debug_verbs)
 
 	feedback_add_details("admin_verb","mDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -184,7 +184,7 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	remove_verb(src, debug_verbs)
+	remove_verb(src, GLOB.debug_verbs)
 
 	init_verbs()
 	feedback_add_details("admin_verb","hDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -332,7 +332,7 @@ var/list/debug_verbs = list (
 	feedback_add_details("admin_verb","mOBJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-var/global/prevent_airgroup_regroup = 0
+// var/global/prevent_airgroup_regroup = 0
 
 /client/proc/break_all_air_groups()
 	set category = "Mapping"

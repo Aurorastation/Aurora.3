@@ -20,7 +20,7 @@
 /obj/item/cargo_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contained_packages))
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>"))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href='byond://?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>"))
 
 /obj/item/cargo_backpack/Topic(href, href_list)
 	if(href_list["show_package_data"])
@@ -71,6 +71,19 @@
 		north_overlay.layer = courier.layer + 0.01 // we want the tall backpack to render over hair and helmets
 		north_overlay.appearance_flags |= KEEP_APART
 		mob_overlay.AddOverlays(north_overlay)
+	return add_color_tag_to_overlay(mob_overlay)
+
+/obj/item/cargo_backpack/proc/add_color_tag_to_overlay(var/image/mob_overlay)
+	if(!mob_overlay)
+		return
+
+	for(var/package_index = 1 to length(contained_packages))
+		var/obj/item/cargo_package/package = contained_packages[package_index]
+		var/image/package_tag = image(icon, icon_state = "package_pack_[package_index]_tag")
+		package_tag.color = package.accent_color
+		mob_overlay.AddOverlays(package_tag)
+		package_index++
+
 	return mob_overlay
 
 /obj/item/cargo_backpack/attack_hand(mob/living/carbon/human/user)

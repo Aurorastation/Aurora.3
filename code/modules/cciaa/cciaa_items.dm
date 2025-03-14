@@ -121,7 +121,7 @@
 		sLogFile << "--------------------------------"
 
 		recording = 1
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Writing to [fileName]\"."))
 
 		return
@@ -183,7 +183,7 @@
 	date_string = null
 	antag_involvement = null
 	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording stopped log saved.\"."))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 
 	return
 
@@ -206,7 +206,7 @@
 	date_string = null
 	antag_involvement = null
 	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recorder Reset.\"."))
-	icon_state = "taperecorderidle"
+	icon_state = "taperecorder_idle"
 
 /obj/item/device/taperecorder/cciaa/proc/get_last_transcript()
 	var/list/lFile = file2list(last_file_loc)
@@ -263,13 +263,13 @@
 		sLogFile << "Recorder paused at: [get_time()]"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording paused\"."))
 		paused = TRUE
-		icon_state = "taperecorderpause"
+		icon_state = "taperecorder_idle"
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording resumed\"."))
 		paused = FALSE
-		icon_state = "taperecorderrecording"
+		icon_state = "taperecorder_recording"
 	return
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
@@ -343,6 +343,7 @@
 
 /obj/item/device/radio/headset/ert/ccia/alt
 	name = "central command internal affairs bowman headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
 
@@ -358,7 +359,7 @@
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8
-	max_storage_space = 16
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 
 /obj/item/storage/lockbox/cciaa/bssb
 	name = "BSSB agent briefcase"

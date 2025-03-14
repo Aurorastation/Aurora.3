@@ -149,9 +149,9 @@
 	. = ..()
 	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
 
-/obj/structure/flora/pottedplant/orientaltree
-	name = "potted oriental tree"
-	desc = "This is a rather oriental style tree. It's flowers are bright pink."
+/obj/structure/flora/pottedplant/cherrytree
+	name = "potted cherry blossom tree"
+	desc = "A beautiful kwanzan cherry blossom tree. A notably ornamental tree, appreciated for its lack of fruit.."
 	icon_state = "plant-10"
 
 /obj/structure/flora/pottedplant/smallcactus
@@ -289,3 +289,26 @@
 			Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
 			and other than that, this plant is same as any other greenery."
 	icon_state = "plant-36"
+
+/obj/structure/flora/pottedplant/greeting_palm
+	name = "greeting palm fern"
+	desc = "Originally native to Silversun, this small plant can now be found across the spur, decorating plazas, \
+		hotel lobbies, and corporate offices, that want to bring a little bit of tropical Silversun into cold, hard, concrete spaces. \
+		It has a long, slightly wave-shaped bark, with fronds that hang from the top. When there is wind, \
+		the leaves blow upwards and look slightly like waving hands, giving it it's name."
+	icon_state = "plant-tc-01"
+
+/obj/structure/flora/pottedplant/fortune_flower
+	name = "fortune flower bush"
+	desc = "A plant native to the volcanic soil of Port Antillia, \
+		early settlers named it for the similarity of its flowers to the shape of fortune cookies. \
+		As a result, it has become a symbol of good fortune in businesses across the spur."
+	icon_state = "plant-tc-02"
+
+/obj/structure/flora/pottedplant/river_plum
+	name = "river plum"
+	desc = "This freshwater plant, native to the shores of Konyang rivers, is known for its beautiful pink flora.\
+		Its purple fruit, despite being striking, largely holds no notable nutritional value \
+		and is said to have the unpleasant taste of bleached cotton. \
+		It is sometimes used in the textile industry due to it's vibrant colors."
+	icon_state = "plant-tc-03"

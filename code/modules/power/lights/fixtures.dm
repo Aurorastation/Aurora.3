@@ -16,7 +16,7 @@
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -128,6 +128,11 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 	icon_state = "tube_red_preview"
+
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
 
 /obj/machinery/light/colored/decayed
 	brightness_color = LIGHT_COLOR_DECAYED

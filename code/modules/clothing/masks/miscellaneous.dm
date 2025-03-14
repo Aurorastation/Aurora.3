@@ -38,7 +38,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT
+		BIO = ARMOR_BIO_RESISTANT
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -60,7 +60,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -77,7 +77,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -155,7 +155,7 @@
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye)
+	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye/freelook)
 	if(!CN)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
 		return
@@ -199,7 +199,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.5
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null

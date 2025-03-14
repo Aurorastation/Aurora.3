@@ -81,9 +81,9 @@
 	settlers = list("[usr]")
 	for(var/i=0; i<3; i++)
 		if(prob(50))
-			settlers += pick(first_names_male)
+			settlers += pick(GLOB.first_names_male)
 		else
-			settlers += pick(first_names_female)
+			settlers += pick(GLOB.first_names_female)
 	num_traitors = 0
 	event = ORION_TRAIL_START
 	port = 0
@@ -102,7 +102,7 @@
 				if(world.time >= cooldown)
 					playsound(loc, 'sound/arcade/Ori_begin.ogg', 1, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 					cooldown = world.time + 300
-				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=[REF(src)];continue=1'>Start New Game</a></P>"
+				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='byond://?src=[REF(src)];continue=1'>Start New Game</a></P>"
 
 				var/datum/browser/arcade_win = new(user, "window=arcade", capitalize_first_letters(name))
 				arcade_win.set_content(dat)
@@ -110,24 +110,24 @@
 				return
 			else
 				event_title = event
-				event_actions = "<a href='?src=[REF(src)];continue=1'>Continue your journey</a><br>"
+				event_actions = "<a href='byond://?src=[REF(src)];continue=1'>Continue your journey</a><br>"
 			switch(event)
 				if(ORION_TRAIL_GAMEOVER)
 					playsound(loc, 'sound/arcade/Ori_fail.ogg', 2, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 					event_info = ""
-					event_actions = "<a href='?src=[REF(src)];continue=1'>Start New Game</a><br>"
+					event_actions = "<a href='byond://?src=[REF(src)];continue=1'>Start New Game</a><br>"
 				if(ORION_TRAIL_SPACEPORT)
 					event_title   += ": [stops[port]]"
 					event_desc     = "[stopblurbs[port]]"
 					event_info     = ""
 					if(port == 9)
-						event_actions = "<a href='?src=[REF(src)];continue=1'>Return to the title screen!</a><br>"
+						event_actions = "<a href='byond://?src=[REF(src)];continue=1'>Return to the title screen!</a><br>"
 					else
-						event_actions  = "<a href='?src=[REF(src)];continue=1'>Shove off</a><br>"
-						event_actions += "<a href='?src=[REF(src)];attack=1'>Raid Spaceport</a>"
+						event_actions  = "<a href='byond://?src=[REF(src)];continue=1'>Shove off</a><br>"
+						event_actions += "<a href='byond://?src=[REF(src)];attack=1'>Raid Spaceport</a>"
 				if(ORION_TRAIL_SPACEPORT_RAIDED)
 					event_title  += ": [stops[port]]"
-					event_actions = "<a href='?src=[REF(src)];continue=1'>Shove off</a>"
+					event_actions = "<a href='byond://?src=[REF(src)];continue=1'>Shove off</a>"
 				if(ORION_TRAIL_RAIDERS)
 					event_desc   = "You arm yourselves as you prepare to fight off the raiders!"
 				if(ORION_TRAIL_DERELICT)
@@ -137,32 +137,32 @@
 				if(ORION_TRAIL_FLUX)
 					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 					event_desc = "You've entered a turbulent region. Slowing down would be better for your ship but would cost more fuel."
-					event_actions  = "<a href='?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
-					event_actions += "<a href='?src=[REF(src)];continue=1;slow=1;'>Take it slow</a><BR>"
+					event_actions  = "<a href='byond://?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
+					event_actions += "<a href='byond://?src=[REF(src)];continue=1;slow=1;'>Take it slow</a><BR>"
 				if(ORION_TRAIL_MALFUNCTION)
 					event_info = ""
 					event_desc = "The ship's computers are malfunctioning! You can choose to fix it with a part or risk something going awry."
-					event_actions  = "<a href='?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
+					event_actions  = "<a href='byond://?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
 					if(supplies["3"] != 0)
-						event_actions += "<a href='?src=[REF(src)];continue=1;fix=3'>Fix using a part.</a><BR>"
+						event_actions += "<a href='byond://?src=[REF(src)];continue=1;fix=3'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_COLLISION)
 					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 					event_info = ""
 					event_desc = "Something has hit your ship and breached the hull! You can choose to fix it with a part or risk something going awry."
-					event_actions  = "<a href='?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
+					event_actions  = "<a href='byond://?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
 					if(supplies["2"] != 0)
-						event_actions += "<a href='?src=[REF(src)];continue=1;fix=2'>Fix using a part.</a><BR>"
+						event_actions += "<a href='byond://?src=[REF(src)];continue=1;fix=2'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_BREAKDOWN)
 					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 					event_info = ""
 					event_desc = "The ship's engines broke down! You can choose to fix it with a part or risk something going awry."
-					event_actions  = "<a href='?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
+					event_actions  = "<a href='byond://?src=[REF(src)];continue=1;risky=25'>Continue as normal</a><BR>"
 					if(supplies["1"] != 0)
-						event_actions += "<a href='?src=[REF(src)];continue=1;fix=1'>Fix using a part.</a><BR>"
+						event_actions += "<a href='byond://?src=[REF(src)];continue=1;fix=1'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_STUCK)
 					event_desc    = "You've ran out of fuel. Your only hope to survive is to get refueled by a passing ship, if there are any."
 					if(supplies["5"] == 0)
-						event_actions = "<a href='?src=[REF(src)];continue=1;food=1'>Wait</a>"
+						event_actions = "<a href='byond://?src=[REF(src)];continue=1;food=1'>Wait</a>"
 				if(ORION_TRAIL_CARP)
 					event_desc = "You've chanced upon a large carp migration! Known both for their delicious meat as well as their bite, you and your crew arm yourselves for a small hunting trip."
 				if(ORION_TRAIL_MUTINY)
@@ -176,18 +176,18 @@
 			dat += "<center>You have [supplies["6"]] credits.</center>"
 			for(var/i=1; i<6; i++)
 				var/amm = (i>3?10:1)
-				dat += "[supplies["[i]"]] [supply_name["[i]"]][event==ORION_TRAIL_SPACEPORT ? ", <a href='?src=[REF(src)];buy=[i]'>buy [amm] for [supply_cost["[i]"]]T</a>" : ""]<BR>"
+				dat += "[supplies["[i]"]] [supply_name["[i]"]][event==ORION_TRAIL_SPACEPORT ? ", <a href='byond://?src=[REF(src)];buy=[i]'>buy [amm] for [supply_cost["[i]"]]T</a>" : ""]<BR>"
 				if(supplies["[i]"] >= amm && event == ORION_TRAIL_SPACEPORT)
-					dat += "<a href='?src=[REF(src)];sell=[i]'>sell [amm] for [supply_cost["[i]"]]T</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];sell=[i]'>sell [amm] for [supply_cost["[i]"]]T</a><br>"
 		if(ORION_VIEW_CREW)
 			dat = "<center><h1>Crew</h1>View the status of your crew.</center>"
 			for(var/i=1;i<=settlers.len;i++)
-				dat += "[settlers[i]] <a href='?src=[REF(src)];kill=[i]'>Kill</a><br>"
+				dat += "[settlers[i]] <a href='byond://?src=[REF(src)];kill=[i]'>Kill</a><br>"
 
 	dat += "<br><P ALIGN=Right>View:<BR>"
-	dat += "[view==ORION_VIEW_MAIN ? "" : "<a href='?src=[REF(src)];continue=1'>"]Main[view==ORION_VIEW_MAIN ? "" : "</a>"]<BR>"
-	dat += "[view==ORION_VIEW_SUPPLIES ? "" : "<a href='?src=[REF(src)];supplies=1'>"]Supplies[view==ORION_VIEW_SUPPLIES ? "" : "</a>"]<BR>"
-	dat += "[view==ORION_VIEW_CREW ? "" : "<a href='?src=[REF(src)];crew=1'>"]Crew[view==ORION_VIEW_CREW ? "" : "</a>"]</P>"
+	dat += "[view==ORION_VIEW_MAIN ? "" : "<a href='byond://?src=[REF(src)];continue=1'>"]Main[view==ORION_VIEW_MAIN ? "" : "</a>"]<BR>"
+	dat += "[view==ORION_VIEW_SUPPLIES ? "" : "<a href='byond://?src=[REF(src)];supplies=1'>"]Supplies[view==ORION_VIEW_SUPPLIES ? "" : "</a>"]<BR>"
+	dat += "[view==ORION_VIEW_CREW ? "" : "<a href='byond://?src=[REF(src)];crew=1'>"]Crew[view==ORION_VIEW_CREW ? "" : "</a>"]</P>"
 
 
 	var/datum/browser/arcade_win = new(user, "window=arcade", capitalize_first_letters(name))

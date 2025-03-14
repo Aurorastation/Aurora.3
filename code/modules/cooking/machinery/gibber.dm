@@ -107,10 +107,10 @@
 
 	do_hair_pull(user)
 
-/obj/machinery/gibber/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/gibber/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.stat || user.restrained())
 		return
-	move_into_gibber(user, dropping)
+	move_into_gibber(user, dropped)
 
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
 
@@ -213,7 +213,7 @@
 
 	occupant.attack_log += "\[[time_stamp()]\] Was gibbed by <b>[user]/[user.ckey]</b>" //One shall not simply gib a mob unnoticed!
 	user.attack_log += "\[[time_stamp()]\] Gibbed <b>[occupant]/[occupant.ckey]</b>"
-	msg_admin_attack("[key_name_admin(user)] gibbed [occupant] ([occupant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(occupant))
+	msg_admin_attack("[key_name_admin(user)] gibbed [occupant] ([occupant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(occupant))
 
 	occupant.ghostize()
 

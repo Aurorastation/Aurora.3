@@ -17,9 +17,9 @@
 	if (pockets.handle_attack_hand(user))
 		..(user)
 
-/obj/item/clothing/suit/storage/MouseDrop(obj/over_object as obj)
-	if (pockets.handle_mousedrop(usr, over_object))
-		..(over_object)
+/obj/item/clothing/suit/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if (pockets.handle_mousedrop(user, over))
+		..()
 
 /obj/item/clothing/suit/storage/handle_middle_mouse_click(mob/user)
 	if(Adjacent(user))
@@ -112,7 +112,7 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.8
 	protects_against_weather = TRUE

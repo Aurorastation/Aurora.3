@@ -24,6 +24,7 @@
 	var/belt = null
 	var/gloves = null
 	var/wrist = null
+	var/pants = null
 	var/shoes = null
 
 	var/head = null
@@ -108,6 +109,7 @@
 		belt,
 		gloves,
 		wrist,
+		pants,
 		shoes,
 
 		head,
@@ -312,8 +314,8 @@
 	if(islist(path))	//If its a list, select a random item
 		var/itempath = pick(path)
 		I = new itempath(H)
-	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
-		var/datum/gear/G = gear_datums[path]
+	else if(GLOB.gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
+		var/datum/gear/G = GLOB.gear_datums[path]
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
@@ -406,6 +408,8 @@
 	if(wrist)
 		equip_item(H, wrist, slot_wrists)
 	var/got_shoes = FALSE
+	if(pants)
+		equip_item(H, pants, slot_pants)
 	if(length(species_shoes))
 		var/path = species_shoes[H.species.name]
 		if(path)

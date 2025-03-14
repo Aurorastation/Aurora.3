@@ -910,13 +910,13 @@
 			gib()
 
 /// For picking up small animals
-/mob/living/simple_animal/MouseDrop(atom/over_object)
+/mob/living/simple_animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if (holder_type)//we need a defined holder type in order for picking up to work
-		var/mob/living/carbon/H = over_object
+		var/mob/living/carbon/H = over
 		if(!istype(H) || !Adjacent(H))
 			return ..()
 
-		get_scooped(H, usr)
+		get_scooped(H, user)
 		return
 	return ..()
 
@@ -1073,6 +1073,11 @@
 		return
 	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
 	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
+
+/// Removes holographic animals from the holodeck
+/mob/living/simple_animal/proc/derez()
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
+	qdel(src)
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

@@ -200,7 +200,7 @@
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
 	desc = "Yours is the drill that will pierce through the rock walls."
-	icon = 'icons/obj/item/tools/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
 	contained_sprite = TRUE
@@ -221,8 +221,8 @@
 /obj/item/pickaxe/drill/weak
 	name = "shaft drill"
 	desc = "Baby's first mining drill. Slow, but reliable."
-	icon_state = "babydrill"
-	item_state = "babydrill"
+	icon_state = "drill"
+	item_state = "drill"
 	digspeed = 5
 	digspeed_unwielded = 10
 	excavation_amount = 80
@@ -231,7 +231,7 @@
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
-	icon = 'icons/obj/item/tools/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -275,7 +275,7 @@
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
-	icon = 'icons/obj/item/tools/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "diamonddrill"
 	contained_sprite = TRUE
@@ -296,7 +296,7 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
-	icon = 'icons/obj/item/tools/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
@@ -616,7 +616,7 @@
 /obj/item/ore_radar
 	name = "scanner pad"
 	desc = "An antiquated device that can detect ore in a wide radius around the user."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/pinpointer.dmi'
 	icon_state = "pinoff"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -884,7 +884,7 @@
 
 /**********************"Fultons"**********************/
 
-var/list/total_extraction_beacons = list()
+GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point, list())
 
 /obj/item/extraction_pack
 	name = "warp extraction pack"
@@ -904,7 +904,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()
-	for(var/B in total_extraction_beacons)
+	for(var/B in GLOB.total_extraction_beacons)
 		var/obj/structure/extraction_point/EP = B
 		if(EP.beacon_network in beacon_networks)
 			possible_beacons += EP
@@ -936,7 +936,7 @@ var/list/total_extraction_beacons = list()
 		if(A.anchored)
 			return
 		var/turf/T = get_turf(A)
-		for(var/found_inhibitor in bluespace_inhibitors)
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
@@ -989,10 +989,10 @@ var/list/total_extraction_beacons = list()
 	. = ..()
 	var/area/area_name = get_area(src)
 	name += " ([rand(100,999)]) ([area_name.name])"
-	total_extraction_beacons += src
+	GLOB.total_extraction_beacons += src
 
 /obj/structure/extraction_point/Destroy()
-	total_extraction_beacons -= src
+	GLOB.total_extraction_beacons -= src
 	return ..()
 
 /**********************Resonator**********************/
@@ -1166,7 +1166,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/autochisel
 	name = "auto-chisel"
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	icon = 'icons/obj/item/tools/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "chisel"
 	item_state = "jackhammer"
 	contained_sprite = TRUE

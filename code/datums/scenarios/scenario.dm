@@ -136,7 +136,7 @@
 	/// The title for the messages sent to the Horizon to notify them of the scenarios, both in notify_scenario_early and notify_scenario_late.
 	var/horizon_announcement_title = "Central Command Situation Report"
 	/// The announcement message sent to the Horizon immediately after roundstart (5 minutes or so), telling them to prepare for a yet unknown expedition.
-	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and the coordinates have been marked on your sensors. Please prepare an expedition while we investigate landing conditions."
+	var/horizon_early_announcement_message = "SCCV Horizon, your sensors suite has located a site of interest and the coordinates have been marked on your sensors. Please prepare an expedition while we investigate landing conditions.\n\nAll crew are encouraged to volunteer and should notify their relevant department heads as soon as possible. Volunteers should only be rejected in the most dire circumstances."
 	/// The announcement message sent to the Horizon around 20 minutes in, typically telling them to go investigate the scenario and the reason why.
 	var/horizon_unrestrict_landing_message = "The landing sites have been registered and cleared. An expedition is now authorized to depart."
 

@@ -50,9 +50,10 @@
 	hardpoint_tag = null
 	. = ..()
 
-/atom/movable/screen/mecha/hardpoint/MouseDrop()
+/atom/movable/screen/mecha/hardpoint/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(holding) holding.screen_loc = screen_loc
+	if(holding)
+		holding.screen_loc = screen_loc
 
 /atom/movable/screen/mecha/hardpoint/proc/update_system_info()
 	// No point drawing it if we have no item to use or nobody to see it.
@@ -235,9 +236,9 @@
 	maptext_x = 1
 	maptext_y = 11
 
-/atom/movable/screen/mecha/toggle/power_control/toggled()
+/atom/movable/screen/mecha/toggle/power_control/toggled(var/remote = FALSE)
 	toggled = !toggled
-	owner.toggle_power(usr)
+	owner.toggle_power(usr, remote)
 	var/main_color = toggled ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
 

@@ -202,7 +202,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		T.post_update_air_properties()
 		T.needs_air_update = 0
 		#ifdef ZASDBG
-		T.CutOverlays(mark)
+		T.CutOverlays(GLOB.mark)
 		updated++
 		#endif
 
@@ -219,7 +219,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		T.post_update_air_properties()
 		T.needs_air_update = 0
 		#ifdef ZASDBG
-		T.CutOverlays(mark)
+		T.CutOverlays(GLOB.mark)
 		updated++
 		#endif
 
@@ -368,7 +368,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return
 	tiles_to_update += T
 	#ifdef ZASDBG
-	T.AddOverlays(mark)
+	T.AddOverlays(GLOB.mark)
 	#endif
 	T.needs_air_update = 1
 

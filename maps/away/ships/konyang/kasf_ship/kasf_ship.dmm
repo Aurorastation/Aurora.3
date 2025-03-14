@@ -940,7 +940,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(218)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
@@ -1743,7 +1744,8 @@
 	pixel_y = -24
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -5144,7 +5146,8 @@
 	pixel_y = -24
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
@@ -5752,7 +5755,9 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/machinery/computer/ship/helm/terminal,
+/obj/machinery/computer/ship/helm/terminal{
+	req_access = list(218)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "GD" = (
@@ -8402,7 +8407,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(218)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
@@ -8527,7 +8533,8 @@
 	req_one_access = list(218)
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle{
-	dir = 8
+	dir = 8;
+	req_access = list(218)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
@@ -8710,7 +8717,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
 "XU" = (

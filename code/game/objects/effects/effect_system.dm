@@ -48,10 +48,10 @@ would spawn and follow the beaker, even if it is carried or thrown.
 // will always spawn at the items location, even if it's moved.
 
 /* Example:
-var/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
-steam.set_up(5, 0, mob.loc) -- sets up variables
-OPTIONAL: steam.attach(mob)
-steam.start() -- spawns the effect
+	var/datum/effect/system/steam_spread/steam = new /datum/effect/system/steam_spread() -- creates new system
+	steam.set_up(5, 0, mob.loc) -- sets up variables
+	OPTIONAL: steam.attach(mob)
+	steam.start() -- spawns the effect
 */
 /////////////////////////////////////////////
 /obj/effect/effect/steam
@@ -206,12 +206,12 @@ steam.start() -- spawns the effect
 	for(var/mob/living/carbon/M in get_turf(src))
 		affect(M)
 
-/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M as mob )
+/obj/effect/effect/smoke/sleepy/affect(mob/living/carbon/M)
 	if (!..())
 		return 0
 
 	M.drop_item()
-	M:sleeping += 1
+	M.sleeping += 1
 	if (M.coughedtime != 1)
 		M.coughedtime = 1
 		M.emote("cough")

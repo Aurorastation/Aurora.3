@@ -89,9 +89,9 @@
 				output += "&nbsp;&nbsp;[filter]: ERROR<br>"
 				continue
 			output += "&nbsp;&nbsp;[filter]: [f.len]<br>"
-			for (var/device in f)
+			for (var/obj/device as anything in f)
 				if (isobj(device))
-					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device:x],[device:y],[device:z] in area [get_area(device:loc)])<br>"
+					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device.x],[device.y],[device.z] in area [get_area(device.loc)])<br>"
 				else
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"
 
@@ -163,7 +163,7 @@
 	set category = "Debug"
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		to_chat(usr, "[t]")
 
 /client/proc/print_jobban_old_filter()
@@ -176,6 +176,6 @@
 		return
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		if(findtext(t, filter))
 			to_chat(usr, "[t]")

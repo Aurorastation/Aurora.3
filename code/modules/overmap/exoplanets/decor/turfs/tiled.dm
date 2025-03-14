@@ -9,7 +9,6 @@
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
 	has_resources = FALSE
-	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/tiled/dark
 	name = "plasteel tiles"

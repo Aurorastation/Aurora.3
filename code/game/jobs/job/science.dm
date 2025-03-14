@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/scc/silver
+	id = /obj/item/card/id/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -229,11 +229,12 @@
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
-	title = "Lab Assistant"
+	title = "Research Intern"
 	flag = INTERN_SCI
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Xenoarchaeology Intern", "Anomalistics Intern", "Xenobiology Intern", "Xenobotany Intern")
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Research Director"
@@ -244,7 +245,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/intern_sci
-	name = "Lab Assistant"
+	name = "Research Intern"
 	jobtype = /datum/job/intern_sci
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern

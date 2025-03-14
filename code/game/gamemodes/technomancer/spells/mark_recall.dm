@@ -17,7 +17,7 @@
 	anchored = 1
 
 //This is global, to avoid looping through a list of all objects, or god forbid, looping through world.
-/var/global/obj/effect/mark_spell/mark_spell_ref = null
+GLOBAL_DATUM(mark_spell_ref, /obj/effect/mark_spell)
 
 /obj/item/spell/mark
 	name = "mark"
@@ -32,11 +32,11 @@
 		to_chat(user, SPAN_WARNING("You can't teleport here!"))
 		return 0
 	if(pay_energy(1000))
-		if(!mark_spell_ref)
-			mark_spell_ref = new(get_turf(user))
+		if(!GLOB.mark_spell_ref)
+			GLOB.mark_spell_ref = new(get_turf(user))
 			to_chat(user, SPAN_NOTICE("You mark \the [get_turf(user)] under you."))
 		else
-			mark_spell_ref.forceMove(get_turf(user))
+			GLOB.mark_spell_ref.forceMove(get_turf(user))
 			to_chat(user, SPAN_NOTICE("Your mark is moved from its old position to \the [get_turf(user)] under you."))
 		adjust_instability(5)
 		return 1
@@ -66,7 +66,7 @@
 /obj/item/spell/recall/on_use_cast(mob/living/user)
 	. = ..()
 	if(pay_energy(3000))
-		if(!mark_spell_ref)
+		if(!GLOB.mark_spell_ref)
 			to_chat(user, SPAN_DANGER("There's no Mark!"))
 			return 0
 		else
@@ -88,7 +88,7 @@
 				time_left--
 				sleep(1 SECOND)
 
-			var/turf/target_turf = get_turf(mark_spell_ref)
+			var/turf/target_turf = get_turf(GLOB.mark_spell_ref)
 			var/turf/old_turf = get_turf(user)
 
 			for(var/obj/item/grab/G in user.contents) // People the Technomancer is grabbing come along for the ride.

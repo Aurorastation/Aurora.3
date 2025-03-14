@@ -2,6 +2,7 @@
 	name = "flash"
 	desc = "A security device capable of producing a blinding, incapacitating flash at close ranges. Repeated use may result in a burnt-out bulb and/or excessive force investigations."
 	desc_info = "Click on someone adjacent to you to attempt to blind them. Use it in your hand with HARM intent, or on yourself, to blind everyone in a small radius (including yourself!)"
+	icon = 'icons/obj/item/device/flash.dmi'
 	icon_state = "flash"
 	item_state = "flash"
 	throwforce = 5
@@ -99,7 +100,7 @@
 
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to flash [target_mob.name] ([target_mob.ckey])</span>"
-	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [target_mob.name] ([target_mob.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [target_mob.name] ([target_mob.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(target_mob)

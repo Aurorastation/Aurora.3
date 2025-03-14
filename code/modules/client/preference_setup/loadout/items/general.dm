@@ -273,6 +273,7 @@
 	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
+	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -372,6 +373,7 @@
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
 	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad
+	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

@@ -6,49 +6,38 @@
 // 1 decisecond click delay (above and beyond mob/next_move)
 /mob/var/next_click = 0
 
-/*
-	Before anything else, defer these calls to a per-mobtype handler.  This allows us to
-	remove istype() spaghetti code, but requires the addition of other handler procs to simplify it.
 
-	Alternately, you could hardcode every mob's variation in a flat ClickOn() proc; however,
-	that's a lot of code duplication and is hard to maintain.
+/**
+ * Before anything else, defer these calls to a per-mobtype handler.  This allows us to
+ * remove istype() spaghetti code, but requires the addition of other handler procs to simplify it.
+ *
+ * Alternately, you could hardcode every mob's variation in a flat [/mob/proc/ClickOn] proc; however,
+ * that's a lot of code duplication and is hard to maintain.
+ *
+ * Note that this proc can be overridden, and is in the case of screen objects.
+ */
+/atom/Click(location, control, params)
+	if(flags_1 & INITIALIZED_1)
+		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
 
-	Note that this proc can be overridden, and is in the case of screen objects.
-*/
+		//Aurora snowflake click handler system
+		var/datum/click_handler/click_handler = usr.GetClickHandler()
+		click_handler.OnClick(src, params)
 
-/atom/Click(location,control,params)
-	var/datum/click_handler/click_handler = usr.GetClickHandler()
-	click_handler.OnClick(src, params)
+/atom/DblClick(location,control,params)
+	if(flags_1 & INITIALIZED_1)
+		//Aurora snowflake click handler system
+		var/datum/click_handler/click_handler = usr.GetClickHandler()
+		click_handler.OnDblClick(src, params)
 
-/atom/DblClick(var/location, var/control, var/params)
-	var/datum/click_handler/click_handler = usr.GetClickHandler()
-	click_handler.OnDblClick(src, params)
+		//Why god why
+		if(istype(usr.machine, /obj/machinery/computer/security))
+			var/obj/machinery/computer/security/console = usr.machine
+			console.jump_on_click(usr,src)
 
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
-
-/atom/proc/allow_click_through(var/atom/A, var/params, var/mob/user)
-	return FALSE
-
-/turf/allow_click_through(var/atom/A, var/params, var/mob/user)
-	return TRUE
-
-/atom/proc/RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	return FALSE
-
-/mob/proc/OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
-	if(istype(loc, /atom))
-		var/atom/A = loc
-		if(A.RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, src))
-			return
-
-	if(over_object)
-		if(!incapacitated())
-			var/obj/item/gun/gun = get_active_hand()
-			if(istype(gun))
-				set_dir(get_dir(src, over_object))
-				gun.Fire(get_turf(over_object), src, params, (get_dist(over_object, src) <= 1), FALSE)
+/atom/MouseWheel(delta_x,delta_y,location,control,params)
+	if(flags_1 & INITIALIZED_1)
+		usr.MouseWheelOn(src, delta_x, delta_y, params)
 
 /**
  * Standard mob ClickOn()
@@ -63,12 +52,17 @@
  * * [obj/item/proc/afterattack] (atom,user,adjacent,params) - used both ranged and adjacent
  * * [mob/proc/RangedAttack] (atom,modifiers) - used only ranged, only used for tk and laser eyes but could be changed
  */
-/mob/proc/ClickOn(var/atom/A, var/params)
-
+/mob/proc/ClickOn(atom/A, params)
 	if(world.time <= next_click) // Hard check, before anything else, to avoid crashing
 		return
-
 	next_click = world.time + 1
+
+	var/list/modifiers = params2list(params)
+
+	if(SEND_SIGNAL(src, COMSIG_MOB_CLICKON, A, modifiers) & COMSIG_MOB_CANCEL_CLICKON)
+		return
+
+	/* START Aurora snowflake */
 
 	if(istype(loc, /mob/living/heavy_vehicle) && !(A in src.contents))
 		var/mob/living/heavy_vehicle/M = loc
@@ -82,33 +76,43 @@
 			return
 		return B.ClickOn(A, params)
 
-	var/list/modifiers = params2list(params)
-	if(modifiers["right"])
-		RightClickOn(A)
-		return TRUE
-	if(modifiers["shift"] && modifiers["ctrl"])
-		CtrlShiftClickOn(A)
-		return TRUE
-	if(modifiers["ctrl"] && modifiers["middle"])
-		pointed(A)
-		return TRUE
-	if(modifiers["middle"])
-		MiddleClickOn(A)
-		return TRUE
-	if(modifiers["shift"])
-		ShiftClickOn(A)
-		return FALSE
-	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-		AltClickOn(A)
-		return
-	if(modifiers["ctrl"])
-		CtrlClickOn(A)
-		return TRUE
+	/* END Aurora snowflake */
 
-	if(stat || paralysis || stunned || weakened)
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+		if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+			ShiftMiddleClickOn(A)
+			return
+		if(LAZYACCESS(modifiers, CTRL_CLICK))
+			CtrlShiftClickOn(A)
+			return
+		ShiftClickOn(A)
+		return
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
+		if(LAZYACCESS(modifiers, CTRL_CLICK))
+			CtrlMiddleClickOn(A)
+		else
+			MiddleClickOn(A, params)
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK)) // alt and alt-gr (rightalt)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			AltClickSecondaryOn(A)
+		else
+			AltClickOn(A)
+		return
+	if(LAZYACCESS(modifiers, CTRL_CLICK))
+		CtrlClickOn(A)
+		return
+
+	if(stat || paralysis || stunned || weakened) // In TG it's if(INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS|INCAPABLE_STASIS))
 		return
 
 	face_atom(A) // change direction to face what you clicked on
+
+	/* START Aurora snowflake */
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		RightClickOn(A)
+		return TRUE
+	/* END Aurora snowflake */
 
 	if(!canClick()) // in the year 2000...
 		return
@@ -125,14 +129,30 @@
 
 	var/obj/item/W = get_active_hand()
 
-	if(W == A) // Handle attack_self
-		W.attack_self(src)
-		trigger_aiming(TARGET_CAN_CLICK)
-		if(hand)
-			update_inv_l_hand(0)
+	if(W == A)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			W.attack_self_secondary(src, modifiers)
+			/* START Aurora snowflake */
+			trigger_aiming(TARGET_CAN_CLICK)
+			if(hand)
+				update_inv_l_hand(FALSE)
+			else
+				update_inv_r_hand(FALSE)
+			/* END Aurora snowflake */
+			return
 		else
-			update_inv_r_hand(0)
-		return 1
+			W.attack_self(src, modifiers)
+			/* START Aurora snowflake */
+			trigger_aiming(TARGET_CAN_CLICK)
+			if(hand)
+				update_inv_l_hand(FALSE)
+			else
+				update_inv_r_hand(FALSE)
+			/* END Aurora snowflake */
+			return
+
+
+	/* START AURORA SNOWFLAKE CODE */
 
 	//Atoms on your person
 	// A is your location but is not a turf; or is on you (backpack); or is on something on you (box in backpack); sdepth is needed here because contents depth does not equate inventory storage depth.
@@ -149,7 +169,7 @@
 		else
 			if(ismob(A)) // No instant mob attacking
 				setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			UnarmedAttack(A, 1)
+			UnarmedAttack(A, TRUE, modifiers)
 
 		trigger_aiming(TARGET_CAN_CLICK)
 		return 1
@@ -170,7 +190,7 @@
 			else
 				if(ismob(A)) // No instant mob attacking
 					setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				UnarmedAttack(A, 1)
+				UnarmedAttack(A, TRUE, modifiers)
 
 			trigger_aiming(TARGET_CAN_CLICK)
 			return
@@ -183,6 +203,8 @@
 			trigger_aiming(TARGET_CAN_CLICK)
 	return 1
 
+	/* END AURORA SNOWFLAKE CODE */
+
 /mob/proc/setClickCooldown(var/timeout)
 	next_move = max(world.time + timeout, next_move)
 
@@ -191,21 +213,28 @@
 		return 1
 	return 0
 
-// Default behavior: ignore double clicks, the second click that makes the doubleclick call already calls for a normal click
-/mob/proc/DblClickOn(var/atom/A, var/params)
+/// Default behavior: ignore double clicks (the second click that makes the doubleclick call already calls for a normal click)
+/mob/proc/DblClickOn(atom/A, params)
 	return
 
-/*
-	Translates into attack_hand, etc.
+/**
+ * UnarmedAttack: The higest level of mob click chain discounting click itself.
+ *
+ * This handles, just "clicking on something" without an item. It translates
+ * into [atom/proc/attack_hand], [atom/proc/attack_animal] etc.
+ *
+ * Note: proximity_flag here is used to distinguish between normal usage (flag=1),
+ * and usage when clicking on things telekinetically (flag=0).  This proc will
+ * not be called at ranged except with telekinesis.
+ *
+ * proximity_flag is not currently passed to attack_hand, and is instead used
+ * in human click code to allow glove touches only at melee range.
+ *
+ * modifiers is a lazy list of click modifiers this attack had,
+ * used for figuring out different properties of the click, mostly right vs left and such.
+ */
 
-	Note: proximity_flag here is used to distinguish between normal usage (flag=1),
-	and usage when clicking on things telekinetically (flag=0).  This proc will
-	not be called at ranged except with telekinesis.
-
-	proximity_flag is not currently passed to attack_hand, and is instead used
-	in human click code to allow glove touches only at melee range.
-*/
-/mob/proc/UnarmedAttack(var/atom/A, var/proximity_flag)
+/mob/proc/UnarmedAttack(atom/A, proximity_flag, list/modifiers)
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
@@ -229,13 +258,14 @@
  * for things like ranged glove touches, spitting alien acid/neurotoxin,
  * animals lunging, etc.
  */
-/mob/proc/RangedAttack(atom/A, params)
-	SHOULD_NOT_SLEEP(TRUE)
+/mob/proc/RangedAttack(atom/A, modifiers)
+	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, modifiers) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
 
 	if((mutations & LASER_EYES) && a_intent == I_HURT)
-		LaserEyes(A, params) // moved into a proc below
+		LaserEyes(A, modifiers) // moved into a proc below
 		return
-	A.attack_ranged(src, params)
+	A.attack_ranged(src, modifiers)
 
 /*
 	Restrained ClickOn
@@ -246,52 +276,43 @@
 /mob/proc/RestrainedClickOn(var/atom/A)
 	return
 
-/*
-	Middle click
-*/
-/mob/proc/MiddleClickOn(var/atom/A)
+/**
+ * Middle click
+ * Mainly used for swapping hands
+ */
+/mob/proc/MiddleClickOn(atom/A, params)
+	. = SEND_SIGNAL(src, COMSIG_MOB_MIDDLECLICKON, A, params)
+	if(. & COMSIG_MOB_CANCEL_CLICKON)
+		return
 	if(A.handle_middle_mouse_click(src))
 		return
 	swap_hand()
 
-/mob/living/carbon/human/MiddleClickOn(var/atom/A)
+/mob/living/carbon/human/MiddleClickOn(atom/A, params)
 	if(species.handle_middle_mouse_click(src, A))
 		return
 	return ..()
 
-// In case of use break glass
-/*
-/atom/proc/MiddleClick(var/mob/M as mob)
-	return
-*/
-
-/*
-	Shift click
-	For most mobs, examine.
-	This is overridden in ai.dm
-*/
-/mob/proc/ShiftClickOn(var/atom/A)
+/**
+ * Shift click
+ * For most mobs, examine.
+ * This is overridden in ai.dm
+ */
+/mob/proc/ShiftClickOn(atom/A)
 	A.ShiftClick(src)
 	return
 
-/atom/proc/ShiftClick(var/mob/user)
-	if(user.can_examine())
+/atom/proc/ShiftClick(mob/user)
+	SEND_SIGNAL(src, COMSIG_SHIFT_CLICKED_ON, user)
+	var/flags = SEND_SIGNAL(user, COMSIG_CLICK_SHIFT, src)
+	if(flags & COMSIG_MOB_CANCEL_CLICKON)
+		return
+	if(user.can_examine() || flags & COMPONENT_ALLOW_EXAMINATE)
 		examinate(user, src)
 
-/*
-	Ctrl click
-	For most objects, pull
-*/
-/mob/proc/CtrlClickOn(var/atom/A)
-	A.CtrlClick(src)
+/mob/proc/ShiftMiddleClickOn(atom/A)
+	src.pointed(A)
 	return
-
-/atom/proc/CtrlClick(var/mob/user)
-	return
-
-/atom/movable/CtrlClick(var/mob/user)
-	if(Adjacent(user))
-		user.start_pulling(src)
 
 /*
 	Alt click
@@ -317,16 +338,40 @@
 /atom/proc/RightClick(mob/user)
 	return
 
-/*
-	Control+Shift click
-	Unused except for AI
-*/
-/mob/proc/CtrlShiftClickOn(var/atom/A)
-	A.CtrlShiftClick(src)
-	return
+///Main proc for secondary alt click
+/mob/proc/AltClickSecondaryOn(atom/target)
+	base_click_alt_secondary(target)
 
-/atom/proc/CtrlShiftClick(var/mob/user)
-	return
+/**
+ * ### Base proc for alt click interaction right click.
+ *
+ * If you wish to add custom `click_alt_secondary` behavior for a single type, use that proc.
+ */
+/mob/proc/base_click_alt_secondary(atom/target)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	//Hook on the mob to intercept the click
+	if(SEND_SIGNAL(src, COMSIG_MOB_ALTCLICKON_SECONDARY, target) & COMSIG_MOB_CANCEL_CLICKON)
+		return
+
+	//Hook on the atom to intercept the click
+	if(SEND_SIGNAL(target, COMSIG_CLICK_ALT_SECONDARY, src) & COMPONENT_CANCEL_CLICK_ALT_SECONDARY)
+		return
+
+	// If it has a custom click_alt_secondary then do that
+	//if(can_perform_action(target, target.interaction_flags_click | SILENT_ADJACENCY))
+	target.click_alt_secondary(src)
+
+/**
+ * ## Custom alt click secondary interaction
+ * Override this to change default alt right click behavior.
+ *
+ * ### Guard clauses
+ * Consider adding `interaction_flags_click` before adding unique guard clauses.
+ **/
+/atom/proc/click_alt_secondary(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+	return NONE
 
 /*
 	Misc helpers
@@ -376,7 +421,7 @@
 	if(direction != dir)
 		facedir(direction, force_face)
 
-var/global/list/click_catchers
+GLOBAL_LIST(click_catchers)
 
 /atom/movable/screen/click_catcher
 	icon = 'icons/mob/screen_gen.dmi'
@@ -399,14 +444,19 @@ var/global/list/click_catchers
 
 /atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
-	if(modifiers["middle"] && istype(usr, /mob/living/carbon))
+	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.swap_hand()
 	else
-		var/turf/T = screen_loc2turf(screen_loc, get_turf(usr))
-		if(T)
-			T.Click(location, control, params)
+		var/turf/click_turf = parse_caught_click_modifiers(modifiers, get_turf(usr.client ? usr.client.eye : usr), usr.client)
+		if (click_turf)
+			modifiers["catcher"] = TRUE
+			click_turf.Click(click_turf, control, list2params(modifiers))
 	. = 1
+
+/// MouseWheelOn
+/mob/proc/MouseWheelOn(atom/A, delta_x, delta_y, params)
+	SEND_SIGNAL(src, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params)
 
 // Suppress the mouse macros
 /client/var/has_mouse_macro_warning
@@ -427,95 +477,3 @@ var/global/list/click_catchers
 	set hidden = 1
 	set name = ".mouse"
 	LogMouseMacro(".mouse", params)
-
-/*
-	Custom Click Handlinig
-*/
-
-/mob
-	var/datum/stack/click_handlers
-
-
-var/const/CLICK_HANDLER_NONE = 0
-var/const/CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT = 1
-var/const/CLICK_HANDLER_ALL = (~0)
-
-/datum/click_handler
-	var/mob/user
-	var/handler_flags = CLICK_HANDLER_NONE
-
-/datum/click_handler/New(mob/user)
-	..()
-	src.user = user
-	if(handler_flags & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT)
-		RegisterSignal(user, COMSIG_MOB_LOGOUT, /datum/click_handler/proc/OnMobLogout, TRUE)
-
-/datum/click_handler/Destroy()
-	if(handler_flags & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT)
-		UnregisterSignal(user, COMSIG_MOB_LOGOUT)
-	user = null
-	. = ..()
-
-/datum/click_handler/proc/Enter()
-	return
-
-/datum/click_handler/proc/Exit()
-	return
-
-
-/datum/click_handler/proc/OnMobLogout()
-	user.RemoveClickHandler(src)
-
-/datum/click_handler/proc/OnClick(var/atom/A, var/params)
-	return
-
-/datum/click_handler/proc/OnDblClick(var/atom/A, var/params)
-	return
-
-/datum/click_handler/default/OnClick(var/atom/A, var/params)
-	user.ClickOn(A, params)
-
-/datum/click_handler/default/OnDblClick(var/atom/A, var/params)
-	user.DblClickOn(A, params)
-
-/mob/proc/GetClickHandler(var/datum/click_handler/popped_handler)
-	if(!click_handlers)
-		click_handlers = new()
-	if(click_handlers.is_empty())
-		PushClickHandler(/datum/click_handler/default)
-	return click_handlers.Top()
-
-/mob/proc/RemoveClickHandler(var/datum/click_handler/click_handler)
-	if(!click_handlers)
-		return
-
-	var/was_top = click_handlers.Top() == click_handler
-
-	if(was_top)
-		click_handler.Exit()
-	click_handlers.Remove(click_handler)
-	qdel(click_handler)
-
-	if(!was_top)
-		return
-	click_handler = click_handlers.Top()
-	if(click_handler)
-		click_handler.Enter()
-
-/mob/proc/PopClickHandler()
-	if(!click_handlers)
-		return
-	RemoveClickHandler(click_handlers.Top())
-
-/mob/proc/PushClickHandler(var/datum/click_handler/new_click_handler_type)
-	if((initial(new_click_handler_type.handler_flags) & CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT) && !client)
-		return FALSE
-	if(!click_handlers)
-		click_handlers = new()
-	var/datum/click_handler/click_handler = click_handlers.Top()
-	if(click_handler)
-		click_handler.Exit()
-
-	click_handler = new new_click_handler_type(src)
-	click_handler.Enter()
-	click_handlers.Push(click_handler)

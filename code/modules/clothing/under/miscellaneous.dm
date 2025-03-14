@@ -138,13 +138,13 @@
 	permeability_coefficient = 0.01
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	armor = list(
-			melee = ARMOR_MELEE_VERY_HIGH,
-			bullet = ARMOR_BALLISTIC_AP,
-			laser = ARMOR_LASER_HEAVY,
-			energy = ARMOR_ENERGY_SHIELDED,
-			bomb = ARMOR_BOMB_SHIELDED,
-			bio = ARMOR_BIO_SHIELDED,
-			rad = ARMOR_RAD_SHIELDED
+			MELEE = ARMOR_MELEE_VERY_HIGH,
+			BULLET = ARMOR_BALLISTIC_AP,
+			LASER = ARMOR_LASER_HEAVY,
+			ENERGY = ARMOR_ENERGY_SHIELDED,
+			BOMB = ARMOR_BOMB_SHIELDED,
+			BIO = ARMOR_BIO_SHIELDED,
+			RAD = ARMOR_RAD_SHIELDED
 			)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -341,6 +341,14 @@
 	item_state = "crdress"
 	worn_state = "crdress"
 
+/obj/item/clothing/under/dress/offworlder/skirt
+	name = "\improper CR dress skirt"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon_state = "crskirt"
+	item_state = "crskirt"
+	worn_state = "crskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 /obj/item/clothing/under/hosformalmale
 	name = "head of security's formal uniform"
 	desc = "A male head of security's formal-wear, for special occasions."
@@ -517,7 +525,7 @@
 	contained_sprite = TRUE
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_MINOR)
+		MELEE = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"
@@ -556,7 +564,7 @@
 	//item_state = "swatunder"
 	worn_state = "swatunder"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 	siemens_coefficient = 0.7
 
@@ -568,7 +576,7 @@
 	worn_state = "lance_fatigues"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 		)
 	siemens_coefficient = 0.7
 
@@ -607,9 +615,9 @@
 	icon_state = "elyran_fatigues"
 	item_state = "elyran_fatigues"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/rank/elyran_fatigues/commander
@@ -626,9 +634,9 @@
 	item_state = "konyang_army"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/rank/konyang/officer
@@ -736,9 +744,9 @@
 	contained_sprite = TRUE
 	siemens_coefficient = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/xanu/med

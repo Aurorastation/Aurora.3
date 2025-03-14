@@ -152,7 +152,7 @@
 			QDEL_NULL(my_tent)
 	return ..()
 
-/obj/item/tent/MouseDrop(over_object, src_location, over_location)
+/obj/item/tent/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
@@ -254,7 +254,7 @@
 		return !density
 	return TRUE
 
-/obj/structure/component/tent_canvas/MouseDrop(over_object, src_location, over_location)
+/obj/structure/component/tent_canvas/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check(usr, USE_ALLOW_NON_ADJACENT) || (get_dist(usr, src) > 1)) // use_check() can't check for adjacency due to density issues, so we check range as well
 		return
@@ -328,7 +328,7 @@
 	if(istype(T))
 		unroll(T, user)
 
-/obj/item/sleeping_bag/MouseDrop(over_object, src_location, over_location)
+/obj/item/sleeping_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
@@ -374,7 +374,7 @@
 		buckled.update_icon()
 	. = ..()
 
-/obj/structure/bed/sleeping_bag/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/structure/bed/sleeping_bag/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(use_check(usr) || !Adjacent(usr))
 		return
@@ -426,14 +426,14 @@
 /obj/structure/table/rack/folding_table/dismantle(obj/item/wrench/W, mob/user)
 	return FALSE
 
-/obj/structure/table/rack/folding_table/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/structure/table/rack/folding_table/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
 	new /obj/item/material/folding_table(get_turf(src))
-	usr.visible_message(SPAN_NOTICE("\The [usr] collapses \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] collapses \the [src]."))
 	qdel(src)
 
 /obj/item/material/stool/chair/folding/camping

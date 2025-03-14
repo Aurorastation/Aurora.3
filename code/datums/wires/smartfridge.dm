@@ -20,10 +20,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/smartfridge/S = holder
-	if(!istype(user, /mob/living/silicon))
-		if(S.seconds_electrified)
-			if(S.shock(user, 100))
-				return FALSE
 	if(S.panel_open)
 		return TRUE
 	return FALSE
@@ -37,12 +33,14 @@
 	. += "The cyan light is [S.cooling ? "on" : "off"]."
 	. += "The blue light is [S.heating ? "on" : "off"]."
 
-/datum/wires/smartfridge/on_pulse(wire)
+/datum/wires/smartfridge/on_pulse(wire, user)
 	var/obj/machinery/smartfridge/S = holder
 	switch(wire)
 		if(WIRE_THROW)
 			S.shoot_inventory = !S.shoot_inventory
 		if(WIRE_SHOCK)
+			if(ismob(user))
+				S.shock(user, 100)
 			S.seconds_electrified = 30
 		if(WIRE_IDSCAN)
 			S.scan_id = !S.scan_id

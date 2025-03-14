@@ -326,9 +326,17 @@
 	)
 
 	var/zombie_type	//What zombie species they become
-	var/list/character_color_presets
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
+
+	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
+	var/list/character_color_presets
+
+	/// The lower bound for the skin tone value, the lower, the "lighter" they'll appear
+	var/lower_skin_tone_bound = 30
+
+	/// The upper bound for the skin tone value, the higher, the "darker" they'll appear
+	var/upper_skin_tone_bound = 220
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
@@ -419,9 +427,9 @@
 /datum/species/proc/get_random_name(var/gender)
 	if(!name_language)
 		if(gender == FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 
 	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
@@ -495,7 +503,7 @@
 		target.IgniteMob()
 		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
 						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
-		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
+		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
 		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
 						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
@@ -634,7 +642,7 @@
 	H.set_fullscreen(H.eye_blurry, "blurry", /atom/movable/screen/fullscreen/blurry)
 
 	if(H.druggy)
-		H.client.screen += global_hud.druggy
+		H.client.screen += GLOB.global_hud.druggy
 	if(H.druggy > 5)
 		H.add_client_color(/datum/client_color/oversaturated)
 	else

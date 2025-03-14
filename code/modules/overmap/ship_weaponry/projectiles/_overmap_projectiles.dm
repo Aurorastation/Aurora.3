@@ -99,7 +99,7 @@
 					widowmaker.primed = TRUE
 					widowmaker.forceMove(entry_target)
 					widowmaker.on_hit(laze, is_landmark_hit = TRUE)
-					log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]!")
 					qdel(widowmaker)
 					qdel(src)
@@ -126,7 +126,7 @@
 					widowmaker.dir = ammunition.heading
 					var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 					widowmaker.on_translate(entry_turf, target_turf)
-					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]!")
 					widowmaker.preparePixelProjectile(target_turf, entry_turf)
 					widowmaker.fired_from = src

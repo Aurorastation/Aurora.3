@@ -167,8 +167,8 @@
 
 // this function displays the shuttles ETA in the status panel if the shuttle has been called
 /mob/living/silicon/proc/show_emergency_shuttle_eta()
-	if(evacuation_controller)
-		var/eta_status = evacuation_controller.get_status_panel_eta()
+	if(GLOB.evacuation_controller)
+		var/eta_status = GLOB.evacuation_controller.get_status_panel_eta()
 		if(eta_status)
 			stat(null, eta_status)
 
@@ -333,15 +333,15 @@
 /mob/living/silicon/ai/raised_alarm(var/datum/alarm/A)
 	var/cameratext = ""
 	for(var/obj/machinery/camera/C in A.cameras())
-		cameratext += "[(cameratext == "")? "" : "|"]<A HREF=?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>"
+		cameratext += "[(cameratext == "")? "" : "|"]<A href='byond://?src=[REF(src)];switchcamera=[REF(C)]>[C.c_tag]</A>"
 	to_chat(src, "[A.alarm_name()]! ([(cameratext)? cameratext : "No Camera"])")
 
 
 /mob/living/silicon/proc/is_traitor()
-	return mind && (mind in traitors.current_antagonists)
+	return mind && (mind in GLOB.traitors.current_antagonists)
 
 /mob/living/silicon/proc/is_malf()
-	return mind && (mind in malf.current_antagonists)
+	return mind && (mind in GLOB.malf.current_antagonists)
 
 /mob/living/silicon/proc/is_malf_or_traitor()
 	return is_traitor() || is_malf()

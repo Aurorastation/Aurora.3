@@ -13,27 +13,27 @@
 	data += "<b>If you do not know what these do, you shouldn't be touching them!</b><hr>"
 
 	data += "<h2>Hub Visibility Setting:</h2><br>"
-	data += "Currently [world.visibility ? "<font color='green'>VISIBLE</font>" : SPAN_WARNING("HIDDEN")]. <a href='?_src_=holder;access_control=hub'>Toggle</a><br><hr>"
+	data += "Currently [world.visibility ? "<font color='green'>VISIBLE</font>" : SPAN_WARNING("HIDDEN")]. <a href='byond://?_src_=holder;access_control=hub'>Toggle</a><br><hr>"
 
 	data += "<h2>IP Intel Settings:</h2><br><ul>"
-	data += "<li>Current warning level: [GLOB.config.ipintel_rating_bad ? "[GLOB.config.ipintel_rating_bad]" : SPAN_WARNING("DISABLED")]. <a href='?_src_=holder;access_control=intel_bad'>Edit</a></li>"
-	data += "<li>Current kick level: [GLOB.config.ipintel_rating_kick ? "[GLOB.config.ipintel_rating_kick]" : SPAN_WARNING("DISABLED")]. <a href='?_src_=holder;access_control=intel_kick'>Edit</a></li>"
+	data += "<li>Current warning level: [GLOB.config.ipintel_rating_bad ? "[GLOB.config.ipintel_rating_bad]" : SPAN_WARNING("DISABLED")]. <a href='byond://?_src_=holder;access_control=intel_bad'>Edit</a></li>"
+	data += "<li>Current kick level: [GLOB.config.ipintel_rating_kick ? "[GLOB.config.ipintel_rating_kick]" : SPAN_WARNING("DISABLED")]. <a href='byond://?_src_=holder;access_control=intel_kick'>Edit</a></li>"
 	data += "</ul><hr>"
 
 	data += "<h2>Player Age Settings:</h2><br><ul>"
-	data += "<li>New players: [GLOB.config.access_deny_new_players ? SPAN_WARNING("DENIED") : "<font color='green'>ALLOWED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
-	data += "<li>Account age restriction: [GLOB.config.access_deny_new_accounts == -1 ? SPAN_WARNING("DISABLED") : "[GLOB.config.access_deny_new_accounts] DAYS"]. <a href='?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
+	data += "<li>New players: [GLOB.config.access_deny_new_players ? SPAN_WARNING("DENIED") : "<font color='green'>ALLOWED</font>"]. <a href='byond://?_src_=holder;access_control=new_players;'>Toggle</a></li>"
+	data += "<li>Account age restriction: [GLOB.config.access_deny_new_accounts == -1 ? SPAN_WARNING("DISABLED") : "[GLOB.config.access_deny_new_accounts] DAYS"]. <a href='byond://?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
 	data += "</ul><hr>"
 
 	data += "<h2>VM Detection Settings:</h2><br><ul>"
-	data += "<li>VM identifier count to warn on: [GLOB.config.access_warn_vms ? "[GLOB.config.access_warn_vms]" : SPAN_WARNING("DISABLED")]. <a href='?_src_=holder;access_control=vm_warn;'>Edit</a></li>"
-	data += "<li>VM identifier count to kick on: [GLOB.config.access_deny_vms ? "[GLOB.config.access_deny_vms]" : SPAN_WARNING("DISABLED")]. <a href='?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
+	data += "<li>VM identifier count to warn on: [GLOB.config.access_warn_vms ? "[GLOB.config.access_warn_vms]" : SPAN_WARNING("DISABLED")]. <a href='byond://?_src_=holder;access_control=vm_warn;'>Edit</a></li>"
+	data += "<li>VM identifier count to kick on: [GLOB.config.access_deny_vms ? "[GLOB.config.access_deny_vms]" : SPAN_WARNING("DISABLED")]. <a href='byond://?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
 	data += "</ul>"
 
 	data += "<h2>Guest join settings:</h2><br><ul>"
 	data += "<li>Guests [(GLOB.config.guests_allowed || GLOB.config.external_auth) ? "<font color='green'>CAN</font>" : SPAN_WARNING("CAN NOT")] join.</li>"
-	data += "<li>Guests [GLOB.config.guests_allowed ? "<font color='green'>CAN</font>" : SPAN_WARNING("CAN NOT")] play. <a href='?_src_=holder;access_control=guest;'>Toggle</a></li>"
-	data += "<li>External authetification: [GLOB.config.external_auth ? "<font color='green'>ENABLED</font>" : SPAN_WARNING("DISABLED")]. <a href='?_src_=holder;access_control=external_auth;'>Toggle</a></li>"
+	data += "<li>Guests [GLOB.config.guests_allowed ? "<font color='green'>CAN</font>" : SPAN_WARNING("CAN NOT")] play. <a href='byond://?_src_=holder;access_control=guest;'>Toggle</a></li>"
+	data += "<li>External authetification: [GLOB.config.external_auth ? "<font color='green'>ENABLED</font>" : SPAN_WARNING("DISABLED")]. <a href='byond://?_src_=holder;access_control=external_auth;'>Toggle</a></li>"
 	data += "</ul>"
 
 	config_window.set_user(src.mob)

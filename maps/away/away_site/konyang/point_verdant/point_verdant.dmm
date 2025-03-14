@@ -35118,7 +35118,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
 "usD" = (
-/obj/structure/flora/pottedplant/orientaltree,
+/obj/structure/flora/pottedplant/cherrytree,
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
 	},
@@ -37448,37 +37448,37 @@
 /obj/structure/table/rack/clothing{
 	dir = 4
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = -4;
 	pixel_x = 6
 	},
-/obj/item/clothing/accessory/dressshirt{
+/obj/item/clothing/under/dressshirt{
 	pixel_y = -4;
 	pixel_x = 6
 	},
-/obj/item/clothing/under/pants/black{
+/obj/item/clothing/pants/black{
 	pixel_y = 7;
 	pixel_x = -6
 	},
-/obj/item/clothing/under/pants/black{
+/obj/item/clothing/pants/black{
 	pixel_y = 3;
 	pixel_x = -6
 	},
-/obj/item/clothing/under/pants/black{
+/obj/item/clothing/pants/black{
 	pixel_y = -1;
 	pixel_x = -6
 	},

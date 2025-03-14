@@ -8,20 +8,14 @@
 	flags_inv = BLOCKHEADHAIR
 	body_parts_covered = HEAD|EYES
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 	action_button_name = "Toggle Visor"
-
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
-		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
-		)
-
 	var/visor_toggled = FALSE
 	var/obj/machinery/computer/shuttle_control/linked_console
 	var/obj/machinery/computer/ship/helm/linked_helm

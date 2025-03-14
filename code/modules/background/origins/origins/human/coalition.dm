@@ -66,7 +66,7 @@
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur/on_remove(mob/living/carbon/human/H)
 	. = ..()
@@ -84,7 +84,7 @@
 
 /singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile/on_remove(mob/living/carbon/human/H)
 	. = ..()
@@ -118,7 +118,7 @@
 /singleton/origin_item/origin/orepit
 	name = "Orepit"
 	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
-	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
+	important_information = "All Orepitters abroad in the Open Doors memorandum would not work in jobs not requiring an education, and cannot work for Hephaestus Industries because of its practice of not hiring Trinarists, nor directly for the Stellar Corporate Conglomerate due to its distrust of the Church; Orepitters who travel abroad independently, either because they are not Trinarists or not participants in the memorandum, are not held to this. Human Orepitters born in the Twenty Parishes should select the Native Orepitter accent, while humans born in Providence or the Marches should select the Providence accent."
 	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
-	possible_religions =  list(RELIGION_TRINARY)
+	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
+	possible_religions =  RELIGIONS_COALITION

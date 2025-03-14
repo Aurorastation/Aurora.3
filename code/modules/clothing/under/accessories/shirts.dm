@@ -11,6 +11,7 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
+	slot_flags = SLOT_ICLOTHING | SLOT_TIE
 
 // Tubeneck Sweater
 /obj/item/clothing/accessory/sweater/tubeneck
@@ -103,128 +104,6 @@
 	icon_state = "visegradi_sweater"
 	item_state = "visegradi_sweater"
 
-//
-// Shirts
-//
-
-// Dress Shirt
-/obj/item/clothing/accessory/dressshirt
-	name = "dress shirt"
-	desc = "A casual dress shirt."
-	icon_state = "dressshirt"
-	item_state = "dressshirt"
-	var/rolled = FALSE
-
-/obj/item/clothing/accessory/dressshirt/update_clothing_icon()
-	var/mob/M = loc
-	if(ismob(loc))
-		M.update_inv_wear_suit()
-	get_accessory_mob_overlay(M, TRUE)
-	get_inv_overlay(M, TRUE)
-
-/obj/item/clothing/accessory/dressshirt/verb/roll_up_shirt_sleeves()
-	set name = "Roll Up Shirt Sleeves"
-	set desc = "Roll up your shirt sleeves. Doesn't work with some shirts."
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return FALSE
-
-	var/list/icon_states = icon_states(icon)
-	var/initial_state = initial(icon_state)
-	var/new_state = "[initial_state]_r"
-	if(!(new_state in icon_states))
-		to_chat(usr, SPAN_WARNING("Your shirt doesn't allow this!"))
-		return
-
-	rolled = !rolled
-	to_chat(usr, SPAN_NOTICE("You roll your shirt sleeves [rolled ? "up" : "down"]."))
-	icon_state = rolled ? new_state : initial_state
-	item_state = rolled ? new_state : initial_state
-	overlay_state = rolled ? new_state : initial_state
-	update_icon()
-	update_clothing_icon()
-
-/obj/item/clothing/accessory/dressshirt/alt
-	name = "dress shirt"
-	desc = "A casual dress shirt."
-	icon_state = "dressshirt_alt"
-	item_state = "dressshirt_alt"
-
-/obj/item/clothing/accessory/dressshirt/alt/vneck
-	name = "v-neck dress shirt"
-	desc = "A casual dress shirt."
-	icon_state = "dressshirtvneck_alt"
-	item_state = "dressshirtvneck_alt"
-
-/obj/item/clothing/accessory/dressshirt/deepv
-	name = "deep v-neck dress shirt"
-	desc = "A casual dress shirt with a deep neckline."
-	icon_state = "dressshirt_deepv"
-	item_state = "dressshirt_deepv"
-
-/obj/item/clothing/accessory/dressshirt/crop
-	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt."
-	icon_state = "dressshirt_crop"
-	item_state = "dressshirt_crop"
-
-// So people can see how these appear in the loadout
-/obj/item/clothing/accessory/dressshirt/rolled
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_r"
-	item_state = "dressshirt_r"
-
-/obj/item/clothing/accessory/dressshirt/alt/rolled
-	name = "dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirt_alt_r"
-	item_state = "dressshirt_alt_r"
-
-/obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
-	name = "v-neck dress shirt"
-	desc = "A casual dress shirt. This one has its sleeves rolled up."
-	icon_state = "dressshirtvneck_alt_r"
-	item_state = "dressshirtvneck_alt_r"
-
-/obj/item/clothing/accessory/dressshirt/deepv/rolled
-	name = "deep v-neck dress shirt"
-	desc = "A casual dress shirt with a deep neckline. This one has its sleeves rolled up."
-	icon_state = "dressshirt_deepv_r"
-	item_state = "dressshirt_deepv_r"
-
-/obj/item/clothing/accessory/dressshirt/crop/rolled
-	name = "cropped dress shirt"
-	desc = "A casual cropped dress shirt. This one has its sleeves rolled up"
-	icon_state = "dressshirt_crop"
-	item_state = "dressshirt_crop"
-
-/obj/item/clothing/accessory/blouse
-	name = "blouse"
-	desc = "A loose fitting garment."
-	icon_state = "blouse"
-	item_state = "blouse"
-
-/obj/item/clothing/accessory/longblouse
-	name = "long-sleeved blouse"
-	desc = "A long-sleeved, loose fitting garment."
-	icon_state = "longblouse"
-	item_state = "longblouse"
-
-/obj/item/clothing/accessory/puffyblouse
-	name = "puffy blouse"
-	desc = "A loose fitting garment with plenty of material around the arms."
-	icon_state = "puffyblouse"
-	item_state = "puffyblouse"
-
-/obj/item/clothing/accessory/dressshirt/asymmetric
-	name = "asymmetric dress shirt"
-	desc = "A casual dress shirt that opens diagonally down the front."
-	icon_state = "dressshirt_asymmetric"
-	item_state = "dressshirt_asymmetric"
-
 //Legacy
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
@@ -239,67 +118,15 @@
 	icon_state = "wcoat_rec"
 	item_state = "wcoat_rec"
 
-/obj/item/clothing/accessory/longsleeve
-	name = "long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric."
-	icon_state = "longshirt"
-	item_state = "longshirt"
-
-/obj/item/clothing/accessory/longsleeve_s
-	name = "black striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in black."
-	icon_state = "longshirt_s"
-	item_state = "longshirt_s"
-
-/obj/item/clothing/accessory/longsleeve_sb
-	name = "blue striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in blue."
-	icon_state = "longshirt_sb"
-	item_state = "longshirt_sb"
-
-/obj/item/clothing/accessory/tshirt
-	name = "t-shirt"
-	desc = "A simple, cheap t-shirt."
-	icon_state = "tshirt"
-	item_state = "tshirt"
-
-/obj/item/clothing/accessory/tshirt_crop
-	name = "cropped t-shirt"
-	desc = "A simple, cheap cropped t-shirt."
-	icon_state = "tshirt_crop"
-	item_state = "tshirt_crop"
-
-/obj/item/clothing/accessory/haltertop
-	name = "halter top"
-	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
-	icon = 'icons/obj/item/clothing/accessory/halter_top.dmi'
-	icon_state = "haltertop"
-	item_state = "haltertop"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/tanktop
-	name = "tank top"
-	desc = "A simple, cheap tank top."
-	icon = 'icons/obj/item/clothing/accessory/tank_top.dmi'
-	icon_state = "tanktop"
-	item_state = "tanktop"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/tanktop/feminine
-	icon_state = "tanktop_fem"
-	item_state = "tanktop_fem"
-
-/obj/item/clothing/accessory/silversun
-	name = "silversun floral shirt"
-	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."
-	icon = 'icons/clothing/under/shirts/hawaiian.dmi'
-	icon_state = "hawaii"
-	item_state = "hawaii"
-	contained_sprite = TRUE
+/obj/item/clothing/accessory/wcoat_rec/det_vest
 	var/open = FALSE
+	desc = "A slick waistcoat."
+	icon_state = "det_vest"
+	item_state = "det_vest"
+	contained_sprite = FALSE
 
-/obj/item/clothing/accessory/silversun/verb/unbutton()
-	set name = "Unbutton Shirt"
+/obj/item/clothing/accessory/wcoat_rec/det_vest/verb/unbutton()
+	set name = "Unbutton Waistcoat"
 	set category = "Object"
 	set src in usr
 
@@ -311,36 +138,13 @@
 	var/mob/user = usr
 	attack_self(user)
 
-/obj/item/clothing/accessory/silversun/attack_self(mob/user)
+/obj/item/clothing/accessory/wcoat_rec/det_vest/attack_self(mob/user)
 	open = !open
 	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
 	item_state = icon_state
 	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
 	inv_overlay = null
-	accessory_mob_overlay = null
-
-/obj/item/clothing/accessory/silversun/red
-	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is crimson."
-	icon_state = "hawaii_red"
-	item_state = "hawaii_red"
-
-/obj/item/clothing/accessory/silversun/random
-	name = "silversun floral shirt"
-
-/obj/item/clothing/accessory/silversun/random/Initialize()
-	. = ..()
-	if(prob(50))
-		icon_state = "hawaii_red"
-	color = color_rotation(rand(-11,12)*15)
-
-/obj/item/clothing/accessory/silversun/wcoat
-	name = "waistcoat"
-	desc = "A slick waistcoat."
-	icon = 'icons/obj/clothing/ties.dmi'
-	icon_state = "det_vest"
-	item_state = "det_vest"
-	contained_sprite = FALSE
 
 /obj/item/clothing/accessory/university
 	name = "university sweatshirt"
@@ -368,82 +172,3 @@
 	icon_state = "usweatshirt_black"
 	item_state = "usweatshirt_black"
 
-// Polo Shirts
-/obj/item/clothing/accessory/polo
-	name = "polo shirt"
-	desc = "A stylish polo shirt."
-	icon = 'icons/obj/item/clothing/accessory/polo.dmi'
-	icon_state = "polo"
-	item_state = "polo"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/polo/polo_fem
-	desc = "A stylish polo shirt with a waist fit."
-	icon_state = "polo_fem"
-	item_state = "polo_fem"
-
-/obj/item/clothing/accessory/polo/polo_blue
-	name = "blue polo shirt"
-	desc = "A blue, stylish polo shirt."
-	icon_state = "polo_blue"
-	item_state = "polo_blue"
-
-/obj/item/clothing/accessory/polo/polo_blue_fem
-	name = "blue polo shirt"
-	desc = "A blue, stylish polo shirt with a waist fit."
-	icon_state = "polo_blue_fem"
-	item_state = "polo_blue_fem"
-
-/obj/item/clothing/accessory/polo/polo_red
-	name = "red polo shirt"
-	desc = "A red, stylish polo shirt."
-	icon_state = "polo_red"
-	item_state = "polo_red"
-
-/obj/item/clothing/accessory/polo/polo_red_fem
-	name = "red polo shirt"
-	desc = "A red, stylish polo shirt with a waist fit."
-	icon_state = "polo_red_fem"
-	item_state = "polo_red_fem"
-
-/obj/item/clothing/accessory/polo/polo_grayyellow
-	name = "tan polo shirt"
-	desc = "A tan, stylish polo shirt."
-	icon_state = "polo_grayyellow"
-	item_state = "polo_grayyellow"
-
-/obj/item/clothing/accessory/polo/polo_grayyellow_fem
-	name = "tan polo shirt"
-	desc = "A tan, stylish polo shirt with a waist fit."
-	icon_state = "polo_grayyellow_fem"
-	item_state = "polo_grayyellow_fem"
-
-/obj/item/clothing/accessory/polo/polo_greenstrip
-	desc = "A stylish polo shirt with a green strip around the collar."
-	icon_state = "polo_corp"
-	item_state = "polo_corp"
-
-/obj/item/clothing/accessory/polo/polo_greenstrip_fem
-	desc = "A stylish polo shirt with a green strip around the collar and a waist fit."
-	icon_state = "polo_corp_fem"
-	item_state = "polo_corp_fem"
-
-/obj/item/clothing/accessory/polo/polo_bluestrip
-	desc = "A stylish polo shirt with a blue strip around the collar."
-	icon_state = "polo_dais"
-	item_state = "polo_dais"
-
-/obj/item/clothing/accessory/polo/polo_bluestrip_fem
-	desc = "A stylish polo shirt with a blue strip around the collar and a waist fit."
-	icon_state = "polo_dais_fem"
-	item_state = "polo_dais_fem"
-
-/obj/item/clothing/accessory/polo/polo_redstrip
-	desc = "A stylish polo shirt with a red strip around the collar."
-	icon_state = "polo_nt"
-	item_state = "polo_nt"
-
-/obj/item/clothing/accessory/polo/polo_redstrip_fem
-	desc = "A stylish polo shirt with a red strip around the collar and a waist fit."
-	icon_state = "polo_nt_fem"
-	item_state = "polo_nt_fem"

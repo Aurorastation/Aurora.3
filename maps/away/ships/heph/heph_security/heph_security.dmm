@@ -93,7 +93,7 @@
 /area/heph_security_ship/thrusterstarb)
 "aH" = (
 /obj/machinery/computer/ship/helm{
-	req_access = list(203)
+	req_access = list(216)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
@@ -806,7 +806,8 @@
 "fD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(216)
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
@@ -1030,7 +1031,9 @@
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
 "hw" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(216)
+	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber,
@@ -1691,7 +1694,8 @@
 "lN" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(216)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
@@ -2999,7 +3003,9 @@
 /turf/space/dynamic,
 /area/space)
 "uJ" = (
-/obj/machinery/computer/shuttle_control/explore/hephsec_shuttle,
+/obj/machinery/computer/shuttle_control/explore/hephsec_shuttle{
+	req_access = list(216)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
 "uM" = (
@@ -4144,7 +4150,9 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "FF" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(216)
+	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber,
@@ -4951,7 +4959,7 @@
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koismuffin,
-/obj/structure/closet/secure_closet/freezer/kois,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -6113,7 +6121,8 @@
 "Vu" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(216)
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)

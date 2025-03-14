@@ -315,8 +315,8 @@
 		LAZYADD(cached_markings, temporary_markings)
 
 // Global scope, used in code below.
-var/list/flesh_hud_colours = list("#00ff00","#aaff00","#ffff00","#ffaa00","#ff0000","#aa0000","#660000")
-var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#666666","#444444","#222222","#000000")
+GLOBAL_LIST_INIT(flesh_hud_colours, list("#00ff00","#aaff00","#ffff00","#ffaa00","#ff0000","#aa0000","#660000"))
+GLOBAL_LIST_INIT(robot_hud_colours, list("#ffffff","#cccccc","#aaaaaa","#888888","#666666","#444444","#222222","#000000"))
 
 /obj/item/organ/external/proc/get_damage_hud_image()
 
@@ -344,20 +344,21 @@ var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#6666
 	if(min_dam_state && dam_state < min_dam_state)
 		dam_state = min_dam_state
 	// Apply colour and return product.
-	var/list/hud_colours = !BP_IS_ROBOTIC(src) ? flesh_hud_colours : robot_hud_colours
+	var/list/hud_colours = !BP_IS_ROBOTIC(src) ? GLOB.flesh_hud_colours : GLOB.robot_hud_colours
 	hud_damage_image.color = hud_colours[max(1,min(Ceiling(dam_state*hud_colours.len),hud_colours.len))]
 	return hud_damage_image
 
-/obj/item/organ/external/proc/bandage_level()
+/// Returns the possible bandage level the external can have right now, see medical.dm for usage
+/obj/item/organ/external/proc/possible_bandage_level()
 	if(damage_state_text() == "00")
-		return 0
+		return BANDAGE_LEVEL_NONE
 	if(!is_bandaged())
-		return 0
+		return BANDAGE_LEVEL_NONE
 	if(burn_dam + brute_dam == 0)
-		. = 0
+		. = BANDAGE_LEVEL_NONE
 	else if (burn_dam + brute_dam < (max_damage * 0.25 / 2))
-		. = 1
+		. = BANDAGE_LEVEL_LIGHT
 	else if (burn_dam + brute_dam < (max_damage * 0.75 / 2))
-		. = 2
+		. = BANDAGE_LEVEL_MEDIUM
 	else
-		. = 3
+		. = BANDAGE_LEVEL_HEAVY
