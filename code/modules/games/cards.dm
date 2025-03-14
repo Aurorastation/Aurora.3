@@ -4,10 +4,11 @@
 	var/card_icon = "card_back"
 	var/back_icon = "card_back"
 
-ABSTRACT_TYPE(/obj/item/deck)
+/obj/item/deck
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/playing_cards.dmi'
 	var/list/cards = list()
+	var/hand_type
 
 /obj/item/deck/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if (user.a_intent == I_HURT)
@@ -19,9 +20,9 @@ ABSTRACT_TYPE(/obj/item/deck)
 			deal_card(user, target_mob)
 
 /obj/item/deck/attack_self(mob/user, modifiers)
-	. = ..()
 	if(cards.len && (user.l_hand == src || user.r_hand == src))
 		deal_card(user, user)
+	. = ..()
 
 /obj/item/deck/proc/generate_deck() //the procs that creates the cards
 	return
@@ -33,6 +34,7 @@ ABSTRACT_TYPE(/obj/item/deck)
 	icon_state = "deck"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
+	hand_type = /obj/item/hand/cards
 
 /obj/item/deck/Initialize()
 	. = ..()
@@ -88,14 +90,15 @@ ABSTRACT_TYPE(/obj/item/deck)
 		return
 
 	var/obj/item/hand/H
-	if(user.l_hand && istype(user.l_hand,/obj/item/hand))
+	if(user.l_hand && istype(user.l_hand, /obj/item/hand))
 		H = user.l_hand
-	else if(user.r_hand && istype(user.r_hand,/obj/item/hand))
+	else if(user.r_hand && istype(user.r_hand, /obj/item/hand))
 		H = user.r_hand
 	else
-		H = new /obj/item/hand(get_turf(src))
+		H = new hand_type(get_turf(src))
 		H.concealed = TRUE
-		user.put_in_hands(H)
+		if(!user.put_in_hands(H))
+			return
 
 	if(!H || !user)
 		return
@@ -105,6 +108,8 @@ ABSTRACT_TYPE(/obj/item/deck)
 	cards -= P
 	H.update_icon()
 	balloon_alert_to_viewers("<b>\The [user]</b> draws a card.")
+	if(!cards.len)
+		qdel(src)
 
 /obj/item/deck/verb/pickcard()
 	set category = "Object"
@@ -129,7 +134,7 @@ ABSTRACT_TYPE(/obj/item/deck)
 	else if(user.r_hand && istype(user.r_hand,/obj/item/hand))
 		H = user.r_hand
 	else
-		H = new /obj/item/hand(get_turf(src))
+		H = new hand_type(get_turf(src))
 		user.put_in_hands(H)
 
 	if(!H || !user)
@@ -147,6 +152,8 @@ ABSTRACT_TYPE(/obj/item/deck)
 	cards -= P
 	H.update_icon()
 	balloon_alert_to_viewers("<b>\The [user]</b> picks out a card.")
+	if(!cards.len)
+		qdel(src)
 
 /obj/item/deck/verb/dealcard()
 	set category = "Object"
@@ -184,7 +191,7 @@ ABSTRACT_TYPE(/obj/item/deck)
 		to_chat(user, SPAN_WARNING("There are no cards in the deck."))
 		return
 
-	var/obj/item/hand/H = new(user.loc)
+	var/obj/item/hand/H = new hand_type(user.loc)
 
 	H.randpixel = 6
 	H.randpixel_xy()
@@ -196,6 +203,8 @@ ABSTRACT_TYPE(/obj/item/deck)
 	user.do_attack_animation(src, null)
 	balloon_alert_to_viewers("<b>\The [user]</b> deals a card.")
 	H.throw_at(get_step(target,target.dir), 10, 1, user, FALSE)
+	if(!cards.len)
+		qdel(src)
 
 /obj/item/hand/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/hand))
@@ -267,9 +276,13 @@ ABSTRACT_TYPE(/obj/item/deck)
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 	w_class = WEIGHT_CLASS_TINY
+	var/deck_type
 
 	var/concealed = TRUE
 	var/list/cards = list()
+
+/obj/item/hand/cards
+	deck_type = /obj/item/deck/cards
 
 /obj/item/hand/MouseEntered(location, control, params)
 	. = ..()
@@ -412,3 +425,33 @@ ABSTRACT_TYPE(/obj/item/deck)
 /obj/item/hand/pickup(mob/user as mob)
 	..()
 	update_icon()
+
+/obj/item/hand/verb/deck_card()
+	set category = "Object"
+	set name = "Deck"
+	set desc = "Turn this hand of cards into a deck."
+	set src in usr
+
+	create_deck(usr)
+
+/obj/item/hand/proc/create_deck(var/mob/user)
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS) || !Adjacent(user))
+		return
+	if(!iscarbon(user))
+		to_chat(user, SPAN_WARNING("Your simple form can't operate \the [src]."))
+	if(!cards.len)
+		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
+		return
+	if(!deck_type)
+		to_chat(usr, SPAN_WARNING("You can't turn \the [src] into a deck."))
+		return
+
+	var/obj/item/deck/D = new deck_type(new(user.loc))
+
+	if(!D || !user)
+		return
+
+	D.cards = cards
+	balloon_alert_to_viewers("<b>\The [user]</b> turns his hand into a deck.")
+	qdel(src)
+	user.put_in_hands(D)

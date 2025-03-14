@@ -2,6 +2,10 @@
 	name = "\improper KOTAHI deck"
 	desc = "A deck of kotahi cards. House rules to argue over not included."
 	icon_state = "deck_kotahi"
+	hand_type = /obj/item/hand/kotahi
+
+/obj/item/hand/kotahi
+	deck_type = /obj/item/deck/kotahi
 
 /obj/item/deck/kotahi/generate_deck()
 	var/datum/playingcard/P

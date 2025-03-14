@@ -5,6 +5,10 @@
 	name = "deck of tarot cards"
 	desc = "For all your occult needs!"
 	icon_state = "deck_tarot"
+	hand_type = /obj/item/hand/tarot
+
+/obj/item/hand/tarot
+	deck_type = /obj/item/deck/tarot
 
 /obj/item/deck/tarot/generate_deck()
 	var/datum/playingcard/P
@@ -40,6 +44,10 @@
 	name = "adhomian divination cards deck"
 	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
 	icon_state = "deck_adhomai"
+	hand_type = /obj/item/hand/tarot/adhomai
+
+/obj/item/hand/tarot/adhomai
+	deck_type = /obj/item/deck/tarot/adhomai
 
 /obj/item/deck/tarot/adhomai/generate_deck()
 	var/datum/playingcard/P
@@ -117,6 +125,10 @@
 	name = "qwei'paqui colonist deck"
 	desc = "A Skrellian deck of tarot cards depicting the local constellations of planets outside Nralakk."
 	icon_state = "deck_nonnralakk"
+	hand_type = /obj/item/hand/tarot/nonnralakk
+
+/obj/item/hand/tarot/nonnralakk
+	deck_type = /obj/item/deck/tarot/nonnralakk
 
 /obj/item/deck/tarot/nonnralakk/generate_deck()
 	var/datum/playingcard/P
