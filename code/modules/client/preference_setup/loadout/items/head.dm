@@ -206,45 +206,6 @@ ABSTRACT_TYPE(/datum/gear/head)
 	tcaf["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
 	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 
-/datum/gear/head/vysoka
-	display_name = "vysokan hat selection"
-	description = "A selection of vysokan hats."
-	path = /obj/item/clothing/head/vysoka
-	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
-
-/datum/gear/head/vysoka/New()
-	..()
-	var/list/vysoka = list()
-	vysoka["fur cap"] = /obj/item/clothing/head/vysoka
-	vysoka["fur cap, purple"] = /obj/item/clothing/head/vysoka/purple
-	vysoka["fur cap, blue"] = /obj/item/clothing/head/vysoka/blue
-	vysoka["fur cap, red"] = /obj/item/clothing/head/vysoka/red
-	vysoka["joku cap"] = /obj/item/clothing/head/vysoka/joku
-	vysoka["joku cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
-	vysoka["joku cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
-	vysoka["joku cap, red"] = /obj/item/clothing/head/vysoka/joku/red
-	vysoka["pin, dainshu feather"] = /obj/item/clothing/head/pin/dainshu
-	gear_tweaks += new /datum/gear_tweak/path(vysoka)
-
-/datum/gear/head/gadpathur
-	display_name = "gadpathurian headgear selection"
-	description = "A selection of headgear from Gadpathur."
-	path = /obj/item/clothing/head/gadpathur
-	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
-
-/datum/gear/head/gadpathur/New()
-	..()
-	var/list/gadpathur = list()
-	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
-	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
-	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
-	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
-	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
-	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
-	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
-
 /datum/gear/head/peakedcap
 	display_name = "corporate peaked cap selection"
 	description = "A selection of corporate-colored peaked caps. Note that the cap should align with your character's chosen faction."
@@ -297,8 +258,6 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, bear pelt"] = /obj/item/clothing/head/bearpelt
-	hats["hat, conical"] = /obj/item/clothing/head/nonla
-	hats["hat, gat"] = /obj/item/clothing/head/konyang
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hats_colourable
@@ -317,7 +276,7 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats_colourable["hat, top hat"] = /obj/item/clothing/head/top_hat
 	hats_colourable["hat, cowboy"] = /obj/item/clothing/head/cowboy
 	hats_colourable["hat, cowboy wide"] = /obj/item/clothing/head/cowboy/wide
-	hats_colourable["hat, wide sun hat"] = /obj/item/clothing/head/wide_hat
+	hats_colourable["hat, sun hat"] = /obj/item/clothing/head/wide_hat
 	hats_colourable["hat, sun hat with band"] = /obj/item/clothing/head/wide_hat/alt
 	hats_colourable["hat, wide pointed"] = /obj/item/clothing/head/wide_hat/pointed
 	hats_colourable["hat, wide pointed with band"] = /obj/item/clothing/head/wide_hat/pointed/alt
@@ -325,8 +284,10 @@ ABSTRACT_TYPE(/datum/gear/head)
 	hats_colourable["hat, bandana"] = /obj/item/clothing/head/bandana/colorable
 	hats_colourable["hat, softcap"] = /obj/item/clothing/head/softcap/colorable
 	hats_colourable["hat, softcap with accent"] = /obj/item/clothing/head/softcap/colorable/accent
+	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/softcap/newsboy
 	hats_colourable["hat, ear-flap cap"] = /obj/item/clothing/head/ushanka/cap
 	hats_colourable["hat, beret"] = /obj/item/clothing/head/beret/colorable
+	hats_colourable["hat, peaked beret"] = /obj/item/clothing/head/beret/peaked/colorable
 	hats_colourable["hat, side cap"] = /obj/item/clothing/head/sidecap
 	hats_colourable["hat, hijab"] = /obj/item/clothing/head/hijab
 	hats_colourable["hat, hood"] = /obj/item/clothing/head/plain_hood

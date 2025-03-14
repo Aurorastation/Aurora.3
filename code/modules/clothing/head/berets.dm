@@ -16,6 +16,16 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
+/obj/item/clothing/head/beret/peaked/colourable
+	name = "peaked beret"
+	desc = "A peaked beret."
+	icon_state = "beret_peaked_colourable"
+	item_state = "beret_peaked_colourable"
+
+/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
+	. = ..()
+	color = get_random_colour(TRUE)
+
 /obj/item/clothing/head/beret/red // Antag red.
 	name = "red beret"
 	desc = "It's a beret in a menacing crimson red."

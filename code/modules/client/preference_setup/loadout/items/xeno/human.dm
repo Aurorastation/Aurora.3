@@ -99,3 +99,57 @@
 	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
+
+/datum/gear/head/human
+	display_name = "human hat selection"
+	sort_category = "Xenowear - Human"
+
+/datum/gear/head/human/New()
+	..()
+	var/list/hats = list()
+	hats["hat, conical"] = /obj/item/clothing/head/nonla
+	hats["hat, gat"] = /obj/item/clothing/head/konyang
+	hats["hat, himean cap"] = /obj/item/clothing/head/softcap/himeo
+	hats["hat, hachimaki"] = /obj/item/clothing/head/hachimaki
+	hats["hat, fisanduhian ushanka"] = /obj/item/clothing/head/ushanka/dominia
+
+/datum/gear/head/vysoka
+	display_name = "vysokan hat selection"
+	description = "A selection of vysokan hats."
+	path = /obj/item/clothing/head/vysoka
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+	sort_category = "Xenowear - Human"
+
+/datum/gear/head/vysoka/New()
+	..()
+	var/list/vysoka = list()
+	vysoka["fur cap"] = /obj/item/clothing/head/vysoka
+	vysoka["fur cap, purple"] = /obj/item/clothing/head/vysoka/purple
+	vysoka["fur cap, blue"] = /obj/item/clothing/head/vysoka/blue
+	vysoka["fur cap, red"] = /obj/item/clothing/head/vysoka/red
+	vysoka["joku cap"] = /obj/item/clothing/head/vysoka/joku
+	vysoka["joku cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
+	vysoka["joku cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
+	vysoka["joku cap, red"] = /obj/item/clothing/head/vysoka/joku/red
+	vysoka["pin, dainshu feather"] = /obj/item/clothing/head/pin/dainshu
+	gear_tweaks += new /datum/gear_tweak/path(vysoka)
+
+/datum/gear/head/gadpathur
+	display_name = "gadpathurian headgear selection"
+	description = "A selection of headgear from Gadpathur."
+	path = /obj/item/clothing/head/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	sort_category = "Xenowear - Human"
+
+/datum/gear/head/gadpathur/New()
+	..()
+	var/list/gadpathur = list()
+	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/gadpathur
+	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
+	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
+	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
+	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
+	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
+	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
