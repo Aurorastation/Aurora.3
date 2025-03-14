@@ -365,7 +365,7 @@
 	icon_state = "ion"
 	damage = 0
 	agony = 20
-	check_armor = "energy"
+	check_armor = ENERGY
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	var/list/thoughts = list(
 		"You hear a cacophany of alien sounds.",

@@ -7,9 +7,9 @@
 	item_state = "jackboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
@@ -63,10 +63,10 @@
 	item_state = "workboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
@@ -136,12 +136,12 @@
 	contained_sprite = TRUE
 	force = 11
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_MINOR
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_RIFLE,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_RESISTANT,
+		BIO = ARMOR_BIO_MINOR
 	)
 	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.35
@@ -168,8 +168,8 @@
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(
-			melee = ARMOR_MELEE_MINOR,
-			bio = ARMOR_BIO_MINOR
+			MELEE = ARMOR_MELEE_MINOR,
+			BIO = ARMOR_BIO_MINOR
 			)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")

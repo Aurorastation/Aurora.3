@@ -90,12 +90,12 @@
 			if ((worn_suit.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.7
 			else
-				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, "bio"), 70)) // Is it sealed? I can't get to 70% of your body.
+				prob_mult -= 0.01 * (min(LAZYACCESS(worn_suit.armor, BIO), 70)) // Is it sealed? I can't get to 70% of your body.
 		if(worn_helmet)
 			if ((worn_helmet.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				prob_mult -= 0.3
 			else
-				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
+				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, BIO), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			var/venom_strength = max(strength*0.2, (round(feral/10,1) * (max(round(strength/20,1), 1)))) + toxic // Bee venom based on how angry I am and how many there are of me!

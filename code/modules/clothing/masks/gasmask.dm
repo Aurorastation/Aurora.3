@@ -13,7 +13,7 @@
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list(GAS_PHORON, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	armor = list(
-		bio = ARMOR_BIO_STRONG
+		BIO = ARMOR_BIO_STRONG
 	)
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
@@ -105,8 +105,8 @@
 	item_state = "fullgas"
 	w_class = WEIGHT_CLASS_SMALL
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_MINOR,
-		bio = ARMOR_BIO_STRONG
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_MINOR,
+		BIO = ARMOR_BIO_STRONG
 	)

@@ -67,15 +67,11 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 10
+	make_exact_fit = TRUE
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/paper/cig = 10)
-
-/obj/item/storage/box/fancy/cigpaper/Initialize()
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/cigpaper/update_icon()
 	. = ..()
@@ -99,11 +95,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-
-/obj/item/storage/cigfilter/Initialize(mapload, defer_shrinkwrap)
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
@@ -131,11 +123,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)
-
-/obj/item/storage/chewables/Initialize(mapload, defer_shrinkwrap)
-	. = ..()
-
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/chewables/tobacco/bad
 	name = "can of Rredouane Cuts chewing tobacco"
@@ -154,7 +142,6 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
-	storage_slots = 6
 
 /obj/item/storage/chewables/tobacco/fine
 	name = "tin of Taba-Kamu chewing tobacco"
@@ -206,7 +193,6 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 8
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'

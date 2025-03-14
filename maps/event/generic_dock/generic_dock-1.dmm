@@ -5502,7 +5502,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "fFd" = (
-/obj/item/aiModule/nanotrasen,
+/obj/item/aiModule/conglomerate,
 /obj/item/aiModule/reset,
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/protectStation,

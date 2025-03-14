@@ -45,7 +45,7 @@
 	supervisors = "your laws and the AI"	//Nodrak
 	selection_color = "#6c5b73"
 	minimal_player_age = 1
-	alt_titles = list("Android", "Robot")
+	alt_titles = list("Robot")
 	account_allowed = 0
 	economic_modifier = 0
 
