@@ -36,7 +36,7 @@
 /singleton/origin_item/origin/earth
 	name = "Earth"
 	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of humanity's industrialization can still be seen across its surface."
-	possible_accents = list(ACCENT_EARTH, ACCENT_STATIONER)
+	possible_accents = list(ACCENT_EARTH)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 

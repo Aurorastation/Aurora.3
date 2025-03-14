@@ -450,9 +450,3 @@
 	description = "Erisian Common bears some resemblance to Lunarian Common due to the planetoid’s long association with the Solarian Navy. Like its counterpart, it is very hard to effectively replicate for an outsider."
 	tag_icon = "eris"
 	text_tag = "ERS"
-
-/datum/accent/stationer
-	name = ACCENT_STATIONER
-	description = "Similar to the conventional Earther accent, the Unity Station accent instead has its roots in North American English, reflecting the Alliance’s history in the region."
-	tag_icon = "stationer"
-	text_tag = "STA"
