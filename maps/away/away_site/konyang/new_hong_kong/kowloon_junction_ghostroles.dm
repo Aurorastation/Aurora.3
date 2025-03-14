@@ -1,6 +1,6 @@
-//Civilian (access=219)
-
 //Police (access=218)
+
+//Civilian (access=219)
 
 //Benevolent Guild (access=249)
 /datum/ghostspawner/human/konyang_benevolent
