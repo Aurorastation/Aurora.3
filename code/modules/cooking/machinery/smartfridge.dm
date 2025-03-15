@@ -427,7 +427,16 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
+	var/mob/user = ui.user
+
+	add_fingerprint(user)
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		return
+
+	if(!allowed(user) && !emagged && locked != -1 && is_secure)
+		to_chat(usr, SPAN_WARNING("Access denied."))
+		return
 
 	switch(action)
 		if("vendItem")
@@ -443,8 +452,8 @@
 				var/i = amount
 				for(var/obj/O in contents)
 					if(O.name == K)
-						if(Adjacent(usr))
-							usr.put_in_hands(O)
+						if(Adjacent(user))
+							user.put_in_hands(O)
 						else
 							O.forceMove(loc)
 						i--
