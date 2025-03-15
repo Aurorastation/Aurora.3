@@ -421,7 +421,7 @@
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
 		//light up the night.
-		new /obj/effect/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
+		new /obj/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
 		if(hitting_projectile.damage <= 0)
 			return AURA_FALSE|AURA_CANCEL
 

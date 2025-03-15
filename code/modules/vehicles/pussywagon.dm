@@ -147,7 +147,7 @@
 			load_offset_x = 13
 			load.pixel_y = mob_offset_y
 			load.pixel_x = load_offset_x
-	..()
+	. = ..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon
 	name = "\improper C8000 deluxe custodial trolley"

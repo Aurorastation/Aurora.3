@@ -309,7 +309,8 @@
 			Move(target_loc, new_direction)
 
 /mob/living/heavy_vehicle/Move()
-	if(..() && !istype(loc, /turf/space))
+	. = ..()
+	if(. && !istype(loc, /turf/space))
 		if(legs)
 			if(legs.mech_step_sound)
 				playsound(src.loc, legs.mech_step_sound, 40, TRUE)

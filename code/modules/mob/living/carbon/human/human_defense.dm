@@ -165,13 +165,24 @@ emp_act
 	return BULLET_ACT_HIT
 
 /mob/living/carbon/human/emp_act(severity)
+	/*
+		OK LISTEN UP this is absolutely shitcode but it works, basically we need the species EMP protection
+		to avoid antag IPCs being smoked by EMPs in one hit and the surge protection nanopaste is handled in their specie
+		and we have to call parent to have the signals working properly, hence we add an element to the mob to handle the protection
+		and then we remove it after the EMP is done. Yes this is garbage, but it works
+	*/
+	var/emp_protect_ipc = species.handle_emp_act(src, severity)
+	if(emp_protect_ipc)
+		AddElement(/datum/element/empprotection, emp_protect_ipc)
+
 	. = ..()
 
-	if(species.handle_emp_act(src, severity))
-		return // blocks the EMP
+	if(emp_protect_ipc)
+		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
 
-	for(var/obj/O in src)
-		O.emp_act(severity)
+	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
+		for(var/obj/O in src)
+			O.emp_act(severity)
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)

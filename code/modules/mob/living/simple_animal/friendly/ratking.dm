@@ -50,7 +50,7 @@
 	return FALSE
 
 /mob/living/simple_animal/rat/king/Move()
-	..()
+	. = ..()
 
 	for(var/image/I in overlays)
 		I.dir = src.dir
