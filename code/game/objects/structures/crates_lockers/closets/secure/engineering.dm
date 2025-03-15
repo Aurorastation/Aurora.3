@@ -32,6 +32,9 @@
 	new /obj/item/storage/lockbox/shuttle_blueprints(src)
 	new /obj/item/blueprints/outpost(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/engineering(src)
+
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
 // thus the code is placed here rather than in the backpack code file.
@@ -83,6 +86,9 @@
 	new /obj/item/device/paint_sprayer(src)
 	new /obj/item/device/pipe_painter(src)
 
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/engineering(src)
+
 // Atmospherics Technician
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"
@@ -116,6 +122,9 @@
 	// Painters
 	new /obj/item/device/paint_sprayer(src)
 	new /obj/item/device/pipe_painter(src)
+
+	new /obj/item/storage/backpack/pouch(src)
+	new /obj/item/storage/backpack/pouch/engineering(src)
 
 // Electrical Supplies
 /obj/structure/closet/secure_closet/engineering_electrical
