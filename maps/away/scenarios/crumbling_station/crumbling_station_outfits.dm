@@ -2,7 +2,7 @@
 /obj/outfit/admin/generic/crumbling_station_crew
 	name = "Commercial Installation Crew"
 	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/card/navy
+	id = /obj/item/card/id/navy
 	l_pocket = /obj/item/device/radio/hailing
 	r_pocket = /obj/item/portable_map_reader
 	uniform = list(
@@ -94,7 +94,7 @@
 		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
-		/obj/item/reagent_containers/glass/bottle/dexalin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
 		/obj/item/reagent_containers/glass/bottle/perconol = 1,
