@@ -8,12 +8,12 @@
 	stat = POWEROFF
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_KITCHEN)
-	var/unpacked = FALSE											// When it's anchored and has all it's things outside
-	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle		// Griddle inside of the foodcart
-	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge // Smartfridge inside of foodcart
-	var/obj/structure/table/reinforced/wood/cart_table				// Table inside of foodcart
-	var/obj/effect/food_cart_stand/cart_tent						// Overlay that spawns once foodcart is setup
-	var/list/packed_things // Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
+	var/unpacked = FALSE											/// When it's anchored and has all it's things outside
+	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle		/// Griddle inside of the foodcart
+	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge /// Smartfridge inside of foodcart
+	var/obj/structure/table/reinforced/wood/cart_table				/// Table inside of foodcart
+	var/obj/effect/food_cart_stand/cart_tent						/// Overlay that spawns once foodcart is setup
+	var/list/packed_things /// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
 /obj/machinery/food_cart/Initialize(mapload)
 	. = ..()
@@ -64,10 +64,6 @@
 
 /**
  * Deploy the structures inside the food cart
- *
- * * iteration - counter for how many items have been unpacked, increment for each item unpacked
- * * cart_space - temporary overlay showing non-dense and dense tiles checked
- *
  */
 /obj/machinery/food_cart/proc/unpack(mob/user)
 	if(unpacked)
@@ -113,10 +109,6 @@
 
 /**
  * Step and check whether cart structures have non-dense space to placed onto
- *
- * * has_space - sets to FALSE if any turf in build area has density = TRUE
- * * grabbed_turf - starts one tile SOUTH of cart, then sequentially checks one tile EAST
- * * cart_space - temporary overlay showing non-dense and dense tiles checked
  *
  * Returns a boolean
  */
