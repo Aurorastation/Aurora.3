@@ -1653,7 +1653,22 @@
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/white,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/turf/space,
 /area/point_verdant/interior/restaurant)
 "aWE" = (
 /obj/structure/table/wood,
@@ -13858,10 +13873,11 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "hOF" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "hPc" = (
@@ -24536,6 +24552,14 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/reagent_containers/glass/fertilizer/ez,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "nOI" = (
@@ -35118,7 +35142,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
 "usD" = (
-/obj/structure/flora/pottedplant/cherrytree,
+/obj/structure/flora/pottedplant/orientaltree,
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
 	},
