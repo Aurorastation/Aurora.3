@@ -331,6 +331,4 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,
-		/obj/item/reagent_containers/personal_inhaler_cartridge,
-		/obj/item/personal_inhaler,
-		/obj/item/reagent_containers/inhaler)
+		/obj/item/reagent_containers/personal_inhaler_cartridge)
