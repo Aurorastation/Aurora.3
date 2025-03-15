@@ -51,7 +51,6 @@
 	volume = "27 meters length, 19 meters beam/width, 14 meters vertical height"
 	colors = list("#CD4A4C")
 	max_speed = 1/(3 SECONDS)
-	burn_delay = 2 SECONDS
 	vessel_mass = 3000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
