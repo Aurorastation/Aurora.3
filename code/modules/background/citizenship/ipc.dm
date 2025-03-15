@@ -65,5 +65,6 @@
 	allowing its populace to work, study, and travel abroad in the Coalition and beyond, primarily in the All-Xanu Republic, utilizing Xanan documents."
 
 	job_species_blacklist = list(
-		"Consular Officer" = ALL_SPECIES
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES,
 	)

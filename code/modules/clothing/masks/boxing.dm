@@ -56,7 +56,7 @@
 	item_state = "balaclava_blue"
 	germ_level = 0
 	armor = list(
-		bio = ARMOR_BIO_STRONG
+		BIO = ARMOR_BIO_STRONG
 	)
 
 /obj/item/clothing/mask/luchador

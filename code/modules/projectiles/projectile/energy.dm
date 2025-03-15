@@ -3,7 +3,7 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
 //releases a burst of light on impact or after travelling a distance
 /obj/projectile/energy/flash
@@ -101,7 +101,7 @@
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armor = "bomb"
+	check_armor = BOMB
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
@@ -171,7 +171,7 @@
 	name = "blaster bolt"
 	icon_state = "laser"
 	damage = 30
-	check_armor = "laser"
+	check_armor = LASER
 	damage_type = DAMAGE_BURN
 	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
