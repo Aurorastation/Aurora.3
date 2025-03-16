@@ -4052,10 +4052,8 @@
 	},
 /area/city/mendell)
 "xL" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	poster_type = "/datum/poster/bay_68"
+/obj/structure/sign/poster/lore/tcaf2{
+	pixel_x = 29
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -5676,11 +5674,9 @@
 /area/city/mendell/interior)
 "HE" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)

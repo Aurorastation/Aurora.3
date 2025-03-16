@@ -4,6 +4,7 @@
 	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "cell"
 	item_state = "cell"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_POWER = 1)
 	force = 11
 	throwforce = 5.0

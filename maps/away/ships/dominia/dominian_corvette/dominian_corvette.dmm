@@ -1589,7 +1589,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "fnj" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(212)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
 "fnY" = (
@@ -3061,7 +3063,9 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "kAa" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /obj/structure/sign/flag/dominia{
 	pixel_y = 32
 	},
@@ -5742,7 +5746,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "uCS" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(212)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "uFI" = (

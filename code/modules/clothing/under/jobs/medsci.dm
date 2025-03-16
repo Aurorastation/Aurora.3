@@ -71,10 +71,10 @@
 	icon_state = "zav_xenob"
 	item_state = "zav_xenob"
 
-// Lab Assistant.
+// Research Intern.
 /obj/item/clothing/under/rank/scientist/intern
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."
-	name = "laboratory assistant's jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a research intern."
+	name = "research intern's jumpsuit"
 	icon_state = "nt_assistant"
 	item_state = "nt_assistant"
 

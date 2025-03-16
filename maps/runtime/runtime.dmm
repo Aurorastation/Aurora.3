@@ -1468,7 +1468,7 @@
 	name = "Private AI Channel";
 	pixel_y = 22
 	},
-/obj/machinery/weapons_analyzer,
+/obj/machinery/r_n_d/weapons_analyzer,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "eE" = (

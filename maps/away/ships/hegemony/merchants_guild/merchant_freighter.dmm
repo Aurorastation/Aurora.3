@@ -396,8 +396,8 @@
 	},
 /obj/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	req_access = list(215);
-	dir = 4
+	dir = 4;
+	req_access = list(215)
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
@@ -817,7 +817,7 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ka" = (
-/obj/item/modular_computer/console/preset/merchant/guild{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced{
@@ -861,7 +861,8 @@
 /area/merchants_guild/starboardengine)
 "kM" = (
 /obj/machinery/computer/ship/helm{
-	dir = 4
+	dir = 4;
+	req_access = list(215)
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
@@ -1202,7 +1203,9 @@
 "qL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(215)
+	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "qN" = (

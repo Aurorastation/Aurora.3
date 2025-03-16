@@ -547,16 +547,15 @@
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/storage)
 "bAQ" = (
-/obj/structure/sign/poster{
-	icon_state = "poster7";
-	pixel_x = -32
-	},
 /obj/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
+	},
+/obj/structure/sign/poster/civilian{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -2649,7 +2648,9 @@
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(201)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "iGY" = (
@@ -3493,14 +3494,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking2)
 "maw" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	pixel_y = 7;
-	poster_type = "/datum/poster/bay_68"
-	},
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
+	},
+/obj/structure/sign/poster/lore/tcaf{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -3788,8 +3786,8 @@
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
 /obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/under/shorts/khaki,
-/obj/item/clothing/under/shorts/khaki/short,
+/obj/item/clothing/pants/shorts/khaki,
+/obj/item/clothing/pants/shorts/khaki/short,
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/toeless/dark,
 /obj/item/clothing/gloves/brown,
@@ -6418,7 +6416,9 @@
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "uRC" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_access = list(201)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/cockpit)
 "uVR" = (

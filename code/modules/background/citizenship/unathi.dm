@@ -19,8 +19,6 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
-			SPECIES_DIONA,
-			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
@@ -42,8 +40,6 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
-			SPECIES_DIONA,
-			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
@@ -91,7 +87,6 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/device/camera = 1)
-	belt = /obj/item/gun/energy/pistol/hegemony
 
 /obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -102,8 +97,12 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt) // Hegemony Ta Consulars get a Thermic Blaster.
+		else if(H.is_diona())
+			H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(H), slot_belt)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE

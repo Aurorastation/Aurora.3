@@ -420,7 +420,7 @@
 			if(spillover > 0)
 				burn = max(burn - spillover, 0)
 
-	handle_limb_gibbing(used_weapon, brute_dam, burn_dam)
+	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
@@ -513,7 +513,6 @@
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE))
-
 			if((brute_dam + burn_dam) >= (max_damage * GLOB.config.organ_health_multiplier))
 
 				var/edge_eligible = FALSE

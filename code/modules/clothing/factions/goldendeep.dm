@@ -76,60 +76,58 @@
 //colorable items go under here
 
 //shirts
-/obj/item/clothing/accessory/goldendeep
+/obj/item/clothing/under/dressshirt/goldendeep
 	name = "fine shirt"
 	desc = "An expertly tailored shirt often found for formal events or doing good business."
+	icon = 'icons/obj/item/clothing/under/shirt/goldendeep.dmi'
 	icon_state = "fine_shirt"
 	item_state = "fine_shirt"
-	icon = 'icons/clothing/under/shirts/fine_shirt.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 
 // Unique variation for use with the Golden Deep ghostrole.
-/obj/item/clothing/accessory/goldendeep/black
+/obj/item/clothing/under/dressshirt/goldendeep/black
 	color = "#333333"
 
-/obj/item/clothing/accessory/goldendeep/pompous
+/obj/item/clothing/under/dressshirt/goldendeep/pompous
 	name = "pompous shirt"
 	desc = "Poofy and ostentatious, this shirt of fine fabric screams wealth."
 	icon_state = "pompous_shirt"
 	item_state = "pompous_shirt"
-	icon = 'icons/clothing/under/shirts/pompous_shirt.dmi'
 
-/obj/item/clothing/accessory/goldendeep/gambeson
+/obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform
+	name = "cloth wrapped uniform"
+	desc = "Casual and resilient, these intricate wraps protect one against the acid rains of Pactolous while keeping their style."
+	icon_state = "cloth_wrapped_uniform"
+	item_state = "cloth_wrapped_uniform"
+
+// outerwear
+/obj/item/clothing/accessory/goldendeep
 	name = "quilted gambeson"
 	desc = " Intricately woven fibers resemble armor of old, but now are reinforced for the wear and tear caused by moving metal joints."
+	icon = 'icons/obj/item/clothing/accessory/goldendeep.dmi'
 	icon_state = "quilted_gambeson"
 	item_state = "quilted_gambeson"
-	icon = 'icons/clothing/under/shirts/quilted_gambeson.dmi'
+	contained_sprite = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/accessory/goldendeep/tabbard
 	name = "valiant tabbard"
 	desc = " Tabbards of Pactolous represent businesses and merchants, if not an individual's own organization."
 	icon_state = "valiant_tabbard"
 	item_state = "valiant_tabbard"
-	icon = 'icons/clothing/under/shirts/valiant_tabbard.dmi'
-
-/obj/item/clothing/accessory/goldendeep/clothwrappeduniform
-	name = "cloth wrapped uniform"
-	desc = "Casual and resilient, these intricate wraps protect one against the acid rains of Pactolous while keeping their style."
-	icon_state = "cloth_wrapped_uniform"
-	item_state = "cloth_wrapped_uniform"
-	icon = 'icons/clothing/under/shirts/cloth_wrapped_uniform.dmi'
 
 /obj/item/clothing/accessory/goldendeep/pullover
 	name = "armored pullover"
 	desc = " A statement piece with leather or jeweled adornment make anyone stand out wearing this strange garb."
 	icon_state = "armored_pullover"
 	item_state = "armored_pullover"
-	icon = 'icons/clothing/under/shirts/armored_pullover.dmi'
 
 /obj/item/clothing/accessory/goldendeep/raingarb
 	name = "pactolus rain garb"
 	desc = "Surprisingly sturdy for its patchwork appearance, pieces like this have been protecting workers from Pactolus' radioactive rains for years."
 	icon_state = "pactolus_raingarb"
 	item_state = "pactolus_raingarb"
-	icon = 'icons/clothing/under/shirts/pactolus_raingarb.dmi'
 
 //suits
 /obj/item/clothing/suit/storage/goldendeep
@@ -148,7 +146,7 @@
 	desc = "Viewed as ostentatious by outsiders (and perhaps insiders, for that matter) capes nonetheless remain as a means of quickly broadcasting one's status (or pretentions of status)."
 	icon_state = "golden_cape"
 	item_state = "golden_cape"
-	icon = 'icons/clothing/suits/capes/golden_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/golden_cape.dmi'
 	contained_sprite = TRUE
 	icon_override = null
 	protects_against_weather = FALSE
@@ -158,7 +156,7 @@
 	desc = "A long and flowing cloak used by members of Golden Deep evocative of trenchcoats. Curiously, many investigatorial synthetics within the collective favor these cloaks."
 	icon_state = "flowing_cloak"
 	item_state = "flowing_cloak"
-	icon = 'icons/clothing/suits/capes/flowing_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/flowing_cloak.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/accessory/poncho/goldendeep/elegantcloak
@@ -166,7 +164,7 @@
 	desc = "Billowing fabric for all classes with a regal clasp that hints at its original merchant designers."
 	icon_state = "elegant_cloak"
 	item_state = "elegant_cloak"
-	icon = 'icons/clothing/suits/capes/elegant_cloak.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/elegant_cloak.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/accessory/poncho/goldendeep/furwrap
@@ -174,14 +172,14 @@
 	desc = "The fur of an animal, soft and fluffy, now repurposed as a decorative neck wrap."
 	icon_state = "fur_wrap"
 	item_state = "fur_wrap"
-	icon = 'icons/clothing/suits/capes/fur_wrap.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/fur_wrap.dmi'
 
 /obj/item/clothing/accessory/poncho/goldendeep/desertadornment
 	name = "desert adornment"
 	desc = "Lightweight and soft, this sleeveless coat feels like it's hardly anything at all, but it keeps the sun from bearing down on the wearer."
 	icon_state = "desert_adornment"
 	item_state = "desert_adornment"
-	icon = 'icons/clothing/suits/capes/desert_adornment.dmi'
+	icon = 'icons/obj/item/clothing/accessory/poncho/desert_adornment.dmi'
 
 //head slot
 
@@ -231,7 +229,7 @@
 	desc = "For the hard working Thesian of the Golden Deep. Able to carry tools and withstand the rigors of work within the collective."
 	icon_state = "thesian_webbing"
 	item_state = "thesian_webbing"
-	icon = 'icons/clothing/accessories/thesian_webbing.dmi'
+	icon = 'icons/obj/item/clothing/accessory/thesian_webbing.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 

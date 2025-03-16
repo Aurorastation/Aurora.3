@@ -330,7 +330,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
@@ -1372,7 +1372,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/sleeper.dmi';
+	icon = 'icons/obj/machinery/sleeper.dmi';
 	icon_state = "body_scanner";
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1

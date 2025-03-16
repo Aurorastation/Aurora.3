@@ -27,6 +27,7 @@
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
+#define CITIZENSHIP_OREPIT "Orepit"
 
 //religion defines
 #define RELIGION_NONE "None"
@@ -189,6 +190,7 @@
 #define ACCENT_IRONSONG "Ironsong"
 #define ACCENT_SANDSONG "Sandsong"
 #define ACCENT_WASTESONG "Wastesong"
+#define ACCENT_GARDENSONG "Gardensong"
 #define ACCENT_WAVESONG "Wavesong"
 #define ACCENT_SUNKENSONG "Sunkensong"
 #define ACCENT_STARSONG "Starsong"

@@ -359,14 +359,18 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T1 = get_turf(usr)
+
+			if(!isliving(usr))
+				return
+			var/mob/living/user = usr
+			var/turf/T1 = get_turf(user)
 			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
-				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
+				to_chat(user, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
+				user.look_up_open_space(T1)
 			else
-				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
+				to_chat(user, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))

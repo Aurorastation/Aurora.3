@@ -864,3 +864,11 @@
 
 	//is Moved(old_loc, direction, TRUE, momentum_change = FALSE) in tg
 	Moved(old_loc, direction, TRUE)
+
+/**
+ * Adds the red drop-shadow filter when pointed to by a mob.
+ * Override if the atom doesn't play nice with filters.
+ */
+/atom/movable/proc/add_point_filter()
+	add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+	addtimer(CALLBACK(src, PROC_REF(remove_filter), "pointglow"), 2 SECONDS)

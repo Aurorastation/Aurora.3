@@ -2587,12 +2587,6 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "pCa" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	pixel_y = 7;
-	poster_type = "/datum/poster/bay_68"
-	},
 /obj/structure/table/standard,
 /obj/item/device/megaphone/red{
 	pixel_y = -4
@@ -2604,6 +2598,9 @@
 /obj/item/pen/blue{
 	pixel_x = -9;
 	pixel_y = 6
+	},
+/obj/structure/sign/poster/lore/tcaf2{
+	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)

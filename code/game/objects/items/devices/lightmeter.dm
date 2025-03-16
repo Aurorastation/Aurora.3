@@ -3,9 +3,9 @@
 /obj/item/device/light_meter
 	name = "light meter"
 	desc = "A simple device that measures ambient light levels."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
-
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
 	// Copied from debugger.dm
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11

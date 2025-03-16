@@ -16,7 +16,7 @@
 		body.mouse_drop_receive(arglist(args))
 	else . = ..()
 
-/mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
+/mob/living/heavy_vehicle/ClickOn(atom/A, params, mob/user)
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return

@@ -34,8 +34,9 @@
 /singleton/origin_item/origin/ipc_orepit
 	name = "Orepit"
 	desc = "Refugees and runaways, the synthetic population of Orepit has embraced the beliefs of synthetic divinity and ascension preached by the Trinary Perfection. A primarily religious community, IPC from Orepit and its capital Providence find themselves occupying clerical posts abroad as priests, missionaries and even guardians of the Church for its parishes scattered across the Spur."
+	important_information = "All Orepitters abroad are participants in the Open Doors memorandum, meaning they would not work in jobs not requiring an education. They cannot work for Hephaestus Industries because of its practice of not hiring Trinarists, nor directly for the Stellar Corporate Conglomerate due to its distrust of the Church."
 	possible_accents = list(ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_NONE)
+	possible_citizenships = list(CITIZENSHIP_OREPIT)
 	possible_religions = list(RELIGION_TRINARY)
 
 /singleton/origin_item/origin/ipc_vysoka
