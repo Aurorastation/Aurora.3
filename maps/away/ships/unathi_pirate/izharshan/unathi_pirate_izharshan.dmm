@@ -40,7 +40,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "av" = (
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(210)
+	},
 /obj/effect/floor_decal/corner_wide/dark_green/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -214,7 +216,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "eD" = (
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -535,7 +538,8 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "ns" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -992,7 +996,9 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(210)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "zZ" = (

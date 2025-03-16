@@ -288,13 +288,9 @@
 		AddOverlays(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
-	icon = 'icons/obj/device.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/device/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/device/righthand_device.dmi',
-		)
 	pickup_sound = 'sound/items/pickup/device.ogg'
 	drop_sound = 'sound/items/drop/device.ogg'
+	contained_sprite = TRUE
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
@@ -642,7 +638,8 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_w_uniform]" = SLOT_ICLOTHING,
 	"[slot_wear_id]" = SLOT_ID,
 	"[slot_tie]" = SLOT_TIE,
-	"[slot_wrists]" = SLOT_WRISTS
+	"[slot_wrists]" = SLOT_WRISTS,
+	"[slot_pants]" = SLOT_PANTS
 	)
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.

@@ -93,7 +93,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "dZ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "ef" = (
@@ -166,7 +166,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "it" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/bluespaceriver/ship)
 "iJ" = (
@@ -317,10 +317,6 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm/west{
-	pixel_x = -25;
-	rcon_setting = 3
-	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "rq" = (
@@ -399,6 +395,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/machinery/alarm/east{
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -501,7 +500,9 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "yp" = (
-/obj/random/loot,
+/obj/machinery/vending/boozeomat{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "yz" = (
@@ -541,7 +542,11 @@
 /area/bluespaceriver/ship)
 "zO" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/drinkingglasses,
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = -16;
+	pixel_y = 9
+	},
+/obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Ad" = (
@@ -607,12 +612,6 @@
 	temperature = 250
 	},
 /area/bluespaceriver/ground)
-"Fe" = (
-/obj/machinery/vending/boozeomat{
-	req_access = list()
-	},
-/turf/simulated/wall/titanium,
-/area/bluespaceriver/ship)
 "Fn" = (
 /obj/effect/shuttle_landmark/nav_blueriv/nav2,
 /turf/simulated/floor/exoplanet/snow{
@@ -899,7 +898,9 @@
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Re" = (
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/south{
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Rf" = (
@@ -947,7 +948,9 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "St" = (
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/regular{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "SM" = (
@@ -14016,7 +14019,7 @@ TZ
 TZ
 dZ
 dZ
-Fe
+dm
 yp
 mW
 mW

@@ -25,7 +25,8 @@ var/list/localhost_addresses = list(
 	If you have any  questions about this stuff feel free to ask. ~Carn
 	*/
 
-/client/Topic(href, href_list, hsrc)
+//the undocumented 4th argument is for ?[0x\ref] style topic links. hsrc is set to the reference and anything after the ] gets put into hsrc_command
+/client/Topic(href, href_list, hsrc, hsrc_command)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
@@ -257,7 +258,16 @@ var/list/localhost_addresses = list(
 		if(QDELETED(real_src))
 			return
 
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
 	..()	//redirect to hsrc.Topic()
+
+///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
+///so we cant queue it without this
+/client/proc/_Topic(datum/hsrc, href, list/href_list)
+	return hsrc.Topic(href, href_list)
 
 /proc/client_by_ckey(ckey)
 	return GLOB.directory[ckey]
@@ -812,6 +822,10 @@ var/list/localhost_addresses = list(
 			. = R.group[1]
 		else
 			CRASH("Age check regex failed for [src.ckey]")
+
+/client/Click(atom/object, atom/location, control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
+	..()
 
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	var/list/modifiers = params2list(params)

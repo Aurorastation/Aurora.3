@@ -281,6 +281,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
+	contained_sprite = TRUE
 
 /*
  * Fake singularity
@@ -298,6 +299,8 @@
 	name = "comic book"
 	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
 	w_class = WEIGHT_CLASS_SMALL
+	icon = 'icons/obj/library.dmi'
+	contained_sprite = TRUE
 	icon_state = "comic"
 	item_state = "comic"
 	drop_sound = 'sound/items/drop/paper.ogg'
@@ -307,16 +310,16 @@
 	name = "inspector 404 manga"
 	desc = "Inspector 404 follows the adventures of the titular I404, a shell inspector from Konyang. This issue, #67, follows the \
 	404, also known as Kyung-Sun's quest to bring down the corrupt Superintendent Hayashi."
-	icon_state = "comicinspector"
-	item_state = "comicinspector"
+	icon_state = "comic_inspector"
+	item_state = "comic_inspector"
 
 /obj/item/toy/comic/stormman
 	name = "stormman manga"
 	desc = "Stormman, often stylized as STORMMAN! is one of Konyang's most beloved anime series, following a masked superhero named Stormman \
 	who has the power to harness the weather to defend his homeworld while keeping his secret identity. Since its release, all kinds of merchandise \
 	have been made, including a conversion of the show to a paperback manga."
-	icon_state = "comicstormman"
-	item_state = "comicstormman"
+	icon_state = "comic_stormman"
+	item_state = "comic_stormman"
 
 /obj/item/toy/comic/outlandish_tales
 	name = "outlandish tales magazine"
@@ -327,13 +330,13 @@
 	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
 	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
-	item_state = "comicoutlandish"
+	item_state = "comic"
 
 /obj/item/toy/comic/azmarian
 	name = "az'marian comic"
 	desc = "A comic book series revolving around a superhero from Az'Mar, popular in the New Kingdom."
 	icon_state = "comicazmarian"
-	item_state = "comicazmarian"
+	item_state = "comic"
 
 /obj/item/toy/comic/azmarian/issue_1
 	desc_extended = "Issue 1 - The Az'Marian Landing! - In this issue, the would-be hero departs from Az'Mar and lands in a war-torn \
@@ -388,7 +391,6 @@
 	newly regained powers to their fullest."
 
 /obj/item/toy/comic/witchfinder
-	icon = 'icons/obj/library.dmi'
 	name = "Witchfinder novel"
 	desc = "A popular genre of Dominian mystery literature, glorifying the Tribunal Investigations Constabulary and the work they do in \
 	defending the souls of the people of the Empire."
@@ -398,7 +400,7 @@
 	authors of witchfinder novels, such as Novi Jadran's Andrija Jurina, even travel abroad as honored servants of His Imperial Majesty Boleslaw Keeser, both to \
 	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
 	icon_state = "witchfindernovel"
-	item_state = "witchfindernovel"
+	item_state = "book"
 
 //
 // Toy Crossbows
@@ -1143,7 +1145,7 @@
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
-	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	desc_extended = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. The original Aphy was tragically lost alongside Hephaestus' Mars headquarters during the Violet Dawn disaster, but the unit lives on as a cutesy, marketable mascot."
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 
@@ -1313,12 +1315,14 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/sword.dmi'
+	icon = 'icons/obj/sword_64.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
+	worn_x_dimension = 64
+	worn_y_dimension = 64
 
 /obj/item/inflatable_duck
 	name = "inflatable duck"

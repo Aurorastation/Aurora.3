@@ -155,7 +155,7 @@
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye)
+	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye/freelook)
 	if(!CN)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
 		return

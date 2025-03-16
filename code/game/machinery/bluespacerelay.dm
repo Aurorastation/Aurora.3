@@ -20,16 +20,15 @@
 	)
 
 /obj/machinery/bluespacerelay/process()
-
 	update_power()
 
 	update_icon()
 
 /obj/machinery/bluespacerelay/update_icon()
+	ClearOverlays()
 	if(on)
-		icon_state = initial(icon_state)
-	else
-		icon_state = "[initial(icon_state)]_off"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/bluespacerelay/proc/update_power()
 

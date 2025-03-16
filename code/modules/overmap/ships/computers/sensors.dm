@@ -146,15 +146,15 @@
 		else
 			data["status"] = "OK"
 		var/list/distress_beacons = list()
-		for(var/caller in SSdistress.active_distress_beacons)
-			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
-			var/obj/effect/overmap/vessel = beacon.caller
+		for(var/requester in SSdistress.active_distress_beacons)
+			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
+			var/obj/effect/overmap/vessel = beacon.requester
 			var/mob/living/carbon/human/H = beacon.user
 			var/job_string = H.job ? "[H.job] " : ""
 			var/bearing = round(90 - Atan2(vessel.x - linked.x, vessel.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
+			distress_beacons.Add(list(list("requester" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
 		data["desired_range"] = sensors.desired_range
@@ -377,8 +377,8 @@
 			return TRUE
 
 	if (action == "play_message")
-		var/caller = params["play_message"]
-		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
+		var/requester = params["play_message"]
+		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
 		var/mob/living/carbon/human/sender = beacon.user
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()

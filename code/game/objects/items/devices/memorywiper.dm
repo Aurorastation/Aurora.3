@@ -6,7 +6,6 @@
 	icon = 'icons/obj/memorywiper.dmi'
 	icon_state = "portable_memorywiper"
 	item_state = "portable_memorywiper"
-	contained_sprite = TRUE
 	anchored = FALSE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'

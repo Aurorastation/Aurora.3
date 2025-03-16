@@ -324,7 +324,8 @@
 /area/golden_deep/private_lounge)
 "bA" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(217,229)
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/golden_deep/cockpit)
@@ -507,7 +508,8 @@
 	dir = 5
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -806,7 +808,8 @@
 /area/golden_deep/aft_central_hallway)
 "dr" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -882,7 +885,8 @@
 /area/golden_deep/bridge)
 "dG" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/bridge)
@@ -1871,7 +1875,7 @@
 "hN" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Accounting";
 	pixel_y = 6;
 	req_one_access = list(229, 217)
 	},
@@ -1891,11 +1895,6 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/structure/sign/poster{
-	icon_state = "bsposter56";
-	poster_type = "/datum/poster/bay_56";
-	pixel_x = 32
-	},
 /obj/item/wrench{
 	pixel_y = 19;
 	pixel_x = 3
@@ -1908,6 +1907,9 @@
 	},
 /obj/item/storage/bag/circuits/all{
 	pixel_y = -6
+	},
+/obj/structure/sign/poster/civilian{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/owned_lounge)
@@ -3611,7 +3613,8 @@
 "pm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 8
+	dir = 8;
+	req_one_access = list(229, 217)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboard_dock)
@@ -4124,7 +4127,7 @@
 /turf/simulated/floor/wood,
 /area/golden_deep/bridge_foyer)
 "qU" = (
-/obj/item/modular_computer/console/preset/merchant/golden_deep{
+/obj/item/modular_computer/console/preset/merchant{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9730,9 +9733,7 @@
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/poster{
-	icon_state = "bsposter65";
-	poster_type = "/datum/poster/bay_65";
+/obj/structure/sign/poster/engineering/bay_65{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -10062,7 +10063,7 @@
 "Pb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/photocopier/faxmachine{
-	department = "Republican Fleet Corvette";
+	department = "Golden Deep Merchantile Vessel - Merchant";
 	req_one_access = list(229, 217);
 	pixel_y = 6
 	},
@@ -12709,7 +12710,9 @@
 /area/golden_deep/portmaints)
 "ZV" = (
 /obj/machinery/light/small/floor,
-/obj/machinery/media/jukebox/gramophone,
+/obj/machinery/media/jukebox/gramophone{
+	anchored = 1
+	},
 /turf/simulated/floor/carpet/magenta,
 /area/golden_deep/merchant)
 "ZX" = (

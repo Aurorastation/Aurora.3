@@ -15,10 +15,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/suit_cycler/S = holder
-	if(!istype(user, /mob/living/silicon))
-		if(S.electrified)
-			if(S.shock(user, 100))
-				return FALSE
 	if(S.panel_open)
 		return TRUE
 	return FALSE
@@ -30,12 +26,14 @@
 	. += "The red light is [S.safeties ? "off" : "blinking"]."
 	. += "The yellow light is [S.locked ? "on" : "off"]."
 
-/datum/wires/suit_storage_unit/on_pulse(wire)
+/datum/wires/suit_storage_unit/on_pulse(wire, user)
 	var/obj/machinery/suit_cycler/S = holder
 	switch(wire)
 		if(WIRE_SAFETY)
 			S.safeties = !S.safeties
 		if(WIRE_SHOCK)
+			if(ismob(user))
+				S.shock(user, 50)
 			S.electrified = 30
 		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked

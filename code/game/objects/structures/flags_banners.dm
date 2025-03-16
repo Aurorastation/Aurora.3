@@ -3952,3 +3952,39 @@
 
 /obj/structure/sign/flag/old_xanu/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
+
+// HPS Narrows
+/obj/item/flag/narrows
+	name = "\improper HPS Narrows flag"
+	desc = "The flag of the HPS Narrows, representing Captain Helmsman of the United Drill on the top, the Council of Overseers on the bottom, and the Iron Eternal in between."
+	flag_path = "narrows"
+	flag_structure = /obj/structure/sign/flag/narrows
+
+/obj/structure/sign/flag/narrows
+	name = "\improper HPS Narrows flag"
+	desc = "The flag of the HPS Narrows, representing Captain Helmsman of the United Drill on the top, the Council of Overseers on the bottom, and the Iron Eternal in between."
+	icon_state = "narrows"
+	flag_item = /obj/item/flag/narrows
+
+/obj/item/flag/narrows/l
+	name = "\improper large HPS Narrows flag"
+	flag_path = "narrows"
+	flag_structure = /obj/structure/sign/flag/narrows/large
+
+/obj/structure/sign/flag/narrows/large
+	icon_state = "narrows_l"
+	flag_path = "narrows"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/narrows/l
+
+/obj/structure/sign/flag/narrows/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/narrows/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/narrows/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/narrows/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)

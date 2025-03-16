@@ -265,7 +265,7 @@
 /obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/shoes/workboots/tajara/adhomian_boots,
 /obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/under/pants/tajaran,
+/obj/item/clothing/pants/tajaran,
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
@@ -692,7 +692,7 @@
 /area/adhomai_village)
 "LL" = (
 /obj/structure/table/wood,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Mv" = (

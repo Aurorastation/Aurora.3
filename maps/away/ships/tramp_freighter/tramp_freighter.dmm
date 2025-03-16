@@ -1076,7 +1076,8 @@
 /area/tramp_freighter/starboard_docking)
 "fl" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
@@ -1482,7 +1483,8 @@
 /area/tramp_freighter/starboard_docking)
 "hy" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/light,
@@ -2246,20 +2248,20 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/flannel/red,
-/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/pants/jeansblack,
 /obj/item/clothing/head/cowboy,
 /obj/item/clothing/shoes/cowboy/classic,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/accessory/storage/overalls,
-/obj/item/clothing/under/pants/black,
+/obj/item/clothing/pants/black,
 /obj/item/clothing/accessory/bandanna,
 /obj/item/clothing/accessory/bandanna/black,
 /obj/item/clothing/accessory/bandanna/blue,
 /obj/item/clothing/suit/storage/toggle/trench/green,
 /obj/item/clothing/glasses/fakesunglasses/aviator,
 /obj/item/clothing/glasses/regular/circle,
-/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/pants/tacticool,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/gloves/fingerless,
@@ -3601,7 +3603,8 @@
 /area/tramp_freighter/starboardthrust)
 "sN" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
@@ -3790,7 +3793,8 @@
 /area/tramp_freighter/lounge)
 "tE" = (
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
@@ -8222,7 +8226,8 @@
 	pixel_x = 4
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle{
-	dir = 1
+	dir = 1;
+	req_access = list(242)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/freighter_shuttle)

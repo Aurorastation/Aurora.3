@@ -85,6 +85,9 @@
 		"lasertag" = new /datum/holodeck_program(/area/horizon/holodeck/source_lasertag,
 			list('sound/music/THUNDERDOME.ogg')
 		),
+		"combat_training" = new /datum/holodeck_program(/area/horizon/holodeck/source_combat_training,
+			list('sound/music/THUNDERDOME.ogg')
+		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),
 		"konyang" = new /datum/holodeck_program(/area/horizon/holodeck/source_konyang),
@@ -124,7 +127,8 @@
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
 		"Chessboard" = "chessboard",
-		"Laser Tag Arena" = "lasertag"
+		"Laser Tag Arena" = "lasertag",
+		"Combat Training Arena" = "combat_training"
 	)
 	holodeck_restricted_programs = list(
 		"Atmospheric Burn Simulation" = "burntest",

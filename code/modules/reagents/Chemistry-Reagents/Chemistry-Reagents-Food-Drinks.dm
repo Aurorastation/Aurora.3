@@ -5677,17 +5677,6 @@
 	glass_desc = "And Our Lady did come down from the mountain, and She was flanked in radiant and ever-burning cosmic fires. And She spoke with the Lady Caladius for what seemed an eternity, \
 	and the Lady Caladius did finally emerge. And we happy few were so blessed as to hear her- the Prophetess Giovanna- say, 'Drink today not as warriors, but as immortals.'."
 
-/singleton/reagent/alcohol/mimosa
-	name = "Mimosa"
-	color = "#d87606"
-	description = "Champagne and orange juice. A festive cocktail usually served at high-end events, such as weddings, business brunch, or even as a first-class drink on passenger transports."
-	strength = 35
-	taste_description = "sparkling orange juice"
-
-	glass_icon_state = "mimosa_glass"
-	glass_name = "glass of Mimosa"
-	glass_desc = "Champagne and orange juice. A festive cocktail usually served at high-end events, such as weddings, business brunch, or even as a first-class drink on passenger transports."
-
 /singleton/reagent/alcohol/lights_edge
 	name = "Light's Edge"
 	color = "#592ada"

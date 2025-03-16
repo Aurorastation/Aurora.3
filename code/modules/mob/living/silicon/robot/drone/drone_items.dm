@@ -3,7 +3,7 @@
 /obj/item/matter_decompiler
 	name = "matter decompiler"
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/gripper.dmi'
 	icon_state = "decompiler"
 	var/is_decompiling = FALSE
 
