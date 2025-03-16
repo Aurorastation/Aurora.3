@@ -1,5 +1,5 @@
 /// A global list of all radiation collectors.
-var/global/list/rad_collectors = list()
+GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list())
 
 /obj/machinery/power/rad_collector
 	name = "radiation collector array"
@@ -12,7 +12,7 @@ var/global/list/rad_collectors = list()
 	/// The tank of phoron currently attached to the radiation collector
 	var/obj/item/tank/phoron/loaded_tank = null
 
-	/// Current health of the collector. Should be replaced with global health ideally.
+	/// Current health of the collector. TODO: replace with global health
 	var/health = 100
 	/// The maximum safe temperature that the radiation collector can handle
 	var/max_safe_temp = 1000 + T0C
@@ -45,10 +45,10 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/Initialize()
 	. = ..()
-	rad_collectors += src
+	GLOB.rad_collectors += src
 
 /obj/machinery/power/rad_collector/Destroy()
-	rad_collectors -= src
+	GLOB.rad_collectors -= src
 	return ..()
 
 /obj/machinery/power/rad_collector/process(seconds_per_tick)
@@ -96,42 +96,45 @@ var/global/list/rad_collectors = list()
 		return FALSE
 	. = TRUE
 	if((stat & BROKEN) || melted)
-		to_chat(user, SPAN_WARNING("The [src] is completely destroyed!"))
+		USE_FEEDBACK_FAILURE("The [src] is completely destroyed!")
 	if(!src.locked)
 		toggle_power()
 		user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
 		"You turn the [src.name] [active? "on":"off"].")
 		investigate_log("turned [active ? SPAN_COLOR("green", "on") : SPAN_COLOR("red", "off")] by [user.key]. [loaded_tank ? "Fuel: [round(loaded_tank.air_contents.gas[GAS_PHORON]/0.29)]%" : SPAN_COLOR("red", "It is empty")].","singulo")
 	else
-		to_chat(user, SPAN_WARNING("The controls are locked!"))
+		USE_FEEDBACK_FAILURE("The controls are locked!")
 	..()
 
 /obj/machinery/power/rad_collector/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/tank/phoron))
 		if(!anchored)
-			to_chat(user, SPAN_WARNING("The [src] needs to be secured to the floor first."))
+			USE_FEEDBACK_FAILURE("The [src] needs to be secured to the floor first.")
 			return TRUE
 		if(loaded_tank)
-			to_chat(user, SPAN_WARNING("There's already a phoron tank loaded."))
+			USE_FEEDBACK_FAILURE("There's already a phoron tank loaded.")
 			return TRUE
 		if(!user.unEquip(attacking_item, src))
 			return TRUE
 		loaded_tank = attacking_item
+		attacking_item.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You slot [attacking_item] into [src] and tighten the connecting valve."))
 		update_icon()
 		return TRUE
 
 	if(attacking_item.iscrowbar())
 		if(loaded_tank && !locked)
-			eject()
+			to_chat(user, SPAN_NOTICE("You detach and remove \the [loaded_tank.name]."))
+			eject(user)
 			return TRUE
 
 	if(attacking_item.iswrench())
 		if(loaded_tank)
-			to_chat(user, SPAN_NOTICE("Remove the phoron tank first."))
+			USE_FEEDBACK_FAILURE("Remove the phoron tank first.")
 			return TRUE
 		for(var/obj/machinery/power/rad_collector/R in get_turf(src))
 			if(R != src)
-				to_chat(user, SPAN_WARNING("You cannot install more than one collector on the same spot."))
+				USE_FEEDBACK_FAILURE("You cannot install more than one collector on the same spot.")
 				return TRUE
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
@@ -151,7 +154,7 @@ var/global/list/rad_collectors = list()
 				to_chat(user, "The controls are now [locked ? "locked." : "unlocked."]")
 			else
 				locked = FALSE //just in case it somehow gets locked while the collector is active
-				to_chat(user, SPAN_WARNING("The controls can only be locked when the [src] is active"))
+				USE_FEEDBACK_FAILURE("The controls can only be locked when the [src] is active.")
 		else
 			to_chat(user, SPAN_ALERT("Access denied!"))
 		return TRUE
@@ -164,7 +167,7 @@ var/global/list/rad_collectors = list()
 		var/turf/T = get_turf(src)
 		if(T)
 			T.assume_air(loaded_tank.air_contents)
-			audible_message(SPAN_DANGER("\The [loaded_tank] detonates, sending shrapnel flying!"))
+			audible_message(SPAN_DANGER("\The [loaded_tank.name] detonates, sending shrapnel flying!"))
 			explosion(T, -1, -1, 0)
 			QDEL_NULL(loaded_tank)
 	disconnect_from_network()
@@ -190,14 +193,22 @@ var/global/list/rad_collectors = list()
 			eject()
 	return ..()
 
-/// Ejects the stored phoron tank
-/obj/machinery/power/rad_collector/proc/eject()
+/**
+ *  Ejects the stored phoron tank. If user is not defined or user is an invalid target, will eject onto the collector's position.
+ *
+ * Arguments:
+ * - user: Optional. If defined, will eject the tank into the user's hands, if possible.
+ */
+/obj/machinery/power/rad_collector/proc/eject(mob/user)
 	locked = 0
-	var/obj/item/tank/phoron/Z = src.loaded_tank
-	if (!Z)
+	var/obj/item/tank/phoron/tank = src.loaded_tank
+	if(!tank)
 		return
-	Z.dropInto(loc)
-	Z.reset_plane_and_layer()
+	if(user)
+		user.put_in_hands(tank, TRUE)
+	else
+		tank.dropInto(loc)
+		tank.reset_plane_and_layer()
 	src.loaded_tank = null
 	if(active)
 		toggle_power()
