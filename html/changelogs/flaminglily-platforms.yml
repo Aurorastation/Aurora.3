@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - bugfix: "Fixed throwing and maneuvering over platforms."
   - bugfix: "Fixed a bug where early aborting a climb over platforms would render that platform permanently not-climable."
+  - qol: "Made it possible to go down a platform by walking. This also allows mechs, vehicles, etc. to go down a platform."

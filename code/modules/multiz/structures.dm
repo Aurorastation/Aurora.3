@@ -423,7 +423,7 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER|ATOM_FLAG_ALWAYS_ALLOW_PICKUP
 	climbable = TRUE
 	color = COLOR_TILED
-	pass_flags_self = LETPASSTHROW
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
@@ -469,6 +469,16 @@
 			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
 			user.forceMove(next_turf)
 			LAZYREMOVE(climbers, user)
+
+/obj/structure/platform/CollidedWith(atom/bumped_atom)
+	. = ..()
+	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
+		var/atom/movable/bumped_movable = bumped_atom
+		if(ismob(bumped_movable))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+		else
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge
 	icon_state = "ledge"
