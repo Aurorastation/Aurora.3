@@ -44,7 +44,13 @@
 			else
 				A.fab_status_flags |= FAB_DISABLED
 
-/datum/wires/fabricator/on_pulse(wire)
+/datum/wires/fabricator/proc/reset_flag(wire, user, flag)
+	var/obj/machinery/fabricator/A = holder
+	if(A && !is_cut(wire) && flag)
+		A.fab_status_flags &= ~flag
+		interact(user)
+
+/datum/wires/fabricator/on_pulse(wire, user)
 	if(is_cut(wire))
 		return
 	var/obj/machinery/fabricator/A = holder
@@ -54,25 +60,17 @@
 				A.fab_status_flags &= ~FAB_HACKED
 			else
 				A.fab_status_flags |= FAB_HACKED
-			spawn(50)
-				if(A && !is_cut(wire))
-					A.fab_status_flags &= ~FAB_HACKED
-					interact(usr)
+			addtimer(CALLBACK(src, PROC_REF(reset_flag), wire, user, FAB_HACKED))
 		if(WIRE_SHOCK)
 			if(A.fab_status_flags & FAB_SHOCKED)
 				A.fab_status_flags &= ~FAB_SHOCKED
 			else
 				A.fab_status_flags |= FAB_SHOCKED
-			spawn(50)
-				if(A && !is_cut(wire))
-					A.fab_status_flags &= ~FAB_SHOCKED
-					interact(usr)
+			addtimer(CALLBACK(src, PROC_REF(reset_flag), wire, user, FAB_SHOCKED))
 		if(WIRE_DISABLE)
 			if(A.fab_status_flags & FAB_DISABLED)
 				A.fab_status_flags &= ~FAB_DISABLED
 			else
 				A.fab_status_flags |= FAB_DISABLED
-			spawn(50)
-				if(A && !is_cut(wire))
-					A.fab_status_flags &= ~FAB_DISABLED
-					interact(usr)
+			addtimer(CALLBACK(src, PROC_REF(reset_flag), wire, user, FAB_DISABLED))
+
