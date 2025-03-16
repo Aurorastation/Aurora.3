@@ -2,7 +2,7 @@
 "aE" = (
 /obj/machinery/power/smes/buildable,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "bn" = (
 /obj/machinery/porta_turret/ballistic{
 	light_range = 1
@@ -12,52 +12,54 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "bq" = (
 /turf/simulated/mineral/random/exoplanet,
-/area/space)
+/area/grove_sdf_outpost)
 "bx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "da" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "dr" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "dR" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "dY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
 /obj/item/deck/cards,
+/obj/random/junk,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "fa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "fu" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "gb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -66,19 +68,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "gA" = (
 /obj/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "gG" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "hc" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -90,7 +92,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/grove_sdf_outpost)
 "hD" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -99,10 +101,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "hK" = (
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "hM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -112,7 +114,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "if" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -123,20 +125,20 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "iZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "jF" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "kj" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -145,19 +147,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
+/obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "kU" = (
 /obj/effect/floor_decal/corner_wide/dark_green,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "ls" = (
 /obj/item/device/flashlight/maglight/on,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "lG" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -172,7 +175,7 @@
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "lJ" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded,
@@ -181,7 +184,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "mo" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -192,11 +195,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "mE" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "nD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/open/shower,
@@ -206,7 +209,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/grove_sdf_outpost)
 "nL" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -215,7 +218,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/grove_sdf_outpost)
 "oB" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 8
@@ -225,20 +228,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "pK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "pM" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "pT" = (
 /obj/machinery/door/airlock/generic{
 	dir = 8
@@ -250,7 +253,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/grove_sdf_outpost)
 "qh" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -260,20 +263,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "qU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "qW" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "ri" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -286,7 +289,7 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "ru" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -299,7 +302,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/grove_sdf_outpost)
 "ry" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -313,7 +316,7 @@
 /obj/machinery/door/window/eastleft,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "rW" = (
 /obj/machinery/door/airlock/generic{
 	dir = 8
@@ -325,13 +328,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "sX" = (
 /obj/structure/sign/electricshock{
 	pixel_x = 32
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "tl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/toilet,
@@ -339,24 +342,24 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/grove_sdf_outpost)
 "tu" = (
 /obj/machinery/door/airlock/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "tZ" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "uk" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "ux" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -368,12 +371,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "uL" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "uR" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
@@ -383,22 +389,22 @@
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "vj" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "vC" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "vO" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/grove_sdf_outpost)
 "vR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -408,7 +414,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "wl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -418,7 +424,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "wr" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -433,7 +439,7 @@
 	starting_accessories = list(/obj/item/clothing/accessory/armor_plate/military,/obj/item/clothing/accessory/storage/modular_pouch)
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "wO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -441,7 +447,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "yR" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 27
@@ -454,11 +460,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "zt" = (
 /obj/machinery/light/small/red,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -468,7 +474,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "At" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 1
@@ -478,19 +484,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Bm" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "CT" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "Dr" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -500,7 +506,7 @@
 	},
 /obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "DM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -517,7 +523,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/grove_sdf_outpost)
 "DW" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -527,22 +533,22 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/suit/space/void/engineering,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Eh" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "Gp" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Gw" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "Gx" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
@@ -552,14 +558,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -569,7 +575,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Ih" = (
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
@@ -580,31 +586,31 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Iu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Jh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Ju" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_x = -32;
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "JO" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "Kh" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -614,7 +620,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Ki" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -626,11 +632,11 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "KL" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "LG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_green/full,
@@ -638,7 +644,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "LV" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -650,20 +656,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Mk" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/grove_sdf_outpost)
 "Ml" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "MF" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -675,7 +681,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "MM" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
@@ -686,7 +692,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Om" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -701,8 +707,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "OS" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -716,13 +723,13 @@
 	},
 /obj/item/device/gps,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "OW" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "Pn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_green/full{
@@ -739,7 +746,7 @@
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Py" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -748,20 +755,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Qk" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "QH" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
 /obj/structure/table/reinforced/steel,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "QK" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -781,7 +789,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "QO" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -800,7 +808,7 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "QS" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
@@ -810,23 +818,23 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Rv" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/grove_sdf_outpost)
 "RN" = (
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "RT" = (
 /obj/machinery/door/airlock/engineering{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "SE" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -835,7 +843,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "SR" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -844,20 +852,20 @@
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "TC" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/grove_sdf_outpost)
 "TN" = (
 /obj/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "UW" = (
 /obj/machinery/access_button{
 	pixel_x = -33;
@@ -867,20 +875,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "Wx" = (
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/grove_sdf_outpost)
 "WE" = (
 /obj/structure/flora/tree/jungle,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "WL" = (
 /obj/structure/bed/stool{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "WN" = (
 /obj/machinery/power/apc/high/north,
 /obj/machinery/power/terminal{
@@ -890,23 +898,23 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/grove_sdf_outpost)
 "Yu" = (
 /obj/structure/flora/bush/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/grove_sdf_outpost)
 "YN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/grove_sdf_outpost)
 "Zn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/grove_sdf_outpost)
 
 (1,1,1) = {"
 mE
