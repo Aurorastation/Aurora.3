@@ -153,7 +153,7 @@
 	name = "Sol Recon Corvette Shuttle"
 	class = "SAMV"
 	designation = "Vizsla"
-	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat. Notably features a fast-deployment exosuit catapult."
+	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat."
 	shuttle = "SSMD Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -168,6 +168,14 @@
 	name = "shuttle control console"
 	shuttle_tag = "SSMD Shuttle"
 	req_access = list(ACCESS_SOL_SHIPS)
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /datum/shuttle/autodock/overmap/ssmd_shuttle
 	name = "SSMD Shuttle"

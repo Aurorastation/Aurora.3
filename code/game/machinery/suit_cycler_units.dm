@@ -273,6 +273,7 @@
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/sol
 	helmet = /obj/item/clothing/head/helmet/space/void/sol
+	mask = /obj/item/clothing/mask/gas/half
 
 /obj/machinery/suit_cycler/offship/sol/fsf
 	suit = /obj/item/clothing/suit/space/void/sol/fsf

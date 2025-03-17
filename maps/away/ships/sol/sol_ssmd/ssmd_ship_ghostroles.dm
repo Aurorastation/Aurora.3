@@ -109,7 +109,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/sol/marine
+	head = /obj/item/clothing/head/beret/sol
 
 	id = /obj/item/card/id/ssmd_ship
 
