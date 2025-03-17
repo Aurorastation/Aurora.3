@@ -1668,7 +1668,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/space,
 /area/point_verdant/interior/restaurant)
 "aWE" = (
 /obj/structure/table/wood,
