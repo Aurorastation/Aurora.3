@@ -3195,6 +3195,7 @@
 #include "code\modules\power\breaker_box.dm"
 #include "code\modules\power\cable.dm"
 #include "code\modules\power\cell.dm"
+#include "code\modules\power\collector.dm"
 #include "code\modules\power\crystal_agitator.dm"
 #include "code\modules\power\fractal_reactor.dm"
 #include "code\modules\power\generator.dm"
