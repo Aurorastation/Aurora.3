@@ -162,7 +162,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "aap" = (
 /obj/effect/floor_decal/corner/red{
@@ -492,7 +492,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "abp" = (
 /obj/machinery/light{
@@ -3066,7 +3066,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "eEK" = (
 /obj/machinery/light{
@@ -3622,7 +3622,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "gTA" = (
 /obj/machinery/computer/ship/engines/terminal,
@@ -4704,7 +4704,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "lyb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5015,7 +5015,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hiskyn_ship/blaster)
 "mAL" = (
 /turf/simulated/wall/shuttle/dark/cardinal/red,
