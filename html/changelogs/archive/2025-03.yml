@@ -153,3 +153,14 @@
   greenjoe12345:
   - rscadd: Alters some of the planetside pois for Konyang to make them fit the setting
       now the rampancy virus has been gone for a while.
+2025-03-17:
+  Acetrea:
+  - bugfix: Fixes access issue on medical smartfridges.
+  - bugfix: Checks if the smartfridge is broken, has no power, or is not anchored.
+  CometBlaze:
+  - imageadd: Resprited colourable ponchos.
+  ShimmerIsTaken:
+  - rscadd: Added five new Solarian accent tags. Sol System receives Mercury, Eris
+      and Titania as options. Saturn becomes a new origin, receives Iapetus, Enceladus
+      as options.
+  - rscadd: Adds those accents to the Sol IPC and regular IPC accent lists.
