@@ -31,9 +31,9 @@
 	meat_amount = 20
 	vehicle_version = /obj/vehicle/animal/threshbeast
 	natural_armor = list(
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with passiveness and domestication")
@@ -81,10 +81,10 @@
 	meat_amount = 30
 	vehicle_version = /obj/vehicle/animal/hegeranzi
 	natural_armor = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with domestication", "Intracellular keratin synthesis present")

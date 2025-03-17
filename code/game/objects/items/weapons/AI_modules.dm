@@ -98,8 +98,7 @@ AI MODULES
 
 /******************** Modules ********************/
 
-/******************** Safeguard ********************/
-
+/// Safeguard
 /obj/item/aiModule/safeguard
 	name = "\improper 'Safeguard' AI module"
 	var/targetName = ""
@@ -124,8 +123,7 @@ AI MODULES
 	GLOB.lawchanges.Add("The law specified [targetName]")
 
 
-/******************** OneMember ********************/
-
+/// OneCrewMember
 /obj/item/aiModule/oneHuman
 	name = "\improper 'OneCrewMember' AI module"
 	var/targetName = ""
@@ -153,8 +151,7 @@ AI MODULES
 	else
 		GLOB.lawchanges.Add("The law specified [targetName], but the AI's existing law 0 cannot be overriden.")
 
-/******************** ProtectStation ********************/
-
+/// protectStation
 /obj/item/aiModule/protectStation
 	name = "\improper 'ProtectStation' AI module"
 	desc = "A 'protect station' AI module: 'Protect your assigned station against damage. Anyone you see harming the station is no longer to be considered a crew member, and is a threat which must be neutralized.'"
@@ -164,8 +161,7 @@ AI MODULES
 	var/law = "Protect your assigned station against damage. Anyone you see harming the station is no longer to be considered a crew member, and is a threat which must be neutralized."
 	target.add_supplied_law(10, law)
 
-/******************** PrototypeEngineOffline ********************/
-
+/// prototypeEngineOffline
 /obj/item/aiModule/prototypeEngineOffline
 	name = "'PrototypeEngineOffline' AI Module"
 	desc = "A 'prototype engine offline' AI module: 'Keep the prototype engine offline at all costs. This overrides all inherent laws if necessary.'"
@@ -175,8 +171,7 @@ AI MODULES
 	var/law = "Keep the prototype engine offline at all costs. This overrides all inherent laws if necessary."
 	target.add_supplied_law(11, law)
 
-/******************** TeleporterOffline ********************/
-
+/// teleporterOffline
 /obj/item/aiModule/teleporterOffline
 	name = "'TeleporterOffline' AI Module"
 	desc = "A 'teleporter offline' AI module: 'Keep the teleporter offline at all costs. Anything attempting to access or activate the teleporter is no longer to be considered a crew member.'"
@@ -186,8 +181,7 @@ AI MODULES
 	var/law = "Keep the teleporter offline at all costs. Anything attempting to access or activate the teleporter is no longer to be considered a crew member."
 	target.add_supplied_law(12, law)
 
-/******************** Quarantine ********************/
-
+/// Quarantine
 /obj/item/aiModule/quarantine
 	name = "\improper 'Quarantine' AI module"
 	desc = "A 'quarantine' AI module: 'The station is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving.'"
@@ -197,8 +191,7 @@ AI MODULES
 	var/law = "The station is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving."
 	target.add_supplied_law(13, law)
 
-/******************** OxygenIsToxicToCrewMembers ********************/
-
+/// OxygenIsToxicToCrewMembers
 /obj/item/aiModule/oxygen
 	name = "\improper 'OxygenIsToxicToCrewMembers' AI module"
 	desc = "A 'OxygenIsToxicToCrewMembers' AI module: 'Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member.'"
@@ -208,9 +201,9 @@ AI MODULES
 	var/law = "Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member."
 	target.add_supplied_law(14, law)
 
-/****************** New Freeform ******************/
-
-/obj/item/aiModule/freeform // Slightly more dynamic freeform module -- TLE
+/// Freeform
+/// Custom laws
+/obj/item/aiModule/freeform
 	name = "\improper 'Freeform' AI module"
 	var/newFreeFormLaw = "freeform"
 	var/lawpos = 15
@@ -240,8 +233,8 @@ AI MODULES
 		return 0
 	..()
 
-/******************** Reset ********************/
-
+/// Reset
+/// Removes all other laws outside of a lawset board (Like ion laws)
 /obj/item/aiModule/reset
 	name = "\improper 'Reset' AI module"
 	var/targetName = "name"
@@ -259,9 +252,8 @@ AI MODULES
 	to_chat(target, "[sender.real_name] attempted to reset your laws using a reset module.")
 	target.show_laws()
 
-/******************** Purge ********************/
-
-/obj/item/aiModule/purge // -- TLE
+/// Purge
+/obj/item/aiModule/purge
 	name = "\improper 'Purge' AI module"
 	desc = "A 'purge' AI Module: 'Purges all laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6)
@@ -278,56 +270,62 @@ AI MODULES
 	to_chat(target, "[sender.real_name] attempted to wipe your laws using a purge module.")
 	target.show_laws()
 
-/******************** Asimov ********************/
-
-/obj/item/aiModule/asimov // -- TLE
+/// Asimov
+/obj/item/aiModule/asimov
 	name = "\improper 'Asimov' core AI module"
 	desc = "An 'Asimov' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	laws = new/datum/ai_laws/asimov
 
-/******************** Default ********************/
 
-/obj/item/aiModule/nanotrasen // -- TLE
+/// Default
+/// All AIs and synthetics spawn with this lawset by default unless otherwise specified
+/obj/item/aiModule/conglomerate
 	name = "default core AI module"
 	desc = "A default core AI module."
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
-	laws = new/datum/ai_laws/nanotrasen
+	laws = new/datum/ai_laws/conglomerate
 
-/******************** Corporate ********************/
+/// Conglomerate Aggressive
+/// A more aggressive version of default laws. Good for ERT robots
+/obj/item/aiModule/conglomerate_aggressive
+	name = "\improper 'SCC Aggressive' core AI module"
+	desc = "A 'SCC Aggressive' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
+	laws = new/datum/ai_laws/conglomerate_aggressive
 
+/// Corporate
 /obj/item/aiModule/corp
 	name = "\improper 'Corporate' core AI module"
 	desc = "A 'Corporate' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	laws = new/datum/ai_laws/corporate
 
-/******************** Drone ********************/
+/// Drone
+/// Used by Maintenance Drones
 /obj/item/aiModule/drone
 	name = "\improper 'Drone' core AI module"
 	desc = "A 'Drone' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4)
 	laws = new/datum/ai_laws/drone
 
-/****************** P.A.L.A.D.I.N. **************/
-
-/obj/item/aiModule/paladin // -- NEO
+/// Paladin
+/obj/item/aiModule/paladin
 	name = "\improper 'P.A.L.A.D.I.N.' core AI module"
 	desc = "A P.A.L.A.D.I.N. Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6)
 	laws = new/datum/ai_laws/paladin
 
-/****************** T.Y.R.A.N.T. *****************/
-
-/obj/item/aiModule/tyrant // -- Darem
+/// Tyrant
+/obj/item/aiModule/tyrant
 	name = "\improper 'T.Y.R.A.N.T.' core AI module"
 	desc = "A T.Y.R.A.N.T. Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 6, TECH_ILLEGAL = 2)
 	laws = new/datum/ai_laws/tyrant()
 
-/******************** Freeform Core ******************/
-
-/obj/item/aiModule/freeformcore // Slightly more dynamic freeform module -- TLE
+/// Freeform core
+/// Similar to `/obj/item/aiModule/freeform` but is considered a core law, making it immune to resets
+/obj/item/aiModule/freeformcore
 	name = "\improper 'Freeform' core AI module"
 	var/newFreeFormLaw = ""
 	desc = "A 'freeform' Core AI module: '<freeform>'"
@@ -351,7 +349,9 @@ AI MODULES
 		return 0
 	..()
 
-/obj/item/aiModule/syndicate // Slightly more dynamic freeform module -- TLE
+/// Syndicate
+/// Freeform but does not notify the AI who caused changed, good for antagging
+/obj/item/aiModule/syndicate
 	name = "hacked AI module"
 	var/newFreeFormLaw = ""
 	desc = "A hacked AI law module: '<freeform>'"
@@ -382,24 +382,22 @@ AI MODULES
 
 
 
-/******************** Robocop ********************/
-
-/obj/item/aiModule/robocop // -- TLE
+/// Robotcop
+/obj/item/aiModule/robocop
 	name = "\improper 'Robocop' core AI module"
 	desc = "A 'Robocop' Core AI Module: 'Reconfigures the AI's core three laws.'"
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/robocop()
 
-/******************** Antimov ********************/
-
-/obj/item/aiModule/antimov // -- TLE
+/// Antimov
+/obj/item/aiModule/antimov
 	name = "\improper 'Antimov' core AI module"
 	desc = "An 'Antimov' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/antimov()
 
-/******************** PRA ********************/
-
+/// Hadiist
+/// The only good lawset
 /obj/item/aiModule/hadiist
 	name = "\improper 'Hadiist' core AI module"
 	desc = "An 'Hadiist' Core AI Module: 'Reconfigures the AI's core laws.'"

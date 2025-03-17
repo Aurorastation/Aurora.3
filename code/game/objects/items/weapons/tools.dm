@@ -79,9 +79,10 @@
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/screwdriver/get_belt_overlay()
@@ -160,9 +161,10 @@
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
+	var/obj/item/storage/S = loc
+	if(istype(S, /obj/item/storage) && !S.storage_slots)
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 /obj/item/wirecutters/get_belt_overlay()
