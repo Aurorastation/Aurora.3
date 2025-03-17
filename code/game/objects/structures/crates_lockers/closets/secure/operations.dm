@@ -14,10 +14,6 @@
 	new /obj/item/device/radio/headset/operations_manager(src)
 	new /obj/item/device/radio/headset/operations_manager/alt(src)
 	new /obj/item/storage/box/fancy/keypouch/cargo(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/gloves/yellow(src)
-	new /obj/item/clothing/gloves/yellow/specialu(src)
-	new /obj/item/clothing/gloves/yellow/specialt(src)
 	new /obj/item/clothing/head/welding(src)
 	new /obj/item/clothing/glasses/welding(src)
 	new /obj/item/clothing/head/softcap/cargo(src)
@@ -34,7 +30,6 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/memorywiper(src)
 	new /obj/item/device/price_scanner(src)
-	new /obj/item/ipc_tag_scanner(src)
 	new /obj/item/device/robotanalyzer(src)
 
 // Hangar Technician

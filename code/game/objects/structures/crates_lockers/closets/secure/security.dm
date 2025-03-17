@@ -72,7 +72,6 @@
 	new /obj/item/device/megaphone/command(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
-	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/taperecorder(src)
