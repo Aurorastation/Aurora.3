@@ -164,3 +164,21 @@
       and Titania as options. Saturn becomes a new origin, receives Iapetus, Enceladus
       as options.
   - rscadd: Adds those accents to the Sol IPC and regular IPC accent lists.
+2025-03-18:
+  Ben10083:
+  - qol: Point Verdant police now can pass through police tape.
+  - bugfix: Bikes can now drive over lattice such as grates or catwalks without being
+      considered as in space.
+  FlamingLily:
+  - bugfix: Fixed throwing and maneuvering over platforms.
+  - bugfix: Fixed a bug where early aborting a climb over platforms would render that
+      platform permanently not-climable.
+  - qol: Made it possible to go down a platform by walking. This also allows mechs,
+      vehicles, etc. to go down a platform.
+  GeneralCamo:
+  - rscadd: Added radiation collectors, which use phoron to generate power from radiation.
+  - bugfix: Fix Konyang utility pole overlays.
+  Nalarac:
+  - bugfix: Protolathes now display the proper cost of an item after being upgraded.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes filling overlay for stovetop cooking containers.
