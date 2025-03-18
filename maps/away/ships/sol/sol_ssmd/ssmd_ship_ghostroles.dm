@@ -83,6 +83,14 @@
 	assigned_role = "Sol Navy Recon Chief"
 	special_role = "Sol Navy Recon Chief"
 
+/obj/outfit/admin/ssmd_navy_crewman/senior
+	name = "Sol Navy Recon Chief"
+
+	uniform = /obj/item/clothing/under/rank/sol/dress/pettyofficer
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/satchel/leather
+	head = /obj/item/clothing/head/sol/dress
+
 /datum/ghostspawner/human/ssmd_marine_pilot
 	short_name = "ssmd_marine_pilot"
 	name = "Sol Marine Recon Exosuit Pilot"

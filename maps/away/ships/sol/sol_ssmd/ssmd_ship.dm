@@ -107,7 +107,7 @@
 	shiptype = "Military reconnaissance and extended-duration combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 5000
+	vessel_mass = 6500
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
