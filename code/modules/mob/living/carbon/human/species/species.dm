@@ -29,8 +29,6 @@
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
 
-	var/talk_bubble_icon
-
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
