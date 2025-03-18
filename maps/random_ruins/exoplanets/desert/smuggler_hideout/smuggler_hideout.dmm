@@ -178,11 +178,10 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/template_noop)
 "L" = (
-/obj/machinery/door/urban{
-	dir = 8;
-	id = "smuggler_hideout"
-	},
 /obj/random/dirt_75,
+/obj/machinery/door/urban{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/template_noop)
 "M" = (
