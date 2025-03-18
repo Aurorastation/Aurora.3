@@ -1,4 +1,4 @@
-/datum/map_template/ruin/away_site/ssmd_corvette
+/datum/map_template/ruin/away_site/ssrm_corvette
 	name = "Solarian Navy Reconnaissance Corvette"
 	description = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
@@ -9,88 +9,88 @@
 	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
-	id = "ssmd_corvette"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssmd_shuttle)
+	id = "ssrm_corvette"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssrm_shuttle)
 
 	unit_test_groups = list(3)
 
-/singleton/submap_archetype/ssmd_corvette
+/singleton/submap_archetype/ssrm_corvette
 	map = "Sol Recon Corvette"
 	descriptor = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 
 //areas
-/area/ship/ssmd_corvette
+/area/ship/ssrm_corvette
 	name = "Sol Recon Corvette"
 	requires_power = TRUE
 
-/area/ship/ssmd_corvette/bridge
+/area/ship/ssrm_corvette/bridge
 	name = "Sol Recon Corvette Bridge"
 
-/area/ship/ssmd_corvette/hangar
+/area/ship/ssrm_corvette/hangar
 	name = "Sol Recon Corvette Hangar"
 
-/area/ship/ssmd_corvette/starboardengine
+/area/ship/ssrm_corvette/starboardengine
 	name = "Sol Recon Corvette Starboard Engine"
 
-/area/ship/ssmd_corvette/portengine
+/area/ship/ssrm_corvette/portengine
 	name = "Sol Recon Corvette Port Engine"
 
-/area/ship/ssmd_corvette/synthroom
+/area/ship/ssrm_corvette/synthroom
 	name = "Sol Recon Corvette Synthetic Room"
 
-/area/ship/ssmd_corvette/dorms
+/area/ship/ssrm_corvette/dorms
 	name = "Sol Recon Corvette Dorms"
 
-/area/ship/ssmd_corvette/brig
+/area/ship/ssrm_corvette/brig
 	name = "Sol Recon Corvette Brig"
 
-/area/ship/ssmd_corvette/starboardfoyer
+/area/ship/ssrm_corvette/starboardfoyer
 	name = "Sol Recon Corvette Starboard Foyer"
 
-/area/ship/ssmd_corvette/francisca
+/area/ship/ssrm_corvette/francisca
 	name = "Sol Recon Corvette Francisca Gunnery Compartment"
 
-/area/ship/ssmd_corvette/grauwolf
+/area/ship/ssrm_corvette/grauwolf
 	name = "Sol Recon Corvette Grauwolf Gunnery Compartment"
 
-/area/ship/ssmd_corvette/bathroom
+/area/ship/ssrm_corvette/bathroom
 	name = "Sol Recon Corvette Bathroom"
 
-/area/ship/ssmd_corvette/captain
+/area/ship/ssrm_corvette/captain
 	name = "Sol Recon Corvette Captain's Office"
 
-/area/ship/ssmd_corvette/storage
+/area/ship/ssrm_corvette/storage
 	name = "Sol Recon Corvette Storage Compartment"
 
-/area/ship/ssmd_corvette/hangar
+/area/ship/ssrm_corvette/hangar
 	name = "Sol Recon Corvette Hangar"
 
-/area/ship/ssmd_corvette/canteen
+/area/ship/ssrm_corvette/canteen
 	name = "Sol Recon Corvette Canteen"
 
-/area/ship/ssmd_corvette/mechbay
+/area/ship/ssrm_corvette/mechbay
 	name = "Sol Recon Corvette Mechbay"
 
-/area/ship/ssmd_corvette/medbay
+/area/ship/ssrm_corvette/medbay
 	name = "Sol Recon Corvette Medbay"
 
-/area/ship/ssmd_corvette/cryo
+/area/ship/ssrm_corvette/cryo
 	name = "Sol Recon Corvette Cryogenics"
 
-/area/ship/ssmd_corvette/nuke
+/area/ship/ssrm_corvette/nuke
 	name = "Sol Recon Corvette Reactor Compartment"
 
-/area/ship/ssmd_corvette/portfoyer
+/area/ship/ssrm_corvette/portfoyer
 	name = "Sol Recon Corvette Port Foyer"
 
-/area/shuttle/ssmd_shuttle
+/area/shuttle/ssrm_shuttle
 	name = "Recon Corvette Shuttle"
 	icon_state = "shuttle2"
 
 //ship stuff
 
-/obj/effect/overmap/visitable/ship/ssmd_corvette
+/obj/effect/overmap/visitable/ship/ssrm_corvette
 	name = "Solarian Navy Reconnaissance Corvette"
 	class = "SAMV"
 	desc = "A long-range reconnaissance corvette design in use by the Solarian Navy, the Uhlan-class is a relatively costly and somewhat uncommon ship to be seen in the Alliance's fleets, and is typically reserved for more elite (or at least better equipped and trained) units. Designed to operate alone or as part of a small task force with minimal support in unfriendly space, it is most commonly seen assigned to probing, surveillance, harassment, and strike operations. \
@@ -111,50 +111,50 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"SSMD Shuttle" = list("nav_hangar_ssmd")
+		"SSRM Shuttle" = list("nav_ssrm_dock")
 	)
 
 	initial_generic_waypoints = list(
-		"nav_ssmd_corvette_1",
-		"nav_ssmd_corvette_2"
+		"nav_ssrm_corvette_1",
+		"nav_ssrm_corvette_2"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
 
-/obj/effect/overmap/visitable/ship/ssmd_corvette/New()
+/obj/effect/overmap/visitable/ship/ssrm_corvette/New()
 	designation = "[pick("Asparuh", "Magyar", "Hussar", "Black Army", "Hunyadi", "Piast", "Hussite", "Tepes", "Komondor", "Turul", "Vistula", "Sikorski", "Mihai", "Blue Army", "Strzyga", "Leszy", "Danube", "Sokoly", "Patriotism", "Duty", "Loyalty", "Florian Geyer", "Pilsudski", "Chopin", "Levski", "Valkyrie", "Tresckow", "Olbricht", "Dubcek", "Kossuth", "Nagy", "Clausewitz", "Poniatowski", "Orzel", "Turul", "Skanderbeg", "Ordog", "Perun", "Poroniec", "Klobuk", "Cavalryman", "Szalai's Own", "Upior", "Szalai's Pride", "Kuvasz", "Fellegvar", "Nowa Bratislawa", "Zbior", "Stadter", "Homesteader", "Premyslid", "Bohemia", "Discipline", "Cavalryman", "Order", "Law", "Tenacity", "Diligence", "Valiant", "Konik", "Victory", "Triumph", "Vanguard", "Jager", "Grenadier", "Honor Guard", "Visegrad", "Nil", "Warsaw", "Budapest", "Prague", "Sofia", "Bucharest", "Home Army", "Kasimir", "Veles", "Blyskawica", "Kubus")]"
 	..()
 
-/obj/effect/overmap/visitable/ship/ssmd_corvette/get_skybox_representation()
+/obj/effect/overmap/visitable/ship/ssrm_corvette/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "corvette")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/effect/shuttle_landmark/ssmd_corvette/nav1
+/obj/effect/shuttle_landmark/ssrm_corvette/nav1
 	name = "Sol Recon Corvette - Port Side"
-	landmark_tag = "nav_ssmd_corvette_1"
+	landmark_tag = "nav_ssrm_corvette_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/ssmd_corvette/nav2
+/obj/effect/shuttle_landmark/ssrm_corvette/nav2
 	name = "Sol Recon Corvette - Port Side"
-	landmark_tag = "nav_ssmd_corvette_2"
+	landmark_tag = "nav_ssrm_corvette_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/ssmd_corvette/transit
+/obj/effect/shuttle_landmark/ssrm_corvette/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_ssmd_corvette"
+	landmark_tag = "nav_transit_ssrm_corvette"
 	base_turf = /turf/space/transit/north
 
 //shuttle stuff
-/obj/effect/overmap/visitable/ship/landable/ssmd_shuttle
+/obj/effect/overmap/visitable/ship/landable/ssrm_shuttle
 	name = "Sol Recon Corvette Shuttle"
 	class = "SAMV"
 	designation = "Vizsla"
 	desc = "A modestly sized shuttle design used by the Solarian armed forces, the Destrier is well-armored but somewhat slow, and was explicitly designed to be as survivable as possible for operations during combat."
-	shuttle = "SSMD Shuttle"
+	shuttle = "SSRM Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#9dc04c", "#52c24c")
@@ -164,9 +164,9 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/ssmd_shuttle
+/obj/machinery/computer/shuttle_control/explore/ssrm_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "SSMD Shuttle"
+	shuttle_tag = "SSRM Shuttle"
 	req_access = list(ACCESS_SOL_SHIPS)
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
@@ -177,33 +177,33 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/datum/shuttle/autodock/overmap/ssmd_shuttle
-	name = "SSMD Shuttle"
+/datum/shuttle/autodock/overmap/ssrm_shuttle
+	name = "SSRM Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/ssmd_shuttle)
-	dock_target = "airlock_ssmd_shuttle"
-	current_location = "nav_hangar_ssmd"
-	landmark_transition = "nav_transit_ssmd_shuttle"
+	shuttle_area = list(/area/shuttle/ssrm_shuttle)
+	dock_target = "airlock_ssrm_shuttle"
+	current_location = "nav_ssrm_dock"
+	landmark_transition = "nav_transit_ssrm_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ssmd"
+	logging_home_tag = "nav_ssrm_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/ssmd_shuttle
-	name = "SSMD Shuttle"
-	shuttle_tag = "SSMD Shuttle"
-	master_tag = "airlock_ssmd_shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/ssrm_shuttle
+	name = "SSRM Shuttle"
+	shuttle_tag = "SSRM Shuttle"
+	master_tag = "airlock_ssrm_shuttle"
 	cycle_to_external_air = TRUE
 
-/obj/effect/shuttle_landmark/ssmd_shuttle/hangar
-	name = "SSMD Shuttle Hangar"
-	landmark_tag = "nav_hangar_ssmd"
-	docking_controller = "ssmd_shuttle_dock"
-	base_area = /area/ship/ssmd_corvette
+/obj/effect/shuttle_landmark/ssrm_shuttle/dock
+	name = "SSRM Docking Port"
+	landmark_tag = "nav_ssrm_dock"
+	docking_controller = "ssrm_shuttle_dock"
+	base_area = /area/ship/ssrm_corvette
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/ssmd_shuttle/transit
+/obj/effect/shuttle_landmark/ssrm_shuttle/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_ssmd_shuttle"
+	landmark_tag = "nav_transit_ssrm_shuttle"
 	base_turf = /turf/space/transit/north
