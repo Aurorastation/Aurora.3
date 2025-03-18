@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance "Increases ammo count for most commonly seen energy weapons. Laser pistols see increases of 2-3 shots, averaging between 10-12, carbines and rifles gain 3-5 more rounds, with some skipped due to high ammo counts or powerful projectiles. And blasters have had increases of 2-6, depending on the model. Anything scoped, recharging, a disruptor, or otherwise unique/odd is kept the same for balance."
+  - balance "Increases ammo count for most commonly seen energy weapons. Laser pistols see increases of 2-3 shots, averaging between 10-12 shots, carbines and rifles gain 3-5 more rounds, with some skipped due to high ammo counts or powerful projectiles. And blasters have had increases of 2-6, depending on the model. Anything scoped, recharging, a disruptor, or otherwise unique/odd is kept the same for balance."
