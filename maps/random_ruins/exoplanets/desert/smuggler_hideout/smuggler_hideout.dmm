@@ -36,10 +36,6 @@
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/random/dirt_75,
-/obj/item/key/door_key{
-	id = "smuggler_hideout";
-	pixel_y = -7
-	},
 /turf/simulated/floor/wood,
 /area/template_noop)
 "j" = (
@@ -217,10 +213,9 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/template_noop)
 "U" = (
-/obj/machinery/door/urban{
-	dir = 8
+/turf/simulated/wall/wood{
+	can_open = 1
 	},
-/turf/simulated/floor/wood,
 /area/template_noop)
 "V" = (
 /obj/structure/lattice/catwalk/indoor/planks{
