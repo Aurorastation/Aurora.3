@@ -296,6 +296,7 @@
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
 	icon = 'icons/obj/guns/megaglaive.dmi'
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/obj/guns/megaglaive.dmi')
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
